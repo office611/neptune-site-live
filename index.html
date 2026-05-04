@@ -192,13 +192,14 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
    NAV
 ════════════════════════════════ */
 .nav {
-  background: linear-gradient(135deg, #123a5c 0%, #0b1f35 55%, #071825 100%);
-  height: 100px;
+  background: transparent;
+  height: auto;
+  padding: 28px 0 0;
   display: flex;
   align-items: center;
   position: relative;
   z-index: 100;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  box-shadow: none;
 }
 .nav-inner {
   display: flex;
@@ -234,11 +235,11 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 .center-nav { justify-content: center; }
 
 /* ════════════════════════════════
-   HERO
+   HERO (wraps logo + content as one section)
 ════════════════════════════════ */
 .hero {
   background: linear-gradient(135deg, #123a5c 0%, #0b1f35 55%, #071825 100%);
-  padding: 52px 0 56px;
+  padding: 0 0 56px;
   position: relative;
   overflow: hidden;
 }
@@ -279,7 +280,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   position: relative;
   z-index: 1;
   max-width: 680px;
-  margin: 0 auto;
+  margin: 36px auto 0;
   text-align: center;
   animation: fadeUp 0.75s ease both;
 }
@@ -919,7 +920,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
    RESPONSIVE — 1024px
 ════════════════════════════════ */
 @media (max-width: 1024px) {
-  .hero         { padding: 44px 0 48px; }
+  .hero         { padding: 0 0 48px; }
   .edu-grid     { grid-template-columns: 1fr; gap: 36px; }
   .approach-grid{ grid-template-columns: 1fr; gap: 36px; }
   .approach-right { justify-content: center; }
@@ -943,9 +944,9 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   .section-sm { padding: 32px 0; }
   .final-cta  { padding: 52px 0; }
   .wrap, .wrap-sm, .wrap-xs { padding: 0 16px; }
-  /* Nav — keep logo prominent on mobile */
-  .nav        { height: 80px; }
-  .nav-logo img { height: 60px; max-width: 220px; }
+  /* Nav (inside hero) — mobile sizing */
+  .nav { padding: 20px 0 0; }
+  .nav-logo img { height: 56px; max-width: 200px; }
   .gap-grid   { grid-template-columns: 1fr; }
   .testi-masonry { columns: 1; }
   .testi-card { padding: 20px; margin-bottom: 12px; }
@@ -961,9 +962,9 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   .timeline-step { padding: 24px 18px 20px; }
   .cred-card  { padding: 20px; }
 
-  /* Hero — single column, already centered; just tighten padding */
-  .hero { padding: 36px 0 40px; }
-  .hero-inner { text-align: center; }
+  /* Hero — unified top section on mobile */
+  .hero { padding: 0 0 36px; }
+  .hero-inner { margin-top: 24px; text-align: center; }
   .h1 {
     font-size: 1.95rem;
     line-height: 1.24;
@@ -993,17 +994,17 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 </head>
 <body>
 
-<!-- ════════ NAV ════════ -->
-<header class="nav">
-  <div class="nav-inner center-nav">
-    <a href="#" class="nav-logo">
-      <img src="https://res.cloudinary.com/dskr8mw76/image/upload/v1777858517/Neptune_Logo_White_qpgff1.png" alt="Neptune Filtration">
-    </a>
-  </div>
-</header>
-
-<!-- ════════ HERO ════════ -->
+<!-- ════════ HERO (includes logo) ════════ -->
 <section class="hero">
+  <!-- Logo sits inside the hero background — unified top section -->
+  <div class="nav">
+    <div class="nav-inner center-nav">
+      <a href="#" class="nav-logo">
+        <img src="https://res.cloudinary.com/dskr8mw76/image/upload/v1777858517/Neptune_Logo_White_qpgff1.png" alt="Neptune Filtration">
+      </a>
+    </div>
+  </div>
+
   <div class="hero-waves">
     <svg viewBox="0 0 1440 200" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,100 C180,40 360,160 540,100 C720,40 900,160 1080,100 C1260,40 1440,160 1440,100 L1440,200 L0,200 Z" fill="white"/>
@@ -1504,13 +1505,6 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
 reveals.forEach(el => observer.observe(el));
-
-const nav = document.querySelector('.nav');
-window.addEventListener('scroll', () => {
-  nav.style.boxShadow = window.scrollY > 10
-    ? '0 4px 24px rgba(0,0,0,0.3)'
-    : '0 4px 20px rgba(0,0,0,0.25)';
-});
 </script>
 </body>
 </html>
