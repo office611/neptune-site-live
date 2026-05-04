@@ -238,8 +238,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 ════════════════════════════════ */
 .hero {
   background: linear-gradient(135deg, #123a5c 0%, #0b1f35 55%, #071825 100%);
-  /* FIX 4+5: Tighter hero padding */
-  padding: 48px 0 56px;
+  padding: 52px 0 56px;
   position: relative;
   overflow: hidden;
 }
@@ -275,14 +274,14 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   pointer-events: none;
 }
 
-/* FIX 3: 2-col grid, image slightly less dominant */
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 0.85fr;
-  gap: 48px;
-  align-items: center;
+/* Single centered column — no grid, no image */
+.hero-inner {
   position: relative;
   z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  animation: fadeUp 0.75s ease both;
 }
 
 /* Confirmation chip */
@@ -311,7 +310,6 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   text-transform: uppercase;
 }
 
-.hero-left { animation: fadeUp 0.75s ease both; }
 .hero h1 .serif-em {
   font-family: 'Lora', serif;
   font-style: italic;
@@ -319,68 +317,25 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   color: var(--teal);
 }
 
-/* FIX 4: Controlled spacing between h1 → p → btn */
-.hero .h1 { margin-bottom: 16px; }
+/* Headline → paragraph spacing */
+.hero .h1 { margin-bottom: 18px; }
 .hero-sub {
   font-size: 1rem;
   color: rgba(255,255,255,0.58);
   line-height: 1.76;
   font-weight: 300;
-  max-width: 480px;
-  margin: 0 0 28px;
+  margin: 0 auto 0;
+  max-width: 580px;
 }
 
-/* FIX 3: Image aligned, slightly smaller max */
-.hero-right {
-  position: relative;
-  animation: fadeUp 0.8s 0.12s ease both;
-}
-
-/* FIX 2: Remove ac-body (checklist removed) — keep card transparent */
-.appointment-card {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  overflow: visible;
-}
-.ac-header {
-  background: none;
-  border-bottom: none;
-  padding: 0;
-}
-
-/* FIX 3: Image — clean, slightly reduced height for balance */
-.ac-hero-img-wrap {
-  width: 100%;
-  height: 380px;
-  border-radius: 18px;
-  overflow: hidden;
-}
-.ac-hero-img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center 10%;
-}
-
-/* 20% note box */
-.hero-note {
+/* 20% inline note — sits naturally under paragraph */
+.hero-offer {
+  display: inline-block;
   margin-top: 20px;
-  max-width: 440px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.09);
-  border-left: 2px solid rgba(0,180,196,0.5);
-  border-radius: 10px;
-  padding: 11px 16px;
-}
-.hero-note p {
-  font-size: 0.76rem;
-  color: rgba(255,255,255,0.6);
-  line-height: 1.65;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
   font-weight: 400;
-  margin: 0;
 }
 
 /* ════════════════════════════════
@@ -964,8 +919,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
    RESPONSIVE — 1024px
 ════════════════════════════════ */
 @media (max-width: 1024px) {
-  .hero-grid    { grid-template-columns: 1fr; gap: 36px; }
-  .hero         { padding: 44px 0 52px; }
+  .hero         { padding: 44px 0 48px; }
   .edu-grid     { grid-template-columns: 1fr; gap: 36px; }
   .approach-grid{ grid-template-columns: 1fr; gap: 36px; }
   .approach-right { justify-content: center; }
@@ -1007,86 +961,33 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   .timeline-step { padding: 24px 18px 20px; }
   .cred-card  { padding: 20px; }
 
-  /* Hero: column layout, badge first */
-  .hero { padding: 32px 0 44px; }
-  .hero-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    text-align: center;
-  }
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    order: 1;
-  }
-  .hero-right { order: 2; width: 100%; }
-
-  /* Badge */
-  .confirm-chip {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 16px;
-    padding: 10px 20px;
-    align-self: center;
-  }
-  .confirm-chip-text { font-size: 0.8rem; }
-
-  /* Headline */
+  /* Hero — single column, already centered; just tighten padding */
+  .hero { padding: 36px 0 40px; }
+  .hero-inner { text-align: center; }
   .h1 {
     font-size: 1.95rem;
-    line-height: 1.25;
+    line-height: 1.24;
     letter-spacing: -0.025em;
     margin-bottom: 14px;
   }
-
-  /* Sub paragraph */
   .hero-sub {
     font-size: 0.94rem;
-    margin: 0 auto 22px;
-    max-width: 340px;
     line-height: 1.7;
+    max-width: 100%;
   }
-
-  /* CTA */
-  .hero-left .btn {
-    margin: 0 auto;
-    box-shadow: 0 8px 24px rgba(23,96,232,0.38);
-  }
-
-  /* 20% note: center on mobile */
-  .hero-note {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-    margin-top: 16px;
-  }
-
-  /* Image */
-  .ac-hero-img-wrap {
-    height: 260px;
-    border-radius: 16px;
-    margin-top: 24px;
-  }
-  .ac-hero-img {
-    object-position: center 15%;
-    filter: contrast(1.05) brightness(0.96);
-  }
+  .hero-offer { font-size: 0.78rem; margin-top: 16px; }
+  .confirm-chip { margin-bottom: 16px; }
 }
 
 @media (max-width: 480px) {
-  .h1 { font-size: 1.75rem; line-height: 1.22; }
+  .h1 { font-size: 1.72rem; line-height: 1.22; }
   .h2 { font-size: 1.6rem; }
-  .hero-sub { font-size: 0.9rem; max-width: 100%; }
+  .hero-sub { font-size: 0.9rem; }
+  .hero-offer { font-size: 0.76rem; }
   .btn-lg   { padding: 15px 28px; font-size: 0.9rem; }
   .expect-wrap { padding: 24px 16px; }
   .shower-callout { padding: 24px 14px; gap: 18px; }
   .sc-stat-num { font-size: 1.1rem; min-width: 48px; }
-  .confirm-chip-text { font-size: 0.75rem; }
-  .ac-hero-img-wrap { height: 230px; }
 }
 </style>
 </head>
@@ -1112,45 +1013,22 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   <div class="hero-glow-r"></div>
 
   <div class="wrap">
-    <div class="hero-grid">
-
-      <!-- LEFT: badge → h1 → p → cta → note -->
-      <div class="hero-left">
-        <div class="confirm-chip">
-          <div class="confirm-chip-dot"></div>
-          <div class="confirm-chip-text">Appointment Confirmed</div>
-        </div>
-        <h1 class="h1">
-          You've taken a<br>
-          <span class="serif-em">great first step</span><br>
-          for your home.
-        </h1>
-        <p class="hero-sub">
-          Your appointment is booked. Before we visit, we'd love to share a little about what to expect — and why so many Melbourne homeowners say this was one of the best decisions they made for their family.
-        </p>
-        <a href="#what-happens" class="btn btn-primary btn-lg">What to Expect ↓</a>
-        <div class="hero-note">
-          <p>
-            Your appointment qualifies for <span style="color:rgba(0,180,196,0.9);font-weight:600;">20% off</span> — please ensure all decision-makers are present, as your technician will walk you through everything in detail.
-          </p>
-        </div>
+    <div class="hero-inner">
+      <div class="confirm-chip">
+        <div class="confirm-chip-dot"></div>
+        <div class="confirm-chip-text">Appointment Confirmed</div>
       </div>
-
-      <!-- RIGHT: image only (checklist removed) -->
-      <div class="hero-right">
-        <div class="appointment-card">
-          <div class="ac-header">
-            <div class="ac-hero-img-wrap">
-              <img
-                src="https://res.cloudinary.com/dskr8mw76/image/upload/v1777861285/pexels-zumrad-normatova-3352466-11614346_2_rnhixn.jpg"
-                alt="Clean filtered water"
-                class="ac-hero-img"
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <h1 class="h1">
+        You've taken a<br>
+        <span class="serif-em">great first step</span><br>
+        for your home.
+      </h1>
+      <p class="hero-sub">
+        Your appointment is booked. Before we visit, we'd love to share a little about what to expect — and why so many Melbourne homeowners say this was one of the best decisions they made for their family.
+      </p>
+      <p class="hero-offer">
+        Your appointment qualifies for <span style="color:rgba(0,180,196,0.85);font-weight:600;">20% off</span> — please ensure all decision-makers are present, as your technician will walk you through everything in detail.
+      </p>
     </div>
   </div>
 </section>
