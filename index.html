@@ -1042,7 +1042,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 }
 
 @media (max-width: 768px) {
-  /* Mobile layout */
+  /* ── General layout ── */
   .section    { padding: 64px 0; }
   .section-sm { padding: 48px 0; }
   .final-cta  { padding: 72px 0; }
@@ -1062,26 +1062,113 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   .timeline-step { padding: 28px 20px 24px; }
   .cred-card  { padding: 24px; }
 
-  /* Hero centering */
-  .hero-left  { text-align: center; }
-  .hero-grid  { text-align: center; }
-  .hero-sub   { margin-left: auto; margin-right: auto; }
-  .confirm-chip { margin-left: auto; margin-right: auto; }
-  .hero-left .btn { margin: 0 auto; }
+  /* ── Hero: reorder via flexbox (badge → h1 → p → btn → image → rows) ── */
+  .hero       { padding: 48px 0 56px; }
+  .hero-grid  {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    text-align: center;
+  }
+  .hero-left  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    order: 1;
+  }
+  .hero-right { order: 2; width: 100%; }
 
-  /* Hero image — reduce height on mobile */
-  .ac-hero-img-wrap { height: 280px; border-radius: 14px; }
+  /* ── Confirm chip: prominent status indicator ── */
+  .confirm-chip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 18px;
+    padding: 11px 22px;
+    align-self: center;
+  }
+  .confirm-chip-text {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+  }
 
+  /* ── Headline typography ── */
+  .h1 {
+    font-size: 2.1rem;
+    line-height: 1.27;
+    letter-spacing: -0.025em;
+    margin-bottom: 14px;
+  }
+
+  /* ── Sub paragraph ── */
+  .hero-sub {
+    font-size: 0.97rem;
+    margin: 0 auto 20px;
+    max-width: 360px;
+    line-height: 1.72;
+  }
+
+  /* ── CTA button ── */
+  .hero-left .btn {
+    margin: 0 auto;
+    box-shadow: 0 8px 28px rgba(23,96,232,0.4);
+  }
+
+  /* ── 20% note box: center on mobile ── */
+  .hero-left > div[style] {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  /* ── Hero image ── */
+  .ac-hero-img-wrap {
+    height: 300px;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-top: 28px;
+  }
+  .ac-hero-img {
+    object-position: center 15%;
+    filter: contrast(1.06) brightness(0.95);
+  }
+
+  /* ── ac-body rows: icon/text alignment ── */
+  .ac-body {
+    padding: 16px 4px 0;
+  }
+  .ac-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 0;
+    text-align: left;
+  }
+  .ac-row-icon {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
 }
 
 @media (max-width: 480px) {
-  .h1 { font-size: 2rem; }
+  .h1 { font-size: 1.85rem; line-height: 1.25; }
   .h2 { font-size: 1.75rem; }
-  .hero-sub { font-size: 0.95rem; }
+  .hero-sub { font-size: 0.93rem; max-width: 100%; }
   .btn-lg   { padding: 16px 32px; font-size: 0.92rem; }
   .expect-wrap { padding: 28px 18px; }
   .shower-callout { padding: 26px 16px; gap: 20px; }
   .sc-stat-num { font-size: 1.2rem; min-width: 52px; }
+  .confirm-chip-text { font-size: 0.78rem; }
+  .ac-hero-img-wrap { height: 260px; }
 }
 </style>
 </head>
