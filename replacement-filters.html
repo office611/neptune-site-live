@@ -51,8 +51,8 @@ footer {
   position: relative;
   z-index: 100;
   background: var(--navy);
-  padding: var(--section-space) clamp(1.5rem, 5vw, 4rem);
-  height: 80px;
+  padding: 1rem;
+  height: auto;
   display: flex; align-items: center; justify-content: center;
 }
 
@@ -81,7 +81,7 @@ footer {
   /* PRODUCT HERO */
   .product-hero {
     background: var(--white);
-    padding: var(--section-space) clamp(1.5rem, 5vw, 4rem);
+    padding: var(--section-space) clamp(1.25rem, 5vw, 4rem);
     border-bottom: 1px solid var(--border);
   }
   .breadcrumb {
@@ -294,7 +294,7 @@ footer {
   .product-tabs {
     background: var(--white);
     border-top: 1px solid var(--border);
-    padding: var(--section-space) clamp(1.5rem, 5vw, 4rem);
+    padding: var(--section-space) clamp(1.25rem, 5vw, 4rem);
   }
   .tabs-inner { max-width: 1100px; margin: 0 auto; }
   .tab-nav {
@@ -351,7 +351,11 @@ footer {
     background: var(--navy);
     padding: var(--section-space) 0 30px;
   }
-  .why-replace-inner { max-width: 1100px; margin: 0 auto; }
+  .why-replace-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
   .why-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
     margin-top: 1.5rem;
@@ -373,7 +377,7 @@ footer {
   /* SUBSCRIBE SECTION */
   .subscribe-section {
     background: var(--ice);
-    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 5vw, 4rem);
   }
   .subscribe-card {
     max-width: 760px; margin: 0 auto;
@@ -424,7 +428,7 @@ footer {
   /* FOOTER */
   footer {
     background: var(--navy);
-    padding: 2rem clamp(1.5rem, 5vw, 4rem);
+    padding: 2rem clamp(1.25rem, 5vw, 4rem);
     display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; gap: 1rem;
   }
@@ -463,6 +467,105 @@ footer {
   }
   .product-info { animation: fadeUp 0.5s 0.1s ease both; }
   .product-visual { animation: fadeUp 0.5s ease both; }
+
+  /* =========================
+   🔥 MOBILE MASTER FIX
+   ========================= */
+@media (max-width: 768px) {
+
+  :root {
+    --section-space: 40px;
+  }
+
+  /* GLOBAL SECTION SPACING */
+  .product-hero,
+  .product-tabs,
+  .why-replace {
+    padding: var(--section-space) 1.25rem !important;
+  }
+
+  /* CENTER ALL CONTENT */
+  .product-info,
+  .why-replace-inner,
+  .tabs-inner {
+    text-align: center;
+  }
+
+  /* FIX GRID STACKING */
+  .product-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+  }
+
+  /* IMAGE FULL WIDTH */
+  .product-visual img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* PRODUCT INFO CLEAN */
+  .product-name {
+    font-size: 2rem;
+  }
+
+  .product-tagline {
+    font-size: 0.95rem;
+    max-width: 90%;
+    margin: 0 auto 1.5rem;
+  }
+
+  .product-rating {
+    justify-content: center;
+  }
+
+  /* PRICE BOX */
+  .price-block {
+    text-align: center;
+  }
+
+  /* QTY CENTER */
+  .qty-row {
+    justify-content: center;
+  }
+
+  /* BUTTON FULL WIDTH CLEAN */
+  .btn-buy {
+    width: 100%;
+  }
+
+  /* DETAILS GRID FIX */
+  .details-grid {
+    grid-template-columns: 1fr !important;
+    text-align: left;
+  }
+
+  /* WHY SECTION FIX */
+  .why-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+
+  .why-card {
+    text-align: left;
+  }
+
+  /* FIX FOOTER */
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+
+  .footer-copy {
+    font-size: 0.7rem;
+  }
+}
 </style>
 </head>
 <body>
