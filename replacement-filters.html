@@ -29,6 +29,21 @@
     background: var(--off-white);
     -webkit-font-smoothing: antialiased;
   }
+  /* FOOTER */
+footer {
+  background: var(--navy);
+  color: var(--white);
+  padding: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo img {
+  height: 50px;
+  display: block;
+}
 
   /* NAV */
   nav {
@@ -680,7 +695,9 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Neptune<span>.</span>Filtration</div>
+  <a href="/" class="footer-logo">
+  <img src="/logo.png" alt="Neptune Filtration">
+</a>
   <div class="footer-links">
     <a href="https://neptunefiltration.com.au/">Home</a>
   </div>
