@@ -365,38 +365,25 @@ footer {
     margin-top: 1.5rem;
   }
   .why-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px; padding: 1.75rem 1.5rem;
-  }
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 1.75rem 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 👈 THIS fixes emoji alignment */
+  text-align: center;  /* 👈 keeps everything centered */
+}
   .why-icon {
-    font-size: 1.6rem; margin-bottom: 1rem;
-  }
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+}
   .why-title {
     font-weight: 600; font-size: 0.95rem; color: var(--white);
     margin-bottom: 0.5rem;
   }
   .why-desc { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
-  @media (max-width: 768px) {
-  .why-card {
-    text-align: center;
-    padding: 1.5rem 1.2rem;
-  }
-
-  .why-icon {
-    display: block;
-    margin: 0 auto 0.75rem;
-    font-size: 1.9rem;
-  }
-
-  .why-title {
-    text-align: center;
-  }
-
-  .why-desc {
-    text-align: center;
-  }
-}
 
   /* SUBSCRIBE SECTION */
   .subscribe-section {
