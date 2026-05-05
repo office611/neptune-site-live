@@ -1,0 +1,218 @@
+01
+Core problem framing
+Primary angle
+Safe water is not the same as optimised water. Melbourne's supply meets standards — but treated water still contains chlorine, sediment, trace metals, and hard minerals that affect daily life.
+Shower exposure angle
+The shower is where most exposure happens. Skin and lungs absorb far more chlorine during a 10-minute shower than from drinking a glass of water. Most people focus on drinking water — this is the overlooked angle.
+Coverage gap angle
+Point-of-use filters treat one tap only. Every shower, bath, laundry, and dishwasher still runs on unfiltered water. "Most homes aren't fully protected."
+Frequency angle
+"Your family is in contact with tap water hundreds of times every day." Frequency builds stakes without fearmongering — the risk is cumulative, not acute.
+Contaminants named on-site
+Chlorine
+Sediment & particles
+Hard minerals (Ca/Mg)
+Trace metals
+Disinfection by-products
+Consequences used
+Taste & smell
+Dry skin & hair
+Appliance scale
+Pool smell in shower
+Eczema (customer proof)
+Hair loss (customer proof)
+02
+Messaging blocks
+Headline patterns — exact wording from source
+"You've taken a great first step for your home."
+"Here's exactly what will happen on the day."
+"What's actually in your Melbourne water."
+"Why most homes aren't fully protected."
+"The shower is where most exposure happens."
+"What changes once your water is set up properly."
+"Set up properly. For your home."
+"Here's what you can expect from start to finish."
+"You've made a smart decision for your home."
+Reusable short phrases
+"Done properly"
+"Set up properly"
+"No surprises"
+"No hard sells"
+"No pressure"
+"No obligation"
+"No follow-up hounding"
+"No vague claims"
+"You're in control"
+"Complete coverage"
+"You'll see the results live"
+"Every tap, shower, and appliance"
+"Designed for Melbourne homes"
+"Wish they'd done it sooner"
+"Licensed professionals"
+"WaterMark certified"
+Stat-style proof points
+6×
+More chlorine absorbed through skin in a shower than from a glass of tap water
+10 min
+Average shower — enough time for significant chlorine and vapour exposure
+25–30 min
+Visit length. No preparation needed.
+7 yr
+Workmanship warranty
+Trust credentials — exact labels
+WaterMark Certified · AS 3497
+VIC Licensed & Insured
+7-Year Warranty
+Whole Home System · Every tap & shower
+Social proof meta-line
+"Most customers say they wish they'd done this sooner."
+Review themes to pull from
+Shower noticeably better
+Eczema improved
+Hair loss reduced
+Scale on glass reduced
+Drinking from tap again
+Sceptic converted by live test
+Peace of mind for kids
+Done in under two hours
+03
+Offer structure
+Funnel logic
+Appointment confirmed
+→
+Trust signals
+→
+Visit walkthrough
+→
+Water education
+→
+Coverage gap
+→
+Shower hook
+→
+After-install benefits
+→
+Why Neptune
+→
+Reviews
+→
+Reassurance + reconfirm
+Appointment incentive
+"Your appointment qualifies for 20% off — please ensure all decision-makers are present." Discount tied to attendance. Creates household urgency and buy-in without discounting the brand broadly.
+Pricing position
+"We're not the cheapest option, and we're not priced at a premium — we sit in the middle." Targets the quality-conscious buyer who doesn't want to overpay. Paired with: "0% interest plans for eligible homeowners."
+Visit structure
+Arrive (5 min) → Test water live (10 min) → Walk through options (15 min). Transparency of the process is a selling point in itself.
+Friction removers
+No obligation to decide on the day. No follow-up hounding. Can call back weeks later. Fits in your afternoon. Confirm day before. Each one addresses a specific hesitation explicitly.
+Adapted by channel
+Website conversion
+Hook → Problem angles → Coverage gap → Solution → Trust → Reviews → Friction removers → CTA. Education sections support conviction and SEO.
+Brochure sales support
+Water education → Contaminant breakdown → Gap → Neptune approach → Benefits → Credentials. No hard CTA — a leave-behind that resolves objections.
+Ads short-form
+Single angle only. Shower stat, gap hook, or "wish they'd done it sooner" social proof. One claim → one CTA. Match angle to audience awareness.
+04
+Tone of voice
+Style
+Short declarative sentences. Confident but never pushy. Information-first — what to expect, then why it matters. Reassurance woven in throughout, not added at the end. Addresses reader as "you" and "your home" consistently.
+Language pattern
+Pairs of fragments: "Clear. Simple." Clarifying em dashes. Numbers used for specificity (6×, 10 min, 7 years). Contrast structure: "It works — but..." / "Safe — but not the same as optimised."
+Use
+properly
+clearly
+straightforward
+complete
+professional
+you're in control
+your home
+designed for Melbourne
+live / real-time
+no obligation
+no pressure
+no jargon
+licensed
+optimised
+noticeably
+Avoid
+toxic / dangerous / harmful
+revolutionary / breakthrough
+industry-leading
+world-class
+contaminated (alarmist use)
+vague health claims
+hard sell language
+technical jargon
+one-size-fits-all
+Emotional register
+Calm confidence. Not fear-based — risk is introduced but always resolved with clarity and control. Customers are treated as intelligent adults. Scepticism is acknowledged ("my husband was sceptical") and resolved through transparency, not persuasion pressure.
+05
+Visual direction
+Colour palette — inferred from site (white logo on dark nav confirms dark primary)
+#0A1F3C
+Deep navy — nav, hero bg, primary brand
+#1A4A8A
+Mid blue — accent, CTA, active elements
+#3D8BCD
+Sky blue — secondary accent, icons
+#E8F4FD
+Ice blue — section backgrounds, highlights
+#F7F7F5
+Warm off-white — body bg, domestic warmth
+#1A1A1A
+Near-black — body text
+#F5A623
+Amber — star ratings only
+#FFFFFF
+White — cards, logo, contrast on navy
+Note: hex values inferred from page structure and logo colour (Neptune_Logo_White). Exact brand values should be confirmed from source files or CSS variables.
+Typography — inferred from page hierarchy
+Your Appointment
+Here's exactly what
+will happen on the day.
+There are no surprises, no hard sells, and no pressure.
+We test your water
+We run a simple, real-time water quality assessment on your actual taps. You'll see exactly what's in your water — with your own eyes.
+Display / H1
+Large, multi-line, line-broken for rhythm. Mix of sentence case and intentional fragments. Weight: medium/semibold.
+Section labels
+Small-caps eyebrow text above H2. Used to orient the reader within the page (e.g. "Your Appointment", "Your Water", "Why Neptune").
+Body
+16px, generous line-height (~1.7). No italic. Single sans-serif family throughout — clean, readable, no decorative type.
+Image style
+Real homes and real installations — not studio product shots. Domestic settings: kitchens, showers, under-sink plumbing. Technicians on-site. Warm, natural light preferred. Product shown in context (installed), not isolated.
+Layout feel
+Full-width dark hero → alternating light/dark content sections → card grids for contaminants and benefits → numbered step sequences → review grid → reassurance close. Generous vertical spacing between sections.
+Iconography
+Single-colour utility icons — one per contaminant, benefit, or credential. Used as anchors in list items, not decoration. Digital: emoji-origin acceptable. Print: replace with consistent line icon set at fixed size.
+Review cards
+Initials avatar (circle, 2 letters) + first name + suburb. Stars above quote. Quote in quotation marks. Grid layout — 2–3 columns. No photos. Keeps it authentic, not polished.
+06
+Structure logic
+Page skeleton — exact sequence from source
+Appointment confirmed
+Immediate trust + positive reinforcement
+Trust badges (4 credentials)
+Credentials before anything else
+Visit walkthrough
+Remove anxiety about what happens
+Water education
+Build problem awareness with facts
+Coverage gap comparison
+Disqualify partial solutions
+Shower exposure hook
+Sharpest single insight — placed mid-page
+After-install outcomes
+Vision of life after purchase
+Why Neptune
+Positioning + payment options
+Customer reviews (9)
+Social proof by outcome type
+Process repeat + reassurance
+Resolves final hesitation
+Close + checklist
+Reconfirm decision, list final trust marks
+Universal structural rule
+Every section that introduces a problem or risk ends with a resolution — either a Neptune solution, a trust credential, or an explicit reassurance statement. The brand never leaves the reader in an anxious state without an exit.
+Closing pattern
+The page ends with a positive reframe of the decision already made ("You've made a smart decision") rather than a final pitch. The checklist — No obligation · Your questions answered · Licensed professionals · WaterMark certified — restates trust, not urgency.
