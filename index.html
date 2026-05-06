@@ -107,15 +107,14 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  gap: 3rem; /* slightly tighter */
-
+  gap: 3rem;
   align-items: center;
+
   width: 100%;
   max-width: 1160px;
   margin: 0 auto;
 
-  padding: clamp(2rem, 5vw, 3.5rem)
-           clamp(1.5rem, 5vw, 4rem);
+  padding: 1.5rem clamp(1.5rem, 5vw, 4rem); /* 🔥 was WAY too big */
 }
   .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 0.5rem;
