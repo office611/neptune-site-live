@@ -665,10 +665,10 @@ nav {
     <div class="hero-visual">
       <div class="hero-img-wrap">
         <img
-  src="https://res.cloudinary.com/dskr8mw76/image/upload/v1777881285/Use_the_exact_reference_image_pr-1_4_ppnuve.png"
-  alt="Premium bathroom — clean water lifestyle"
-  loading="eager"
-/>
+          src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=900&q=85&auto=format&fit=crop&crop=center"
+          alt="Premium bathroom — clean water lifestyle"
+          loading="eager"
+        />
         <div class="hero-img-badge">
           <span class="hero-img-badge-stars">★★★★★</span>
           5.0 Google Rating
@@ -878,11 +878,26 @@ nav {
           <input class="form-input" id="f-postcode" type="text" placeholder="3000" maxlength="4" autocomplete="postal-code">
         </div>
       </div>
-      <button class="btn-form" type="button">
+      <button class="btn-form" id="submit-btn" type="button">
         Book My Free Water Test
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </button>
     </div>
+    <div id="form-success" style="
+  display:none;
+  text-align:center;
+  padding:1.5rem;
+  background:#EAF4FF;
+  border-radius:14px;
+  margin-top:1rem;
+">
+  <strong style="color:#0A1F3C; font-size:1.1rem;">
+    You're booked.
+  </strong>
+  <p style="margin-top:0.4rem; color:#1a1a1a;">
+    We’ll contact you shortly to confirm your water test.
+  </p>
+</div>
 
     <div class="form-trust">
       <span class="form-trust-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> No obligation</span>
@@ -915,67 +930,63 @@ nav {
 
 </body>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+// Smooth scroll (keep this)
+function scrollToBook(e) {
+  if (e) e.preventDefault();
+  const target = document.getElementById('book');
+  if (!target) return;
+  const navH = 64;
+  const targetTop = target.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({ top: targetTop - navH - 16, behavior: 'smooth' });
 
-  const btn = document.querySelector('.btn-form');
-
-  btn.addEventListener('click', async function (e) {
-    e.preventDefault();
-
-    const name = document.getElementById('f-name').value;
-    const phone = document.getElementById('f-phone').value;
-    const email = document.getElementById('f-email').value;
-    const postcode = document.getElementById('f-postcode').value;
-
-    try {
-      await fetch('https://services.leadconnectorhq.com/hooks/SPQwdXLPrMES6TqvwFLr/webhook-trigger/84d752aa-a597-4faa-a48b-be2763def373', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name,
-          phone,
-          email,
-          postcode
-        })
-      });
-
-      alert("You're booked. We'll contact you shortly.");
-
-      // 🔥 clear form
-      document.querySelectorAll('.form-input').forEach(i => i.value = '');
-
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong.");
+  setTimeout(() => {
+    const card = document.getElementById('form-card');
+    if (card) {
+      card.classList.add('highlight');
+      setTimeout(() => card.classList.remove('highlight'), 1800);
     }
-  });
+  }, 700);
+}
 
+document.querySelectorAll('a[href="#book"]').forEach(a => {
+  a.addEventListener('click', scrollToBook);
 });
-</script>
-<script>
-  // Smooth scroll with offset + highlight
-  function scrollToBook(e) {
-    if (e) e.preventDefault();
-    const target = document.getElementById('book');
-    if (!target) return;
-    const navH = 64;
-    const targetTop = target.getBoundingClientRect().top + window.scrollY;
-    const offset = Math.max(0, (window.innerHeight - target.offsetHeight) / 2);
-    window.scrollTo({ top: targetTop - navH - 16, behavior: 'smooth' });
-    // Highlight form card after scroll settles
-    setTimeout(() => {
-      const card = document.getElementById('form-card');
-      if (card) {
-        card.classList.add('highlight');
-        setTimeout(() => card.classList.remove('highlight'), 1800);
-      }
-    }, 700);
+
+
+// 🔥 FORM SUBMIT
+document.getElementById('submit-btn').addEventListener('click', async () => {
+
+  const name = document.getElementById('f-name').value;
+  const phone = document.getElementById('f-phone').value;
+  const email = document.getElementById('f-email').value;
+  const postcode = document.getElementById('f-postcode').value;
+
+  if (!name || !phone) {
+    alert('Please enter your name and phone');
+    return;
   }
-  // Attach to all #book anchors
-  document.querySelectorAll('a[href="#book"]').forEach(a => {
-    a.addEventListener('click', scrollToBook);
-  });
+
+  try {
+    const res = await fetch('https://services.leadconnectorhq.com/hooks/SPQwdXLPrMES6TqvwFLr/webhook-trigger/84d752aa-a597-4faa-a48b-be2763def373', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, phone, email, postcode })
+    });
+
+    if (res.ok) {
+      // ✅ HIDE FORM
+      document.getElementById('form-card').style.display = 'none';
+
+      // ✅ SHOW SUCCESS
+      document.getElementById('form-success').style.display = 'block';
+
+    } else {
+      alert('Something went wrong. Try again.');
+    }
+
+  } catch (err) {
+    alert('Network error. Try again.');
+  }
+});
 </script>
 </html>
