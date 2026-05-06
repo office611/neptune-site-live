@@ -915,46 +915,39 @@ nav {
 
 </body>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-
-  const btn = document.querySelector('.btn-form');
-
-  btn.addEventListener('click', async function () {
-    
-    const name = document.getElementById('f-name').value;
-    const phone = document.getElementById('f-phone').value;
-    const email = document.getElementById('f-email').value;
-    const postcode = document.getElementById('f-postcode').value;
-
-    try {
-      await fetch('https://services.leadconnectorhq.com/hooks/SPQwdXLPRMES6TqvwFLr/webhook-trigger/84d752aa-a597-4faa-a48b-be2763def37', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          contact: {
-            firstName: name,
-            phone: phone,
-            email: email,
-            customFields: [
-              {
-                key: "postcode",
-                field_value: postcode
-              }
-            ]
-          }
-        })
-      });
-
-      alert("You're booked. We'll contact you shortly.");
-
-    } catch (err) {
-      console.error(err);
-      alert("Error sending form.");
-    }
+  // Smooth scroll with offset + highlight
+  function scrollToBook(e) {
+    if (e) e.preventDefault();
+    const target = document.getElementById('book');
+    if (!target) return;
+    const navH = 64;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY;
+    const offset = Math.max(0, (window.innerHeight - target.offsetHeight) / 2);
+    window.scrollTo({ top: targetTop - navH - 16, behavior: 'smooth' });
+    // Highlight form card after scroll settles
+    setTimeout(() => {
+      const card = document.getElementById('form-card');
+      if (card) {
+        card.classList.add('highlight');
+        setTimeout(() => card.classList.remove('highlight'), 1800);
+      }
+    }, 700);
+  }
+  // Attach to all #book anchors
+  document.querySelectorAll('a[href="#book"]').forEach(a => {
+    a.addEventListener('click', scrollToBook);
   });
-
-});
 </script>
+fetch('https://services.leadconnectorhq.com/hooks/SPQwdXLPrMES6TqvwFLr/webhook-trigger/84d752aa-a597-4faa-a48b-be2763def373', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: document.querySelector('[name="name"]').value,
+    phone: document.querySelector('[name="phone"]').value,
+    email: document.querySelector('[name="email"]').value,
+    postcode: document.querySelector('[name="postcode"]').value
+  })
+});
 </html>
