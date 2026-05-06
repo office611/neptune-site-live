@@ -31,7 +31,7 @@
 
  /* NAV */
 nav {
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -52,14 +52,17 @@ nav {
   display: flex;
   align-items: center;
   height: 64px;
-  overflow: hidden; /* 🔥 hides oversized logo */
+  overflow: hidden;
 }
 
 .nav-logo img {
-  height: 100%;
-  max-height: 32px; /* 🔥 forces it into nav */
+  max-height: 100%;
+  height: auto;
   width: auto;
+  max-width: 140px;
+
   object-fit: contain;
+  object-position: left center;
 }
 
 /* CTA BUTTON */
@@ -534,7 +537,10 @@ nav {
 
 <!-- NAV -->
 <nav>
-  <img src="/logo.png" alt="Neptune Filtration Logo">
+  <a href="/" class="nav-logo">
+    <img src="./logo.png" alt="Neptune Filtration Logo">
+  </a>
+
   <a href="#book" class="nav-cta">Book Free Water Test</a>
 </nav>
 
