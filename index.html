@@ -84,14 +84,20 @@ nav {
 }
   /* HERO */
   .hero {
-    background: var(--navy);
-    padding-top: 64px;
-    padding-bottom: clamp(2rem, 4vw, 3rem); /* 🔥 tighter exit */
-    min-height: 100svh;
-    display: flex; align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
+  background: var(--navy);
+
+  /* 🔥 KEY FIXES */
+  padding-top: 2rem;                 /* was too big */
+  padding-bottom: 2.5rem;            /* reduce exit gap */
+
+  min-height: auto;                  /* ❌ REMOVE full screen stretch */
+  
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+}
   .hero::before {
     content: '';
     position: absolute; inset: 0;
@@ -99,15 +105,19 @@ nav {
     pointer-events: none;
   }
   .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    width: 100%;
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem);
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 3rem; /* slightly tighter */
+
+  align-items: center;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+
+  padding: clamp(2rem, 5vw, 3.5rem)
+           clamp(1.5rem, 5vw, 4rem);
+}
   .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-size: 0.78rem; font-weight: 600;
