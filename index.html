@@ -59,14 +59,15 @@
   .nav-logo {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   height: 100%;
+  overflow: hidden; /* prevents any weird overflow */
 }
 
 .nav-logo img {
-  height: 36px;        /* main control */
+  height: 28px;       /* 🔥 smaller = cleaner */
   width: auto;
-  max-width: 160px;    /* prevents stretching */
-  object-fit: contain; /* keeps proportions clean */
+  display: block;
 }
   .nav-cta:hover { background: var(--navy-mid); }
 
