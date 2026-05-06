@@ -86,11 +86,10 @@ nav {
   .hero {
   background: var(--navy);
 
-  /* 🔥 KEY FIXES */
-  padding-top: 2rem;                 /* was too big */
-  padding-bottom: 2.5rem;            /* reduce exit gap */
+  padding-top: 0;        /* 🔥 remove top space completely */
+  padding-bottom: 2rem;  /* keep slight breathing room bottom */
 
-  min-height: auto;                  /* ❌ REMOVE full screen stretch */
+  min-height: auto;      /* already fixed before */
   
   display: flex;
   align-items: center;
