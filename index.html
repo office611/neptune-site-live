@@ -31,15 +31,12 @@
 
  /* NAV */
 nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-
+  position: relative; /* 🔥 removes sticky */
+  
   background: var(--navy);
 
-  height: 100px;
+  height: 100px; /* or whatever you set */
+  
   display: flex;
   align-items: center;
   justify-content: center;
