@@ -938,4 +938,35 @@ nav {
     a.addEventListener('click', scrollToBook);
   });
 </script>
+<script>
+document.querySelector('.btn-form').addEventListener('click', async function () {
+  
+  const name = document.getElementById('f-name').value;
+  const phone = document.getElementById('f-phone').value;
+  const email = document.getElementById('f-email').value;
+  const postcode = document.getElementById('f-postcode').value;
+
+  try {
+    await fetch('https://services.leadconnectorhq.com/hooks/SPQwdXLPRMES6TqvwFLr/webhook-trigger/90178a9e-d26d-4423-94e3-acc0820644c', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        phone,
+        email,
+        postcode,
+        source: "Neptune Landing Page"
+      })
+    });
+
+    alert("You're booked. We'll contact you shortly.");
+
+  } catch (err) {
+    alert("Something went wrong. Try again.");
+    console.error(err);
+  }
+});
+</script>
 </html>
