@@ -485,11 +485,11 @@ nav {
     display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; gap: 1rem;
   }
-  .footer-logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1rem; color: var(--white);
-  }
-  .footer-logo span { color: var(--blue); }
+  .footer-logo img {
+  height: 60px; /* 🔥 match your nav logo size */
+  width: auto;
+  display: block;
+}
   .footer-links { display: flex; gap: 1.5rem; }
   .footer-links a {
     font-size: 0.8rem;
@@ -785,11 +785,22 @@ nav {
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Neptune<span>.</span>Filtration</div>
-  <div class="footer-links">
-    <a href="filters.html">Replacement Filters</a>
+  <!-- LEFT: LOGO IMAGE -->
+  <div class="footer-logo">
+    <img src="./logo.png" alt="Neptune Filtration Logo">
   </div>
-  <div class="footer-copy">© 2025 Neptune Filtration. Melbourne, VIC.</div>
+
+  <!-- CENTER: LINK -->
+  <div class="footer-links">
+    <a href="https://neptunefiltration.com.au/replacement-filters">
+      Replacement Filters
+    </a>
+  </div>
+
+  <!-- RIGHT: COPYRIGHT -->
+  <div class="footer-copy">
+    © 2025 Neptune Filtration. Melbourne, VIC.
+  </div>
 </footer>
 
 </body>
