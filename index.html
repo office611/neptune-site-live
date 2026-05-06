@@ -321,7 +321,13 @@ nav {
     font-size: 0.78rem; font-weight: 600; color: var(--navy);
     min-width: 60px; text-align: right;
   }
-  .micron-name { font-size: 0.82rem; color: rgba(26,26,26,0.6); min-width: 90px; }
+  .micron-name {
+  font-size: 0.82rem;
+  color: rgba(26,26,26,0.6);
+
+  width: 130px;      /* 🔥 fixed width (key fix) */
+  flex-shrink: 0;    /* 🔥 prevents resizing */
+}
   .check-list { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 2rem; }
   .check-item {
     display: flex; align-items: flex-start; gap: 0.75rem;
