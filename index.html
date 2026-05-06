@@ -29,48 +29,58 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: var(--navy);
-    padding: 0 clamp(1.5rem, 5vw, 4rem);
-    height: 64px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.25rem;
-    color: var(--white);
-    letter-spacing: -0.01em;
-  }
-  .nav-logo span { color: var(--blue); }
-  .nav-cta {
-    background: var(--blue);
-    color: var(--white);
-    border: none; cursor: pointer;
-    padding: 0.55rem 1.25rem;
-    border-radius: 6px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .nav-logo {
+ /* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  background: var(--navy);
+
+  height: 64px;
+  padding: 0 24px; /* clean edge alignment */
+
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.nav-logo {
+  display: flex;
+  align-items: center;
   height: 100%;
-  overflow: hidden; /* prevents any weird overflow */
 }
 
 .nav-logo img {
-  height: 28px;       /* 🔥 smaller = cleaner */
+  height: 30px; /* adjust 28–34 if needed */
   width: auto;
   display: block;
 }
-  .nav-cta:hover { background: var(--navy-mid); }
 
+/* CTA BUTTON */
+.nav-cta {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav-cta:hover {
+  background: var(--navy-mid);
+}
   /* HERO */
   .hero {
     background: var(--navy);
