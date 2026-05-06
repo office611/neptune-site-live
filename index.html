@@ -56,10 +56,17 @@
     text-decoration: none;
     transition: background 0.2s;
   }
-  .nav-logo img {
-  height: 32px; /* adjust if needed */
+  .nav-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-logo img {
+  height: 36px;        /* main control */
   width: auto;
-  display: block;
+  max-width: 160px;    /* prevents stretching */
+  object-fit: contain; /* keeps proportions clean */
 }
   .nav-cta:hover { background: var(--navy-mid); }
 
