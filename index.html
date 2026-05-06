@@ -581,19 +581,152 @@ nav {
   .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
 
   /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .hero-grid, .problem-grid, .solution-grid {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-    .hero-img-wrap { max-width: 100%; aspect-ratio: 16/9; }
-    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-    .proof-cards { grid-template-columns: 1fr; }
-  }
   @media (max-width: 600px) {
 
+  /* GLOBAL */
+  section {
+    padding: 4rem 1.5rem;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .section-label {
+    text-align: center;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-body {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* NAV */
+  nav {
+    height: 90px;
+  }
+
+  .nav-logo img {
+    height: 64px;
+  }
+
+  /* HERO */
+  .hero {
+    padding-bottom: 3rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+    padding: 1rem 1.5rem 0;
+  }
+
+  .hero h1 {
+    font-size: 3.4rem;
+    line-height: 0.95;
+  }
+
+  .hero-sub {
+    margin: 0 auto 2rem;
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  .hero-eyebrow {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-cta-group {
+    align-items: center;
+  }
+
+  .hero-trust {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-img-wrap {
+    max-width: 100%;
+    aspect-ratio: 4/5;
+  }
+
+  /* PROBLEM + SOLUTION */
+  .problem-grid,
+  .solution-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .problem-pills {
+    justify-content: center;
+  }
+
+  .problem-stat-box {
+    padding: 2rem;
+  }
+
+  /* MICRON */
+  .micron-diagram {
+    padding: 2rem 1.5rem;
+  }
+
+  .micron-row {
+    gap: 0.7rem;
+  }
+
+  .micron-name {
+    width: 90px;
+    font-size: 0.78rem;
+  }
+
+  .micron-tag {
+    min-width: 65px;
+    font-size: 0.75rem;
+  }
+
+  /* BENEFITS */
   .benefits-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .benefit-card {
+    padding: 1.5rem 1.2rem;
+    border-radius: 18px;
+  }
+
+  .benefit-title {
+    font-size: 0.9rem;
+  }
+
+  .benefit-desc {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  /* SOCIAL PROOF */
+  .proof {
+    padding: 4rem 1.5rem;
+  }
+
+  .proof-header {
+    margin-bottom: 2rem;
   }
 
   .proof-cards {
@@ -601,21 +734,66 @@ nav {
     gap: 1rem;
   }
 
-  .cta-section {
-    padding: 3rem 1.5rem;
+  .proof-card {
+    padding: 1.5rem;
   }
 
+  .proof-quote {
+    font-size: 1rem;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .cta-intro {
+    text-align: center;
+  }
+
+  .form-card {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .btn-form {
+    padding: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .form-trust {
+    gap: 0.8rem 1rem;
+  }
+
+  .form-trust-item {
+    justify-content: center;
+  }
+
+  /* FOOTER */
   footer {
     flex-direction: column;
     justify-content: center;
-    height: auto;
-    gap: 0.5rem;
-    padding: 1rem 1.5rem;
+    gap: 0.6rem;
     text-align: center;
+    height: auto;
+    padding: 1.5rem;
   }
 
   .footer-links {
     justify-content: center;
+  }
+
+  .footer-copy {
+    text-align: center;
   }
 }
 
