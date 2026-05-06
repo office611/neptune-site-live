@@ -300,8 +300,23 @@ nav {
   .micron-row {
     display: flex; align-items: center; gap: 1rem;
   }
-  .micron-bar-wrap { flex: 1; background: rgba(61,139,205,0.12); border-radius: 100px; height: 10px; overflow: hidden; }
-  .micron-bar { height: 100%; border-radius: 100px; background: var(--navy-mid); }
+  .micron-bar-wrap {
+  flex: 1;
+  background: rgba(61,139,205,0.12);
+  border-radius: 100px;
+  height: 10px;
+  overflow: hidden;
+
+  display: flex;            /* 🔥 ADD */
+  align-items: center;
+}
+  .micron-bar {
+  height: 100%;
+  border-radius: 100px;
+  background: var(--navy-mid);
+
+  margin-left: 0;           /* 🔥 ensures same start */
+}
   .micron-tag {
     font-size: 0.78rem; font-weight: 600; color: var(--navy);
     min-width: 60px; text-align: right;
