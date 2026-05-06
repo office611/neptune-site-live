@@ -214,7 +214,10 @@ nav {
   .hero-img-badge-stars { color: var(--amber); letter-spacing: 1px; font-size: 0.7rem; }
 
   /* SECTION BASE */
-  section { padding: clamp(3.5rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem); }
+  section {
+  padding: clamp(2.5rem, 5vw, 3.5rem)
+           clamp(1.5rem, 5vw, 4rem);
+}
   .container { max-width: 1100px; margin: 0 auto; }
   .section-label {
     font-size: 0.75rem; font-weight: 600;
@@ -373,7 +376,18 @@ nav {
   .benefit-desc { font-size: 0.83rem; color: rgba(26,26,26,0.55); line-height: 1.55; }
 
   /* SOCIAL PROOF */
-  .proof { background: var(--navy); }
+  .proof {
+  background: linear-gradient(
+    to bottom,
+    #081C34 0%,
+    #0D2747 100%
+  );
+
+  padding: clamp(3rem, 6vw, 4.5rem)
+           clamp(1.5rem, 5vw, 4rem);
+
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
   .proof-header { text-align: center; margin-bottom: 2.5rem; }
   .stars { display: flex; justify-content: center; gap: 4px; margin-bottom: 0.75rem; }
   .star { color: var(--amber); font-size: 1.1rem; }
@@ -386,13 +400,21 @@ nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
-  }
   .proof-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
-    padding: 1.5rem;
-  }
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 1.5rem;
+
+  backdrop-filter: blur(6px);
+
+  transition: all 0.25s ease;
+}
+
+.proof-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,0.2);
+}
   .proof-card-stars { display: flex; gap: 3px; margin-bottom: 0.85rem; }
   .proof-card-star { color: var(--amber); font-size: 0.85rem; }
   .proof-quote {
@@ -417,11 +439,15 @@ nav {
 
   /* CTA FORM */
   .cta-section {
-    background: #0E2A4D;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    text-align: center;
-    padding: clamp(4rem, 10vw, 7rem) clamp(1.5rem, 5vw, 4rem);
-  }
+  background: #102E52; /* 🔥 lighter */
+
+  text-align: center;
+
+  padding: clamp(3.5rem, 7vw, 5rem)
+           clamp(1.5rem, 5vw, 4rem);
+
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
   .cta-section .section-label { text-align: center; color: rgba(255,255,255,0.4); }
   .cta-section .section-title { color: var(--white); margin: 0 auto 0.5rem; max-width: 540px; }
   .cta-intro {
@@ -501,11 +527,17 @@ nav {
 
   /* FOOTER */
   footer {
-    background: var(--navy);
-    padding: 2rem clamp(1.5rem, 5vw, 4rem);
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 1rem;
-  }
+  background: #102E52; /* match CTA */
+
+  height: 80px;
+  padding: 0 clamp(1.5rem, 5vw, 4rem); /* 🔥 NO TOP PADDING */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
   .footer-logo img {
   height: 60px; /* 🔥 match your nav logo size */
   width: auto;
@@ -532,11 +564,33 @@ nav {
     .proof-cards { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
-    .benefits-grid { grid-template-columns: 1fr 1fr; }
-    .proof-cards { grid-template-columns: 1fr; }
-    footer { flex-direction: column; align-items: flex-start; }
-    .footer-links { flex-wrap: wrap; }
+
+  .benefits-grid {
+    grid-template-columns: 1fr 1fr;
   }
+
+  .proof-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .cta-section {
+    padding: 3rem 1.5rem;
+  }
+
+  footer {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}
 
   /* ANIMATIONS */
   @keyframes fadeUp {
