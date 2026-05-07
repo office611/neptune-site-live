@@ -240,14 +240,9 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 ════════════════════════════════ */
 .hero {
   background: linear-gradient(135deg, #123a5c 0%, #0b1f35 55%, #071825 100%);
-  min-height: 100svh;
-  padding: 40px 20px 80px;
+  padding: 0 0 44px;
   position: relative;
   overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .hero-waves {
@@ -286,8 +281,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   position: relative;
   z-index: 1;
   max-width: 680px;
-  width: 100%;
-  margin: 0 auto;
+  margin: -6px auto 0;
   text-align: center;
   animation: fadeUp 0.75s ease both;
 }
@@ -979,22 +973,63 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   .timeline-step { padding: 24px 18px 20px; }
   .cred-card  { padding: 20px; }
 
-  /* Hero — unified top section on mobile */
-  .hero { padding: 0 0 30px; }
-  .hero-inner { margin-top: 8px; text-align: center; }
-  .h1 {
-    font-size: 1.95rem;
-    line-height: 1.24;
-    letter-spacing: -0.025em;
-    margin-bottom: 14px;
-  }
-  .hero-sub {
-    font-size: 0.94rem;
-    line-height: 1.7;
-    max-width: 100%;
-  }
-  .hero-offer { font-size: 0.78rem; margin-top: 16px; }
-  .confirm-chip { margin-bottom: 10px; }
+ /* Hero — tighter + fuller mobile only */
+.hero {
+  min-height: 100svh;
+  padding: 0 0 18px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-inner {
+  margin-top: -10px;
+  text-align: center;
+  max-width: 100%;
+  padding: 0 8px;
+}
+
+.nav {
+  padding: 10px 0 0;
+}
+
+.nav-logo img {
+  height: 46px;
+  max-width: 170px;
+}
+
+.confirm-chip {
+  margin-bottom: 8px;
+  padding: 7px 16px;
+}
+
+.confirm-chip-text {
+  font-size: 0.68rem;
+}
+
+.h1 {
+  font-size: 3rem;
+  line-height: 1.03;
+  letter-spacing: -0.045em;
+  margin-bottom: 12px;
+}
+
+.hero-sub {
+  font-size: 0.95rem;
+  line-height: 1.58;
+  max-width: 100%;
+}
+
+.hero p[style*="font-size:0.78rem"] {
+  margin-top: 10px !important;
+  font-size: 0.72rem !important;
+  line-height: 1.45;
+}
+
+.hero-offer {
+  margin-top: 14px;
+  padding-top: 12px;
+  font-size: 0.8rem;
+  line-height: 1.5;
 }
 
 @media (max-width: 480px) {
