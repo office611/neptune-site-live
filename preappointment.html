@@ -241,12 +241,13 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 .hero {
   background: linear-gradient(135deg, #123a5c 0%, #0b1f35 55%, #071825 100%);
   min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0 40px;
+  padding: 40px 20px 80px;
   position: relative;
   overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-waves {
@@ -285,7 +286,8 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   position: relative;
   z-index: 1;
   max-width: 680px;
-  margin: -40px auto 0;
+  width: 100%;
+  margin: 0 auto;
   text-align: center;
   animation: fadeUp 0.75s ease both;
 }
