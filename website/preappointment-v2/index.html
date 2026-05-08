@@ -4,7 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Appointment is Confirmed — Neptune Filtration</title>
-<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+<meta name="theme-color" content="#0A1F3F">
 <meta name="description" content="You've taken a great first step. Here's everything you need to know before your Neptune Filtration in-home appointment.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -64,9 +69,8 @@ img { display: block; max-width: 100%; }
 .wrap-sm { max-width: 780px;  margin: 0 auto; padding: 0 28px; }
 .wrap-xs { max-width: 640px;  margin: 0 auto; padding: 0 28px; }
 
-/* FIX 1: Tighten section padding ~35% across the board */
-.section     { padding: 20px 0; }
-.section-sm  { padding: 20px 0; }
+.section     { padding: 48px 0; }
+.section-sm  { padding: 32px 0; }
 .section-alt { background: var(--off); }
 .section-altb{ background: var(--offb); }
 .section-dark{ background: var(--navy); }
@@ -190,100 +194,49 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 .btn-white:hover { box-shadow: 0 14px 48px rgba(0,0,0,0.2); }
 
 /* ════════════════════════════════
-   NAV
-════════════════════════════════ */
-.nav {
-  background: transparent;
-  height: auto;
-  padding: 20px 0 0;
-  display: flex;
-  align-items: center;
-  position: relative;
-  z-index: 100;
-  box-shadow: none;
-}
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 28px;
-}
-.nav-logo img {
-  height: 80px;
-  width: auto;
-  max-width: 280px;
-  object-fit: contain;
-  display: block;
-}
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.nav-phone {
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.7);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: color 0.2s;
-}
-.nav-phone:hover { color: #fff; }
-.center-nav { justify-content: center; }
-
-/* ════════════════════════════════
-   HERO (wraps logo + content as one section)
+   HERO
 ════════════════════════════════ */
 .hero {
-  background: linear-gradient(135deg, #123a5c 0%, #0b1f35 55%, #071825 100%);
-  padding: 0 0 44px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-waves {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-.hero-waves svg {
-  position: absolute;
-  bottom: 0;
-  width: 200%;
-  left: -50%;
-  opacity: 0.04;
-  animation: driftWave 18s ease-in-out infinite alternate;
-}
-.hero-glow-l {
-  position: absolute;
-  left: -200px; top: -200px;
-  width: 600px; height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(23,96,232,0.14) 0%, transparent 65%);
-  pointer-events: none;
-}
-.hero-glow-r {
-  position: absolute;
-  right: -200px; bottom: -200px;
-  width: 700px; height: 700px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,180,196,0.1) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-/* Single centered column — no grid, no image */
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 680px;
-  margin: -6px auto 0;
+  background: var(--navy);
+  padding: 7vh 24px 4vh;
   text-align: center;
+  min-height: 72vh;
+}
+.hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
   animation: fadeUp 0.75s ease both;
+}
+.hero-logo {
+  display: inline-block;
+  margin-bottom: 28px;
+}
+.hero-logo img {
+  height: 68px;
+  width: auto;
+  display: block;
+}
+@media (min-width: 769px) {
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-logo {
+    margin-bottom: 34px;
+  }
+
+  .confirm-chip {
+    margin-bottom: 22px;
+  }
+
+  .hero-trust {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* Confirmation chip */
@@ -295,7 +248,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   border: 1px solid rgba(22,163,74,0.22);
   border-radius: var(--r-pill);
   padding: 8px 18px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 .confirm-chip-dot {
   width: 8px; height: 8px;
@@ -319,31 +272,35 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   color: var(--teal);
 }
 
-/* Headline → paragraph spacing */
-.hero .h1 { margin-bottom: 18px; }
+.hero .h1 {
+  font-size: clamp(1.7rem, 4vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.22;
+  margin-bottom: 8px;
+}
 .hero-sub {
   font-size: 1rem;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.76;
+  color: rgba(255,255,255,0.68);
+  line-height: 1.72;
   font-weight: 300;
-  margin: 0 auto 0;
-  max-width: 580px;
+  margin: 0 auto;
+  max-width: 420px;
 }
-
-/* 20% inline note — sits naturally under paragraph */
-.hero-offer {
-  display: block;
-  margin-top: 24px;
-  padding-top: 16px;
+.hero-meta {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.32);
+  margin-top: 12px;
+  letter-spacing: 0.01em;
+}
+.hero-trust {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+  line-height: 2;
+  margin-top: 28px;
+  padding-top: 20px;
   border-top: 1px solid rgba(255,255,255,0.08);
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.75);
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
-}
-  line-height: 1.6;
-  font-weight: 400;
 }
 
 /* ════════════════════════════════
@@ -353,14 +310,14 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   background: var(--white);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 38px 0; /* ⬅️ increased vertical space */
+  padding: 28px 0;
 }
 
 .trust-bar-inner {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 28px; /* ⬅️ adds breathing room between items */
+  gap: 28px;
   flex-wrap: wrap;
 }
 
@@ -368,7 +325,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 32px; /* ⬅️ THIS is key (was 10px 36px) */
+  padding: 16px 32px;
   position: relative;
 }
 .tb-item + .tb-item::before {
@@ -491,7 +448,6 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 .cr-text h4 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
 .cr-text p { font-size: 0.79rem; color: var(--muted); line-height: 1.58; }
 
-.edu-right {}
 .edu-visual {
   background: var(--navy);
   border-radius: var(--r-xl);
@@ -741,61 +697,6 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 .cc-body p  { font-size: 0.8rem; color: var(--muted); line-height: 1.62; }
 
 /* ════════════════════════════════
-   TESTIMONIALS
-════════════════════════════════ */
-.testi-intro { text-align: center; max-width: 540px; margin: 0 auto 10px; }
-.testi-pre {
-  text-align: center;
-  font-family: 'Lora', serif;
-  font-style: italic;
-  font-size: 1rem;
-  color: var(--muted);
-  margin-bottom: 32px;
-}
-.testi-masonry { columns: 3; gap: 14px; }
-.testi-card {
-  break-inside: avoid;
-  background: var(--white);
-  border-radius: var(--r-lg);
-  border: 1px solid var(--border);
-  padding: 22px;
-  margin-bottom: 14px;
-  box-shadow: var(--sh-sm);
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-.testi-card:hover { box-shadow: var(--sh-md); transform: translateY(-2px); }
-.testi-stars { font-size: 0.86rem; color: #f59e0b; letter-spacing: 2px; margin-bottom: 9px; }
-.testi-quote {
-  font-family: 'Lora', serif;
-  font-style: italic;
-  font-size: 0.88rem;
-  color: var(--text);
-  line-height: 1.68;
-  margin-bottom: 14px;
-}
-.testi-author { display: flex; align-items: center; gap: 10px; }
-.ta-avatar {
-  width: 34px; height: 34px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: #fff;
-  flex-shrink: 0;
-}
-.av-b { background: var(--blue); }
-.av-t { background: var(--teal); }
-.av-n { background: var(--navy); }
-.av-g { background: #7c3aed; }
-.av-r { background: #dc2626; }
-.av-o { background: #ea580c; }
-.av-gr{ background: var(--green); }
-.ta-name  { font-size: 0.82rem; font-weight: 700; color: var(--navy); }
-.ta-loc   { font-size: 0.7rem; color: var(--muted); margin-top: 1px; }
-
-/* ════════════════════════════════
    EXPECTATION SETTING
 ════════════════════════════════ */
 .expect-wrap {
@@ -904,16 +805,38 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 .fc-micro span { display: flex; align-items: center; gap: 5px; }
 
 /* ════════════════════════════════
+   FOOTER
+════════════════════════════════ */
+.site-footer {
+  background: var(--navy);
+  padding: 26px clamp(1.25rem, 4vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.footer-logo-link { display: flex; align-items: center; text-decoration: none; }
+.footer-logo-link img { height: 44px; width: auto; }
+.footer-links { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+.footer-links a {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.72); }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.22); }
+
+/* ════════════════════════════════
    ANIMATIONS
 ════════════════════════════════ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-@keyframes driftWave {
-  from { transform: translateX(0); }
-  to   { transform: translateX(5%); }
-}
+
 .reveal {
   opacity: 0;
   transform: translateY(22px);
@@ -929,7 +852,6 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
    RESPONSIVE — 1024px
 ════════════════════════════════ */
 @media (max-width: 1024px) {
-  .hero         { padding: 0 0 40px; }
   .edu-grid     { grid-template-columns: 1fr; gap: 36px; }
   .approach-grid{ grid-template-columns: 1fr; gap: 36px; }
   .approach-right { justify-content: center; }
@@ -937,7 +859,6 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   .gap-grid     { grid-template-columns: 1fr 1fr; }
   .shower-callout{ grid-template-columns: 1fr; padding: 32px 28px; gap: 24px; }
   .cred-grid    { grid-template-columns: 1fr; }
-  .testi-masonry{ columns: 2; }
   .expect-grid  { grid-template-columns: 1fr; gap: 32px; }
   .expect-wrap  { padding: 36px 32px; }
   .steps-timeline { grid-template-columns: 1fr; gap: 14px; }
@@ -948,19 +869,11 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
    RESPONSIVE — 768px (mobile)
 ════════════════════════════════ */
 @media (max-width: 768px) {
-  /* General */
-  .section    { padding: 24px 0; }
-  .section-sm { padding: 20px 0; }
+  .section    { padding: 36px 0; }
+  .section-sm { padding: 24px 0; }
   .final-cta  { padding: 52px 0; }
   .wrap, .wrap-sm, .wrap-xs { padding: 0 16px; }
-  /* Nav (inside hero) — mobile sizing */
-  .nav { padding: 16px 0 0; }
-  .nav-logo img { height: 56px; max-width: 200px; }
   .gap-grid   { grid-template-columns: 1fr; }
-  /* New findings section 2-col grid collapses to 1 on mobile */
-  .section-white [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
-  .testi-masonry { columns: 1; }
-  .testi-card { padding: 20px; margin-bottom: 12px; }
   .trust-bar-inner { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding: 0 4px; }
   .tb-item    { flex-shrink: 0; padding: 16px 32px; }
   .tb-item + .tb-item::before { display: none; }
@@ -972,63 +885,19 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   .sc-stat-num { min-width: 52px; font-size: 1.25rem; }
   .timeline-step { padding: 24px 18px 20px; }
   .cred-card  { padding: 20px; }
+  .site-footer { flex-direction: column; align-items: center; text-align: center; gap: 0.875rem; padding: 24px 1.25rem; }
+  .footer-links { justify-content: center; gap: 1rem; }
 
-/* Hero — mobile only */
-.hero {
+  .hero {
   min-height: auto;
-  padding: 0 0 28px;
-  display: block;
+  padding: 7vh 20px 60px;
 }
-
-.hero-inner {
-  margin-top: 0;
-  text-align: center;
-  max-width: 100%;
-  padding: 0 14px;
-}
-
-.nav {
-  padding: 14px 0 0;
-}
-
-.nav-logo img {
-  height: 52px;
-  max-width: 190px;
-}
-
-.confirm-chip {
-  margin-bottom: 12px;
-  padding: 8px 18px;
-}
-
-.confirm-chip-text {
-  font-size: 0.7rem;
-}
-
-.h1 {
-  font-size: 2.9rem;
-  line-height: 1.05;
-  letter-spacing: -0.05em;
-  margin-bottom: 16px;
-}
-
-.hero-sub {
-  font-size: 1rem;
-  line-height: 1.72;
-  max-width: 100%;
-}
-
-.hero p[style*="font-size:0.78rem"] {
-  margin-top: 14px !important;
-  font-size: 0.78rem !important;
-  line-height: 1.6;
-}
-
-.hero-offer {
-  margin-top: 18px;
-  padding-top: 16px;
-  font-size: 0.86rem;
-  line-height: 1.6;
+  .hero-logo {
+    margin-bottom: 24px;
+  }
+  .hero-logo img {
+    height: 54px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1045,70 +914,22 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 </head>
 <body>
 
-<!-- ════════ HERO (includes logo) ════════ -->
+<!-- ════════ HERO ════════ -->
 <section class="hero">
-  <!-- Logo sits inside the hero background — unified top section -->
-  <div class="nav">
-    <div class="nav-inner center-nav">
-      <a href="#" class="nav-logo">
-        <img src="https://res.cloudinary.com/dskr8mw76/image/upload/v1777858517/Neptune_Logo_White_qpgff1.png" alt="Neptune Filtration">
-      </a>
+  <div class="hero-inner">
+    <a href="/" class="hero-logo">
+      <img src="../../assets/logos/Neptune_Logo_White.png" alt="NEPTUNE Whole Home Filtration">
+    </a>
+    <div class="confirm-chip">
+      <div class="confirm-chip-dot"></div>
+      <div class="confirm-chip-text">Appointment Confirmed</div>
     </div>
-  </div>
-
-  <div class="hero-waves">
-    <svg viewBox="0 0 1440 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,100 C180,40 360,160 540,100 C720,40 900,160 1080,100 C1260,40 1440,160 1440,100 L1440,200 L0,200 Z" fill="white"/>
-    </svg>
-  </div>
-  <div class="hero-glow-l"></div>
-  <div class="hero-glow-r"></div>
-
-  <div class="wrap">
-    <div class="hero-inner">
-      <div class="confirm-chip">
-        <div class="confirm-chip-dot"></div>
-        <div class="confirm-chip-text">Appointment Confirmed</div>
-      </div>
-      <h1 class="h1">
-        You've taken a<br>
-        <span class="serif-em">great first step</span><br>
-        for your home.
-      </h1>
-      <p class="hero-sub">
-        Your appointment is booked. Before we visit, we'd love to share a little about what to expect — and why so many Melbourne homeowners say this was one of the best decisions they made for their family.
-      </p>
-      <p style="font-size:0.78rem;color:rgba(255,255,255,0.38);margin-top:14px;letter-spacing:0.01em;">
-        Trusted by homeowners across Melbourne &nbsp;·&nbsp; Takes around 25–30 minutes &nbsp;·&nbsp; No preparation needed
-      </p>
-      <p class="hero-offer">
-        Your appointment qualifies for <span style="color:rgba(0,180,196,0.85);font-weight:600;">20% off</span> — please ensure all decision-makers are present, as your technician will walk you through everything in detail.
-      </p>
-    </div>
+    <h1 class="h1">We'll see you soon.</h1>
+    <p class="hero-sub">Here's everything you need to know before we arrive.</p>
+    <p class="hero-meta">approximately 30 minutes &nbsp;·&nbsp; no preparation needed</p>
+    <p class="hero-trust">WaterMark Certified &nbsp;·&nbsp; VIC Licensed &amp; Insured &nbsp;·&nbsp; Whole Home System &nbsp;·&nbsp; 7-Year Warranty</p>
   </div>
 </section>
-
-<!-- ════════ TRUST BAR ════════ -->
-<div class="trust-bar">
-  <div class="trust-bar-inner">
-    <div class="tb-item">
-      <div class="tb-icon">🏅</div>
-      <div class="tb-text"><strong>WaterMark Certified</strong><span>Australian Standard AS 3497</span></div>
-    </div>
-    <div class="tb-item">
-      <div class="tb-icon">🔧</div>
-      <div class="tb-text"><strong>Licensed Plumbers</strong><span>VIC licensed &amp; insured</span></div>
-    </div>
-    <div class="tb-item">
-      <div class="tb-icon">🏠</div>
-      <div class="tb-text"><strong>Whole Home System</strong><span>Every tap &amp; shower</span></div>
-    </div>
-    <div class="tb-item">
-      <div class="tb-icon">🛡️</div>
-      <div class="tb-text"><strong>7-Year Warranty</strong><span>Workmanship guaranteed</span></div>
-    </div>
-  </div>
-</div>
 
 <!-- ════════ WHAT HAPPENS NEXT ════════ -->
 <section class="section section-alt" id="what-happens">
@@ -1249,7 +1070,6 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 
 <!-- ════════ WHY PARTIAL FILTERING FAILS ════════ -->
 <section class="section section-alt" id="gaps">
-
   <div class="wrap">
     <div style="max-width:600px;" class="reveal">
       <div class="eyebrow">The Full Picture</div>
@@ -1309,7 +1129,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
       <div class="approach-right reveal" style="order:-1;">
         <div class="approach-visual">
           <div class="av-placeholder">
-            <img src="https://res.cloudinary.com/dskr8mw76/image/upload/v1777881285/Use_the_exact_reference_image_pr-1_4_ppnuve.png" class="av-img" alt="Neptune filtration system">
+            <img src="../../assets/install-photos/new-system.png" class="av-img" alt="Neptune whole-home filtration system — professional installation">
           </div>
         </div>
       </div>
@@ -1404,91 +1224,6 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   </div>
 </section>
 
-<!-- ════════ TESTIMONIALS ════════ -->
-<section class="section section-white" id="reviews">
-  <div class="wrap">
-    <div class="testi-intro reveal">
-      <div class="eyebrow">Real Customers</div>
-      <h2 class="h2" style="text-align:center;">Trusted by homeowners across Melbourne.</h2>
-    </div>
-    <p class="testi-pre reveal">"Most customers say they wish they'd done this sooner."</p>
-    <div class="testi-masonry">
-      <div class="testi-card reveal rd1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"The difference in the shower was noticeable within days. My daughter's eczema has improved significantly — something I wasn't expecting quite so quickly."</p>
-        <div class="testi-author">
-          <div class="ta-avatar av-b">SM</div>
-          <div><div class="ta-name">Sarah</div><div class="ta-loc">Brighton</div></div>
-        </div>
-      </div>
-      <div class="testi-card reveal rd2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"The consultant showed us the water test results live. I genuinely couldn't believe what was in there. Very eye-opening, and the whole process was seamless."</p>
-        <div class="testi-author">
-          <div class="ta-avatar av-t">DM</div>
-          <div><div class="ta-name">Daniel</div><div class="ta-loc">Berwick</div></div>
-        </div>
-      </div>
-      <div class="testi-card reveal rd3">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Our water tastes completely different now. We actually drink from the tap instead of buying bottles every week. Wish we'd done it years earlier."</p>
-        <div class="testi-author">
-          <div class="ta-avatar av-n">MF</div>
-          <div><div class="ta-name">Michael</div><div class="ta-loc">Essendon</div></div>
-        </div>
-      </div>
-      <div class="testi-card reveal rd1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"My husband was sceptical, but after seeing the water test results he was convinced on the spot. The plumber was tidy, efficient, and done in under two hours."</p>
-        <div class="testi-author">
-          <div class="ta-avatar av-g">PR</div>
-          <div><div class="ta-name">Priya</div><div class="ta-loc">Point Cook</div></div>
-        </div>
-      </div>
-      <div class="testi-card reveal rd2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"I have sensitive skin and the chlorine in the shower was a real issue for me. After a week with the Neptune system it was noticeably better. Really pleased."</p>
-        <div class="testi-author">
-          <div class="ta-avatar av-r">JC</div>
-          <div><div class="ta-name">James</div><div class="ta-loc">Glen Waverley</div></div>
-        </div>
-      </div>
-      <div class="testi-card reveal rd3">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"The difference in our shower has been huge — less hair loss and no more dry skin. Something we didn't expect but noticed quickly."</p>
-        <div class="testi-author">
-          <div class="ta-avatar av-o">TC</div>
-          <div><div class="ta-name">Tara</div><div class="ta-loc">Craigieburn</div></div>
-        </div>
-      </div>
-      <div class="testi-card reveal rd1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"The scale on our shower glass and tapware has reduced dramatically in just a couple of months. Small thing, but it makes a real difference day-to-day."</p>
-        <div class="testi-author">
-          <div class="ta-avatar av-gr">KP</div>
-          <div><div class="ta-name">Karen</div><div class="ta-loc">Sunbury</div></div>
-        </div>
-      </div>
-      <div class="testi-card reveal rd2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"We were curious more than anything when we booked. After seeing the results and getting a clear explanation, the decision felt obvious. Very glad we went ahead."</p>
-        <div class="testi-author">
-          <div class="ta-avatar av-b">RL</div>
-          <div><div class="ta-name">Ryan &amp; Lisa</div><div class="ta-loc">Templestowe</div></div>
-        </div>
-      </div>
-      <div class="testi-card reveal rd3">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"We have two young kids and knowing the water they're drinking and bathing in is properly filtered gives us real peace of mind. Worth every bit of it."</p>
-        <div class="testi-author">
-          <div class="ta-avatar av-t">NW</div>
-          <div><div class="ta-name">Nicole</div><div class="ta-loc">Epping</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ════════ EXPECTATION SETTING ════════ -->
 <section class="section section-alt" id="expectations">
   <div class="wrap">
@@ -1535,7 +1270,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
             <div class="expect-item" style="border:1px solid rgba(22,163,74,0.2);background:rgba(22,163,74,0.06);">
               <div class="ei-step" style="background:var(--green);">✓</div>
               <div class="ei-body">
-                <h4 style="color:#4ade80;">Total time: 30–60 minutes</h4>
+                <h4 style="color:#4ade80;">approximately 30 minutes</h4>
                 <p>The entire visit fits comfortably into your afternoon without disruption.</p>
               </div>
             </div>
@@ -1554,7 +1289,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
       Your appointment is confirmed
     </div>
     <h2 class="h2 reveal">You've made a smart decision<br>for your home.</h2>
-    <p class="lead center reveal">Thousands of Melbourne homeowners have taken this step — and most say they wish they'd done it sooner. We're looking forward to showing you exactly what's in your water, and what a difference cleaner water can make.</p>
+    <p class="lead center reveal">Melbourne homeowners who've made the switch tell us they wish they'd done it sooner. We look forward to walking you through your results — and what they mean for your home and family.</p>
     <div class="fc-actions reveal">
       <a href="#what-happens" class="btn btn-primary btn-lg">See What to Expect ↑</a>
     </div>
@@ -1566,6 +1301,18 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
     </div>
   </div>
 </section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="site-footer">
+  <a href="/" class="footer-logo-link">
+    <img src="../../assets/logos/Neptune_Logo_White.png" alt="NEPTUNE Whole Home Filtration">
+  </a>
+  <div class="footer-links">
+    <a href="tel:0391225243">03 9122 5243</a>
+    <a href="mailto:office@neptunefiltration.com.au">office@neptunefiltration.com.au</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Neptune Filtration &nbsp;·&nbsp; WaterMark Certified &nbsp;·&nbsp; VIC Licensed &amp; Insured</div>
+</footer>
 
 <script>
 const reveals = document.querySelectorAll('.reveal');
