@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neptune Filtration — Whole Home Water Filtration for Melbourne</title>
+<link rel="icon" type="image/png" href="./favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -16,12 +17,12 @@
     --text: #1A1A1A;
     --amber: #F5A623;
     --white: #FFFFFF;
-    --green: #22C55E;
-    --border: rgba(10,31,60,0.1);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   html { scroll-behavior: smooth; }
+
   body {
     font-family: 'DM Sans', sans-serif;
     color: var(--text);
@@ -29,92 +30,74 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* NAV — sticky, with phone and CTA */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--navy);
-    height: 68px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-  }
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 0 clamp(1.5rem, 5vw, 4rem);
-    gap: 1.5rem;
-  }
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-  }
-  .nav-logo img {
-    height: 52px;
-    width: auto;
-    display: block;
-  }
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    flex: 1;
-    justify-content: center;
-  }
-  .nav-links a {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  .nav-links a:hover { color: rgba(255,255,255,0.9); }
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    flex-shrink: 0;
-  }
-  .nav-phone {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: rgba(255,255,255,0.65);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  .nav-phone:hover { color: var(--white); }
-  .nav-cta {
-    background: var(--blue);
-    color: var(--white);
-    border: none;
-    cursor: pointer;
-    padding: 0.55rem 1.25rem;
-    border-radius: 6px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s;
-    white-space: nowrap;
-  }
-  .nav-cta:hover { background: var(--navy-mid); }
+ /* NAV */
+nav {
+  position: relative; /* 🔥 removes sticky */
+  
+  background: var(--navy);
 
+  height: 100px; /* or whatever you set */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+}
+
+/* LOGO */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 🔥 ensures perfect centering */
+  height: 100%;            /* 🔥 match nav height */
+}
+
+/* LOGO IMAGE */
+.nav-logo img {
+  height: 80px;  /* 🔥 main control — adjust 40–48 */
+  width: auto;
+
+  max-width: none;        /* 🔥 REMOVE restriction */
+  display: block;
+}
+
+/* CTA BUTTON */
+.nav-cta {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav-cta:hover {
+  background: var(--navy-mid);
+}
   /* HERO */
   .hero {
-    background: var(--navy);
-    padding-top: 0;
-    padding-bottom: 2rem;
-    min-height: auto;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
+  background: var(--navy);
+
+  padding-top: 0;        /* 🔥 remove top space completely */
+  padding-bottom: 2rem;  /* keep slight breathing room bottom */
+
+  min-height: auto;      /* already fixed before */
+  
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+}
   .hero::before {
     content: '';
     position: absolute; inset: 0;
@@ -122,15 +105,18 @@
     pointer-events: none;
   }
   .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    width: 100%;
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 3rem;
+  align-items: center;
+
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+
+  padding: 1.5rem clamp(1.5rem, 5vw, 4rem); /* 🔥 was WAY too big */
+}
   .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-size: 0.78rem; font-weight: 600;
@@ -208,7 +194,7 @@
   .hero-img-wrap img {
     width: 100%; height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center top;
     display: block;
   }
   .hero-img-wrap::after {
@@ -221,9 +207,27 @@
     );
     pointer-events: none;
   }
+  .hero-img-badge {
+    position: absolute;
+    bottom: 1.25rem; left: 1.25rem;
+    z-index: 2;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px;
+    padding: 0.45rem 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.78rem; font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+  .hero-img-badge-stars { color: var(--amber); letter-spacing: 1px; font-size: 0.7rem; }
 
   /* SECTION BASE */
-  section { padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem); }
+  section {
+  padding: clamp(2.5rem, 5vw, 4rem)
+           clamp(1.5rem, 5vw, 4rem);
+}
   .container { max-width: 1100px; margin: 0 auto; }
   .section-label {
     font-size: 0.75rem; font-weight: 600;
@@ -306,32 +310,37 @@
     letter-spacing: 0.08em; text-transform: uppercase;
     color: var(--blue); margin-bottom: 0.5rem;
   }
-  .micron-row { display: flex; align-items: center; gap: 1rem; }
+  .micron-row {
+    display: flex; align-items: center; gap: 1rem;
+  }
   .micron-bar-wrap {
-    flex: 1;
-    background: rgba(61,139,205,0.12);
-    border-radius: 100px;
-    height: 10px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
+  flex: 1;
+  background: rgba(61,139,205,0.12);
+  border-radius: 100px;
+  height: 10px;
+  overflow: hidden;
+
+  display: flex;            /* 🔥 ADD */
+  align-items: center;
+}
   .micron-bar {
-    height: 100%;
-    border-radius: 100px;
-    background: var(--navy-mid);
-    margin-left: 0;
-  }
+  height: 100%;
+  border-radius: 100px;
+  background: var(--navy-mid);
+
+  margin-left: 0;           /* 🔥 ensures same start */
+}
   .micron-tag {
     font-size: 0.78rem; font-weight: 600; color: var(--navy);
     min-width: 80px; text-align: right; flex-shrink: 0;
   }
   .micron-name {
-    font-size: 0.82rem;
-    color: rgba(26,26,26,0.6);
-    width: 110px;
-    flex-shrink: 0;
-  }
+  font-size: 0.82rem;
+  color: rgba(26,26,26,0.6);
+
+  width: 110px;      /* 🔥 fixed width (key fix) */
+  flex-shrink: 0;    /* 🔥 prevents resizing */
+}
   .check-list { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 2rem; }
   .check-item {
     display: flex; align-items: flex-start; gap: 0.75rem;
@@ -367,8 +376,8 @@
     border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 1rem;
+    font-size: 1.3rem;
   }
-  .benefit-icon svg { color: var(--navy-mid); }
   .benefit-title {
     font-weight: 600; font-size: 0.95rem;
     color: var(--navy);
@@ -376,52 +385,94 @@
   }
   .benefit-desc { font-size: 0.83rem; color: rgba(26,26,26,0.55); line-height: 1.55; }
 
-  /* CREDENTIALS */
-  .credentials { background: var(--white); }
-  .cred-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-    margin-top: 2.5rem;
+  /* SOCIAL PROOF */
+  .proof {
+  background: linear-gradient(
+    to bottom,
+    #081C34 0%,
+    #0D2747 100%
+  );
+
+  padding: clamp(3rem, 6vw, 4.5rem)
+           clamp(1.5rem, 5vw, 4rem);
+
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+  .proof-header { text-align: center; margin-bottom: 2.5rem; }
+  .stars { display: flex; justify-content: center; gap: 4px; margin-bottom: 0.75rem; }
+  .proof-card-stars {
+  color: var(--amber);
+  text-shadow: 0 0 6px rgba(245,166,35,0.4);
+  letter-spacing: 2px;
+}
+.stars {
+  color: var(--amber);
+}
+  .proof-meta {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.5rem;
   }
-  .cred-card {
-    background: var(--off-white);
-    border-radius: 16px;
-    padding: 1.75rem 1.5rem;
-    border: 1px solid rgba(10,31,60,0.08);
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  .proof-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* FIXED */
+.proof-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 1.5rem;
+
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+}
+
+.proof-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,0.2);
+}
+  .proof-card-stars { display: flex; gap: 3px; margin-bottom: 0.85rem; }
+  .proof-card-star { color: var(--amber); font-size: 0.85rem; }
+  .proof-quote {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.65;
+    font-style: italic;
+    margin-bottom: 1rem;
   }
-  .cred-icon {
-    width: 44px; height: 44px;
-    background: var(--ice);
-    border-radius: 12px;
+  .proof-author {
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .proof-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--navy-mid);
     display: flex; align-items: center; justify-content: center;
-    color: var(--navy-mid);
+    font-size: 0.7rem; font-weight: 700; color: var(--white);
     flex-shrink: 0;
-    font-size: 1.25rem;
   }
-  .cred-title {
-    font-weight: 600; font-size: 0.95rem;
-    color: var(--navy);
-  }
-  .cred-desc { font-size: 0.82rem; color: rgba(26,26,26,0.55); line-height: 1.55; }
-  .section-footnote { margin-top: 2.5rem; font-size: 0.875rem; color: rgba(26,26,26,0.5); text-align: center; line-height: 1.6; }
+  .proof-name { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.6); }
+  .proof-location { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
 
   /* CTA FORM */
   .cta-section {
-    background: #F2F3F5;
-    text-align: center;
-    padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
+  background: #F2F3F5; /* 🔥 lighter */
+
+  text-align: center;
+
+  padding: clamp(2.5rem, 5vw, 4rem)
+           clamp(1.5rem, 5vw, 4rem);
+
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
   .cta-section .section-label {
-    text-align: center;
-    color: var(--navy);
-    opacity: 0.5;
-    letter-spacing: 0.12em;
-  }
+  text-align: center;
+  color: var(--navy);
+  opacity: 0.5;
+  letter-spacing: 0.12em;
+}
   .cta-section .section-title { color: var(--navy); margin: 0 auto 0.5rem; max-width: 540px; }
   .cta-intro {
     font-size: 1rem; color: rgba(26,26,26,0.55);
@@ -494,78 +545,261 @@
     font-size: 0.78rem; color: rgba(26,26,26,0.45);
   }
   .form-trust-item svg { color: var(--blue); }
+  @media (max-width: 560px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
 
   /* FOOTER */
   footer {
-    background: var(--navy);
-    padding: 26px clamp(1.25rem, 4vw, 3rem);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-    border-top: 1px solid rgba(255,255,255,0.07);
-  }
-  .footer-logo-link { display: flex; align-items: center; text-decoration: none; }
-  .footer-logo-link img { height: 44px; width: auto; }
-  .footer-links { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+  background: linear-gradient(
+    to bottom,
+    #081C34 0%,
+    #0D2747 100%
+  );
+
+  height: 80px;
+  padding: 0 clamp(1.5rem, 5vw, 4rem); /* 🔥 NO TOP PADDING */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+  .footer-logo img {
+  height: 60px; /* 🔥 match your nav logo size */
+  width: auto;
+  display: block;
+}
+  .footer-links { display: flex; gap: 1.5rem; }
   .footer-links a {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.4);
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
     text-decoration: none;
     transition: color 0.15s;
   }
-  .footer-links a:hover { color: rgba(255,255,255,0.72); }
-  .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.22); }
+  .footer-links a:hover { color: rgba(255,255,255,0.7); }
+  .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
 
   /* RESPONSIVE */
-  @media (max-width: 960px) {
-    .cred-grid { grid-template-columns: 1fr 1fr; }
-    .benefits-grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .nav-cta { display: none; }
-  }
   @media (max-width: 600px) {
-    section { padding: 4rem 1.5rem; }
-    .container { width: 100%; }
-    .section-label { text-align: center; }
-    .section-title { text-align: center; margin-left: auto; margin-right: auto; }
-    .section-body { text-align: center; margin-left: auto; margin-right: auto; }
-    nav { height: 60px; }
-    .nav-inner { justify-content: center; gap: 1.5rem; }
-    .nav-logo img { height: 40px; }
-    footer { flex-direction: column; align-items: center; text-align: center; gap: 0.875rem; padding: 24px 1.25rem; }
-    .footer-links { justify-content: center; gap: 1rem; }
-    .hero { padding-top: 0; padding-bottom: 2rem; }
-    .hero-grid { grid-template-columns: 1fr; gap: 1.6rem; text-align: center; padding: 0.2rem 1.5rem 0; }
-    .hero h1 { font-size: 3.4rem; line-height: 0.95; }
-    .hero-sub { margin: 0 auto 2rem; max-width: 100%; font-size: 1rem; }
-    .hero-eyebrow { justify-content: center; width: 100%; }
-    .hero-cta-group { align-items: center; }
-    .hero-trust { justify-content: center; flex-wrap: wrap; gap: 0.8rem; }
-    .btn-primary { width: 100%; max-width: 100%; }
-    .hero-img-wrap { max-width: 100%; aspect-ratio: 4/5; }
-    .problem-grid, .solution-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .problem-pills { justify-content: center; }
-    .problem-stat-box { padding: 2rem; }
-    .micron-diagram { padding: 2rem 1.5rem; }
-    .micron-row { gap: 0.7rem; }
-    .micron-name { width: 90px; font-size: 0.78rem; }
-    .micron-tag { min-width: 65px; font-size: 0.75rem; }
-    .benefits-grid { grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
-    .cred-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .cta-section { padding: 4rem 1.5rem; }
-    .cta-intro { text-align: center; }
-    .form-card { padding: 1.5rem; border-radius: 20px; }
-    .form-row { grid-template-columns: 1fr; gap: 0; }
-    .form-group { margin-bottom: 1rem; }
-    .btn-form { padding: 1.1rem; font-size: 1rem; }
-    .form-trust { gap: 0.8rem 1rem; }
-    .form-trust-item { justify-content: center; }
+
+  /* GLOBAL */
+  section {
+    padding: 4rem 1.5rem;
   }
 
+  .container {
+    width: 100%;
+  }
+
+  .section-label {
+    text-align: center;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-body {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* NAV */
+nav {
+  height: 72px;
+}
+
+.nav-logo img {
+  height: 50px;
+}
+
+/* HERO */
+.hero {
+  padding-top: 0;
+  padding-bottom: 2rem;
+}
+
+.hero-grid {
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+  text-align: center;
+  padding: 0.2rem 1.5rem 0;
+}
+
+  .hero h1 {
+    font-size: 3.4rem;
+    line-height: 0.95;
+  }
+
+  .hero-sub {
+    margin: 0 auto 2rem;
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  .hero-eyebrow {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-cta-group {
+    align-items: center;
+  }
+
+  .hero-trust {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-img-wrap {
+    max-width: 100%;
+    aspect-ratio: 4/5;
+  }
+
+  /* PROBLEM + SOLUTION */
+  .problem-grid,
+  .solution-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .problem-pills {
+    justify-content: center;
+  }
+
+  .problem-stat-box {
+    padding: 2rem;
+  }
+
+  /* MICRON */
+  .micron-diagram {
+    padding: 2rem 1.5rem;
+  }
+
+  .micron-row {
+    gap: 0.7rem;
+  }
+
+  .micron-name {
+    width: 90px;
+    font-size: 0.78rem;
+  }
+
+  .micron-tag {
+    min-width: 65px;
+    font-size: 0.75rem;
+  }
+
+  /* BENEFITS */
+  .benefits-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .benefit-card {
+    padding: 1.5rem 1.2rem;
+    border-radius: 18px;
+  }
+
+  .benefit-title {
+    font-size: 0.9rem;
+  }
+
+  .benefit-desc {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  /* SOCIAL PROOF */
+  .proof {
+    padding: 4rem 1.5rem;
+  }
+
+  .proof-header {
+    margin-bottom: 2rem;
+  }
+
+  .proof-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .proof-card {
+    padding: 1.5rem;
+  }
+
+  .proof-quote {
+    font-size: 1rem;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .cta-intro {
+    text-align: center;
+  }
+
+  .form-card {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .btn-form {
+    padding: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .form-trust {
+    gap: 0.8rem 1rem;
+  }
+
+  .form-trust-item {
+    justify-content: center;
+  }
+
+  /* FOOTER */
+  footer {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.6rem;
+    text-align: center;
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+
+  .footer-copy {
+    text-align: center;
+  }
+}
+
+  /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -581,20 +815,9 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="../../assets/logos/Neptune_Logo_White.png" alt="NEPTUNE Whole Home Filtration">
-    </a>
-    <div class="nav-links">
-      <a href="#problem">Why Filter</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#credentials">Why Neptune</a>
-    </div>
-    <div class="nav-right">
-      <a href="tel:0391225243" class="nav-phone">03 9122 5243</a>
-      <a href="#book" class="nav-cta">Book Free Water Test</a>
-    </div>
-  </div>
+  <a href="/" class="nav-logo">
+    <img src="./logo.png" alt="Neptune Filtration Logo">
+  </a>
 </nav>
 
 <!-- HERO -->
@@ -622,17 +845,21 @@
     <div class="hero-visual">
       <div class="hero-img-wrap">
         <img
-          src="../../assets/install-photos/93298737-026e-4d99-9edc-f51f39dc24ad.jpg"
-          alt="Neptune whole-home filtration system — installed with copper fittings"
+          src="https://res.cloudinary.com/dskr8mw76/image/upload/v1777881285/Use_the_exact_reference_image_pr-1_4_ppnuve.png"
+          alt="Premium bathroom — clean water lifestyle"
           loading="eager"
         />
+        <div class="hero-img-badge">
+          <span class="hero-img-badge-stars">★★★★★</span>
+          5.0 Google Rating
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PROBLEM -->
-<section class="problem" id="problem">
+<section class="problem">
   <div class="container">
     <div class="problem-grid">
       <div>
@@ -665,26 +892,34 @@
 </section>
 
 <!-- SOLUTION -->
-<section class="solution" id="how-it-works">
+<section class="solution">
   <div class="container">
     <div class="solution-grid">
       <div class="micron-diagram">
         <div class="micron-label">Neptune 5–1–1 Micron System</div>
         <div class="micron-row">
-          <div class="micron-name">Sediment</div>
-          <div class="micron-bar-wrap"><div class="micron-bar" style="width:100%"></div></div>
-          <div class="micron-tag">5 micron</div>
-        </div>
-        <div class="micron-row">
-          <div class="micron-name">Scale Carbon</div>
-          <div class="micron-bar-wrap"><div class="micron-bar" style="width:40%"></div></div>
-          <div class="micron-tag">1 micron</div>
-        </div>
-        <div class="micron-row">
-          <div class="micron-name">Coconut Carbon</div>
-          <div class="micron-bar-wrap"><div class="micron-bar" style="width:40%"></div></div>
-          <div class="micron-tag">1 micron</div>
-        </div>
+  <div class="micron-name">Sediment</div>
+  <div class="micron-bar-wrap">
+    <div class="micron-bar" style="width:100%"></div>
+  </div>
+  <div class="micron-tag">5 micron</div>
+</div>
+
+<div class="micron-row">
+  <div class="micron-name">Scale Carbon</div>
+  <div class="micron-bar-wrap">
+    <div class="micron-bar" style="width:40%"></div>
+  </div>
+  <div class="micron-tag">1 micron</div>
+</div>
+
+<div class="micron-row">
+  <div class="micron-name">Coconut Carbon</div>
+  <div class="micron-bar-wrap">
+    <div class="micron-bar" style="width:40%"></div>
+  </div>
+  <div class="micron-tag">1 micron</div>
+</div>
         <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(61,139,205,0.15);">
           <div style="font-size:0.8rem; color:rgba(26,26,26,0.45);">Removes chlorine · sediment · hard minerals · trace metals</div>
         </div>
@@ -726,30 +961,22 @@
     <h2 class="section-title">Noticeably different. From day one.</h2>
     <div class="benefits-grid">
       <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C12 2 5 9 5 15a7 7 0 0014 0c0-6-7-13-7-13z"/></svg>
-        </div>
+        <div class="benefit-icon">💧</div>
         <div class="benefit-title">Drinking water</div>
         <div class="benefit-desc">No chlorine taste or smell. Drink straight from the tap — any tap.</div>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M4 20l16-16" opacity="0.3"/><path d="M9 4c0 6-5 8-5 12a8 8 0 0016 0c0-4-5-6-5-12"/></svg>
-        </div>
+        <div class="benefit-icon">🚿</div>
         <div class="benefit-title">Skin &amp; hair</div>
-        <div class="benefit-desc">Softer skin, less dryness. Noticeably better for those with sensitive or reactive skin.</div>
+        <div class="benefit-desc">Softer skin, less dryness. Customers report eczema and hair loss improvements.</div>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
-        </div>
+        <div class="benefit-icon">✨</div>
         <div class="benefit-title">Shower &amp; glass</div>
         <div class="benefit-desc">Less scale, no pool smell. Your bathroom stays cleaner, longer.</div>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        </div>
+        <div class="benefit-icon">🏠</div>
         <div class="benefit-title">Appliances</div>
         <div class="benefit-desc">Reduced mineral buildup extends the life of dishwashers, kettles, and washing machines.</div>
       </div>
@@ -757,35 +984,49 @@
   </div>
 </section>
 
-<!-- CREDENTIALS -->
-<section class="credentials" id="credentials">
+<!-- SOCIAL PROOF -->
+<section class="proof">
   <div class="container">
-    <div class="section-label">Why Neptune</div>
-    <h2 class="section-title">Set up properly. For your home.</h2>
-    <p class="section-body">We specialise in complete whole-home filtration — nothing unnecessary, just what your home actually needs. We're not the cheapest option, and we're not priced at a premium — we sit in the middle, focusing on getting it done properly without overcomplicating or overcharging.</p>
-    <div class="cred-grid">
-      <div class="cred-card">
-        <div class="cred-icon">🏠</div>
-        <div class="cred-title">Whole-home specialists</div>
-        <div class="cred-desc">We specialise in complete whole-home filtration — set up properly, without unnecessary extras or add-ons.</div>
+    <div class="proof-header">
+      <div class="stars">★★★★★</div>
+      <h2 class="section-title section-title-white">Trusted by Melbourne homeowners</h2>
+      <div class="proof-meta">Most customers say they wish they'd done this sooner.</div>
+    </div>
+    <div class="proof-cards">
+      <div class="proof-card">
+        <div class="proof-card-stars">★★★★★</div>
+        <p class="proof-quote">"The shower feels completely different. My skin isn't dry anymore and we can actually drink from the tap. Wish we'd done it years ago."</p>
+        <div class="proof-author">
+          <div class="proof-avatar">SR</div>
+          <div>
+            <div class="proof-name">Sarah R.</div>
+            <div class="proof-location">Brighton</div>
+          </div>
+        </div>
       </div>
-      <div class="cred-card">
-        <div class="cred-icon">💬</div>
-        <div class="cred-title">Clear, honest recommendations</div>
-        <div class="cred-desc">Clear recommendations based on what your home needs — not inflated systems, not unnecessary upgrades.</div>
+      <div class="proof-card">
+        <div class="proof-card-stars">★★★★★</div>
+        <p class="proof-quote">"My husband was sceptical until he saw the live water test. The scale on our glass screens is almost gone. Professional, no pressure, done properly."</p>
+        <div class="proof-author">
+          <div class="proof-avatar">JM</div>
+          <div>
+            <div class="proof-name">James M.</div>
+            <div class="proof-location">Glen Waverley</div>
+          </div>
+        </div>
       </div>
-      <div class="cred-card">
-        <div class="cred-icon">📍</div>
-        <div class="cred-title">Designed for Melbourne homes</div>
-        <div class="cred-desc">Selected with Melbourne's water profile, chlorine treatment, and infrastructure in mind — not generic, one-size-fits-all systems.</div>
-      </div>
-      <div class="cred-card">
-        <div class="cred-icon">✓</div>
-        <div class="cred-title">Done properly the first time</div>
-        <div class="cred-desc">Set up to suit your home's layout, pressure, and usage — so everything works the way it should from day one.</div>
+      <div class="proof-card">
+        <div class="proof-card-stars">★★★★★</div>
+        <p class="proof-quote">"Our son's eczema has noticeably improved since the filter was installed. The whole process was under two hours. Couldn't recommend more highly."</p>
+        <div class="proof-author">
+          <div class="proof-avatar">AL</div>
+          <div>
+            <div class="proof-name">Amanda L.</div>
+            <div class="proof-location">Hawthorn</div>
+          </div>
+        </div>
       </div>
     </div>
-    <p class="section-footnote"><em>Most homeowners we meet aren't looking for the cheapest option — they just want it done properly without overpaying.</em></p>
   </div>
 </section>
 
@@ -794,7 +1035,7 @@
   <div class="container">
     <div class="section-label">Free. No obligation.</div>
     <h2 class="section-title">Book your free<br>water test today.</h2>
-    <p class="cta-intro">See exactly what's in your Melbourne water — live, at your home. Takes approximately 30 minutes.</p>
+    <p class="cta-intro">See exactly what's in your Melbourne water — live, at your home. Takes 30 minutes.</p>
 
     <div class="form-card" id="form-card">
       <div class="form-row">
@@ -813,8 +1054,8 @@
           <input class="form-input" id="f-email" type="email" placeholder="your@email.com" autocomplete="email">
         </div>
         <div class="form-group">
-          <label class="form-label" for="f-suburb">Suburb</label>
-          <input class="form-input" id="f-suburb" type="text" placeholder="e.g. Richmond" autocomplete="address-level2">
+          <label class="form-label" for="f-postcode">Postcode</label>
+          <input class="form-input" id="f-postcode" type="text" placeholder="3000" maxlength="4" autocomplete="postal-code">
         </div>
       </div>
       <button class="btn-form" id="submit-btn" type="button">
@@ -822,11 +1063,21 @@
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </button>
     </div>
-
-    <div id="form-success" style="display:none; text-align:center; padding:1.5rem; background:#EAF4FF; border-radius:14px; margin-top:1rem;">
-      <strong style="color:#0A1F3C; font-size:1.1rem;">You're booked.</strong>
-      <p style="margin-top:0.4rem; color:#1a1a1a;">We'll contact you shortly to confirm your water test.</p>
-    </div>
+    <div id="form-success" style="
+  display:none;
+  text-align:center;
+  padding:1.5rem;
+  background:#EAF4FF;
+  border-radius:14px;
+  margin-top:1rem;
+">
+  <strong style="color:#0A1F3C; font-size:1.1rem;">
+    You're booked.
+  </strong>
+  <p style="margin-top:0.4rem; color:#1a1a1a;">
+    We’ll contact you shortly to confirm your water test.
+  </p>
+</div>
 
     <div class="form-trust">
       <span class="form-trust-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> No obligation</span>
@@ -839,25 +1090,35 @@
 
 <!-- FOOTER -->
 <footer>
-  <a href="/" class="footer-logo-link">
-    <img src="../../assets/logos/Neptune_Logo_White.png" alt="NEPTUNE Whole Home Filtration">
-  </a>
-  <div class="footer-links">
-    <a href="tel:0391225243">03 9122 5243</a>
-    <a href="mailto:office@neptunefiltration.com.au">office@neptunefiltration.com.au</a>
-    <a href="../../experiments/replacement-filters-v2/">Filter Replacement</a>
+  <!-- LEFT: LOGO IMAGE -->
+  <div class="footer-logo">
+    <img src="./logo.png" alt="Neptune Filtration Logo">
   </div>
-  <div class="footer-copy">&copy; 2026 Neptune Filtration &nbsp;·&nbsp; WaterMark Certified &nbsp;·&nbsp; VIC Licensed &amp; Insured</div>
+
+  <!-- CENTER: LINK -->
+  <div class="footer-links">
+    <a href="https://neptunefiltration.com.au/replacement-filters">
+      Replacement Filters
+    </a>
+  </div>
+
+  <!-- RIGHT: COPYRIGHT -->
+  <div class="footer-copy">
+    © 2025 Neptune Filtration. Melbourne, VIC.
+  </div>
 </footer>
 
+</body>
 <script>
+// Smooth scroll (keep this)
 function scrollToBook(e) {
   if (e) e.preventDefault();
   const target = document.getElementById('book');
   if (!target) return;
-  const navH = 68;
+  const navH = 64;
   const targetTop = target.getBoundingClientRect().top + window.scrollY;
   window.scrollTo({ top: targetTop - navH - 16, behavior: 'smooth' });
+
   setTimeout(() => {
     const card = document.getElementById('form-card');
     if (card) {
@@ -871,14 +1132,17 @@ document.querySelectorAll('a[href="#book"]').forEach(a => {
   a.addEventListener('click', scrollToBook);
 });
 
+
+// 🔥 FORM SUBMIT
 document.getElementById('submit-btn').addEventListener('click', async () => {
-  const name   = document.getElementById('f-name').value;
-  const phone  = document.getElementById('f-phone').value;
-  const email  = document.getElementById('f-email').value;
-  const suburb = document.getElementById('f-suburb').value;
+
+  const name = document.getElementById('f-name').value;
+  const phone = document.getElementById('f-phone').value;
+  const email = document.getElementById('f-email').value;
+  const postcode = document.getElementById('f-postcode').value;
 
   if (!name || !phone) {
-    alert('Please enter your name and phone number.');
+    alert('Please enter your name and phone');
     return;
   }
 
@@ -886,19 +1150,23 @@ document.getElementById('submit-btn').addEventListener('click', async () => {
     const res = await fetch('https://services.leadconnectorhq.com/hooks/SPQwdXLPrMES6TqvwFLr/webhook-trigger/84d752aa-a597-4faa-a48b-be2763def373', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, phone, email, suburb })
+      body: JSON.stringify({ name, phone, email, postcode })
     });
 
     if (res.ok) {
+      // ✅ HIDE FORM
       document.getElementById('form-card').style.display = 'none';
+
+      // ✅ SHOW SUCCESS
       document.getElementById('form-success').style.display = 'block';
+
     } else {
-      alert('Something went wrong. Try again or call us on 03 9122 5243.');
+      alert('Something went wrong. Try again.');
     }
+
   } catch (err) {
-    alert('Network error. Please try again or call 03 9122 5243.');
+    alert('Network error. Try again.');
   }
 });
 </script>
-</body>
 </html>
