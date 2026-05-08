@@ -189,61 +189,26 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 .btn-white:hover { box-shadow: 0 14px 48px rgba(0,0,0,0.2); }
 
 /* ════════════════════════════════
-   NAV
-════════════════════════════════ */
-.nav {
-  background: transparent;
-  height: auto;
-  padding: 14px 0 0;
-  display: flex;
-  align-items: center;
-  position: relative;
-  z-index: 100;
-  box-shadow: none;
-}
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 28px;
-}
-.nav-logo img {
-  height: 52px;
-  width: auto;
-  display: block;
-}
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* ════════════════════════════════
    HERO
 ════════════════════════════════ */
 .hero {
   background: var(--navy);
-  padding: 0 0 44px;
-  min-height: 65vh;
-  display: flex;
-  flex-direction: column;
-}
-.hero .wrap {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 680px;
-  margin: 0 auto;
+  padding: 68px 24px 60px;
   text-align: center;
+}
+.hero-inner {
+  max-width: 520px;
+  margin: 0 auto;
   animation: fadeUp 0.75s ease both;
+}
+.hero-logo {
+  display: inline-block;
+  margin-bottom: 28px;
+}
+.hero-logo img {
+  height: 52px;
+  width: auto;
+  display: block;
 }
 
 /* Confirmation chip */
@@ -255,7 +220,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   border: 1px solid rgba(22,163,74,0.22);
   border-radius: var(--r-pill);
   padding: 8px 18px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 .confirm-chip-dot {
   width: 8px; height: 8px;
@@ -291,8 +256,14 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   color: rgba(255,255,255,0.68);
   line-height: 1.72;
   font-weight: 300;
-  margin: 0 auto 0;
-  max-width: 440px;
+  margin: 0 auto;
+  max-width: 420px;
+}
+.hero-meta {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.32);
+  margin-top: 12px;
+  letter-spacing: 0.01em;
 }
 
 /* ════════════════════════════════
@@ -844,7 +815,6 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
    RESPONSIVE — 1024px
 ════════════════════════════════ */
 @media (max-width: 1024px) {
-  .hero         { min-height: 60vh; padding: 0 0 48px; }
   .edu-grid     { grid-template-columns: 1fr; gap: 36px; }
   .approach-grid{ grid-template-columns: 1fr; gap: 36px; }
   .approach-right { justify-content: center; }
@@ -866,8 +836,6 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   .section-sm { padding: 24px 0; }
   .final-cta  { padding: 52px 0; }
   .wrap, .wrap-sm, .wrap-xs { padding: 0 16px; }
-  .nav { padding: 12px 0 0; }
-  .nav-logo img { height: 40px; }
   .gap-grid   { grid-template-columns: 1fr; }
   .trust-bar-inner { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding: 0 4px; }
   .tb-item    { flex-shrink: 0; padding: 16px 32px; }
@@ -884,52 +852,13 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   .footer-links { justify-content: center; gap: 1rem; }
 
   .hero {
-    min-height: 85vh;
-    padding: 0 0 20px;
-    display: flex;
-    flex-direction: column;
+    padding: 52px 20px 48px;
   }
-
-  .hero-inner {
-    text-align: center;
-    max-width: 100%;
-    padding: 0 14px;
+  .hero-logo {
+    margin-bottom: 22px;
   }
-
-  .nav {
-    padding: 12px 0 0;
-  }
-
-  .nav-logo img {
+  .hero-logo img {
     height: 40px;
-  }
-
-  .confirm-chip {
-    margin-bottom: 8px;
-    padding: 8px 18px;
-  }
-
-  .confirm-chip-text {
-    font-size: 0.7rem;
-  }
-
-  .h1 {
-    font-size: 2.9rem;
-    line-height: 1.05;
-    letter-spacing: -0.05em;
-    margin-bottom: 16px;
-  }
-
-  .hero-sub {
-    font-size: 1rem;
-    line-height: 1.72;
-    max-width: 100%;
-  }
-
-  .hero p[style*="font-size:0.78rem"] {
-    margin-top: 14px !important;
-    font-size: 0.78rem !important;
-    line-height: 1.6;
   }
 }
 
@@ -947,30 +876,19 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 </head>
 <body>
 
-<!-- ════════ HERO (includes logo) ════════ -->
+<!-- ════════ HERO ════════ -->
 <section class="hero">
-  <div class="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">
-        <img src="../../assets/logos/Neptune_Logo_White.png" alt="NEPTUNE Whole Home Filtration">
-      </a>
+  <div class="hero-inner">
+    <a href="/" class="hero-logo">
+      <img src="../../assets/logos/Neptune_Logo_White.png" alt="NEPTUNE Whole Home Filtration">
+    </a>
+    <div class="confirm-chip">
+      <div class="confirm-chip-dot"></div>
+      <div class="confirm-chip-text">Appointment Confirmed</div>
     </div>
-  </div>
-
-  <div class="wrap">
-    <div class="hero-inner">
-      <div class="confirm-chip">
-        <div class="confirm-chip-dot"></div>
-        <div class="confirm-chip-text">Appointment Confirmed</div>
-      </div>
-      <h1 class="h1">We'll see you soon.</h1>
-      <p class="hero-sub">
-        Here's everything you need to know before we arrive.
-      </p>
-      <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-top:10px;letter-spacing:0.01em;">
-        approximately 30 minutes &nbsp;·&nbsp; no preparation needed
-      </p>
-    </div>
+    <h1 class="h1">We'll see you soon.</h1>
+    <p class="hero-sub">Here's everything you need to know before we arrive.</p>
+    <p class="hero-meta">approximately 30 minutes &nbsp;·&nbsp; no preparation needed</p>
   </div>
 </section>
 
