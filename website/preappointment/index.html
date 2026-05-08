@@ -866,6 +866,22 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   .expect-wrap  { padding: 36px 32px; }
   .steps-timeline { grid-template-columns: 1fr; gap: 14px; }
   .steps-timeline::before { display: none; }
+
+  /* Centre text content when grids collapse to single column */
+  .edu-left { text-align: center; }
+  .edu-left .lead { margin-left: auto; margin-right: auto; }
+  .edu-left .contam-list { text-align: left; }
+
+  .sc-left { text-align: center; }
+  .sc-left .lead { margin-left: auto; margin-right: auto; }
+
+  .approach-grid > .reveal:not(.approach-right) { text-align: center; }
+  .approach-grid > .reveal:not(.approach-right) .lead { margin-left: auto; margin-right: auto; }
+  .approach-grid > .reveal:not(.approach-right) .benefits-stack { text-align: left; }
+
+  .expect-left { text-align: center; }
+  .expect-left .lead { margin-left: auto; margin-right: auto; }
+  .expect-note { text-align: left; }
 }
 
 /* ════════════════════════════════
@@ -1074,10 +1090,10 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 <!-- ════════ WHY PARTIAL FILTERING FAILS ════════ -->
 <section class="section section-alt" id="gaps">
   <div class="wrap">
-    <div style="max-width:600px;" class="reveal">
+    <div style="max-width:600px;margin:0 auto;text-align:center;" class="reveal">
       <div class="eyebrow">The Full Picture</div>
       <h2 class="h2">Why most homes aren't fully protected.</h2>
-      <p class="lead">Most filtering solutions address drinking water at one tap. But the reality is — your family's exposure goes much further than that.</p>
+      <p class="lead center">Most filtering solutions address drinking water at one tap. But the reality is — your family's exposure goes much further than that.</p>
     </div>
     <div class="gap-grid">
       <div class="gap-card reveal rd1">
@@ -1178,10 +1194,10 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 <!-- ════════ TRUST ════════ -->
 <section class="section section-altb" id="trust">
   <div class="wrap">
-    <div style="max-width:540px;" class="reveal">
+    <div style="max-width:540px;margin:0 auto;text-align:center;" class="reveal">
       <div class="eyebrow">Why Neptune</div>
       <h2 class="h2">Set up properly.<br>For your home.</h2>
-      <p class="lead">We specialise in complete whole-home filtration — nothing unnecessary, just what your home actually needs.<br><br>We're not the cheapest option, and we're not priced at a premium — we sit in the middle, focusing on getting it done properly without overcomplicating or overcharging.</p>
+      <p class="lead center">We specialise in complete whole-home filtration — nothing unnecessary, just what your home actually needs.<br><br>We're not the cheapest option, and we're not priced at a premium — we sit in the middle, focusing on getting it done properly without overcomplicating or overcharging.</p>
     </div>
     <div class="cred-grid">
       <div class="cred-card reveal rd1">
@@ -1214,9 +1230,9 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
       </div>
     </div>
 
-    <p class="reveal" style="font-size:0.83rem;color:var(--light-muted);font-style:italic;margin-top:28px;line-height:1.7;">Most homeowners we meet aren't looking for the cheapest option — they just want it done properly without overpaying.</p>
+    <p class="reveal" style="font-size:0.83rem;color:var(--light-muted);font-style:italic;margin-top:28px;line-height:1.7;text-align:center;">Most homeowners we meet aren't looking for the cheapest option — they just want it done properly without overpaying.</p>
 
-    <div class="reveal" style="display:flex;align-items:center;gap:14px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border);max-width:480px;">
+    <div class="reveal" style="display:flex;align-items:center;gap:14px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border);max-width:480px;margin-left:auto;margin-right:auto;">
       <div style="width:36px;height:36px;border-radius:var(--r-sm);background:var(--blue-pale);display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;">💳</div>
       <div>
         <p style="font-size:0.87rem;font-weight:600;color:var(--navy);margin-bottom:2px;">Flexible payment options available</p>
