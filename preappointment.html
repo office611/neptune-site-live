@@ -64,8 +64,8 @@ img { display: block; max-width: 100%; }
 .wrap-sm { max-width: 780px;  margin: 0 auto; padding: 0 28px; }
 .wrap-xs { max-width: 640px;  margin: 0 auto; padding: 0 28px; }
 
-.section     { padding: 20px 0; }
-.section-sm  { padding: 20px 0; }
+.section     { padding: 48px 0; }
+.section-sm  { padding: 32px 0; }
 .section-alt { background: var(--off); }
 .section-altb{ background: var(--offb); }
 .section-dark{ background: var(--navy); }
@@ -225,8 +225,11 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
    HERO
 ════════════════════════════════ */
 .hero {
-  background: linear-gradient(135deg, #123a5c 0%, #0b1f35 55%, #071825 100%);
-  padding: 0 0 32px;
+  background: var(--navy);
+  padding: 0 0 44px;
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
 }
@@ -327,7 +330,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   background: var(--white);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 38px 0;
+  padding: 28px 0;
 }
 
 .trust-bar-inner {
@@ -872,7 +875,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
    RESPONSIVE — 1024px
 ════════════════════════════════ */
 @media (max-width: 1024px) {
-  .hero         { padding: 0 0 40px; }
+  .hero         { min-height: 60vh; padding: 0 0 48px; }
   .edu-grid     { grid-template-columns: 1fr; gap: 36px; }
   .approach-grid{ grid-template-columns: 1fr; gap: 36px; }
   .approach-right { justify-content: center; }
@@ -890,8 +893,8 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
    RESPONSIVE — 768px (mobile)
 ════════════════════════════════ */
 @media (max-width: 768px) {
-  .section    { padding: 24px 0; }
-  .section-sm { padding: 20px 0; }
+  .section    { padding: 36px 0; }
+  .section-sm { padding: 24px 0; }
   .final-cta  { padding: 52px 0; }
   .wrap, .wrap-sm, .wrap-xs { padding: 0 16px; }
   .nav { padding: 12px 0 0; }
@@ -912,9 +915,10 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   .footer-links { justify-content: center; gap: 1rem; }
 
   .hero {
-    min-height: auto;
-    padding: 0 0 28px;
-    display: block;
+    min-height: 85vh;
+    padding: 0 0 20px;
+    display: flex;
+    flex-direction: column;
   }
 
   .hero-inner {
