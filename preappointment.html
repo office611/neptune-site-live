@@ -193,8 +193,12 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 ════════════════════════════════ */
 .hero {
   background: var(--navy);
-  padding: 68px 24px 60px;
+  padding: 48px 24px;
   text-align: center;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .hero-inner {
   max-width: 520px;
@@ -264,6 +268,15 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   color: rgba(255,255,255,0.32);
   margin-top: 12px;
   letter-spacing: 0.01em;
+}
+.hero-trust {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+  line-height: 2;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 /* ════════════════════════════════
@@ -852,7 +865,8 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   .footer-links { justify-content: center; gap: 1rem; }
 
   .hero {
-    padding: 52px 20px 48px;
+    min-height: 100vh;
+    padding: 40px 20px;
   }
   .hero-logo {
     margin-bottom: 22px;
@@ -889,30 +903,9 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
     <h1 class="h1">We'll see you soon.</h1>
     <p class="hero-sub">Here's everything you need to know before we arrive.</p>
     <p class="hero-meta">approximately 30 minutes &nbsp;·&nbsp; no preparation needed</p>
+    <p class="hero-trust">WaterMark Certified &nbsp;·&nbsp; VIC Licensed &amp; Insured &nbsp;·&nbsp; Whole Home System &nbsp;·&nbsp; 7-Year Warranty</p>
   </div>
 </section>
-
-<!-- ════════ TRUST BAR ════════ -->
-<div class="trust-bar">
-  <div class="trust-bar-inner">
-    <div class="tb-item">
-      <div class="tb-icon">🏅</div>
-      <div class="tb-text"><strong>WaterMark Certified</strong><span>Australian Standard AS 3497</span></div>
-    </div>
-    <div class="tb-item">
-      <div class="tb-icon">🔧</div>
-      <div class="tb-text"><strong>Licensed Plumbers</strong><span>VIC licensed &amp; insured</span></div>
-    </div>
-    <div class="tb-item">
-      <div class="tb-icon">🏠</div>
-      <div class="tb-text"><strong>Whole Home System</strong><span>Every tap &amp; shower</span></div>
-    </div>
-    <div class="tb-item">
-      <div class="tb-icon">🛡️</div>
-      <div class="tb-text"><strong>7-Year Warranty</strong><span>Workmanship guaranteed</span></div>
-    </div>
-  </div>
-</div>
 
 <!-- ════════ WHAT HAPPENS NEXT ════════ -->
 <section class="section section-alt" id="what-happens">
