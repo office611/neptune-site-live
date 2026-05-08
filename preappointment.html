@@ -230,46 +230,18 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   min-height: 65vh;
   display: flex;
   flex-direction: column;
-  position: relative;
-  overflow: hidden;
 }
-
-.hero-waves {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-.hero-waves svg {
-  position: absolute;
-  bottom: 0;
-  width: 200%;
-  left: -50%;
-  opacity: 0.04;
-  animation: driftWave 18s ease-in-out infinite alternate;
-}
-.hero-glow-l {
-  position: absolute;
-  left: -200px; top: -200px;
-  width: 600px; height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(23,96,232,0.14) 0%, transparent 65%);
-  pointer-events: none;
-}
-.hero-glow-r {
-  position: absolute;
-  right: -200px; bottom: -200px;
-  width: 700px; height: 700px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,180,196,0.1) 0%, transparent 65%);
-  pointer-events: none;
+.hero .wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .hero-inner {
   position: relative;
   z-index: 1;
   max-width: 680px;
-  margin: 16px auto 0;
+  margin: 0 auto;
   text-align: center;
   animation: fadeUp 0.75s ease both;
 }
@@ -283,7 +255,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   border: 1px solid rgba(22,163,74,0.22);
   border-radius: var(--r-pill);
   padding: 8px 18px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .confirm-chip-dot {
   width: 8px; height: 8px;
@@ -312,7 +284,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   font-weight: 600;
   letter-spacing: -0.015em;
   line-height: 1.22;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 .hero-sub {
   font-size: 1rem;
@@ -856,10 +828,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-@keyframes driftWave {
-  from { transform: translateX(0); }
-  to   { transform: translateX(5%); }
-}
+
 .reveal {
   opacity: 0;
   transform: translateY(22px);
@@ -922,7 +891,6 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   }
 
   .hero-inner {
-    margin-top: 16px;
     text-align: center;
     max-width: 100%;
     padding: 0 14px;
@@ -937,7 +905,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   }
 
   .confirm-chip {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     padding: 8px 18px;
   }
 
@@ -989,14 +957,6 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
     </div>
   </div>
 
-  <div class="hero-waves">
-    <svg viewBox="0 0 1440 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,100 C180,40 360,160 540,100 C720,40 900,160 1080,100 C1260,40 1440,160 1440,100 L1440,200 L0,200 Z" fill="white"/>
-    </svg>
-  </div>
-  <div class="hero-glow-l"></div>
-  <div class="hero-glow-r"></div>
-
   <div class="wrap">
     <div class="hero-inner">
       <div class="confirm-chip">
@@ -1007,7 +967,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
       <p class="hero-sub">
         Here's everything you need to know before we arrive.
       </p>
-      <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-top:14px;letter-spacing:0.01em;">
+      <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-top:10px;letter-spacing:0.01em;">
         approximately 30 minutes &nbsp;·&nbsp; no preparation needed
       </p>
     </div>
