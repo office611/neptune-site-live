@@ -1,0 +1,7 @@
+# Root → home
+/ /home/ 301
+
+# Trailing-slash enforcement
+/home /home/ 301
+/preappointment /preappointment/ 301
+/replacement-filters /replacement-filters/ 301
