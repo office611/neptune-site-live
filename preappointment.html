@@ -193,12 +193,12 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 ════════════════════════════════ */
 .hero {
   background: var(--navy);
-  padding: 9vh 24px 8vh;
+  padding: 7vh 24px 4vh;
   text-align: center;
-  min-height: 88vh;
+  min-height: 72vh;
 }
 .hero-inner {
-  max-width: 520px;
+  max-width: 720px;
   margin: 0 auto;
   animation: fadeUp 0.75s ease both;
 }
@@ -210,6 +210,28 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
   height: 68px;
   width: auto;
   display: block;
+}
+@media (min-width: 769px) {
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-logo {
+    margin-bottom: 34px;
+  }
+
+  .confirm-chip {
+    margin-bottom: 22px;
+  }
+
+  .hero-trust {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* Confirmation chip */
@@ -863,7 +885,7 @@ h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
 
   .hero {
     min-height: 74vh;
-    padding: 8vh 20px 6vh;
+    padding: 7vh 20px 3vh;
   }
   .hero-logo {
     margin-bottom: 24px;
