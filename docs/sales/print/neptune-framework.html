@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neptune — Inbound Conversion Framework</title>
+<style>
+
+/* ═══════════════════════════════════════════
+   PAGE SETUP — A4 portrait, printer-safe margins
+═══════════════════════════════════════════ */
+@page {
+  size: A4 portrait;
+  margin: 14mm 18mm;
+}
+
+/* ═══════════════════════════════════════════
+   GLOBAL RESET + PRINT COLOUR PRESERVATION
+═══════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ═══════════════════════════════════════════
+   BASE TYPOGRAPHY
+═══════════════════════════════════════════ */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: #000;
+  background: #fff;
+  orphans: 2;
+  widows: 2;
+}
+
+h1 { font-size: 18pt; font-weight: 700; letter-spacing: -0.3px; line-height: 1.15; }
+h2 {
+  font-size: 11.5pt; font-weight: 700;
+  margin: 16pt 0 6pt;
+  border-bottom: 2px solid #000;
+  padding-bottom: 4pt;
+  page-break-after: avoid; break-after: avoid;
+}
+h3 {
+  font-size: 10pt; font-weight: 700;
+  margin: 11pt 0 5pt;
+  page-break-after: avoid; break-after: avoid;
+}
+h4 {
+  font-size: 9.5pt; font-weight: 700;
+  margin: 8pt 0 4pt;
+  page-break-after: avoid; break-after: avoid;
+}
+p  { margin-bottom: 6pt; }
+ul, ol { margin: 4pt 0 7pt 16pt; }
+li { margin-bottom: 2.5pt; }
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+/* ═══════════════════════════════════════════
+   SCREEN PREVIEW (A4 simulation in browser)
+═══════════════════════════════════════════ */
+@media screen {
+  html { background: #bbb; }
+  body {
+    max-width: 210mm;
+    min-height: 297mm;
+    margin: 24px auto;
+    padding: 14mm 18mm;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   PRINT-SPECIFIC RULES
+═══════════════════════════════════════════ */
+@media print {
+  html, body { background: #fff; margin: 0; padding: 0; }
+  .no-print  { display: none !important; }
+  h1,h2,h3,h4 { page-break-after: avoid; break-after: avoid; }
+  tr, td, th   { page-break-inside: avoid; break-inside: avoid; }
+  thead        { display: table-header-group; }
+}
+
+.page-break {
+  page-break-before: always;
+  break-before: page;
+  display: block;
+  height: 0;
+}
+.no-break {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* ═══════════════════════════════════════════
+   PRINT INSTRUCTION BAR (screen only)
+═══════════════════════════════════════════ */
+.print-tip {
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 8pt;
+  padding: 6pt 12pt;
+  margin: -14mm -18mm 14mm;
+  letter-spacing: 0.2px;
+}
+.print-tip strong { color: #fff; }
+@media print { .print-tip { display: none; } }
+
+/* ═══════════════════════════════════════════
+   DOCUMENT HEADER
+═══════════════════════════════════════════ */
+.doc-header {
+  border-bottom: 3px solid #000;
+  padding-bottom: 10pt;
+  margin-bottom: 16pt;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.doc-label   { font-size: 7pt; letter-spacing: 1.2px; text-transform: uppercase; color: #777; margin-bottom: 3pt; }
+.doc-subtitle{ font-size: 9.5pt; color: #444; margin-top: 3pt; }
+.doc-meta    { font-size: 7.5pt; color: #888; margin-top: 6pt; }
+
+/* ═══════════════════════════════════════════
+   PART HEADER (black bar)
+═══════════════════════════════════════════ */
+.part-header {
+  background: #000;
+  color: #fff;
+  padding: 7pt 11pt;
+  margin: 0 0 10pt;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.part-header h2 {
+  color: #fff;
+  border-bottom: none;
+  margin: 0; padding: 0;
+  font-size: 11pt;
+  letter-spacing: 0.4px;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION LABEL
+═══════════════════════════════════════════ */
+.section-label {
+  font-size: 7pt; font-weight: 700;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: #777; margin-bottom: 2pt;
+}
+
+/* ═══════════════════════════════════════════
+   DIALOGUE LINE
+═══════════════════════════════════════════ */
+.dialogue {
+  border-left: 3px solid #000;
+  background: #f4f4f4;
+  padding: 6pt 9pt;
+  margin: 4pt 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* ═══════════════════════════════════════════
+   PSYCHOLOGY NOTE
+═══════════════════════════════════════════ */
+.psych {
+  font-size: 8pt;
+  color: #555;
+  font-style: italic;
+  border-left: 2px solid #bbb;
+  padding: 4pt 8pt;
+  margin: 4pt 0 6pt;
+  background: #fafafa;
+  line-height: 1.45;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* ═══════════════════════════════════════════
+   TABLES
+═══════════════════════════════════════════ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 7pt 0;
+  font-size: 8.5pt;
+}
+th {
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  padding: 5pt 7pt;
+  text-align: left;
+  font-size: 7.5pt;
+  letter-spacing: 0.3px;
+}
+td {
+  padding: 4.5pt 7pt;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f7f7f7; }
+.table-note { font-size: 7.5pt; color: #666; font-style: italic; margin: 3pt 0 7pt; }
+
+/* ═══════════════════════════════════════════
+   TWO-COLUMN LAYOUT
+═══════════════════════════════════════════ */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8pt;
+  margin: 6pt 0;
+}
+.two-col > * {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* ═══════════════════════════════════════════
+   HIGHLIGHT BOX
+═══════════════════════════════════════════ */
+.highlight-box {
+  border: 1.5px solid #000;
+  padding: 8pt 10pt;
+  margin: 7pt 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.highlight-box h4 { margin-top: 0; }
+
+/* ═══════════════════════════════════════════
+   POWER BOX
+═══════════════════════════════════════════ */
+.power-box {
+  border: 2px solid #000;
+  margin: 10pt 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.power-box-title {
+  background: #000;
+  color: #fff;
+  padding: 5pt 10pt;
+  font-size: 7.5pt; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+.power-box-body {
+  padding: 8pt 10pt;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.power-col:last-child {
+  border-left: 1px solid #e0e0e0;
+  padding-left: 10pt;
+}
+.pl {
+  display: grid;
+  grid-template-columns: 60pt 1fr;
+  gap: 6pt;
+  padding: 4pt 0;
+  border-bottom: 1px solid #ebebeb;
+  align-items: baseline;
+}
+.pl:last-child { border-bottom: none; padding-bottom: 0; }
+.pl-lbl { font-size: 6.5pt; font-weight: 700; text-transform: uppercase; color: #666; letter-spacing: 0.3px; }
+.pl-txt { font-size: 8.5pt; line-height: 1.35; }
+
+/* ═══════════════════════════════════════════
+   FLOW MAP
+═══════════════════════════════════════════ */
+.flow-map {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 7.5pt;
+  background: #f0f0f0;
+  border: 1.5px solid #000;
+  padding: 7pt 10pt;
+  text-align: center;
+  letter-spacing: 0.3px;
+  font-weight: 700;
+  margin: 7pt 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* ═══════════════════════════════════════════
+   OBJECTION BLOCK
+═══════════════════════════════════════════ */
+.objection-block {
+  border: 1.5px solid #000;
+  margin: 8pt 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.obj-header {
+  background: #000;
+  color: #fff;
+  padding: 5pt 9pt;
+  font-weight: 700;
+  font-size: 8.5pt;
+  letter-spacing: 0.2px;
+}
+.obj-body { padding: 7pt 9pt; }
+.obj-strategy {
+  font-size: 7pt; font-weight: 700;
+  letter-spacing: 0.4px; text-transform: uppercase;
+  color: #666; margin-bottom: 5pt;
+}
+.obj-note { font-size: 7.5pt; color: #666; font-style: italic; margin-top: 5pt; }
+
+/* ═══════════════════════════════════════════
+   PIVOT / SECONDARY DIALOGUE
+═══════════════════════════════════════════ */
+.pivot {
+  border-left: 2px solid #999;
+  padding: 4pt 8pt;
+  margin: 4pt 0;
+  font-size: 8.5pt;
+  color: #555;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+/* ═══════════════════════════════════════════
+   SMS / CODE BOX
+═══════════════════════════════════════════ */
+.sms-box {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 8pt;
+  background: #f5f5f5;
+  border: 1px solid #bbb;
+  padding: 8pt 10pt;
+  margin: 6pt 0;
+  white-space: pre-wrap;
+  line-height: 1.55;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* ═══════════════════════════════════════════
+   ANALYSIS GRID (two-col with equal columns)
+═══════════════════════════════════════════ */
+.analysis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8pt;
+  margin: 7pt 0;
+}
+.analysis-col {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.analysis-col h4 {
+  margin-top: 0;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4pt;
+  margin-bottom: 6pt;
+}
+
+/* ═══════════════════════════════════════════
+   BRANCH PAIR (side-by-side inline boxes)
+═══════════════════════════════════════════ */
+.branch-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7pt;
+  margin: 5pt 0;
+}
+.branch-pair > * {
+  border: 1px solid #ccc;
+  padding: 7pt;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* ═══════════════════════════════════════════
+   QUICK REF GRID
+═══════════════════════════════════════════ */
+.qr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7pt;
+  margin: 7pt 0;
+}
+.qr-item {
+  border: 1px solid #000;
+  padding: 6pt 8pt;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.qr-label {
+  font-size: 7pt; font-weight: 700;
+  letter-spacing: 0.4px; text-transform: uppercase;
+  margin-bottom: 3pt; color: #444;
+}
+
+/* ═══════════════════════════════════════════
+   DOCUMENT FOOTER
+═══════════════════════════════════════════ */
+.doc-footer {
+  margin-top: 16pt;
+  padding-top: 6pt;
+  border-top: 1px solid #ccc;
+  font-size: 7pt;
+  color: #999;
+  display: flex;
+  justify-content: space-between;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ── PRINT TIP ── -->
+<div class="print-tip no-print">
+  <strong>Print to PDF:</strong> Ctrl+P → Destination: Save as PDF → Paper size: A4 → Margins: Default → ✓ Background graphics
+</div>
+
+<!-- ══ DOCUMENT HEADER ══ -->
+<div class="doc-header no-break">
+  <div class="doc-label">Neptune Water Filtration · Internal Sales Document · Confidential</div>
+  <h1>Inbound Conversion Framework</h1>
+  <div class="doc-subtitle">Elite Inbound Phone Script — Psychological Architecture — Full Reference</div>
+  <div class="doc-meta">Version 1.3 &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Study between calls — not for use on desk during live calls</div>
+</div>
+
+
+<!-- ══ SCRIPT ANALYSIS ══ -->
+<h2>Script Analysis: What Works &amp; Why</h2>
+<div class="analysis-grid">
+  <div class="analysis-col">
+    <h4>What converts</h4>
+    <ul>
+      <li>Social proof anchoring — normalises the purchase</li>
+      <li>Problem seeding before the ask — creates emotional urgency</li>
+      <li>Free assessment framing — removes financial risk perception</li>
+      <li>Binary time-slot close — eliminates decision paralysis</li>
+      <li>Partner requirement — increases close rate at in-home</li>
+      <li>Promo positioned after the close — rewards commitment, doesn't bribe</li>
+    </ul>
+  </div>
+  <div class="analysis-col">
+    <h4>Where the ceiling was</h4>
+    <ul>
+      <li>No genuine rapport before the pitch — felt transactional inside 30 seconds</li>
+      <li>Problem anchor blunt, not earned — landed awkwardly without setup</li>
+      <li>No curiosity gap — told everything, so less reason to book</li>
+      <li>Price objection thin — felt evasive rather than professional</li>
+      <li>No tonality coaching — words without delivery is half a script</li>
+      <li>No appointment protection strategy or SMS architecture</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- ══ PART 1 ══ -->
+<div class="page-break"></div>
+<div class="part-header no-break"><h2>Part 1 — The Philosophy</h2></div>
+
+<h2>The Fundamental Reframe</h2>
+<p>The goal of this call is <strong>not</strong> to sell a filtration system. The goal is to make the homeowner feel like having someone come to their home is the <strong>obvious, sensible, low-risk</strong> next step — because they've just spoken to the most knowledgeable, trustworthy person they've ever encountered on the topic of their water.</p>
+<p>The in-home consultation closes the sale. This call <strong>earns the right</strong> to that meeting.</p>
+
+<div class="highlight-box no-break">
+  <h4>When the call works, the homeowner hangs up thinking:</h4>
+  <ul>
+    <li>"These people actually know what they're talking about"</li>
+    <li>"I had no idea about half of that"</li>
+    <li>"It would be silly not to at least get the assessment done"</li>
+    <li>"I already kind of like this company"</li>
+  </ul>
+  <p style="margin-top:6pt;margin-bottom:0;font-size:8.5pt;color:#555;font-style:italic;">That feeling is worth more than any hard close technique.</p>
+</div>
+
+<h2>The Consultant Frame</h2>
+<p>The rep is not a salesperson. They are a <strong>water quality consultant</strong> helping a homeowner understand a situation that affects their family every single day.</p>
+<ul>
+  <li>Consultants ask questions before offering solutions</li>
+  <li>Consultants don't pressure — they educate and advise</li>
+  <li>Consultants are confident without being pushy</li>
+  <li>Consultants make the customer feel heard</li>
+</ul>
+<p><strong>Operate entirely from within this frame. Never break it.</strong></p>
+
+
+<!-- ══ PART 2 ══ -->
+<div class="page-break"></div>
+<div class="part-header no-break"><h2>Part 2 — Tonality Coaching</h2></div>
+
+<h2>This Is 70% Delivery, 30% Words</h2>
+<p>The script is the skeleton. Tonality is the muscle. Without the right delivery, even a perfect script sounds like a call centre.</p>
+
+<h3>The Four Tonal Registers</h3>
+<table>
+  <thead>
+    <tr>
+      <th style="width:110pt;">Register</th>
+      <th style="width:150pt;">When to use</th>
+      <th>Character</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Warm Curiosity</strong></td><td>Rapport and discovery</td><td>Slightly slower, genuinely interested — sounds like you actually want to know</td></tr>
+    <tr><td><strong>Calm Authority</strong></td><td>Water quality, assessment process, positioning</td><td>Measured, deliberate, unrattled — confident and factual</td></tr>
+    <tr><td><strong>Light Warmth</strong></td><td>Throughout, especially after the close</td><td>Natural, relaxed — like wrapping up a good conversation</td></tr>
+    <tr><td><strong>Grounded Confidence</strong></td><td>Objection handling</td><td>No pace change — unphased, empathetic, in control</td></tr>
+  </tbody>
+</table>
+
+<div class="two-col" style="margin-top:10pt;">
+  <div class="highlight-box" style="margin:0;">
+    <h4>Pacing Rules</h4>
+    <ul>
+      <li><strong>Slow down at key moments</strong> — before the problem anchor, pause half a beat</li>
+      <li><strong>Don't fill silence</strong> — after asking a question, wait</li>
+      <li><strong>Match their energy, then lead lower</strong> — they'll follow</li>
+      <li><strong>Smile when you speak</strong> — it changes vocal tone physically</li>
+      <li><strong>Never rush the close</strong> — a rushed close signals anxiety</li>
+    </ul>
+  </div>
+  <div class="highlight-box" style="margin:0;">
+    <h4>Language Rules</h4>
+    <ul>
+      <li>Say <strong>"your water"</strong> not "the water"</li>
+      <li>Say <strong>"your home"</strong> not "the property"</li>
+      <li>Say <strong>"one of our water technicians"</strong> not "a rep"</li>
+      <li>Say <strong>"most people we speak to"</strong> not "everyone"</li>
+      <li><strong>Avoid:</strong> "absolutely", "definitely", "100%"</li>
+      <li><strong>Preferred:</strong> "yeah", "gotcha", "makes sense"</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- ══ PART 3 ══ -->
+<div class="page-break"></div>
+<div class="part-header no-break"><h2>Part 3 — The Full Inbound Script</h2></div>
+
+<p style="font-size:8pt;color:#666;font-style:italic;margin-bottom:10pt;">Sequence logic: Every section creates a question in the customer's mind that the next section answers. Follow the order — it is engineered to build curiosity and lower resistance progressively.</p>
+
+<div class="flow-map">OPEN → DISCOVER → LOCATE + LOCAL AUTHORITY → PROBLEM ANCHOR → WATER HABITS → PRIOR TESTING → ASSESSMENT FRAME → TRANSITION → CLOSE → PROMO → OUT</div>
+
+<!-- S1 -->
+<div class="no-break" style="margin-top:12pt;">
+  <div class="section-label">Section 1</div>
+  <h3>Opening</h3>
+  <div class="psych">The first 8 seconds determine whether you get a conversation or a wall. Sound like a person, not a process.</div>
+  <div class="dialogue">"Hey, is this [Name]?"</div>
+  <p style="font-size:8pt;color:#666;font-style:italic;margin:2pt 0;">Wait for confirmation.</p>
+  <div class="dialogue">"Hey [Name] — it's [Your Name] from Neptune. How are you going?"</div>
+  <p style="font-size:8pt;color:#666;font-style:italic;margin:2pt 0;">Genuine pause — actually listen to their answer.</p>
+  <div class="dialogue">"Good to hear. So I'm just following up on your enquiry about the water filtration — I just wanted to have a quick chat, get a bit of an understanding of your situation, and then work out the best way to help from there."</div>
+</div>
+
+<!-- S2 -->
+<div class="no-break" style="margin-top:10pt;">
+  <div class="section-label">Section 2</div>
+  <h3>Discovery</h3>
+  <div class="psych">Before positioning anything — you need them talking. The more a customer speaks in the first two minutes, the more they trust you by the end of the call.</div>
+  <div class="dialogue">"So first off — what was the main thing that got you looking into it? Any specific concerns, or just looking to improve things generally?"</div>
+  <p style="font-size:8pt;color:#666;font-style:italic;margin:2pt 0;">Listen fully. Don't interrupt. Don't pre-load.</p>
+</div>
+
+<div class="branch-pair" style="margin-top:5pt;">
+  <div>
+    <p style="font-size:8pt;font-weight:700;margin-bottom:4pt;">If specific problem (skin / taste / smell)</p>
+    <div class="dialogue" style="font-size:8.5pt;">"Yeah, that makes a lot of sense — honestly, it's more common than people realise. Most of the time people have been dealing with it for a while without ever connecting it back to the water."</div>
+    <p style="font-size:7.5pt;color:#666;font-style:italic;margin-top:3pt;">Brief pause. Let it land. Move to Section 3.</p>
+  </div>
+  <div>
+    <p style="font-size:8pt;font-weight:700;margin-bottom:4pt;">If general / "just curious"</p>
+    <div class="dialogue" style="font-size:8.5pt;">"Yeah, that's how most people start actually — just a feeling that the water could be better, or they've been reading more about it and want to know where they stand."</div>
+    <p style="font-size:7.5pt;color:#666;font-style:italic;margin-top:3pt;">Move to Section 3.</p>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="no-break" style="margin-top:10pt;">
+  <div class="section-label">Section 3</div>
+  <h3>Location, Ownership &amp; Local Authority</h3>
+  <div class="psych">These qualifying questions must feel like one flowing beat, not a form. The local authority line lands immediately after you have the suburb — not before.</div>
+  <div class="dialogue">"Whereabouts in Melbourne are you based?"</div>
+  <p style="font-size:8pt;color:#666;font-style:italic;margin:2pt 0;">After answer — pause naturally, then:</p>
+  <div class="dialogue">"Yeah, we're actually out [suburb] way quite a bit."</div>
+  <p style="font-size:8pt;color:#666;font-style:italic;margin:2pt 0;">One beat. Casual. No expansion yet.</p>
+  <div class="dialogue">"And that's your own place, yeah?"</div>
+  <p style="font-size:8pt;color:#666;font-style:italic;margin:2pt 0;">If yes — continue. If renting — see Objection Handling.</p>
+  <div class="dialogue">"And roughly how many people are in the home with you?"</div>
+</div>
+
+<!-- S4 -->
+<div class="no-break" style="margin-top:10pt;">
+  <div class="section-label">Section 4</div>
+  <h3>Problem Anchor</h3>
+  <div class="psych">This is the emotional centre of the call. Local credibility from Section 3 is what makes this land. Deliver at a slightly slower pace. Let the information breathe.</div>
+  <div class="dialogue">"One thing that comes up pretty consistently out [suburb] way — and honestly across most of Melbourne — is that the chlorine concentration is actually quite a bit higher than most people realise."</div>
+  <p style="font-size:8pt;color:#666;font-style:italic;margin:2pt 0;">Half-beat pause.</p>
+  <div class="dialogue">"And it doesn't show up the same way for everyone. Some people notice it in the taste. Others feel it on their skin — dry patches, itchiness, sometimes it shows up in the hair and scalp. A lot of people have just gotten used to it over time without ever making the connection."</div>
+  <div class="dialogue">"Have you noticed anything like that yourself, or with anyone else in the home?"</div>
+</div>
+
+<div class="branch-pair" style="margin-top:5pt;">
+  <div>
+    <p style="font-size:8pt;font-weight:700;margin-bottom:4pt;">If YES</p>
+    <div class="dialogue" style="font-size:8.5pt;">"Yeah, that makes sense — once you understand what's actually going on with the water, it tends to click pretty quickly."</div>
+    <p style="font-size:7.5pt;color:#666;font-style:italic;margin-top:3pt;">Don't over-expand. Let them sit with the connection.</p>
+  </div>
+  <div>
+    <p style="font-size:8pt;font-weight:700;margin-bottom:4pt;">If NO</p>
+    <div class="dialogue" style="font-size:8.5pt;">"Yeah, fair enough — it can be pretty subtle. Or it just becomes part of the background — people get used to it over time and stop noticing. Doesn't necessarily mean it's not there."</div>
+    <p style="font-size:7.5pt;color:#666;font-style:italic;margin-top:3pt;">Do NOT mention "assessment" yet. Move to Section 5.</p>
+  </div>
+</div>
+
+<!-- S5 -->
+<div class="no-break" style="margin-top:10pt;">
+  <div class="section-label">Section 5</div>
+  <h3>Water Habits</h3>
+  <div class="psych">Discovery beat, not a pitch setup. The rep's responses should be short. Ask ONE follow-up, then move. Cost justification belongs at the in-home — not here.</div>
+  <div class="dialogue">"Are you mainly on tap water at home, or do you go through bottled?"</div>
+</div>
+
+<div class="branch-pair" style="margin-top:5pt;">
+  <div>
+    <p style="font-size:8pt;font-weight:700;margin-bottom:4pt;">If bottled — explore, then move</p>
+    <p style="font-size:8.5pt;margin-bottom:3pt;">Option A: <em>"Yeah — how long have you been doing that?"</em></p>
+    <p style="font-size:8.5pt;margin-bottom:3pt;">Option B: <em>"Was that more about taste or just a general thing?"</em></p>
+    <p style="font-size:8.5pt;margin-bottom:5pt;">Option C (if long time): <em>"What made you start — was there something specific?"</em></p>
+    <p style="font-size:7.5pt;color:#666;font-style:italic;">After answer → "Yeah, makes sense." → Move to Section 6.</p>
+  </div>
+  <div>
+    <p style="font-size:8pt;font-weight:700;margin-bottom:4pt;">If tap — light curiosity</p>
+    <p style="font-size:8.5pt;margin-bottom:3pt;">Option A: <em>"Has anything ever made you think twice about it?"</em></p>
+    <p style="font-size:8.5pt;margin-bottom:3pt;">Option B: <em>"No real issues noticed, or just not something you've looked into?"</em></p>
+    <p style="font-size:8.5pt;margin-bottom:5pt;">Option C (considering switching): <em>"What's been putting you off?"</em></p>
+    <p style="font-size:7.5pt;color:#666;font-style:italic;">After answer → "Yeah, gotcha." → Move to Section 6.</p>
+  </div>
+</div>
+
+<!-- S6 -->
+<div class="no-break" style="margin-top:10pt;">
+  <div class="section-label">Section 6</div>
+  <h3>Prior Testing</h3>
+  <div class="psych">This is the knowledge gap question. It almost always reveals they've never had a proper assessment — and that admission is what makes the assessment feel necessary.</div>
+  <div class="dialogue">"And have you ever had your water actually tested before — like a proper on-site assessment of what's in it?"</div>
+</div>
+
+<div class="branch-pair" style="margin-top:5pt;">
+  <div>
+    <p style="font-size:8pt;font-weight:700;margin-bottom:4pt;">If NO — most common</p>
+    <div class="dialogue" style="font-size:8.5pt;">"Yeah, that's pretty typical — most people haven't. So you've got a concern, you're managing it one way or another, but you don't actually have a clear picture of what's going on."</div>
+    <p style="font-size:7.5pt;color:#666;font-style:italic;margin:3pt 0;">Pause. Let that sit. Then:</p>
+    <div class="dialogue" style="font-size:8.5pt;">"That's exactly what we'd look to fix."</div>
+  </div>
+  <div>
+    <p style="font-size:8pt;font-weight:700;margin-bottom:4pt;">If YES</p>
+    <div class="dialogue" style="font-size:8.5pt;">"Oh nice — good that you've had that done."</div>
+    <div class="dialogue" style="font-size:8.5pt;margin-top:4pt;">"The testing side of things is fairly similar across the board. Where it gets useful is actually having someone come out and look at your place — your plumbing setup, how many people are using the water, what you're trying to get out of it."</div>
+    <div class="dialogue" style="font-size:8.5pt;margin-top:4pt;">"A water test tells you what's in your water. What we're doing when we come out is working out what the right solution looks like for your home specifically — two pretty different conversations."</div>
+  </div>
+</div>
+
+<!-- S7 -->
+<div class="no-break" style="margin-top:10pt;">
+  <div class="section-label">Section 7</div>
+  <h3>Assessment Framing</h3>
+  <div class="psych">By this point the customer has acknowledged a problem, revealed how they're imperfectly handling it, and admitted they've never properly tested their water. The assessment is now the obvious answer. Do not over-explain the product — that is the technician's job.</div>
+  <div class="dialogue">"So what we'd do from here — we'd get one of our water technicians out to you. They run a full on-site water quality assessment — completely free, no obligation."</div>
+  <div class="dialogue">"They'll test your water, show you exactly what's in it — chlorine levels, sediment, anything else that's there — and walk you through what that actually means for your home."</div>
+  <div class="dialogue">"From there, if there's anything that needs addressing, they'll recommend what suits your place and give you a fixed quote on the spot. But there's no pressure to make any decision on the day."</div>
+  <div class="dialogue">"At the very least, you'll actually know what's in your water — which most people genuinely don't."</div>
+</div>
+
+<!-- S8 -->
+<div class="no-break" style="margin-top:10pt;">
+  <div class="section-label">Section 8</div>
+  <h3>Transition to Booking</h3>
+  <div class="psych">Don't ask "would you like to book?" — that invites a "no." Treat the appointment as the self-evident next step.</div>
+  <div class="dialogue">"Let me just take a quick look at what we've got available and get something sorted for you."</div>
+  <p style="font-size:8pt;color:#666;font-style:italic;margin:2pt 0;">Brief pause — sounds like you're actually checking.</p>
+  <div class="dialogue">"Before I lock something in — is there anyone else in the home who'd normally be across a decision like this? Partner, spouse?"</div>
+</div>
+
+<div class="branch-pair" style="margin-top:5pt;">
+  <div>
+    <p style="font-size:8pt;font-weight:700;margin-bottom:4pt;">If YES</p>
+    <p style="font-size:8.5pt;">"Worth having them there if you can — just means you don't have to relay everything afterwards. The technician goes through it all in detail and gives the quote on the spot, so it's a lot smoother when everyone's across it together."</p>
+  </div>
+  <div>
+    <p style="font-size:8pt;font-weight:700;margin-bottom:4pt;">If NO</p>
+    <p style="font-size:8.5pt;">"No worries at all — just wanted to check."</p>
+  </div>
+</div>
+
+<!-- S9–11 -->
+<div class="no-break" style="margin-top:10pt;">
+  <div class="section-label">Section 9</div>
+  <h3>Appointment Close</h3>
+  <div class="psych">Binary choice close. Never ask "when suits you?" — open-ended questions produce hesitation. Offer two options, then wait. The first person to speak after this question loses.</div>
+  <div class="dialogue">"So I've got [Specific Day + Time] or [Alternate] — which of those works better for you?"</div>
+  <div class="dialogue">"Perfect. And just grab your address for me?"</div>
+  <div class="dialogue">"Brilliant. So that's [Day] at [Time] — the technician will be with you for about 30 to 40 minutes. They'll run through everything properly and you'll have a clear picture by the end of it."</div>
+</div>
+
+<div class="no-break" style="margin-top:10pt;">
+  <div class="section-label">Section 10</div>
+  <h3>Promo</h3>
+  <div class="psych">Post-close only. The promotion is a reward for deciding — not a lever to extract the decision. Pre-close use cheapens the brand.</div>
+  <div class="dialogue">"One thing worth mentioning — we do have a promotion running through [month]. If you decide on the day that you'd like to go ahead, there's up to 20% we can take off. Entirely up to you — no pressure at all."</div>
+</div>
+
+<div class="no-break" style="margin-top:10pt;">
+  <div class="section-label">Section 11</div>
+  <h3>Close Out</h3>
+  <div class="psych">The final 30 seconds create the emotional memory of the call. Warm, organised, confident. This is your most powerful cancellation prevention tool.</div>
+  <div class="dialogue">"I'll send you a confirmation through now — time, address, and a link to our site if you want to have a look beforehand."</div>
+  <div class="dialogue">"If anything comes up or you need to shift the time, just reply to that message and we'll sort it out. Otherwise we'll see you [Day]."</div>
+  <div class="dialogue">"Appreciate your time [Name] — speak soon."</div>
+</div>
+
+
+<!-- ══ PART 4 ══ -->
+<div class="page-break"></div>
+<div class="part-header no-break"><h2>Part 4 — Objection Mastery</h2></div>
+
+<div class="highlight-box no-break" style="margin-bottom:10pt;">
+  <h4>Core Principle</h4>
+  <p>Objections are not rejections. They are requests for information or reassurance — rooted in uncertainty, past experience, habit, or genuine concern.</p>
+  <p style="font-size:11pt;font-weight:700;text-align:center;margin:7pt 0 4pt;">Acknowledge &nbsp;→&nbsp; Reframe &nbsp;→&nbsp; Redirect</p>
+  <p style="margin-bottom:0;font-size:8.5pt;color:#555;">Never argue. Never defend. Never over-explain.</p>
+</div>
+
+<div class="objection-block">
+  <div class="obj-header">OBJECTION: "Can you just give me a price?"</div>
+  <div class="obj-body">
+    <div class="obj-strategy">Strategy: Reframe price avoidance as professional integrity — for their benefit</div>
+    <div class="dialogue">"Yeah, completely understand — honestly, I'd love to give you a number right now."</div>
+    <div class="dialogue">"The issue is, if I gave you a figure without actually knowing anything about your home, I'd basically be guessing. And if I guess too low, you get a surprise on the day. If I guess too high, I've put you off before we've even had a chance to look at your situation properly."</div>
+    <div class="dialogue">"What the technician does is come out, look at your plumbing, your home size, work out exactly what you need — and then give you one fixed number on the spot. No surprises."</div>
+    <div class="dialogue">"That way the quote is actually accurate for you, not just a ballpark that may or may not mean anything."</div>
+    <p class="obj-note">If they push again:</p>
+    <div class="pivot">"I'll be honest — the range varies quite a bit depending on the home. It's like asking a builder to quote a renovation without seeing the house."</div>
+    <div class="dialogue">"What I can do is get the technician out and at least give you something concrete. I've got [Day] or [Alt] — what works better?"</div>
+  </div>
+</div>
+
+<div class="objection-block">
+  <div class="obj-header">OBJECTION: "Just send me some info"</div>
+  <div class="obj-body">
+    <div class="dialogue">"Yeah, I can definitely do that — the only thing is, what we'd send through is pretty general. It won't tell you anything specific about your water or your home."</div>
+    <div class="dialogue">"Most people who go down that path end up asking more questions after reading it, and then we end up booking the assessment anyway."</div>
+    <div class="dialogue">"Honestly, the assessment tells you more in 30 minutes than any document could — and it's free. It's probably worth just getting someone out first."</div>
+    <p class="obj-note">Close: "I've got [Day] or [Alt] — which of those could work?"</p>
+  </div>
+</div>
+
+<div class="objection-block">
+  <div class="obj-header">OBJECTION: "I've already had a water test"</div>
+  <div class="obj-body">
+    <div class="obj-strategy">Strategy: Acknowledge positively — no competitor criticism — pivot value to seeing the home</div>
+    <div class="dialogue">"Oh nice — good that you've had that done."</div>
+    <div class="dialogue">"The testing side of things is fairly similar across the board. Where it gets useful is actually having someone come out and look at your place — your plumbing setup, how many people are using the water, what you're trying to get out of it. That's really where the right recommendation comes from."</div>
+    <div class="dialogue">"A water test tells you what's in your water. What we're doing when we come out is working out what the right solution looks like for your home specifically — and those are two pretty different conversations."</div>
+    <p class="obj-note">Close: "Worth at least having a look. Is [Day] or [Alt] doable for you?"</p>
+  </div>
+</div>
+
+<div class="objection-block">
+  <div class="obj-header">OBJECTION: "Not really interested / just curious"</div>
+  <div class="obj-body">
+    <div class="dialogue">"Yeah, totally fair — and there's absolutely no obligation at all."</div>
+    <div class="dialogue">"Honestly, most people who end up getting a system started out the same way — just curious, not really planning on doing anything. Then they see the results and it changes things pretty quickly."</div>
+    <div class="dialogue">"Even if nothing comes of it, you'll at least know exactly what's in your water — which most people actually don't. Is that something you'd be open to?"</div>
+    <p class="obj-note">If still hesitant: "Look, if now's not the right time, that's completely fine. Would it be okay if I reached out in a few weeks when things have settled?"</p>
+  </div>
+</div>
+
+<div class="objection-block">
+  <div class="obj-header">OBJECTION: "Too expensive / not in the budget"</div>
+  <div class="obj-body">
+    <div class="dialogue">"Yeah, I completely hear that — and that's exactly why we don't do pricing over the phone."</div>
+    <div class="dialogue">"The assessment is free, and it's really just about getting a proper picture of what's going on with your water. From there, if it's not the right time financially, that's totally okay."</div>
+    <div class="dialogue">"At the very least you'll know what you're dealing with — and when the time is right, you'll know exactly what you need."</div>
+    <p class="obj-note">Close: "I've got [Day] or [Alt] — even just to get the information, is either of those doable?"</p>
+  </div>
+</div>
+
+<div class="objection-block">
+  <div class="obj-header">OBJECTION: "Why does my partner need to be there?"</div>
+  <div class="obj-body">
+    <div class="dialogue">"Yeah, good question. It's not a hard requirement at all — more of a recommendation on our end."</div>
+    <div class="dialogue">"What we find is, the technician goes through quite a bit of detail, and gives a fixed quote on the spot. If someone isn't there, people usually end up needing to relay everything — which is fine, but it sometimes means booking a second visit anyway."</div>
+    <div class="dialogue">"If your partner can be there, it just makes the whole thing a lot smoother. But if not, we can absolutely work around it."</div>
+  </div>
+</div>
+
+<div class="objection-block">
+  <div class="obj-header">OBJECTION: "I'm renting"</div>
+  <div class="obj-body">
+    <div class="dialogue">"Ah, gotcha. Yeah, it does need to be owner-occupied for us to install — so that's fair enough."</div>
+    <div class="dialogue">"Is there any chance you're looking at purchasing somewhere, or is it more of a long-term rental situation?"</div>
+    <div class="pivot">If purchasing: "Worth keeping us in mind once you're settled. I can pop you on our list and reach out when the time's closer if that'd be useful?"</div>
+    <div class="pivot">If long-term rental: "No worries at all — appreciate you having a chat. If anything changes down the track, feel free to reach back out."</div>
+  </div>
+</div>
+
+<div class="objection-block">
+  <div class="obj-header">OBJECTION: "I've seen a competitor / already getting quotes"</div>
+  <div class="obj-body">
+    <div class="dialogue">"Yeah, makes sense — it's a big decision, worth doing properly."</div>
+    <div class="dialogue">"Without knowing who you've spoken to, I can't really compare — but what I'd say is: get our technician out, see what they put together, and compare properly. At least then you're looking at apples to apples."</div>
+    <div class="dialogue">"We're pretty confident in what we do and the quality of what we install — so we're happy to let the assessment speak for itself."</div>
+    <p class="obj-note">Close: "I've got [Day] or [Alt] — worth at least getting our take on it?"</p>
+  </div>
+</div>
+
+<div class="objection-block">
+  <div class="obj-header">OBJECTION: "I need to think about it"</div>
+  <div class="obj-body">
+    <div class="dialogue">"Yeah, of course — makes complete sense."</div>
+    <div class="dialogue">"Can I ask, is there anything specific you're weighing up? Just want to make sure you've got everything you need."</div>
+    <p class="obj-note">Listen. Address the specific concern. Then:</p>
+    <div class="dialogue">"Look, the assessment is genuinely free and low-pressure — it might actually make the decision a lot easier. What's the worst that happens? You know more than you do now."</div>
+    <p class="obj-note">If still needs time: "Fair enough. Can I check back in with you [Day/time]? I'll give you a ring then — and if you're ready to get something booked, we'll sort it out."</p>
+  </div>
+</div>
+
+
+<!-- ══ PART 5 ══ -->
+<div class="page-break"></div>
+<div class="part-header no-break"><h2>Part 5 — Appointment Protection</h2></div>
+
+<p>Booking the appointment is only half the battle. The goal is to make cancelling feel psychologically uncomfortable — not through pressure, but through <strong>pre-investment language</strong> that makes the homeowner feel committed and excited before the technician arrives.</p>
+
+<h3>Cancellation Prevention — Language at Booking</h3>
+<div class="dialogue">"The technician will actually look up your area beforehand so they come prepared — they'll have a sense of what the water's like in [suburb] before they even walk in."</div>
+<div class="dialogue">"They're pretty thorough — most people say the assessment is the most useful 30 minutes they've spent on their home."</div>
+<div class="dialogue">"You'll have a proper picture of your water by the end of it — regardless of what you decide."</div>
+
+<h3>If They Try to Reschedule</h3>
+<div class="dialogue">"Of course, no problem at all. Let me see what we've got. Can I ask — is the original time completely off the table or just that particular day?"</div>
+<div class="pivot">If just the day: "Let me see what I can do. I want to keep you with the same technician — they'll already have looked into your area beforehand, so it's worth keeping that continuity."</div>
+
+
+<!-- ══ PART 6 ══ -->
+<div class="page-break"></div>
+<div class="part-header no-break"><h2>Part 6 — SMS &amp; Confirmation Templates</h2></div>
+<p style="font-size:8pt;color:#666;font-style:italic;margin-bottom:10pt;">All SMS sent within 5 minutes of the call ending.</p>
+
+<h3>SMS 1 — Immediate Booking Confirmation</h3>
+<div class="sms-box">Hey [Name], it's [Rep Name] from Neptune Water Filtration.
+
+Just locking in your water quality assessment:
+
+📅 [Day], [Date]
+⏰ [Time]
+📍 [Address]
+
+Your technician will run a full assessment of your water and give you a detailed rundown of what's there. Takes about 30–40 minutes and there's no obligation at all.
+
+If you need to move the time, just reply to this message and we'll sort it. Otherwise, we'll see you [Day].
+
+neptunefiltration.com.au</div>
+
+<h3>SMS 2 — 24-Hour Reminder <span style="font-size:8pt;font-weight:400;color:#666;">(send evening before)</span></h3>
+<div class="sms-box">Hey [Name] — just a quick heads up, your Neptune water assessment is tomorrow at [Time].
+
+Your technician will be coming to [suburb] and has your appointment locked in.
+
+Any questions before then, feel free to reply. Otherwise, we'll see you tomorrow 👍
+
+— Neptune Water Filtration</div>
+
+<h3>SMS 3 — Morning of Appointment</h3>
+<div class="sms-box">Morning [Name] — just a reminder your Neptune water assessment is today at [Time].
+
+Looking forward to seeing you. If anything's come up, reply here and we'll work something out.
+
+— Neptune</div>
+
+<h3>SMS 4 — Soft Info Send <span style="font-size:8pt;font-weight:400;color:#666;">(when customer asks for info before booking)</span></h3>
+<div class="sms-box">Hey [Name] — [Rep Name] from Neptune here.
+
+Sending through our website as promised: neptunefiltration.com.au
+
+Worth having a look through. As mentioned, the best way to get a real picture of your specific water is through the free assessment — happy to get that sorted for you whenever you're ready.
+
+Just reply here or give us a call. No pressure at all.
+
+— Neptune Water Filtration</div>
+
+
+<!-- ══ PART 7 ══ -->
+<div class="page-break"></div>
+<div class="part-header no-break"><h2>Part 7 — Reactivation Scripts</h2></div>
+<p style="font-size:8pt;color:#666;font-style:italic;margin-bottom:10pt;">For leads who enquired but never booked, or booked and cancelled without rescheduling.</p>
+
+<h3>Reactivation Call</h3>
+<div class="psych">Don't reference what happened before with frustration or pressure. Treat it as a fresh conversation with an existing relationship.</div>
+<div class="dialogue">"Hey [Name], it's [Rep Name] from Neptune — how are you going?"</div>
+<div class="dialogue">"Just wanted to check in — you had reached out a little while back about the water filtration and I wanted to see if that was still something on your radar, or if things had changed."</div>
+
+<div class="branch-pair" style="margin-top:6pt;">
+  <div>
+    <p style="font-size:8pt;font-weight:700;margin-bottom:4pt;">If still interested</p>
+    <div class="dialogue" style="font-size:8.5pt;">"Yeah, makes sense. We've had a fair bit happening in your area lately — might be worth getting someone out now while we've got some availability. I've got [Day] or [Alt] — what could work?"</div>
+  </div>
+  <div>
+    <p style="font-size:8pt;font-weight:700;margin-bottom:4pt;">If "not right now"</p>
+    <div class="dialogue" style="font-size:8.5pt;">"No worries at all. Can I ask — is it more a timing thing, or has something changed with your situation?"</div>
+    <p style="font-size:7.5pt;color:#666;font-style:italic;margin-top:3pt;">Address the response, then offer a soft future close.</p>
+  </div>
+</div>
+
+<h3 style="margin-top:12pt;">Reactivation SMS — First Touch</h3>
+<div class="sms-box">Hey [Name] — it's [Rep Name] from Neptune.
+
+Just checking in — you'd reached out a few weeks back about water filtration for your home. Wanted to see if that was still something you were thinking about, or if timing had changed.
+
+Happy to have a quick chat if useful. No pressure at all — just didn't want to leave you hanging.
+
+— Neptune Water Filtration</div>
+
+<h3>Reactivation SMS — Second Touch <span style="font-size:8pt;font-weight:400;color:#666;">(7 days later)</span></h3>
+<div class="sms-box">Hey [Name], Neptune Water here again — just a final check-in.
+
+We do have a current promotion running through [Month] with up to 20% off. Just worth mentioning in case the timing is better now.
+
+Free assessment, no obligation. Happy to get something sorted quickly if you're keen.
+
+— Neptune</div>
+
+<h3>Reactivation SMS — Final Touch</h3>
+<div class="sms-box">Hey [Name] — last one from us, promise.
+
+If you ever want to revisit the water assessment down the track, we're here. No rush, no pressure.
+
+neptunefiltration.com.au — or just reply here.
+
+Take care. — Neptune Water Filtration</div>
+
+<h3>Voicemail Script</h3>
+<div class="psych">Short, confident, specific. Never leave a long voicemail. Then immediately send SMS 4.</div>
+<div class="dialogue">"Hey [Name] — it's [Rep Name] from Neptune Filtration. Just following up on your enquiry about the water filtration. Give us a call back when you get a chance — [number]. Speak soon."</div>
+
+
+<!-- ══ PART 8 — QUICK REFERENCE ══ -->
+<div class="page-break"></div>
+<div class="part-header no-break"><h2>Part 8 — Quick Reference</h2></div>
+
+<div class="flow-map">OPEN → DISCOVER → LOCATE + LOCAL AUTHORITY → PROBLEM ANCHOR → WATER HABITS → PRIOR TESTING → ASSESSMENT FRAME → TRANSITION → CLOSE → PROMO → OUT</div>
+
+<div class="two-col" style="margin-top:10pt;">
+  <div class="highlight-box" style="margin:0;">
+    <h4>Never</h4>
+    <ul>
+      <li>Give a price without the professional integrity explanation</li>
+      <li>Volunteer pricing before they ask</li>
+      <li>Rush the close</li>
+      <li>Fill silence after asking a question</li>
+      <li>Over-explain the product or system</li>
+      <li>Use "absolutely", "definitely", "100%"</li>
+      <li>Mention "the assessment" before Section 7</li>
+    </ul>
+  </div>
+  <div class="highlight-box" style="margin:0;">
+    <h4>Always</h4>
+    <ul>
+      <li>Say "your water" not "the water"</li>
+      <li>Sound like you're checking availability before offering times</li>
+      <li>Ask about a partner after the transition, before time slots</li>
+      <li>Deliver the promo AFTER the appointment is locked</li>
+      <li>Send the confirmation SMS within 5 minutes</li>
+      <li>Capture notes live — not from memory after</li>
+    </ul>
+  </div>
+</div>
+
+<div class="power-box" style="margin-top:12pt;">
+  <div class="power-box-title">Power Lines — Memorise These 7 Exactly</div>
+  <div class="power-box-body">
+    <div class="power-col">
+      <div class="pl"><span class="pl-lbl">Open</span><span class="pl-txt">"just a quick chat — get a bit of an understanding, and work out the best way to help"</span></div>
+      <div class="pl"><span class="pl-lbl">Local</span><span class="pl-txt">"Yeah, we're actually out [suburb] way quite a bit."</span></div>
+      <div class="pl"><span class="pl-lbl">Anchor</span><span class="pl-txt">"A lot of people have just gotten used to it over time without ever making the connection."</span></div>
+      <div class="pl" style="border:none;"><span class="pl-lbl">No Pressure</span><span class="pl-txt">"You don't need to make any decision on the day."</span></div>
+    </div>
+    <div class="power-col">
+      <div class="pl"><span class="pl-lbl">Reassure</span><span class="pl-txt">"At the very least, you'll know exactly what's in your water — which most people don't."</span></div>
+      <div class="pl"><span class="pl-lbl">Close</span><span class="pl-txt">"I've got [Day] or [Alt] — which works better for you?"</span></div>
+      <div class="pl" style="border:none;"><span class="pl-lbl">Price</span><span class="pl-txt">"If I gave you a number without seeing your home, I'd basically be guessing."</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="highlight-box no-break" style="margin-top:12pt;">
+  <h4>The Mindset Before Every Call</h4>
+  <p style="margin-bottom:0;">You're not trying to sell anything on this call. You're having a genuine conversation with someone whose water — the thing they drink, cook with, shower in, and give to their kids every single day — may not be as clean as they think. You have access to a free service that gives them real answers. Your job is simply to offer it in a way that makes it easy for them to say yes.</p>
+</div>
+
+<div class="doc-footer">
+  <span>Neptune Water Filtration — Internal Sales Document — Confidential</span>
+  <span>Inbound Conversion Framework v1.3 · May 2026</span>
+</div>
+
+</body>
+</html>

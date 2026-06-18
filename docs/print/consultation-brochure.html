@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neptune — Consultation Brochure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --nd: #0B1E3D;
+  --nc: #B87333;
+  --nw: #FFFFFF;
+  --ts: #4A5C72;
+  --tm: #7A8EA3;
+  --of: #F5F8FC;
+  --sz: 600px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+img { display: block; }
+
+body {
+  background: #0e0e0e;
+  font-family: 'Poppins', system-ui, sans-serif;
+  padding: 56px 0 72px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell-label {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.18);
+  margin-bottom: 52px;
+}
+
+.pages { display: flex; flex-direction: column; align-items: center; gap: 44px; }
+.pu    { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.pl    { font-size: 9px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.16); }
+
+.pg {
+  width: var(--sz);
+  height: var(--sz);
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 16px 64px rgba(0,0,0,0.65), 0 2px 8px rgba(0,0,0,0.35);
+}
+
+
+/* ═══════════════════════════════════════════════════
+   PAGE 1 — COVER (unchanged)
+════════════════════════════════════════════════════ */
+
+.p1 { background: var(--nd); }
+.p1-img {
+  position: absolute; inset: 0;
+  background-image: url('../../website/assets/install-photos/neptuneheroai.png');
+  background-size: cover; background-position: center;
+}
+.p1-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg,rgba(8,18,35,.02) 0%,rgba(8,18,35,.08) 28%,rgba(8,18,35,.55) 64%,rgba(8,18,35,.92) 100%);
+}
+.p1-brand { position: absolute; bottom: 48px; left: 48px; }
+.p1-logo  { width: 148px; margin-bottom: 12px; }
+.p1-tag   { font-size: 9px; font-weight: 300; color: rgba(255,255,255,.52); letter-spacing: .18em; text-transform: uppercase; }
+.p1-cred  { font-size: 7px; font-weight: 400; color: rgba(255,255,255,.22); letter-spacing: .10em; text-transform: uppercase; margin-top: 11px; }
+
+
+/* ═══════════════════════════════════════════════════
+   PAGE 2 — HORIZONTAL BANDS: WATER PROBLEMS | 3-STAGE SYSTEM
+════════════════════════════════════════════════════ */
+
+.p2 { background: var(--nd); position: relative; overflow: hidden; }
+
+/* Band 1 — Stat strip (top 60px, navy) */
+.p2-stat {
+  position: absolute; top: 0; left: 0; right: 0; height: 60px;
+  background: rgba(255,255,255,.03);
+  border-bottom: 1px solid rgba(184,115,51,.28);
+  display: flex; align-items: center; gap: 14px; padding: 0 28px;
+  z-index: 10;
+}
+.p2-snum { font-size: 34px; font-weight: 800; color: var(--nc); line-height: 1; letter-spacing: -.03em; flex-shrink: 0; }
+.p2-stxt { font-size: 7px; font-weight: 400; color: rgba(255,255,255,.62); line-height: 1.55; flex: 1; }
+.p2-saside { font-size: 5.5px; font-weight: 700; color: rgba(255,255,255,.2); letter-spacing: .13em; text-transform: uppercase; flex-shrink: 0; white-space: nowrap; }
+
+/* Band 2 — Section heading (60–128px, navy) */
+.p2-water-head {
+  position: absolute; top: 60px; left: 0; right: 0; height: 68px;
+  padding: 13px 28px 0;
+  z-index: 10;
+}
+.p2-wh { font-size: 22px; font-weight: 700; color: var(--nw); line-height: 1; margin-bottom: 6px; letter-spacing: -.01em; }
+.p2-wrule { height: 1.5px; background: linear-gradient(to right, var(--nc), transparent); margin-bottom: 6px; }
+.p2-wintro { font-size: 6px; font-weight: 400; color: rgba(255,255,255,.38); line-height: 1.5; }
+
+/* Band 3 — Problem columns (128–300px, white) */
+.p2-problems {
+  position: absolute; top: 128px; left: 0; right: 0; height: 172px;
+  background: #fff;
+  display: flex;
+  z-index: 10;
+}
+.p2-prob {
+  flex: 1; padding: 14px 17px;
+  border-right: 1px solid rgba(11,30,61,.07);
+  display: flex; flex-direction: column;
+}
+.p2-prob:last-child { border-right: none; }
+.p2-pnum { font-size: 7px; font-weight: 700; color: var(--nc); letter-spacing: .12em; margin-bottom: 5px; }
+.p2-pt { font-size: 8px; font-weight: 700; color: var(--nd); line-height: 1.25; margin-bottom: 5px; }
+.p2-pb { font-size: 5.8px; font-weight: 400; color: var(--ts); line-height: 1.65; }
+
+/* Band 4 — System divider (300–334px, navy) */
+.p2-divider {
+  position: absolute; top: 300px; left: 0; right: 0; height: 34px;
+  background: var(--nd);
+  display: flex; align-items: center; gap: 14px; padding: 0 28px;
+  z-index: 10;
+}
+.p2-dline { flex: 1; height: 1px; background: rgba(184,115,51,.22); }
+.p2-dlabel { font-size: 6px; font-weight: 700; color: rgba(184,115,51,.6); letter-spacing: .15em; text-transform: uppercase; white-space: nowrap; flex-shrink: 0; }
+
+/* Band 5 — Stage columns (334–600px, navy) */
+.p2-stages {
+  position: absolute; top: 334px; left: 0; right: 0; bottom: 0;
+  background: var(--nd);
+  display: flex;
+  z-index: 10;
+}
+.p2-stage {
+  flex: 1; padding: 12px 15px;
+  border-right: 1px solid rgba(255,255,255,.06);
+  display: flex; flex-direction: column;
+}
+.p2-stage:last-child { border-right: none; }
+.p2-stagehead { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 3px; }
+.p2-sn   { font-size: 6px; font-weight: 700; color: var(--nc); letter-spacing: .13em; }
+.p2-sspec { font-size: 5.5px; font-weight: 400; color: rgba(255,255,255,.28); }
+.p2-sname { font-size: 9px; font-weight: 600; color: rgba(255,255,255,.92); line-height: 1.22; margin-bottom: 5px; }
+.p2-rlabel { font-size: 5px; font-weight: 700; color: rgba(184,115,51,.62); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 4px; }
+.p2-removes { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 5px; }
+.p2-ri {
+  font-size: 5.5px; font-weight: 500; color: rgba(255,255,255,.65);
+  border: 1px solid rgba(184,115,51,.32); border-radius: 2px;
+  padding: 1.5px 5px; line-height: 1.35;
+}
+.p2-fact {
+  font-size: 5.5px; font-style: italic; font-weight: 600;
+  color: rgba(184,115,51,.78); line-height: 1.5; margin-top: auto;
+}
+.p2-mech { font-size: 5.5px; font-weight: 400; color: rgba(255,255,255,.22); line-height: 1.62; margin-top: 3px; }
+
+
+/* ═══════════════════════════════════════════════════
+   PAGE 3 — VERTICAL SPLIT: WHAT YOU NOTICE | GUARANTEE
+════════════════════════════════════════════════════ */
+
+.p3 { background: var(--nd); position: relative; overflow: hidden; }
+
+/* Left zone — white background, benefits (58% width) */
+.p3-left {
+  position: absolute; top: 0; bottom: 52px; left: 0; width: 58%;
+  background: #fff;
+  padding: 24px 18px 18px 26px;
+  display: flex; flex-direction: column;
+  z-index: 10;
+  border-right: 1px solid rgba(11,30,61,.07);
+}
+.p3-lh { font-size: 21px; font-weight: 700; color: var(--nd); line-height: 1.05; margin-bottom: 5px; letter-spacing: -.01em; }
+.p3-lrule { height: 1.5px; background: linear-gradient(to right, var(--nc), transparent); margin-bottom: 7px; flex-shrink: 0; }
+.p3-lintro { font-size: 6px; font-weight: 400; color: var(--tm); line-height: 1.6; margin-bottom: 10px; flex-shrink: 0; }
+
+.p3-benefits { flex: 1; display: flex; flex-direction: column; }
+.p3-bn {
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
+  border-bottom: 1px solid rgba(11,30,61,.07);
+  padding: 3px 0;
+}
+.p3-bn:last-child { border-bottom: none; }
+.p3-bp { font-size: 7.5px; font-weight: 600; color: var(--nd); line-height: 1.28; margin-bottom: 2px; }
+.p3-bs { font-size: 6px; font-weight: 400; color: var(--ts); line-height: 1.55; }
+
+/* Right zone — navy background, guarantee + service (42% width) */
+.p3-right {
+  position: absolute; top: 0; bottom: 52px; right: 0; width: 42%;
+  background: var(--nd);
+  padding: 24px 20px 18px 18px;
+  display: flex; flex-direction: column;
+  z-index: 10;
+}
+.p3-rh { font-size: 15px; font-weight: 700; color: var(--nw); line-height: 1.1; margin-bottom: 5px; }
+.p3-rrule { height: 1px; background: linear-gradient(to right, rgba(184,115,51,.75), transparent); margin-bottom: 14px; flex-shrink: 0; }
+
+/* Guarantee block */
+.p3-guarantee {
+  background: rgba(255,255,255,.05);
+  border-left: 2.5px solid var(--nc);
+  padding: 11px 11px 10px;
+  margin-bottom: 14px; flex-shrink: 0;
+}
+.p3-gtag {
+  font-size: 5.5px; font-weight: 700; color: var(--nc);
+  letter-spacing: .14em; text-transform: uppercase; margin-bottom: 5px;
+}
+.p3-gbody {
+  font-size: 6.5px; font-weight: 400; color: rgba(255,255,255,.72);
+  line-height: 1.68;
+}
+
+/* Annual service */
+.p3-service {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: 12px; flex: 1;
+  display: flex; gap: 10px;
+}
+.p3-snum {
+  font-size: 24px; font-weight: 800; color: var(--nc);
+  line-height: 1; letter-spacing: -.02em;
+  flex-shrink: 0; width: 28px;
+}
+.p3-scontent { display: flex; flex-direction: column; gap: 4px; }
+.p3-stitle { font-size: 8px; font-weight: 600; color: rgba(255,255,255,.9); line-height: 1.28; }
+.p3-sdesc  { font-size: 6px; font-weight: 400; color: rgba(255,255,255,.42); line-height: 1.65; }
+
+/* Credential strip — full width, bottom 52px */
+.p3-cred {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 52px;
+  background: var(--nd);
+  border-top: 1px solid rgba(184,115,51,.22);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; z-index: 25;
+}
+.p3-ci { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.p3-ct { font-size: 7.5px; font-weight: 600; color: rgba(255,255,255,.88); line-height: 1.3; white-space: nowrap; }
+.p3-cs { font-size: 6px; font-weight: 400; color: rgba(255,255,255,.32); line-height: 1.3; white-space: nowrap; }
+.p3-dv { width: 1px; height: 22px; background: rgba(184,115,51,.28); flex-shrink: 0; margin: 0 13px; }
+
+
+/* ═══════════════════════════════════════════════════
+   PAGE 4 — BACK COVER (unchanged)
+════════════════════════════════════════════════════ */
+
+.p4 { background: var(--nd); display: flex; align-items: center; justify-content: center; position: relative; }
+.p4-glow  { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 44%, rgba(26,95,168,.16) 0%, transparent 60%); }
+.p4-brand { position: relative; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.p4-logo  { width: 164px; margin-bottom: 14px; }
+.p4-tag   { font-size: 10px; font-weight: 500; color: rgba(255,255,255,.68); letter-spacing: .07em; margin-bottom: 20px; }
+.p4-stmt  { font-size: 8px; font-weight: 400; color: rgba(255,255,255,.34); line-height: 1.74; margin-bottom: 28px; max-width: 300px; }
+.p4-contact { font-size: 9px; font-weight: 400; color: rgba(255,255,255,.36); line-height: 1.95; letter-spacing: .05em; }
+.p4-cred  { font-size: 7px; font-weight: 400; color: rgba(255,255,255,.18); letter-spacing: .08em; text-transform: uppercase; margin-top: 20px; line-height: 1.9; }
+
+
+/* ─── PRINT ─────────────────────────────────────── */
+@media print {
+  body { background: #fff; padding: 0; }
+  .shell-label, .pl { display: none; }
+  .pages { gap: 0; }
+  .pu { gap: 0; }
+  .pg { width: 210mm; height: 210mm; box-shadow: none; page-break-after: always; break-after: page; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="shell-label">Neptune Whole Home Filtration &nbsp;—&nbsp; Consultation Brochure &nbsp;—&nbsp; 4 Pages &nbsp;—&nbsp; 210 × 210 mm</div>
+
+<div class="pages">
+
+  <!-- ══════════════════════════════════════
+       PAGE 1 — COVER
+  ══════════════════════════════════════ -->
+  <div class="pu">
+    <div class="pl">01 — Cover</div>
+    <div class="pg p1">
+      <div class="p1-img"></div>
+      <div class="p1-ov"></div>
+      <div class="p1-brand">
+        <img class="p1-logo" src="../../assets/logos/Neptune_Logo_White.png" alt="NEPTUNE Whole Home Filtration">
+        <div class="p1-tag">Melbourne's Water Specialists</div>
+        <div class="p1-cred">WaterMark Certified &nbsp;·&nbsp; VIC Licensed &amp; Insured &nbsp;·&nbsp; 7-Year Workmanship Warranty</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PAGE 2 — HORIZONTAL BANDS: WATER | 3-STAGE SYSTEM
+  ══════════════════════════════════════ -->
+  <div class="pu">
+    <div class="pl">02 — What's in your water &nbsp;/&nbsp; 3-stage filter system</div>
+    <div class="pg p2">
+
+      <!-- Band 1: Stat strip -->
+      <div class="p2-stat">
+        <div class="p2-snum">6×</div>
+        <div class="p2-stxt">more chlorine is absorbed through skin during a 10-minute shower than from drinking a glass of tap water — every morning, in every Melbourne home.</div>
+        <div class="p2-saside">Neptune 5–1–1 Micron</div>
+      </div>
+
+      <!-- Band 2: Section heading -->
+      <div class="p2-water-head">
+        <div class="p2-wh">What's in your water.</div>
+        <div class="p2-wrule"></div>
+        <div class="p2-wintro">Melbourne Water treats your supply to meet the Australian Drinking Water Guidelines. Meeting the guideline is the legal minimum — not the standard you'd choose for your household.</div>
+      </div>
+
+      <!-- Band 3: Problem columns (white) -->
+      <div class="p2-problems">
+        <div class="p2-prob">
+          <div class="p2-pnum">01</div>
+          <div class="p2-pt">Chlorine is present in every home.</div>
+          <div class="p2-pb">Added at high levels to disinfect the distribution network. Active in your drinking water, cooking water, and every shower — every day. Does not evaporate at room temperature.</div>
+        </div>
+        <div class="p2-prob">
+          <div class="p2-pnum">02</div>
+          <div class="p2-pt">Scale and sediment vary by suburb.</div>
+          <div class="p2-pb">Calcium and magnesium accumulate on shower screens, taps, and appliances. Just 1mm of scale reduces water heater efficiency by up to 11%. Your test reflects your specific supply.</div>
+        </div>
+        <div class="p2-prob">
+          <div class="p2-pnum">03</div>
+          <div class="p2-pt">Older pipes carry additional risk.</div>
+          <div class="p2-pb">Lead and mercury leach from pre-1970 infrastructure after leaving treatment. Tasteless, odourless, and untraceable without testing. Common in established Melbourne suburbs.</div>
+        </div>
+      </div>
+
+      <!-- Band 4: System divider -->
+      <div class="p2-divider">
+        <div class="p2-dline"></div>
+        <div class="p2-dlabel">Neptune 5·1·1 Micron — The 3-Stage System</div>
+        <div class="p2-dline"></div>
+      </div>
+
+      <!-- Band 5: Stage columns -->
+      <div class="p2-stages">
+
+        <div class="p2-stage">
+          <div class="p2-stagehead">
+            <span class="p2-sn">STAGE 01</span>
+            <span class="p2-sspec">5 Micron</span>
+          </div>
+          <div class="p2-sname">Pleated Sediment Filter</div>
+          <div class="p2-rlabel">Removes</div>
+          <div class="p2-removes">
+            <span class="p2-ri">Rust &amp; sediment</span>
+            <span class="p2-ri">Pipe particles</span>
+            <span class="p2-ri">Physical debris</span>
+            <span class="p2-ri">Coarse suspended matter</span>
+          </div>
+          <div class="p2-fact">A human hair is 70 microns. Stage 01 catches particles 14× smaller.</div>
+          <div class="p2-mech">Mechanical depth filtration. Pleated design maximises surface area, extending filter life and trapping efficiency between annual services.</div>
+        </div>
+
+        <div class="p2-stage">
+          <div class="p2-stagehead">
+            <span class="p2-sn">STAGE 02</span>
+            <span class="p2-sspec">1 Micron</span>
+          </div>
+          <div class="p2-sname">Scale Reduction Carbon Block</div>
+          <div class="p2-rlabel">Removes</div>
+          <div class="p2-removes">
+            <span class="p2-ri">Chlorine taste &amp; odour</span>
+            <span class="p2-ri">Calcium &amp; magnesium</span>
+            <span class="p2-ri">Scale-forming minerals</span>
+            <span class="p2-ri">Hardness deposits</span>
+          </div>
+          <div class="p2-mech">Activated carbon adsorption binds chlorine and mineral ions. Scale-reduction media specifically targets calcium and magnesium — the primary cause of limescale on fittings and appliances.</div>
+        </div>
+
+        <div class="p2-stage">
+          <div class="p2-stagehead">
+            <span class="p2-sn">STAGE 03</span>
+            <span class="p2-sspec">1 Micron</span>
+          </div>
+          <div class="p2-sname">Coconut Carbon Block</div>
+          <div class="p2-rlabel">Removes</div>
+          <div class="p2-removes">
+            <span class="p2-ri">Pesticides &amp; herbicides</span>
+            <span class="p2-ri">VOCs (volatile organics)</span>
+            <span class="p2-ri">Lead &amp; mercury</span>
+            <span class="p2-ri">Disinfection by-products</span>
+            <span class="p2-ri">Residual chloramine</span>
+          </div>
+          <div class="p2-fact">Coconut shell carbon has up to 1,200 m² of surface area per gram — more than a football field, compressed into one filter.</div>
+          <div class="p2-mech">Coconut shell carbon's highly porous microstructure captures organic compounds, heavy metals, and chlorine reaction products that standard carbon cannot address at 1 micron.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PAGE 3 — VERTICAL SPLIT: WHAT YOU NOTICE | GUARANTEE
+  ══════════════════════════════════════ -->
+  <div class="pu">
+    <div class="pl">03 — What you notice &nbsp;/&nbsp; Guarantee &amp; service</div>
+    <div class="pg p3">
+
+      <!-- Left: Benefits (white zone) -->
+      <div class="p3-left">
+        <div class="p3-lh">What you notice.</div>
+        <div class="p3-lrule"></div>
+        <div class="p3-lintro">From the day your Neptune system goes live, the difference is immediate — not gradual.</div>
+        <div class="p3-benefits">
+          <div class="p3-bn">
+            <div class="p3-bp">Your shower no longer smells of chlorine.</div>
+            <div class="p3-bs">Removed at the mains before it reaches any tap. From day one — no chemical smell, no dry throat.</div>
+          </div>
+          <div class="p3-bn">
+            <div class="p3-bp">Skin that was dry becomes noticeably less dry.</div>
+            <div class="p3-bs">Filtered water is gentler on the skin's natural barrier. Most households notice change within 24–48 hours.</div>
+          </div>
+          <div class="p3-bn">
+            <div class="p3-bp">Hair colour holds longer.</div>
+            <div class="p3-bs">Chlorine is a bleaching agent. Filtered water protects colour-treated hair and reduces brittleness between treatments.</div>
+          </div>
+          <div class="p3-bn">
+            <div class="p3-bp">Scale stops forming on glass, taps, and screens.</div>
+            <div class="p3-bs">Calcium and magnesium removed before reaching any fixture. Shower screens stay cleaner, longer.</div>
+          </div>
+          <div class="p3-bn">
+            <div class="p3-bp">Every tap delivers filtered water. Not just one.</div>
+            <div class="p3-bs">One mains installation covers the entire home — every kitchen tap, bathroom, shower, and outdoor tap.</div>
+          </div>
+          <div class="p3-bn">
+            <div class="p3-bp">Your appliances run cleaner and last longer.</div>
+            <div class="p3-bs">Removing scale at the mains extends dishwashers, kettles, water heaters, and washing machines.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Guarantee + service (navy zone) -->
+      <div class="p3-right">
+        <div class="p3-rh">One appointment.<br>Done properly.</div>
+        <div class="p3-rrule"></div>
+
+        <div class="p3-guarantee">
+          <div class="p3-gtag">Chlorine Reduction Guarantee</div>
+          <div class="p3-gbody">Every Neptune system is guaranteed to reduce chlorine taste and odour at every tap in your home — from the day of installation.<br><br>If you don't notice a clear difference within 30 days, we return and make it right at no cost. No conditions. No process.</div>
+        </div>
+
+        <div class="p3-service">
+          <div class="p3-snum">01</div>
+          <div class="p3-scontent">
+            <div class="p3-stitle">Annual filter service. $299.95.</div>
+            <div class="p3-sdesc">We return once a year to replace your three-stage filter set — Stage 01, 02, and 03. Maintains full filtration performance and preserves your 7-year workmanship warranty. Free delivery. Simple DIY swap available.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Credential strip (full width, bottom) -->
+      <div class="p3-cred">
+        <div class="p3-ci">
+          <div class="p3-ct">WaterMark Certified</div>
+          <div class="p3-cs">AS 3497 Australian Standard</div>
+        </div>
+        <div class="p3-dv"></div>
+        <div class="p3-ci">
+          <div class="p3-ct">VIC Licensed &amp; Insured</div>
+          <div class="p3-cs">Every installation</div>
+        </div>
+        <div class="p3-dv"></div>
+        <div class="p3-ci">
+          <div class="p3-ct">7-Year Workmanship Warranty</div>
+          <div class="p3-cs">In writing. No exceptions.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PAGE 4 — BACK COVER
+  ══════════════════════════════════════ -->
+  <div class="pu">
+    <div class="pl">04 — Back cover</div>
+    <div class="pg p4">
+      <div class="p4-glow"></div>
+      <div class="p4-brand">
+        <img class="p4-logo" src="../../assets/logos/Neptune_Logo_White.png" alt="NEPTUNE Whole Home Filtration">
+        <div class="p4-tag">Melbourne's Water Specialists.</div>
+        <div class="p4-stmt">Whole home filtration installed at your mains by licensed Melbourne plumbers. Every tap, every shower, every appliance — filtered from a single point.</div>
+        <div class="p4-contact">03 9122 5243<br>neptunefiltration.com.au</div>
+        <div class="p4-cred">WaterMark Certified AS 3497 &nbsp;·&nbsp; VIC Licensed &amp; Insured<br>7-Year Workmanship Warranty</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Neptune — Live Call Sheet</title>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page { size: A4 portrait; margin: 12mm 16mm; }
+
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 8.5pt;
+    line-height: 1.45;
+    color: #000;
+    background: #fff;
+    orphans: 2;
+    widows: 2;
+  }
+
+  @media screen {
+    html { background: #bbb; }
+    body {
+      max-width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      padding: 12mm 16mm;
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+    }
+  }
+
+  @media print {
+    html, body { background: #fff; margin: 0; padding: 0; }
+    .no-print  { display: none !important; }
+    h2, h3     { page-break-after: avoid; break-after: avoid; }
+    tr, td, th { page-break-inside: avoid; break-inside: avoid; }
+    thead      { display: table-header-group; }
+  }
+
+  /* ── PRINT TIP ── */
+  .print-tip {
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 7.5pt;
+    padding: 5pt 10pt;
+    margin-bottom: 10pt;
+    letter-spacing: 0.2px;
+  }
+  .print-tip strong { font-weight: 700; }
+
+  /* ── HEADER ── */
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2.5px solid #000;
+    padding-bottom: 5pt;
+    margin-bottom: 7pt;
+  }
+  .doc-title { font-size: 13pt; font-weight: 700; letter-spacing: -0.3px; }
+  .doc-meta { font-size: 7pt; color: #666; text-align: right; line-height: 1.4; }
+
+  /* ── FLOW MAP ── */
+  .flow-map {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 7.5pt;
+    font-weight: 700;
+    background: #000;
+    color: #fff;
+    padding: 5.5pt 10pt;
+    letter-spacing: 0.4px;
+    text-align: center;
+    margin-bottom: 7pt;
+  }
+
+  /* ── SECTION REFERENCE TABLE ── */
+  .ref-table { width: 100%; border-collapse: collapse; margin-bottom: 7pt; }
+  .ref-table thead th {
+    background: #000; color: #fff;
+    padding: 4.5pt 6pt; text-align: left;
+    font-size: 7pt; font-weight: 700; letter-spacing: 0.5px;
+  }
+  .ref-table tbody td {
+    padding: 4.5pt 6pt;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+    font-size: 8pt;
+  }
+  .ref-table tbody tr:nth-child(even) td { background: #f7f7f7; }
+  .ref-table .col-num  { width: 18pt; font-weight: 700; text-align: center; }
+  .ref-table .col-section { width: 58pt; font-weight: 700; letter-spacing: 0.2px; }
+  .ref-table .col-intent  { }
+  .ref-table .col-intent strong { font-weight: 700; }
+  .ref-table .col-trigger { font-family: 'Courier New', Courier, monospace; font-size: 7.5pt; font-style: italic; }
+  .ref-table .col-tone { width: 80pt; font-size: 7.5pt; color: #444; }
+
+  /* ── POWER BOX ── */
+  .power-box { border: 2px solid #000; page-break-inside: avoid; break-inside: avoid; margin-bottom: 7pt; }
+  .power-box-title {
+    background: #000; color: #fff;
+    padding: 4pt 8pt;
+    font-size: 7pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .power-box-body { padding: 5pt 8pt; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .power-col:last-child { border-left: 1px solid #e0e0e0; padding-left: 8pt; }
+  .power-line {
+    display: grid; grid-template-columns: 55pt 1fr;
+    gap: 6pt; padding: 3pt 0;
+    border-bottom: 1px solid #ececec; align-items: baseline;
+  }
+  .power-line:last-child { border-bottom: none; padding-bottom: 0; }
+  .pl-label { font-size: 6.5pt; font-weight: 700; text-transform: uppercase; color: #555; letter-spacing: 0.3px; }
+  .pl-text  { font-size: 8pt; line-height: 1.35; }
+
+  /* ── PAGE BREAK ── */
+  .page-break { page-break-before: always; break-before: page; display: block; height: 0; }
+  .no-break   { page-break-inside: avoid; break-inside: avoid; }
+
+  /* ── TWO-COLUMN ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; margin-bottom: 7pt; }
+
+  /* ── SECTION BLOCK ── */
+  .section-hdr {
+    font-size: 7pt; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: #fff;
+    background: #000; padding: 3pt 7pt;
+  }
+  .section-block { border: 1.5px solid #000; margin-bottom: 6pt; page-break-inside: avoid; break-inside: avoid; }
+  .section-block-body { padding: 5pt 7pt; }
+
+  /* ── BRANCH BOX ── */
+  .branch {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 7pt; line-height: 1.55;
+    background: #f5f5f5; border: 1px solid #bbb;
+    padding: 5pt 7pt; white-space: pre-wrap;
+  }
+
+  /* ── OBJECTION QUICK-REF ── */
+  .obj-item { border: 1px solid #000; margin-bottom: 4pt; page-break-inside: avoid; break-inside: avoid; }
+  .obj-hdr  { background: #000; color: #fff; padding: 2.5pt 6pt; font-size: 6.5pt; font-weight: 700; }
+  .obj-body { padding: 4pt 6pt; font-size: 7.5pt; line-height: 1.4; }
+
+  /* ── CHECKLIST ── */
+  .checklist-item {
+    display: flex; align-items: center; gap: 6pt;
+    padding: 3pt 0; border-bottom: 1px solid #e0e0e0; font-size: 8pt;
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .checkbox { width: 10pt; height: 10pt; border: 1.5px solid #000; flex-shrink: 0; }
+
+  /* ── TONALITY SYMBOLS ── */
+  .tone-table { width: 100%; border-collapse: collapse; }
+  .tone-table td { padding: 3pt 5pt; border-bottom: 1px solid #e0e0e0; font-size: 7.5pt; }
+  .tone-table td:first-child { font-weight: 700; font-size: 8.5pt; width: 52pt; }
+  .tone-table tr:last-child td { border-bottom: none; }
+
+  /* ── NOTES FORM ── */
+  .notes-row {
+    display: grid; grid-template-columns: 65pt 1fr;
+    gap: 5pt; padding: 4pt 0;
+    border-bottom: 1px solid #e0e0e0; align-items: center;
+  }
+  .notes-row:last-child { border-bottom: none; }
+  .notes-lbl  { font-size: 7pt; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase; color: #444; }
+  .notes-line { border-bottom: 1px solid #aaa; height: 10pt; }
+
+  /* ── SECTION TITLE (small caps) ── */
+  .sec-title {
+    font-size: 7pt; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; border-bottom: 2px solid #000;
+    padding-bottom: 2.5pt; margin-bottom: 5pt;
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    margin-top: 7pt; padding-top: 4pt; border-top: 1px solid #ccc;
+    font-size: 6.5pt; color: #999;
+    display: flex; justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── PRINT TIP (screen only) ── -->
+<div class="print-tip no-print">
+  <strong>Print to PDF:</strong> Ctrl+P → Destination: Save as PDF → Paper size: A4 → Margins: Default → ✓ Background graphics
+</div>
+
+<!-- ── HEADER ── -->
+<div class="doc-header">
+  <div>
+    <div style="font-size:7pt;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:2pt;">Neptune Water Filtration · Confidential</div>
+    <div class="doc-title">LIVE CALL SHEET</div>
+    <div style="font-size:7.5pt;color:#555;margin-top:2pt;">Read the INTENT column, not the trigger lines. Your own words are fine.</div>
+  </div>
+  <div class="doc-meta">v1.3 · May 2026<br>A4 Portrait · Prop at eye level</div>
+</div>
+
+<!-- ── FLOW MAP ── -->
+<div class="flow-map">1. OPEN &nbsp;→&nbsp; 2. DISCOVER &nbsp;→&nbsp; 3. LOCATE &nbsp;→&nbsp; 4. ANCHOR &nbsp;→&nbsp; 5. HABITS &nbsp;→&nbsp; 6. TESTED? &nbsp;→&nbsp; 7. FRAME &nbsp;→&nbsp; 8. CLOSE &nbsp;→&nbsp; 9. PROMO &nbsp;→&nbsp; 10. OUT</div>
+
+<!-- ── SECTION REFERENCE TABLE ── -->
+<table class="ref-table">
+  <thead>
+    <tr>
+      <th class="col-num">#</th>
+      <th class="col-section">SECTION</th>
+      <th class="col-intent">INTENT</th>
+      <th class="col-trigger">KEY TRIGGER LINE</th>
+      <th class="col-tone">TONALITY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-num">1</td>
+      <td class="col-section">OPEN</td>
+      <td class="col-intent"><strong>Sound human</strong></td>
+      <td class="col-trigger">"quick chat / best way to help"</td>
+      <td class="col-tone">↑ smile</td>
+    </tr>
+    <tr>
+      <td class="col-num">2</td>
+      <td class="col-section">DISCOVER</td>
+      <td class="col-intent"><strong>Get them talking</strong></td>
+      <td class="col-trigger">"what made you look into it?"</td>
+      <td class="col-tone">→ wait after Q</td>
+    </tr>
+    <tr>
+      <td class="col-num">3</td>
+      <td class="col-section">LOCATE</td>
+      <td class="col-intent"><strong>Suburb · owner · people</strong> + local credibility</td>
+      <td class="col-trigger">"whereabouts in Melbourne?" → "we're out [suburb] way quite a bit"</td>
+      <td class="col-tone">conversational · one beat</td>
+    </tr>
+    <tr>
+      <td class="col-num">4</td>
+      <td class="col-section">ANCHOR</td>
+      <td class="col-intent"><strong>Plant the concern</strong></td>
+      <td class="col-trigger">"chlorine is higher than people realise" · "without ever making the connection"</td>
+      <td class="col-tone">↓ pace · one beat</td>
+    </tr>
+    <tr>
+      <td class="col-num">5</td>
+      <td class="col-section">HABITS</td>
+      <td class="col-intent"><strong>Understand their awareness</strong></td>
+      <td class="col-trigger">"tap or bottled?" → ask WHY → one follow-up only</td>
+      <td class="col-tone">? only · ≠ expand</td>
+    </tr>
+    <tr>
+      <td class="col-num">6</td>
+      <td class="col-section">TESTED?</td>
+      <td class="col-intent"><strong>Reveal the knowledge gap</strong></td>
+      <td class="col-trigger">"ever had it properly tested?" → "that's exactly what we'd look to fix"</td>
+      <td class="col-tone">→ wait · ↓ pace</td>
+    </tr>
+    <tr>
+      <td class="col-num">7</td>
+      <td class="col-section">FRAME</td>
+      <td class="col-intent"><strong>Make the visit feel obvious</strong></td>
+      <td class="col-trigger">"no decision on the day" · "most people genuinely don't"</td>
+      <td class="col-tone">↓ pace · calm</td>
+    </tr>
+    <tr>
+      <td class="col-num">8</td>
+      <td class="col-section">CLOSE</td>
+      <td class="col-intent"><strong>Lock day + time</strong></td>
+      <td class="col-trigger">"[Day] or [Alt] — which works?" → WAIT</td>
+      <td class="col-tone">→ wait · ≠ fill</td>
+    </tr>
+    <tr>
+      <td class="col-num">9</td>
+      <td class="col-section">PROMO</td>
+      <td class="col-intent"><strong>Reward the decision</strong></td>
+      <td class="col-trigger">"up to 20% if you go ahead on the day" — POST-CLOSE ONLY</td>
+      <td class="col-tone">light · casual</td>
+    </tr>
+    <tr>
+      <td class="col-num">10</td>
+      <td class="col-section">OUT</td>
+      <td class="col-intent"><strong>Warm landing</strong></td>
+      <td class="col-trigger">"I'll send confirmation now" · "we'll see you [Day]"</td>
+      <td class="col-tone">↑ warm · ↑ smile</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ── POWER LINES ── -->
+<div class="power-box no-break">
+  <div class="power-box-title">Power Lines — Memorise These 7 Exactly &nbsp;·&nbsp; Everything else: your own words are fine</div>
+  <div class="power-box-body">
+    <div class="power-col">
+      <div class="power-line"><span class="pl-label">Open</span><span class="pl-text">"just a quick chat — get a bit of an understanding, and work out the best way to help"</span></div>
+      <div class="power-line"><span class="pl-label">Local</span><span class="pl-text">"Yeah, we're actually out [suburb] way quite a bit."</span></div>
+      <div class="power-line"><span class="pl-label">Anchor</span><span class="pl-text">"A lot of people have just gotten used to it over time without ever making the connection."</span></div>
+      <div class="power-line" style="border:none;padding-bottom:0;"><span class="pl-label">No Pressure</span><span class="pl-text">"You don't need to make any decision on the day."</span></div>
+    </div>
+    <div class="power-col">
+      <div class="power-line"><span class="pl-label">Reassure</span><span class="pl-text">"At the very least, you'll know exactly what's in your water — which most people don't."</span></div>
+      <div class="power-line"><span class="pl-label">Close</span><span class="pl-text">"I've got [Day] or [Alt] — which works better for you?"</span></div>
+      <div class="power-line" style="border:none;padding-bottom:0;"><span class="pl-label">Price</span><span class="pl-text">"If I gave you a number without seeing your home, I'd basically be guessing."</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ PAGE 2 ══════════════════════════════ -->
+<div class="page-break"></div>
+
+<!-- ── BRANCH TREES ── -->
+<div class="two-col">
+
+  <!-- LEFT COL: Discovery + Anchor + Partner -->
+  <div>
+    <div class="section-block no-break">
+      <div class="section-hdr">Discovery Branches</div>
+      <div class="section-block-body">
+        <div class="branch">SPECIFIC (skin / taste / smell)
+→ "Yeah, makes a lot of sense — more common than people realise."
+→ "Most people have been dealing with it a while without connecting it back to the water."
+→ [Move to LOCATE]
+
+GENERAL / "just curious"
+→ "That's how most people start — just a feeling the water could be better."
+→ [Move to LOCATE]</div>
+      </div>
+    </div>
+
+    <div class="section-block no-break">
+      <div class="section-hdr">Problem Anchor Branches</div>
+      <div class="section-block-body">
+        <div class="branch">"Noticed anything yourself?"
+
+YES → "Yeah, makes sense — once you understand what's in the water, it clicks."
+      [Move to HABITS]
+
+NO  → "Fair enough — can be subtle. Or people just get used to it."
+      [Do NOT mention assessment yet. Move to HABITS.]</div>
+      </div>
+    </div>
+
+    <div class="section-block no-break">
+      <div class="section-hdr">Partner Check (Before Time Slots)</div>
+      <div class="section-block-body">
+        <div class="branch">"Before I lock something in — anyone else who'd normally
+be across a decision like this?"
+
+YES → "Worth having them there — tech gives fixed quote on
+      the spot. Easier when everyone's across it."
+NO  → "No worries — just wanted to check."
+→ [Binary close]</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT COL: Habits + Testing -->
+  <div>
+    <div class="section-block no-break">
+      <div class="section-hdr">Water Habits Branches</div>
+      <div class="section-block-body">
+        <div class="branch">"Tap or bottled?"
+
+BOTTLED → A: "Yeah — how long have you been doing that?"
+          B: "Was that more about taste or just a general thing?"
+          C: (if long) "What made you start — was there something specific?"
+          After answer → "Yeah, makes sense." → [Move to TESTED?]
+
+TAP     → A: "Has anything ever made you think twice about it?"
+          B: "No real issues noticed, or just haven't looked into it?"
+          After answer → "Yeah, gotcha." → [Move to TESTED?]
+
+RULE: Ask ONE follow-up. Then move. ≠ expand  ≠ explain.</div>
+      </div>
+    </div>
+
+    <div class="section-block no-break">
+      <div class="section-hdr">Prior Testing Branches</div>
+      <div class="section-block-body">
+        <div class="branch">"Ever had your water properly tested before?"
+
+NO (most common)
+→ "Yeah, pretty typical. So you've got a concern, managing it
+   one way or another, but no real picture of what's going on."
+→ [Pause] "That's exactly what we'd look to fix."
+→ [Move to FRAME]
+
+YES
+→ "The testing side's similar either way."
+→ "The visit is about seeing your home — plumbing, how you use it,
+   what you're after."
+→ "That's where the right recommendation actually comes from."
+→ [Move to FRAME]</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end branch two-col -->
+
+<!-- ── BOTTOM: Objections | Checklist + Tonality ── -->
+<div class="two-col" style="margin-bottom:7pt;">
+
+  <!-- OBJECTION QUICK-REF -->
+  <div class="no-break">
+    <div class="sec-title">Objection Quick-Ref</div>
+    <div class="obj-item"><div class="obj-hdr">PRICE / "GIVE ME A NUMBER"</div><div class="obj-body">Power line → plumbing/size differ → tech gives fixed quote on spot → close</div></div>
+    <div class="obj-item"><div class="obj-hdr">"JUST SEND INFO"</div><div class="obj-body">Generic = useless for your water → assessment = 30 mins, tells you → close</div></div>
+    <div class="obj-item"><div class="obj-hdr">"ALREADY HAD A TEST"</div><div class="obj-body">Testing's similar → visit = seeing home, plumbing, usage, goals → close</div></div>
+    <div class="obj-item"><div class="obj-hdr">"NOT INTERESTED"</div><div class="obj-body">No obligation → most start curious → at least know what's in your water → close</div></div>
+    <div class="obj-item"><div class="obj-hdr">"TOO EXPENSIVE"</div><div class="obj-body">Exactly why we don't price on phone → free assessment → know first → close</div></div>
+    <div class="obj-item"><div class="obj-hdr">"NEED TO THINK ABOUT IT"</div><div class="obj-body">What specifically? → address it → free, worst case = you know more → close<br><em>Still unsure: "Can I check back [Day]?"</em></div></div>
+    <div class="obj-item"><div class="obj-hdr">"I'M RENTING"</div><div class="obj-body">Owner-occupied only → looking to buy? → add to list if yes → warm close</div></div>
+    <div class="obj-item"><div class="obj-hdr">"GETTING OTHER QUOTES"</div><div class="obj-body">Makes sense → get our tech out → compare apples to apples → close</div></div>
+  </div>
+
+  <!-- CHECKLIST + TONALITY -->
+  <div>
+    <div class="no-break" style="margin-bottom:7pt;">
+      <div class="sec-title">Booking Confirmation Checklist</div>
+      <div style="border:1.5px solid #000;padding:5pt 7pt;">
+        <div class="checklist-item"><div class="checkbox"></div><span>Day and time stated back to them</span></div>
+        <div class="checklist-item"><div class="checkbox"></div><span>Address captured</span></div>
+        <div class="checklist-item"><div class="checkbox"></div><span>Partner attending confirmed (or noted as no)</span></div>
+        <div class="checklist-item"><div class="checkbox"></div><span>Promo mentioned (post-close only)</span></div>
+        <div class="checklist-item"><div class="checkbox"></div><span>Told them confirmation SMS is coming</span></div>
+        <div class="checklist-item"><div class="checkbox"></div><span>"We'll see you [Day]" — warm close</span></div>
+        <div class="checklist-item"><div class="checkbox"></div><span>Send confirmation SMS within 5 minutes</span></div>
+      </div>
+    </div>
+
+    <div class="no-break">
+      <div class="sec-title">Tonality Symbols</div>
+      <div style="border:1.5px solid #000;padding:4pt 6pt;">
+        <table class="tone-table">
+          <tr><td>↓ pace</td><td>slow down — anchor, assessment frame</td></tr>
+          <tr><td>→ wait</td><td>don't fill silence — after close, after Q</td></tr>
+          <tr><td>↑ smile</td><td>lift tone — opening, close out</td></tr>
+          <tr><td>≠ expand</td><td>don't add more — after habits responses</td></tr>
+          <tr><td>? only</td><td>ask a question, don't explain — habits</td></tr>
+          <tr><td>one beat</td><td>pause — after anchor, after no-decision line</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end bottom two-col -->
+
+<!-- ── NOTES CAPTURE ── -->
+<div class="no-break">
+  <div class="sec-title">Notes Capture — Fill Live</div>
+  <div style="border:1.5px solid #000;padding:5pt 7pt;">
+    <div class="notes-row"><span class="notes-lbl">Name</span><div class="notes-line"></div></div>
+    <div class="notes-row"><span class="notes-lbl">Suburb</span><div class="notes-line"></div></div>
+    <div class="notes-row"><span class="notes-lbl">Owner</span><span style="font-size:8pt;">Y &nbsp;/&nbsp; N</span></div>
+    <div class="notes-row"><span class="notes-lbl">Household</span><div class="notes-line"></div></div>
+    <div class="notes-row">
+      <span class="notes-lbl">Habit</span>
+      <div style="display:flex;align-items:center;gap:5pt;flex:1;">
+        <span style="font-size:8pt;white-space:nowrap;">Tap &nbsp;/&nbsp; Bottled &nbsp;&nbsp;Since:</span>
+        <div class="notes-line" style="flex:1;"></div>
+      </div>
+    </div>
+    <div class="notes-row"><span class="notes-lbl">Concern</span><div class="notes-line"></div></div>
+    <div class="notes-row"><span class="notes-lbl">Tested</span><span style="font-size:8pt;">Y &nbsp;/&nbsp; N</span></div>
+    <div class="notes-row"><span class="notes-lbl">Buying signal</span><div class="notes-line"></div></div>
+    <div class="notes-row">
+      <span class="notes-lbl">Appt</span>
+      <div style="display:flex;align-items:center;gap:5pt;flex:1;">
+        <span style="font-size:7.5pt;">Day</span><div class="notes-line" style="flex:0.8;"></div>
+        <span style="font-size:7.5pt;">Time</span><div class="notes-line" style="flex:0.5;"></div>
+      </div>
+    </div>
+    <div class="notes-row"><span class="notes-lbl">Partner</span><span style="font-size:8pt;">Y &nbsp;/&nbsp; N &nbsp;/&nbsp; Not asked</span></div>
+    <div class="notes-row" style="align-items:flex-start;padding-top:5pt;">
+      <span class="notes-lbl" style="padding-top:2pt;">Tech notes</span>
+      <div style="flex:1;border-bottom:1px solid #aaa;height:28pt;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <span>Neptune Water Filtration — Confidential</span>
+  <span>Live Call Sheet · v1.3 · May 2026</span>
+</div>
+
+</body>
+</html>

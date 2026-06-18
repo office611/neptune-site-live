@@ -47,6 +47,10 @@ compact/icon version in constrained spaces.
 | `Neptune_Logo_White.svg` | White wordmark + descriptor | SVG (vector) | Dark backgrounds | Primary digital production file — scales to any size |
 | `Neptune_Logo_White.ai` | White wordmark + descriptor | Adobe Illustrator | Dark backgrounds | Master source — use for creating new variants |
 | `Neptune_Logo_White.pdf` | White wordmark + descriptor | PDF vector | Dark backgrounds | Print production |
+| `Neptune_Logo_Navy.png` | Navy wordmark + descriptor | PNG (transparent) | Light/medium backgrounds | Alternative to black on off-white or light-tinted backgrounds |
+| `NeptuneLogoPixel.png` | Pixel/raster logo | PNG | Dark backgrounds | Low-res use — email clients, CRM embeds |
+| `neptune-logo-white-full-b64.txt` | White logo base64 string | Text | Dark backgrounds | Email HTML embedding (full resolution) |
+| `neptune-logo-navy-b64.txt` | Navy logo base64 string | Text | Light backgrounds | Email HTML embedding (navy version) |
 
 ### Missing Files — Must Be Created
 

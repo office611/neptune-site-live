@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Neptune — Objection Handling</title>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page { size: A4 portrait; margin: 14mm 18mm; }
+
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+    orphans: 2;
+    widows: 2;
+  }
+
+  @media screen {
+    html { background: #bbb; }
+    body {
+      max-width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      padding: 14mm 18mm;
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+    }
+  }
+
+  @media print {
+    html, body { background: #fff; margin: 0; padding: 0; }
+    .no-print  { display: none !important; }
+    h1, h2, h3 { page-break-after: avoid; break-after: avoid; }
+    tr, td, th  { page-break-inside: avoid; break-inside: avoid; }
+    thead       { display: table-header-group; }
+  }
+
+  /* ── PRINT TIP ── */
+  .print-tip {
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 7.5pt;
+    padding: 5pt 10pt;
+    margin-bottom: 10pt;
+    letter-spacing: 0.2px;
+  }
+  .print-tip strong { font-weight: 700; }
+
+  /* ── HEADER ── */
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2.5px solid #000;
+    padding-bottom: 8pt;
+    margin-bottom: 12pt;
+  }
+  .doc-title { font-size: 16pt; font-weight: 700; letter-spacing: -0.3px; }
+  .doc-meta { font-size: 7.5pt; color: #666; text-align: right; line-height: 1.5; }
+
+  /* ── CORE PRINCIPLE ── */
+  .core-principle {
+    background: #000;
+    color: #fff;
+    padding: 9pt 12pt;
+    margin-bottom: 12pt;
+    display: flex;
+    align-items: center;
+    gap: 20pt;
+  }
+  .core-label { font-size: 7pt; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-bottom: 3pt; }
+  .core-text  { font-size: 10.5pt; font-weight: 700; line-height: 1.35; }
+  .core-framework {
+    font-size: 13pt; font-weight: 700; letter-spacing: 1px;
+    white-space: nowrap; border-left: 1px solid rgba(255,255,255,0.3); padding-left: 18pt;
+    flex-shrink: 0;
+  }
+
+  /* ── TWO-COLUMN GRID ── */
+  .objection-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9pt;
+  }
+
+  /* ── OBJECTION BLOCK ── */
+  .obj-block {
+    border: 1.5px solid #000;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .obj-header {
+    background: #000;
+    color: #fff;
+    padding: 5pt 10pt;
+    font-weight: 700;
+    font-size: 8.5pt;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+  }
+  .obj-strategy {
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #555;
+    padding: 5pt 10pt 0;
+    line-height: 1.3;
+  }
+  .obj-body { padding: 6pt 10pt 8pt; }
+
+  /* ── DIALOGUE LINE ── */
+  .d {
+    border-left: 2.5px solid #000;
+    background: #f5f5f5;
+    padding: 5pt 8pt;
+    margin: 4pt 0;
+    font-size: 9pt;
+    line-height: 1.45;
+  }
+
+  /* ── PIVOT LINE ── */
+  .pivot {
+    border-left: 2.5px solid #aaa;
+    padding: 4pt 8pt;
+    margin: 4pt 0;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    color: #444;
+    font-style: italic;
+  }
+
+  /* ── NOTE ── */
+  .obj-note {
+    font-size: 7.5pt;
+    color: #555;
+    font-style: italic;
+    margin-top: 5pt;
+    line-height: 1.4;
+  }
+
+  /* ── QUICK-REF TABLE ── */
+  .qr-table { width: 100%; border-collapse: collapse; margin-top: 12pt; font-size: 8.5pt; }
+  .qr-table th {
+    background: #000; color: #fff;
+    padding: 5pt 8pt; text-align: left;
+    font-size: 7.5pt; font-weight: 700; letter-spacing: 0.3px;
+  }
+  .qr-table td { padding: 5pt 8pt; border-bottom: 1px solid #ddd; vertical-align: top; }
+  .qr-table tr:nth-child(even) td { background: #f8f8f8; }
+  .qr-table .col-trigger  { font-weight: 700; width: 130pt; }
+  .qr-table .col-close    { font-weight: 700; color: #000; width: 50pt; text-align: center; }
+
+  /* ── PAGE BREAK ── */
+  .page-break { page-break-before: always; break-before: page; display: block; height: 0; }
+  .no-break   { page-break-inside: avoid; break-inside: avoid; }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    margin-top: 14pt;
+    padding-top: 6pt;
+    border-top: 1px solid #ccc;
+    font-size: 7pt;
+    color: #999;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── PRINT TIP (screen only) ── -->
+<div class="print-tip no-print">
+  <strong>Print to PDF:</strong> Ctrl+P → Destination: Save as PDF → Paper size: A4 → Margins: Default → ✓ Background graphics
+</div>
+
+<!-- ── HEADER ── -->
+<div class="doc-header">
+  <div>
+    <div style="font-size:7.5pt;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:3pt;">Neptune Water Filtration · Confidential</div>
+    <div class="doc-title">Objection Handling</div>
+    <div style="font-size:8.5pt;color:#555;margin-top:3pt;">Full framework — study between calls, reference during</div>
+  </div>
+  <div class="doc-meta">v1.3 · May 2026<br>A4 Portrait</div>
+</div>
+
+<!-- ── CORE PRINCIPLE ── -->
+<div class="core-principle">
+  <div>
+    <div class="core-label">Core Principle</div>
+    <div class="core-text">Objections are not rejections. They are requests for information or reassurance.<br>Never argue. Never defend. Never over-explain.</div>
+  </div>
+  <div class="core-framework">Acknowledge → Reframe → Redirect</div>
+</div>
+
+<!-- ── OBJECTION GRID ── -->
+<div class="objection-grid">
+
+  <!-- PRICE -->
+  <div class="obj-block no-break">
+    <div class="obj-header">OBJECTION: "Can you just give me a price?"</div>
+    <div class="obj-strategy">Reframe price avoidance as professional integrity — for their benefit</div>
+    <div class="obj-body">
+      <div class="d">"Yeah, completely understand — honestly, I'd love to give you a number right now."</div>
+      <div class="d">"The issue is, if I gave you a figure without actually knowing anything about your home, I'd basically be guessing. And if I guess too low, you get a surprise on the day. If I guess too high, I've put you off before we've even had a chance to look at your situation properly."</div>
+      <div class="d">"What the technician does is come out, look at your plumbing, your home size, work out exactly what you need — and then give you one fixed number on the spot. No surprises."</div>
+      <div class="d">"That way the quote is actually accurate for you, not just a ballpark that may or may not mean anything."</div>
+      <div class="obj-note">If they push again:</div>
+      <div class="pivot">"I'll be honest — the range varies quite a bit depending on the home. It's like asking a builder to quote a renovation without seeing the house. The assessment is really the only way to give you something useful."</div>
+      <div class="d">"What I can do is get the technician out and at least give you something concrete. I've got [Day] or [Alt] — what works better?"</div>
+    </div>
+  </div>
+
+  <!-- SEND INFO -->
+  <div class="obj-block no-break">
+    <div class="obj-header">OBJECTION: "Just send me some info"</div>
+    <div class="obj-strategy">Acknowledge, then show why info alone doesn't solve their specific problem</div>
+    <div class="obj-body">
+      <div class="d">"Yeah, I can definitely do that — the only thing is, what we'd send through is pretty general. It won't tell you anything specific about your water or your home."</div>
+      <div class="d">"Most people who go down that path end up asking more questions after reading it, and then we end up booking the assessment anyway."</div>
+      <div class="d">"Honestly, the assessment tells you more in 30 minutes than any document could — and it's free. It's probably worth just getting someone out first."</div>
+      <div class="d">"I've got [Day] or [Alt] — which of those could work?"</div>
+    </div>
+  </div>
+
+  <!-- ALREADY TESTED -->
+  <div class="obj-block no-break">
+    <div class="obj-header">OBJECTION: "I've already had a water test"</div>
+    <div class="obj-strategy">Acknowledge positively — no competitor criticism — pivot value to seeing the home</div>
+    <div class="obj-body">
+      <div class="d">"Oh nice — good that you've had that done."</div>
+      <div class="d">"The testing side of things is fairly similar across the board. Where it gets useful is actually having someone come out and look at your place — your plumbing setup, how many people are using the water, what you're trying to get out of it. That's really where the right recommendation comes from."</div>
+      <div class="d">"A water test tells you what's in your water. What we're doing when we come out is working out what the right solution looks like for your home specifically — and those are two pretty different conversations."</div>
+      <div class="d">"Worth at least having a look. Is [Day] or [Alt] doable for you?"</div>
+    </div>
+  </div>
+
+  <!-- NOT INTERESTED -->
+  <div class="obj-block no-break">
+    <div class="obj-header">OBJECTION: "Not really interested / just curious"</div>
+    <div class="obj-strategy">Validate — normalise — make the free assessment feel low-risk and genuinely useful</div>
+    <div class="obj-body">
+      <div class="d">"Yeah, totally fair — and there's absolutely no obligation at all."</div>
+      <div class="d">"Honestly, most people who end up getting a system started out the same way — just curious, not really planning on doing anything. Then they see the results and it changes things pretty quickly."</div>
+      <div class="d">"Even if nothing comes of it, you'll at least know exactly what's in your water — which most people actually don't. Is that something you'd be open to?"</div>
+      <div class="obj-note">If still hesitant: "Look, if now's not the right time, that's completely fine. Would it be okay if I reached out in a few weeks when things have settled?"</div>
+    </div>
+  </div>
+
+  <!-- TOO EXPENSIVE -->
+  <div class="obj-block no-break">
+    <div class="obj-header">OBJECTION: "Too expensive / not in the budget"</div>
+    <div class="obj-strategy">Validate the concern, then use it to justify the free assessment rather than the system</div>
+    <div class="obj-body">
+      <div class="d">"Yeah, I completely hear that — and that's exactly why we don't do pricing over the phone."</div>
+      <div class="d">"The assessment is free, and it's really just about getting a proper picture of what's going on with your water. From there, if it's not the right time financially, that's totally okay."</div>
+      <div class="d">"At the very least you'll know what you're dealing with — and when the time is right, you'll know exactly what you need."</div>
+      <div class="d">"I've got [Day] or [Alt] — even just to get the information, is either of those doable?"</div>
+    </div>
+  </div>
+
+  <!-- PARTNER -->
+  <div class="obj-block no-break">
+    <div class="obj-header">OBJECTION: "Why does my partner need to be there?"</div>
+    <div class="obj-strategy">Not a hard requirement — frame it as practical, not mandatory</div>
+    <div class="obj-body">
+      <div class="d">"Yeah, good question. It's not a hard requirement at all — more of a recommendation on our end."</div>
+      <div class="d">"What we find is, the technician goes through quite a bit of detail, and gives a fixed quote on the spot. If someone isn't there, people usually end up needing to relay everything — which is fine, but it sometimes means booking a second visit anyway."</div>
+      <div class="d">"If your partner can be there, it just makes the whole thing a lot smoother. But if not, we can absolutely work around it."</div>
+    </div>
+  </div>
+
+  <!-- RENTING -->
+  <div class="obj-block no-break">
+    <div class="obj-header">OBJECTION: "I'm renting"</div>
+    <div class="obj-strategy">Qualify — future buyer may still be a warm lead worth nurturing</div>
+    <div class="obj-body">
+      <div class="d">"Ah, gotcha. Yeah, it does need to be owner-occupied for us to install — so that's fair enough."</div>
+      <div class="d">"Is there any chance you're looking at purchasing somewhere, or is it more of a long-term rental situation?"</div>
+      <div class="pivot">If purchasing: "Worth keeping us in mind once you're settled. I can pop you on our list and reach out when the time's closer if that'd be useful?"</div>
+      <div class="pivot">If long-term rental: "No worries at all — appreciate you having a chat. If anything changes down the track, feel free to reach back out."</div>
+    </div>
+  </div>
+
+  <!-- COMPETITOR -->
+  <div class="obj-block no-break">
+    <div class="obj-header">OBJECTION: "Seen a competitor / getting other quotes"</div>
+    <div class="obj-strategy">Validate the due diligence — position as comparison-friendly, not defensive</div>
+    <div class="obj-body">
+      <div class="d">"Yeah, makes sense — it's a big decision, worth doing properly."</div>
+      <div class="d">"Without knowing who you've spoken to, I can't really compare — but what I'd say is: get our technician out, see what they put together, and compare properly. At least then you're looking at apples to apples."</div>
+      <div class="d">"We're pretty confident in what we do and the quality of what we install — so we're happy to let the assessment speak for itself."</div>
+      <div class="d">"I've got [Day] or [Alt] — worth at least getting our take on it?"</div>
+    </div>
+  </div>
+
+</div><!-- end grid -->
+
+<!-- ── THINK ABOUT IT (full width) ── -->
+<div class="obj-block no-break" style="margin-top:9pt;">
+  <div class="obj-header">OBJECTION: "I need to think about it" — Full Width (most nuance required)</div>
+  <div class="obj-strategy">Never argue. Identify the specific concern first. Then reframe the assessment as the decision-simplifying tool.</div>
+  <div class="obj-body" style="display:grid;grid-template-columns:1fr 1fr;gap:10pt;">
+    <div>
+      <div class="d">"Yeah, of course — makes complete sense."</div>
+      <div class="d">"Can I ask, is there anything specific you're weighing up? Just want to make sure you've got everything you need."</div>
+      <div class="obj-note">Listen. Address the specific concern. Then:</div>
+      <div class="d">"Look, the assessment is genuinely free and low-pressure — it might actually make the decision a lot easier. What's the worst that happens? You know more than you do now."</div>
+    </div>
+    <div>
+      <div class="obj-note" style="margin-bottom:5pt;">If still needs time:</div>
+      <div class="d">"Fair enough. Can I check back in with you [Day/time]? I'll give you a ring then — and if you're ready to get something booked, we'll sort it out."</div>
+      <div class="obj-note" style="margin-top:8pt;font-size:8pt;">Key: identify the real blocker (price concern? partner needs to be involved? distrust? timing?). Each has a specific response. "Need to think about it" is almost never about thinking — it's a polite hold on a specific, unvoiced concern. Get it into the open.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════ PAGE 2 ════════════════════ -->
+<div class="page-break"></div>
+
+<div style="border-bottom:2px solid #000;padding-bottom:6pt;margin-bottom:10pt;">
+  <div style="font-size:7.5pt;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#666;margin-bottom:2pt;">Quick Reference</div>
+  <div style="font-size:13pt;font-weight:700;">Objection Strategy at a Glance</div>
+  <div style="font-size:8.5pt;color:#555;margin-top:3pt;">Glance and respond naturally — do not read aloud</div>
+</div>
+
+<table class="qr-table">
+  <thead>
+    <tr>
+      <th class="col-trigger">Objection</th>
+      <th>Strategy</th>
+      <th class="col-close">End with</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-trigger">"Can you give me a price?"</td>
+      <td>I'd love to → but I'd be guessing → plumbing/home differ → fixed quote on the spot, no surprises</td>
+      <td class="col-close">Close</td>
+    </tr>
+    <tr>
+      <td class="col-trigger">"Just send me some info"</td>
+      <td>Generic info doesn't tell you about YOUR water → 30 minutes beats any document → it's free</td>
+      <td class="col-close">Close</td>
+    </tr>
+    <tr>
+      <td class="col-trigger">"Already had a water test"</td>
+      <td>Good that you did → testing's similar either way → visit = seeing home, plumbing, goals → different conversation</td>
+      <td class="col-close">Close</td>
+    </tr>
+    <tr>
+      <td class="col-trigger">"Not really interested"</td>
+      <td>No obligation → most people start curious → at least you'll know what's in your water</td>
+      <td class="col-close">Close or "call back?"</td>
+    </tr>
+    <tr>
+      <td class="col-trigger">"Too expensive"</td>
+      <td>Exactly why we don't price on phone → free assessment → know what you're dealing with first</td>
+      <td class="col-close">Close</td>
+    </tr>
+    <tr>
+      <td class="col-trigger">"Why does my partner need to be there?"</td>
+      <td>Not mandatory → saves relaying → tech gives quote on spot → smoother together → can work around it</td>
+      <td class="col-close">Continue</td>
+    </tr>
+    <tr>
+      <td class="col-trigger">"I'm renting"</td>
+      <td>Owner-occupied only → looking to buy? → add to list if yes → warm exit if no</td>
+      <td class="col-close">List or exit</td>
+    </tr>
+    <tr>
+      <td class="col-trigger">"Getting other quotes"</td>
+      <td>Makes sense → get our tech out → compare apples to apples → let assessment speak for itself</td>
+      <td class="col-close">Close</td>
+    </tr>
+    <tr>
+      <td class="col-trigger">"Need to think about it"</td>
+      <td>What specifically? → address it → free, worst case = you know more → or: "can I call back [Day]?"</td>
+      <td class="col-close">Close or callback</td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="border:1.5px solid #000;padding:9pt 12pt;margin-top:14pt;" class="no-break">
+  <div style="font-size:8pt;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:6pt;">The One Thing Every Objection Has in Common</div>
+  <p style="font-size:9pt;line-height:1.5;margin-bottom:0;">Every objection is a request for a reason to say yes. Your response does not need to win an argument — it needs to reduce the friction between where they are and where you want them to be: booked, curious, and feeling good about it. Stay calm. Don't rush. Give them the reason. Then close.</p>
+</div>
+
+<div class="doc-footer">
+  <span>Neptune Water Filtration — Internal Sales Document — Confidential</span>
+  <span>Objection Handling v1.3 · May 2026</span>
+</div>
+
+</body>
+</html>

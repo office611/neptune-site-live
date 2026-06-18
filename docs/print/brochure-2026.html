@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neptune Whole Home Filtration — System Brochure 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --navy:        #091B35;
+  --navy-mid:    #112644;
+  --navy-light:  #1A3660;
+  --copper:      #B87333;
+  --copper-lt:   #C8913E;
+  --copper-dim:  rgba(184,115,51,0.18);
+  --copper-glow: rgba(184,115,51,0.08);
+  --white:       #FFFFFF;
+  --off-white:   #F4F6FA;
+  --surface:     #ECF0F8;
+  --text:        #091B35;
+  --text-2:      #3A5268;
+  --text-3:      #7A8EA3;
+  --text-muted:  #9BAAB8;
+  --green:       #1E7A42;
+  --red:         #C0392B;
+  --serif:       'DM Serif Display', Georgia, serif;
+  --sans:        'DM Sans', -apple-system, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: #111418;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  padding: 48px 24px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════════
+   PAGE SHELL
+═══════════════════════════════════════════ */
+.page {
+  width: 794px;
+  min-height: 1123px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 32px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ═══════════════════════════════════════════
+   SHARED UTILITIES
+═══════════════════════════════════════════ */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(61,139,205,0.14) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.dot-grid-lt {
+  background-image: radial-gradient(circle, rgba(10,31,60,0.07) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+.copper-rule { height: 1px; background: linear-gradient(90deg, transparent, var(--copper) 15%, var(--copper) 85%, transparent); opacity: 0.5; }
+.copper-rule-l { height: 1px; background: linear-gradient(90deg, var(--copper), rgba(184,115,51,0.3) 70%, transparent); opacity: 0.6; }
+.white-rule { height: 1px; background: rgba(255,255,255,0.1); }
+
+.eyebrow {
+  font-size: 8.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--copper);
+}
+.eyebrow-light {
+  font-size: 8.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(184,115,51,0.9);
+}
+.label {
+  font-size: 8px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-3);
+}
+.label-white {
+  font-size: 8px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+/* Corner brackets (decorative engineering) */
+.corner-bracket {
+  position: absolute; width: 18px; height: 18px;
+}
+.corner-bracket.tl { top: 0; left: 0; border-top: 1.5px solid var(--copper); border-left: 1.5px solid var(--copper); opacity: 0.45; }
+.corner-bracket.tr { top: 0; right: 0; border-top: 1.5px solid var(--copper); border-right: 1.5px solid var(--copper); opacity: 0.45; }
+.corner-bracket.bl { bottom: 0; left: 0; border-bottom: 1.5px solid var(--copper); border-left: 1.5px solid var(--copper); opacity: 0.45; }
+.corner-bracket.br { bottom: 0; right: 0; border-bottom: 1.5px solid var(--copper); border-right: 1.5px solid var(--copper); opacity: 0.45; }
+
+/* ═══════════════════════════════════════════
+   PAGE 1 — COVER
+═══════════════════════════════════════════ */
+#p1 {
+  background: var(--navy);
+  min-height: 1123px;
+}
+
+#p1 .p1-bg {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 60% 45%, rgba(61,139,205,0.07) 0%, transparent 55%),
+                    radial-gradient(circle at 10% 80%, rgba(184,115,51,0.06) 0%, transparent 40%),
+                    radial-gradient(circle, rgba(61,139,205,0.12) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 22px 22px;
+}
+
+/* Engineering grid lines across full cover */
+#p1 .grid-lines {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+}
+#p1 .grid-lines::before {
+  content: '';
+  position: absolute; top: 0; left: 50%; width: 1px; height: 100%;
+  background: linear-gradient(180deg, transparent 5%, rgba(61,139,205,0.08) 30%, rgba(61,139,205,0.08) 70%, transparent 95%);
+}
+#p1 .grid-lines::after {
+  content: '';
+  position: absolute; top: 50%; left: 0; width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent 5%, rgba(61,139,205,0.08) 30%, rgba(61,139,205,0.08) 70%, transparent 95%);
+}
+
+#p1 .p1-header {
+  position: relative; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 36px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+#p1 .p1-header .logo img { height: 28px; display: block; }
+#p1 .p1-header .header-right {
+  display: flex; align-items: center; gap: 14px;
+}
+#p1 .p1-header .cert-chip {
+  display: flex; align-items: center; gap: 5px;
+  padding: 4px 9px;
+  border: 1px solid rgba(184,115,51,0.3);
+  border-radius: 2px;
+  background: rgba(184,115,51,0.07);
+}
+#p1 .p1-header .cert-chip span {
+  font-size: 7.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(184,115,51,0.9);
+}
+
+/* Hero area */
+#p1 .p1-hero {
+  position: relative; z-index: 5; flex: 1;
+  display: flex; flex-direction: column;
+}
+
+#p1 .p1-image-block {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+#p1 .p1-image-block img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+  display: block;
+  filter: brightness(0.72) saturate(0.9);
+}
+#p1 .p1-image-block::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(9,27,53,0.55) 0%,
+    rgba(9,27,53,0.1) 35%,
+    rgba(9,27,53,0.1) 55%,
+    rgba(9,27,53,0.85) 100%
+  );
+}
+
+/* Floating technical annotations on image */
+#p1 .tech-ann {
+  position: absolute; z-index: 10;
+  display: flex; align-items: center; gap: 6px;
+}
+#p1 .tech-ann .ann-line { width: 24px; height: 1px; background: var(--copper); opacity: 0.7; flex-shrink: 0; }
+#p1 .tech-ann .ann-text {
+  font-size: 7.5px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase;
+  color: rgba(184,115,51,0.85);
+  white-space: nowrap;
+}
+#p1 .tech-ann.ta-1 { top: 26%; left: 36px; }
+#p1 .tech-ann.ta-2 { top: 44%; right: 36px; flex-direction: row-reverse; }
+#p1 .tech-ann.ta-3 { top: 62%; left: 36px; }
+
+/* Spec row on image */
+#p1 .p1-spec-row {
+  position: absolute; z-index: 10;
+  bottom: 90px; left: 36px; right: 36px;
+  display: flex; gap: 8px;
+}
+#p1 .p1-spec-row .spec-item {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-top: 2px solid var(--copper);
+  background: rgba(9,27,53,0.75);
+  backdrop-filter: blur(4px);
+}
+#p1 .p1-spec-row .spec-item .si-val {
+  font-family: var(--serif); font-size: 16px; color: var(--white); line-height: 1; margin-bottom: 3px;
+}
+#p1 .p1-spec-row .spec-item .si-label {
+  font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+/* Hero text block (below image) */
+#p1 .p1-hero-text {
+  position: relative; z-index: 10;
+  padding: 26px 36px 24px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+#p1 .p1-hero-text .eyebrow { margin-bottom: 8px; }
+#p1 .p1-hero-text h1 {
+  font-family: var(--serif); font-size: 40px; line-height: 1.08;
+  color: var(--white); font-weight: 400; margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+#p1 .p1-hero-text h1 em { font-style: italic; color: var(--copper-lt); }
+#p1 .p1-hero-text .hero-sub {
+  font-size: 10.5px; line-height: 1.6; color: rgba(255,255,255,0.6);
+  max-width: 540px; margin-bottom: 18px;
+}
+#p1 .p1-hero-text .hero-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+}
+#p1 .p1-hero-text .creds {
+  display: flex; gap: 10px;
+}
+#p1 .p1-hero-text .cred-pill {
+  padding: 4px 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 2px;
+  font-size: 7.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+#p1 .p1-hero-text .tagline {
+  font-size: 8.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+/* Vertical page number */
+#p1 .page-num {
+  position: absolute; z-index: 10;
+  right: 14px; top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-size: 7px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.15);
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════
+   PAGE 2 — WATER QUALITY + FILTRATION
+═══════════════════════════════════════════ */
+#p2 {
+  background: var(--off-white);
+}
+
+#p2 .p2-header {
+  background: var(--navy);
+  padding: 16px 36px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 2px solid var(--copper);
+}
+#p2 .p2-header .logo img { height: 20px; display: block; }
+#p2 .p2-header .page-label {
+  font-size: 8px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+#p2 .p2-intro {
+  background: var(--navy-mid);
+  padding: 16px 36px 14px;
+  position: relative;
+  overflow: hidden;
+}
+#p2 .p2-intro::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(61,139,205,0.1) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+#p2 .p2-intro .intro-grid {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: center;
+}
+#p2 .p2-intro .intro-headline {
+  padding-right: 28px; border-right: 1px solid rgba(255,255,255,0.1);
+}
+#p2 .p2-intro .intro-headline .eyebrow-light { margin-bottom: 6px; }
+#p2 .p2-intro .intro-headline h2 {
+  font-family: var(--serif); font-size: 24px; color: var(--white);
+  font-weight: 400; line-height: 1.2; letter-spacing: -0.01em;
+}
+#p2 .p2-intro .intro-stat {
+  padding-left: 28px;
+}
+#p2 .p2-intro .stat-num {
+  font-family: var(--serif); font-size: 42px; color: var(--copper-lt); line-height: 1;
+  margin-bottom: 4px;
+}
+#p2 .p2-intro .stat-label {
+  font-size: 8.5px; line-height: 1.55; color: rgba(255,255,255,0.5);
+}
+#p2 .p2-intro .stat-source {
+  margin-top: 4px; font-size: 7px; color: rgba(255,255,255,0.25); font-style: italic;
+}
+
+/* Main 2-col body */
+#p2 .p2-body {
+  flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+}
+
+/* Left col — Contaminants */
+#p2 .p2-left {
+  padding: 20px 24px 20px 36px;
+  border-right: 1px solid rgba(10,31,60,0.1);
+  display: flex; flex-direction: column; gap: 0;
+}
+#p2 .p2-left .col-head {
+  margin-bottom: 14px;
+}
+#p2 .p2-left .col-head h3 {
+  font-family: var(--serif); font-size: 17px; color: var(--navy); line-height: 1.2;
+  font-weight: 400; margin-bottom: 5px;
+}
+#p2 .p2-left .col-head p {
+  font-size: 8.5px; line-height: 1.55; color: var(--text-2);
+}
+
+.contaminant-item {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(10,31,60,0.08);
+}
+.contaminant-item:last-child { border-bottom: none; }
+.contaminant-item .c-head {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 4px;
+}
+.contaminant-item .c-icon {
+  width: 18px; height: 18px; border-radius: 2px;
+  background: var(--navy); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.contaminant-item .c-name {
+  font-size: 9.5px; font-weight: 700; color: var(--navy); letter-spacing: 0.02em;
+}
+.contaminant-item .c-tag {
+  margin-left: auto;
+  padding: 2px 6px; border-radius: 2px;
+  font-size: 7px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.contaminant-item .c-tag.present { background: rgba(192,57,43,0.1); color: #C0392B; }
+.contaminant-item .c-tag.variable { background: rgba(184,115,51,0.12); color: var(--copper); }
+.contaminant-item .c-body {
+  font-size: 8px; line-height: 1.55; color: var(--text-2); padding-left: 26px;
+}
+.contaminant-item .c-body strong { color: var(--navy); font-weight: 600; }
+
+/* Chlorine stat callout */
+.chlorine-callout {
+  margin: 12px 0;
+  padding: 12px 14px;
+  border-left: 3px solid var(--copper);
+  background: var(--copper-dim);
+  position: relative;
+}
+.chlorine-callout .cc-stat {
+  font-family: var(--serif); font-size: 26px; color: var(--copper); line-height: 1; margin-bottom: 2px;
+}
+.chlorine-callout .cc-text {
+  font-size: 8px; line-height: 1.55; color: var(--text-2);
+}
+
+/* Right col — Filtration engineering */
+#p2 .p2-right {
+  padding: 20px 36px 20px 24px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+#p2 .p2-right .col-head {
+  margin-bottom: 4px;
+}
+#p2 .p2-right .col-head h3 {
+  font-family: var(--serif); font-size: 17px; color: var(--navy); line-height: 1.2;
+  font-weight: 400; margin-bottom: 5px;
+}
+#p2 .p2-right .col-head p {
+  font-size: 8.5px; line-height: 1.55; color: var(--text-2);
+}
+
+/* Stage blocks */
+.stage-block {
+  padding: 10px 12px;
+  border: 1px solid rgba(10,31,60,0.1);
+  border-left: 3px solid var(--copper);
+  background: var(--white);
+  position: relative;
+}
+.stage-block .sb-header {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 5px;
+}
+.stage-block .sb-num {
+  font-family: var(--serif); font-size: 18px; color: var(--copper); line-height: 1; flex-shrink: 0;
+}
+.stage-block .sb-title { font-size: 9.5px; font-weight: 700; color: var(--navy); letter-spacing: 0.02em; }
+.stage-block .sb-sub {
+  font-size: 7.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-3); margin-bottom: 2px;
+}
+.stage-block .sb-micron {
+  display: inline-block; margin-left: auto;
+  padding: 2px 6px; border: 1px solid rgba(184,115,51,0.35); border-radius: 2px;
+  font-size: 7.5px; font-weight: 700; color: var(--copper-lt); letter-spacing: 0.06em;
+  background: rgba(184,115,51,0.06);
+}
+.stage-block .sb-body {
+  font-size: 8px; line-height: 1.55; color: var(--text-2);
+}
+.stage-block .sb-tags {
+  display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px;
+}
+.stage-block .sb-tag {
+  padding: 2px 7px; border-radius: 2px; border: 1px solid rgba(10,31,60,0.12);
+  font-size: 7px; font-weight: 600; color: var(--text-3); letter-spacing: 0.06em; text-transform: uppercase;
+}
+
+/* Stage connector */
+.stage-connector {
+  display: flex; align-items: center; gap: 0; height: 10px; margin: 2px 0;
+}
+.stage-connector::before {
+  content: ''; display: block;
+  width: 3px; height: 100%;
+  background: linear-gradient(180deg, var(--copper) 0%, rgba(184,115,51,0.3) 100%);
+  margin-left: 20px;
+}
+
+/* Coconut carbon callout */
+.coconut-callout {
+  padding: 10px 12px;
+  background: var(--navy);
+  border-left: 3px solid var(--copper);
+  position: relative; overflow: hidden;
+}
+.coconut-callout::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(61,139,205,0.1) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+.coconut-callout .cc-eyebrow { margin-bottom: 4px; position: relative; z-index: 2; }
+.coconut-callout .cc-title {
+  font-size: 10px; font-weight: 700; color: var(--white); margin-bottom: 4px;
+  position: relative; z-index: 2;
+}
+.coconut-callout .cc-body {
+  font-size: 7.5px; line-height: 1.6; color: rgba(255,255,255,0.55);
+  position: relative; z-index: 2;
+}
+
+/* Spec summary row */
+.spec-summary {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border: 1px solid rgba(10,31,60,0.12);
+  border-top: 2px solid var(--copper);
+  background: var(--white);
+}
+.spec-summary .ss-item {
+  padding: 8px 10px;
+  border-right: 1px solid rgba(10,31,60,0.08);
+  text-align: center;
+}
+.spec-summary .ss-item:last-child { border-right: none; }
+.spec-summary .ss-val {
+  font-family: var(--serif); font-size: 16px; color: var(--navy); line-height: 1; margin-bottom: 2px;
+}
+.spec-summary .ss-label {
+  font-size: 7px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* ═══════════════════════════════════════════
+   PAGE 3 — WHY NEPTUNE / DIFFERENTIATION
+═══════════════════════════════════════════ */
+#p3 {
+  background: var(--navy);
+}
+
+#p3 .p3-header {
+  padding: 18px 36px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  position: relative; z-index: 5;
+}
+#p3 .p3-header .logo img { height: 20px; display: block; }
+#p3 .p3-header .page-label {
+  font-size: 8px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+#p3 .p3-bg {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(61,139,205,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+#p3 .p3-intro {
+  position: relative; z-index: 5;
+  padding: 20px 36px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+#p3 .p3-intro .eyebrow-light { margin-bottom: 8px; }
+#p3 .p3-intro .intro-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: end;
+}
+#p3 .p3-intro h2 {
+  font-family: var(--serif); font-size: 26px; color: var(--white);
+  font-weight: 400; line-height: 1.15; letter-spacing: -0.01em;
+}
+#p3 .p3-intro h2 em { font-style: italic; color: var(--copper-lt); }
+#p3 .p3-intro .intro-sub {
+  font-size: 8.5px; line-height: 1.65; color: rgba(255,255,255,0.5);
+}
+
+/* Comparison table */
+#p3 .p3-compare {
+  position: relative; z-index: 5;
+  padding: 16px 36px 12px;
+}
+#p3 .p3-compare .compare-label { margin-bottom: 10px; }
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.compare-table thead tr {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.compare-table thead th {
+  padding: 8px 10px; text-align: left;
+  font-size: 8px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.compare-table thead .th-category {
+  color: rgba(255,255,255,0.3); width: 36%;
+}
+.compare-table thead .th-neptune {
+  color: var(--copper-lt); width: 32%;
+  background: rgba(184,115,51,0.07);
+  border-left: 1px solid rgba(184,115,51,0.2);
+  border-right: 1px solid rgba(184,115,51,0.2);
+  border-top: 2px solid var(--copper);
+  text-align: center;
+}
+.compare-table thead .th-generic {
+  color: rgba(255,255,255,0.25); width: 32%;
+  text-align: center;
+}
+
+.compare-table tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.compare-table tbody tr:last-child { border-bottom: none; }
+
+.compare-table tbody td {
+  padding: 8px 10px; vertical-align: top;
+}
+.compare-table tbody .td-cat {
+  font-size: 9px; font-weight: 600; color: rgba(255,255,255,0.85); padding-right: 14px;
+}
+.compare-table tbody .td-cat .cat-sub {
+  font-size: 7px; font-weight: 400; color: rgba(255,255,255,0.35); margin-top: 1px;
+}
+.compare-table tbody .td-neptune {
+  background: rgba(184,115,51,0.06);
+  border-left: 1px solid rgba(184,115,51,0.18);
+  border-right: 1px solid rgba(184,115,51,0.18);
+}
+.compare-table tbody .td-neptune .val-good {
+  font-size: 8.5px; font-weight: 700; color: var(--copper-lt); line-height: 1.3;
+}
+.compare-table tbody .td-neptune .val-sub {
+  font-size: 7px; color: rgba(255,255,255,0.4); margin-top: 1px; line-height: 1.4;
+}
+.compare-table tbody .td-generic .val-weak {
+  font-size: 8.5px; font-weight: 600; color: rgba(255,255,255,0.3); line-height: 1.3;
+}
+.compare-table tbody .td-generic .val-sub {
+  font-size: 7px; color: rgba(255,255,255,0.2); margin-top: 1px; line-height: 1.4;
+}
+/* Neptune column cap at bottom */
+.compare-table tbody tr:last-child .td-neptune {
+  border-bottom: 2px solid var(--copper);
+}
+
+/* Engineering advantage blocks */
+#p3 .p3-adv {
+  position: relative; z-index: 5;
+  padding: 12px 36px 14px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+#p3 .p3-adv .adv-label { margin-bottom: 10px; }
+#p3 .p3-adv .adv-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+}
+
+.adv-block {
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-top: 2px solid var(--copper);
+  background: rgba(255,255,255,0.02);
+  position: relative;
+}
+.adv-block .ab-eyebrow {
+  font-size: 7.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(184,115,51,0.8); margin-bottom: 4px;
+}
+.adv-block .ab-title {
+  font-size: 9.5px; font-weight: 700; color: var(--white); margin-bottom: 4px; line-height: 1.25;
+}
+.adv-block .ab-body {
+  font-size: 7.5px; line-height: 1.6; color: rgba(255,255,255,0.45);
+}
+
+/* Price objection band */
+#p3 .p3-price-band {
+  position: relative; z-index: 5;
+  margin: 0 36px;
+  padding: 12px 16px;
+  border: 1px solid rgba(184,115,51,0.25);
+  border-left: 3px solid var(--copper);
+  background: rgba(184,115,51,0.05);
+  display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start;
+}
+#p3 .p3-price-band .pb-q {
+  font-family: var(--serif); font-size: 36px; color: var(--copper); line-height: 0.9;
+  flex-shrink: 0;
+}
+#p3 .p3-price-band .pb-right { display: flex; flex-direction: column; }
+#p3 .p3-price-band .pb-label {
+  font-size: 7.5px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(184,115,51,0.8); margin-bottom: 4px;
+}
+#p3 .p3-price-band .pb-text {
+  font-size: 8.5px; line-height: 1.65; color: rgba(255,255,255,0.5);
+}
+#p3 .p3-price-band .pb-text strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+/* System detail strip */
+#p3 .p3-system-strip {
+  position: relative; z-index: 5;
+  margin: 10px 36px 0;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-top: 2px solid var(--copper);
+  background: rgba(255,255,255,0.02);
+}
+#p3 .p3-system-strip .ss-item {
+  padding: 9px 10px;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+#p3 .p3-system-strip .ss-item:last-child { border-right: none; }
+#p3 .p3-system-strip .ss-val {
+  font-family: var(--serif); font-size: 15px; color: var(--copper-lt); line-height: 1; margin-bottom: 2px;
+}
+#p3 .p3-system-strip .ss-label {
+  font-size: 7px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ═══════════════════════════════════════════
+   PAGE 4 — PREMIUM CLOSE / TRUST
+═══════════════════════════════════════════ */
+#p4 {
+  background: var(--navy);
+}
+
+#p4 .p4-bg {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 85% 20%, rgba(184,115,51,0.07) 0%, transparent 45%),
+    radial-gradient(circle at 15% 75%, rgba(61,139,205,0.06) 0%, transparent 45%),
+    radial-gradient(circle, rgba(61,139,205,0.09) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 20px 20px;
+}
+
+#p4 .p4-header {
+  position: relative; z-index: 5;
+  padding: 22px 36px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+#p4 .p4-header .logo img { height: 26px; display: block; }
+#p4 .p4-header .page-label {
+  font-size: 8px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+/* Authority columns */
+#p4 .p4-body {
+  position: relative; z-index: 5;
+  flex: 1; padding: 24px 36px 20px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+
+#p4 .p4-headline-block {
+  border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: 16px;
+}
+#p4 .p4-headline-block .eyebrow-light { margin-bottom: 8px; }
+#p4 .p4-headline-block h2 {
+  font-family: var(--serif); font-size: 30px; color: var(--white);
+  font-weight: 400; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 10px;
+}
+#p4 .p4-headline-block h2 em { font-style: italic; color: var(--copper-lt); }
+#p4 .p4-headline-block .tagline-text {
+  font-size: 9px; line-height: 1.65; color: rgba(255,255,255,0.5); max-width: 540px;
+}
+
+/* Two-col authority layout */
+#p4 .p4-authority {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+
+.authority-col h4 {
+  font-size: 8.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--copper); margin-bottom: 10px;
+}
+
+.authority-item {
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.authority-item:last-child { border-bottom: none; }
+.authority-item .ai-icon {
+  width: 22px; height: 22px; border-radius: 2px;
+  border: 1px solid rgba(184,115,51,0.25);
+  background: rgba(184,115,51,0.06);
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+}
+.authority-item .ai-content { flex: 1; }
+.authority-item .ai-title {
+  font-size: 9px; font-weight: 700; color: var(--white); line-height: 1.3; margin-bottom: 2px;
+}
+.authority-item .ai-body {
+  font-size: 7.5px; line-height: 1.55; color: rgba(255,255,255,0.4);
+}
+
+/* Certification banner */
+#p4 .p4-cert-banner {
+  position: relative; z-index: 5;
+  margin: 0 36px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border: 1px solid rgba(184,115,51,0.2);
+  border-top: 2px solid var(--copper);
+  background: rgba(184,115,51,0.05);
+}
+#p4 .p4-cert-banner .cert-item {
+  padding: 12px 14px;
+  border-right: 1px solid rgba(184,115,51,0.15);
+  display: flex; align-items: flex-start; gap: 10px;
+}
+#p4 .p4-cert-banner .cert-item:last-child { border-right: none; }
+#p4 .p4-cert-banner .cert-badge-icon {
+  width: 28px; height: 28px; border-radius: 3px;
+  border: 1px solid rgba(184,115,51,0.3);
+  background: rgba(184,115,51,0.08);
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+}
+#p4 .p4-cert-banner .cert-text { flex: 1; }
+#p4 .p4-cert-banner .cert-title {
+  font-size: 9px; font-weight: 700; color: var(--copper-lt); line-height: 1.3; margin-bottom: 2px;
+}
+#p4 .p4-cert-banner .cert-sub {
+  font-size: 7px; line-height: 1.5; color: rgba(255,255,255,0.4);
+}
+
+/* Melbourne section */
+#p4 .p4-melbourne {
+  position: relative; z-index: 5;
+  padding: 0 36px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+}
+#p4 .p4-melbourne .melb-left {
+  padding-right: 20px; border-right: 1px solid rgba(255,255,255,0.07);
+}
+#p4 .p4-melbourne .melb-right {
+  padding-left: 20px;
+}
+#p4 .p4-melbourne h4 {
+  font-size: 8.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); margin-bottom: 8px;
+}
+#p4 .p4-melbourne .melb-text {
+  font-size: 8.5px; line-height: 1.65; color: rgba(255,255,255,0.5);
+}
+#p4 .p4-melbourne .melb-text strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+#p4 .p4-melbourne .suburb-list {
+  display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px;
+}
+#p4 .p4-melbourne .suburb-pill {
+  padding: 3px 8px; border: 1px solid rgba(255,255,255,0.1); border-radius: 2px;
+  font-size: 7px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+#p4 .p4-melbourne .ownership-list { display: flex; flex-direction: column; gap: 6px; }
+#p4 .p4-melbourne .own-item {
+  display: flex; align-items: flex-start; gap: 8px;
+}
+#p4 .p4-melbourne .own-item .own-num {
+  font-family: var(--serif); font-size: 13px; color: var(--copper); line-height: 1; flex-shrink: 0; min-width: 14px;
+}
+#p4 .p4-melbourne .own-item .own-text {
+  font-size: 8px; line-height: 1.55; color: rgba(255,255,255,0.5);
+}
+#p4 .p4-melbourne .own-item .own-text strong { color: rgba(255,255,255,0.85); font-weight: 700; }
+
+/* Closing statement */
+#p4 .p4-close-statement {
+  position: relative; z-index: 5;
+  margin: 0 36px;
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+#p4 .p4-close-statement .close-quote {
+  font-family: var(--serif); font-size: 15px; font-style: italic;
+  color: rgba(255,255,255,0.55); line-height: 1.6;
+  max-width: 580px; margin-bottom: 8px;
+}
+#p4 .p4-close-statement .close-attribution {
+  font-size: 7.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+/* Footer / contact */
+#p4 .p4-footer {
+  position: relative; z-index: 5;
+  padding: 14px 36px;
+  border-top: 2px solid var(--copper);
+  background: rgba(184,115,51,0.05);
+  display: flex; align-items: center; justify-content: space-between;
+}
+#p4 .p4-footer .logo img { height: 18px; display: block; filter: brightness(0.85); }
+#p4 .p4-footer .contact-block {
+  display: flex; gap: 24px;
+}
+#p4 .p4-footer .contact-item { display: flex; flex-direction: column; }
+#p4 .p4-footer .contact-item .ci-label {
+  font-size: 7px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25); margin-bottom: 2px;
+}
+#p4 .p4-footer .contact-item .ci-val {
+  font-size: 9px; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.02em;
+}
+#p4 .p4-footer .tagline-end {
+  font-size: 8px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ═══════════════════════════════════════════
+   PRINT OVERRIDES
+═══════════════════════════════════════════ */
+@media print {
+  body { background: white; padding: 0; gap: 0; }
+  .page { width: 210mm; min-height: 297mm; box-shadow: none; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  @page { size: A4 portrait; margin: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 1 — COVER
+═══════════════════════════════════════════ -->
+<div class="page" id="p1">
+  <div class="p1-bg"></div>
+  <div class="grid-lines"></div>
+
+  <!-- Engineered corner brackets -->
+  <div class="corner-bracket tl" style="top:10px;left:10px;width:22px;height:22px;opacity:0.35;"></div>
+  <div class="corner-bracket tr" style="top:10px;right:10px;width:22px;height:22px;opacity:0.35;"></div>
+
+  <!-- Header bar -->
+  <div class="p1-header">
+    <div class="logo">
+      <img src="neptune-site/assets/logos/Neptune_Logo_White.png" alt="Neptune">
+    </div>
+    <div class="header-right">
+      <div class="cert-chip">
+        <svg width="9" height="9" viewBox="0 0 9 9"><polygon points="4.5,0.5 5.6,3.3 8.5,3.3 6.2,5.1 7.0,7.9 4.5,6.2 2.0,7.9 2.8,5.1 0.5,3.3 3.4,3.3" fill="none" stroke="rgba(184,115,51,0.8)" stroke-width="0.8"/></svg>
+        <span>WaterMark AS 3497</span>
+      </div>
+      <div class="cert-chip">
+        <svg width="9" height="9" viewBox="0 0 9 9"><rect x="1" y="1" width="7" height="7" rx="1" fill="none" stroke="rgba(184,115,51,0.8)" stroke-width="0.8"/><polyline points="2.5,4.5 3.8,5.8 6.5,3" fill="none" stroke="rgba(184,115,51,0.8)" stroke-width="0.8"/></svg>
+        <span>VIC Licensed &amp; Insured</span>
+      </div>
+      <div class="cert-chip">
+        <svg width="9" height="9" viewBox="0 0 9 9"><circle cx="4.5" cy="4.5" r="3.5" fill="none" stroke="rgba(184,115,51,0.8)" stroke-width="0.8"/><path d="M4.5 2.5v2l1.2 1.2" fill="none" stroke="rgba(184,115,51,0.8)" stroke-width="0.8" stroke-linecap="round"/></svg>
+        <span>7-Year Warranty</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero image block -->
+  <div class="p1-hero">
+    <div class="p1-image-block" style="height:580px;">
+      <img src="neptune-site/assets/install-photos/neptuneheroai.png" alt="Neptune System Installation">
+
+      <!-- Technical annotations overlaid on image -->
+      <div class="tech-ann ta-1">
+        <div class="ann-line"></div>
+        <div class="ann-text">Mains connection point</div>
+      </div>
+      <div class="tech-ann ta-2">
+        <div class="ann-line"></div>
+        <div class="ann-text">20" triple housing</div>
+      </div>
+      <div class="tech-ann ta-3">
+        <div class="ann-line"></div>
+        <div class="ann-text">Professional plumbing integration</div>
+      </div>
+
+      <!-- Floating spec cards -->
+      <div class="p1-spec-row">
+        <div class="spec-item">
+          <div class="si-val">5·1·1</div>
+          <div class="si-label">Micron staged filtration</div>
+        </div>
+        <div class="spec-item">
+          <div class="si-val">3</div>
+          <div class="si-label">Dedicated filter stages</div>
+        </div>
+        <div class="spec-item">
+          <div class="si-val">&lt;3 hrs</div>
+          <div class="si-label">Install · standard</div>
+        </div>
+        <div class="spec-item">
+          <div class="si-val">AS 3497</div>
+          <div class="si-label">WaterMark certified</div>
+        </div>
+        <div class="spec-item">
+          <div class="si-val">7yr</div>
+          <div class="si-label">Workmanship guarantee</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero text block -->
+    <div class="p1-hero-text">
+      <div class="eyebrow-light">Neptune Whole Home Filtration · Melbourne, VIC</div>
+      <div style="height:8px;"></div>
+      <h1>Every tap.<br><em>Every shower.</em><br>Properly filtered.</h1>
+      <div class="hero-sub">
+        A single, permanently installed system at your mains — engineered to remove chlorine, chloramines, scale, VOCs, lead, and sediment from every water outlet in your home. Not a jug. Not an undersink filter. The entire house.
+      </div>
+      <div class="hero-bottom">
+        <div class="creds">
+          <div class="cred-pill">WaterMark Certified</div>
+          <div class="cred-pill">VIC Licensed Plumbers</div>
+          <div class="cred-pill">7-Year Warranty</div>
+        </div>
+        <div class="tagline">Melbourne's Water Specialists</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-num">Neptune · 01 / 04</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 2 — WATER QUALITY + FILTRATION ENGINEERING
+═══════════════════════════════════════════ -->
+<div class="page" id="p2">
+
+  <!-- Header -->
+  <div class="p2-header">
+    <div class="logo"><img src="neptune-site/assets/logos/Neptune_Logo_White.png" alt="Neptune"></div>
+    <div class="page-label">02 / 04 — Water Quality + Filtration Engineering</div>
+  </div>
+
+  <!-- Intro band -->
+  <div class="p2-intro">
+    <div class="intro-grid">
+      <div class="intro-headline">
+        <div class="eyebrow-light">Melbourne Tap Water Analysis</div>
+        <div style="height:6px;"></div>
+        <h2>What's in your<br>water — and why<br>it matters.</h2>
+      </div>
+      <div class="intro-stat">
+        <div class="label-white" style="margin-bottom:4px;">Key research finding</div>
+        <div style="height:5px;"></div>
+        <div class="stat-num" style="font-family:var(--serif);font-size:42px;color:var(--copper-lt);line-height:1;margin-bottom:4px;">6×</div>
+        <div class="stat-label" style="font-size:8.5px;line-height:1.6;color:rgba(255,255,255,0.5);">more chlorine is absorbed through skin during a 10-minute shower than from drinking a glass of tap water. Filtration at the mains eliminates this at every point of use.</div>
+        <div class="stat-source" style="margin-top:5px;font-size:7px;color:rgba(255,255,255,0.22);font-style:italic;">Source: Water quality &amp; dermal absorption research</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Two-col body -->
+  <div class="p2-body">
+
+    <!-- Left col: Contaminants -->
+    <div class="p2-left">
+      <div class="col-head">
+        <h3>Melbourne water<br>contaminants.</h3>
+        <div style="height:5px;"></div>
+        <div class="copper-rule-l"></div>
+        <div style="height:8px;"></div>
+        <p>Melbourne's water supply is treated and generally meets Australian standards — but treated water is not filtered water. Treatment adds chlorine. Pipe infrastructure adds sediment. Your suburb's geology determines your scale load.</p>
+      </div>
+
+      <div class="contaminant-item">
+        <div class="c-head">
+          <div class="c-icon">
+            <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="3.5" fill="rgba(255,255,255,0.15)"/><circle cx="5" cy="5" r="1.5" fill="rgba(255,255,255,0.5)"/></svg>
+          </div>
+          <div class="c-name">Chlorine &amp; Chloramines</div>
+          <div class="c-tag present">Present · All suburbs</div>
+        </div>
+        <div class="c-body">Added during treatment and <strong>remains active in your supply at the tap</strong>. Absorbed through skin in the shower, tasted in drinking water, and implicated in dry skin and hair. Chloramines (monochloramine) are increasingly used and are harder to remove than free chlorine — requiring activated carbon filtration, not basic filters.</div>
+      </div>
+
+      <div class="contaminant-item">
+        <div class="c-head">
+          <div class="c-icon">
+            <svg width="10" height="10" viewBox="0 0 10 10"><rect x="2" y="2" width="6" height="6" rx="1" fill="rgba(255,255,255,0.15)"/><rect x="3.5" y="3.5" width="3" height="3" fill="rgba(255,255,255,0.4)"/></svg>
+          </div>
+          <div class="c-name">Hardness / Calcium &amp; Magnesium</div>
+          <div class="c-tag variable">Variable · Suburb-dependent</div>
+        </div>
+        <div class="c-body">Hard water minerals cause visible scale buildup on shower screens, taps, kettles, and appliances — a daily reality for many Melbourne homeowners. The extent varies by suburb, with some areas running significantly harder than others. Scale accelerates wear on hot water systems and dishwashers over time.</div>
+      </div>
+
+      <div class="contaminant-item">
+        <div class="c-head">
+          <div class="c-icon">
+            <svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,1 9,9 1,9" fill="rgba(255,255,255,0.15)"/><polygon points="5,3.5 7.5,8 2.5,8" fill="rgba(255,255,255,0.4)"/></svg>
+          </div>
+          <div class="c-name">Volatile Organic Compounds (VOCs)</div>
+          <div class="c-tag variable">Trace levels · Pipe &amp; industrial source</div>
+        </div>
+        <div class="c-body">VOCs — including trihalomethanes (THMs) formed when chlorine reacts with organic matter — are present in treated reticulated supplies. They evaporate readily during showers. <strong>Removal requires dedicated coconut shell activated carbon</strong>, not sediment filtration alone.</div>
+      </div>
+
+      <div class="contaminant-item">
+        <div class="c-head">
+          <div class="c-icon">
+            <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1"/><line x1="5" y1="2" x2="5" y2="8" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/></svg>
+          </div>
+          <div class="c-name">Heavy Metals — Lead &amp; Mercury</div>
+          <div class="c-tag variable">Trace · Older infrastructure</div>
+        </div>
+        <div class="c-body">Lead enters water through older service connections and internal plumbing — particularly in homes built before the 1980s. <strong>There is no safe level of lead in drinking water for children.</strong> Reduction is supported through Neptune's dedicated coconut shell activated carbon stage, engineered for treated metropolitan water conditions.</div>
+      </div>
+
+      <div class="contaminant-item">
+        <div class="c-head">
+          <div class="c-icon">
+            <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 8 Q5 2 8 8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/></svg>
+          </div>
+          <div class="c-name">Sediment, Rust &amp; Particulates</div>
+          <div class="c-tag present">Present · All properties</div>
+        </div>
+        <div class="c-body">Pipe scale and fine particulates enter through your supply line and internal plumbing. Visible as discolouration or fine particles in water. <strong>First point of capture</strong> in a staged filtration system — essential before carbon stages.</div>
+      </div>
+
+      <!-- Installation photo fills lower dead space -->
+      <div style="margin-top:10px;position:relative;overflow:hidden;flex:1;min-height:120px;border:1px solid rgba(10,31,60,0.1);border-top:2px solid var(--copper);">
+        <img src="neptune-site/assets/install-photos/3image.png" alt="Neptune professional installation" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:brightness(0.85) saturate(0.85);">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(9,27,53,0.75) 100%);"></div>
+        <!-- Engineering annotation overlay -->
+        <div style="position:absolute;bottom:10px;left:12px;right:12px;display:flex;flex-direction:column;gap:4px;">
+          <div style="font-size:7px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(184,115,51,0.9);">Professional installation · Melbourne</div>
+          <div style="font-size:7px;line-height:1.5;color:rgba(255,255,255,0.55);">VIC Licensed plumbers · Mains connection · Installed in under 3 hours standard</div>
+        </div>
+        <!-- Corner technical bracket -->
+        <div style="position:absolute;top:8px;right:8px;width:14px;height:14px;border-top:1.5px solid rgba(184,115,51,0.5);border-right:1.5px solid rgba(184,115,51,0.5);"></div>
+        <div style="position:absolute;top:8px;left:8px;width:14px;height:14px;border-top:1.5px solid rgba(184,115,51,0.5);border-left:1.5px solid rgba(184,115,51,0.5);"></div>
+      </div>
+
+    </div>
+
+    <!-- Right col: Filtration engineering -->
+    <div class="p2-right">
+      <div class="col-head">
+        <h3>Neptune filtration<br>architecture.</h3>
+        <div style="height:5px;"></div>
+        <div class="copper-rule-l"></div>
+        <div style="height:8px;"></div>
+        <p>The Neptune 5-1-1 Micron System uses three purpose-built stages in a 20" triple housing — each stage engineered for a specific contaminant category. Sequential staged filtration achieves what no single-stage system can.</p>
+      </div>
+
+      <!-- System ID pill -->
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px;">
+        <div style="padding:3px 9px;border:1px solid rgba(184,115,51,0.35);border-radius:2px;font-size:7.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--copper-lt);background:rgba(184,115,51,0.06);">Neptune 5-1-1 Micron System</div>
+        <div style="padding:3px 9px;border:1px solid rgba(10,31,60,0.15);border-radius:2px;font-size:7.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);">20" Triple Housing</div>
+        <div style="padding:3px 9px;border:1px solid rgba(10,31,60,0.15);border-radius:2px;font-size:7.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);">Mains Installation</div>
+      </div>
+
+      <!-- Stage 1 -->
+      <div class="stage-block">
+        <div class="sb-header">
+          <div class="sb-num">01</div>
+          <div>
+            <div class="sb-sub">Stage One</div>
+            <div class="sb-title">Pleated Sediment Filter</div>
+          </div>
+          <div class="sb-micron">5 Micron</div>
+        </div>
+        <div class="sb-body">Captures rust, dirt, sand, pipe scale, and fine particulates entering from the supply main. Pleated design maximises surface area for extended service life. <strong>Protects downstream carbon stages from sediment loading</strong> — essential for system longevity and consistent flow rate.</div>
+        <div class="sb-tags">
+          <div class="sb-tag">Rust</div>
+          <div class="sb-tag">Sediment</div>
+          <div class="sb-tag">Pipe scale</div>
+          <div class="sb-tag">Fine particles</div>
+        </div>
+      </div>
+
+      <div class="stage-connector"></div>
+
+      <!-- Stage 2 -->
+      <div class="stage-block">
+        <div class="sb-header">
+          <div class="sb-num">02</div>
+          <div>
+            <div class="sb-sub">Stage Two</div>
+            <div class="sb-title">Scale Reduction Carbon Block</div>
+          </div>
+          <div class="sb-micron">1 Micron</div>
+        </div>
+        <div class="sb-body">A 1-micron carbon block addresses dissolved hardness minerals — calcium and magnesium — that cause limescale accumulation on glass, taps, and appliances. Simultaneously reduces free chlorine and addresses taste and odour. <strong>High-density block construction maintains pressure stability across flow demand.</strong></div>
+        <div class="sb-tags">
+          <div class="sb-tag">Chlorine</div>
+          <div class="sb-tag">Calcium</div>
+          <div class="sb-tag">Magnesium</div>
+          <div class="sb-tag">Scale</div>
+          <div class="sb-tag">Taste &amp; Odour</div>
+        </div>
+      </div>
+
+      <div class="stage-connector"></div>
+
+      <!-- Stage 3 -->
+      <div class="stage-block" style="border-left-color:var(--copper);">
+        <div class="sb-header">
+          <div class="sb-num">03</div>
+          <div>
+            <div class="sb-sub">Stage Three — Dedicated VOC Stage</div>
+            <div class="sb-title">Coconut Shell Activated Carbon Block</div>
+          </div>
+          <div class="sb-micron">1 Micron</div>
+        </div>
+        <div class="sb-body">Coconut shell activated carbon has <strong>the highest surface area-to-volume ratio of any carbon media</strong> — significantly outperforming coal-based alternatives. This dedicated third stage targets VOCs, trihalomethanes, chloramines, pesticides, herbicides, pharmaceutical traces, lead, and mercury. It is the stage that most domestic systems omit.</div>
+        <div class="sb-tags">
+          <div class="sb-tag">VOCs / THMs</div>
+          <div class="sb-tag">Chloramines</div>
+          <div class="sb-tag">Lead</div>
+          <div class="sb-tag">Mercury</div>
+          <div class="sb-tag">Pesticides</div>
+          <div class="sb-tag">Herbicides</div>
+        </div>
+      </div>
+
+      <!-- Coconut carbon callout -->
+      <div class="coconut-callout">
+        <div class="cc-eyebrow eyebrow-light">Material specification</div>
+        <div class="cc-title">Why coconut shell carbon matters.</div>
+        <div class="cc-body">Coconut shell activated carbon is produced at higher activation temperatures, yielding a microporous structure with surface area exceeding 1,000 m²/g. Coal-based carbon — standard in low-cost filters — has significantly lower micropore volume and reduced adsorption capacity for VOCs, chloramines, and heavy metals. The Neptune Stage 3 filter is specified to perform where generic carbon cannot.</div>
+      </div>
+
+      <!-- Spec summary -->
+      <div class="spec-summary">
+        <div class="ss-item">
+          <div class="ss-val" style="font-size:13px;">$299.95</div>
+          <div class="ss-label">Annual filter set — all 3 stages</div>
+        </div>
+        <div class="ss-item">
+          <div class="ss-val">12 mo</div>
+          <div class="ss-label">Recommended replacement cycle</div>
+        </div>
+        <div class="ss-item">
+          <div class="ss-val">All</div>
+          <div class="ss-label">Outlets served simultaneously</div>
+        </div>
+      </div>
+
+      <!-- Filter ownership note -->
+      <div style="padding:8px 10px;border:1px solid rgba(10,31,60,0.1);border-left:2px solid rgba(184,115,51,0.5);background:rgba(10,31,60,0.03);margin-top:2px;">
+        <div style="font-size:7px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px;">Annual Filter Replacement — Simple Ownership</div>
+        <div style="font-size:7.5px;line-height:1.65;color:var(--text-2);">Replacement filter sets are delivered free to your door. Neptune sends reminders at 9, 11, and 12 months — keeping your system within warranty and at full performance. Servicing takes approximately 5 minutes using the Neptune removal tool provided at installation. No plumber required.</div>
+      </div>
+
+      <!-- Operational positioning statement -->
+      <div style="margin-top:8px;padding:8px 10px;border-top:1px solid rgba(10,31,60,0.07);border-left:2px solid rgba(184,115,51,0.4);background:rgba(10,31,60,0.02);">
+        <div style="font-size:6px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Neptune Filtration · Melbourne, VIC</div>
+        <div style="font-family:var(--serif);font-size:10.5px;font-style:italic;color:var(--text-2);line-height:1.45;letter-spacing:-0.005em;">One of Melbourne's fastest-growing whole-home filtration specialists.</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 3 — WHY NEPTUNE / DIFFERENTIATION
+═══════════════════════════════════════════ -->
+<div class="page" id="p3">
+  <div class="p3-bg"></div>
+
+  <!-- Header -->
+  <div class="p3-header">
+    <div class="logo"><img src="neptune-site/assets/logos/Neptune_Logo_White.png" alt="Neptune"></div>
+    <div class="page-label">03 / 04 — Why Neptune</div>
+  </div>
+
+  <!-- ① Founding observation — narrow, authoritative, calm -->
+  <div style="position:relative;z-index:5;padding:16px 36px;border-bottom:1px solid rgba(255,255,255,0.07);display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;">
+    <div>
+      <div class="eyebrow-light" style="margin-bottom:10px;">The Neptune position</div>
+      <div style="font-family:var(--serif);font-size:22px;color:var(--white);line-height:1.25;font-weight:400;letter-spacing:-0.01em;">
+        Premium whole-home filtration.<br><span style="font-style:italic;color:var(--copper-lt);">Priced to reflect the engineering.</span>
+      </div>
+    </div>
+    <div style="font-size:9px;line-height:1.75;color:rgba(255,255,255,0.45);border-left:1px solid rgba(255,255,255,0.09);padding-left:28px;">
+      The filtration category has always had two problems: low-cost, low-infrastructure systems competing almost entirely on price — and well-specified consultation brands priced to carry heavy sales and operational overhead. Neptune was designed for the space between — premium specification, professional installation, transparent pricing. Built for Melbourne. Not scaled to it from elsewhere.
+    </div>
+  </div>
+
+  <!-- ② Three-position matrix — editorial, not a table -->
+  <div style="position:relative;z-index:5;padding:18px 36px 14px;">
+    <div class="label-white" style="margin-bottom:12px;">Where Neptune sits — the category in context</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid rgba(255,255,255,0.07);">
+
+      <!-- Left: Under-specified -->
+      <div style="padding:14px 16px;border-right:1px solid rgba(255,255,255,0.07);">
+        <div style="font-size:8px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:6px;">Under-specified</div>
+        <div style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);margin-bottom:10px;line-height:1.3;">Generic &amp; Low-Cost Systems</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(255,255,255,0.28);padding:5px 8px;border:1px solid rgba(255,255,255,0.06);border-radius:2px;">Compete primarily on lowest upfront price</div>
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(255,255,255,0.28);padding:5px 8px;border:1px solid rgba(255,255,255,0.06);border-radius:2px;">Generic imported filtration components</div>
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(255,255,255,0.28);padding:5px 8px;border:1px solid rgba(255,255,255,0.06);border-radius:2px;">Limited published reduction performance data</div>
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(255,255,255,0.28);padding:5px 8px;border:1px solid rgba(255,255,255,0.06);border-radius:2px;">Minimal VOC-focused filtration specification</div>
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(255,255,255,0.28);padding:5px 8px;border:1px solid rgba(255,255,255,0.06);border-radius:2px;">Often disappear after a few years</div>
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(255,255,255,0.28);padding:5px 8px;border:1px solid rgba(255,255,255,0.06);border-radius:2px;">Limited operational/service capability</div>
+        </div>
+      </div>
+
+      <!-- Centre: Neptune — highlighted -->
+      <div style="padding:14px 16px;border-right:1px solid rgba(184,115,51,0.2);border-top:2px solid var(--copper);background:rgba(184,115,51,0.06);border-left:1px solid rgba(184,115,51,0.2);margin-top:-1px;margin-bottom:-1px;">
+        <div style="font-size:8px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--copper);margin-bottom:6px;">Neptune · Melbourne</div>
+        <div style="font-size:10px;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.3;">The Middle Position</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(184,115,51,0.9);padding:5px 8px;border:1px solid rgba(184,115,51,0.25);border-radius:2px;font-weight:600;">Premium spec — fair pricing</div>
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(184,115,51,0.9);padding:5px 8px;border:1px solid rgba(184,115,51,0.25);border-radius:2px;font-weight:600;">3-stage · dedicated VOC stage</div>
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(184,115,51,0.9);padding:5px 8px;border:1px solid rgba(184,115,51,0.25);border-radius:2px;font-weight:600;">Chlorine reduction guaranteed</div>
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(184,115,51,0.9);padding:5px 8px;border:1px solid rgba(184,115,51,0.25);border-radius:2px;font-weight:600;">Melbourne-specific setup</div>
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(184,115,51,0.9);padding:5px 8px;border:1px solid rgba(184,115,51,0.25);border-radius:2px;font-weight:600;">Reduction performance published</div>
+        </div>
+      </div>
+
+      <!-- Right: Over-priced -->
+      <div style="padding:14px 16px;">
+        <div style="font-size:8px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:6px;">Over-priced</div>
+        <div style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);margin-bottom:10px;line-height:1.3;">Premium-Priced Filtration Brands</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(255,255,255,0.28);padding:5px 8px;border:1px solid rgba(255,255,255,0.06);border-radius:2px;">High price — genuine engineering</div>
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(255,255,255,0.28);padding:5px 8px;border:1px solid rgba(255,255,255,0.06);border-radius:2px;">Good spec — often 3-stage</div>
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(255,255,255,0.28);padding:5px 8px;border:1px solid rgba(255,255,255,0.06);border-radius:2px;">Pricing includes sales overhead</div>
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(255,255,255,0.28);padding:5px 8px;border:1px solid rgba(255,255,255,0.06);border-radius:2px;">National advertising &amp; brand overhead</div>
+          <div style="font-size:7.5px;line-height:1.5;color:rgba(255,255,255,0.28);padding:5px 8px;border:1px solid rgba(255,255,255,0.06);border-radius:2px;">Reduction performance rarely specified</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ③ Four differentiator blocks — 2×2 grid -->
+  <div style="position:relative;z-index:5;padding:0 36px 14px;">
+    <div class="label-white" style="margin-bottom:10px;">What Neptune delivers — four defining commitments</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+
+      <!-- Block 1: Chlorine Guarantee — LEAD -->
+      <div style="padding:12px 14px;border:1px solid rgba(184,115,51,0.22);border-top:2px solid var(--copper);background:rgba(184,115,51,0.05);">
+        <div style="font-size:7.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--copper);margin-bottom:5px;">Core guarantee</div>
+        <div style="font-size:11px;font-weight:700;color:var(--white);margin-bottom:5px;line-height:1.25;">Guaranteed Chlorine Reduction. Every Tap. Every Shower.</div>
+        <div style="font-size:8px;line-height:1.6;color:rgba(255,255,255,0.45);">The Neptune system connects at your mains — not under one sink. Chlorine, chloramines, and disinfection by-products are addressed at every water outlet in the home. Whole-home reduction, not point-of-use compromise.</div>
+      </div>
+
+      <!-- Block 2: VOC Stage -->
+      <div style="padding:12px 14px;border:1px solid rgba(255,255,255,0.07);border-top:2px solid rgba(184,115,51,0.5);background:rgba(255,255,255,0.02);">
+        <div style="font-size:7.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(184,115,51,0.7);margin-bottom:5px;">Filtration specification</div>
+        <div style="font-size:11px;font-weight:700;color:var(--white);margin-bottom:5px;line-height:1.25;">Dedicated VOC Stage — Included Standard.</div>
+        <div style="font-size:8px;line-height:1.6;color:rgba(255,255,255,0.45);">A third dedicated stage — coconut shell activated carbon — targets chlorine by-products, VOCs, herbicides, pesticides, chloramines, and heavy metal traces. This is the stage low-cost systems omit, and what some consultation brands treat as an upgrade. With Neptune it is standard.</div>
+      </div>
+
+      <!-- Block 3: Melbourne Specialisation -->
+      <div style="padding:12px 14px;border:1px solid rgba(255,255,255,0.07);border-top:2px solid rgba(184,115,51,0.5);background:rgba(255,255,255,0.02);">
+        <div style="font-size:7.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(184,115,51,0.7);margin-bottom:5px;">Local specialisation</div>
+        <div style="font-size:11px;font-weight:700;color:var(--white);margin-bottom:5px;line-height:1.25;">Built for Melbourne Water. Not for Australia Generally.</div>
+        <div style="font-size:8px;line-height:1.6;color:rgba(255,255,255,0.45);">Melbourne Water's supply has specific chloramine concentrations, hardness profiles, and suburb-level variation. Neptune's system selection and setup is calibrated to Melbourne specifically — not a national standard applied uniformly to every city in the country.</div>
+      </div>
+
+      <!-- Block 4: Pricing Philosophy -->
+      <div style="padding:12px 14px;border:1px solid rgba(255,255,255,0.07);border-top:2px solid rgba(184,115,51,0.5);background:rgba(255,255,255,0.02);">
+        <div style="font-size:7.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(184,115,51,0.7);margin-bottom:5px;">Pricing philosophy</div>
+        <div style="font-size:11px;font-weight:700;color:var(--white);margin-bottom:5px;line-height:1.25;">The Price Reflects the System. Not the Overhead.</div>
+        <div style="font-size:8px;line-height:1.6;color:rgba(255,255,255,0.45);">Some systems compete on the lowest upfront price. Others carry pricing driven by corporate supply chains, national advertising budgets, and sales-heavy models. Neptune was built to sit between the two — balancing specification, installation quality, warranty, and long-term ownership value.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ④ Filtration Architecture & Performance Data -->
+  <div style="position:relative;z-index:5;margin:0 36px;border:1px solid rgba(255,255,255,0.08);border-top:2px solid var(--copper);background:rgba(255,255,255,0.015);">
+    <!-- Section header -->
+    <div style="padding:10px 16px 9px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;">
+      <div style="font-size:7.5px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);">Filtration Architecture — Reduction Performance Data</div>
+      <div style="font-size:7px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.2);">Neptune 5-1-1 Micron System</div>
+    </div>
+    <!-- Two-column body -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+
+      <!-- LEFT: Technical flow diagram -->
+      <div style="padding:16px 14px 16px 16px;border-right:1px solid rgba(255,255,255,0.06);">
+        <div style="font-size:7px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:10px;">Three-stage flow architecture</div>
+        <svg viewBox="0 0 290 232" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+          <defs>
+            <pattern id="svgDots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+              <circle cx="5" cy="5" r="0.55" fill="rgba(61,139,205,0.2)"/>
+            </pattern>
+            <marker id="flowArr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <polygon points="0,0 6,3 0,6" fill="rgba(184,115,51,0.6)"/>
+            </marker>
+          </defs>
+          <rect width="290" height="232" fill="rgba(9,27,53,0.55)"/>
+          <rect width="290" height="232" fill="url(#svgDots)"/>
+          <!-- Mains label -->
+          <text x="145" y="13" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" font-weight="700" letter-spacing="2" fill="rgba(255,255,255,0.2)">MAINS WATER SUPPLY</text>
+          <line x1="145" y1="17" x2="145" y2="27" stroke="rgba(184,115,51,0.4)" stroke-width="1" stroke-dasharray="2,2"/>
+          <!-- Stage 01 -->
+          <rect x="12" y="27" width="266" height="49" fill="rgba(9,27,53,0.9)" stroke="rgba(184,115,51,0.3)" stroke-width="1"/>
+          <rect x="12" y="27" width="266" height="2.5" fill="rgba(184,115,51,0.7)"/>
+          <text x="27" y="47" font-family="DM Sans, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1" fill="rgba(184,115,51,0.85)">01</text>
+          <text x="48" y="44" font-family="DM Sans, sans-serif" font-size="8.5" font-weight="700" fill="rgba(255,255,255,0.88)">5 Micron Pleated Sediment</text>
+          <text x="48" y="57" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(255,255,255,0.38)">Sediment  ·  Particulates  ·  Rust  ·  Scale fragments</text>
+          <text x="48" y="69" font-family="DM Sans, sans-serif" font-size="6" fill="rgba(255,255,255,0.2)">20" high-capacity pleated media</text>
+          <!-- Arrow 01→02 -->
+          <line x1="145" y1="76" x2="145" y2="89" stroke="rgba(184,115,51,0.45)" stroke-width="1" marker-end="url(#flowArr)"/>
+          <!-- Stage 02 -->
+          <rect x="12" y="90" width="266" height="49" fill="rgba(9,27,53,0.9)" stroke="rgba(184,115,51,0.3)" stroke-width="1"/>
+          <rect x="12" y="90" width="266" height="2.5" fill="rgba(184,115,51,0.7)"/>
+          <text x="27" y="110" font-family="DM Sans, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1" fill="rgba(184,115,51,0.85)">02</text>
+          <text x="48" y="107" font-family="DM Sans, sans-serif" font-size="8.5" font-weight="700" fill="rgba(255,255,255,0.88)">1 Micron Scale-Reduction Carbon Block</text>
+          <text x="48" y="120" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(255,255,255,0.38)">Chlorine  ·  Hardness minerals  ·  Scale  ·  Chloramines</text>
+          <text x="48" y="132" font-family="DM Sans, sans-serif" font-size="6" fill="rgba(255,255,255,0.2)">1 micron carbon block  ·  scale-reduction formulation</text>
+          <!-- Arrow 02→03 -->
+          <line x1="145" y1="139" x2="145" y2="152" stroke="rgba(184,115,51,0.45)" stroke-width="1" marker-end="url(#flowArr)"/>
+          <!-- Stage 03 -->
+          <rect x="12" y="153" width="266" height="57" fill="rgba(9,27,53,0.9)" stroke="rgba(184,115,51,0.3)" stroke-width="1"/>
+          <rect x="12" y="153" width="266" height="2.5" fill="rgba(184,115,51,0.7)"/>
+          <text x="27" y="173" font-family="DM Sans, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1" fill="rgba(184,115,51,0.85)">03</text>
+          <text x="48" y="170" font-family="DM Sans, sans-serif" font-size="8.5" font-weight="700" fill="rgba(255,255,255,0.88)">1 Micron Coconut Shell Activated Carbon</text>
+          <text x="48" y="183" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(255,255,255,0.38)">VOCs  ·  Chloramines  ·  Heavy metals  ·  Herbicides</text>
+          <text x="48" y="195" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(255,255,255,0.38)">Pesticides  ·  Disinfection by-products</text>
+          <text x="48" y="205" font-family="DM Sans, sans-serif" font-size="6" fill="rgba(255,255,255,0.2)">coconut shell activated carbon  ·  dedicated VOC stage</text>
+          <!-- Arrow + filtered supply -->
+          <line x1="145" y1="210" x2="145" y2="221" stroke="rgba(184,115,51,0.45)" stroke-width="1" marker-end="url(#flowArr)"/>
+          <text x="145" y="231" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" font-weight="700" letter-spacing="1.5" fill="rgba(184,115,51,0.65)">FILTERED SUPPLY — ALL OUTLETS</text>
+        </svg>
+
+        <!-- Brand statement — bottom of diagram column -->
+        <div style="flex:1;display:flex;align-items:flex-end;padding-top:12px;margin-top:10px;border-top:1px solid rgba(255,255,255,0.06);">
+          <div>
+            <div style="font-size:6px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(184,115,51,0.38);margin-bottom:8px;">Neptune · Melbourne</div>
+            <div style="font-family:var(--serif);font-size:15px;font-style:italic;color:rgba(255,255,255,0.62);line-height:1.5;letter-spacing:-0.01em;">The only whole-home filtration system<br>you'll ever need to install.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Performance metrics -->
+      <div style="padding:16px 16px 16px 14px;display:flex;flex-direction:column;">
+        <div style="font-size:7px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:10px;">Reduction performance — up to specification</div>
+
+        <div style="display:flex;flex-direction:column;gap:0;flex:1;">
+
+          <!-- 99% Chlorine -->
+          <div style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:10px;">
+            <div style="min-width:82px;">
+              <div style="font-size:5.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(184,115,51,0.5);margin-bottom:1px;">Up to</div>
+              <div style="font-family:var(--serif);font-size:24px;color:var(--copper-lt);line-height:1;">99%</div>
+            </div>
+            <div style="padding-top:9px;font-size:8px;line-height:1.45;color:rgba(255,255,255,0.45);">Chlorine reduction</div>
+          </div>
+
+          <!-- 95% VOC -->
+          <div style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:10px;">
+            <div style="min-width:82px;">
+              <div style="font-size:5.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(184,115,51,0.5);margin-bottom:1px;">Up to</div>
+              <div style="font-family:var(--serif);font-size:24px;color:var(--copper-lt);line-height:1;">95%</div>
+            </div>
+            <div style="padding-top:9px;font-size:8px;line-height:1.45;color:rgba(255,255,255,0.45);">VOC reduction capability</div>
+          </div>
+
+          <!-- 85% Heavy Metal -->
+          <div style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:10px;">
+            <div style="min-width:82px;">
+              <div style="font-size:5.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(184,115,51,0.5);margin-bottom:1px;">Up to</div>
+              <div style="font-family:var(--serif);font-size:24px;color:var(--copper-lt);line-height:1;">85%</div>
+            </div>
+            <div style="padding-top:9px;font-size:8px;line-height:1.45;color:rgba(255,255,255,0.45);">Heavy metal reduction</div>
+          </div>
+
+          <!-- 75% Hardness -->
+          <div style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:10px;">
+            <div style="min-width:82px;">
+              <div style="font-size:5.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(184,115,51,0.5);margin-bottom:1px;">Up to</div>
+              <div style="font-family:var(--serif);font-size:24px;color:var(--copper-lt);line-height:1;">75%</div>
+            </div>
+            <div style="padding-top:9px;font-size:8px;line-height:1.45;color:rgba(255,255,255,0.45);">Hardness &amp; scale reduction</div>
+          </div>
+
+          <!-- Copper accent divider -->
+          <div style="height:1px;background:linear-gradient(90deg,rgba(184,115,51,0.35),transparent);margin:5px 0;"></div>
+
+          <!-- 1 micron fact -->
+          <div style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:10px;">
+            <div style="min-width:82px;">
+              <div style="font-family:var(--serif);font-size:17px;color:var(--copper-lt);line-height:1.15;">1 micron</div>
+            </div>
+            <div style="padding-top:3px;font-size:8px;line-height:1.45;color:rgba(255,255,255,0.45);">≈100× finer than a human hair</div>
+          </div>
+
+          <!-- 5·1·1 -->
+          <div style="padding:8px 0;display:flex;align-items:flex-start;gap:10px;">
+            <div style="min-width:82px;">
+              <div style="font-family:var(--serif);font-size:17px;color:var(--copper-lt);line-height:1.15;">5·1·1</div>
+            </div>
+            <div style="padding-top:3px;font-size:8px;line-height:1.45;color:rgba(255,255,255,0.45);">Micron staged filtration architecture</div>
+          </div>
+
+        </div>
+
+        <!-- Disclaimer -->
+        <div style="margin-top:8px;padding:7px 9px;border:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.01);">
+          <div style="font-size:6px;line-height:1.65;color:rgba(255,255,255,0.18);">Performance figures represent up-to reduction capability under standard test conditions. Results vary by source water quality and contaminant concentration. Testing data available on request.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div style="height:12px;"></div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 4 — PREMIUM CLOSE / TRUST
+═══════════════════════════════════════════ -->
+<div class="page" id="p4">
+  <div class="p4-bg"></div>
+  <div class="corner-bracket tl" style="top:10px;left:10px;width:22px;height:22px;opacity:0.25;border-color:rgba(184,115,51,0.5);"></div>
+  <div class="corner-bracket br" style="bottom:10px;right:10px;width:22px;height:22px;opacity:0.25;border-color:rgba(184,115,51,0.5);"></div>
+
+  <!-- Header -->
+  <div class="p4-header" style="padding:20px 44px;">
+    <div class="logo"><img src="neptune-site/assets/logos/Neptune_Logo_White.png" alt="Neptune" style="height:22px;opacity:0.7;"></div>
+    <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.18);">Melbourne's Water Specialists</div>
+  </div>
+
+  <!-- Main body — breathes intentionally -->
+  <div style="position:relative;z-index:5;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 72px;text-align:center;">
+
+    <!-- Large wordmark -->
+    <div style="margin-bottom:52px;">
+      <img src="neptune-site/assets/logos/Neptune_Logo_White.png" alt="Neptune" style="height:44px;display:block;margin:0 auto;opacity:0.92;">
+    </div>
+
+    <!-- Copper rule -->
+    <div style="width:48px;height:1px;background:var(--copper);opacity:0.6;margin-bottom:48px;"></div>
+
+    <!-- Primary closing quote -->
+    <div style="font-family:var(--serif);font-size:28px;font-weight:400;font-style:italic;color:rgba(255,255,255,0.82);line-height:1.5;letter-spacing:-0.01em;max-width:520px;margin-bottom:36px;">
+      Every tap. Every shower. Properly filtered.
+    </div>
+
+    <!-- Secondary statement -->
+    <div style="font-size:10px;font-weight:400;line-height:1.85;color:rgba(255,255,255,0.38);max-width:420px;margin-bottom:56px;">
+      Cleaner water — across every part of everyday living.
+    </div>
+
+    <!-- Copper rule -->
+    <div style="width:48px;height:1px;background:var(--copper);opacity:0.4;margin-bottom:36px;"></div>
+
+    <!-- Subtle trust references — small and understated -->
+    <div style="display:flex;align-items:center;gap:24px;">
+      <div style="text-align:center;">
+        <div style="font-size:7px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(184,115,51,0.55);margin-bottom:3px;">WaterMark Certified</div>
+        <div style="font-size:6.5px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.2);">AS 3497</div>
+      </div>
+      <div style="width:1px;height:24px;background:rgba(255,255,255,0.1);"></div>
+      <div style="text-align:center;">
+        <div style="font-size:7px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(184,115,51,0.55);margin-bottom:3px;">VIC Licensed Plumbers</div>
+        <div style="font-size:6.5px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.2);">Licensed &amp; Insured</div>
+      </div>
+      <div style="width:1px;height:24px;background:rgba(255,255,255,0.1);"></div>
+      <div style="text-align:center;">
+        <div style="font-size:7px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(184,115,51,0.55);margin-bottom:3px;">7-Year Warranty</div>
+        <div style="font-size:6.5px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.2);">Workmanship Guarantee</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer — clean and minimal -->
+  <div style="position:relative;z-index:5;padding:18px 44px;border-top:1px solid rgba(184,115,51,0.2);display:flex;align-items:center;justify-content:space-between;">
+    <div style="display:flex;gap:28px;">
+      <div>
+        <div style="font-size:6.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:3px;">Phone</div>
+        <div style="font-size:9px;font-weight:600;color:rgba(255,255,255,0.55);letter-spacing:0.02em;">03 9122 5243</div>
+      </div>
+      <div>
+        <div style="font-size:6.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:3px;">Email</div>
+        <div style="font-size:9px;font-weight:600;color:rgba(255,255,255,0.55);letter-spacing:0.02em;">office@neptunefiltration.com.au</div>
+      </div>
+      <div>
+        <div style="font-size:6.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:3px;">Web</div>
+        <div style="font-size:9px;font-weight:600;color:rgba(255,255,255,0.55);letter-spacing:0.02em;">neptunefiltration.com.au</div>
+      </div>
+    </div>
+    <div style="font-size:7px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.15);">Melbourne, VIC</div>
+  </div>
+
+</div>
+
+</body>
+</html>

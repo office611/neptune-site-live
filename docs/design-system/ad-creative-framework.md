@@ -141,7 +141,7 @@ The photography approach and geographic hook are the foundation of the new direc
 | Bright generic blue | Neptune Deep + brand colour system |
 | Heavy condensed caps typography | Clean brand typeface — consistent with website |
 | Discount framing | Premium positioning — no discounts in creative |
-| No trust signals | WaterMark · VIC Licensed · 7-Year Warranty |
+| No trust signals | WaterMark Certified (ads only — no warranty/licensed clutter) |
 
 ### Target Customer Response (What the Ad Should Make Them Think)
 
@@ -173,7 +173,7 @@ LAYOUT:
 │   and shower. Guaranteed."          │
 │                                     │
 │  [NEPTUNE-DEEP BOTTOM STRIP]        │
-│  WaterMark Certified · VIC Licensed │
+│  WaterMark Certified │
 │  [Book Your Free Water Test →]      │
 └─────────────────────────────────────┘
 
@@ -182,7 +182,7 @@ TYPOGRAPHY: Brand typeface, H2 weight for headline
 LOGO:      White, top-left, 180px wide
 PRICE:     Not shown
 CTA:       "Book Your Free Water Test" (on dark strip)
-TRUST:     "WaterMark Certified AS 3497 · VIC Licensed & Insured"
+TRUST:     "WaterMark Certified"
 ```
 
 **Copy options for headline:**
@@ -222,7 +222,7 @@ LAYOUT:
 │  ✓ Better for your appliances       │
 │                                     │
 │  [Book Your Free Water Test →]      │
-│  WaterMark Certified · VIC Licensed │
+│  WaterMark Certified │
 └─────────────────────────────────────┘
 
 COLOURS:   Photography + neptune-deep strip
@@ -274,8 +274,7 @@ LAYOUT:
 │                                     │
 │  CREDENTIAL ROW:                    │
 │  [WaterMark badge]                  │
-│  [VIC Licensed badge]               │
-│  [7-Year Warranty badge]            │
+│  [WaterMark badge]                  │
 │                                     │
 │  [Book Your Free Water Test →]      │
 │  "No obligation. ~30 minutes."      │
@@ -321,8 +320,7 @@ LAYOUT:
 │  "You are never obligated           │
 │   to decide on the day."            │
 │                                     │
-│  [WaterMark · VIC Licensed ·        │
-│   7-Year Warranty]                  │
+│  [WaterMark Certified]              │
 │                                     │
 │  [Book Your Free Water Test →]      │
 └─────────────────────────────────────┘
@@ -346,8 +344,7 @@ LAYOUT:
 - "Drink straight from any tap. Cook, shower, clean — all filtered."
 
 ### Trust/Authority Hooks (for credibility building)
-- "WaterMark certified. VIC Licensed & Insured. Melbourne's water specialists."
-- "7-year workmanship warranty. We stand behind every installation."
+- "WaterMark certified. Melbourne's water specialists."
 - "Free water test. We come to you. No obligation."
 - "Licensed Melbourne plumbers. Professional installation. Done properly."
 
@@ -416,3 +413,214 @@ Test one variable at a time — never change headline AND visual simultaneously.
 | CPM | <$15 | <$20 |
 | Cost per lead | <$30 | <$20 |
 | Lead quality (appt rate) | Track and optimise | Track and optimise |
+
+---
+
+## Updated Meta Creative & Positioning Strategy
+
+### Core Brand Positioning
+
+Neptune positions as: **premium · trustworthy · modern · clean · educational · high-end.**
+
+NOT: cheap, discount-heavy, or an aggressive sales brand.
+
+The visual identity — dark navy palette, luxury typography, clean layouts — must remain consistent across ALL creatives. Consistency drives trust, brand recognition, and perceived legitimacy.
+
+---
+
+### Required Creative Sizes
+
+| Format | Dimensions | Purpose |
+|--------|-----------|---------|
+| Feed / General | 1080×1080 | Facebook feed, Instagram feed, broad placements |
+| Vertical / Reels | 1080×1400 | Reels, Stories, vertical placements — black spacing protects CTA from Meta overlays |
+
+The 1080×1400 format intentionally preserves lower safe-area spacing so Meta buttons and overlays do not obstruct the creative.
+
+---
+
+### Offer Strategy
+
+**No financing messaging.** Neptune does not offer finance. Never use payment plans, weekly payment framing, or "from $X/week" — this damages trust and positioning.
+
+**20% OFF is always running.** Because the offer is effectively permanent, constant "LIMITED TIME / ENDING SOON / EOFY ONLY" urgency will eventually lose credibility with the audience. Use 20% OFF as a **conversion enhancer**, not the entire brand identity. The mistake is becoming known as "the discount filtration company."
+
+---
+
+### Creative Category Structure
+
+#### Category 1 — Educational / Trust Ads (NO PRICING)
+
+**Goal:** Brand trust, curiosity, engagement, lower CPM, broader audience appeal.
+
+Primary scaling creatives. These should become the volume.
+
+Example hooks:
+- "Most Melbourne families have never tested their tap water."
+- "What chlorine may be doing to your skin and hair."
+- "See what came out of this home's water."
+
+Visuals: premium motion, water movement, faceless UGC, installations, lifestyle footage, clean typography.
+
+CTA: Book Your Free Water Test.
+
+#### Category 2 — Premium Lifestyle Ads (NO PRICING)
+
+**Goal:** Premium perception, emotional aspiration, authority positioning.
+
+Brand-building creatives. Focus on luxury home feel, shower/kitchen visuals, skin/hair improvement, premium installation.
+
+#### Category 3 — Offer / Conversion Ads (20% OFF)
+
+**Goal:** Retargeting, conversion, urgency, buyer activation.
+
+Still feel premium — avoid cheap sales energy. Better framing:
+- "EOFY Upgrade Event"
+- "Premium Water. EOFY Savings."
+- "Melbourne EOFY Installation Event"
+
+NOT: giant flashing discount ads or cheap retail energy.
+
+---
+
+### Strategic Test: One High-End No-Price Ad
+
+Many premium companies never display pricing and still generate high lead volume — relying on trust, education, authority, and emotional positioning rather than transaction-first messaging.
+
+**Recommended test creative:**
+
+| Element | Content |
+|---------|---------|
+| Headline | "Most Melbourne families have never tested their tap water." |
+| Subtext | "Cleaner water throughout your entire home." |
+| CTA | "Book Your Free Water Test" |
+| Pricing | None |
+| Discount | None |
+
+This tests whether premium trust positioning can maintain CPL efficiency without any offer framing.
+
+---
+
+### Pricing Visibility Strategy
+
+At ~$3,195, a CPL of ~$10 has been achieved. However, constant visible pricing risks:
+- Lowering perceived premium value
+- Attracting lower-quality buyers
+- Weakening luxury positioning
+
+**Pricing should be selective and strategic**, not a permanent fixture in creative.
+
+---
+
+### Motion & Video Strategy
+
+The biggest missing piece is **movement and human feeling** — not necessarily a founder face. Priority approach:
+
+- Faceless UGC
+- Water visuals and cinematic motion
+- Installation footage
+- Customer-experience style clips
+- Educational overlays
+
+---
+
+### Higgsfield / AI Content Strategy
+
+**Best uses:** Faceless testimonial-style clips, premium motion graphics, educational water visuals, subtle cinematic movement, customer-experience style creatives.
+
+**Avoid:** Fake AI influencers, overproduced avatars, unrealistic scripted energy, obvious AI-generated faces.
+
+**Goal: "premium authentic social content."** The content should feel believable, subtle, natural, and socially native — NOT artificial, exaggerated, or corporate AI commercial.
+
+If AI-generated content does not look obviously AI, this becomes a major scaling advantage: motion creatives typically outperform static long-term, native-feeling videos lower CPMs, and educational motion content generates high CTRs when executed properly.
+
+---
+
+### Reviews & Social Proof Strategy
+
+Lack of public Google reviews does not automatically destroy early performance when creatives, offer, branding, and messaging are strong. However, social proof becomes increasingly important when scaling harder — as spend increases, so does trust resistance, scrutiny, and comparison shopping.
+
+**Action:** Systematically collect and publish Google reviews, installation photos, testimonials, and before/after visuals. This is long-term trust infrastructure, not an immediate panic item.
+
+---
+
+### Scaling Requirement
+
+The business requires approximately 50+ leads per week and 24 Saturday appointments weekly. The next scaling unlock is **not** targeting hacks, complicated funnels, or technical tricks.
+
+The next unlock is **higher creative throughput:**
+
+- More concepts, hooks, and angles
+- More motion and video
+- More educational and native-feeling content
+- More systematic testing
+
+While maintaining premium brand consistency.
+
+---
+
+### Production Workflow
+
+```
+Claude
+  ↓ Hooks / scripts / concepts / angles
+
+Higgsfield MCP
+  ↓ Motion generation / faceless UGC / premium cinematic creatives
+
+Meta-ready export folders
+  ↓ 1080×1080 + 1080×1400 deliverables
+
+Direct deployment — Facebook & Instagram ads
+```
+
+**Default prompt assumption:** When the user says "prompt", "give prompt", "create prompt", "ad prompt", "video prompt", or "creative prompt" — assume the Higgsfield MCP workflow. All prompts should be structured for Higgsfield-compatible generation without needing to re-specify this each time.
+
+**Default image reference rule:** Every Higgsfield prompt — static or video — must explicitly reference the attached/uploaded photo as the base reference image. The user will always attach a photo. The prompt must instruct Higgsfield to use that image as the visual foundation. Never write a prompt without this reference instruction.
+
+**Standard Higgsfield prompt format (use this structure every time):**
+
+```
+I want you to create a [static/video] ad image using the Higgsfield MCP connector
+to be used on my Meta (Facebook & Instagram) ad campaigns.
+
+The product we are advertising is Neptune whole-home water filtration — installed 
+by licensed Melbourne plumbers. WaterMark Certified. 7-year workmanship 
+warranty. Lead magnet: Free in-home water test.
+
+The size of this image should be [1080x1080 / 1080x1400] pixels.
+
+Please use the attached installation photo as the product shot inside the image 
+you generate.
+
+Create the following image:
+- [Image type and creative angle]
+
+Brand rules:
+- Background and panel colour: dark navy #0A1628
+- Typography: clean white sans-serif, premium and restrained
+- NEPTUNE wordmark top-left in white (small)
+- Trust credential: "WaterMark Certified" only — no AS 3497 number, no VIC Licensed, no 7-Year Warranty in ads
+- CTA: "Book Your Free Water Test"
+- Do NOT include any price
+- Do NOT include discount framing unless this is an EOFY conversion ad
+- Do NOT use fear-based language or imagery
+- Do NOT add any logos other than the NEPTUNE wordmark
+```
+
+**Default asset assumption:** When the user says "install photo", "installation photo", "use install image", "Instagram & Facebook ready", or "social ready folder" — output must be Meta-ready: export-ready layouts, correct aspect ratios (1080×1080 and 1080×1400), Meta-safe spacing, CTA-safe composition, and premium branding consistency.
+
+---
+
+### Long-Term Brand Direction
+
+Neptune should become known as **the premium educational water-filtration brand in Melbourne.**
+
+Strongest long-term positioning:
+- Premium trust and educational authority
+- Elegant branding with native-feeling motion creatives
+- Selective strategic offers
+
+**Not:** Aggressive pricing-first advertising or a discount-reliant brand identity.
+
+The sustainable scaling advantage comes from combining premium branding, educational hooks, believable motion creatives, faceless UGC, realistic customer-experience storytelling, and strong creative volume into a repeatable Meta creative engine.

@@ -72,22 +72,39 @@ Neptune is a PREMIUM service. Marketing must reflect this.
 ```
 neptune-site/
   CLAUDE.md                                        # This file — project OS
-  favicon.ico                                      # Root favicon for Netlify
-  assets/                                          # All static assets
-    favicon/                                       # Favicon set (ico, png, webmanifest)
-    logos/                                         # Neptune logo (PNG, SVG, AI, PDF)
-    install-photos/                                # Product/installation photography
-    ads/facebook-static/                           # Facebook ad creative (PNG)
-  website/                                         # Live production website (served by Netlify)
-    homepage-v2/index.html                         # Homepage
-    preappointment-v2/index.html                   # Pre-appointment confirmation page
-    replacement-filters-v2/index.html              # Replacement filters page
-    shared/styles.css                              # Shared stylesheet (prototype)
+  netlify.toml                                     # Netlify config (publish = website/)
+  assets/                                          # Working assets — source files, not all served
+    logos/                                         # All Neptune logo files (PNG, SVG, AI, PDF, base64)
+    install-photos/                                # Product/installation photography (source)
+    ads/                                           # Ad creative assets
+      Cycle1/                                      # Current active cycle finals
+        Ad1/                                       # Final selected ad 1
+        Ad2/                                       # Final selected ad 2
+        Ad3/                                       # Final selected ad 3
+        Ad4/                                       # Final selected ad 4
+      Archive/                                     # Previous cycles and draft iterations
+        Cycle0/                                    # First campaign (price-led, superseded)
+        Cycle1-Drafts/                             # Concept iterations before final selection
+    Archive/                                       # Deprecated assets kept for reference
+      old-brochures/                               # Old PDF brochures (Rev4, April 2026)
+  website/                                         # Live production website (Netlify publish dir)
+    index.html                                     # Root redirect → /home/
+    favicon.ico                                    # Favicon at root (Netlify requirement)
+    _redirects                                     # Netlify redirect rules
+    shared/styles.css                              # Shared stylesheet
+    assets/                                        # Web-served assets (paths start with /assets/)
+      favicon/                                     # Favicon set (ico, png, webmanifest)
+      logos/                                       # Logo files served to the web
+      install-photos/                              # Photos used in live pages
+    home/index.html                                # Homepage
+    preappointment/index.html                      # Pre-appointment confirmation page
+    replacement-filters/index.html                 # Replacement filters page
   docs/                                            # Source of truth — read before creating anything
     brand.md                                       # Voice, tone, values, positioning
     audience.md                                    # ICP, personas, pain points, objections
     offers.md                                      # Offer architecture, pricing, guarantees
     products.md                                    # Product specs, filter details, install info
+    business-plan.md                               # Neptune Filtration business plan
     website/                                       # Website copy drafts
       homepage.md
       landing-pages/free-water-test.md
@@ -104,17 +121,39 @@ neptune-site/
     ads/                                           # Paid advertising copy
       google/search.md                             # Google Search RSA copy
       meta/campaigns.md                            # Meta ad copy + angles
+      meta/may-eofy-campaign.md                    # May 2026 EOFY campaign brief (20% off)
       frameworks.md                                # Reusable ad formulas
+    print/                                         # Print materials
+      brochure-2026.html                           # Current brochure — web preview
+      brochure-2026-print.html                     # Current brochure — print layout
+      consultation-brochure.md                     # Consultation brochure content spec
+      consultation-brochure.html                   # Consultation brochure rendered
+      archive/pureflow/                            # Old Pureflow brand print photos
     automations/                                   # CRM flows
       blueprints.md                                # Automation blueprints + lead scoring
+    sales/                                         # Sales system docs
+      inbound-conversion-framework.md
+      live-call-card.md
+      live-call-system.md
+      print/                                       # Print sales tools (HTML)
+        neptune-framework.html
+        neptune-live-call-sheet.html
+        neptune-objection-sheet.html
+        neptune-tonality-sheet.html
   email/                                           # Email flows
     welcome/sequence.md                            # Lead nurture (5 emails)
     post-install/sequence.md                       # Post-install retention + upsell
+    signature/neptune-signature.html               # Email signature (self-contained HTML)
   sms/                                             # SMS flows
     flows/inquiry.md                               # Inquiry, reminder, review, referral flows
   seo/                                             # SEO content
     local-seo.md                                   # GBP, keyword strategy, suburb pages
     blog-templates/water-quality.md                # Article template
+  operations/                                      # Admin scripts and operational docs
+    NeptuneAdminScript.docx                        # Neptune admin call script
+    archive/                                       # Legacy operational docs (Pureflow era)
+      Pureflow-AdminScript.docx
+      Pureflow-Consultation-Framework.pdf
 ```
 
 ## Trust Strategy (Early Stage)
@@ -172,6 +211,13 @@ Instead, build trust through:
 | Voice guide | [docs/branding/voice-guide.md](docs/branding/voice-guide.md) |
 | Google ad copy | [docs/ads/google/search.md](docs/ads/google/search.md) |
 | Meta ad copy | [docs/ads/meta/campaigns.md](docs/ads/meta/campaigns.md) |
+| May EOFY campaign brief | [docs/ads/meta/may-eofy-campaign.md](docs/ads/meta/may-eofy-campaign.md) |
+| Current brochure (web) | [docs/print/brochure-2026.html](docs/print/brochure-2026.html) |
+| Current brochure (print) | [docs/print/brochure-2026-print.html](docs/print/brochure-2026-print.html) |
 | Welcome email flow | [email/welcome/sequence.md](email/welcome/sequence.md) |
+| Email signature | [email/signature/neptune-signature.html](email/signature/neptune-signature.html) |
 | SMS flows | [sms/flows/inquiry.md](sms/flows/inquiry.md) |
 | SEO strategy | [seo/local-seo.md](seo/local-seo.md) |
+| Business plan | [docs/business-plan.md](docs/business-plan.md) |
+| Admin call script | [operations/NeptuneAdminScript.docx](operations/NeptuneAdminScript.docx) |
+| Cycle 1 ad finals | [assets/ads/Cycle1/](assets/ads/Cycle1/) |

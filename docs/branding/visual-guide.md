@@ -227,7 +227,7 @@ a separate product variant. Confirm with the team.
 
 ### The Current Real Install Photo — Honest Assessment
 
-One genuine installation photo now exists: `assets/install-photos/93298737...jpg`
+Installation photography is in `assets/install-photos/` — see that folder for current files.
 
 **What it confirms:**
 - The grey enclosure with copper pipes is the real product ✅

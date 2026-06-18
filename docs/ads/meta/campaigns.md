@@ -62,7 +62,7 @@ The fix is easier (and cheaper) than you think.
 📍 We're local to [City]
 🧪 Free water test — we come to you
 ⚡ Same-week installation
-✅ Lifetime service guarantee
+✅ WaterMark Certified
 
 [X,000] [City] families have already made the switch. You're next.
 
