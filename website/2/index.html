@@ -230,6 +230,9 @@ footer{background:var(--navy-deep);padding:20px 24px 28px}
   .testi-grid{grid-template-columns:1fr}
 }
 </style>
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2043292147071202');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2043292147071202&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
@@ -690,7 +693,7 @@ footer{background:var(--navy-deep);padding:20px 24px 28px}
     if(!n||!p||!s)return;
     var b=document.getElementById('main-submit');b.disabled=true;b.textContent='Sending…';
     post(Object.assign({name:n,firstName:n,phone:p,suburb:s,source:'warm',lead_source:'meta_warm'},utms),
-      function(){document.getElementById('main-form').style.display='none';document.getElementById('main-success').style.display='block';},
+      function(){document.getElementById('main-form').style.display='none';document.getElementById('main-success').style.display='block';if(window.fbq)fbq('track','Lead');},
       function(){b.disabled=false;b.textContent='Book My Appointment — Confirm My Price →';alert('Something went wrong. Please try again.');});
   });
 
