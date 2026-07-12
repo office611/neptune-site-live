@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Most Melbourne Families Have No Idea What's In Their Tap Water | Neptune Filtration</title>
+<style>
+
+/* ── Design tokens ─────────────────────────────────── */
+:root {
+  --navy:      #0B1F3A;
+  --navy-deep: #07172B;
+  --blue:      #1456A3;
+  --blue-lt:   #1A6DD6;
+  --blue-pale: #EBF3FF;
+  --white:     #FFFFFF;
+  --off:       #F8FAFC;
+  --text:      #0F172A;
+  --body:      #334155;
+  --muted:     #64748B;
+  --border:    #E2E8F0;
+  --green:     #16A34A;
+  --gold:      #B45309;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Hero logo ─────────────────────────────────────── */
+.hero-logo {
+  position: absolute; top: 24px; left: 32px; z-index: 2;
+}
+.hero-logo img { height: 36px; width: auto; display: block; opacity: .9; }
+@media (max-width: 520px) {
+  .hero-logo { top: 18px; left: 20px; }
+  .hero-logo img { height: 28px; }
+}
+
+/* ── Sticky mobile bar ─────────────────────────────── */
+#sticky-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 299;
+  background: var(--navy-deep);
+  padding: 14px 20px 18px;
+  text-align: center;
+  box-shadow: 0 -2px 24px rgba(0,0,0,.3);
+  transform: translateY(100%);
+  transition: transform .28s ease;
+}
+#sticky-bar.visible { transform: translateY(0); }
+#sticky-bar a {
+  display: inline-block;
+  background: var(--blue-lt); color: #fff;
+  padding: 13px 36px; border-radius: 6px;
+  font-size: 15px; font-weight: 700;
+  text-decoration: none;
+}
+/* sticky bar shows on all screen sizes — no sticky nav to replace it */
+
+/* ── Layout helpers ────────────────────────────────── */
+.section      { padding: 80px 32px; }
+.section--off  { background: var(--off); }
+.section--navy { background: var(--navy); }
+.section--pale { background: var(--blue-pale); }
+
+.wrap      { max-width: 820px; margin: 0 auto; }
+.wrap--lg  { max-width: 1100px; margin: 0 auto; }
+
+/* ── Typography ────────────────────────────────────── */
+.label {
+  display: block;
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--blue);
+  margin-bottom: 14px;
+}
+.label--light { color: #93C5FD; }
+
+h1 {
+  font-size: clamp(30px, 5.5vw, 52px);
+  font-weight: 800; line-height: 1.1; letter-spacing: -.6px;
+  color: var(--white);
+  margin-bottom: 22px;
+  text-wrap: balance;
+}
+h2 {
+  font-size: clamp(24px, 3.8vw, 36px);
+  font-weight: 800; line-height: 1.15; letter-spacing: -.4px;
+  color: var(--text);
+  margin-bottom: 18px;
+  text-wrap: balance;
+}
+h2.light { color: var(--white); }
+h3 {
+  font-size: 19px; font-weight: 700; line-height: 1.3;
+  color: var(--text); margin-bottom: 8px;
+}
+
+/* Butter copy */
+.copy p {
+  font-size: 17px; line-height: 1.8;
+  color: var(--body);
+  margin-bottom: 22px;
+}
+.copy p:last-child { margin-bottom: 0; }
+.copy p.intro {
+  font-size: 20px; color: var(--text);
+  font-weight: 500; line-height: 1.65;
+  margin-bottom: 26px;
+}
+.copy strong { color: var(--text); font-weight: 700; }
+.copy em { font-style: italic; }
+.copy p.on-dark { color: rgba(255,255,255,.72); }
+.copy p.on-dark strong { color: #fff; }
+
+/* Pull quote */
+.callout {
+  background: var(--blue-pale);
+  border-left: 5px solid var(--blue-lt);
+  border-radius: 0 8px 8px 0;
+  padding: 22px 28px;
+  margin: 32px 0;
+  font-size: 19px; line-height: 1.6;
+  color: var(--navy); font-style: italic;
+}
+
+hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero {
+  background: var(--navy);
+  padding: 72px 32px 76px;
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(26,109,214,.22) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 900px; margin: 0 auto;
+  position: relative; z-index: 1;
+  text-align: center;
+}
+.hero-tag-placeholder {
+  display: none;
+}
+.hero h1 span { color: #93C5FD; }
+.hero-sub {
+  font-size: clamp(16px, 2.2vw, 20px);
+  color: rgba(255,255,255,.7);
+  line-height: 1.65; max-width: 680px;
+  margin: 0 auto 40px;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--blue-lt); color: #fff;
+  padding: 18px 44px; border-radius: 7px;
+  font-size: 17px; font-weight: 700;
+  text-decoration: none; letter-spacing: .15px;
+  box-shadow: 0 4px 24px rgba(26,109,214,.4);
+  transition: background .15s, transform .12s;
+}
+.btn-primary:hover { background: var(--blue); transform: translateY(-2px); }
+.btn-primary:active { transform: none; }
+.hero-disclaimer { font-size: 13px; color: rgba(255,255,255,.4); margin-top: 12px; }
+
+.hero-trust-row {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 22px;
+  margin-top: 52px; padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.hero-trust-row span {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 500; color: rgba(255,255,255,.6);
+}
+.hero-trust-row .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #60A5FA; flex-shrink: 0;
+}
+
+/* ── Stat strip ────────────────────────────────────── */
+.stat-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  border: 1px solid var(--border); border-radius: 10px;
+  overflow: hidden; background: var(--border); gap: 1px;
+  margin: 36px 0;
+}
+.stat-box {
+  background: var(--white);
+  padding: 30px 20px; text-align: center;
+}
+.section--pale .stat-box,
+.section--off  .stat-box { background: #F0F6FF; }
+.stat-box b {
+  display: block;
+  font-size: 42px; font-weight: 800; line-height: 1;
+  color: var(--blue); letter-spacing: -1px;
+  margin-bottom: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.stat-box p {
+  font-size: 13px; color: var(--muted); line-height: 1.45;
+}
+
+/* ── Cards grid ────────────────────────────────────── */
+.card-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin: 32px 0;
+}
+@media (max-width: 620px) { .card-grid { grid-template-columns: 1fr; } }
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 22px 22px;
+  display: flex; gap: 14px;
+}
+.section--pale .card { background: #F0F6FF; }
+.card-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.card h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.card p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0; }
+
+/* ── Step list ─────────────────────────────────────── */
+.steps {
+  border: 1px solid var(--border); border-radius: 10px;
+  overflow: hidden; margin: 32px 0;
+}
+.step {
+  display: flex; gap: 20px;
+  padding: 24px 28px; background: var(--white);
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.step:last-child { border-bottom: none; }
+.step-n {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--blue-lt); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 800; flex-shrink: 0;
+}
+.step h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+.step p  { font-size: 14px; color: var(--body); line-height: 1.6; margin: 0; }
+
+/* ── Testimonials ──────────────────────────────────── */
+.review-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 18px;
+  margin-top: 40px;
+}
+@media (max-width: 820px) { .review-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 540px) { .review-grid { grid-template-columns: 1fr; } }
+
+.review {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  padding: 24px 22px;
+  display: flex; flex-direction: column;
+}
+.review .stars { color: #FBBF24; font-size: 13px; letter-spacing: 2px; margin-bottom: 12px; }
+.review q {
+  font-size: 15px; font-style: italic; line-height: 1.65;
+  color: rgba(255,255,255,.75); flex: 1; margin-bottom: 16px;
+  quotes: none;
+}
+.review cite { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.45); font-style: normal; }
+
+/* ── Trust bar ─────────────────────────────────────── */
+.trust-strip {
+  background: var(--off);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 28px 32px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 28px;
+}
+.trust-strip span {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--body);
+}
+.trust-strip .check { color: var(--green); font-size: 16px; }
+
+/* ── Cred list ─────────────────────────────────────── */
+.cred-list { display: flex; flex-direction: column; gap: 13px; margin: 24px 0; }
+.cred-list li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 16px; color: rgba(255,255,255,.72);
+  list-style: none;
+}
+.cred-list li .tick { color: #4ADE80; font-size: 17px; flex-shrink: 0; }
+
+/* ── Form section ──────────────────────────────────── */
+.form-layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+@media (max-width: 780px) { .form-layout { grid-template-columns: 1fr; gap: 44px; } }
+
+.form-left h2 { color: var(--white); margin-bottom: 16px; }
+.form-left p  { font-size: 17px; color: rgba(255,255,255,.7); line-height: 1.72; margin-bottom: 14px; }
+
+.form-card {
+  background: var(--white); border-radius: 12px;
+  padding: 40px 36px;
+  box-shadow: 0 16px 56px rgba(0,0,0,.32);
+}
+.form-card h3 { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+.form-card .sub { font-size: 13px; color: var(--muted); margin-bottom: 26px; }
+
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 13px; font-weight: 600; color: var(--body); margin-bottom: 5px; }
+.field input {
+  width: 100%; padding: 14px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 7px; font-size: 16px;
+  color: var(--text); background: var(--white);
+  font-family: inherit; outline: none;
+  -webkit-appearance: none;
+  transition: border-color .15s;
+}
+.field input::placeholder { color: #94A3B8; }
+.field input:focus { border-color: var(--blue-lt); box-shadow: 0 0 0 3px rgba(26,109,214,.12); }
+
+.btn-submit {
+  width: 100%; padding: 17px;
+  background: var(--blue-lt); color: #fff;
+  border: none; border-radius: 7px;
+  font-size: 17px; font-weight: 800;
+  cursor: pointer; font-family: inherit;
+  margin-top: 8px;
+  transition: background .15s, transform .1s;
+}
+.btn-submit:hover { background: var(--blue); }
+.btn-submit:active { transform: scale(.99); }
+.btn-submit:disabled { opacity: .6; cursor: not-allowed; }
+.form-fine {
+  font-size: 12px; color: var(--muted);
+  text-align: center; margin-top: 14px; line-height: 1.55;
+}
+
+.form-success { display: none; text-align: center; padding: 24px 8px; }
+.success-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: #22C55E; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; margin: 0 auto 18px;
+}
+.form-success h3 { font-size: 22px; color: var(--navy); margin-bottom: 10px; }
+.form-success p  { font-size: 15px; color: var(--body); line-height: 1.6; margin-bottom: 6px; }
+
+/* ── Mid-copy CTA ──────────────────────────────────── */
+.mid-cta { text-align: center; margin: 44px 0 4px; }
+.mid-cta a {
+  display: inline-block;
+  background: var(--blue-lt); color: #fff;
+  padding: 15px 38px; border-radius: 7px;
+  font-size: 16px; font-weight: 700;
+  text-decoration: none;
+  transition: background .15s;
+}
+.mid-cta a:hover { background: var(--blue); }
+.mid-cta small {
+  display: block; font-size: 12px;
+  color: var(--muted); margin-top: 9px;
+}
+
+/* ── FAQ ───────────────────────────────────────────── */
+.faq { margin: 32px 0 0; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-q {
+  font-size: 16px; font-weight: 700;
+  color: var(--text); margin-bottom: 7px;
+}
+.faq-a {
+  font-size: 15px; color: var(--body); line-height: 1.65;
+}
+
+/* ── Footer ────────────────────────────────────────── */
+.footer {
+  background: var(--navy-deep);
+  padding: 36px 32px;
+  text-align: center;
+  font-size: 12px; color: rgba(255,255,255,.28); line-height: 1.8;
+}
+.footer a { color: rgba(255,255,255,.35); }
+
+@media (max-width: 560px) {
+  .stat-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .section { padding: 60px 20px; }
+  .hero { padding: 64px 20px 56px; }
+  .stat-box b { font-size: 36px; }
+  .step { padding: 20px; }
+  .form-card { padding: 30px 22px; }
+  .trust-strip { padding: 22px 20px; gap: 18px; }
+  .trust-strip span { font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Sticky mobile CTA -->
+<div id="sticky-bar">
+  <a href="#form">Book My Free Water Test — No Obligation →</a>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-logo">
+    <a href="https://neptunefiltration.com.au">
+      <img src="https://neptunefiltration.com.au/assets/logos/Neptune_Logo_White.png" alt="Neptune Filtration">
+    </a>
+  </div>
+  <div class="hero-inner">
+
+    <h1>
+      Most Melbourne Families Have No Idea <span>What's In Their Water — Or What It's Been Doing To Them</span>
+    </h1>
+
+    <p class="hero-sub">
+      You turn the tap on. You shower. You fill the kids' bath. You assume it's fine.<br>
+      But have you ever actually wondered what's in that water — and what it's quietly doing to your body every single day?
+    </p>
+
+    <a href="#form" class="btn-primary">Find Out What's In Your Water — Free →</a>
+    <p class="hero-disclaimer">Free 30-min in-home water test · Melbourne homeowners · No obligation</p>
+
+    <div class="hero-trust-row">
+      <span><span class="dot"></span> Free · No Obligation</span>
+      <span><span class="dot"></span> Results On The Day</span>
+      <span><span class="dot"></span> Melbourne Homeowners Only</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     THE HOOK — YOU'VE NEVER THOUGHT ABOUT IT
+══════════════════════════════════════════════════════ -->
+<section class="section" id="problem">
+  <div class="wrap">
+    <span class="label">What Nobody Tells You</span>
+    <h2>You've Never Really Thought About It. Most People Haven't.</h2>
+
+    <div class="copy">
+      <p class="intro">Water comes out of the tap. That's it. That's the whole thought most people give it.</p>
+
+      <p>It's just water. Melbourne's water is treated and tested. The council says it's safe. So it must be fine.</p>
+
+      <p>Water specialists who test homes across Melbourne say the same thing happens almost every time. They show the family the results. And the family goes quiet.</p>
+
+      <p>Not because the water is dangerous. Because the numbers are nothing like what they expected.</p>
+
+      <p>And technically — it is safe. It meets Australian standards.</p>
+
+      <p>But here's the thing.</p>
+
+      <p><strong>Safe and clean are not the same thing.</strong></p>
+
+      <p>Melbourne's water is treated with chlorine. That's how the city keeps it safe — chlorine kills bacteria in the supply. Fair enough. But chlorine doesn't disappear when it reaches your tap. It comes out with the water. Every single day.</p>
+
+      <p>It also carries hard minerals — calcium and magnesium — that travel through the pipes and out through every tap and showerhead in your home.</p>
+
+      <p>And then there's the sediment. The trace metals from ageing pipes. The disinfection byproducts — the compounds that form when chlorine reacts with organic matter in the water.</p>
+
+      <p>When was the last time you thought about any of that?</p>
+
+      <p>Probably never. Because nobody tells you to.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     THE OVERSEAS MOMENT
+══════════════════════════════════════════════════════ -->
+<section class="section section--pale" id="overseas">
+  <div class="wrap">
+    <span class="label">You've Noticed It Before</span>
+    <h2>Think About The Last Time You Had Water That Felt Different.</h2>
+
+    <div class="copy">
+      <p class="intro">You've experienced it. You just didn't know what it was.</p>
+
+      <p>You went overseas — or interstate — and the water tasted different. Cleaner. Crisper. Or sometimes stranger, more mineral-heavy.</p>
+
+      <p>Your skin felt different in the shower. Softer somehow. Or drier. Your hair felt different.</p>
+
+      <p>You noticed it immediately. It was obvious.</p>
+
+      <p>Because water is not the same everywhere. Different regions, different treatment, different mineral levels. The water in your Melbourne home is not the same as water in Bali, or Japan, or even regional Victoria.</p>
+
+      <p>That difference you felt? That was real.</p>
+
+      <p>And the water that's been coming out of your taps every morning? Most Melbourne families have never questioned it. Never tested it. Never thought twice about what's actually in it.</p>
+
+      <p>Until something makes them.</p>
+
+      <p>Usually it's the dry skin that never quite goes away. Or the kids' eczema that flares up for no obvious reason. Or the hair loss that started slowly and never really stopped.</p>
+
+      <p>Or just the moment someone finally asks: <em>wait, what's actually in our water?</em></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     THE SHOWER STAT
+══════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="wrap">
+    <span class="label">The Part Most People Never Know</span>
+    <h2>It's Not About Drinking. It's About What Happens Every Time You Shower.</h2>
+
+    <div class="copy">
+      <p class="intro">Most people think about filtered water the same way — a jug on the bench, something for drinking.</p>
+
+      <p>They don't think about the shower.</p>
+
+      <p>But here's what the research actually shows.</p>
+    </div>
+
+    <blockquote class="callout">
+      "During a hot shower, your pores open up and you inhale steam — which allows you to absorb up to 6 times more chlorine and disinfection byproducts through your skin and lungs than you would by drinking eight glasses of the same tap water."
+    </blockquote>
+
+    <div class="copy">
+      <p>Six times more. Just from a regular morning shower.</p>
+
+      <p>Not from drinking it. From standing in it. From the steam. From your skin absorbing what's in that warm water while your pores are open.</p>
+
+      <p>Every day. For every person in the house.</p>
+
+      <p>And that's before you account for the kids' bath. The kitchen tap. Washing fruit and vegetables. Cooking. The hundreds of other times your family touches that water every single day.</p>
+
+      <p>You've been thinking about filtered drinking water. That's one glass.</p>
+
+      <p>Nobody tells you about everything else.</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-box">
+        <b>6×</b>
+        <p>More chlorine absorbed through skin &amp; lungs in a 10-min shower than from drinking 8 glasses of tap water</p>
+      </div>
+      <div class="stat-box">
+        <b>100s</b>
+        <p>Times a family comes into contact with tap water throughout the home every single day</p>
+      </div>
+      <div class="stat-box">
+        <b>10 min</b>
+        <p>Average shower — enough time for significant daily absorption of chlorine and disinfection byproducts</p>
+      </div>
+    </div>
+
+    <div class="mid-cta">
+      <a href="#form">Find Out What's In Your Water — Free →</a>
+      <small>30-min in-home test · No obligation · Results on the day</small>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     SYMPTOMS — BROAD
+══════════════════════════════════════════════════════ -->
+<section class="section section--pale">
+  <div class="wrap">
+    <span class="label">Things You've Noticed But Never Connected</span>
+    <h2>These Are The Signs Families See. And What They Blamed Them On.</h2>
+
+    <div class="copy">
+      <p>When water specialists visit Melbourne homes, they see a pattern.</p>
+
+      <p>Families have been dealing with the same things for years. Trying the same fixes. Getting short-term relief. Having it come back.</p>
+
+      <p>Because they were treating the symptom. Not the source.</p>
+
+      <p>Here's what shows up, again and again:</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🧴</div>
+        <div>
+          <h3>Dry or itchy skin that won't clear</h3>
+          <p>Blamed on sensitive skin, the wrong moisturiser, the weather. Creams help short-term. Then it comes back. Because chlorine strips skin's natural oils every shower.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">👶</div>
+        <div>
+          <h3>Eczema — especially in children</h3>
+          <p>Flare-ups with no obvious trigger. Dermatologists can't always find a cause. Often blamed on genetics or food. Water is rarely mentioned.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">💇</div>
+        <div>
+          <h3>Hair that feels dull, falls more than it should</h3>
+          <p>New shampoo. Different conditioner. Vitamins. The hair still doesn't feel right — and more of it ends up in the drain. Hard minerals coat the hair shaft and clog follicles every time you shower. No product removes that at the source.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">💧</div>
+        <div>
+          <h3>Water that tastes flat or chemical</h3>
+          <p>That faint pool smell from the tap. A metallic aftertaste. Most families get so used to it they stop noticing. It doesn't have to taste that way.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚿</div>
+        <div>
+          <h3>Scale buildup that keeps coming back</h3>
+          <p>White film on the shower screen. Chalky deposits on taps, in the kettle, around drains. Cleaned off, back within days. That's hard minerals — and it's the same thing sitting on skin and hair.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌫️</div>
+        <div>
+          <h3>That chlorine smell in the shower</h3>
+          <p>Like a public swimming pool — but it's your bathroom. Most people assume it's normal. It's chlorine vapour from the hot water, inhaled with every breath in that steam.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="copy">
+      <p>Recognise any of those?</p>
+
+      <p>Most people recognise at least a few. And most never once thought to question the water.</p>
+
+      <p>Here's why products never fully solve it.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     AGITATION — NAIL AND BANDAGE
+══════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="wrap">
+    <span class="label">Why The Same Problems Keep Coming Back</span>
+    <h2>You Can't Moisturise Your Way Out Of A Water Problem.</h2>
+
+    <div class="copy">
+      <p class="intro">If someone keeps standing on a nail every morning, giving them better bandages doesn't fix it.</p>
+
+      <p>You need to move the nail.</p>
+
+      <p>That's what's happening when families spend hundreds of dollars a year on sensitive skin products, special shampoos, and creams — and the same problems keep returning.</p>
+
+      <p>They're not failing. The products aren't bad.</p>
+
+      <p>The cause is just still there. Every shower. Coming out of the showerhead.</p>
+
+      <p>Chlorine strips the skin's natural oils with every wash. Hard minerals coat hair and sit on skin. And it all comes straight back the next day, undoing whatever the products tried to do the night before.</p>
+
+      <p>The families who found out what was actually in their water — and dealt with it at the source — said the same thing, almost without exception.</p>
+
+      <p><em>"We wish someone had told us years ago."</em></p>
+
+      <p>Most of them had been living with it for years. Some for decades. A cream here. A prescription there. Never connecting it to the one thing that hadn't changed: the water coming into the home.</p>
+
+      <p>When they filtered the water at the source — every tap, every shower, every appliance — the cycle finally stopped.</p>
+    </div>
+
+    <hr class="rule">
+
+    <div class="copy">
+      <p>That's the difference between filtering one tap and filtering the whole home.</p>
+
+      <p>A bench filter on the kitchen tap covers drinking water. One point.</p>
+
+      <p>A whole-home system covers every tap. Every shower. The kids' bath. The washing machine washing the family's clothes. Everything.</p>
+
+      <p>From one installation point, everything changes.</p>
+    </div>
+
+    <div class="mid-cta">
+      <a href="#form">Book a Free Water Test — No Obligation →</a>
+      <small>Melbourne homeowners · Available this week</small>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════════════════ -->
+<section class="section section--navy">
+  <div class="wrap--lg">
+    <div class="wrap" style="text-align:center; margin-bottom:40px;">
+      <span class="label label--light">Melbourne Families</span>
+      <h2 class="light" style="text-wrap:balance;">What Changes When The Water Changes</h2>
+    </div>
+    <div class="review-grid">
+      <!-- REPLACE WITH REAL TESTIMONIALS FROM YOUR CRM -->
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <q>"My daughter's eczema had been a problem for over two years. Within a few weeks of getting it installed, it had almost completely cleared. I'd tried everything. The water was the one thing I'd never questioned."</q>
+        <cite>Rebecca M. — Bentleigh East</cite>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <q>"My wife said her hair felt completely different within a week. Softer, less coated. Both of us stopped getting that tight dry feeling after a shower. Simple change, big difference to everyday life."</q>
+        <cite>David T. — Glen Waverley</cite>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <q>"The scale on our shower screen basically stopped. Our daughter has very sensitive skin — hasn't had a flare-up since. Honestly wish we'd done it the moment we moved in."</q>
+        <cite>Michelle K. — Brighton</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     WHAT ACTUALLY CHANGES
+══════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="wrap">
+    <span class="label">What Families Notice First</span>
+    <h2 style="text-wrap:balance;">The Change Most Families Say They Didn't See Coming.</h2>
+
+    <div class="copy">
+      <p class="intro">The families who've had their water tested say the same thing, almost without exception: they wish they'd done it years earlier.</p>
+
+      <p>The first thing most people notice is the shower. That tight, dry feeling after washing — gone. Skin that feels softer. Hair that responds differently to products. A difference noticeable enough to catch people off guard.</p>
+
+      <p>The taste from the kitchen tap changes. Scale on the shower screen stops building back overnight. That pool-chlorine smell in a hot bathroom — gone.</p>
+
+      <p>For families with young children — especially those dealing with sensitive skin or eczema — the change is often dramatic enough to be the first thing they mention to their GP.</p>
+
+      <p>It doesn't come from any cream, shampoo, or filter jug.</p>
+
+      <p>It comes from dealing with it at the source.</p>
+
+      <p>None of that starts without knowing what's actually in the water first. Which is exactly what the free test is for.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     THE FREE TEST PROCESS
+══════════════════════════════════════════════════════ -->
+<section class="section section--off" id="how-it-works">
+  <div class="wrap">
+    <span class="label">The Free Water Test</span>
+    <h2>Here's Exactly What Happens When You Book.</h2>
+
+    <div class="copy">
+      <p>No sales pitch. No pressure. A specialist comes to your home, tests the water on the spot, and shows you the results. That's it.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div>
+          <h3>We test your water at the tap</h3>
+          <p>A Neptune specialist visits your home and tests the water right there on the spot — checking chlorine levels, hard mineral content, sediment, and the contaminants most common in Melbourne supply.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div>
+          <h3>You see exactly what's in it</h3>
+          <p>The results are right in front of you. Not a Melbourne average — your actual water, tested in your home. Most families say just seeing the numbers is the moment everything clicks.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div>
+          <h3>You decide what's right for your family</h3>
+          <p>Once you know what's in the water, the decision is entirely yours. No obligation, no pressure. About 30 minutes total. Just the facts, and a choice that belongs to you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="copy">
+      <p>30 minutes. Free. No obligation. <strong>Just the truth about what's in your water.</strong></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     NEPTUNE
+══════════════════════════════════════════════════════ -->
+<section class="section" id="neptune">
+  <div class="wrap">
+    <span class="label">Why Neptune</span>
+    <h2 style="text-wrap:balance;">Melbourne's Water Specialists. Just Done Properly.</h2>
+
+    <div class="copy">
+      <p>Neptune is a Melbourne-based company. Whole-home water filtration is all they do.</p>
+
+      <p>Most homeowners they meet aren't looking for the cheapest option — they just want it done properly. Right layout, right pressure, right setup for their specific home. So it works from day one and keeps working.</p>
+
+      <p>Neptune's filtration systems are WaterMark certified to Australian standards — independently tested, fully compliant, and built to last. Every installation is done by Neptune's own team.</p>
+
+      <p>The free water test is exactly that. No catch.</p>
+
+      <p>Neptune offers it free because the families who've seen their own results almost always say the same thing: they needed to see the numbers before anything else made sense. The test removes the guesswork. What the family does after that is entirely their choice.</p>
+
+      <p>A specialist comes to the home. Tests the water on the spot — shows exactly what's in it and what it means for your family. About 30 minutes. No pressure to do anything at all. Just the facts, and a choice that's completely yours.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Trust strip -->
+<div class="trust-strip">
+  <span><span class="check">✓</span> Free In-Home Water Test</span>
+  <span><span class="check">✓</span> Results On The Day</span>
+  <span><span class="check">✓</span> No Obligation · No Sales Pressure</span>
+  <span><span class="check">✓</span> Neptune's Own Team</span>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     FAQ
+══════════════════════════════════════════════════════ -->
+<section class="section section--off">
+  <div class="wrap">
+    <span class="label">Common Questions</span>
+    <h2 style="text-wrap:balance;">What To Expect From The Free Test</h2>
+
+    <div class="faq">
+      <div class="faq-item">
+        <p class="faq-q">Is the water test actually free?</p>
+        <p class="faq-a">Yes. No cost, no catch. A Neptune specialist comes to the home, tests the water, shows the results on the spot. That's it. Nothing to sign. Nothing to pay.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Will there be any sales pressure?</p>
+        <p class="faq-a">No. The test exists to show what's in the water — not to sell a system. Once you see the results, the decision is entirely yours. Most families say the hardest part is deciding whether they actually want to know.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">How long does it take?</p>
+        <p class="faq-a">About 30 minutes. The specialist tests at the tap, shows the numbers on the spot, and answers any questions. No waiting weeks for lab reports — the results are right there before the specialist leaves the home.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What if the results show nothing unusual?</p>
+        <p class="faq-a">Then you'll know that too. Some homes test lower than expected — and knowing that is just as useful. Either way, you leave with the actual numbers for your home. Not a Melbourne average. Your water.</p>
+      </div>
+    </div>
+
+    <div class="mid-cta" style="margin-top:40px;">
+      <a href="#form">Book My Free Water Test →</a>
+      <small>Free · In-home · Melbourne metro · No obligation</small>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     FORM
+══════════════════════════════════════════════════════ -->
+<section class="section section--navy" id="form">
+  <div class="wrap--lg">
+    <div class="form-layout">
+
+      <div class="form-left">
+        <span class="label label--light">Book Your Free Test</span>
+        <h2 class="light" style="text-wrap:balance;">Find Out What's Actually In Your Home's Water</h2>
+        <p>A Neptune specialist comes to the home. Tests your actual water — not a general average — on the spot. Shows the results and explains exactly what they mean for your family.</p>
+        <p>In 30 minutes you'll know whether chlorine levels in your home are above comfortable exposure, whether your water is contributing to dry skin, hair issues, or taste problems — and exactly what your options are.</p>
+        <p style="color:rgba(255,255,255,.5); font-size:15px; margin-top:0;">Free. No obligation. No sales pressure. Just the truth about your water.</p>
+        <ul class="cred-list" style="margin-top:28px;">
+          <li><span class="tick">✓</span> Results on the day, in your home</li>
+          <li><span class="tick">✓</span> No sales pressure — just the facts</li>
+          <li><span class="tick">✓</span> Neptune's own team — not contractors</li>
+          <li><span class="tick">✓</span> Available this week — spots fill up across Melbourne metro</li>
+        </ul>
+        <p style="color:rgba(255,255,255,.45); font-size:14px; margin-top:20px; line-height:1.6;">Neptune specialists cover Melbourne metro and typically book a week in advance. If there's availability this week, it's worth locking in.</p>
+      </div>
+
+      <div class="form-card">
+        <h3>Book My Free Water Test</h3>
+        <p class="sub">Melbourne homeowners — available now</p>
+
+        <form id="lead-form"
+          action="https://services.leadconnectorhq.com/hooks/SPQwdXLPrMES6TqvwFLr/webhook-trigger/84d752aa-a597-4faa-a48b-be2763def373"
+          method="POST" novalidate>
+
+          <div class="field">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Your first name" required autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label for="phone">Best Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="suburb">Suburb</label>
+            <input type="text" id="suburb" name="suburb" placeholder="e.g. Brighton, Glen Waverley" required autocomplete="address-level2">
+          </div>
+          <input type="hidden" name="source" value="cold_traffic_lp">
+          <input type="hidden" name="lead_source" value="meta_9ads">
+
+          <button type="submit" class="btn-submit" id="submit-btn">Book My Free Water Test →</button>
+        </form>
+
+        <p class="form-fine" id="form-note">🔒 Your details stay private. A Neptune specialist will call to arrange a convenient time.</p>
+
+        <div class="form-success" id="form-success">
+          <div class="success-icon">✓</div>
+          <h3>Booked in!</h3>
+          <p>A Neptune specialist will be in touch shortly to arrange a time that suits.</p>
+          <p>Keep the phone handy — calls usually come through within a few hours on business days.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <p>© 2026 Neptune Filtration · Melbourne, VIC<br>
+  Free water test available to Melbourne homeowners only. No purchase required. Individual results may vary.</p>
+</footer>
+
+
+<script>
+(function () {
+  // Sticky bar on scroll — hide once form is in view
+  var bar = document.getElementById('sticky-bar');
+  var formSection = document.getElementById('form');
+  window.addEventListener('scroll', function () {
+    var pastHero = window.pageYOffset > 480;
+    var formInView = formSection.getBoundingClientRect().top < window.innerHeight;
+    bar.classList.toggle('visible', pastHero && !formInView);
+  }, { passive: true });
+
+  // Smooth scroll anchor links
+  document.querySelectorAll('a[href="#form"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Form submit
+  var form = document.getElementById('lead-form');
+  var btn  = document.getElementById('submit-btn');
+  var succ = document.getElementById('form-success');
+  var note = document.getElementById('form-note');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var first  = form.firstName.value.trim();
+    var phone  = form.phone.value.trim();
+    var suburb = form.suburb.value.trim();
+    if (!first || !phone || !suburb) return;
+
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: first,
+          phone: phone,
+          suburb: suburb,
+          source: 'cold_traffic_lp',
+          lead_source: 'meta_9ads'
+        })
+      });
+    } catch (err) { /* Submits correctly when hosted on neptunefiltration.com.au */ }
+
+    form.style.display = 'none';
+    note.style.display = 'none';
+    succ.style.display = 'block';
+    succ.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+}());
+</script>
+
+</body>
+</html>

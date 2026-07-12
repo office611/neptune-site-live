@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neptune Filtration — Whole Home Water Filtration Melbourne</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3A;
+  --navy-deep:#07172B;
+  --navy-mid:#0D2847;
+  --ocean:#0EA5E9;
+  --ocean-dark:#0284C7;
+  --ocean-pale:#E0F2FE;
+  --white:#FFFFFF;
+  --off:#F8FAFC;
+  --slate:#1E293B;
+  --text:#0F172A;
+  --body:#334155;
+  --muted:#64748B;
+  --border:#E2E8F0;
+  --green:#16A34A;
+  --green-pale:#DCFCE7;
+}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:var(--text);background:var(--white);line-height:1.6;font-size:17px}
+
+/* STICKY */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--navy);color:var(--white);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;z-index:999;gap:12px;transition:transform 0.3s;border-top:2px solid var(--ocean)}
+.sticky-bar.hidden{transform:translateY(100%)}
+.sticky-text{font-size:14px;font-weight:600;flex:1;line-height:1.4}
+.sticky-price{font-size:17px;font-weight:900;letter-spacing:0.04em;color:#7DD3FC}
+.sticky-price .pb{filter:blur(4px);display:inline-block;user-select:none}
+.sticky-cta{background:var(--ocean);color:var(--white);border:none;padding:10px 22px;border-radius:6px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap}
+.sticky-cta:hover{background:var(--ocean-dark)}
+@media(max-width:580px){.sticky-text{font-size:12px}.sticky-cta{font-size:13px;padding:9px 14px}}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,var(--navy-deep) 0%,var(--navy-mid) 65%,#0C3260 100%);color:var(--white);padding:56px 20px 72px}
+.hero-split{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:56px;align-items:center}
+.hero-eyebrow{display:inline-block;background:rgba(14,165,233,0.15);border:1px solid rgba(14,165,233,0.4);color:#7DD3FC;font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;padding:7px 18px;border-radius:20px;margin-bottom:28px}
+.hero h1{font-size:clamp(26px,4.5vw,46px);font-weight:900;line-height:1.12;text-wrap:balance;margin-bottom:20px}
+.hero h1 em{color:#7DD3FC;font-style:normal;display:block}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:#94A3B8;margin-bottom:32px;line-height:1.65}
+.hero-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.hero-cta{background:var(--ocean);color:var(--white);border:none;padding:16px 34px;border-radius:8px;font-size:17px;font-weight:800;cursor:pointer;transition:background 0.2s}
+.hero-cta:hover{background:var(--ocean-dark)}
+.hero-link{color:#7DD3FC;font-size:15px;font-weight:700;text-decoration:none;transition:color 0.2s}
+.hero-link:hover{color:var(--white)}
+.hero-note{margin-top:16px;font-size:13px;color:#475569}
+.hero-photo img{width:100%;height:440px;object-fit:cover;border-radius:16px;box-shadow:0 24px 64px rgba(0,0,0,0.5)}
+@media(max-width:820px){.hero-split{grid-template-columns:1fr}.hero-photo{display:none}}
+
+/* BODY SECTIONS */
+section{padding:54px 20px}
+.section-inner{max-width:720px;margin:0 auto}
+.section-inner.wide{max-width:900px}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--ocean);margin-bottom:12px}
+h2{font-size:clamp(24px,4vw,36px);font-weight:900;line-height:1.15;text-wrap:balance;margin-bottom:24px;color:var(--text)}
+.intro{font-size:20px;color:var(--body);line-height:1.75;margin-bottom:20px;font-weight:500}
+p{color:var(--body);margin-bottom:16px;line-height:1.75}
+p:last-child{margin-bottom:0}
+.p-big{font-size:19px;font-weight:700;color:var(--text);line-height:1.5;margin:28px 0}
+.divider{width:48px;height:3px;background:var(--ocean);border-radius:2px;margin:40px 0}
+
+/* AGITATION */
+.agitation{background:var(--white)}
+.pattern-box{background:var(--off);border-left:4px solid var(--ocean);border-radius:0 10px 10px 0;padding:28px 28px 28px 32px;margin:32px 0}
+.pattern-box p{color:var(--body);font-size:16px;margin-bottom:12px}
+.pattern-box p:last-child{margin-bottom:0}
+.pattern-box p strong{color:var(--text)}
+
+/* TRUTH SECTION */
+.truth{background:var(--off)}
+
+/* VALUE STACK */
+.value-section{background:var(--navy);padding:54px 20px;color:var(--white)}
+.value-section .eyebrow{color:#7DD3FC}
+.value-section h2{color:var(--white)}
+.value-section p{color:#94A3B8}
+.value-section .p-big{color:var(--white)}
+.value-table{width:100%;border-collapse:collapse;margin:36px 0;overflow:hidden;border-radius:12px}
+.value-table thead tr{background:rgba(14,165,233,0.2)}
+.value-table th{padding:14px 20px;text-align:left;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#7DD3FC}
+.value-table th:last-child{text-align:right}
+.value-table tbody tr{border-bottom:1px solid rgba(255,255,255,0.07)}
+.value-table tbody tr:last-child{border-bottom:none}
+.value-table td{padding:18px 20px;font-size:16px;color:#E2E8F0;line-height:1.5}
+.value-table td:last-child{text-align:right;font-weight:800;color:#60A5FA;white-space:nowrap;vertical-align:middle}
+.value-table td small{display:block;font-size:13px;color:#64748B;margin-top:4px;font-weight:400}
+.value-table tfoot tr.total-row{background:rgba(255,255,255,0.06);border-top:2px solid rgba(255,255,255,0.15)}
+.value-table tfoot td{padding:18px 20px;font-size:17px;font-weight:800;color:var(--white)}
+.value-table tfoot td:last-child{text-align:right;font-size:22px;color:#4ADE80}
+.value-table tfoot tr.price-row td{padding:20px;background:rgba(14,165,233,0.15);border-top:2px solid rgba(14,165,233,0.3)}
+.price-blur-wrap{display:flex;align-items:center;justify-content:flex-end;gap:14px;flex-wrap:wrap}
+.price-num{font-size:32px;font-weight:900;letter-spacing:0.04em}
+.p-clear{color:var(--white)}
+.p-blur{filter:blur(10px);display:inline-block;user-select:none;color:var(--white)}
+.comp-p-clear{color:var(--navy)}
+.comp-p-blur{filter:blur(5px);display:inline-block;user-select:none;color:var(--navy)}
+.reveal-trigger{background:var(--ocean);color:var(--white);border:none;padding:11px 22px;border-radius:7px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap}
+.reveal-trigger:hover{background:var(--ocean-dark)}
+.stack-note{font-size:13px;color:#475569;text-align:center;margin-top:8px}
+
+/* WARRANTY STRIP */
+.warranty-strip{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy-mid) 100%);padding:64px 20px;color:var(--white)}
+.warranty-strip .eyebrow{color:#7DD3FC}
+.warranty-strip h2{color:var(--white)}
+.warranty-strip p{color:#94A3B8}
+.w-numbers{display:flex;gap:20px;flex-wrap:wrap;margin:36px 0}
+.w-stat{flex:1;min-width:140px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:24px 16px;text-align:center}
+.w-stat .n{font-size:clamp(36px,8vw,58px);font-weight:900;color:#7DD3FC;line-height:1;margin-bottom:6px}
+.w-stat .l{font-size:14px;color:#64748B;line-height:1.4}
+.w-stat .l strong{display:block;color:#E2E8F0;font-size:15px;margin-bottom:2px}
+.w-points{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:16px}
+.w-points li{display:flex;gap:14px;font-size:16px;color:#CBD5E1;align-items:flex-start}
+.w-points li::before{content:'→';color:var(--ocean);font-weight:900;flex-shrink:0;margin-top:2px}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--off)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.testi-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:28px}
+.testi-stars{color:#F59E0B;font-size:18px;margin-bottom:14px;letter-spacing:2px}
+.testi-quote{font-size:15px;color:var(--body);line-height:1.75;margin-bottom:20px;font-style:italic}
+.testi-author{font-size:14px;font-weight:800;color:var(--text)}
+.testi-loc{font-size:13px;color:var(--muted);margin-top:3px}
+
+/* COMPARISON */
+.comparison{background:var(--white)}
+.comp-wrap{overflow-x:auto;margin:36px 0;border-radius:12px;border:1px solid var(--border)}
+.comp-table{width:100%;border-collapse:collapse;min-width:540px}
+.comp-table thead tr{background:var(--navy);color:var(--white)}
+.comp-table th{padding:14px 18px;text-align:center;font-size:14px;font-weight:700}
+.comp-table th:first-child{text-align:left}
+.comp-table th.hi{background:var(--ocean);position:relative}
+.comp-table th.hi::after{content:none}
+.comp-table td{padding:13px 18px;text-align:center;font-size:14px;color:var(--body);border-bottom:1px solid var(--border)}
+.comp-table td:first-child{text-align:left;font-weight:600;color:var(--text)}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table td.hi{background:var(--ocean-pale);font-weight:700;color:var(--navy)}
+.tick{color:var(--green);font-weight:700}
+.cross{color:#DC2626}
+
+/* PROCESS */
+.process{background:var(--off)}
+.steps{display:flex;flex-direction:column;gap:0;margin:36px 0;position:relative}
+.steps::before{content:'';position:absolute;left:22px;top:34px;bottom:34px;width:2px;background:var(--border)}
+.step{display:flex;gap:20px;position:relative}
+.step + .step{margin-top:28px}
+.step-n{width:44px;height:44px;border-radius:50%;background:var(--ocean);color:var(--white);font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1}
+.step-b{padding-top:8px}
+.step-t{font-size:17px;font-weight:800;color:var(--text);margin-bottom:4px}
+.step-d{font-size:15px;color:var(--muted);line-height:1.6}
+
+/* FAQ */
+.faq{background:var(--white)}
+.faq-list{border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:36px}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;background:none;border:none;padding:20px 24px;text-align:left;font-size:16px;font-weight:700;color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq-q:hover{background:var(--off)}
+.faq-icon{font-size:20px;color:var(--ocean);flex-shrink:0;transition:transform 0.2s;font-style:normal}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 24px 20px;font-size:15px;color:var(--body);line-height:1.75}
+.faq-item.open .faq-a{display:block}
+
+/* FORM */
+.form-section{background:var(--navy);padding:80px 20px}
+.fs-grid{max-width:1020px;margin:0 auto;display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:start}
+@media(max-width:860px){.fs-grid{grid-template-columns:1fr;gap:44px}}
+.fs-left .eyebrow{color:#7DD3FC}
+.fs-left h2{color:var(--white);font-size:clamp(24px,3.5vw,36px);line-height:1.15;margin-bottom:20px}
+.fs-left>p{color:#94A3B8;font-size:16px;line-height:1.75;margin-bottom:36px}
+.trust-stack{display:flex;flex-direction:column;gap:18px}
+.trust-item{display:flex;gap:14px;align-items:flex-start}
+.ti-dot{width:26px;height:26px;border-radius:50%;background:rgba(14,165,233,0.15);border:1px solid rgba(14,165,233,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:12px;font-weight:900;color:#7DD3FC}
+.ti-dot::after{content:'✓'}
+.ti-body strong{display:block;color:var(--white);font-size:15px;font-weight:700;margin-bottom:3px;line-height:1.3}
+.ti-body span{font-size:13px;color:#475569;line-height:1.55}
+.form-box{background:var(--white);border-radius:18px;padding:40px 36px;box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.form-box h3{font-size:21px;font-weight:900;color:var(--text);margin-bottom:8px}
+.form-sub{font-size:15px;color:var(--muted);margin-bottom:26px;line-height:1.5}
+.form-appt-note{background:var(--ocean-pale);border-radius:8px;padding:12px 16px;margin-bottom:22px;font-size:13px;color:#075985;font-weight:700;text-align:center}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:14px;font-weight:700;color:var(--text);margin-bottom:7px}
+.form-group input{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:13px 16px;font-size:16px;color:var(--text);outline:none;transition:border-color 0.2s}
+.form-group input:focus{border-color:var(--ocean)}
+.form-group input::placeholder{color:#CBD5E1}
+.form-submit{width:100%;background:var(--ocean);color:var(--white);border:none;padding:17px;border-radius:8px;font-size:17px;font-weight:800;cursor:pointer;transition:background 0.2s;margin-top:8px}
+.form-submit:hover{background:var(--ocean-dark)}
+.form-submit:disabled{background:#94A3B8;cursor:not-allowed}
+.form-privacy{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.5}
+.form-success{display:none;text-align:center;padding:24px 0}
+.form-success .si{font-size:52px;margin-bottom:12px}
+.form-success h3{font-size:22px;font-weight:900;color:var(--green);margin-bottom:8px}
+.form-success p{font-size:15px;color:var(--muted)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.78);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.active{display:flex}
+.modal{background:var(--white);border-radius:16px;padding:40px;max-width:480px;width:100%;position:relative;max-height:90vh;overflow-y:auto}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:26px;cursor:pointer;color:var(--muted);line-height:1}
+.modal-close:hover{color:var(--text)}
+.modal h3{font-size:22px;font-weight:900;color:var(--text);margin-bottom:6px}
+.modal-sub{font-size:15px;color:var(--muted);margin-bottom:20px;line-height:1.5}
+.modal-note{background:var(--ocean-pale);border-radius:8px;padding:12px 16px;margin-bottom:24px;font-size:13px;color:#075985;font-weight:700;text-align:center}
+.modal-success{display:none;text-align:center;padding:16px 0}
+.modal-success .si{font-size:52px;margin-bottom:12px}
+.modal-success h3{font-size:22px;font-weight:900;color:var(--green);margin-bottom:8px}
+.modal-success p{font-size:15px;color:var(--muted)}
+
+/* FOOTER */
+footer{background:var(--navy-deep);padding:20px 24px 28px}
+.footer-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.footer-logo{height:20px;object-fit:contain;opacity:0.55;flex-shrink:0}
+.footer-sep{color:#1E293B;font-size:12px}
+.footer-tagline{font-size:12px;color:#334155}
+
+/* UTILS */
+.tc{text-align:center}
+.mt-32{margin-top:32px}
+.btn-ocean{display:inline-block;background:var(--ocean);color:var(--white);border:none;padding:16px 36px;border-radius:8px;font-size:17px;font-weight:800;cursor:pointer;transition:background 0.2s;text-decoration:none}
+.btn-ocean:hover{background:var(--ocean-dark)}
+
+@media(max-width:640px){
+  .w-numbers{gap:12px}
+  .form-box,.modal{padding:28px 20px}
+  .value-table th,.value-table td{padding:14px 14px;font-size:14px}
+  .testi-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="sticky-bar">
+  <div class="sticky-text">System from <span class="sticky-price"><span class="p-clear">$3,</span><span class="p-blur">395</span></span> — full offer included</div>
+  <button class="sticky-cta" id="sticky-cta">Book Now</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-split">
+    <div>
+      <div class="hero-eyebrow">For Melbourne homeowners comparing quotes</div>
+      <h1>You've Sat Through The Water Test. You've Heard The Pitch. <em>Here's What They Didn't Tell You.</em></h1>
+      <p class="hero-sub">If you're a Melbourne homeowner comparing water filtration quotes — keep reading. You've probably had two, three, four companies through your home. This changes how you see every quote you've had.</p>
+      <div class="hero-actions">
+        <a class="hero-cta" href="#offer-section">See the offer ↓</a>
+      </div>
+      <p class="hero-note">No water test theatre. A Neptune Specialist visits. You decide on the day.</p>
+    </div>
+    <div class="hero-photo">
+      <img src="neptune-site/assets/install-photos/neptuneheroai.png" alt="Neptune whole home filtration installed">
+    </div>
+  </div>
+</section>
+
+<!-- AGITATION -->
+<section class="agitation">
+  <div class="section-inner">
+
+    <p class="intro">By the second company visit, you already knew how it was going to end.</p>
+
+    <p>They show up with a testing kit. They run the test. They show you the results — and suddenly your water looks nothing like you expected.</p>
+
+    <p>Then they sit down. They walk you through everything it's doing to your family. Your skin. Your hair. Your kids. Your appliances. They're not wrong, exactly.</p>
+
+    <p>But they're also not in a hurry to tell you the full picture.</p>
+
+    <p>Then comes the number. Written down or typed into a tablet.</p>
+
+    <p>They wait. You hesitate. They wait some more.</p>
+
+    <div class="pattern-box">
+      <p><strong>Here's the pattern:</strong></p>
+      <p>The results are always alarming enough to act on.</p>
+      <p>The pitch is almost identical every time.</p>
+      <p>The price keeps changing depending on who's in the room.</p>
+      <p>And the number never seems to start with a 3.</p>
+    </div>
+
+    <p>By the time three or four companies have run this exact script in your kitchen, you start asking the obvious question.</p>
+
+    <p class="p-big">If the systems are all roughly the same — why is the price $4,795 from one company and $5,500 from another?</p>
+
+    <p>The answer is not the system.</p>
+
+  </div>
+</section>
+
+<!-- TRUTH -->
+<section class="truth">
+  <div class="section-inner">
+    <p class="eyebrow">The honest version</p>
+    <h2>The Truth About Whole Home Water Filtration In Melbourne.</h2>
+
+    <p class="intro">The core filtration technology is not dramatically different between the major brands. They're all working with the same basic principles.</p>
+
+    <p>Sediment filter. Carbon stage. Stainless steel housing on the better end, plastic on the cheaper. The system you'd get from Australia's biggest filtration brand and the system you'd get from Neptune are both capable of filtering your home's water properly.</p>
+
+    <p>So if the systems are similar — what are you actually paying for when you go with a big Australian brand?</p>
+
+    <p>You're paying for their national marketing budget.</p>
+
+    <p>You're paying for their corporate overheads.</p>
+
+    <p>You're paying for the sales structure that needs two hours in your kitchen to justify the number on the paper.</p>
+
+    <p class="p-big">None of that has anything to do with your water.</p>
+
+    <p>Neptune is a Melbourne water filtration business. Lean. No layers. The person who visits your home is a Neptune Specialist — not a rep working toward a target.</p>
+
+    <p>Just a better system, backed by a better offer, installed by someone who cares whether it actually works.</p>
+
+    <p>Here's what that offer looks like.</p>
+
+    <div class="divider"></div>
+
+    <div class="tc mt-32">
+      <a class="btn-ocean" href="#offer-section">See The Full Offer →</a>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE STACK -->
+<section class="value-section" id="offer-section">
+  <div class="section-inner">
+    <p class="eyebrow">The Neptune Offer</p>
+    <h2>Add This Up Before You Look At The Price.</h2>
+    <p>Every Neptune appointment comes with this. Not just the system. All of it.</p>
+
+    <table class="value-table">
+      <thead>
+        <tr>
+          <th>What You Get</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Neptune Whole Home Filtration System — full professional installation by a Neptune Specialist
+            <small>Every tap, every shower, every appliance. Single point of entry. Done in one visit.</small>
+          </td>
+          <td>$4,795</td>
+        </tr>
+        <tr>
+          <td>
+            First 2 Full Filter Sets — Free. Delivered to your door.
+            <small>Two years of filter replacements at no charge. Your system stays at full capacity from day one.</small>
+          </td>
+          <td>$600</td>
+        </tr>
+        <tr>
+          <td>
+            7-Year Workmanship Warranty
+            <small>Covers every pipe, fitting and connection we install. If anything fails due to our workmanship, we fix it free. No asterisks.</small>
+          </td>
+          <td>$800</td>
+        </tr>
+        <tr>
+          <td>
+            30-Day Money Back Guarantee
+            <small>If your water quality doesn't improve — Neptune removes the system and refunds you in full.</small>
+          </td>
+          <td>Priceless</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="total-row">
+          <td>Total value</td>
+          <td>$6,195+</td>
+        </tr>
+        <tr class="price-row">
+          <td style="font-weight:700;color:var(--white);font-size:16px">
+            Your investment — fixed price, confirmed at your appointment
+            <small style="color:#64748B;font-weight:400">The price starts with a 3. Confirmed once a Neptune Specialist checks your home.</small>
+          </td>
+          <td>
+            <div class="price-blur-wrap">
+              <span class="price-num"><span class="p-clear">$3,</span><span class="p-blur">395</span></span>
+              <button class="reveal-trigger">Book to confirm</button>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <p class="stack-note">$6,195+ in combined value. Fixed price confirmed at your in-home appointment. Price does not change on the day.</p>
+
+    <div class="tc mt-32">
+      <button class="reveal-trigger">Book My Appointment — Confirm My Price →</button>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison">
+  <div class="section-inner wide">
+    <p class="eyebrow">Side by side</p>
+    <h2>Neptune vs The Big Australian Brands Not Built For Melbourne.</h2>
+    <p>Here's how the full offer compares — a Melbourne-designed system against generic national brands built for every postcode but yours.</p>
+
+    <div class="comp-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th style="text-align:left">What you're comparing</th>
+            <th>DIY / Online</th>
+            <th class="hi">Neptune Filtration</th>
+            <th>National Australian Brands</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Installation Included</td>
+            <td><span class="cross">✗</span></td>
+            <td class="hi"><span class="tick">✓</span></td>
+            <td><span class="tick">✓</span></td>
+          </tr>
+          <tr>
+            <td>Cover</td>
+            <td>Exposed Gauges</td>
+            <td class="hi">Premium Stainless</td>
+            <td>Plastic</td>
+          </tr>
+          <tr>
+            <td>Melbourne-designed filtration</td>
+            <td><span class="cross">✗</span></td>
+            <td class="hi"><span class="tick">✓</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Free filters included</td>
+            <td><span class="cross">✗</span></td>
+            <td class="hi">2 years free</td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>30-day money back</td>
+            <td><span class="cross">✗</span></td>
+            <td class="hi"><span class="tick">✓</span></td>
+            <td>Rarely</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>$1,300–$2,300 (install extra)</td>
+            <td class="hi"><span class="comp-p-clear">$3,</span><span class="comp-p-blur">395</span></td>
+            <td>$4,795–$5,500+</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tc mt-32">
+      <button class="btn-ocean reveal-trigger">Book My Appointment →</button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-inner">
+    <p class="eyebrow">Melbourne families who compared</p>
+    <h2>They'd Had Every Other Company Out. Then They Saw This.</h2>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"We had three companies come through before Neptune. Each one did a water test, each one sat at our table and pitched the same system with a different number. The Neptune Specialist came out, no test kit, no theatre — just an honest conversation. We went ahead same day. Best decision we made."</p>
+        <div class="testi-author">Michael T.</div>
+        <div class="testi-loc">Ringwood, VIC</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"I was ready to go with the company I'd seen advertised everywhere. My husband said let's get one more quote. The Neptune appointment was completely different — they explained everything clearly, no pressure, no waiting game. When the Specialist left we didn't even need to think about it."</p>
+        <div class="testi-author">Sarah L.</div>
+        <div class="testi-loc">Reservoir, VIC</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The free filter sets for two years is what got us. Not a single sediment filter — full sets, every stage, for two years. The system has run perfectly. Our water tastes completely different. We genuinely weren't expecting that level of value on top of everything else."</p>
+        <div class="testi-author">Daniel & Kate R.</div>
+        <div class="testi-loc">Frankston, VIC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENT PROCESS -->
+<section class="process">
+  <div class="section-inner">
+    <p class="eyebrow">What happens when you book</p>
+    <h2>No Water Test. Four Steps.</h2>
+    <p class="intro">Here's exactly what a Neptune appointment looks like — from the moment you enquire to the moment your system is running.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-b">
+          <div class="step-t">You fill in your details below</div>
+          <div class="step-d">Name, phone, suburb. That's all we need to get started.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-b">
+          <div class="step-t">Neptune calls to book your appointment</div>
+          <div class="step-d">We confirm a time that works — usually within a couple of days. Today's appointments are open across Melbourne.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-b">
+          <div class="step-t">A Neptune Specialist visits your home</div>
+          <div class="step-d">They confirm your home qualifies for installation, walk you through everything included, and give you a fixed price. Around 30 minutes. No water test designed to scare you. No script designed to close you.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <div class="step-b">
+          <div class="step-t">You decide. Install is booked.</div>
+          <div class="step-d">If it's right for your home, the install is locked in. If not — no obligation, no follow-up pressure. The decision is always yours.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FORM -->
+<section class="form-section" id="form-section">
+  <div class="fs-grid">
+    <div class="fs-left">
+      <p class="eyebrow">Book your appointment</p>
+      <h2>Three Details. Then We Call To Confirm Your Time.</h2>
+      <p>Name, phone, suburb — that's all we need. A Neptune team member calls back within a few hours to lock in your appointment time.</p>
+
+      <div class="trust-stack">
+        <div class="trust-item">
+          <div class="ti-dot"></div>
+          <div class="ti-body">
+            <strong>First 2 Filter Sets — Free</strong>
+            <span>Two years of replacements delivered to your door.</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="ti-dot"></div>
+          <div class="ti-body">
+            <strong>30-Day Money Back Guarantee</strong>
+            <span>If your water quality doesn't improve — full refund, system removed.</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="ti-dot"></div>
+          <div class="ti-body">
+            <strong>7-Year Workmanship Warranty</strong>
+            <span>Confirmed at your appointment. Every pipe, fitting and connection — if our workmanship fails, we fix it free.</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="ti-dot"></div>
+          <div class="ti-body">
+            <strong>Watermark Certified</strong>
+            <span>Installed by Neptune Plumbers.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fs-right">
+      <div class="form-box">
+        <h3>Book My In-Home Appointment</h3>
+        <p class="form-sub">We'll call within a few hours to confirm your time.</p>
+        <form id="main-form">
+          <div class="form-group">
+            <label for="main-name">First Name</label>
+            <input type="text" id="main-name" placeholder="Your first name" required autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <label for="main-phone">Phone Number</label>
+            <input type="tel" id="main-phone" placeholder="04xx xxx xxx" required autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="main-suburb">Suburb</label>
+            <input type="text" id="main-suburb" placeholder="e.g. Ringwood" required autocomplete="address-level2">
+          </div>
+          <button type="submit" class="form-submit" id="main-submit">Book My Appointment →</button>
+          <p class="form-privacy">Your details go directly to Neptune. No spam. No third-party lists.</p>
+        </form>
+        <div class="form-success" id="main-success">
+          <div class="si">✅</div>
+          <h3>You're booked in.</h3>
+          <p>A Neptune team member will call within a few hours to confirm your appointment time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <img class="footer-logo" src="https://neptunefiltration.com.au/assets/logos/Neptune_Logo_White.png" alt="Neptune Filtration" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('afterbegin','<span style=\'font-size:14px;font-weight:900;letter-spacing:0.1em;color:#334155\'>NEPTUNE</span>')">
+    <span class="footer-sep">·</span>
+    <span class="footer-tagline">Melbourne's whole home water filtration specialists.</span>
+  </div>
+</footer>
+
+<!-- MODAL (hidden — no longer used) -->
+<div class="modal-overlay" id="price-modal" role="dialog" aria-modal="true" style="display:none!important">
+  <div class="modal">
+    <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+    <h3>Book Your Appointment</h3>
+    <p class="modal-sub">Leave your details and we'll call to confirm your time. The full offer — 7-year workmanship warranty, 2 free filter sets, 30-day money back — is confirmed when you book.</p>
+    <div class="modal-note">Appointments available today across Melbourne. We'll call within a few hours.</div>
+    <form id="modal-form">
+      <div class="form-group">
+        <label for="modal-name">First Name</label>
+        <input type="text" id="modal-name" placeholder="Your first name" required autocomplete="given-name">
+      </div>
+      <div class="form-group">
+        <label for="modal-phone">Phone Number</label>
+        <input type="tel" id="modal-phone" placeholder="04xx xxx xxx" required autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label for="modal-suburb">Suburb</label>
+        <input type="text" id="modal-suburb" placeholder="e.g. Frankston" required autocomplete="address-level2">
+      </div>
+      <button type="submit" class="form-submit" id="modal-submit">Confirm My Appointment →</button>
+      <p class="form-privacy">We'll call to confirm your time. No spam.</p>
+    </form>
+    <div class="modal-success" id="modal-success">
+      <div class="si">✅</div>
+      <h3>Done. Expect a call shortly.</h3>
+      <p>A Neptune team member will call within a few hours to lock in your appointment time.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var WH='https://services.leadconnectorhq.com/hooks/SPQwdXLPrMES6TqvwFLr/webhook-trigger/84d752aa-a597-4faa-a48b-be2763def373';
+
+  // sticky — dynamic CTA: "See the offer" → "Book Now" after offer section passes viewport
+  var sticky=document.getElementById('sticky-bar');
+  var fs=document.getElementById('form-section');
+  var os=document.getElementById('offer-section');
+  var hero=document.querySelector('.hero');
+  var sb=document.getElementById('sticky-cta');
+  function upd(){
+    var heroBottom=hero.getBoundingClientRect().bottom;
+    var offerBottom=os.getBoundingClientRect().bottom;
+    var r=fs.getBoundingClientRect();
+    var inForm=r.top<window.innerHeight&&r.bottom>0;
+    sticky.classList.toggle('hidden',heroBottom>0||offerBottom>window.innerHeight||inForm);
+  }
+  sb.addEventListener('click',function(){fs.scrollIntoView({behavior:'smooth'});});
+  window.addEventListener('scroll',upd,{passive:true});upd();
+
+  // all other CTAs scroll to form — no modal
+  document.querySelectorAll('.reveal-trigger').forEach(function(b){
+    b.addEventListener('click',function(){fs.scrollIntoView({behavior:'smooth'});});
+  });
+
+  function post(data,ok,err){
+    fetch(WH,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      .then(ok).catch(err);
+  }
+
+  // main form
+  document.getElementById('main-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('main-name').value.trim(),p=document.getElementById('main-phone').value.trim(),s=document.getElementById('main-suburb').value.trim();
+    if(!n||!p||!s)return;
+    var b=document.getElementById('main-submit');b.disabled=true;b.textContent='Sending…';
+    post({firstName:n,phone:p,suburb:s,source:'warm-main-form',page:'neptune-warm-traffic'},
+      function(){document.getElementById('main-form').style.display='none';document.getElementById('main-success').style.display='block';},
+      function(){b.disabled=false;b.textContent='Book My Appointment — Confirm My Price →';alert('Something went wrong. Please try again.');});
+  });
+
+  // faq
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var it=btn.closest('.faq-item'),op=it.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-q').setAttribute('aria-expanded','false');});
+      if(!op){it.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+})();
+</script>
+</body>
+</html>
