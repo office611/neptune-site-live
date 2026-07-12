@@ -898,8 +898,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
           method="POST" novalidate>
 
           <div class="field">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" placeholder="Your first name" required autocomplete="given-name">
+            <label for="firstName">Full Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Your full name" required autocomplete="name">
           </div>
           <div class="field">
             <label for="phone">Best Phone Number</label>
@@ -989,6 +989,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(Object.assign({
+          name: first,
           firstName: first,
           phone: phone,
           suburb: suburb,
