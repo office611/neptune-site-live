@@ -644,6 +644,19 @@ footer{background:var(--navy-deep);padding:20px 24px 28px}
 (function(){
   var WH='/.netlify/functions/submit-lead';
 
+  // Capture UTMs from URL on page load
+  var utms = (function() {
+    var p = new URLSearchParams(window.location.search);
+    return {
+      utm_source:   p.get('utm_source')   || '',
+      utm_medium:   p.get('utm_medium')   || '',
+      utm_campaign: p.get('utm_campaign') || '',
+      utm_content:  p.get('utm_content')  || '',
+      utm_term:     p.get('utm_term')     || '',
+      fbclid:       p.get('fbclid')       || ''
+    };
+  })();
+
   // sticky — dynamic CTA: "See the offer" → "Book Now" after offer section passes viewport
   var sticky=document.getElementById('sticky-bar');
   var fs=document.getElementById('form-section');
@@ -676,7 +689,7 @@ footer{background:var(--navy-deep);padding:20px 24px 28px}
     var n=document.getElementById('main-name').value.trim(),p=document.getElementById('main-phone').value.trim(),s=document.getElementById('main-suburb').value.trim();
     if(!n||!p||!s)return;
     var b=document.getElementById('main-submit');b.disabled=true;b.textContent='Sending…';
-    post({firstName:n,phone:p,suburb:s,source:'warm-main-form',page:'neptune-warm-traffic'},
+    post(Object.assign({firstName:n,phone:p,suburb:s,source:'warm',lead_source:'meta_warm'},utms),
       function(){document.getElementById('main-form').style.display='none';document.getElementById('main-success').style.display='block';},
       function(){b.disabled=false;b.textContent='Book My Appointment — Confirm My Price →';alert('Something went wrong. Please try again.');});
   });

@@ -955,6 +955,19 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
     });
   });
 
+  // Capture UTMs from URL on page load
+  var utms = (function() {
+    var p = new URLSearchParams(window.location.search);
+    return {
+      utm_source:   p.get('utm_source')   || '',
+      utm_medium:   p.get('utm_medium')   || '',
+      utm_campaign: p.get('utm_campaign') || '',
+      utm_content:  p.get('utm_content')  || '',
+      utm_term:     p.get('utm_term')     || '',
+      fbclid:       p.get('fbclid')       || ''
+    };
+  })();
+
   // Form submit
   var form = document.getElementById('lead-form');
   var btn  = document.getElementById('submit-btn');
@@ -975,13 +988,13 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
       await fetch('/.netlify/functions/submit-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        body: JSON.stringify(Object.assign({
           firstName: first,
           phone: phone,
           suburb: suburb,
-          source: 'cold_traffic_lp',
-          lead_source: 'meta_9ads'
-        })
+          source: 'cold',
+          lead_source: 'meta_cold'
+        }, utms))
       });
     } catch (err) { /* network error — lead still fires server-side */ }
 
