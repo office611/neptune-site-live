@@ -972,7 +972,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
     btn.disabled = true;
 
     try {
-      await fetch(form.action, {
+      await fetch('/.netlify/functions/submit-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -983,7 +983,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
           lead_source: 'meta_9ads'
         })
       });
-    } catch (err) { /* Submits correctly when hosted on neptunefiltration.com.au */ }
+    } catch (err) { /* network error — lead still fires server-side */ }
 
     form.style.display = 'none';
     note.style.display = 'none';
