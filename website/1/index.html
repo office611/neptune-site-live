@@ -34,20 +34,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Hero logo ─────────────────────────────────────── */
-.hero-logo {
-  position: absolute; top: 24px; left: 32px; z-index: 2;
-}
-.hero-logo img { height: 36px; width: auto; display: block; opacity: .9; }
-@media (max-width: 520px) {
-  .hero-logo { top: 18px; left: 20px; }
-  .hero-logo img { height: 28px; }
-}
 @media (max-width: 820px) {
-  .hero-logo { display: none; }
   .hero-trust-row { display: none; }
   .hero { padding: 40px 20px 44px; }
-  .btn-primary { display: block; width: 100%; text-align: center; padding: 20px; font-size: 19px; box-sizing: border-box; }
 }
 
 /* ── Sticky mobile bar ─────────────────────────────── */
@@ -140,18 +129,18 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
 
 /* ── Hero ──────────────────────────────────────────── */
 .hero {
-  background: var(--navy) url('https://neptunefiltration.com.au/assets/install-photos/hero-bg.jpg') center 65% / cover no-repeat;
+  background: var(--navy);
   padding: 56px 32px 64px;
   position: relative; overflow: hidden;
 }
 .hero::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(7,23,43,.88) 0%, rgba(7,23,43,.80) 45%, rgba(7,23,43,.93) 100%);
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(26,109,214,.22) 0%, transparent 65%);
   pointer-events: none;
 }
 .hero-inner {
-  max-width: 900px; margin: 0 auto;
+  max-width: 640px; margin: 0 auto;
   position: relative; z-index: 1;
   text-align: center;
 }
@@ -163,20 +152,20 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
   font-size: clamp(16px, 2.2vw, 20px);
   color: rgba(255,255,255,.7);
   line-height: 1.65; max-width: 680px;
-  margin: 0 auto 40px;
+  margin: 0 auto 28px;
 }
-.btn-primary {
-  display: inline-block;
-  background: var(--blue-lt); color: #fff;
-  padding: 18px 44px; border-radius: 7px;
-  font-size: 17px; font-weight: 700;
-  text-decoration: none; letter-spacing: .15px;
-  box-shadow: 0 4px 24px rgba(26,109,214,.4);
-  transition: background .15s, transform .12s;
+.hero-photo {
+  max-width: 340px; margin: 0 auto 24px;
+  border-radius: 14px; overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,.4);
+  border: 3px solid rgba(255,255,255,.12);
 }
-.btn-primary:hover { background: var(--blue); transform: translateY(-2px); }
-.btn-primary:active { transform: none; }
-.hero-disclaimer { font-size: 13px; color: rgba(255,255,255,.4); margin-top: 12px; }
+.hero-photo img { display: block; width: 100%; height: auto; }
+.hero-next-step {
+  font-size: 15px; color: rgba(255,255,255,.85);
+  margin-bottom: 20px;
+}
+.hero-next-step strong { text-decoration: underline; color: #fff; }
 
 .hero-trust-row {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 22px;
@@ -290,31 +279,13 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
 }
 .trust-strip .check { color: var(--green); font-size: 16px; }
 
-/* ── Cred list ─────────────────────────────────────── */
-.cred-list { display: flex; flex-direction: column; gap: 13px; margin: 24px 0; }
-.cred-list li {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 16px; color: rgba(255,255,255,.72);
-  list-style: none;
-}
-.cred-list li .tick { color: #4ADE80; font-size: 17px; flex-shrink: 0; }
-
-/* ── Form section ──────────────────────────────────── */
-.form-layout {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-}
-@media (max-width: 780px) { .form-layout { grid-template-columns: 1fr; gap: 44px; } }
-
-.form-left h2 { color: var(--white); margin-bottom: 16px; }
-.form-left p  { font-size: 17px; color: rgba(255,255,255,.7); line-height: 1.72; margin-bottom: 14px; }
-
+/* ── Form card ─────────────────────────────────────── */
 .form-card {
   background: var(--white); border-radius: 12px;
-  padding: 40px 36px;
-  box-shadow: 0 16px 56px rgba(0,0,0,.32);
+  padding: 32px 28px;
+  box-shadow: 0 16px 56px rgba(0,0,0,.4);
+  text-align: left;
 }
-.form-card h3 { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
-.form-card .sub { font-size: 13px; color: var(--muted); margin-bottom: 26px; }
 
 /* ── Multi-step form ──────────────────────────────────── */
 .form-progress { display: flex; gap: 6px; margin-bottom: 24px; }
@@ -485,9 +456,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
      HERO
 ══════════════════════════════════════════════════════ -->
 <section class="hero">
-  <div class="hero-logo">
-    <img src="https://neptunefiltration.com.au/assets/logos/Neptune_Logo_White.png" alt="Neptune Filtration">
-  </div>
   <div class="hero-inner">
 
     <h1>
@@ -498,8 +466,80 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
       Have you ever actually wondered what's in that water — and what it's quietly doing to your family every single day?
     </p>
 
-    <a href="#form" class="btn-primary">Find Out What's In Your Water — Free →</a>
-    <p class="hero-disclaimer">Free 30-min in-home water test · Melbourne homeowners · No obligation</p>
+    <div class="hero-photo">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/neptune-install-1-lg.jpg" alt="Neptune whole-home water filtration unit installed at a Melbourne home" loading="eager">
+    </div>
+
+    <p class="hero-next-step"><strong>Next Step:</strong> Answer A Few Quick Questions To Book Your Free Water Test</p>
+
+    <div class="form-card" id="form">
+      <div class="form-progress" id="form-progress">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <form id="lead-form"
+        action="https://services.leadconnectorhq.com/hooks/SPQwdXLPrMES6TqvwFLr/webhook-trigger/84d752aa-a597-4faa-a48b-be2763def373"
+        method="POST" novalidate>
+
+        <div class="field" data-step="1">
+          <label>Which best describes what's brought you here?</label>
+          <div class="field-choices">
+            <label class="choice-pill"><input type="radio" name="reason" value="hair_skin" required> Noticed more hair loss or dry skin lately</label>
+            <label class="choice-pill"><input type="radio" name="reason" value="curious"> Just curious what's actually in our water</label>
+            <label class="choice-pill"><input type="radio" name="reason" value="comparing"> Comparing quotes from a few companies</label>
+            <label class="choice-pill"><input type="radio" name="reason" value="already_tested"> Already had a water test done</label>
+          </div>
+        </div>
+
+        <div class="field" data-step="2">
+          <label>Do you own your home?</label>
+          <div class="field-choices">
+            <label class="choice-pill"><input type="radio" name="homeowner" value="yes" required> Yes, I own my home</label>
+            <label class="choice-pill"><input type="radio" name="homeowner" value="no"> No, I rent</label>
+          </div>
+        </div>
+
+        <div class="field" data-step="3">
+          <label>How soon would you like this sorted?</label>
+          <div class="field-choices">
+            <label class="choice-pill"><input type="radio" name="timeline" value="asap" required> As soon as possible</label>
+            <label class="choice-pill"><input type="radio" name="timeline" value="month"> Within the next month</label>
+            <label class="choice-pill"><input type="radio" name="timeline" value="researching"> Just researching for now</label>
+          </div>
+        </div>
+
+        <div class="field" data-step="4">
+          <label for="firstName">Full Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Your full name" required autocomplete="name">
+        </div>
+        <div class="field" data-step="5">
+          <label for="phone">Best Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
+        </div>
+        <div class="field" data-step="6">
+          <label for="suburb">Suburb</label>
+          <input type="text" id="suburb" name="suburb" placeholder="e.g. Brighton, Glen Waverley" required autocomplete="address-level2">
+        </div>
+        <input type="hidden" name="source" value="cold_traffic_lp">
+        <input type="hidden" name="lead_source" value="meta_9ads">
+
+        <div class="form-nav">
+          <button type="button" class="form-back" id="form-back">← Back</button>
+          <button type="button" class="btn-submit" id="form-continue">Continue →</button>
+          <button type="submit" class="btn-submit" id="submit-btn" style="display:none;">Book My Free Water Test →</button>
+        </div>
+      </form>
+
+      <p class="form-fine" id="form-note">🔒 Your details stay private. A Neptune specialist will call to arrange a convenient time.</p>
+
+      <div class="form-success" id="form-success">
+        <div class="success-icon">✓</div>
+        <h3>Booked in!</h3>
+        <p>A Neptune specialist will be in touch shortly to arrange a time that suits.</p>
+        <p>Keep the phone handy — calls usually come through within a few hours on business days.</p>
+        <p style="color:var(--muted); font-size:14px; margin-top:16px;">Quick heads up: specialists genuinely book out most weeks across Melbourne. The families who get the most out of this are the ones who make sure they're home for their slot — if your plans change, just let us know and a specialist can visit a family who's ready instead.</p>
+      </div>
+    </div>
 
     <div class="hero-trust-row">
       <span><span class="dot"></span> Free · No Obligation</span>
@@ -534,105 +574,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
     </div>
   </div>
 </section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     FORM
-══════════════════════════════════════════════════════ -->
-<section class="section section--navy" id="form">
-  <div class="wrap--lg">
-    <div class="form-layout">
-
-      <div class="form-left">
-        <span class="label label--light">Book Your Free Test</span>
-        <h2 class="light" style="text-wrap:balance;">Find Out What's Actually In Your Home's Water</h2>
-        <p>A Neptune specialist comes to the home. Tests your actual water — not a general average — on the spot. Shows the results and explains exactly what they mean for your family.</p>
-        <p style="color:rgba(255,255,255,.5); font-size:15px; margin-top:0;">Free. No obligation. No sales pressure. Just the truth about your water.</p>
-        <ul class="cred-list" style="margin-top:28px;">
-          <li><span class="tick">✓</span> Results on the day, in your home</li>
-          <li><span class="tick">✓</span> No sales pressure — just the facts</li>
-          <li><span class="tick">✓</span> Neptune's own team — not contractors</li>
-          <li><span class="tick">✓</span> Available this week — spots fill up across Melbourne metro</li>
-        </ul>
-        <p style="color:rgba(255,255,255,.45); font-size:14px; margin-top:20px; line-height:1.6;">Neptune specialists cover Melbourne metro and typically book a week in advance. If there's availability this week, it's worth locking in.</p>
-      </div>
-
-      <div class="form-card">
-        <h3>Book My Free Water Test</h3>
-        <p class="sub">Melbourne homeowners — available now</p>
-
-        <div class="form-progress" id="form-progress">
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-
-        <form id="lead-form"
-          action="https://services.leadconnectorhq.com/hooks/SPQwdXLPrMES6TqvwFLr/webhook-trigger/84d752aa-a597-4faa-a48b-be2763def373"
-          method="POST" novalidate>
-
-          <div class="field" data-step="1">
-            <label>Which best describes what's brought you here?</label>
-            <div class="field-choices">
-              <label class="choice-pill"><input type="radio" name="reason" value="hair_skin" required> Noticed more hair loss or dry skin lately</label>
-              <label class="choice-pill"><input type="radio" name="reason" value="curious"> Just curious what's actually in our water</label>
-              <label class="choice-pill"><input type="radio" name="reason" value="comparing"> Comparing quotes from a few companies</label>
-              <label class="choice-pill"><input type="radio" name="reason" value="already_tested"> Already had a water test done</label>
-            </div>
-          </div>
-
-          <div class="field" data-step="2">
-            <label>Do you own your home?</label>
-            <div class="field-choices">
-              <label class="choice-pill"><input type="radio" name="homeowner" value="yes" required> Yes, I own my home</label>
-              <label class="choice-pill"><input type="radio" name="homeowner" value="no"> No, I rent</label>
-            </div>
-          </div>
-
-          <div class="field" data-step="3">
-            <label>How soon would you like this sorted?</label>
-            <div class="field-choices">
-              <label class="choice-pill"><input type="radio" name="timeline" value="asap" required> As soon as possible</label>
-              <label class="choice-pill"><input type="radio" name="timeline" value="month"> Within the next month</label>
-              <label class="choice-pill"><input type="radio" name="timeline" value="researching"> Just researching for now</label>
-            </div>
-          </div>
-
-          <div class="field" data-step="4">
-            <label for="firstName">Full Name</label>
-            <input type="text" id="firstName" name="firstName" placeholder="Your full name" required autocomplete="name">
-          </div>
-          <div class="field" data-step="5">
-            <label for="phone">Best Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
-          </div>
-          <div class="field" data-step="6">
-            <label for="suburb">Suburb</label>
-            <input type="text" id="suburb" name="suburb" placeholder="e.g. Brighton, Glen Waverley" required autocomplete="address-level2">
-          </div>
-          <input type="hidden" name="source" value="cold_traffic_lp">
-          <input type="hidden" name="lead_source" value="meta_9ads">
-
-          <div class="form-nav">
-            <button type="button" class="form-back" id="form-back">← Back</button>
-            <button type="button" class="btn-submit" id="form-continue">Continue →</button>
-            <button type="submit" class="btn-submit" id="submit-btn" style="display:none;">Book My Free Water Test →</button>
-          </div>
-        </form>
-
-        <p class="form-fine" id="form-note">🔒 Your details stay private. A Neptune specialist will call to arrange a convenient time.</p>
-
-        <div class="form-success" id="form-success">
-          <div class="success-icon">✓</div>
-          <h3>Booked in!</h3>
-          <p>A Neptune specialist will be in touch shortly to arrange a time that suits.</p>
-          <p>Keep the phone handy — calls usually come through within a few hours on business days.</p>
-          <p style="color:var(--muted); font-size:14px; margin-top:16px;">Quick heads up: specialists genuinely book out most weeks across Melbourne. The families who get the most out of this are the ones who make sure they're home for their slot — if your plans change, just let us know and a specialist can visit a family who's ready instead.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 
 <!-- ══════════════════════════════════════════════════════
      TESTIMONIALS
