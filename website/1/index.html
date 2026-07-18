@@ -125,8 +125,6 @@ h3 {
   color: var(--navy); font-style: italic;
 }
 
-hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
-
 /* ── Hero ──────────────────────────────────────────── */
 .hero {
   background: var(--navy);
@@ -155,10 +153,9 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
   margin: 0 auto 28px;
 }
 .hero-photo {
-  max-width: 340px; margin: 0 auto 24px;
+  max-width: 300px; margin: 0 auto 24px;
   border-radius: 14px; overflow: hidden;
-  box-shadow: 0 16px 48px rgba(0,0,0,.4);
-  border: 3px solid rgba(255,255,255,.12);
+  box-shadow: 0 12px 32px rgba(0,0,0,.35);
 }
 .hero-photo img { display: block; width: 100%; height: auto; }
 .hero-next-step {
@@ -367,7 +364,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
 
 /* ── How it works pillars ──────────────────────────────── */
 .pillar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 8px 0 32px; }
-.pillar-img { width: 100%; aspect-ratio: 4/5; border-radius: 12px; margin-bottom: 16px; background-color: var(--blue-pale); background-repeat: no-repeat; }
+.pillar-img { border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+.pillar-img img { display: block; width: 100%; height: auto; }
 .pillar-card h3 { font-size: 19px; margin-bottom: 8px; color: var(--navy); }
 .pillar-card p { font-size: 15px; color: var(--body); line-height: 1.6; }
 @media (max-width: 640px) { .pillar-grid { grid-template-columns: 1fr; } }
@@ -558,12 +556,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
   <div class="wrap">
     <div class="pillar-grid">
       <div class="pillar-card">
-        <div class="pillar-img" style="background-image:url('https://neptunefiltration.com.au/assets/install-photos/neptune-install-3.jpg'); background-size:contain; background-position:center;"></div>
+        <div class="pillar-img"><img src="https://neptunefiltration.com.au/assets/install-photos/neptune-install-3.jpg" alt="Neptune specialist testing point at a Melbourne home" loading="lazy"></div>
         <h3>Free Water Quality Assessment</h3>
         <p>30 minutes at your tap. Chlorine, hard minerals, sediment — the real numbers for your home. Free, no obligation.</p>
       </div>
       <div class="pillar-card">
-        <div class="pillar-img" style="background-image:url('https://neptunefiltration.com.au/assets/install-photos/neptune-install-1-lg.jpg'); background-size:contain; background-position:center;"></div>
+        <div class="pillar-img"><img src="https://neptunefiltration.com.au/assets/install-photos/neptune-install-1-lg.jpg" alt="Neptune whole-home filtration unit installed at a Melbourne home" loading="lazy"></div>
         <h3>Tailored Filtration Set Up For Your Home</h3>
         <p>Neptune's own team designs and installs a system matched to your home's plumbing — every tap, every shower. Not a one-size-fits-all box.</p>
       </div>
@@ -678,78 +676,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
 
 
 <!-- ══════════════════════════════════════════════════════
-     THE HOOK — YOU'VE NEVER THOUGHT ABOUT IT (deeper read)
-══════════════════════════════════════════════════════ -->
-<section class="section" id="problem">
-  <div class="wrap">
-    <span class="label">What Nobody Tells You</span>
-    <h2>You've Never Really Thought About It. Most People Haven't.</h2>
-
-    <div class="copy">
-      <p class="intro">You're here because of your hair. So let's start there — then show you why it's connected to everything else in your home.</p>
-
-      <p>Water comes out of the tap. That's it. That's the whole thought most people give it.</p>
-
-      <p>It's just water. Melbourne's water is treated and tested. The council says it's safe. So it must be fine.</p>
-
-      <p>Water specialists who test homes across Melbourne say the same thing happens almost every time. They show the family the results. And the family goes quiet.</p>
-
-      <p>Not because the water is dangerous. Because the numbers are nothing like what they expected.</p>
-
-      <p>And technically — it is safe. It meets Australian standards.</p>
-
-      <p>But here's the thing.</p>
-
-      <p><strong>Safe and clean are not the same thing.</strong></p>
-
-      <p>Melbourne's water is treated with chlorine. That's how the city keeps it safe — chlorine kills bacteria in the supply. Fair enough. But chlorine doesn't disappear when it reaches your tap. It comes out with the water. Every single day.</p>
-
-      <p>It also carries hard minerals — calcium and magnesium — that travel through the pipes and out through every tap and showerhead in your home.</p>
-
-      <p>And then there's the sediment. The trace metals from ageing pipes. The disinfection byproducts — the compounds that form when chlorine reacts with organic matter in the water.</p>
-
-      <p>When was the last time you thought about any of that?</p>
-
-      <p>Probably never. Because nobody tells you to.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     THE OVERSEAS MOMENT
-══════════════════════════════════════════════════════ -->
-<section class="section section--pale" id="overseas">
-  <div class="wrap">
-    <span class="label">You've Noticed It Before</span>
-    <h2>Think About The Last Time You Had Water That Felt Different.</h2>
-
-    <div class="copy">
-      <p class="intro">You've experienced it. You just didn't know what it was.</p>
-
-      <p>You went overseas — or interstate — and the water tasted different. Cleaner. Crisper. Or sometimes stranger, more mineral-heavy.</p>
-
-      <p>Your skin felt different in the shower. Softer somehow. Or drier. Your hair felt different.</p>
-
-      <p>You noticed it immediately. It was obvious.</p>
-
-      <p>Because water is not the same everywhere. Different regions, different treatment, different mineral levels. The water in your Melbourne home is not the same as water in Bali, or Japan, or even regional Victoria.</p>
-
-      <p>That difference you felt? That was real.</p>
-
-      <p>And the water that's been coming out of your taps every morning? Most Melbourne families have never questioned it. Never tested it. Never thought twice about what's actually in it.</p>
-
-      <p>Until something makes them.</p>
-
-      <p>Usually it's the dry skin that never quite goes away. Or the kids' eczema that flares up for no obvious reason. Or the hair loss that started slowly and never really stopped.</p>
-
-      <p>Or just the moment someone finally asks: <em>wait, what's actually in our water?</em></p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
      THE SHOWER STAT
 ══════════════════════════════════════════════════════ -->
 <section class="section">
@@ -757,31 +683,9 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
     <span class="label">The Part Most People Never Know</span>
     <h2>It's Not About Drinking. It's About What Happens Every Time You Shower.</h2>
 
-    <div class="copy">
-      <p class="intro">Most people think about filtered water the same way — a jug on the bench, something for drinking.</p>
-
-      <p>They don't think about the shower.</p>
-
-      <p>But here's what the research actually shows.</p>
-    </div>
-
     <blockquote class="callout">
       "During a hot shower, your pores open up and you inhale steam — which allows you to absorb up to 6 times more chlorine and disinfection byproducts through your skin and lungs than you would by drinking eight glasses of the same tap water."
     </blockquote>
-
-    <div class="copy">
-      <p>Six times more. Just from a regular morning shower.</p>
-
-      <p>Not from drinking it. From standing in it. From the steam. From your skin absorbing what's in that warm water while your pores are open.</p>
-
-      <p>Every day. For every person in the house.</p>
-
-      <p>And that's before you account for the kids' bath. The kitchen tap. Washing fruit and vegetables. Cooking. The hundreds of other times your family touches that water every single day.</p>
-
-      <p>You've been thinking about filtered drinking water. That's one glass.</p>
-
-      <p>Nobody tells you about everything else.</p>
-    </div>
 
     <div class="stat-grid">
       <div class="stat-box">
@@ -813,16 +717,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
   <div class="wrap">
     <span class="label">Things You've Noticed But Never Connected</span>
     <h2>These Are The Signs Families See. And What They Blamed Them On.</h2>
-
-    <div class="copy">
-      <p>When water specialists visit Melbourne homes, they see a pattern.</p>
-
-      <p>Families have been dealing with the same things for years. Trying the same fixes. Getting short-term relief. Having it come back.</p>
-
-      <p>Because they were treating the symptom. Not the source.</p>
-
-      <p>Here's what shows up, again and again:</p>
-    </div>
 
     <div class="card-grid">
       <div class="card">
@@ -869,90 +763,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
       </div>
     </div>
 
-    <div class="copy">
-      <p>Recognise any of those?</p>
-
-      <p>Most people recognise at least a few. And most never once thought to question the water.</p>
-
-      <p>Here's why products never fully solve it.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     AGITATION — NAIL AND BANDAGE
-══════════════════════════════════════════════════════ -->
-<section class="section">
-  <div class="wrap">
-    <span class="label">Why The Same Problems Keep Coming Back</span>
-    <h2>You Can't Moisturise Your Way Out Of A Water Problem.</h2>
-
-    <div class="copy">
-      <p class="intro">If someone keeps standing on a nail every morning, giving them better bandages doesn't fix it.</p>
-
-      <p>You need to move the nail.</p>
-
-      <p>That's what's happening when families spend hundreds of dollars a year on sensitive skin products, special shampoos, and creams — and the same problems keep returning.</p>
-
-      <p>They're not failing. The products aren't bad.</p>
-
-      <p>The cause is just still there. Every shower. Coming out of the showerhead.</p>
-
-      <p>Chlorine strips the skin's natural oils with every wash. Hard minerals coat hair and sit on skin. And it all comes straight back the next day, undoing whatever the products tried to do the night before.</p>
-
-      <p>The families who found out what was actually in their water — and dealt with it at the source — said the same thing, almost without exception.</p>
-
-      <p><em>"We wish someone had told us years ago."</em></p>
-
-      <p>Most of them had been living with it for years. Some for decades. A cream here. A prescription there. Never connecting it to the one thing that hadn't changed: the water coming into the home.</p>
-
-      <p>When they filtered the water at the source — every tap, every shower, every appliance — the cycle finally stopped.</p>
-    </div>
-
-    <hr class="rule">
-
-    <div class="copy">
-      <p>That's the difference between filtering one tap and filtering the whole home.</p>
-
-      <p>A bench filter on the kitchen tap covers drinking water. One point.</p>
-
-      <p>A whole-home system covers every tap. Every shower. The kids' bath. The washing machine washing the family's clothes. Everything.</p>
-
-      <p>From one installation point, everything changes.</p>
-    </div>
-
-    <div class="mid-cta">
-      <a href="#form">Book a Free Water Test — No Obligation →</a>
-      <small>Melbourne homeowners · Available this week</small>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     WHAT ACTUALLY CHANGES
-══════════════════════════════════════════════════════ -->
-<section class="section section--pale">
-  <div class="wrap">
-    <span class="label">What Families Notice First</span>
-    <h2 style="text-wrap:balance;">The Change Most Families Say They Didn't See Coming.</h2>
-
-    <div class="copy">
-      <p class="intro">The families who've had their water tested say the same thing, almost without exception: they wish they'd done it years earlier.</p>
-
-      <p>The first thing most people notice is the shower. That tight, dry feeling after washing — gone. Skin that feels softer. Hair that responds differently to products. A difference noticeable enough to catch people off guard.</p>
-
-      <p>The taste from the kitchen tap changes. Scale on the shower screen stops building back overnight. That pool-chlorine smell in a hot bathroom — gone.</p>
-
-      <p>For families with young children — especially those dealing with sensitive skin or eczema — the change is often dramatic enough to be the first thing they mention to their GP.</p>
-
-      <p>It doesn't come from any cream, shampoo, or filter jug.</p>
-
-      <p>It comes from dealing with it at the source.</p>
-
-      <p>None of that starts without knowing what's actually in the water first. Which is exactly what the free test is for.</p>
-    </div>
   </div>
 </section>
 
@@ -966,17 +776,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
     <h2 style="text-wrap:balance;">Melbourne's Water Specialists. Just Done Properly.</h2>
 
     <div class="copy">
-      <p>Neptune is a Melbourne-based company. Whole-home water filtration is all they do.</p>
+      <p>Whole-home water filtration is all Neptune does — WaterMark certified, installed by Neptune's own team, no contractors. The free test just shows you the numbers first. What you do with them is your call.</p>
+    </div>
 
-      <p>Most homeowners they meet aren't looking for the cheapest option — they just want it done properly. Right layout, right pressure, right setup for their specific home. So it works from day one and keeps working.</p>
-
-      <p>Neptune's filtration systems are WaterMark certified to Australian standards — independently tested, fully compliant, and built to last. Every installation is done by Neptune's own team.</p>
-
-      <p>The free water test is exactly that. No catch.</p>
-
-      <p>Neptune offers it free because the families who've seen their own results almost always say the same thing: they needed to see the numbers before anything else made sense. The test removes the guesswork. What the family does after that is entirely their choice.</p>
-
-      <p>A specialist comes to the home. Tests the water on the spot — shows exactly what's in it and what it means for your family. About 30 minutes. No pressure to do anything at all. Just the facts, and a choice that's completely yours.</p>
+    <div class="mid-cta">
+      <a href="#form">Book a Free Water Test — No Obligation →</a>
+      <small>Melbourne homeowners · Available this week</small>
     </div>
   </div>
 </section>
