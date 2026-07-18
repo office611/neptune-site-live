@@ -166,7 +166,8 @@ h3 {
 .hero-photo-row img:nth-child(4) { transform: translateY(-8px); }
 @media (max-width: 480px) {
   .hero-photo-row img { height: 98px; }
-  .hero-photo-row img:nth-child(4) { display: none; }
+  .hero-photo-row img:nth-child(4),
+  .hero-photo-row img:nth-child(5) { display: none; }
 }
 .hero-next-step {
   font-size: 15px; color: var(--body);
@@ -401,6 +402,15 @@ h3 {
 .pillar-card p { font-size: 15px; color: var(--body); line-height: 1.6; }
 @media (max-width: 640px) { .pillar-grid { grid-template-columns: 1fr; gap: 48px; } }
 
+/* ── Neptune gallery ───────────────────────────────── */
+.neptune-gallery { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin: 32px 0; }
+.neptune-gallery img {
+  width: 100%; height: 220px; object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 14px 32px rgba(15,23,42,.12);
+}
+@media (max-width: 700px) { .neptune-gallery { grid-template-columns: 1fr; } .neptune-gallery img { height: 260px; } }
+
 /* ── Mid-copy CTA ──────────────────────────────────── */
 .mid-cta { text-align: center; margin: 44px 0 4px; }
 .mid-cta a {
@@ -502,6 +512,7 @@ h3 {
       <img src="https://neptunefiltration.com.au/assets/install-photos/cypress-street-sm.jpg" alt="Neptune filtration unit installed at a Melbourne home, street view" loading="eager">
       <img src="https://neptunefiltration.com.au/assets/install-photos/brick-install-sm.jpg" alt="Neptune filtration unit installed at a brick Melbourne home" loading="eager">
       <img src="https://neptunefiltration.com.au/assets/install-photos/colorbond-clean-sm.jpg" alt="Neptune filtration unit installed against a colorbond fence" loading="eager">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/colorbond-bins-sm.jpg" alt="Neptune filtration unit installed at a Melbourne home, colorbond fence" loading="eager">
     </div>
 
     <p class="hero-next-step"><strong>Next Step:</strong> Answer A Few Quick Questions To Book Your Free Water Test</p>
@@ -819,6 +830,12 @@ h3 {
 
     <div class="copy">
       <p>Whole-home water filtration is all Neptune does — WaterMark certified, installed by Neptune's own team, no contractors. The free test just shows you the numbers first. What you do with them is your call.</p>
+    </div>
+
+    <div class="neptune-gallery">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/styled-night.jpg" alt="Neptune whole-home water filtration system">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/styled-garden.jpg" alt="Neptune whole-home water filtration system">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/filters.jpg" alt="Neptune replacement filter cartridges">
     </div>
 
     <div class="mid-cta">
