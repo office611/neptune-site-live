@@ -60,10 +60,9 @@ body {
 /* sticky bar shows on all screen sizes — no sticky nav to replace it */
 
 /* ── Layout helpers ────────────────────────────────── */
-.section      { padding: 80px 32px; }
+.section      { padding: 56px 32px; }
 .section--off  { background: var(--off); }
 .section--navy { background: var(--navy); }
-.section--pale { background: var(--blue-pale); }
 
 .wrap      { max-width: 820px; margin: 0 auto; }
 .wrap--lg  { max-width: 1100px; margin: 0 auto; }
@@ -152,12 +151,18 @@ h3 {
   line-height: 1.65; max-width: 680px;
   margin: 0 auto 28px;
 }
-.hero-photo {
-  max-width: 300px; margin: 0 auto 24px;
-  border-radius: 14px; overflow: hidden;
-  box-shadow: 0 12px 32px rgba(0,0,0,.35);
+.hero-photo-row {
+  display: flex; justify-content: center; align-items: flex-end; gap: 8px;
+  margin: 0 auto 22px; flex-wrap: wrap;
 }
-.hero-photo img { display: block; width: 100%; height: auto; }
+.hero-photo-row img {
+  height: 120px; width: auto;
+  border-radius: 8px; display: block;
+}
+@media (max-width: 480px) {
+  .hero-photo-row img { height: 84px; }
+  .hero-photo-row img:nth-child(4) { display: none; }
+}
 .hero-next-step {
   font-size: 15px; color: rgba(255,255,255,.85);
   margin-bottom: 20px;
@@ -188,8 +193,7 @@ h3 {
   background: var(--white);
   padding: 30px 20px; text-align: center;
 }
-.section--pale .stat-box,
-.section--off  .stat-box { background: #F0F6FF; }
+.section--off .stat-box { background: #F0F6FF; }
 .stat-box b {
   display: block;
   font-size: 42px; font-weight: 800; line-height: 1;
@@ -214,7 +218,6 @@ h3 {
   padding: 22px 22px;
   display: flex; gap: 14px;
 }
-.section--pale .card { background: #F0F6FF; }
 .card-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
 .card h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
 .card p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0; }
@@ -464,8 +467,11 @@ h3 {
       Have you ever actually wondered what's in that water — and what it's quietly doing to your family every single day?
     </p>
 
-    <div class="hero-photo">
-      <img src="https://neptunefiltration.com.au/assets/install-photos/neptune-install-1-lg.jpg" alt="Neptune whole-home water filtration unit installed at a Melbourne home" loading="eager">
+    <div class="hero-photo-row">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/neptune-install-2.jpg" alt="Neptune filtration unit installed at a Melbourne home" loading="eager">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/colorbond-clean-sm.jpg" alt="Neptune filtration unit installed against a colorbond fence" loading="eager">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/brick-install-sm.jpg" alt="Neptune filtration unit installed at a brick Melbourne home" loading="eager">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/cypress-install-sm.jpg" alt="Neptune filtration unit installed at a Melbourne home front yard" loading="eager">
     </div>
 
     <p class="hero-next-step"><strong>Next Step:</strong> Answer A Few Quick Questions To Book Your Free Water Test</p>
@@ -678,7 +684,7 @@ h3 {
 <!-- ══════════════════════════════════════════════════════
      THE SHOWER STAT
 ══════════════════════════════════════════════════════ -->
-<section class="section">
+<section class="section section--off">
   <div class="wrap">
     <span class="label">The Part Most People Never Know</span>
     <h2>It's Not About Drinking. It's About What Happens Every Time You Shower.</h2>
@@ -713,7 +719,7 @@ h3 {
 <!-- ══════════════════════════════════════════════════════
      SYMPTOMS — BROAD
 ══════════════════════════════════════════════════════ -->
-<section class="section section--pale">
+<section class="section section--off">
   <div class="wrap">
     <span class="label">Things You've Noticed But Never Connected</span>
     <h2>These Are The Signs Families See. And What They Blamed Them On.</h2>
@@ -770,7 +776,7 @@ h3 {
 <!-- ══════════════════════════════════════════════════════
      NEPTUNE
 ══════════════════════════════════════════════════════ -->
-<section class="section" id="neptune">
+<section class="section section--off" id="neptune">
   <div class="wrap">
     <span class="label">Why Neptune</span>
     <h2 style="text-wrap:balance;">Melbourne's Water Specialists. Just Done Properly.</h2>
