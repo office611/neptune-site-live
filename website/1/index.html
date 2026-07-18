@@ -140,14 +140,14 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
 
 /* ── Hero ──────────────────────────────────────────── */
 .hero {
-  background: var(--navy);
-  padding: 72px 32px 76px;
+  background: var(--navy) url('https://neptunefiltration.com.au/assets/install-photos/hero-bg.jpg') center 65% / cover no-repeat;
+  padding: 56px 32px 64px;
   position: relative; overflow: hidden;
 }
 .hero::after {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(26,109,214,.22) 0%, transparent 65%);
+  background: linear-gradient(180deg, rgba(7,23,43,.88) 0%, rgba(7,23,43,.80) 45%, rgba(7,23,43,.93) 100%);
   pointer-events: none;
 }
 .hero-inner {
@@ -191,13 +191,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
   width: 6px; height: 6px; border-radius: 50%;
   background: #60A5FA; flex-shrink: 0;
 }
-.h1-stars-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:18px}
-.h1-stars{color:#FCD34D;font-size:15px;letter-spacing:2px;flex-shrink:0}
-.h1-stars-label{font-size:12px;color:#93C5FD;font-weight:700}
-.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:#FCA5A5;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:7px 16px;border-radius:20px;margin-bottom:22px}
-.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:#EF4444;flex-shrink:0;animation:livepulse 1.5s ease-in-out infinite}
-@keyframes livepulse{0%,100%{opacity:1}50%{opacity:0.25}}
-
 /* ── Stat strip ────────────────────────────────────── */
 .stat-grid {
   display: grid; grid-template-columns: repeat(3,1fr);
@@ -386,11 +379,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
   box-shadow: inset 0 0 0 3px #fff;
 }
 
-/* ── Hero client photo row ────────────────────────────── */
-.hero-client-row { display: flex; align-items: center; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
-.hero-client-img { width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgba(255,255,255,.4); background-size: cover; background-position: center; }
-.hero-client-label { font-size: 13px; color: rgba(255,255,255,.6); margin-left: 4px; }
-
 /* ── How it works pillars ──────────────────────────────── */
 .pillar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 8px 0 32px; }
 .pillar-img { width: 100%; aspect-ratio: 16/10; border-radius: 12px; margin-bottom: 16px; }
@@ -487,14 +475,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
   </div>
   <div class="hero-inner">
 
-    <div class="h1-stars-row">
-      <span class="h1-stars">★★★★★</span>
-      <span class="h1-stars-label">Rated by Melbourne homeowners</span>
-    </div>
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>Melbourne families are finding out
-    </div>
-
     <h1>
       I Thought I Was Losing My Hair. <span>Nobody Told Me It Was My Melbourne Shower Doing This.</span>
     </h1>
@@ -510,14 +490,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
       <span><span class="dot"></span> Free · No Obligation</span>
       <span><span class="dot"></span> Results On The Day</span>
       <span><span class="dot"></span> Melbourne Homeowners Only</span>
-    </div>
-
-    <div class="hero-client-row">
-      <div class="hero-client-img" style="background-image:url('https://neptunefiltration.com.au/assets/install-photos/neptune-install-2.jpg');"></div>
-      <div class="hero-client-img" style="background-image:url('https://neptunefiltration.com.au/assets/install-photos/colorbond-clean-sm.jpg');"></div>
-      <div class="hero-client-img" style="background-image:url('https://neptunefiltration.com.au/assets/install-photos/brick-install-sm.jpg');"></div>
-      <div class="hero-client-img" style="background-image:url('https://neptunefiltration.com.au/assets/install-photos/cypress-install-sm.jpg');"></div>
-      <span class="hero-client-label">Real installs at real Melbourne homes</span>
     </div>
 
   </div>
