@@ -316,6 +316,21 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
 .form-card h3 { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
 .form-card .sub { font-size: 13px; color: var(--muted); margin-bottom: 26px; }
 
+/* ── Multi-step form ──────────────────────────────────── */
+.form-progress { display: flex; gap: 6px; margin-bottom: 24px; }
+.form-progress span { height: 4px; flex: 1; border-radius: 2px; background: var(--border); transition: background .2s; }
+.form-progress span.done { background: var(--blue-lt); }
+.field[data-step] { display: none; }
+.field[data-step].active { display: block; }
+.form-nav { display: flex; align-items: center; gap: 16px; margin-top: 4px; }
+.form-nav .btn-submit { margin-top: 0; flex: 1; }
+.form-back {
+  background: none; border: none; font-family: inherit;
+  font-size: 14px; font-weight: 600; color: var(--muted);
+  cursor: pointer; padding: 8px 0; flex: none;
+}
+.form-back:hover { color: var(--body); }
+
 .field { margin-bottom: 14px; }
 .field label { display: block; font-size: 13px; font-weight: 600; color: var(--body); margin-bottom: 5px; }
 .field input {
@@ -381,7 +396,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
 
 /* ── How it works pillars ──────────────────────────────── */
 .pillar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 8px 0 32px; }
-.pillar-img { width: 100%; aspect-ratio: 16/10; border-radius: 12px; margin-bottom: 16px; }
+.pillar-img { width: 100%; aspect-ratio: 4/5; border-radius: 12px; margin-bottom: 16px; background-color: var(--blue-pale); background-repeat: no-repeat; }
 .pillar-card h3 { font-size: 19px; margin-bottom: 8px; color: var(--navy); }
 .pillar-card p { font-size: 15px; color: var(--body); line-height: 1.6; }
 @media (max-width: 640px) { .pillar-grid { grid-template-columns: 1fr; } }
@@ -503,12 +518,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
   <div class="wrap">
     <div class="pillar-grid">
       <div class="pillar-card">
-        <div class="pillar-img" style="background-image:url('https://neptunefiltration.com.au/assets/install-photos/neptune-install-3.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="pillar-img" style="background-image:url('https://neptunefiltration.com.au/assets/install-photos/neptune-install-3.jpg'); background-size:contain; background-position:center;"></div>
         <h3>Free Water Quality Assessment</h3>
         <p>30 minutes at your tap. Chlorine, hard minerals, sediment — the real numbers for your home. Free, no obligation.</p>
       </div>
       <div class="pillar-card">
-        <div class="pillar-img" style="background-image:url('https://neptunefiltration.com.au/assets/install-photos/neptune-install-1-lg.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="pillar-img" style="background-image:url('https://neptunefiltration.com.au/assets/install-photos/neptune-install-1-lg.jpg'); background-size:contain; background-position:center;"></div>
         <h3>Tailored Filtration Set Up For Your Home</h3>
         <p>Neptune's own team designs and installs a system matched to your home's plumbing — every tap, every shower. Not a one-size-fits-all box.</p>
       </div>
@@ -546,11 +561,15 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
         <h3>Book My Free Water Test</h3>
         <p class="sub">Melbourne homeowners — available now</p>
 
+        <div class="form-progress" id="form-progress">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+
         <form id="lead-form"
           action="https://services.leadconnectorhq.com/hooks/SPQwdXLPrMES6TqvwFLr/webhook-trigger/84d752aa-a597-4faa-a48b-be2763def373"
           method="POST" novalidate>
 
-          <div class="field">
+          <div class="field" data-step="1">
             <label>Which best describes what's brought you here?</label>
             <div class="field-choices">
               <label class="choice-pill"><input type="radio" name="reason" value="hair_skin" required> Noticed more hair loss or dry skin lately</label>
@@ -560,7 +579,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
             </div>
           </div>
 
-          <div class="field">
+          <div class="field" data-step="2">
             <label>Do you own your home?</label>
             <div class="field-choices">
               <label class="choice-pill"><input type="radio" name="homeowner" value="yes" required> Yes, I own my home</label>
@@ -568,7 +587,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
             </div>
           </div>
 
-          <div class="field">
+          <div class="field" data-step="3">
             <label>How soon would you like this sorted?</label>
             <div class="field-choices">
               <label class="choice-pill"><input type="radio" name="timeline" value="asap" required> As soon as possible</label>
@@ -577,22 +596,26 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
             </div>
           </div>
 
-          <div class="field">
+          <div class="field" data-step="4">
             <label for="firstName">Full Name</label>
             <input type="text" id="firstName" name="firstName" placeholder="Your full name" required autocomplete="name">
           </div>
-          <div class="field">
+          <div class="field" data-step="5">
             <label for="phone">Best Phone Number</label>
             <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
           </div>
-          <div class="field">
+          <div class="field" data-step="6">
             <label for="suburb">Suburb</label>
             <input type="text" id="suburb" name="suburb" placeholder="e.g. Brighton, Glen Waverley" required autocomplete="address-level2">
           </div>
           <input type="hidden" name="source" value="cold_traffic_lp">
           <input type="hidden" name="lead_source" value="meta_9ads">
 
-          <button type="submit" class="btn-submit" id="submit-btn">Book My Free Water Test →</button>
+          <div class="form-nav">
+            <button type="button" class="form-back" id="form-back">← Back</button>
+            <button type="button" class="btn-submit" id="form-continue">Continue →</button>
+            <button type="submit" class="btn-submit" id="submit-btn" style="display:none;">Book My Free Water Test →</button>
+          </div>
         </form>
 
         <p class="form-fine" id="form-note">🔒 Your details stay private. A Neptune specialist will call to arrange a convenient time.</p>
@@ -1065,6 +1088,69 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
     };
   })();
 
+  // Multi-step form
+  (function () {
+    var form = document.getElementById('lead-form');
+    if (!form) return;
+    var steps = Array.prototype.slice.call(form.querySelectorAll('.field[data-step]'));
+    var dots  = Array.prototype.slice.call(document.getElementById('form-progress').children);
+    var backBtn = document.getElementById('form-back');
+    var contBtn = document.getElementById('form-continue');
+    var subBtn  = document.getElementById('submit-btn');
+    var current = 0;
+
+    function showStep(i) {
+      current = i;
+      steps.forEach(function (s, idx) { s.classList.toggle('active', idx === i); });
+      dots.forEach(function (d, idx) { d.classList.toggle('done', idx <= i); });
+      backBtn.style.display = i === 0 ? 'none' : 'inline-block';
+      var isLast   = i === steps.length - 1;
+      var isRadio  = !!steps[i].querySelector('input[type="radio"]');
+      contBtn.style.display = (isLast || isRadio) ? 'none' : 'block';
+      subBtn.style.display  = isLast ? 'block' : 'none';
+      var firstInput = steps[i].querySelector('input');
+      if (firstInput && firstInput.type !== 'radio') firstInput.focus();
+    }
+
+    function currentIsValid() {
+      var inputs = steps[current].querySelectorAll('input');
+      var radios = steps[current].querySelectorAll('input[type="radio"]');
+      if (radios.length) {
+        return Array.prototype.some.call(radios, function (r) { return r.checked; });
+      }
+      var ok = true;
+      inputs.forEach(function (inp) { if (!inp.reportValidity()) ok = false; });
+      return ok;
+    }
+
+    function next() {
+      if (!currentIsValid()) return;
+      if (current < steps.length - 1) showStep(current + 1);
+    }
+
+    contBtn.addEventListener('click', next);
+    backBtn.addEventListener('click', function () {
+      if (current > 0) showStep(current - 1);
+    });
+
+    steps.forEach(function (step) {
+      var radios = step.querySelectorAll('input[type="radio"]');
+      radios.forEach(function (r) {
+        r.addEventListener('change', function () {
+          setTimeout(next, 280);
+        });
+      });
+      var textInput = step.querySelector('input[type="text"], input[type="tel"]');
+      if (textInput) {
+        textInput.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' && current < steps.length - 1) { e.preventDefault(); next(); }
+        });
+      }
+    });
+
+    showStep(0);
+  })();
+
   // Form submit
   var form = document.getElementById('lead-form');
   var btn  = document.getElementById('submit-btn');
@@ -1090,6 +1176,9 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
           firstName: first,
           phone: phone,
           suburb: suburb,
+          reason: form.reason.value,
+          homeowner: form.homeowner.value,
+          timeline: form.timeline.value,
           source: 'cold',
           lead_source: 'meta_cold'
         }, utms))
