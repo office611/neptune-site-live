@@ -364,6 +364,40 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
 .form-success h3 { font-size: 22px; color: var(--navy); margin-bottom: 10px; }
 .form-success p  { font-size: 15px; color: var(--body); line-height: 1.6; margin-bottom: 6px; }
 
+/* ── Qualifying question pills ────────────────────────── */
+.field-choices { display: flex; flex-direction: column; gap: 8px; }
+.choice-pill {
+  display: block; position: relative;
+  padding: 13px 16px 13px 44px;
+  border: 1.5px solid var(--border); border-radius: 7px;
+  font-size: 14.5px; color: var(--body); font-weight: 500;
+  cursor: pointer; transition: border-color .15s, background .15s;
+}
+.choice-pill input { position: absolute; opacity: 0; }
+.choice-pill::before {
+  content: ''; position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 1.5px solid var(--border); background: #fff;
+  transition: border-color .15s, background .15s;
+}
+.choice-pill:has(input:checked) { border-color: var(--blue-lt); background: var(--blue-pale); }
+.choice-pill:has(input:checked)::before {
+  border-color: var(--blue-lt); background: var(--blue-lt);
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+/* ── Hero client photo row ────────────────────────────── */
+.hero-client-row { display: flex; align-items: center; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+.hero-client-img { width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgba(255,255,255,.4); }
+.hero-client-label { font-size: 13px; color: rgba(255,255,255,.6); margin-left: 4px; }
+
+/* ── How it works pillars ──────────────────────────────── */
+.pillar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 8px 0 32px; }
+.pillar-img { width: 100%; aspect-ratio: 16/10; border-radius: 12px; margin-bottom: 16px; }
+.pillar-card h3 { font-size: 19px; margin-bottom: 8px; color: var(--navy); }
+.pillar-card p { font-size: 15px; color: var(--body); line-height: 1.6; }
+@media (max-width: 640px) { .pillar-grid { grid-template-columns: 1fr; } }
+
 /* ── Mid-copy CTA ──────────────────────────────────── */
 .mid-cta { text-align: center; margin: 44px 0 4px; }
 .mid-cta a {
@@ -462,12 +496,240 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
       <span><span class="dot"></span> Melbourne Homeowners Only</span>
     </div>
 
+    <div class="hero-client-row">
+      <!-- REPLACE WITH REAL CLIENT/INSTALL PHOTOS -->
+      <div class="hero-client-img" style="background:#8B9DC3;"></div>
+      <div class="hero-client-img" style="background:#A78BFA;"></div>
+      <div class="hero-client-img" style="background:#F472B6;"></div>
+      <div class="hero-client-img" style="background:#60A5FA;"></div>
+      <span class="hero-client-label">Real Melbourne families who've had their water tested</span>
+    </div>
+
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════════════════
-     THE HOOK — YOU'VE NEVER THOUGHT ABOUT IT
+     HOW IT WORKS — QUICK 2-PILLAR OVERVIEW (no video needed)
+══════════════════════════════════════════════════════ -->
+<section class="section section--off" id="how-it-works">
+  <div class="wrap">
+    <div class="pillar-grid">
+      <div class="pillar-card">
+        <!-- REPLACE WITH REAL PHOTO: specialist testing water in a home -->
+        <div class="pillar-img" style="background:linear-gradient(135deg,#1A6DD6,#0B1F3A);"></div>
+        <h3>Free Water Quality Assessment</h3>
+        <p>A specialist tests your actual water at the tap — chlorine, hard minerals, sediment — and shows you the real numbers for your home. About 30 minutes. Free. No obligation.</p>
+      </div>
+      <div class="pillar-card">
+        <!-- REPLACE WITH REAL PHOTO: installed filtration system -->
+        <div class="pillar-img" style="background:linear-gradient(135deg,#1456A3,#07172B);"></div>
+        <h3>Tailored Filtration Set Up For Your Home</h3>
+        <p>If you decide to go ahead, Neptune's own team designs and installs a system matched to your home's layout and plumbing — every tap, every shower. Not a one-size-fits-all box.</p>
+      </div>
+    </div>
+    <div class="mid-cta" style="margin-top:8px;">
+      <a href="#form">Book My Free Water Test →</a>
+      <small>30-min in-home test · No obligation · Results on the day</small>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     FORM
+══════════════════════════════════════════════════════ -->
+<section class="section section--navy" id="form">
+  <div class="wrap--lg">
+    <div class="form-layout">
+
+      <div class="form-left">
+        <span class="label label--light">Book Your Free Test</span>
+        <h2 class="light" style="text-wrap:balance;">Find Out What's Actually In Your Home's Water</h2>
+        <p>A Neptune specialist comes to the home. Tests your actual water — not a general average — on the spot. Shows the results and explains exactly what they mean for your family.</p>
+        <p style="color:rgba(255,255,255,.5); font-size:15px; margin-top:0;">Free. No obligation. No sales pressure. Just the truth about your water.</p>
+        <ul class="cred-list" style="margin-top:28px;">
+          <li><span class="tick">✓</span> Results on the day, in your home</li>
+          <li><span class="tick">✓</span> No sales pressure — just the facts</li>
+          <li><span class="tick">✓</span> Neptune's own team — not contractors</li>
+          <li><span class="tick">✓</span> Available this week — spots fill up across Melbourne metro</li>
+        </ul>
+        <p style="color:rgba(255,255,255,.45); font-size:14px; margin-top:20px; line-height:1.6;">Neptune specialists cover Melbourne metro and typically book a week in advance. If there's availability this week, it's worth locking in.</p>
+      </div>
+
+      <div class="form-card">
+        <h3>Book My Free Water Test</h3>
+        <p class="sub">Melbourne homeowners — available now</p>
+
+        <form id="lead-form"
+          action="https://services.leadconnectorhq.com/hooks/SPQwdXLPrMES6TqvwFLr/webhook-trigger/84d752aa-a597-4faa-a48b-be2763def373"
+          method="POST" novalidate>
+
+          <div class="field">
+            <label>Which best describes what's brought you here?</label>
+            <div class="field-choices">
+              <label class="choice-pill"><input type="radio" name="reason" value="hair_skin" required> Noticed more hair loss or dry skin lately</label>
+              <label class="choice-pill"><input type="radio" name="reason" value="curious"> Just curious what's actually in our water</label>
+              <label class="choice-pill"><input type="radio" name="reason" value="comparing"> Comparing quotes from a few companies</label>
+              <label class="choice-pill"><input type="radio" name="reason" value="already_tested"> Already had a water test done</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Do you own your home?</label>
+            <div class="field-choices">
+              <label class="choice-pill"><input type="radio" name="homeowner" value="yes" required> Yes, I own my home</label>
+              <label class="choice-pill"><input type="radio" name="homeowner" value="no"> No, I rent</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>How soon would you like this sorted?</label>
+            <div class="field-choices">
+              <label class="choice-pill"><input type="radio" name="timeline" value="asap" required> As soon as possible</label>
+              <label class="choice-pill"><input type="radio" name="timeline" value="month"> Within the next month</label>
+              <label class="choice-pill"><input type="radio" name="timeline" value="researching"> Just researching for now</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="firstName">Full Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Your full name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="phone">Best Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="suburb">Suburb</label>
+            <input type="text" id="suburb" name="suburb" placeholder="e.g. Brighton, Glen Waverley" required autocomplete="address-level2">
+          </div>
+          <input type="hidden" name="source" value="cold_traffic_lp">
+          <input type="hidden" name="lead_source" value="meta_9ads">
+
+          <button type="submit" class="btn-submit" id="submit-btn">Book My Free Water Test →</button>
+        </form>
+
+        <p class="form-fine" id="form-note">🔒 Your details stay private. A Neptune specialist will call to arrange a convenient time.</p>
+
+        <div class="form-success" id="form-success">
+          <div class="success-icon">✓</div>
+          <h3>Booked in!</h3>
+          <p>A Neptune specialist will be in touch shortly to arrange a time that suits.</p>
+          <p>Keep the phone handy — calls usually come through within a few hours on business days.</p>
+          <p style="color:var(--muted); font-size:14px; margin-top:16px;">Quick heads up: specialists genuinely book out most weeks across Melbourne. The families who get the most out of this are the ones who make sure they're home for their slot — if your plans change, just let us know and a specialist can visit a family who's ready instead.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════════════════ -->
+<section class="section section--navy">
+  <div class="wrap--lg">
+    <div class="wrap" style="text-align:center; margin-bottom:40px;">
+      <span class="label label--light">Melbourne Families</span>
+      <h2 class="light" style="text-wrap:balance;">What Changes When The Water Changes</h2>
+    </div>
+    <div class="review-grid">
+      <!-- REPLACE WITH REAL TESTIMONIALS FROM YOUR CRM -->
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <q>"My daughter's eczema had been a problem for over two years. Within a few weeks of getting it installed, it had almost completely cleared. I'd tried everything. The water was the one thing I'd never questioned."</q>
+        <cite>Rebecca M. — Bentleigh East</cite>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <q>"My wife said her hair felt completely different within a week. Softer, less coated. Both of us stopped getting that tight dry feeling after a shower. Simple change, big difference to everyday life."</q>
+        <cite>David T. — Glen Waverley</cite>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <q>"The scale on our shower screen basically stopped. Our daughter has very sensitive skin — hasn't had a flare-up since. Honestly wish we'd done it the moment we moved in."</q>
+        <cite>Michelle K. — Brighton</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     FAQ
+══════════════════════════════════════════════════════ -->
+<section class="section section--off">
+  <div class="wrap">
+    <span class="label">Common Questions</span>
+    <h2 style="text-wrap:balance;">What To Expect From The Free Test</h2>
+
+    <div class="faq">
+      <div class="faq-item">
+        <p class="faq-q">Is the water test actually free?</p>
+        <p class="faq-a">Yes. No cost, no catch. A Neptune specialist comes to the home, tests the water, shows the results on the spot. That's it. Nothing to sign. Nothing to pay.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What exactly does the specialist test for?</p>
+        <p class="faq-a">Chlorine levels, hard mineral content (calcium and magnesium), sediment, and the disinfection byproducts most common in Melbourne's treated supply — the same things that affect skin, hair and taste every time you shower or run the tap.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Do I need to do anything to prepare?</p>
+        <p class="faq-a">No. Just be home for the 30 minutes. The specialist brings everything needed to test at the tap.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Is this different from a council water quality report?</p>
+        <p class="faq-a">Yes. Council reports show a treated-supply average across the whole network. This tests the actual water coming out of your actual taps — after it's travelled through your specific pipes, your hot water system, your fittings. It's often different from the average.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Will this actually help with my hair or skin, or is that just marketing?</p>
+        <p class="faq-a">Chlorine and hard minerals stripping natural oils from skin and coating hair is well documented — it's not unique to Neptune or Melbourne. The test simply shows whether it's happening in your home, and at what level, before anyone talks about a system.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Will there be any sales pressure?</p>
+        <p class="faq-a">No. The test exists to show what's in the water — not to sell a system. Once you see the results, the decision is entirely yours. Most families say the hardest part is deciding whether they actually want to know.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">How long does it take?</p>
+        <p class="faq-a">About 30 minutes. The specialist tests at the tap, shows the numbers on the spot, and answers any questions. No waiting weeks for lab reports — the results are right there before the specialist leaves the home.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Does someone need to be home the whole time?</p>
+        <p class="faq-a">Yes, just the one visit, about 30 minutes, at a time that works for you.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What if the results show nothing unusual?</p>
+        <p class="faq-a">Then you'll know that too. Some homes test lower than expected — and knowing that is just as useful. Either way, you leave with the actual numbers for your home. Not a Melbourne average. Your water.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">How soon would I notice a difference if I did go ahead?</p>
+        <p class="faq-a">Most families report noticing a change in skin and hair within one to two weeks of installation — it's usually the shower that people mention first.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Can't I just use a shower filter or a filter jug instead?</p>
+        <p class="faq-a">Jugs only cover drinking water — a small fraction of daily contact. Shower filters help but treat one outlet, need frequent cartridge changes, and don't touch the kitchen tap, laundry, or the rest of the home. The test shows you what's actually happening across the whole house before you decide what's worth fixing.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">I rent — can I still get the test done?</p>
+        <p class="faq-a">The free test and installation are for homeowners, since any system needs to be fitted to the home's own plumbing. If you own your home, you're eligible.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">I've already had a water test or quote from another company — is this different?</p>
+        <p class="faq-a">Often, yes. A lot of Melbourne homeowners comparing quotes find the numbers and the sales approach vary more than expected between companies. Worth seeing Neptune's results and process directly before deciding anything.</p>
+      </div>
+    </div>
+
+    <div class="mid-cta" style="margin-top:40px;">
+      <a href="#form">Book My Free Water Test →</a>
+      <small>Free · In-home · Melbourne metro · No obligation</small>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     THE HOOK — YOU'VE NEVER THOUGHT ABOUT IT (deeper read)
 ══════════════════════════════════════════════════════ -->
 <section class="section" id="problem">
   <div class="wrap">
@@ -720,111 +982,9 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
 
 
 <!-- ══════════════════════════════════════════════════════
-     FAQ
-══════════════════════════════════════════════════════ -->
-<section class="section section--off">
-  <div class="wrap">
-    <span class="label">Common Questions</span>
-    <h2 style="text-wrap:balance;">What To Expect From The Free Test</h2>
-
-    <div class="faq">
-      <div class="faq-item">
-        <p class="faq-q">Is the water test actually free?</p>
-        <p class="faq-a">Yes. No cost, no catch. A Neptune specialist comes to the home, tests the water, shows the results on the spot. That's it. Nothing to sign. Nothing to pay.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">What exactly does the specialist test for?</p>
-        <p class="faq-a">Chlorine levels, hard mineral content (calcium and magnesium), sediment, and the disinfection byproducts most common in Melbourne's treated supply — the same things that affect skin, hair and taste every time you shower or run the tap.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">Do I need to do anything to prepare?</p>
-        <p class="faq-a">No. Just be home for the 30 minutes. The specialist brings everything needed to test at the tap.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">Is this different from a council water quality report?</p>
-        <p class="faq-a">Yes. Council reports show a treated-supply average across the whole network. This tests the actual water coming out of your actual taps — after it's travelled through your specific pipes, your hot water system, your fittings. It's often different from the average.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">Will this actually help with my hair or skin, or is that just marketing?</p>
-        <p class="faq-a">Chlorine and hard minerals stripping natural oils from skin and coating hair is well documented — it's not unique to Neptune or Melbourne. The test simply shows whether it's happening in your home, and at what level, before anyone talks about a system.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">Will there be any sales pressure?</p>
-        <p class="faq-a">No. The test exists to show what's in the water — not to sell a system. Once you see the results, the decision is entirely yours. Most families say the hardest part is deciding whether they actually want to know.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">How long does it take?</p>
-        <p class="faq-a">About 30 minutes. The specialist tests at the tap, shows the numbers on the spot, and answers any questions. No waiting weeks for lab reports — the results are right there before the specialist leaves the home.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">Does someone need to be home the whole time?</p>
-        <p class="faq-a">Yes, just the one visit, about 30 minutes, at a time that works for you.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">What if the results show nothing unusual?</p>
-        <p class="faq-a">Then you'll know that too. Some homes test lower than expected — and knowing that is just as useful. Either way, you leave with the actual numbers for your home. Not a Melbourne average. Your water.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">How soon would I notice a difference if I did go ahead?</p>
-        <p class="faq-a">Most families report noticing a change in skin and hair within one to two weeks of installation — it's usually the shower that people mention first.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">Can't I just use a shower filter or a filter jug instead?</p>
-        <p class="faq-a">Jugs only cover drinking water — a small fraction of daily contact. Shower filters help but treat one outlet, need frequent cartridge changes, and don't touch the kitchen tap, laundry, or the rest of the home. The test shows you what's actually happening across the whole house before you decide what's worth fixing.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">I rent — can I still get the test done?</p>
-        <p class="faq-a">The free test and installation are for homeowners, since any system needs to be fitted to the home's own plumbing. If you own your home, you're eligible.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">I've already had a water test or quote from another company — is this different?</p>
-        <p class="faq-a">Often, yes. A lot of Melbourne homeowners comparing quotes find the numbers and the sales approach vary more than expected between companies. Worth seeing Neptune's results and process directly before deciding anything.</p>
-      </div>
-    </div>
-
-    <div class="mid-cta" style="margin-top:40px;">
-      <a href="#form">Book My Free Water Test →</a>
-      <small>Free · In-home · Melbourne metro · No obligation</small>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     TESTIMONIALS
-══════════════════════════════════════════════════════ -->
-<section class="section section--navy">
-  <div class="wrap--lg">
-    <div class="wrap" style="text-align:center; margin-bottom:40px;">
-      <span class="label label--light">Melbourne Families</span>
-      <h2 class="light" style="text-wrap:balance;">What Changes When The Water Changes</h2>
-    </div>
-    <div class="review-grid">
-      <!-- REPLACE WITH REAL TESTIMONIALS FROM YOUR CRM -->
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <q>"My daughter's eczema had been a problem for over two years. Within a few weeks of getting it installed, it had almost completely cleared. I'd tried everything. The water was the one thing I'd never questioned."</q>
-        <cite>Rebecca M. — Bentleigh East</cite>
-      </div>
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <q>"My wife said her hair felt completely different within a week. Softer, less coated. Both of us stopped getting that tight dry feeling after a shower. Simple change, big difference to everyday life."</q>
-        <cite>David T. — Glen Waverley</cite>
-      </div>
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <q>"The scale on our shower screen basically stopped. Our daughter has very sensitive skin — hasn't had a flare-up since. Honestly wish we'd done it the moment we moved in."</q>
-        <cite>Michelle K. — Brighton</cite>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
      WHAT ACTUALLY CHANGES
 ══════════════════════════════════════════════════════ -->
-<section class="section">
+<section class="section section--pale">
   <div class="wrap">
     <span class="label">What Families Notice First</span>
     <h2 style="text-wrap:balance;">The Change Most Families Say They Didn't See Coming.</h2>
@@ -843,49 +1003,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
       <p>It comes from dealing with it at the source.</p>
 
       <p>None of that starts without knowing what's actually in the water first. Which is exactly what the free test is for.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     THE FREE TEST PROCESS
-══════════════════════════════════════════════════════ -->
-<section class="section section--off" id="how-it-works">
-  <div class="wrap">
-    <span class="label">The Free Water Test</span>
-    <h2>Here's Exactly What Happens When You Book.</h2>
-
-    <div class="copy">
-      <p>No sales pitch. No pressure. A specialist comes to your home, tests the water on the spot, and shows you the results. That's it.</p>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-n">1</div>
-        <div>
-          <h3>We test your water at the tap</h3>
-          <p>A Neptune specialist visits your home and tests the water right there on the spot — checking chlorine levels, hard mineral content, sediment, and the contaminants most common in Melbourne supply.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-n">2</div>
-        <div>
-          <h3>You see exactly what's in it</h3>
-          <p>The results are right in front of you. Not a Melbourne average — your actual water, tested in your home. Most families say just seeing the numbers is the moment everything clicks.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-n">3</div>
-        <div>
-          <h3>You decide what's right for your family</h3>
-          <p>Once you know what's in the water, the decision is entirely yours. No obligation, no pressure. About 30 minutes total. Just the facts, and a choice that belongs to you.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="copy">
-      <p>30 minutes. Free. No obligation. <strong>Just the truth about what's in your water.</strong></p>
     </div>
   </div>
 </section>
@@ -923,70 +1040,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
   <span><span class="check">✓</span> No Obligation · No Sales Pressure</span>
   <span><span class="check">✓</span> Neptune's Own Team</span>
 </div>
-
-
-<!-- ══════════════════════════════════════════════════════
-     FORM
-══════════════════════════════════════════════════════ -->
-<section class="section section--navy" id="form">
-  <div class="wrap--lg">
-    <div class="form-layout">
-
-      <div class="form-left">
-        <span class="label label--light">Book Your Free Test</span>
-        <h2 class="light" style="text-wrap:balance;">Find Out What's Actually In Your Home's Water</h2>
-        <p>A Neptune specialist comes to the home. Tests your actual water — not a general average — on the spot. Shows the results and explains exactly what they mean for your family.</p>
-        <p>In 30 minutes you'll know whether chlorine levels in your home are above comfortable exposure, whether your water is contributing to dry skin, hair issues, or taste problems — and exactly what your options are.</p>
-        <p style="color:rgba(255,255,255,.5); font-size:15px; margin-top:0;">Free. No obligation. No sales pressure. Just the truth about your water.</p>
-        <ul class="cred-list" style="margin-top:28px;">
-          <li><span class="tick">✓</span> Results on the day, in your home</li>
-          <li><span class="tick">✓</span> No sales pressure — just the facts</li>
-          <li><span class="tick">✓</span> Neptune's own team — not contractors</li>
-          <li><span class="tick">✓</span> Available this week — spots fill up across Melbourne metro</li>
-        </ul>
-        <p style="color:rgba(255,255,255,.45); font-size:14px; margin-top:20px; line-height:1.6;">Neptune specialists cover Melbourne metro and typically book a week in advance. If there's availability this week, it's worth locking in.</p>
-      </div>
-
-      <div class="form-card">
-        <h3>Book My Free Water Test</h3>
-        <p class="sub">Melbourne homeowners — available now</p>
-
-        <form id="lead-form"
-          action="https://services.leadconnectorhq.com/hooks/SPQwdXLPrMES6TqvwFLr/webhook-trigger/84d752aa-a597-4faa-a48b-be2763def373"
-          method="POST" novalidate>
-
-          <div class="field">
-            <label for="firstName">Full Name</label>
-            <input type="text" id="firstName" name="firstName" placeholder="Your full name" required autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="phone">Best Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
-          </div>
-          <div class="field">
-            <label for="suburb">Suburb</label>
-            <input type="text" id="suburb" name="suburb" placeholder="e.g. Brighton, Glen Waverley" required autocomplete="address-level2">
-          </div>
-          <input type="hidden" name="source" value="cold_traffic_lp">
-          <input type="hidden" name="lead_source" value="meta_9ads">
-
-          <button type="submit" class="btn-submit" id="submit-btn">Book My Free Water Test →</button>
-        </form>
-
-        <p class="form-fine" id="form-note">🔒 Your details stay private. A Neptune specialist will call to arrange a convenient time.</p>
-
-        <div class="form-success" id="form-success">
-          <div class="success-icon">✓</div>
-          <h3>Booked in!</h3>
-          <p>A Neptune specialist will be in touch shortly to arrange a time that suits.</p>
-          <p>Keep the phone handy — calls usually come through within a few hours on business days.</p>
-          <p style="color:rgba(255,255,255,.5); font-size:14px; margin-top:16px;">Quick heads up: specialists genuinely book out most weeks across Melbourne. The families who get the most out of this are the ones who make sure they're home for their slot — if your plans change, just let us know and a specialist can visit a family who's ready instead.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 
 <footer class="footer">
