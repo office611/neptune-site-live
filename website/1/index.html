@@ -327,7 +327,9 @@ h3 {
   font-family: inherit; outline: none;
   -webkit-appearance: none;
   transition: border-color .15s;
+  margin-bottom: 14px;
 }
+.field label:not(:first-child) { margin-top: 4px; }
 .field input::placeholder { color: #94A3B8; }
 .field input:focus { border-color: var(--blue-lt); box-shadow: 0 0 0 3px rgba(26,109,214,.12); }
 
@@ -516,7 +518,7 @@ h3 {
 
     <div class="form-card" id="form">
       <div class="form-progress" id="form-progress">
-        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
       </div>
 
       <form id="lead-form"
@@ -527,9 +529,10 @@ h3 {
           <label>What best describes what you're experiencing?</label>
           <div class="field-choices">
             <label class="choice-pill"><input type="radio" name="reason" value="hair_loss" required> Hair loss</label>
-            <label class="choice-pill"><input type="radio" name="reason" value="dry_skin"> Dry skin</label>
-            <label class="choice-pill"><input type="radio" name="reason" value="itchy_skin"> Itchy skin</label>
+            <label class="choice-pill"><input type="radio" name="reason" value="dry_itchy_skin"> Dry / Itchy skin</label>
             <label class="choice-pill"><input type="radio" name="reason" value="eczema"> Eczema</label>
+            <label class="choice-pill"><input type="radio" name="reason" value="dandruff"> Dandruff</label>
+            <label class="choice-pill"><input type="radio" name="reason" value="other"> Other</label>
           </div>
         </div>
 
@@ -552,16 +555,10 @@ h3 {
         <div class="field" data-step="4">
           <label for="firstName">Name</label>
           <input type="text" id="firstName" name="firstName" placeholder="Your full name" required autocomplete="name">
-        </div>
-        <div class="field" data-step="5">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email">
-        </div>
-        <div class="field" data-step="6">
           <label for="phone">Best Mobile Number</label>
           <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
-        </div>
-        <div class="field" data-step="7">
           <label for="suburb">Suburb</label>
           <input type="text" id="suburb" name="suburb" placeholder="e.g. Brighton, Glen Waverley" required autocomplete="address-level2">
         </div>
