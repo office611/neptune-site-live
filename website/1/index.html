@@ -842,8 +842,6 @@ h3 {
       };
       var reasonLabel = reasonLabels[form.reason.value] || form.reason.value;
       var notes = 'Reason: ' + reasonLabel + '\n' +
-                  'Homeowner: ' + (form.homeowner.value === 'yes' ? 'Yes' : 'No') + '\n' +
-                  'Mains water: ' + (form.mains_water.value === 'yes' ? 'Yes' : 'No') + '\n' +
                   'Suburb: ' + suburb;
 
       await fetch('/.netlify/functions/submit-lead', {
@@ -856,8 +854,6 @@ h3 {
           phone: phone,
           suburb: suburb,
           reason: form.reason.value,
-          homeowner: form.homeowner.value,
-          mains_water: form.mains_water.value,
           notes: notes,
           source: 'cold',
           lead_source: 'meta_cold'
