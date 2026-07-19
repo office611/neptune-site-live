@@ -152,12 +152,25 @@ h3 {
   line-height: 1.65; max-width: 680px;
   margin: 0 auto 26px;
 }
-.hero-photo {
-  max-width: 380px; margin: 0 auto 26px;
-  border-radius: 16px; overflow: hidden;
-  box-shadow: 0 16px 44px rgba(15,23,42,.28);
+.hero-photo-row {
+  display: flex; justify-content: center; align-items: center; gap: 10px;
+  margin: 0 auto 26px; flex-wrap: wrap;
 }
-.hero-photo img { display: block; width: 100%; height: auto; }
+.hero-photo-row img {
+  height: 165px; width: auto;
+  border-radius: 12px; display: block;
+  box-shadow: 0 12px 28px rgba(15,23,42,.22);
+  border: 3px solid #fff;
+}
+.hero-photo-row img:nth-child(2),
+.hero-photo-row img:nth-child(4) { transform: translateY(-10px); }
+@media (max-width: 700px) {
+  .hero-photo-row img { height: 130px; }
+}
+@media (max-width: 480px) {
+  .hero-photo-row img { height: 100px; }
+  .hero-photo-row img:nth-child(4) { display: none; }
+}
 .hero-next-step {
   font-size: 15px; color: var(--body);
   margin-bottom: 20px;
@@ -479,15 +492,18 @@ h3 {
   <div class="hero-inner">
 
     <h1>
-      I Thought I Was Losing My Hair. <span>Nobody Told Me It Was My Melbourne Shower Doing This.</span>
+      I Blamed My Genetics, My Products, Bad Luck. <span>Nobody Told Me It Was My Melbourne Shower.</span>
     </h1>
 
     <p class="hero-sub">
-      Chlorine in Melbourne's tap water strips your scalp and skin's natural oils every single shower. Most people blame stress, genetics, or the weather. It's the water.
+      Chlorine in Melbourne's tap water strips your hair and skin's natural oils every single shower — whether it shows up as hair loss, dry skin, eczema or dandruff. A free 30-minute test shows you exactly what's in yours.
     </p>
 
-    <div class="hero-photo">
-      <img src="https://neptunefiltration.com.au/assets/install-photos/hair-loss-hero.jpg" alt="Melbourne woman shocked by hair loss caused by chlorine in her shower water" loading="eager">
+    <div class="hero-photo-row">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/hair-loss-hero.jpg" alt="Melbourne woman shocked by hair loss caused by chlorine in her shower water">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/dry-skin-hero.jpg" alt="Melbourne man shocked by dry skin caused by chlorine in his shower water">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/eczema-hero.jpg" alt="Melbourne mum shocked by her child's eczema caused by chlorine in shower water">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/dandruff-hero.jpg" alt="Melbourne man shocked by dandruff caused by chlorine in his shower water">
     </div>
 
     <p class="hero-next-step"><strong>Next Step:</strong> Answer A Few Quick Questions To Book Your Free Water Test</p>
