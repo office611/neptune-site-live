@@ -516,7 +516,7 @@ h3 {
 
     <div class="form-card" id="form">
       <div class="form-progress" id="form-progress">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
 
       <form id="lead-form"
@@ -524,12 +524,12 @@ h3 {
         method="POST" novalidate>
 
         <div class="field" data-step="1">
-          <label>Which best describes what's brought you here?</label>
+          <label>What best describes what you're experiencing?</label>
           <div class="field-choices">
-            <label class="choice-pill"><input type="radio" name="reason" value="hair_skin" required> Noticed more hair loss or dry skin lately</label>
-            <label class="choice-pill"><input type="radio" name="reason" value="curious"> Just curious what's actually in our water</label>
-            <label class="choice-pill"><input type="radio" name="reason" value="comparing"> Comparing quotes from a few companies</label>
-            <label class="choice-pill"><input type="radio" name="reason" value="already_tested"> Already had a water test done</label>
+            <label class="choice-pill"><input type="radio" name="reason" value="hair_loss" required> Hair loss</label>
+            <label class="choice-pill"><input type="radio" name="reason" value="dry_skin"> Dry skin</label>
+            <label class="choice-pill"><input type="radio" name="reason" value="itchy_skin"> Itchy skin</label>
+            <label class="choice-pill"><input type="radio" name="reason" value="eczema"> Eczema</label>
           </div>
         </div>
 
@@ -537,28 +537,31 @@ h3 {
           <label>Do you own your home?</label>
           <div class="field-choices">
             <label class="choice-pill"><input type="radio" name="homeowner" value="yes" required> Yes, I own my home</label>
-            <label class="choice-pill"><input type="radio" name="homeowner" value="no"> No, I rent</label>
+            <label class="choice-pill"><input type="radio" name="homeowner" value="no" data-disqualify="renter"> No, I rent</label>
           </div>
         </div>
 
         <div class="field" data-step="3">
-          <label>How soon would you like this sorted?</label>
+          <label>Is your home connected to mains water?</label>
           <div class="field-choices">
-            <label class="choice-pill"><input type="radio" name="timeline" value="asap" required> As soon as possible</label>
-            <label class="choice-pill"><input type="radio" name="timeline" value="month"> Within the next month</label>
-            <label class="choice-pill"><input type="radio" name="timeline" value="researching"> Just researching for now</label>
+            <label class="choice-pill"><input type="radio" name="mains_water" value="yes" required> Yes, mains water</label>
+            <label class="choice-pill"><input type="radio" name="mains_water" value="no" data-disqualify="mains"> No, tank or bore water</label>
           </div>
         </div>
 
         <div class="field" data-step="4">
-          <label for="firstName">Full Name</label>
+          <label for="firstName">Name</label>
           <input type="text" id="firstName" name="firstName" placeholder="Your full name" required autocomplete="name">
         </div>
         <div class="field" data-step="5">
-          <label for="phone">Best Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email">
         </div>
         <div class="field" data-step="6">
+          <label for="phone">Best Mobile Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
+        </div>
+        <div class="field" data-step="7">
           <label for="suburb">Suburb</label>
           <input type="text" id="suburb" name="suburb" placeholder="e.g. Brighton, Glen Waverley" required autocomplete="address-level2">
         </div>
@@ -580,6 +583,12 @@ h3 {
         <p>A Neptune specialist will be in touch shortly to arrange a time that suits.</p>
         <p>Keep the phone handy — calls usually come through within a few hours on business days.</p>
         <p style="color:var(--muted); font-size:14px; margin-top:16px;">Quick heads up: specialists genuinely book out most weeks across Melbourne. The families who get the most out of this are the ones who make sure they're home for their slot — if your plans change, just let us know and a specialist can visit a family who's ready instead.</p>
+      </div>
+
+      <div class="form-success" id="form-disqualified">
+        <div class="success-icon" style="background:var(--muted);">✕</div>
+        <h3 id="disqualified-title">Thanks For Your Interest</h3>
+        <p id="disqualified-text"></p>
       </div>
     </div>
 
@@ -918,7 +927,13 @@ h3 {
     var backBtn = document.getElementById('form-back');
     var contBtn = document.getElementById('form-continue');
     var subBtn  = document.getElementById('submit-btn');
+    var disq    = document.getElementById('form-disqualified');
     var current = 0;
+
+    var disqualifyMessages = {
+      renter: "The free test and installation are for homeowners only — a rental needs landlord approval for a fixed appliance, so we're not able to book renters in at this time.",
+      mains:  "Neptune's whole-home systems are designed for mains water connections only, so unfortunately this isn't a fit for tank or bore water."
+    };
 
     function showStep(i) {
       current = i;
@@ -931,6 +946,13 @@ h3 {
       subBtn.style.display  = isLast ? 'block' : 'none';
       var firstInput = steps[i].querySelector('input');
       if (firstInput && firstInput.type !== 'radio') firstInput.focus();
+    }
+
+    function disqualify(reason) {
+      form.style.display = 'none';
+      document.getElementById('form-note').style.display = 'none';
+      document.getElementById('disqualified-text').textContent = disqualifyMessages[reason] || '';
+      disq.style.display = 'block';
     }
 
     function currentIsValid() {
@@ -958,10 +980,11 @@ h3 {
       var radios = step.querySelectorAll('input[type="radio"]');
       radios.forEach(function (r) {
         r.addEventListener('change', function () {
+          if (r.dataset.disqualify) { disqualify(r.dataset.disqualify); return; }
           setTimeout(next, 280);
         });
       });
-      var textInput = step.querySelector('input[type="text"], input[type="tel"]');
+      var textInput = step.querySelector('input[type="text"], input[type="tel"], input[type="email"]');
       if (textInput) {
         textInput.addEventListener('keydown', function (e) {
           if (e.key === 'Enter' && current < steps.length - 1) { e.preventDefault(); next(); }
@@ -981,9 +1004,10 @@ h3 {
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
     var first  = form.firstName.value.trim();
+    var email  = form.email.value.trim();
     var phone  = form.phone.value.trim();
     var suburb = form.suburb.value.trim();
-    if (!first || !phone || !suburb) return;
+    if (!first || !email || !phone || !suburb) return;
 
     btn.textContent = 'Sending…';
     btn.disabled = true;
@@ -995,11 +1019,12 @@ h3 {
         body: JSON.stringify(Object.assign({
           name: first,
           firstName: first,
+          email: email,
           phone: phone,
           suburb: suburb,
           reason: form.reason.value,
           homeowner: form.homeowner.value,
-          timeline: form.timeline.value,
+          mains_water: form.mains_water.value,
           source: 'cold',
           lead_source: 'meta_cold'
         }, utms))
