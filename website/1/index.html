@@ -266,13 +266,19 @@ h3 {
   padding: 24px 22px;
   display: flex; flex-direction: column;
 }
-.review .stars { color: #F59E0B; font-size: 13px; letter-spacing: 2px; margin-bottom: 12px; }
+.review-person { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.review-person img {
+  width: 48px; height: 48px; border-radius: 50%;
+  object-fit: cover; flex-shrink: 0;
+  border: 2px solid var(--border);
+}
+.review .stars { color: #F59E0B; font-size: 13px; letter-spacing: 2px; margin-top: 3px; }
 .review q {
   font-size: 15px; font-style: italic; line-height: 1.65;
-  color: var(--body); flex: 1; margin-bottom: 16px;
+  color: var(--body); flex: 1; margin-bottom: 0;
   quotes: none;
 }
-.review cite { font-size: 13px; font-weight: 700; color: var(--muted); font-style: normal; }
+.review cite { font-size: 13px; font-weight: 700; color: var(--text); font-style: normal; display: block; }
 
 /* ── Trust bar ─────────────────────────────────────── */
 .trust-strip {
@@ -604,7 +610,7 @@ h3 {
       <div class="pillar-card">
         <div class="pillar-photo-wrap">
           <span class="pillar-num">2</span>
-          <div class="pillar-img"><img src="https://neptunefiltration.com.au/assets/install-photos/styled-hero-2.jpg" alt="Neptune whole-home water filtration system" loading="lazy"></div>
+          <div class="pillar-img"><img src="https://neptunefiltration.com.au/assets/install-photos/pillar-filtration.jpg" alt="Neptune whole-home water filtration system installed in a landscaped garden" loading="lazy"></div>
         </div>
         <h3>Tailored Filtration Set Up For Your Home</h3>
         <p>Neptune designs and manages a system matched to your home's plumbing, fitted by licensed trade professionals — every tap, every shower. Not a one-size-fits-all box.</p>
@@ -629,24 +635,44 @@ h3 {
     <div class="review-grid">
       <!-- REPLACE WITH REAL TESTIMONIALS FROM YOUR CRM -->
       <div class="review">
-        <div class="stars">★★★★★</div>
+        <div class="review-person">
+          <img src="https://neptunefiltration.com.au/assets/install-photos/review-rebecca.jpg" alt="Rebecca M., Neptune customer in Bentleigh East" loading="lazy">
+          <div>
+            <cite>Rebecca M. — Bentleigh East</cite>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
         <q>"My daughter's eczema had been a problem for over two years. Within a few weeks of getting it installed, it had almost completely cleared. I'd tried everything. The water was the one thing I'd never questioned."</q>
-        <cite>Rebecca M. — Bentleigh East</cite>
       </div>
       <div class="review">
-        <div class="stars">★★★★★</div>
+        <div class="review-person">
+          <img src="https://neptunefiltration.com.au/assets/install-photos/review-david.jpg" alt="David T., Neptune customer in Glen Waverley" loading="lazy">
+          <div>
+            <cite>David T. — Glen Waverley</cite>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
         <q>"My wife said her hair felt completely different within a week. Softer, less coated. Both of us stopped getting that tight dry feeling after a shower. Simple change, big difference to everyday life."</q>
-        <cite>David T. — Glen Waverley</cite>
       </div>
       <div class="review">
-        <div class="stars">★★★★★</div>
+        <div class="review-person">
+          <img src="https://neptunefiltration.com.au/assets/install-photos/review-michelle.jpg" alt="Michelle K., Neptune customer in Brighton" loading="lazy">
+          <div>
+            <cite>Michelle K. — Brighton</cite>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
         <q>"The scale on our shower screen basically stopped. Our daughter has very sensitive skin — hasn't had a flare-up since. Honestly wish we'd done it the moment we moved in."</q>
-        <cite>Michelle K. — Brighton</cite>
       </div>
       <div class="review">
-        <div class="stars">★★★★★</div>
+        <div class="review-person">
+          <img src="https://neptunefiltration.com.au/assets/install-photos/review-priya.jpg" alt="Priya S., Neptune customer in Point Cook" loading="lazy">
+          <div>
+            <cite>Priya S. — Point Cook</cite>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
         <q>"My mum said something before I'd even noticed it myself — asked what had happened to my skin since I moved to Melbourne. That's what sent me looking into the water in the first place. Wish I'd looked sooner."</q>
-        <cite>Priya S. — Point Cook</cite>
       </div>
     </div>
   </div>
