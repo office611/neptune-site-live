@@ -106,16 +106,6 @@ h3 {
 }
 .copy strong { color: var(--text); font-weight: 700; }
 .copy em { font-style: italic; }
-/* Pull quote */
-.callout {
-  background: var(--blue-pale);
-  border-left: 5px solid var(--blue-lt);
-  border-radius: 0 8px 8px 0;
-  padding: 22px 28px;
-  margin: 32px 0;
-  font-size: 19px; line-height: 1.6;
-  color: var(--navy); font-style: italic;
-}
 
 /* ── Hero ──────────────────────────────────────────── */
 .hero {
@@ -190,45 +180,6 @@ h3 {
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--blue-lt); flex-shrink: 0;
 }
-/* ── Stat strip ────────────────────────────────────── */
-.stat-grid {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 14px;
-  margin: 36px 0;
-}
-.stat-box {
-  background: var(--white);
-  border: 1px solid var(--border); border-radius: 14px;
-  box-shadow: 0 8px 22px rgba(15,23,42,.06);
-  padding: 28px 18px; text-align: center;
-}
-.stat-box b {
-  display: block;
-  font-size: 42px; font-weight: 800; line-height: 1;
-  color: var(--blue); letter-spacing: -1px;
-  margin-bottom: 10px;
-  font-variant-numeric: tabular-nums;
-}
-.stat-box p {
-  font-size: 13px; color: var(--muted); line-height: 1.45;
-}
-
-/* ── Cards grid ────────────────────────────────────── */
-.card-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-  margin: 32px 0;
-}
-@media (max-width: 620px) { .card-grid { grid-template-columns: 1fr; } }
-
-.card {
-  background: var(--white);
-  border: 1px solid var(--border); border-radius: 14px;
-  box-shadow: 0 8px 22px rgba(15,23,42,.05);
-  padding: 22px 22px;
-  display: flex; gap: 14px;
-}
-.card-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
-.card h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-.card p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0; }
 
 /* ── Step list ─────────────────────────────────────── */
 .steps {
@@ -475,13 +426,9 @@ h3 {
 }
 .footer a { color: rgba(255,255,255,.35); }
 
-@media (max-width: 560px) {
-  .stat-grid { grid-template-columns: 1fr; }
-}
 @media (max-width: 520px) {
   .section { padding: 36px 20px; }
   .hero { padding: 52px 20px 44px; }
-  .stat-box b { font-size: 36px; }
   .step { padding: 20px; }
   .form-card { padding: 30px 22px; }
   .trust-strip { padding: 22px 20px; gap: 18px; }
@@ -767,98 +714,6 @@ h3 {
 
 
 <!-- ══════════════════════════════════════════════════════
-     THE SHOWER STAT
-══════════════════════════════════════════════════════ -->
-<section class="section section--off">
-  <div class="wrap">
-    <span class="label">The Part Most People Never Know</span>
-    <h2>It's Not About Drinking. It's About What Happens Every Time You Shower.</h2>
-
-    <blockquote class="callout">
-      "During a hot shower, your pores open up and you inhale steam — which allows you to absorb up to 6 times more chlorine and disinfection byproducts through your skin and lungs than you would by drinking eight glasses of the same tap water."
-    </blockquote>
-
-    <div class="stat-grid">
-      <div class="stat-box">
-        <b>6×</b>
-        <p>More chlorine absorbed through skin &amp; lungs in a 10-min shower than from drinking 8 glasses of tap water</p>
-      </div>
-      <div class="stat-box">
-        <b>100s</b>
-        <p>Times a family comes into contact with tap water throughout the home every single day</p>
-      </div>
-      <div class="stat-box">
-        <b>10 min</b>
-        <p>Average shower — enough time for significant daily absorption of chlorine and disinfection byproducts</p>
-      </div>
-    </div>
-
-    <div class="mid-cta">
-      <a href="#form">Find Out What's In My Water — Free →</a>
-      <small>30-min in-home test · No obligation · Results on the day</small>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     SYMPTOMS — BROAD
-══════════════════════════════════════════════════════ -->
-<section class="section section--off">
-  <div class="wrap">
-    <span class="label">Things You've Noticed But Never Connected</span>
-    <h2>These Are The Signs Families See. And What They Blamed Them On.</h2>
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon">💇</div>
-        <div>
-          <h3>Hair that feels dull, falls more than it should</h3>
-          <p>New shampoo. Different conditioner. Vitamins. The hair still doesn't feel right — and more of it ends up in the drain. Hard minerals coat the hair shaft and clog follicles every time you shower. No product removes that at the source.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-icon">🧴</div>
-        <div>
-          <h3>Dry or itchy skin that won't clear</h3>
-          <p>Blamed on sensitive skin, the wrong moisturiser, the weather. Creams help short-term. Then it comes back. Because chlorine strips skin's natural oils every shower.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-icon">👶</div>
-        <div>
-          <h3>Eczema — especially in children</h3>
-          <p>Flare-ups with no obvious trigger. Dermatologists can't always find a cause. Often blamed on genetics or food. Water is rarely mentioned.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-icon">💧</div>
-        <div>
-          <h3>Water that tastes flat or chemical</h3>
-          <p>That faint pool smell from the tap. A metallic aftertaste. Most families get so used to it they stop noticing. It doesn't have to taste that way.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-icon">🚿</div>
-        <div>
-          <h3>Scale buildup that keeps coming back</h3>
-          <p>White film on the shower screen. Chalky deposits on taps, in the kettle, around drains. Cleaned off, back within days. That's hard minerals — and it's the same thing sitting on skin and hair.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-icon">🌫️</div>
-        <div>
-          <h3>That chlorine smell in the shower</h3>
-          <p>Like a public swimming pool — but it's your bathroom. Most people assume it's normal. It's chlorine vapour from the hot water, inhaled with every breath in that steam.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
      NEPTUNE
 ══════════════════════════════════════════════════════ -->
 <section class="section section--off" id="neptune">
@@ -867,7 +722,7 @@ h3 {
     <h2 style="text-wrap:balance;">Melbourne's Water Specialists. Just Done Properly.</h2>
 
     <div class="copy">
-      <p>Whole-home water filtration is all Neptune does — WaterMark certified, every install designed and managed by Neptune, fitted by licensed trade professionals. No pressure, no upsell — the free test shows you the numbers first, and what happens after that is entirely your call.</p>
+      <p>Whole-home water filtration is all Neptune does — WaterMark certified, every install designed and managed by Neptune, fitted by licensed trade professionals. If the test does turn up something worth addressing, it's typically one system covering every tap in the home, not a jug or a single shower filter — but that's a conversation for after you've seen your own results, not before. No pressure, no upsell — the free test shows you the numbers first, and what happens after that is entirely your call.</p>
     </div>
 
     <div class="mid-cta">
