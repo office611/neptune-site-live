@@ -152,21 +152,12 @@ h3 {
   line-height: 1.65; max-width: 680px;
   margin: 0 auto 26px;
 }
-.hero-photo-row {
-  display: flex; justify-content: center; align-items: center; gap: 12px;
-  margin: 0 auto 26px;
+.hero-photo {
+  max-width: 380px; margin: 0 auto 26px;
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 16px 44px rgba(15,23,42,.28);
 }
-.hero-photo-row img {
-  width: 33%; max-width: 190px; height: 190px; object-fit: cover;
-  border-radius: 12px; display: block;
-  box-shadow: 0 10px 26px rgba(15,23,42,.16);
-  border: 3px solid #fff;
-}
-.hero-photo-row img:nth-child(2) { transform: translateY(-10px); }
-.hero-photo-row img:nth-child(3) { transform: translateY(8px); }
-@media (max-width: 480px) {
-  .hero-photo-row img { height: 110px; }
-}
+.hero-photo img { display: block; width: 100%; height: auto; }
 .hero-next-step {
   font-size: 15px; color: var(--body);
   margin-bottom: 20px;
@@ -495,10 +486,8 @@ h3 {
       Chlorine in Melbourne's tap water strips your scalp and skin's natural oils every single shower. Most people blame stress, genetics, or the weather. It's the water.
     </p>
 
-    <div class="hero-photo-row">
-      <img src="https://neptunefiltration.com.au/assets/install-photos/neptune-install-1.jpg" alt="Neptune filtration unit installed at a Melbourne home" loading="eager">
-      <img src="https://neptunefiltration.com.au/assets/install-photos/neptune-install-2.jpg" alt="Neptune filtration unit installed at a Melbourne home" loading="eager">
-      <img src="https://neptunefiltration.com.au/assets/install-photos/styled-hero-1.jpg" alt="Neptune whole-home water filtration system" loading="eager">
+    <div class="hero-photo">
+      <img src="https://neptunefiltration.com.au/assets/install-photos/hair-loss-hero.jpg" alt="Melbourne woman shocked by hair loss caused by chlorine in her shower water" loading="eager">
     </div>
 
     <p class="hero-next-step"><strong>Next Step:</strong> Answer A Few Quick Questions To Book Your Free Water Test</p>
