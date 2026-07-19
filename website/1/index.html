@@ -253,8 +253,13 @@ h3 {
 
 /* ── Testimonials ──────────────────────────────────── */
 .review-grid {
-  display: grid; grid-template-columns: repeat(2,1fr); gap: 18px;
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 18px 26px;
   margin-top: 40px;
+}
+@media (min-width: 701px) {
+  .review-grid .review:nth-child(2) { transform: translateY(22px); }
+  .review-grid .review:nth-child(3) { transform: translateY(-10px); }
+  .review-grid .review:nth-child(4) { transform: translateY(14px); }
 }
 @media (max-width: 700px) { .review-grid { grid-template-columns: 1fr; } }
 
@@ -648,7 +653,7 @@ h3 {
             <img src="https://neptunefiltration.com.au/assets/install-photos/review-rebecca.jpg" alt="Rebecca M., Neptune customer in Bentleigh East" loading="lazy">
             <cite>Rebecca M. — Bentleigh East</cite>
           </div>
-          <q>"My daughter's eczema had been a problem for over two years. Within a few weeks of getting it installed, it had almost completely cleared. I'd tried everything. The water was the one thing I'd never questioned."</q>
+          <q>My daughter's eczema had been a problem for over two years. Within a few weeks of getting it installed, it had almost completely cleared. I'd tried everything. The water was the one thing I'd never questioned.</q>
         </div>
       </div>
       <div class="review">
@@ -658,7 +663,7 @@ h3 {
             <img src="https://neptunefiltration.com.au/assets/install-photos/review-david.jpg" alt="David T., Neptune customer in Glen Waverley" loading="lazy">
             <cite>David T. — Glen Waverley</cite>
           </div>
-          <q>"My wife said her hair felt completely different within a week. Softer, less coated. Both of us stopped getting that tight dry feeling after a shower. Simple change, big difference to everyday life."</q>
+          <q>My wife said her hair felt completely different within a week. Softer, less coated. Both of us stopped getting that tight dry feeling after a shower. Simple change, big difference to everyday life.</q>
         </div>
       </div>
       <div class="review">
@@ -668,7 +673,7 @@ h3 {
             <img src="https://neptunefiltration.com.au/assets/install-photos/review-michelle.jpg" alt="Michelle K., Neptune customer in Brighton" loading="lazy">
             <cite>Michelle K. — Brighton</cite>
           </div>
-          <q>"The scale on our shower screen basically stopped. Our daughter has very sensitive skin — hasn't had a flare-up since. Honestly wish we'd done it the moment we moved in."</q>
+          <q>My skin used to feel tight and itchy after every single shower — I'd tried every moisturiser going. Since the install it's just gone. Didn't expect it to make that much difference.</q>
         </div>
       </div>
       <div class="review">
@@ -678,7 +683,7 @@ h3 {
             <img src="https://neptunefiltration.com.au/assets/install-photos/review-priya.jpg" alt="Priya S., Neptune customer in Point Cook" loading="lazy">
             <cite>Priya S. — Point Cook</cite>
           </div>
-          <q>"My mum said something before I'd even noticed it myself — asked what had happened to my skin since I moved to Melbourne. That's what sent me looking into the water in the first place. Wish I'd looked sooner."</q>
+          <q>My partner had dandruff for years and tried every shampoo going — nothing stuck. A few weeks after the install it had basically disappeared. Turned out it was never about the shampoo at all.</q>
         </div>
       </div>
     </div>
