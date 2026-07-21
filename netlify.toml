@@ -21,3 +21,13 @@
   from = "/replacement-filters"
   to = "/replacement-filters/"
   status = 301
+
+[[redirects]]
+  from = "/assessment"
+  to = "/assessment/"
+  status = 301
+
+[[redirects]]
+  from = "/assessment/thank-you"
+  to = "/assessment/thank-you/"
+  status = 301

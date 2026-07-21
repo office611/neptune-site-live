@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+<meta name="theme-color" content="#0B1E3D">
+<title>See If Your Home Qualifies For Whole Home Water Filtration | Neptune</title>
+<meta name="description" content="Answer a few quick questions about your home. If suitable, one of our Melbourne water specialists will visit, test your water and explain the most suitable options for your property. No obligation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/assessment/assessment.css">
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2043292147071202');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2043292147071202&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo"><img src="/assets/logos/Neptune_Logo_Navy.png" alt="NEPTUNE Whole Home Filtration"></a>
+    <a href="tel:0391225243" class="header-phone">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      03 9122 5243
+    </a>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy fade-in-up">
+        <h1>See If Your Home Qualifies For Whole Home Water Filtration</h1>
+        <p class="hero-sub">Answer a few quick questions about your home. If suitable, we'll organise a convenient time for one of our Melbourne water specialists to visit, test your water, assess your plumbing setup and explain the most suitable options for your property.</p>
+        <p class="hero-sub" style="margin-top:16px; font-weight:500; color:var(--navy);">No obligation. No pressure.</p>
+      </div>
+      <div class="hero-media fade-in-up">
+        <div class="placeholder placeholder-hero">
+          <div class="placeholder-inner">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/><path d="M8 5l1.5-2h5L16 5"/></svg>
+            <span class="placeholder-label">HERO PHOTO<br>Premium Neptune filtration installation beside Melbourne home with immaculate copper pipework and landscaping.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     HOME ASSESSMENT — MULTI-STEP QUESTIONNAIRE
+══════════════════════════════════════════════════════ -->
+<section class="assessment" id="assessment">
+  <div class="container">
+    <div class="assessment-card">
+
+      <div class="assessment-head">
+        <h2>Complete Your Home Assessment</h2>
+        <p>Answer a few quick questions so we can determine whether whole home water filtration is suitable for your property before one of our Melbourne water specialists contacts you.</p>
+      </div>
+
+      <div id="form-wrap">
+        <div class="progress-track" id="progress-track">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="progress-label" id="progress-label">Step 1 of 4</div>
+
+        <form id="assessment-form" novalidate>
+
+          <div class="step active" data-step="1">
+            <div class="step-question">Do you own the property?</div>
+            <div class="choice-list">
+              <label class="choice-pill"><input type="radio" name="owner" value="yes" required> Yes</label>
+              <label class="choice-pill"><input type="radio" name="owner" value="no" data-disqualify="owner"> No</label>
+            </div>
+          </div>
+
+          <div class="step" data-step="2">
+            <div class="step-question">Is your home connected to Melbourne mains water?</div>
+            <div class="choice-list">
+              <label class="choice-pill"><input type="radio" name="mains" value="yes" required> Yes</label>
+              <label class="choice-pill"><input type="radio" name="mains" value="no" data-disqualify="mains"> No</label>
+              <label class="choice-pill"><input type="radio" name="mains" value="not_sure"> Not Sure</label>
+            </div>
+          </div>
+
+          <div class="step" data-step="3">
+            <div class="step-question">What would you most like to improve about your home's water?</div>
+            <div class="choice-list">
+              <label class="choice-pill"><input type="radio" name="improve" value="taste" required> Better tasting water</label>
+              <label class="choice-pill"><input type="radio" name="improve" value="chlorine"> Reduce chlorine</label>
+              <label class="choice-pill"><input type="radio" name="improve" value="skin_hair"> Skin &amp; hair</label>
+              <label class="choice-pill"><input type="radio" name="improve" value="appliances"> Protect appliances</label>
+              <label class="choice-pill"><input type="radio" name="improve" value="overall"> Overall water quality</label>
+            </div>
+          </div>
+
+          <div class="step" data-step="4">
+            <div class="step-question">Your details</div>
+            <div class="form-field">
+              <label for="f-name">Name</label>
+              <input type="text" id="f-name" name="name" placeholder="Your full name" required autocomplete="name">
+            </div>
+            <div class="form-field">
+              <label for="f-phone">Phone</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
+            </div>
+            <div class="form-field">
+              <label for="f-email">Email</label>
+              <input type="email" id="f-email" name="email" placeholder="you@email.com" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn-text" id="step-back" style="display:none;">&larr; Back</button>
+            <button type="button" class="btn btn-primary btn-full" id="step-continue">Continue</button>
+            <button type="submit" class="btn btn-primary btn-full" id="step-submit" style="display:none;">See If My Home Qualifies</button>
+          </div>
+        </form>
+
+        <p class="form-note">Your details stay private and are only used to arrange your home assessment.</p>
+      </div>
+
+      <div class="state-panel" id="panel-disqualify-owner">
+        <div class="state-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12h6"/></svg>
+        </div>
+        <h3>Thank You For Your Interest</h3>
+        <p>Unfortunately our whole home filtration systems are designed for homeowners.</p>
+        <p>If your circumstances change in the future we'd love to help.</p>
+        <a href="/" class="btn btn-outline">Return Home</a>
+      </div>
+
+      <div class="state-panel" id="panel-disqualify-mains">
+        <div class="state-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12h6"/></svg>
+        </div>
+        <h3>Thank You For Your Enquiry</h3>
+        <p>Our current systems are designed for homes connected to Melbourne's mains water supply.</p>
+        <a href="/" class="btn btn-outline">Return Home</a>
+      </div>
+
+      <div class="state-panel" id="panel-submitting">
+        <div class="state-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <h3>Just A Moment</h3>
+        <p>We're reviewing your answers.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     HOW IT WORKS
+══════════════════════════════════════════════════════ -->
+<section class="section section-off" id="how-it-works">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How It Works</span>
+      <h2>A Straightforward Process</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="timeline-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6a1 1 0 0 1 1 1v1H8V4a1 1 0 0 1 1-1z"/><rect x="5" y="5" width="14" height="16" rx="2"/><path d="M9 12h6M9 16h6"/></svg>
+        </div>
+        <div class="timeline-body">
+          <h3>Complete Your Home Assessment</h3>
+          <p>Answer a few quick questions about your home.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.5-4.5"/></svg>
+        </div>
+        <div class="timeline-body">
+          <h3>Assessment Review</h3>
+          <p>One of our Melbourne water specialists reviews your assessment.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="timeline-body">
+          <h3>Phone Call</h3>
+          <p>We'll contact you to organise a convenient time to visit.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
+        </div>
+        <div class="timeline-body">
+          <h3>Home Assessment</h3>
+          <p>We test your water. We assess your plumbing. We explain suitable options and provide fixed installation pricing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     WHY NEPTUNE
+══════════════════════════════════════════════════════ -->
+<section class="section" id="why-neptune">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Why Neptune</span>
+      <h2>Built On Proper Process</h2>
+    </div>
+    <div class="credential-grid">
+      <div class="credential-card">
+        <div class="cred-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/></svg>
+        </div>
+        <h3>Licensed Melbourne Plumbers</h3>
+        <p>Every installation carried out by fully licensed, insured Melbourne plumbers.</p>
+      </div>
+      <div class="credential-card">
+        <div class="cred-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></svg>
+        </div>
+        <h3>Premium Installation Workmanship</h3>
+        <p>Copper pipework and fittings, finished to a standard we're proud to stand behind.</p>
+      </div>
+      <div class="credential-card">
+        <div class="cred-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/><path d="M8.5 15l2 2 4-4"/></svg>
+        </div>
+        <h3>Annual Filter Servicing</h3>
+        <p>Scheduled servicing keeps your system performing the way it should, year after year.</p>
+      </div>
+      <div class="credential-card">
+        <div class="cred-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.5L7 22l5-3 5 3-2-7.5"/></svg>
+        </div>
+        <h3>Australian Standards Compliant</h3>
+        <p>Systems and installation meet Australian Standards for water treatment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     INSTALLATION GALLERY
+══════════════════════════════════════════════════════ -->
+<section class="section section-off" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Installation Gallery</span>
+      <h2>Recent Installations</h2>
+    </div>
+
+    <div class="gallery-scroll">
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 01<br>Premium front garden installation</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 02<br>Brick home</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 03<br>Rendered home</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 04<br>Timber fence installation</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 05<br>Modern landscaping</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 06<br>Side pathway installation</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 07<br>Feature garden installation</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 08<br>Premium exposed copper installation</span></div></div>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 01<br>Premium front garden installation</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 02<br>Brick home</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 03<br>Rendered home</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 04<br>Timber fence installation</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 05<br>Modern landscaping</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 06<br>Side pathway installation</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 07<br>Feature garden installation</span></div></div>
+      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 08<br>Premium exposed copper installation</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     WORKMANSHIP
+══════════════════════════════════════════════════════ -->
+<section class="section" id="workmanship">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Workmanship</span>
+      <h2>Detail That Holds Up</h2>
+    </div>
+    <div class="work-grid">
+      <div class="placeholder placeholder-work"><div class="placeholder-inner"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">Copper pipework close-up</span></div></div>
+      <div class="placeholder placeholder-work"><div class="placeholder-inner"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">Isolation valves</span></div></div>
+      <div class="placeholder placeholder-work"><div class="placeholder-inner"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">Pressure gauge</span></div></div>
+      <div class="placeholder placeholder-work"><div class="placeholder-inner"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">Filter housing</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     FUTURE CUSTOMER STORIES
+══════════════════════════════════════════════════════ -->
+<section class="section section-off" id="stories">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Customer Stories</span>
+      <h2>Melbourne Homes We've Worked With</h2>
+    </div>
+    <div class="story-grid">
+      <div class="story-card">
+        <div class="story-photo"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <div class="story-body">
+          <p class="story-quote">Customer story to be added.</p>
+          <div class="story-meta">
+            <span class="story-name">Customer Name</span>
+            <span class="story-suburb">Suburb</span>
+          </div>
+        </div>
+      </div>
+      <div class="story-card">
+        <div class="story-photo"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <div class="story-body">
+          <p class="story-quote">Customer story to be added.</p>
+          <div class="story-meta">
+            <span class="story-name">Customer Name</span>
+            <span class="story-suburb">Suburb</span>
+          </div>
+        </div>
+      </div>
+      <div class="story-card">
+        <div class="story-photo"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <div class="story-body">
+          <p class="story-quote">Customer story to be added.</p>
+          <div class="story-meta">
+            <span class="story-name">Customer Name</span>
+            <span class="story-suburb">Suburb</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     FAQ
+══════════════════════════════════════════════════════ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Common Questions</span>
+      <h2>What To Expect</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>How long does installation take?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Most whole home installations are completed in under two hours by one of our licensed Melbourne plumbers.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How often are filters replaced?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Filters are replaced annually as part of your scheduled servicing, so your system continues performing as it should.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Will you test my water?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Yes. Testing your water is part of every home assessment, so any recommendation is based on your property, not assumptions.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I have to decide on the day?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">No. There's no obligation to decide anything during the home assessment. You're welcome to take the time you need.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long does the appointment take?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">A typical home assessment takes around 30 minutes, covering the water test, a plumbing review and a walk-through of suitable options.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Will installation damage my garden?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Our specialists plan the installation around your property and take care to minimise disruption to existing landscaping.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I ask questions during the visit?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Of course. The home assessment is designed to be a conversation — ask as many questions as you'd like.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you service all Melbourne suburbs?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">We currently service homes across metropolitan Melbourne. Suburb suitability is confirmed as part of your assessment.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can the system reduce chlorine?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Whole home filtration is designed to address chlorine along with sediment and other common water quality concerns.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What happens after I submit my assessment?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">One of our Melbourne water specialists reviews your answers and contacts you to arrange a convenient time to visit your home.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     FINAL CTA
+══════════════════════════════════════════════════════ -->
+<section class="section section-off final-cta">
+  <div class="container">
+    <h2>Ready To See If Your Home Qualifies?</h2>
+    <p>Answer a few quick questions about your home to get started.</p>
+    <a href="#assessment" class="btn btn-primary" id="final-cta-btn">Complete Your Home Assessment</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <a href="/" class="footer-logo"><img src="/assets/logos/Neptune_Logo_White.png" alt="NEPTUNE Whole Home Filtration"></a>
+      <div class="footer-contact">
+        <a href="tel:0391225243">03 9122 5243</a>
+        <a href="mailto:office@neptunefiltration.com.au">office@neptunefiltration.com.au</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <div class="footer-legal-links">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Neptune Filtration. Melbourne, VIC.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form   = document.getElementById('assessment-form');
+  var steps  = Array.prototype.slice.call(form.querySelectorAll('.step'));
+  var dots   = Array.prototype.slice.call(document.getElementById('progress-track').children);
+  var label  = document.getElementById('progress-label');
+  var backBtn = document.getElementById('step-back');
+  var contBtn = document.getElementById('step-continue');
+  var subBtn  = document.getElementById('step-submit');
+  var formWrap = document.getElementById('form-wrap');
+  var current = 0;
+
+  var panels = {
+    owner: document.getElementById('panel-disqualify-owner'),
+    mains: document.getElementById('panel-disqualify-mains'),
+    submitting: document.getElementById('panel-submitting')
+  };
+
+  function showStep(i) {
+    current = i;
+    steps.forEach(function (s, idx) { s.classList.toggle('active', idx === i); });
+    dots.forEach(function (d, idx) { d.classList.toggle('done', idx <= i); });
+    label.textContent = 'Step ' + (i + 1) + ' of ' + steps.length;
+    backBtn.style.display = i === 0 ? 'none' : 'inline-block';
+    var isLast  = i === steps.length - 1;
+    var isRadio = !!steps[i].querySelector('input[type="radio"]');
+    contBtn.style.display = (isLast || isRadio) ? 'none' : 'block';
+    subBtn.style.display  = isLast ? 'block' : 'none';
+    var firstInput = steps[i].querySelector('input[type="text"], input[type="tel"], input[type="email"]');
+    if (firstInput) firstInput.focus();
+  }
+
+  function showPanel(name) {
+    formWrap.style.display = 'none';
+    Object.keys(panels).forEach(function (k) { panels[k].classList.toggle('active', k === name); });
+  }
+
+  function currentIsValid() {
+    var radios = steps[current].querySelectorAll('input[type="radio"]');
+    if (radios.length) {
+      return Array.prototype.some.call(radios, function (r) { return r.checked; });
+    }
+    var inputs = steps[current].querySelectorAll('input');
+    var ok = true;
+    inputs.forEach(function (inp) { if (!inp.reportValidity()) ok = false; });
+    return ok;
+  }
+
+  function next() {
+    if (!currentIsValid()) return;
+    if (current < steps.length - 1) showStep(current + 1);
+  }
+
+  contBtn.addEventListener('click', next);
+  backBtn.addEventListener('click', function () { if (current > 0) showStep(current - 1); });
+
+  steps.forEach(function (step) {
+    var radios = step.querySelectorAll('input[type="radio"]');
+    radios.forEach(function (r) {
+      r.addEventListener('change', function () {
+        if (r.dataset.disqualify) { showPanel(r.dataset.disqualify); return; }
+        setTimeout(next, 260);
+      });
+    });
+  });
+
+  document.getElementById('final-cta-btn').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('assessment').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  var utms = (function () {
+    var p = new URLSearchParams(window.location.search);
+    return {
+      utm_source: p.get('utm_source') || '',
+      utm_medium: p.get('utm_medium') || '',
+      utm_campaign: p.get('utm_campaign') || '',
+      utm_content: p.get('utm_content') || '',
+      utm_term: p.get('utm_term') || '',
+      fbclid: p.get('fbclid') || ''
+    };
+  })();
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (!currentIsValid()) return;
+
+    var name  = form.name.value.trim();
+    var phone = form.phone.value.trim();
+    var email = form.email.value.trim();
+    if (!name || !phone || !email) return;
+
+    subBtn.disabled = true;
+    subBtn.textContent = 'Submitting…';
+    showPanel('submitting');
+
+    var payload = Object.assign({
+      name: name,
+      firstName: name,
+      phone: phone,
+      email: email,
+      owns_property: form.owner.value,
+      mains_water: form.mains.value,
+      improvement_focus: form.improve.value,
+      source: 'home_assessment_lp',
+      lead_source: 'meta_home_assessment'
+    }, utms);
+
+    try {
+      await fetch('/.netlify/functions/submit-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) { /* lead still forwarded server-side on retry */ }
+
+    sessionStorage.setItem('neptune_assessment_submitted', '1');
+    window.location.href = '/assessment/thank-you/' + window.location.search;
+  });
+})();
+</script>
+
+</body>
+</html>
