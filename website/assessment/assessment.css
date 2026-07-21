@@ -187,7 +187,17 @@ p { color: var(--text-2); }
   max-width: 220px;
 }
 .placeholder-hero { aspect-ratio: 4/3; }
-.placeholder-gallery { aspect-ratio: 4/3; }
+.placeholder-gallery { aspect-ratio: 3/4; }
+
+.gallery-photo {
+  aspect-ratio: 3/4;
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.gallery-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
 
 /* ============================================================
    ASSESSMENT FORM
@@ -352,7 +362,8 @@ p { color: var(--text-2); }
   scrollbar-width: none;
 }
 .gallery-scroll::-webkit-scrollbar { display: none; }
-.gallery-scroll .placeholder-gallery {
+.gallery-scroll .placeholder-gallery,
+.gallery-scroll .gallery-photo {
   flex: 0 0 78%; scroll-snap-align: center;
 }
 .gallery-grid { display: none; }
