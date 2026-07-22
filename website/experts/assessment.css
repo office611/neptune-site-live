@@ -72,8 +72,8 @@ ul, ol { list-style: none; }
 .container       { width: 100%; max-width: var(--w-max); margin-inline: auto; padding-inline: var(--s-5); }
 .container-text  { width: 100%; max-width: var(--w-text); margin-inline: auto; padding-inline: var(--s-5); }
 
-.section     { padding-block: var(--s-16); }
-.section-sm  { padding-block: var(--s-12); }
+.section     { padding-block: var(--s-12); }
+.section-sm  { padding-block: var(--s-10); }
 .section-off { background: var(--off-white); }
 
 .eyebrow {
@@ -145,7 +145,7 @@ p { color: var(--text-2); }
 /* ============================================================
    HERO
    ============================================================ */
-.hero { padding-block: var(--s-12) var(--s-10); }
+.hero { padding-block: var(--s-10) var(--s-8); }
 .hero-grid {
   display: grid; gap: var(--s-10);
   align-items: center;
@@ -202,7 +202,7 @@ p { color: var(--text-2); }
 /* ============================================================
    ASSESSMENT FORM
    ============================================================ */
-.assessment { padding-block: 0 var(--s-16); }
+.assessment { padding-block: 0 var(--s-12); }
 .assessment-card {
   background: var(--white);
   border: 1px solid var(--border);
@@ -213,6 +213,15 @@ p { color: var(--text-2); }
   margin: 0 auto;
 }
 .assessment-head { text-align: center; margin-bottom: var(--s-8); }
+.next-step-heading {
+  display: block;
+  font-size: clamp(1.35rem, 4vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--navy);
+  letter-spacing: -.01em;
+}
+.next-step-heading u { text-decoration-color: var(--blue); text-underline-offset: 4px; }
 .assessment-head h2 { margin-bottom: var(--s-3); }
 .assessment-head p { font-size: .95rem; line-height: 1.65; }
 
@@ -528,13 +537,13 @@ p { color: var(--text-2); }
 @media (min-width: 768px) {
   .container       { padding-inline: var(--s-8); }
   .container-text  { padding-inline: var(--s-8); }
-  .section     { padding-block: var(--s-20); }
-  .section-sm  { padding-block: var(--s-16); }
+  .section     { padding-block: var(--s-16); }
+  .section-sm  { padding-block: var(--s-12); }
 
   .site-header .container { height: 76px; }
   .site-header .logo img { height: 30px; }
 
-  .hero { padding-block: var(--s-16) var(--s-12); }
+  .hero { padding-block: var(--s-12) var(--s-10); }
   .hero-grid { grid-template-columns: 1fr 1fr; gap: var(--s-12); text-align: left; }
   .hero-copy { text-align: left; }
   .hero-photo { max-width: 100%; margin: 0; }
