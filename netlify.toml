@@ -23,11 +23,32 @@
   status = 301
 
 [[redirects]]
-  from = "/assessment"
-  to = "/assessment/"
+  from = "/experts"
+  to = "/experts/"
   status = 301
 
 [[redirects]]
+  from = "/experts/thank-you"
+  to = "/experts/thank-you/"
+  status = 301
+
+# Old /assessment URL — preserve any existing links, bookmarks or live ad traffic
+[[redirects]]
   from = "/assessment/thank-you"
-  to = "/assessment/thank-you/"
+  to = "/experts/thank-you/"
+  status = 301
+
+[[redirects]]
+  from = "/assessment/thank-you/"
+  to = "/experts/thank-you/"
+  status = 301
+
+[[redirects]]
+  from = "/assessment"
+  to = "/experts/"
+  status = 301
+
+[[redirects]]
+  from = "/assessment/"
+  to = "/experts/"
   status = 301

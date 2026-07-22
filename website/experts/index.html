@@ -9,11 +9,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
 <link rel="manifest" href="/assets/favicon/site.webmanifest">
 <meta name="theme-color" content="#0B1E3D">
-<title>See If A Neptune Whole Home Water Filtration System Is Right For Your Home</title>
-<meta name="description" content="Answer a few quick questions about your home. If suitable, one of our Melbourne water specialists will visit, assess your water, inspect your plumbing setup and recommend the most suitable solution. No obligation.">
+<title>Give Your Family Clean, Filtered Water At Every Tap | Neptune</title>
+<meta name="description" content="High levels of chlorine and other harmful contaminants are in Melbourne's water supply. Speak with your local whole home filtration experts to find out more.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="/assessment/assessment.css">
+<link rel="stylesheet" href="/experts/assessment.css">
 <!-- Meta Pixel -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2043292147071202');fbq('track','PageView');</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2043292147071202&ev=PageView&noscript=1"/></noscript>
@@ -28,9 +28,8 @@
     <div class="hero-grid">
       <div class="hero-copy fade-in-up">
         <span class="eyebrow">Melbourne's Water Specialists</span>
-        <h1>See If A Neptune Whole Home Water Filtration System Is Right For Your Home</h1>
-        <p class="hero-sub">Answer a few quick questions about your home. If suitable, we'll organise a convenient time for one of our Melbourne water specialists to visit, assess your water, inspect your plumbing setup and recommend the most suitable whole home water filtration solution for your property.</p>
-        <p class="hero-sub" style="margin-top:16px; font-weight:500; color:var(--navy);">No obligation. No pressure.</p>
+        <h1>Give Your Family Clean, Filtered Water At Every Tap</h1>
+        <p class="hero-sub">High levels of chlorine and other harmful contaminants are in Melbourne's water supply — a Neptune whole-home water filtration system removes them, so every tap, shower and appliance in your home runs clean.</p>
       </div>
       <div class="hero-media fade-in-up">
         <div class="hero-photo">
@@ -49,7 +48,7 @@
     <div class="assessment-card">
 
       <div class="assessment-head">
-        <span class="eyebrow eyebrow-copper">Next Step: Answer A Few Quick Questions</span>
+        <span class="eyebrow eyebrow-copper"><u>Next Step</u>: Answer A Few Quick Questions To Speak With Your Local Whole Home Filtration Experts</span>
       </div>
 
       <div id="form-wrap">
@@ -61,6 +60,18 @@
         <form id="assessment-form" novalidate>
 
           <div class="step active" data-step="1">
+            <div class="step-question">What's been bothering you most?</div>
+            <div class="choice-list">
+              <label class="choice-pill"><input type="radio" name="improve" value="dry_skin" required> Dry Skin</label>
+              <label class="choice-pill"><input type="radio" name="improve" value="hair_loss"> Hair Loss</label>
+              <label class="choice-pill"><input type="radio" name="improve" value="eczema_itchy"> Eczema or Itchy Skin</label>
+              <label class="choice-pill"><input type="radio" name="improve" value="chlorine"> Chlorine Smell or Taste</label>
+              <label class="choice-pill"><input type="radio" name="improve" value="appliances"> Protecting Appliances</label>
+              <label class="choice-pill"><input type="radio" name="improve" value="overall"> Overall Water Quality</label>
+            </div>
+          </div>
+
+          <div class="step" data-step="2">
             <div class="step-question">Do you own the property?</div>
             <div class="choice-list">
               <label class="choice-pill"><input type="radio" name="owner" value="yes" required> Yes</label>
@@ -68,23 +79,12 @@
             </div>
           </div>
 
-          <div class="step" data-step="2">
+          <div class="step" data-step="3">
             <div class="step-question">Is your home connected to Melbourne mains water?</div>
             <div class="choice-list">
               <label class="choice-pill"><input type="radio" name="mains" value="yes" required> Yes</label>
               <label class="choice-pill"><input type="radio" name="mains" value="no" data-disqualify="mains"> No</label>
               <label class="choice-pill"><input type="radio" name="mains" value="not_sure"> Not Sure</label>
-            </div>
-          </div>
-
-          <div class="step" data-step="3">
-            <div class="step-question">What would you most like to improve about your home's water?</div>
-            <div class="choice-list">
-              <label class="choice-pill"><input type="radio" name="improve" value="taste" required> Better tasting water</label>
-              <label class="choice-pill"><input type="radio" name="improve" value="chlorine"> Reduce chlorine</label>
-              <label class="choice-pill"><input type="radio" name="improve" value="skin_hair"> Skin &amp; hair</label>
-              <label class="choice-pill"><input type="radio" name="improve" value="appliances"> Protect appliances</label>
-              <label class="choice-pill"><input type="radio" name="improve" value="overall"> Overall water quality</label>
             </div>
           </div>
 
@@ -111,7 +111,7 @@
           <div class="step-actions">
             <button type="button" class="btn-text" id="step-back" style="display:none;">&larr; Back</button>
             <button type="button" class="btn btn-primary btn-full" id="step-continue">Next</button>
-            <button type="submit" class="btn btn-primary btn-full" id="step-submit" style="display:none;">Request My Home Assessment</button>
+            <button type="submit" class="btn btn-primary btn-full" id="step-submit" style="display:none;">Submit</button>
           </div>
         </form>
       </div>
@@ -146,108 +146,15 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     HOW IT WORKS
-══════════════════════════════════════════════════════ -->
-<section class="section section-off" id="how-it-works">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">How It Works</span>
-      <h2>Here's What Happens Next</h2>
-    </div>
-    <div class="timeline">
-      <div class="timeline-step">
-        <div class="timeline-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6a1 1 0 0 1 1 1v1H8V4a1 1 0 0 1 1-1z"/><rect x="5" y="5" width="14" height="16" rx="2"/><path d="M9 12h6M9 16h6"/></svg>
-        </div>
-        <div class="timeline-body">
-          <h3>Answer A Few Quick Questions</h3>
-          <p>Tell us about your home and what you'd like to improve.</p>
-        </div>
-      </div>
-      <div class="timeline-step">
-        <div class="timeline-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.5-4.5"/></svg>
-        </div>
-        <div class="timeline-body">
-          <h3>We Review Your Answers</h3>
-          <p>One of our Melbourne water specialists reviews your answers before we call.</p>
-        </div>
-      </div>
-      <div class="timeline-step">
-        <div class="timeline-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </div>
-        <div class="timeline-body">
-          <h3>Phone Call</h3>
-          <p>We'll contact you to organise a convenient time to visit.</p>
-        </div>
-      </div>
-      <div class="timeline-step">
-        <div class="timeline-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
-        </div>
-        <div class="timeline-body">
-          <h3>Home Assessment</h3>
-          <p>We test your water. We assess your plumbing. We explain suitable options and provide fixed installation pricing.</p>
-        </div>
-      </div>
-    </div>
-    <div class="timeline-photo">
-      <img src="/assets/install-photos/consultation.webp" alt="Neptune specialist reviewing water assessment results with a Melbourne homeowner" loading="lazy">
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════
      BETTER WATER THROUGHOUT YOUR HOME
 ══════════════════════════════════════════════════════ -->
-<section class="section" id="benefits">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">What Changes</span>
-      <h2>Imagine The Difference Throughout Your Home</h2>
-    </div>
-    <div class="benefit-grid">
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c0 0-6 7.5-6 12a6 6 0 0 0 12 0c0-4.5-6-12-6-12z"/></svg>
-        </div>
-        <h3>Drinking Water</h3>
-        <p>No chlorine taste or smell — drink straight from any tap.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
-        </div>
-        <h3>Skin &amp; Hair</h3>
-        <p>Softer skin and hair, with less dryness after every shower.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9a7 7 0 0 1 14 0"/><path d="M3 9h18"/><path d="M8 13v2M12 13v3M16 13v2"/></svg>
-        </div>
-        <h3>Showers &amp; Bathrooms</h3>
-        <p>Less scale and no pool smell — your bathroom stays cleaner.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="13" r="4.5"/><path d="M8 5.5h.01M11 5.5h.01"/></svg>
-        </div>
-        <h3>Appliances</h3>
-        <p>Less mineral buildup, extending the life of your appliances.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══════════════════════════════════════════════════════
      FAQ
      Ordered deliberately: initial questions first, then the
      natural follow-ups, then what-to-expect, then objections.
-     Moved above Why Neptune / Gallery / Stories on purpose —
-     with limited social proof to lean on early, answering
-     questions does more trust-building work than a testimonial
-     section would at this point in the page.
+     Deliberately light on "how it works" mechanics — the
+     specifics of what happens are covered on the call with
+     your local expert, not spelled out on the page.
 ══════════════════════════════════════════════════════ -->
 <section class="section" id="faq">
   <div class="container">
@@ -259,68 +166,68 @@
 
       <!-- Tier 1 — Initial questions -->
       <details class="faq-item" open>
-        <summary>What exactly is a "home assessment"?
+        <summary>What happens when I submit my details?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">It's a short in-home visit where one of our Melbourne water specialists tests your water, checks your plumbing setup and explains which filtration options, if any, are suitable for your property.</p>
+        <p class="faq-answer">One of our local Whole Home Filtration experts reviews what you've shared and gives you a call to talk it through.</p>
       </details>
       <details class="faq-item">
-        <summary>Is the home assessment free?
+        <summary>Does it cost anything to speak with your team?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Yes. There's no cost for the assessment itself and no obligation to proceed afterwards.</p>
+        <p class="faq-answer">No. There's no cost and no obligation — we're simply here to help you understand your options.</p>
       </details>
       <details class="faq-item">
         <summary>Am I obligated to buy anything?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">No. The assessment is there to inform you. Any decision about installation is entirely up to you, and there's no pressure to decide on the day.</p>
+        <p class="faq-answer">Not at all. Any decision is entirely yours, with no pressure to decide on the spot.</p>
       </details>
       <details class="faq-item">
-        <summary>What happens after I submit my details?
+        <summary>Who will actually call me?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">One of our Melbourne water specialists reviews your answers and contacts you to arrange a convenient time to visit your home.</p>
+        <p class="faq-answer">A local Neptune whole home filtration expert — not a call centre — so you're speaking with someone who can actually answer your questions.</p>
       </details>
 
       <!-- Tier 2 — Follow-up questions -->
       <details class="faq-item">
-        <summary>Will you actually test my water?
+        <summary>What will we cover on the call?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Yes. Testing your water is part of every home assessment, so any recommendation is based on your property, not assumptions.</p>
+        <p class="faq-answer">Your water concerns, your home's setup, and the options available to you — all explained clearly, in plain English.</p>
       </details>
       <details class="faq-item">
-        <summary>What does the specialist check during the visit?
+        <summary>What happens if we need to visit my home?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Your water quality, your existing plumbing setup, and where a system could be fitted — then we explain what's suitable for your home.</p>
+        <p class="faq-answer">That's something your local expert will walk you through when you speak with them — every home is a little different.</p>
       </details>
       <details class="faq-item">
-        <summary>How long does the appointment take?
+        <summary>How long does the process take?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">A typical home assessment takes around 30 minutes, covering the water test, a plumbing review and a walk-through of suitable options.</p>
+        <p class="faq-answer">Most homeowners are sorted within a week or two of their first call — your local expert will confirm timing for your home.</p>
       </details>
       <details class="faq-item">
         <summary>Do you service all Melbourne suburbs?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">We currently service homes across metropolitan Melbourne. Suburb suitability is confirmed as part of your assessment.</p>
+        <p class="faq-answer">We service homes across metropolitan Melbourne — your local expert will confirm coverage for your suburb when they call.</p>
       </details>
       <details class="faq-item">
-        <summary>Is someone able to visit outside business hours?
+        <summary>Can someone call or visit outside business hours?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Yes — we regularly schedule late-afternoon visits, since that's when most families are home from school and work. Weekend appointments may also be available; just mention it on the phone call.</p>
+        <p class="faq-answer">We regularly arrange late-afternoon calls and visits, since that's when most families are home from school and work. Just mention it when we speak.</p>
       </details>
 
-      <!-- Tier 3 — Expectations / results -->
+      <!-- Tier 3 — Results and expectations -->
       <details class="faq-item">
         <summary>How long does installation take?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">We can usually have your system installed within a week of your assessment. On the day, installation typically takes up to three hours, carried out by one of our licensed Melbourne plumbers.</p>
+        <p class="faq-answer">Installation is usually completed within a week, and takes under two hours on the day — carried out by one of our licensed Melbourne plumbers.</p>
       </details>
       <details class="faq-item">
         <summary>Will installation damage my garden?
@@ -329,10 +236,10 @@
         <p class="faq-answer">Our specialists plan the installation around your property and take care to minimise disruption to existing landscaping.</p>
       </details>
       <details class="faq-item">
-        <summary>Can I ask questions during the visit?
+        <summary>Can I ask questions along the way?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Of course. The home assessment is designed to be a conversation — ask as many questions as you'd like.</p>
+        <p class="faq-answer">Of course. Every conversation with our team is designed to be exactly that — a conversation. Ask as many questions as you'd like.</p>
       </details>
       <details class="faq-item">
         <summary>How often are filters replaced?
@@ -347,36 +254,36 @@
         <p class="faq-answer">Whole home filtration is designed to address chlorine, along with sediment, heavy metals and other common water quality concerns.</p>
       </details>
       <details class="faq-item">
-        <summary>Do I have to decide on the day?
+        <summary>Do I have to decide on the spot?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">No. There's no obligation to decide anything during the home assessment. You're welcome to take the time you need.</p>
+        <p class="faq-answer">No. There's no obligation to decide anything on the spot — take whatever time you need.</p>
       </details>
 
       <!-- Tier 4 — Objections -->
       <details class="faq-item">
-        <summary>I've already had a quote from another company — is this different?
+        <summary>I've already had a quote from another company — what's different?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Often, yes. If you've already had your water tested elsewhere, we may not need to re-test it — but we'll still look at your plumbing setup in person. It's also a good chance to compare quotes directly and ask why a Neptune system might be the better fit for your home.</p>
+        <p class="faq-answer">That's a great question to bring up on the call — our team can walk you through how Neptune compares and why homeowners choose us.</p>
       </details>
       <details class="faq-item">
         <summary>Can't I just use a filter jug or shower filter instead?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Jugs and shower filters only cover one outlet each and need frequent replacement. The home assessment shows you what's happening across the whole property before you decide what's worth addressing.</p>
+        <p class="faq-answer">Jugs and shower filters only cover one outlet each and need frequent replacement. Whole home filtration covers every tap in the house — your local expert can explain the difference when you speak.</p>
       </details>
       <details class="faq-item">
-        <summary>I rent — can I still complete the assessment?
+        <summary>I rent — can I still get in touch?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Our whole home systems are designed for homeowners, since installation is fitted to the property's own plumbing. If you own your home, you're welcome to complete the assessment.</p>
+        <p class="faq-answer">Our whole home systems are designed for homeowners, since installation is fitted to the property's own plumbing. If you own your home, we'd love to help.</p>
       </details>
       <details class="faq-item">
-        <summary>What if the assessment shows my home isn't suitable?
+        <summary>What if my home isn't suitable?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Then you'll know that too. Not every home needs the same system, and there's no obligation either way.</p>
+        <p class="faq-answer">Then you'll know that too, with no obligation either way — not every home needs the same system.</p>
       </details>
 
     </div>
@@ -396,48 +303,52 @@
     <div class="gallery-scroll">
       <div class="gallery-photo"><img src="/assets/install-photos/kingspark.webp" alt="Neptune whole home filtration system installed against a timber paling fence, Kings Park" loading="lazy"></div>
       <div class="gallery-photo"><img src="/assets/install-photos/neptune-install-2.webp" alt="Neptune whole home filtration system with exposed copper pipework, installed beside a garden bed" loading="lazy"></div>
-      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 03<br>Rendered home</span></div></div>
-      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 04<br>Modern landscaping</span></div></div>
     </div>
 
     <div class="gallery-grid">
       <div class="gallery-photo"><img src="/assets/install-photos/kingspark.webp" alt="Neptune whole home filtration system installed against a timber paling fence, Kings Park" loading="lazy"></div>
       <div class="gallery-photo"><img src="/assets/install-photos/neptune-install-2.webp" alt="Neptune whole home filtration system with exposed copper pipework, installed beside a garden bed" loading="lazy"></div>
-      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 03<br>Rendered home</span></div></div>
-      <div class="placeholder placeholder-gallery"><div class="placeholder-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg><span class="placeholder-label">INSTALLATION 04<br>Modern landscaping</span></div></div>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     WHY NEPTUNE
+     BETTER WATER THROUGHOUT YOUR HOME
 ══════════════════════════════════════════════════════ -->
-<section class="section" id="why-neptune">
+<section class="section" id="benefits">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Why Neptune</span>
-      <h2>Designed For Your Home. Installed Properly.</h2>
+      <span class="eyebrow">What Changes</span>
+      <h2>Imagine The Difference Throughout Your Home</h2>
     </div>
-    <div class="credential-grid">
-      <div class="credential-card">
-        <div class="cred-icon">🏠</div>
-        <h3>Whole-home specialists</h3>
-        <p>We specialise in complete whole-home filtration — set up properly, without unnecessary extras or add-ons.</p>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+        </div>
+        <h3>Skin &amp; Hair</h3>
+        <p>Softer skin and hair, with less dryness after every shower.</p>
       </div>
-      <div class="credential-card">
-        <div class="cred-icon">💬</div>
-        <h3>Clear, honest recommendations</h3>
-        <p>Clear recommendations based on what your home needs — not inflated systems, not unnecessary upgrades.</p>
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c0 0-6 7.5-6 12a6 6 0 0 0 12 0c0-4.5-6-12-6-12z"/></svg>
+        </div>
+        <h3>Drinking Water</h3>
+        <p>No chlorine taste or smell — drink straight from any tap.</p>
       </div>
-      <div class="credential-card">
-        <div class="cred-icon">📍</div>
-        <h3>Designed for Melbourne homes</h3>
-        <p>Selected with Melbourne's water profile, chlorine treatment, and infrastructure in mind — not generic, one-size-fits-all systems.</p>
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9a7 7 0 0 1 14 0"/><path d="M3 9h18"/><path d="M8 13v2M12 13v3M16 13v2"/></svg>
+        </div>
+        <h3>Showers &amp; Bathrooms</h3>
+        <p>Less scale and no pool smell — your bathroom stays cleaner.</p>
       </div>
-      <div class="credential-card">
-        <div class="cred-icon">✓</div>
-        <h3>Done properly the first time</h3>
-        <p>Set up to suit your home's layout, pressure, and usage — so everything works the way it should from day one.</p>
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="13" r="4.5"/><path d="M8 5.5h.01M11 5.5h.01"/></svg>
+        </div>
+        <h3>Appliances</h3>
+        <p>Less mineral buildup, extending the life of your appliances.</p>
       </div>
     </div>
   </div>
@@ -493,8 +404,8 @@
 <section class="section section-off final-cta">
   <div class="container">
     <h2>Ready To Get Started?</h2>
-    <p>Request your Home Assessment in under a minute to find out if a Neptune Whole Home Water Filtration System is right for your home.</p>
-    <a href="#assessment" class="btn btn-primary" id="final-cta-btn">Request Your Home Assessment</a>
+    <p>Answer a few quick questions to speak with your local whole home filtration experts.</p>
+    <a href="#assessment" class="btn btn-primary" id="final-cta-btn">Speak With An Expert</a>
   </div>
 </section>
 
@@ -617,7 +528,7 @@
     } catch (err) { /* lead still forwarded server-side on retry */ }
 
     sessionStorage.setItem('neptune_assessment_submitted', '1');
-    window.location.href = '/assessment/thank-you/' + window.location.search;
+    window.location.href = '/experts/thank-you/' + window.location.search;
   });
 })();
 </script>

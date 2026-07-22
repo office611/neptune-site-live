@@ -7,5 +7,11 @@
 /replacement-filters /replacement-filters/ 301
 /get-my-price /get-my-price/ 301
 /free-water-test /free-water-test/ 301
-/assessment /assessment/ 301
-/assessment/thank-you /assessment/thank-you/ 301
+/experts /experts/ 301
+/experts/thank-you /experts/thank-you/ 301
+
+# Old /assessment URL — preserve any existing links, bookmarks or live ad traffic
+/assessment/thank-you /experts/thank-you/ 301
+/assessment/thank-you/ /experts/thank-you/ 301
+/assessment /experts/ 301
+/assessment/ /experts/ 301
