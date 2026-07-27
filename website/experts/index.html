@@ -384,6 +384,11 @@
     document.getElementById('assessment').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
+  function readCookie(name) {
+    var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : '';
+  }
+
   var utms = (function () {
     var p = new URLSearchParams(window.location.search);
     return {
@@ -392,9 +397,16 @@
       utm_campaign: p.get('utm_campaign') || '',
       utm_content: p.get('utm_content') || '',
       utm_term: p.get('utm_term') || '',
-      fbclid: p.get('fbclid') || ''
+      fbclid: p.get('fbclid') || '',
+      fbc: readCookie('_fbc'),
+      fbp: readCookie('_fbp')
     };
   })();
+
+  function makeEventId() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return 'eid-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+  }
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -409,6 +421,8 @@
     subBtn.disabled = true;
     subBtn.textContent = 'Submitting…';
 
+    var eventId = makeEventId();
+
     var payload = Object.assign({
       name: name,
       firstName: name,
@@ -418,8 +432,9 @@
       owns_property: form.owner.value,
       mains_water: form.mains.value,
       improvement_focus: form.improve.value,
-      source: 'home_assessment_lp',
-      lead_source: 'meta_home_assessment'
+      source: 'experts_lp',
+      lead_source: 'meta_experts_lp',
+      event_id: eventId
     }, utms);
 
     try {
@@ -431,7 +446,9 @@
     } catch (err) { /* lead still forwarded server-side on retry */ }
 
     sessionStorage.setItem('neptune_assessment_submitted', '1');
-    window.location.href = '/experts/thank-you/' + window.location.search;
+    var qs = window.location.search;
+    var sep = qs ? '&' : '?';
+    window.location.href = '/experts/thank-you/' + qs + sep + 'eid=' + encodeURIComponent(eventId);
   });
 })();
 </script>

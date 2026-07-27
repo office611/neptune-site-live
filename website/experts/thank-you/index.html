@@ -62,7 +62,12 @@
 </section>
 
 <script>
-  if (window.fbq) { fbq('track', 'Lead'); }
+  (function () {
+    var eid = new URLSearchParams(window.location.search).get('eid');
+    if (!window.fbq) return;
+    if (eid) { fbq('track', 'Lead', {}, { eventID: eid }); }
+    else { fbq('track', 'Lead'); }
+  })();
 </script>
 
 </body>
