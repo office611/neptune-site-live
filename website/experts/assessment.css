@@ -254,12 +254,12 @@ p { color: var(--text-2); }
 /* ============================================================
    ASSESSMENT FORM
    ============================================================ */
-.assessment { padding-block: 0 var(--s-12); }
+.assessment { padding-block: 0 var(--s-12); background: var(--off-white); }
 .assessment-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-lg);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
   padding: var(--s-8) var(--s-5);
   max-width: 560px;
   margin: 0 auto;
