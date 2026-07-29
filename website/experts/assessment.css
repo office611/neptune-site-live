@@ -180,6 +180,7 @@ p { color: var(--text-2); }
   margin-bottom: var(--s-5);
 }
 .hero-video h1 { color: #fff; margin-bottom: var(--s-5); text-wrap: balance; }
+.hero-accent { color: var(--copper); }
 .hero-video .hero-sub {
   font-size: 1.05rem; color: rgba(255,255,255,.85); line-height: 1.75;
   max-width: 560px; margin: 0 auto;
