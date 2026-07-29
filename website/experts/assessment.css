@@ -397,6 +397,56 @@ p { color: var(--text-2); }
 .gallery-grid { display: none; }
 
 /* ============================================================
+   MELBOURNE INSTALLS — AUTO-SCROLLING MARQUEE
+   ============================================================ */
+.installs-marquee { padding-block: 0 var(--s-10); }
+.installs-marquee .section-head { margin-bottom: var(--s-8); }
+.marquee-viewport {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.marquee-track {
+  display: flex;
+  gap: var(--s-4);
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+.installs-marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-photo {
+  flex: 0 0 auto;
+  width: 180px;
+  aspect-ratio: 3/4;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.marquee-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   VIDEO SHOWCASE
+   ============================================================ */
+.video-showcase { text-align: center; }
+.video-frame {
+  max-width: 380px; margin: 0 auto;
+  aspect-ratio: 9/16;
+  border-radius: var(--r-lg); overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--navy);
+}
+.video-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.video-caption {
+  max-width: var(--w-text); margin: var(--s-5) auto 0;
+  font-size: .9rem; color: var(--text-3);
+}
+
+/* ============================================================
    CUSTOMER STORIES (empty placeholders)
    ============================================================ */
 .story-grid { display: grid; grid-template-columns: 1fr; gap: var(--s-5); }
@@ -565,6 +615,8 @@ p { color: var(--text-2); }
   .gallery-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-5);
   }
+
+  .marquee-photo { width: 230px; }
 
   .timeline { max-width: 760px; }
   .timeline-step { align-items: flex-start; }
