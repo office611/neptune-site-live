@@ -31,18 +31,19 @@
 <!-- ══════════════════════════════════════════════════════
      HERO
 ══════════════════════════════════════════════════════ -->
-<section class="hero" style="padding-top: var(--s-10);">
+<section class="hero-video">
+  <div class="hero-bg">
+    <video class="hero-bg-video" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="/assets/install-photos/install-3.jpg">
+      <source src="/assets/videos/hero-install.mp4" type="video/mp4">
+    </video>
+    <div class="hero-bg-overlay"></div>
+  </div>
   <div class="container">
-    <div class="hero-grid">
-      <div class="hero-copy fade-in-up">
-        <h1>Give Your Family Clean, Filtered Water At Every Tap</h1>
-        <p class="hero-sub">Harmful contaminants have been found in Melbourne's water supply — a <strong>Neptune whole-home water filtration system</strong> removes them, so every tap, shower and appliance in your home runs clean.</p>
-      </div>
-      <div class="hero-media fade-in-up">
-        <div class="hero-photo">
-          <img src="/assets/install-photos/install-2.jpg" alt="Neptune whole home filtration system installed beside a Melbourne home, with copper pipework and landscaped garden" loading="eager">
-        </div>
-      </div>
+    <div class="hero-copy fade-in-up">
+      <span class="hero-badge">Melbourne's Water Specialists</span>
+      <h1>Give Your Family Clean, Filtered Water At Every Tap</h1>
+      <p class="hero-sub">Harmful contaminants have been found in Melbourne's water supply — a <strong>Neptune whole-home water filtration system</strong> removes them, so every tap, shower and appliance in your home runs clean.</p>
+      <a href="#assessment" class="btn btn-primary hero-cta scroll-to-assessment">Get My Free Water Test &rarr;</a>
     </div>
   </div>
 </section>
@@ -280,7 +281,7 @@
     <div class="video-frame">
       <video src="/assets/videos/melbourne-install.mov" controls preload="metadata" playsinline muted loop></video>
     </div>
-    <p class="video-caption">Filmed on site at a Melbourne home, post installation.</p>
+    <p class="video-caption">Filmed on site in Narre Warren South, post installation.</p>
   </div>
 </section>
 
@@ -334,7 +335,7 @@
   <div class="container">
     <h2>Ready To Get Started?</h2>
     <p>Answer a few quick questions to speak with your local whole home filtration experts.</p>
-    <a href="#assessment" class="btn btn-primary" id="final-cta-btn">Speak With An Expert</a>
+    <a href="#assessment" class="btn btn-primary scroll-to-assessment">Speak With An Expert</a>
   </div>
 </section>
 
@@ -404,9 +405,11 @@
     });
   });
 
-  document.getElementById('final-cta-btn').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.getElementById('assessment').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.querySelectorAll('.scroll-to-assessment').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('assessment').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   });
 
   function readCookie(name) {
