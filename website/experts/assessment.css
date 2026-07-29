@@ -444,7 +444,7 @@ p { color: var(--text-2); }
 /* ============================================================
    MELBOURNE INSTALLS — AUTO-SCROLLING MARQUEE
    ============================================================ */
-.installs-marquee { padding-block: 0 var(--s-10); }
+.installs-marquee { padding-block: var(--s-10); }
 .installs-marquee .section-head { margin-bottom: var(--s-8); }
 .marquee-viewport {
   overflow: hidden;
