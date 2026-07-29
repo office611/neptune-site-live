@@ -148,9 +148,10 @@ p { color: var(--text-2); }
 .hero-video { position: relative; overflow: hidden; }
 .hero-inner {
   position: relative;
+  min-height: 620px;
   display: flex;
   align-items: center;
-  padding-block: var(--s-12) var(--s-10);
+  padding-block: var(--s-16) var(--s-12);
 }
 .hero-bg { position: absolute; inset: 0; z-index: 0; background: var(--navy); }
 .hero-bg-video {
