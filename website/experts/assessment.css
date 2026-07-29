@@ -194,9 +194,19 @@ p { color: var(--text-2); }
     min-height: 560px;
     padding-block: 0;
   }
-  .hero-bg { position: relative; inset: auto; }
+  .hero-bg {
+    position: relative; inset: auto;
+    order: 2;
+    align-self: center;
+    aspect-ratio: 4/3;
+    margin: var(--s-10);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
   .hero-bg-overlay { display: none; }
   .hero-copy {
+    order: 1;
     text-align: left;
     max-width: 480px; margin: 0;
     padding: var(--s-12) var(--s-10);
