@@ -198,17 +198,18 @@ p { color: var(--text-2); }
     position: relative; inset: auto;
     order: 2;
     align-self: center;
-    aspect-ratio: 4/3;
+    aspect-ratio: 3/4;
     margin: var(--s-10);
     border-radius: var(--r-lg);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
   }
+  .hero-bg-video { object-position: center; }
   .hero-bg-overlay { display: none; }
   .hero-copy {
     order: 1;
     text-align: left;
-    max-width: 480px; margin: 0;
+    max-width: 480px; margin: 0 auto;
     padding: var(--s-12) var(--s-10);
     display: flex; flex-direction: column; justify-content: center;
   }
