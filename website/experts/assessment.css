@@ -143,11 +143,11 @@ p { color: var(--text-2); }
 .site-header .header-phone svg { color: var(--blue); flex-shrink: 0; }
 
 /* ============================================================
-   HERO — FULL-BLEED BACKGROUND VIDEO
+   HERO — MOBILE: BACKGROUND VIDEO / DESKTOP: SPLIT
    ============================================================ */
-.hero-video {
+.hero-video { position: relative; overflow: hidden; }
+.hero-inner {
   position: relative;
-  overflow: hidden;
   min-height: 620px;
   display: flex;
   align-items: center;
@@ -163,10 +163,11 @@ p { color: var(--text-2); }
   position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(11,30,61,.55) 0%, rgba(11,30,61,.68) 55%, rgba(11,30,61,.82) 100%);
 }
-.hero-video .container { position: relative; z-index: 1; }
-.hero-video .hero-copy {
+.hero-copy {
+  position: relative; z-index: 1;
   text-align: center;
   max-width: 600px; margin: 0 auto;
+  padding-inline: var(--s-5);
 }
 .hero-badge {
   display: inline-block;
@@ -181,13 +182,31 @@ p { color: var(--text-2); }
 .hero-video h1 { color: #fff; margin-bottom: var(--s-5); text-wrap: balance; }
 .hero-video .hero-sub {
   font-size: 1.05rem; color: rgba(255,255,255,.85); line-height: 1.75;
-  max-width: 560px; margin: 0 auto var(--s-8);
+  max-width: 560px; margin: 0 auto;
 }
-.hero-cta { width: 100%; }
 
 @media (min-width: 768px) {
-  .hero-video { min-height: 720px; }
-  .hero-cta { width: auto; }
+  .hero-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    min-height: 640px;
+    padding-block: 0;
+  }
+  .hero-bg { position: static; inset: auto; }
+  .hero-bg-overlay { display: none; }
+  .hero-copy {
+    text-align: left;
+    max-width: 480px; margin: 0;
+    padding: var(--s-12) var(--s-10);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero-badge {
+    color: var(--blue);
+    background: var(--blue-pale);
+    border-color: transparent;
+  }
+  .hero-video h1 { color: var(--navy); }
+  .hero-video .hero-sub { color: var(--text-2); margin: 0; }
 }
 
 /* ============================================================
