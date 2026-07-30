@@ -189,19 +189,21 @@ p { color: var(--text-2); }
 
 @media (min-width: 768px) {
   .hero-inner {
-    display: grid; grid-template-columns: 1fr 1fr;
+    display: grid; grid-template-columns: 1fr auto;
     align-items: stretch;
+    gap: var(--s-10);
     min-height: 500px;
-    padding-block: 0;
+    max-width: var(--w-max);
+    margin-inline: auto;
+    padding: var(--s-12) var(--s-8);
   }
   .hero-bg {
     position: relative; inset: auto;
     order: 2;
     align-self: stretch;
-    justify-self: start;
     width: auto;
     aspect-ratio: 3/4;
-    margin: var(--s-10) var(--s-10) var(--s-10) 0;
+    margin: 0;
     border-radius: var(--r-lg);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
@@ -211,8 +213,8 @@ p { color: var(--text-2); }
   .hero-copy {
     order: 1;
     text-align: left;
-    max-width: 480px; margin: 0 0 0 auto;
-    padding: var(--s-12) var(--s-8) var(--s-12) var(--s-10);
+    max-width: 480px; margin: 0;
+    padding: 0;
     display: flex; flex-direction: column; justify-content: center;
   }
   .hero-badge {
