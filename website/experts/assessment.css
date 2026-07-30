@@ -198,10 +198,10 @@ p { color: var(--text-2); }
     position: relative; inset: auto;
     order: 2;
     align-self: stretch;
-    justify-self: center;
+    justify-self: start;
     width: auto;
     aspect-ratio: 3/4;
-    margin: var(--s-10);
+    margin: var(--s-10) var(--s-10) var(--s-10) 0;
     border-radius: var(--r-lg);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
@@ -211,8 +211,8 @@ p { color: var(--text-2); }
   .hero-copy {
     order: 1;
     text-align: left;
-    max-width: 480px; margin: 0 auto;
-    padding: var(--s-12) var(--s-10);
+    max-width: 480px; margin: 0 0 0 auto;
+    padding: var(--s-12) var(--s-8) var(--s-12) var(--s-10);
     display: flex; flex-direction: column; justify-content: center;
   }
   .hero-badge {
