@@ -7,18 +7,6 @@
 /experts /experts/ 301
 /experts/thank-you /experts/thank-you/ 301
 
-# Retired pages — preserve any existing links, bookmarks or live ad traffic
-/1 / 301
-/1/ / 301
-/2 / 301
-/2/ / 301
-/get-my-price / 301
-/get-my-price/ / 301
-/free-water-test / 301
-/free-water-test/ / 301
-/preappointment / 301
-/preappointment/ / 301
-
 # Old /assessment URL — preserve any existing links, bookmarks or live ad traffic
 /assessment/thank-you /experts/thank-you/ 301
 /assessment/thank-you/ /experts/thank-you/ 301

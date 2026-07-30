@@ -13,11 +13,6 @@
   status = 301
 
 [[redirects]]
-  from = "/preappointment"
-  to = "/preappointment/"
-  status = 301
-
-[[redirects]]
   from = "/replacement-filters"
   to = "/replacement-filters/"
   status = 301
