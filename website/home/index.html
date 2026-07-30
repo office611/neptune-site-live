@@ -8,919 +8,483 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
 <link rel="manifest" href="/assets/favicon/site.webmanifest">
-<meta name="theme-color" content="#0A1F3F">
-<title>Neptune Filtration — Whole Home Water Filtration for Melbourne</title>
+<meta name="theme-color" content="#0B1E3D">
+<title>Give Your Family Clean, Filtered Water At Every Tap | Neptune</title>
+<meta name="description" content="Harmful contaminants have been found in Melbourne's water supply. Speak with your local whole home filtration experts to find out more.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0A1F3C;
-    --navy-mid: #1A4A8A;
-    --blue: #3D8BCD;
-    --ice: #E8F4FD;
-    --off-white: #F7F7F5;
-    --text: #1A1A1A;
-    --amber: #F5A623;
-    --white: #FFFFFF;
-    --green: #22C55E;
-    --border: rgba(10,31,60,0.1);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text);
-    background: var(--off-white);
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* NAV — sticky, with phone and CTA */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--navy);
-    height: 68px;
-    display: flex;
-    align-items: center;
-  }
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 0 clamp(1.5rem, 5vw, 4rem);
-    gap: 1.5rem;
-  }
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-  }
-  .nav-logo img {
-    height: 52px;
-    width: auto;
-    display: block;
-  }
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    flex: 1;
-    justify-content: center;
-  }
-  .nav-links a {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  .nav-links a:hover { color: rgba(255,255,255,0.9); }
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    flex-shrink: 0;
-  }
-  .nav-phone {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: rgba(255,255,255,0.65);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  .nav-phone:hover { color: var(--white); }
-  .nav-cta {
-    background: var(--blue);
-    color: var(--white);
-    border: none;
-    cursor: pointer;
-    padding: 0.55rem 1.25rem;
-    border-radius: 6px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s;
-    white-space: nowrap;
-  }
-  .nav-cta:hover { background: var(--navy-mid); }
-
-  /* HERO */
-  .hero {
-    background: var(--navy);
-    padding-top: 0;
-    padding-bottom: 2rem;
-    min-height: auto;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(61,139,205,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    width: 100%;
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
-  }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-size: 0.78rem; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 1.25rem;
-  }
-  .hero-eyebrow::before {
-    content: ''; display: block;
-    width: 24px; height: 2px;
-    background: var(--blue);
-  }
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
-    line-height: 1.1;
-    color: var(--white);
-    letter-spacing: -0.02em;
-    margin-bottom: 1.25rem;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: #7ABDE8;
-  }
-  .hero-sub {
-    font-size: clamp(1rem, 2vw, 1.1rem);
-    color: rgba(255,255,255,0.65);
-    line-height: 1.65;
-    max-width: 420px;
-    margin-bottom: 2rem;
-  }
-  .hero-cta-group { display: flex; flex-direction: column; gap: 0.85rem; }
-  .btn-primary {
-    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-    background: var(--blue);
-    color: var(--white);
-    border: none; cursor: pointer;
-    padding: 1.1rem 2.2rem;
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem; font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-    max-width: 340px;
-    white-space: nowrap;
-    box-shadow: 0 4px 20px rgba(61,139,205,0.35);
-  }
-  .btn-primary:hover {
-    background: #4E9DD8;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 28px rgba(61,139,205,0.45);
-  }
-  .btn-primary svg { flex-shrink: 0; }
-  .hero-trust {
-    display: flex; align-items: center; gap: 0.6rem;
-    font-size: 0.82rem; color: rgba(255,255,255,0.45);
-  }
-  .hero-trust-dot {
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--blue);
-  }
-  .hero-visual {
-    display: flex; justify-content: center; align-items: center;
-    position: relative;
-  }
-  .hero-img-wrap {
-    position: relative;
-    width: 100%; max-width: 520px;
-    border-radius: 20px;
-    overflow: hidden;
-    aspect-ratio: 4/5;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.4);
-  }
-  .hero-img-wrap img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-  .hero-img-wrap::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent 40%,
-      rgba(10,31,60,0.55) 100%
-    );
-    pointer-events: none;
-  }
-
-  /* SECTION BASE */
-  section { padding: 3rem clamp(1.25rem, 4vw, 3rem); }
-  .container { max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    font-size: 0.75rem; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 0.75rem;
-  }
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    color: var(--navy);
-    margin-bottom: 1rem;
-  }
-  .section-title-white { color: var(--white); }
-  .section-body {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: rgba(26,26,26,0.65);
-    max-width: 560px;
-  }
-
-  /* PROBLEM */
-  .problem { background: var(--off-white); }
-  .problem-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-  .problem-pills {
-    display: flex; flex-wrap: wrap; gap: 0.6rem;
-    margin-top: 2rem;
-  }
-  .pill {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    border: 1px solid rgba(10,31,60,0.12);
-    border-radius: 100px;
-    padding: 0.45rem 0.9rem;
-    font-size: 0.82rem; font-weight: 500;
-    color: var(--navy);
-    background: var(--white);
-  }
-  .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
-  .problem-stat-box {
-    background: var(--navy);
-    border-radius: 20px;
-    padding: 2.5rem;
-    display: flex; flex-direction: column; gap: 1.5rem;
-  }
-  .pstat {
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    padding-bottom: 1.5rem;
-  }
-  .pstat:last-child { border-bottom: none; padding-bottom: 0; }
-  .pstat-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.8rem; color: var(--blue);
-    line-height: 1;
-  }
-  .pstat-desc { font-size: 0.88rem; color: rgba(255,255,255,0.5); margin-top: 0.4rem; }
-
-  /* SOLUTION */
-  .solution { background: var(--white); }
-  .solution-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-  .micron-diagram {
-    background: var(--ice);
-    border-radius: 20px;
-    padding: 2.5rem;
-    display: flex; flex-direction: column; gap: 1rem;
-  }
-  .micron-label {
-    font-size: 0.75rem; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--blue); margin-bottom: 0.5rem;
-  }
-  .micron-row { display: flex; align-items: center; gap: 1rem; }
-  .micron-bar-wrap {
-    flex: 1;
-    background: rgba(61,139,205,0.12);
-    border-radius: 100px;
-    height: 10px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
-  .micron-bar {
-    height: 100%;
-    border-radius: 100px;
-    background: var(--navy-mid);
-    margin-left: 0;
-  }
-  .micron-tag {
-    font-size: 0.78rem; font-weight: 600; color: var(--navy);
-    min-width: 80px; text-align: right; flex-shrink: 0;
-  }
-  .micron-name {
-    font-size: 0.82rem;
-    color: rgba(26,26,26,0.6);
-    width: 110px;
-    flex-shrink: 0;
-  }
-  .check-list { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 2rem; }
-  .check-item {
-    display: flex; align-items: flex-start; gap: 0.75rem;
-    font-size: 0.95rem; color: var(--text); line-height: 1.5;
-  }
-  .check-icon {
-    width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px;
-    background: var(--ice);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .check-icon svg { width: 11px; height: 11px; }
-
-  /* BENEFITS */
-  .benefits { background: var(--off-white); }
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-    margin-top: 2.5rem;
-  }
-  .benefit-card {
-    background: var(--white);
-    border-radius: 16px;
-    padding: 1.75rem 1.5rem;
-    box-shadow: 0 2px 16px rgba(10,31,60,0.06);
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-align: center;
-  }
-  .benefit-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(10,31,60,0.1); }
-  .benefit-icon {
-    width: 44px; height: 44px;
-    background: var(--ice);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1rem;
-  }
-  .benefit-icon svg { color: var(--navy-mid); }
-  .benefit-title {
-    font-weight: 600; font-size: 0.95rem;
-    color: var(--navy);
-    margin-bottom: 0.4rem;
-  }
-  .benefit-desc { font-size: 0.83rem; color: rgba(26,26,26,0.55); line-height: 1.55; }
-
-  /* CREDENTIALS */
-  .credentials { background: var(--white); }
-  .cred-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-    margin-top: 2.5rem;
-  }
-  .cred-card {
-    background: var(--off-white);
-    border-radius: 16px;
-    padding: 1.75rem 1.5rem;
-    border: 1px solid rgba(10,31,60,0.08);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.75rem;
-  }
-  .cred-icon {
-    width: 44px; height: 44px;
-    background: var(--ice);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--navy-mid);
-    flex-shrink: 0;
-    font-size: 1.25rem;
-  }
-  .cred-title {
-    font-weight: 600; font-size: 0.95rem;
-    color: var(--navy);
-  }
-  .cred-desc { font-size: 0.82rem; color: rgba(26,26,26,0.55); line-height: 1.55; }
-  .section-footnote { margin-top: 2.5rem; font-size: 0.875rem; color: rgba(26,26,26,0.5); text-align: center; line-height: 1.6; }
-
-  /* Centre section headers above card grids */
-  .benefits .section-label,
-  .benefits .section-title,
-  .credentials .section-label,
-  .credentials .section-title {
-    text-align: center;
-  }
-  .credentials .section-body {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* CTA FORM */
-  .cta-section {
-    background: #F2F3F5;
-    text-align: center;
-    padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-  .cta-section .section-label {
-    text-align: center;
-    color: var(--navy);
-    opacity: 0.5;
-    letter-spacing: 0.12em;
-  }
-  .cta-section .section-title { color: var(--navy); margin: 0 auto 0.5rem; max-width: 540px; }
-  .cta-intro {
-    font-size: 1rem; color: rgba(26,26,26,0.55);
-    margin: 0 auto 1.5rem; max-width: 440px; line-height: 1.65;
-  }
-  .form-card {
-    background: var(--white);
-    border-radius: 20px;
-    padding: clamp(1.75rem, 4vw, 2.25rem);
-    max-width: 520px;
-    margin: 0 auto;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.25);
-    text-align: left;
-    transition: box-shadow 0.4s ease;
-  }
-  .form-card.highlight {
-    box-shadow: 0 0 0 3px var(--blue), 0 24px 80px rgba(61,139,205,0.25);
-  }
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.85rem;
-  }
-  .form-group {
-    display: flex; flex-direction: column; gap: 0.4rem;
-    margin-bottom: 0.85rem;
-  }
-  .form-group:last-of-type { margin-bottom: 1.25rem; }
-  .form-label {
-    font-size: 0.78rem; font-weight: 600;
-    color: rgba(26,26,26,0.5);
-    letter-spacing: 0.04em; text-transform: uppercase;
-  }
-  .form-input {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: 1.5px solid rgba(10,31,60,0.12);
-    border-radius: 9px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem; color: var(--text);
-    background: var(--off-white);
-    transition: border-color 0.15s, background 0.15s;
-    outline: none;
-  }
-  .form-input::placeholder { color: rgba(26,26,26,0.3); }
-  .form-input:focus {
-    border-color: var(--blue);
-    background: var(--white);
-  }
-  .btn-form {
-    width: 100%;
-    background: var(--navy);
-    color: var(--white);
-    border: none; cursor: pointer;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem; font-weight: 600;
-    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-    transition: all 0.2s;
-    box-shadow: 0 4px 16px rgba(10,31,60,0.2);
-  }
-  .btn-form:hover { background: var(--navy-mid); transform: translateY(-1px); }
-  .form-trust {
-    display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;
-    margin-top: 1.5rem;
-  }
-  .form-trust-item {
-    display: flex; align-items: center; gap: 0.4rem;
-    font-size: 0.78rem; color: rgba(26,26,26,0.45);
-  }
-  .form-trust-item svg { color: var(--blue); }
-
-  /* FOOTER */
-  footer {
-    background: var(--navy);
-    padding: 26px clamp(1.25rem, 4vw, 3rem);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-    border-top: 1px solid rgba(255,255,255,0.07);
-  }
-  .footer-logo-link { display: flex; align-items: center; text-decoration: none; }
-  .footer-logo-link img { height: 44px; width: auto; }
-  .footer-links { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
-  .footer-links a {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  .footer-links a:hover { color: rgba(255,255,255,0.72); }
-  .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.22); }
-
-  /* RESPONSIVE */
-  @media (max-width: 960px) {
-    .cred-grid { grid-template-columns: 1fr 1fr; }
-    .benefits-grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .nav-cta { display: none; }
-  }
-  @media (max-width: 600px) {
-    section { padding: 2.25rem 1.25rem; }
-    .container { width: 100%; }
-    .section-label { text-align: center; }
-    .section-title { text-align: center; margin-left: auto; margin-right: auto; }
-    .section-body { text-align: center; margin-left: auto; margin-right: auto; }
-    nav { height: 60px; }
-    .nav-inner { justify-content: center; gap: 1.5rem; }
-    .nav-logo img { height: 40px; }
-    footer { flex-direction: column; align-items: center; text-align: center; gap: 0.875rem; padding: 24px 1.25rem; }
-    .footer-links { justify-content: center; gap: 1rem; }
-    .hero { padding-top: 0; padding-bottom: 2rem; }
-    .hero-grid { grid-template-columns: 1fr; gap: 1.6rem; text-align: center; padding: 0.2rem 1.5rem 0; }
-    .hero h1 { font-size: 3.4rem; line-height: 0.95; }
-    .hero-sub { margin: 0 auto 2rem; max-width: 100%; font-size: 1rem; }
-    .hero-eyebrow { justify-content: center; width: 100%; }
-    .hero-cta-group { align-items: center; }
-    .hero-trust { justify-content: center; flex-wrap: wrap; gap: 0.8rem; }
-    .btn-primary { width: 100%; max-width: 100%; }
-    .hero-img-wrap { max-width: 100%; aspect-ratio: 4/5; }
-    .problem-grid, .solution-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .problem-pills { justify-content: center; }
-    .problem-stat-box { padding: 2rem; }
-    .micron-diagram { padding: 2rem 1.5rem; }
-    .micron-row { gap: 0.7rem; }
-    .micron-name { width: 90px; font-size: 0.78rem; }
-    .micron-tag { min-width: 65px; font-size: 0.75rem; }
-    .benefits-grid { grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
-    .cred-grid { grid-template-columns: 1fr 1fr; gap: 0.875rem; align-items: stretch; }
-    .cred-card { padding: 1.25rem 1rem; min-height: 160px; }
-    .cta-section { padding: 2.5rem 1.25rem; }
-    .cta-intro { text-align: center; }
-    .form-card { padding: 1.5rem; border-radius: 20px; }
-    .form-row { grid-template-columns: 1fr; gap: 0; }
-    .form-group { margin-bottom: 1rem; }
-    .btn-form { padding: 1.1rem; font-size: 1rem; }
-    .form-trust { gap: 0.8rem 1rem; }
-    .form-trust-item { justify-content: center; }
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
-  .hero h1 { animation: fadeUp 0.6s 0.1s ease both; }
-  .hero-sub { animation: fadeUp 0.6s 0.2s ease both; }
-  .hero-cta-group { animation: fadeUp 0.6s 0.3s ease both; }
-  .hero-visual { animation: fadeUp 0.8s 0.4s ease both; }
-</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/experts/assessment.css">
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2043292147071202');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2043292147071202&ev=PageView&noscript=1"/></noscript>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xtyiud4n4o");
+</script>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="/assets/logos/Neptune_Logo_White.png" alt="NEPTUNE Whole Home Filtration">
-    </a>
-    <div class="nav-links">
-      <a href="#problem">Why Filter</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#credentials">Why Neptune</a>
+<!-- ══════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
+<section class="hero-video">
+  <div class="hero-inner">
+    <div class="hero-bg">
+      <video class="hero-bg-video" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="/assets/install-photos/install-3.jpg">
+        <source src="/assets/videos/hero-montage.mp4" type="video/mp4">
+      </video>
+      <div class="hero-bg-overlay"></div>
     </div>
-    <div class="nav-right">
-      <a href="tel:0391225243" class="nav-phone">03 9122 5243</a>
-      <a href="#book" class="nav-cta">Book Free Water Test</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-grid">
-    <div>
-      <div class="hero-eyebrow">Melbourne's Water Specialists</div>
-      <h1>Every tap.<br><em>Every shower.</em><br>Properly filtered.</h1>
-      <p class="hero-sub">Chlorine, sediment, and hard minerals affect every tap, shower, and appliance in your home. A Neptune whole-home system changes that — completely.</p>
-      <div class="hero-cta-group">
-        <a href="#book" class="btn-primary btn-lg">
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          Book Your Free Water Test
-        </a>
-        <div class="hero-trust">
-          <div class="hero-trust-dot"></div>
-          VIC Licensed &amp; Insured
-          <div class="hero-trust-dot"></div>
-          WaterMark Certified
-          <div class="hero-trust-dot"></div>
-          No obligation
-        </div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-img-wrap">
-        <img
-  src="/assets/install-photos/neptuneheroai.png"
-  alt="Neptune whole-home filtration system — installed with copper fittings"
-  loading="eager"
-/>
-      </div>
+    <div class="hero-copy fade-in-up">
+      <span class="hero-badge">Melbourne's Water Experts</span>
+      <h1>Give Your Family <span class="hero-accent">Clean, Filtered Water</span> At Every Tap</h1>
+      <p class="hero-sub">Harmful contaminants have been found in Melbourne's water supply — a <strong>Neptune whole-home water filtration system</strong> removes them, so every tap, shower and appliance in your home runs clean.</p>
     </div>
   </div>
 </section>
 
-<!-- PROBLEM -->
-<section class="problem" id="problem">
+<!-- ══════════════════════════════════════════════════════
+     HOME ASSESSMENT — MULTI-STEP QUESTIONNAIRE
+══════════════════════════════════════════════════════ -->
+<section class="assessment" id="assessment">
   <div class="container">
-    <div class="problem-grid">
-      <div>
-        <div class="section-label">What's in your water</div>
-        <h2 class="section-title">Melbourne's water meets standards.<br>It doesn't meet <em style="font-style:italic; color:var(--blue)">yours.</em></h2>
-        <p class="section-body">Treated water still carries chlorine, sediment, trace metals, and hard minerals — every day, through every tap. The shower is where most exposure happens, and most homes don't address it at all.</p>
-        <div class="problem-pills">
-          <span class="pill"><span class="pill-dot"></span> Chlorine &amp; by-products</span>
-          <span class="pill"><span class="pill-dot"></span> Sediment &amp; particles</span>
-          <span class="pill"><span class="pill-dot"></span> Hard minerals</span>
-          <span class="pill"><span class="pill-dot"></span> Trace metals</span>
-        </div>
+    <div class="assessment-card">
+
+      <div class="assessment-head">
+        <span class="next-step-heading"><u>Next Step</u>: Answer A Few Quick Questions To Speak With Your Local Whole Home Filtration Experts</span>
       </div>
-      <div class="problem-stat-box">
-        <div class="pstat">
-          <div class="pstat-num">6×</div>
-          <div class="pstat-desc">More chlorine absorbed through skin during a shower than from drinking a glass of tap water.</div>
+
+      <div id="form-wrap">
+        <div class="progress-track" id="progress-track">
+          <span></span><span></span><span></span><span></span>
         </div>
-        <div class="pstat">
-          <div class="pstat-num">10 min</div>
-          <div class="pstat-desc">Average shower. Enough time for significant chlorine and vapour exposure to occur.</div>
-        </div>
-        <div class="pstat">
-          <div class="pstat-num">100s</div>
-          <div class="pstat-desc">Times your family is in contact with tap water every single day — cumulative, not acute.</div>
-        </div>
+        <div class="progress-label" id="progress-label">Step 1 of 4</div>
+
+        <form id="assessment-form" novalidate>
+
+          <div class="step active" data-step="1">
+            <div class="step-question">Which Of These Sounds Familiar?</div>
+            <div class="choice-list">
+              <label class="choice-pill"><input type="radio" name="improve" value="family_home" required> Simply Want Better Water</label>
+              <label class="choice-pill"><input type="radio" name="improve" value="taste_smell"> Weird Taste Or Smell</label>
+              <label class="choice-pill"><input type="radio" name="improve" value="skin_hair"> Skin &amp; Hair Issues</label>
+              <label class="choice-pill"><input type="radio" name="improve" value="just_exploring"> Just Exploring</label>
+            </div>
+          </div>
+
+          <div class="step" data-step="2">
+            <div class="step-question">Do you own the property?</div>
+            <div class="choice-list">
+              <label class="choice-pill"><input type="radio" name="owner" value="yes" required> Yes</label>
+              <label class="choice-pill"><input type="radio" name="owner" value="no" data-disqualify="owner"> No</label>
+            </div>
+          </div>
+
+          <div class="step" data-step="3">
+            <div class="step-question">Is your home connected to Melbourne mains water?</div>
+            <div class="choice-list">
+              <label class="choice-pill"><input type="radio" name="mains" value="yes" required> Yes</label>
+              <label class="choice-pill"><input type="radio" name="mains" value="no" data-disqualify="mains"> No</label>
+              <label class="choice-pill"><input type="radio" name="mains" value="not_sure"> Not Sure</label>
+            </div>
+          </div>
+
+          <div class="step" data-step="4">
+            <div class="eyebrow eyebrow-copper">Last Step &middot; Contact Details</div>
+            <div class="form-field">
+              <label for="f-name">Name</label>
+              <input type="text" id="f-name" name="name" placeholder="Your full name" required autocomplete="name">
+            </div>
+            <div class="form-field">
+              <label for="f-phone">Mobile</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
+            </div>
+            <div class="form-field">
+              <label for="f-email">Email</label>
+              <input type="email" id="f-email" name="email" placeholder="you@email.com" required autocomplete="email">
+            </div>
+            <div class="form-field">
+              <label for="f-suburb">Suburb</label>
+              <input type="text" id="f-suburb" name="suburb" placeholder="e.g. Brighton, Glen Waverley" required autocomplete="address-level2">
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn-text" id="step-back" style="display:none;">&larr; Back</button>
+            <button type="button" class="btn btn-primary btn-full" id="step-continue">Next</button>
+            <button type="submit" class="btn btn-primary btn-full" id="step-submit" style="display:none;">Submit</button>
+          </div>
+        </form>
       </div>
+
+      <div class="state-panel" id="panel-disqualify-owner">
+        <div class="state-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12h6"/></svg>
+        </div>
+        <h3>Thank You For Your Interest</h3>
+        <p>Unfortunately our whole home filtration systems are designed for homeowners.</p>
+        <p>If your circumstances change in the future we'd love to help.</p>
+      </div>
+
+      <div class="state-panel" id="panel-disqualify-mains">
+        <div class="state-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12h6"/></svg>
+        </div>
+        <h3>Thank You For Your Enquiry</h3>
+        <p>Our current systems are designed for homes connected to Melbourne's mains water supply.</p>
+      </div>
+
+      <div class="state-panel" id="panel-submitting">
+        <div class="state-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <h3>Just A Moment</h3>
+        <p>We're reviewing your answers.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- SOLUTION -->
-<section class="solution" id="how-it-works">
+<!-- ══════════════════════════════════════════════════════
+     MELBOURNE INSTALLS — AUTO-SCROLLING PHOTO STRIP
+══════════════════════════════════════════════════════ -->
+<section class="installs-marquee" id="melbourne-installs">
   <div class="container">
-    <div class="solution-grid">
-      <div class="micron-diagram">
-        <div class="micron-label">Neptune 5–1–1 Micron System</div>
-        <div class="micron-row">
-          <div class="micron-name">Sediment</div>
-          <div class="micron-bar-wrap"><div class="micron-bar" style="width:100%"></div></div>
-          <div class="micron-tag">5 micron</div>
-        </div>
-        <div class="micron-row">
-          <div class="micron-name">Scale Carbon</div>
-          <div class="micron-bar-wrap"><div class="micron-bar" style="width:40%"></div></div>
-          <div class="micron-tag">1 micron</div>
-        </div>
-        <div class="micron-row">
-          <div class="micron-name">Coconut Carbon</div>
-          <div class="micron-bar-wrap"><div class="micron-bar" style="width:40%"></div></div>
-          <div class="micron-tag">1 micron</div>
-        </div>
-        <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(61,139,205,0.15);">
-          <div style="font-size:0.8rem; color:rgba(26,26,26,0.45);">Removes chlorine · sediment · hard minerals · trace metals</div>
-        </div>
-        <div style="margin-top:0.5rem;">
-          <span style="font-size:0.72rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--navy-mid);">WaterMark Certified · AS 3497</span>
-        </div>
-      </div>
-      <div>
-        <div class="section-label">The Neptune system</div>
-        <h2 class="section-title">Clean water. Every tap. Every shower.</h2>
-        <p class="section-body">One whole-home system at your mains — not a single filter under one sink. Every shower, tap, appliance, and bath runs clean.</p>
-        <div class="check-list">
-          <div class="check-item">
-            <div class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="var(--navy-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
-            Complete coverage — every tap, shower, and appliance
-          </div>
-          <div class="check-item">
-            <div class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="var(--navy-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
-            20" Neptune system with 5–1–1 micron filtration
-          </div>
-          <div class="check-item">
-            <div class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="var(--navy-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
-            7-year workmanship warranty, installed by licensed professionals
-          </div>
-          <div class="check-item">
-            <div class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="var(--navy-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
-            Designed specifically for Melbourne homes
-          </div>
-        </div>
-      </div>
+    <div class="section-head">
+      <span class="eyebrow">Recent Installs</span>
+      <h2>Built For Melbourne Homes</h2>
+    </div>
+  </div>
+  <div class="marquee-viewport">
+    <div class="marquee-track">
+      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-3.jpg" alt="Neptune whole home filtration system installed at a Melbourne home, Clyde North" loading="lazy"></div><span class="marquee-caption">Clyde North</span></div>
+      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-7.jpg" alt="Neptune whole home filtration system installed beside a timber fence and garden bed, Kings Park" loading="lazy"></div><span class="marquee-caption">Kings Park</span></div>
+      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-10.jpg" alt="Neptune whole home filtration system installed on a Melbourne front lawn, Williams Landing" loading="lazy"></div><span class="marquee-caption">Williams Landing</span></div>
+      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-13.jpg" alt="Neptune whole home filtration system installed at a two-storey Melbourne home, Werribee" loading="lazy"></div><span class="marquee-caption">Werribee</span></div>
+      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-14.jpg" alt="Neptune whole home filtration system installed on a red brick home, Noble Park" loading="lazy"></div><span class="marquee-caption">Noble Park</span></div>
+      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-11.jpg" alt="Neptune whole home filtration system installed against a brick wall, Narre Warren" loading="lazy"></div><span class="marquee-caption">Narre Warren</span></div>
+      <!-- duplicated for seamless loop -->
+      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-3.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Clyde North</span></div>
+      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-7.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Kings Park</span></div>
+      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-10.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Williams Landing</span></div>
+      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-13.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Werribee</span></div>
+      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-14.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Noble Park</span></div>
+      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-11.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Narre Warren</span></div>
     </div>
   </div>
 </section>
 
-<!-- BENEFITS -->
-<section class="benefits">
+<!-- ══════════════════════════════════════════════════════
+     BETTER WATER THROUGHOUT YOUR HOME
+══════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════════
+     FAQ
+     Ordered deliberately: initial questions first, then the
+     natural follow-ups, then what-to-expect, then objections.
+     Deliberately light on "how it works" mechanics — the
+     specifics of what happens are covered on the call with
+     your local expert, not spelled out on the page.
+══════════════════════════════════════════════════════ -->
+<section class="section" id="faq">
   <div class="container">
-    <div class="section-label">What changes</div>
-    <h2 class="section-title">Noticeably different. From day one.</h2>
-    <div class="benefits-grid">
+    <div class="section-head">
+      <span class="eyebrow">Still Not Sure?</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+
+      <!-- Tier 1 — Initial questions -->
+      <details class="faq-item" open>
+        <summary>What happens when I submit my details?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">A member of our team will be in touch to discuss what's possible for your home.</p>
+      </details>
+      <!-- Tier 2 — Installation -->
+      <details class="faq-item">
+        <summary>Where does the system connect to my home?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Typically at your water meter, though the exact location can vary depending on your property — we're happy to install wherever works best for you.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is there a drop in water pressure?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">No — the system is sized to maintain your home's normal water pressure at every tap.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Will installation damage my garden?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Our team takes care around your property during installation.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long does installation take?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Installation typically takes under two hours, carried out by licensed Melbourne plumbers.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you service all Melbourne suburbs?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">We service homes across metropolitan Melbourne.</p>
+      </details>
+
+      <!-- Tier 3 — Results and expectations -->      <details class="faq-item">
+        <summary>Can the system reduce chlorine?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Yes — whole home filtration is designed to address chlorine and other common water quality concerns.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is the system designed for Melbourne's water?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Yes — designed specifically for Melbourne's water profile and conditions, not a generic one-size-fits-all system.</p>
+      </details>
+
+      <!-- Tier 4 — Objections -->
+      <details class="faq-item">
+        <summary>I've already had a quote from another company — what's different?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Worth asking us how Neptune compares — happy to explain the difference.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can't I just use a filter jug or shower filter instead?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Jugs and shower filters only cover one outlet. Whole home filtration covers every tap in the house.</p>
+      </details>
+      <details class="faq-item">
+        <summary>I rent — can I still get in touch?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Our systems are designed for homeowners, since installation is fitted to the property's own plumbing.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     VIDEO SHOWCASE
+══════════════════════════════════════════════════════ -->
+<section class="section section-off video-showcase" id="install-video">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Real Neptune Install</span>
+      <h2>Clean Unit. Tidy Piping. Total Precision.</h2>
+    </div>
+    <div class="video-frame">
+      <video src="/assets/videos/melbourne-install.mp4" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto"></video>
+    </div>
+    <p class="video-caption">Filmed on site in Narre Warren South, post installation.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     BETTER WATER THROUGHOUT YOUR HOME
+══════════════════════════════════════════════════════ -->
+<section class="section" id="benefits">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What Changes</span>
+      <h2>Imagine The Difference Throughout Your Home</h2>
+    </div>
+    <div class="benefit-grid">
       <div class="benefit-card">
         <div class="benefit-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C12 2 5 9 5 15a7 7 0 0014 0c0-6-7-13-7-13z"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
         </div>
-        <div class="benefit-title">Drinking water</div>
-        <div class="benefit-desc">No chlorine taste or smell. Drink straight from the tap — any tap.</div>
+        <h3>Skin &amp; Hair</h3>
+        <p>Softer skin and hair, with less dryness after every shower.</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M4 20l16-16" opacity="0.3"/><path d="M9 4c0 6-5 8-5 12a8 8 0 0016 0c0-4-5-6-5-12"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c0 0-6 7.5-6 12a6 6 0 0 0 12 0c0-4.5-6-12-6-12z"/></svg>
         </div>
-        <div class="benefit-title">Skin &amp; hair</div>
-        <div class="benefit-desc">Softer skin, less dryness. Noticeably better for those with sensitive or reactive skin.</div>
+        <h3>Drinking Water</h3>
+        <p>No chlorine taste or smell — drink straight from any tap.</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9a7 7 0 0 1 14 0"/><path d="M3 9h18"/><path d="M8 13v2M12 13v3M16 13v2"/></svg>
         </div>
-        <div class="benefit-title">Shower &amp; glass</div>
-        <div class="benefit-desc">Less scale, no pool smell. Your bathroom stays cleaner, longer.</div>
+        <h3>Showers &amp; Bathrooms</h3>
+        <p>Less scale and no pool smell — your bathroom stays cleaner.</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="13" r="4.5"/><path d="M8 5.5h.01M11 5.5h.01"/></svg>
         </div>
-        <div class="benefit-title">Appliances</div>
-        <div class="benefit-desc">Reduced mineral buildup extends the life of dishwashers, kettles, and washing machines.</div>
+        <h3>Appliances</h3>
+        <p>Less mineral buildup, extending the life of your appliances.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CREDENTIALS -->
-<section class="credentials" id="credentials">
+
+<!-- ══════════════════════════════════════════════════════
+     FINAL CTA
+══════════════════════════════════════════════════════ -->
+<section class="section section-off final-cta">
   <div class="container">
-    <div class="section-label">Why Neptune</div>
-    <h2 class="section-title">Set up properly. For your home.</h2>
-    <p class="section-body">We specialise in complete whole-home filtration — nothing unnecessary, just what your home actually needs. We're not the cheapest option, and we're not priced at a premium — we sit in the middle, focusing on getting it done properly without overcomplicating or overcharging.</p>
-    <div class="cred-grid">
-      <div class="cred-card">
-        <div class="cred-icon">🏠</div>
-        <div class="cred-title">Whole-home specialists</div>
-        <div class="cred-desc">We specialise in complete whole-home filtration — set up properly, without unnecessary extras or add-ons.</div>
-      </div>
-      <div class="cred-card">
-        <div class="cred-icon">💬</div>
-        <div class="cred-title">Clear, honest recommendations</div>
-        <div class="cred-desc">Clear recommendations based on what your home needs — not inflated systems, not unnecessary upgrades.</div>
-      </div>
-      <div class="cred-card">
-        <div class="cred-icon">📍</div>
-        <div class="cred-title">Designed for Melbourne homes</div>
-        <div class="cred-desc">Selected with Melbourne's water profile, chlorine treatment, and infrastructure in mind — not generic, one-size-fits-all systems.</div>
-      </div>
-      <div class="cred-card">
-        <div class="cred-icon">✓</div>
-        <div class="cred-title">Done properly the first time</div>
-        <div class="cred-desc">Set up to suit your home's layout, pressure, and usage — so everything works the way it should from day one.</div>
-      </div>
-    </div>
-    <p class="section-footnote"><em>Most homeowners we meet aren't looking for the cheapest option — they just want it done properly without overpaying.</em></p>
+    <h2>Ready To Get Started?</h2>
+    <p>Answer a few quick questions to speak with your local whole home filtration experts.</p>
+    <a href="#assessment" class="btn btn-primary scroll-to-assessment">Speak With An Expert</a>
   </div>
 </section>
-
-<!-- CTA FORM -->
-<section class="cta-section" id="book">
-  <div class="container">
-    <div class="section-label">Free. No obligation.</div>
-    <h2 class="section-title">Book your free<br>water test today.</h2>
-    <p class="cta-intro">See exactly what's in your Melbourne water — live, at your home. Takes approximately 30 minutes.</p>
-
-    <div class="form-card" id="form-card">
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label" for="f-name">Name</label>
-          <input class="form-input" id="f-name" type="text" placeholder="Your full name" autocomplete="name">
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="f-phone">Phone</label>
-          <input class="form-input" id="f-phone" type="tel" placeholder="04xx xxx xxx" autocomplete="tel">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label" for="f-email">Email</label>
-          <input class="form-input" id="f-email" type="email" placeholder="your@email.com" autocomplete="email">
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="f-suburb">Suburb</label>
-          <input class="form-input" id="f-suburb" type="text" placeholder="e.g. Richmond" autocomplete="address-level2">
-        </div>
-      </div>
-      <button class="btn-form" id="submit-btn" type="button">
-        Book My Free Water Test
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </button>
-    </div>
-
-    <div id="form-success" style="display:none; text-align:center; padding:1.5rem; background:#EAF4FF; border-radius:14px; margin-top:1rem;">
-      <strong style="color:#0A1F3C; font-size:1.1rem;">You're booked.</strong>
-      <p style="margin-top:0.4rem; color:#1a1a1a;">We'll contact you shortly to confirm your water test.</p>
-    </div>
-
-    <div class="form-trust">
-      <span class="form-trust-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> No obligation</span>
-      <span class="form-trust-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> VIC Licensed &amp; Insured</span>
-      <span class="form-trust-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> WaterMark Certified</span>
-      <span class="form-trust-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 7-Year Warranty</span>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <a href="/" class="footer-logo-link">
-    <img src="/assets/logos/Neptune_Logo_White.png" alt="NEPTUNE Whole Home Filtration">
-  </a>
-  <div class="footer-links">
-    <a href="tel:0391225243">03 9122 5243</a>
-    <a href="mailto:office@neptunefiltration.com.au">office@neptunefiltration.com.au</a>
-    <a href="/replacement-filters/">Filter Replacement</a>
-  </div>
-  <div class="footer-copy">&copy; 2026 Neptune Filtration &nbsp;·&nbsp; WaterMark Certified &nbsp;·&nbsp; VIC Licensed &amp; Insured</div>
-</footer>
 
 <script>
-function scrollToBook(e) {
-  if (e) e.preventDefault();
-  const target = document.getElementById('book');
-  if (!target) return;
-  const navH = 68;
-  const targetTop = target.getBoundingClientRect().top + window.scrollY;
-  window.scrollTo({ top: targetTop - navH - 16, behavior: 'smooth' });
-  setTimeout(() => {
-    const card = document.getElementById('form-card');
-    if (card) {
-      card.classList.add('highlight');
-      setTimeout(() => card.classList.remove('highlight'), 1800);
-    }
-  }, 700);
-}
+(function () {
+  var form   = document.getElementById('assessment-form');
+  var steps  = Array.prototype.slice.call(form.querySelectorAll('.step'));
+  var dots   = Array.prototype.slice.call(document.getElementById('progress-track').children);
+  var label  = document.getElementById('progress-label');
+  var backBtn = document.getElementById('step-back');
+  var contBtn = document.getElementById('step-continue');
+  var subBtn  = document.getElementById('step-submit');
+  var formWrap = document.getElementById('form-wrap');
+  var current = 0;
 
-document.querySelectorAll('a[href="#book"]').forEach(a => {
-  a.addEventListener('click', scrollToBook);
-});
+  var panels = {
+    owner: document.getElementById('panel-disqualify-owner'),
+    mains: document.getElementById('panel-disqualify-mains'),
+    submitting: document.getElementById('panel-submitting')
+  };
 
-document.getElementById('submit-btn').addEventListener('click', async () => {
-  const name   = document.getElementById('f-name').value;
-  const phone  = document.getElementById('f-phone').value;
-  const email  = document.getElementById('f-email').value;
-  const suburb = document.getElementById('f-suburb').value;
-
-  if (!name || !phone) {
-    alert('Please enter your name and phone number.');
-    return;
+  function showStep(i) {
+    current = i;
+    steps.forEach(function (s, idx) { s.classList.toggle('active', idx === i); });
+    dots.forEach(function (d, idx) { d.classList.toggle('done', idx <= i); });
+    label.textContent = 'Step ' + (i + 1) + ' of ' + steps.length;
+    backBtn.style.display = i === 0 ? 'none' : 'inline-block';
+    var isLast  = i === steps.length - 1;
+    var isRadio = !!steps[i].querySelector('input[type="radio"]');
+    contBtn.style.display = (isLast || isRadio) ? 'none' : 'block';
+    subBtn.style.display  = isLast ? 'block' : 'none';
+    var firstInput = steps[i].querySelector('input[type="text"], input[type="tel"], input[type="email"]');
+    if (firstInput) firstInput.focus();
   }
 
-  try {
-    const res = await fetch('https://services.leadconnectorhq.com/hooks/SPQwdXLPrMES6TqvwFLr/webhook-trigger/84d752aa-a597-4faa-a48b-be2763def373', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, phone, email, suburb })
+  function showPanel(name) {
+    formWrap.style.display = 'none';
+    Object.keys(panels).forEach(function (k) { panels[k].classList.toggle('active', k === name); });
+  }
+
+  function currentIsValid() {
+    var radios = steps[current].querySelectorAll('input[type="radio"]');
+    if (radios.length) {
+      return Array.prototype.some.call(radios, function (r) { return r.checked; });
+    }
+    var inputs = steps[current].querySelectorAll('input');
+    var ok = true;
+    inputs.forEach(function (inp) { if (!inp.reportValidity()) ok = false; });
+    return ok;
+  }
+
+  function next() {
+    if (!currentIsValid()) return;
+    if (current < steps.length - 1) showStep(current + 1);
+  }
+
+  contBtn.addEventListener('click', next);
+  backBtn.addEventListener('click', function () { if (current > 0) showStep(current - 1); });
+
+  steps.forEach(function (step) {
+    var radios = step.querySelectorAll('input[type="radio"]');
+    radios.forEach(function (r) {
+      r.addEventListener('change', function () {
+        if (r.dataset.disqualify) { showPanel(r.dataset.disqualify); return; }
+        setTimeout(next, 260);
+      });
     });
+  });
 
-    if (res.ok) {
-      document.getElementById('form-card').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    } else {
-      alert('Something went wrong. Try again or call us on 03 9122 5243.');
-    }
-  } catch (err) {
-    alert('Network error. Please try again or call 03 9122 5243.');
+  document.querySelectorAll('.scroll-to-assessment').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('assessment').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  function readCookie(name) {
+    var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : '';
   }
-});
+
+  var utms = (function () {
+    var p = new URLSearchParams(window.location.search);
+    return {
+      utm_source: p.get('utm_source') || '',
+      utm_medium: p.get('utm_medium') || '',
+      utm_campaign: p.get('utm_campaign') || '',
+      utm_content: p.get('utm_content') || '',
+      utm_term: p.get('utm_term') || '',
+      fbclid: p.get('fbclid') || '',
+      fbc: readCookie('_fbc'),
+      fbp: readCookie('_fbp')
+    };
+  })();
+
+  function makeEventId() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return 'eid-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (!currentIsValid()) return;
+
+    var name   = form.name.value.trim();
+    var phone  = form.phone.value.trim();
+    var email  = form.email.value.trim();
+    var suburb = form.suburb.value.trim();
+    if (!name || !phone || !email || !suburb) return;
+
+    subBtn.disabled = true;
+    subBtn.textContent = 'Submitting…';
+
+    var eventId = makeEventId();
+
+    var payload = Object.assign({
+      name: name,
+      firstName: name,
+      phone: phone,
+      email: email,
+      suburb: suburb,
+      owns_property: form.owner.value,
+      mains_water: form.mains.value,
+      improvement_focus: form.improve.value,
+      source: 'experts_lp',
+      lead_source: 'meta_experts_lp',
+      event_id: eventId
+    }, utms);
+
+    try {
+      await fetch('/.netlify/functions/submit-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) { /* lead still forwarded server-side on retry */ }
+
+    sessionStorage.setItem('neptune_assessment_submitted', '1');
+    var qs = window.location.search;
+    var sep = qs ? '&' : '?';
+    window.location.href = '/experts/thank-you/' + qs + sep + 'eid=' + encodeURIComponent(eventId);
+  });
+})();
 </script>
+
 </body>
 </html>

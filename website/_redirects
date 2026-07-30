@@ -5,10 +5,18 @@
 /home /home/ 301
 /preappointment /preappointment/ 301
 /replacement-filters /replacement-filters/ 301
-/get-my-price /get-my-price/ 301
-/free-water-test /free-water-test/ 301
 /experts /experts/ 301
 /experts/thank-you /experts/thank-you/ 301
+
+# Retired pages — preserve any existing links, bookmarks or live ad traffic
+/1 / 301
+/1/ / 301
+/2 / 301
+/2/ / 301
+/get-my-price / 301
+/get-my-price/ / 301
+/free-water-test / 301
+/free-water-test/ / 301
 
 # Old /assessment URL — preserve any existing links, bookmarks or live ad traffic
 /assessment/thank-you /experts/thank-you/ 301
