@@ -189,9 +189,10 @@ p { color: var(--text-2); }
 
 @media (min-width: 768px) {
   .hero-inner {
-    display: grid; grid-template-columns: 1fr auto;
+    display: grid; grid-template-columns: auto auto;
+    justify-content: center;
     align-items: stretch;
-    gap: var(--s-10);
+    gap: var(--s-8);
     min-height: 500px;
     max-width: var(--w-max);
     margin-inline: auto;
