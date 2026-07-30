@@ -688,6 +688,8 @@ p { color: var(--text-2); }
 
   .marquee-item { width: 230px; }
 
+  .video-frame { max-width: 480px; aspect-ratio: 3/4; }
+
   .timeline { max-width: 760px; }
   .timeline-step { align-items: flex-start; }
 
