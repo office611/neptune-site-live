@@ -464,6 +464,7 @@ p { color: var(--text-2); }
    ============================================================ */
 .installs-marquee { padding-block: var(--s-10); }
 .installs-marquee .section-head { margin-bottom: var(--s-8); }
+#more-installs { padding-block: var(--s-12); }
 .marquee-viewport {
   overflow: hidden;
   width: 100%;
@@ -687,6 +688,8 @@ p { color: var(--text-2); }
   }
 
   .marquee-item { width: 230px; }
+
+  #more-installs { padding-block: var(--s-16); }
 
   .video-frame { max-width: 280px; }
 
