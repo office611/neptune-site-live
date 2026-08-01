@@ -143,6 +143,23 @@ p { color: var(--text-2); }
 .site-header .header-phone svg { color: var(--blue); flex-shrink: 0; }
 
 /* ============================================================
+   HERO — STATIC (text-only, home page)
+   ============================================================ */
+.hero-static { padding-block: var(--s-12) var(--s-8); text-align: center; }
+.hero-static .hero-copy { max-width: 640px; margin: 0 auto; }
+.hero-static h1 { margin-bottom: var(--s-5); text-wrap: balance; }
+.hero-static .hero-sub {
+  font-size: 1.05rem; line-height: 1.75;
+  max-width: 560px; margin: 0 auto;
+}
+#hero-gallery { padding-block: 0 var(--s-10); }
+.marquee-track--fast { animation-duration: 16s; }
+
+@media (min-width: 768px) {
+  .hero-static { padding-block: var(--s-16) var(--s-10); }
+}
+
+/* ============================================================
    HERO — MOBILE: BACKGROUND VIDEO / DESKTOP: SPLIT
    ============================================================ */
 .hero-video { position: relative; overflow: hidden; }
