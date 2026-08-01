@@ -156,7 +156,9 @@ p { color: var(--text-2); }
 .marquee-track--fast { animation-duration: 16s; }
 
 @media (min-width: 768px) {
-  .hero-static { padding-block: var(--s-16) var(--s-10); }
+  .hero-static { padding-block: var(--s-16) var(--s-10); text-align: left; }
+  .hero-static .hero-copy { max-width: 640px; margin: 0; }
+  .hero-static .hero-sub { max-width: 100%; margin: 0; }
 }
 
 /* ============================================================
