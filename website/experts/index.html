@@ -13,6 +13,7 @@
 <meta name="description" content="Harmful contaminants have been found in Melbourne's water supply. Speak with your local whole home filtration experts to find out more.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/experts/assessment.css">
 <!-- Meta Pixel -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2043292147071202');fbq('track','PageView');</script>
@@ -46,8 +47,8 @@
 <section class="installs-marquee" id="hero-gallery">
   <div class="marquee-viewport">
     <div class="marquee-track marquee-track--fast">
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-3.jpg" alt="Neptune whole home filtration system installed at a Melbourne home, Clyde North" loading="lazy"></div><span class="marquee-caption">Clyde North</span></div>
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-7.jpg" alt="Neptune whole home filtration system installed beside a timber fence and garden bed, Kings Park" loading="lazy"></div><span class="marquee-caption">Kings Park</span></div>
+      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-3.jpg" alt="Neptune whole home filtration system installed at a Melbourne home, Clyde North" loading="eager" fetchpriority="high"></div><span class="marquee-caption">Clyde North</span></div>
+      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-7.jpg" alt="Neptune whole home filtration system installed beside a timber fence and garden bed, Kings Park" loading="eager"></div><span class="marquee-caption">Kings Park</span></div>
       <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-10.jpg" alt="Neptune whole home filtration system installed on a Melbourne front lawn, Williams Landing" loading="lazy"></div><span class="marquee-caption">Williams Landing</span></div>
       <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-13.jpg" alt="Neptune whole home filtration system installed at a two-storey Melbourne home, Werribee" loading="lazy"></div><span class="marquee-caption">Werribee</span></div>
       <!-- duplicated for seamless loop -->
@@ -292,7 +293,7 @@
       <h2>Clean Unit. Tidy Piping. Total Precision.</h2>
     </div>
     <div class="video-frame">
-      <video src="/assets/videos/melbourne-install.mp4" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto"></video>
+      <video class="lazy-video" data-src="/assets/videos/melbourne-install.mp4" muted loop playsinline disablepictureinpicture disableremoteplayback preload="none"></video>
     </div>
     <p class="video-caption">Filmed on site in Narre Warren South, post installation.</p>
   </div>
@@ -523,6 +524,23 @@
     var sep = qs ? '&' : '?';
     window.location.href = '/experts/thank-you/' + qs + sep + 'eid=' + encodeURIComponent(eventId);
   });
+})();
+</script>
+
+<script>
+(function () {
+  var videos = document.querySelectorAll('video.lazy-video');
+  if (!videos.length) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var v = entry.target;
+      v.src = v.dataset.src;
+      v.play();
+      io.unobserve(v);
+    });
+  }, { rootMargin: '200px' });
+  videos.forEach(function (v) { io.observe(v); });
 })();
 </script>
 
