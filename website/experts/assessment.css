@@ -155,7 +155,7 @@ p { color: var(--text-2); }
 
 @media (min-width: 768px) {
   .hero-static { padding-block: var(--s-16) var(--s-10); }
-  .hero-static .hero-copy { max-width: 1100px; }
+  .hero-static .hero-copy { max-width: 1100px; text-align: center; }
   .hero-static .hero-sub { max-width: 900px; }
 }
 
