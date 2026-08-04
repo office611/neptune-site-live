@@ -313,7 +313,7 @@ p { color: var(--text-2); }
 /* ============================================================
    ASSESSMENT FORM
    ============================================================ */
-.assessment { padding-block: 0 var(--s-5); background: var(--off-white); }
+.assessment { padding-block: var(--s-8) var(--s-5); background: var(--off-white); }
 .assessment-card {
   background: var(--white);
   border: 2px solid var(--navy);
