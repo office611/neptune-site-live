@@ -285,6 +285,32 @@ p { color: var(--text-2); }
 }
 
 /* ============================================================
+   OFFER BANNER — SCROLLING MARQUEE
+   ============================================================ */
+.offer-banner { background: var(--navy); padding-block: 12px; }
+.offer-banner-viewport {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.offer-banner-track {
+  display: flex;
+  gap: 48px;
+  width: max-content;
+  animation: marquee-scroll 20s linear infinite;
+}
+.offer-banner-track span {
+  white-space: nowrap;
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+}
+.offer-banner-track span strong { color: var(--copper); font-weight: 700; }
+
+/* ============================================================
    ASSESSMENT FORM
    ============================================================ */
 .assessment { padding-block: 0 var(--s-5); background: var(--off-white); }
@@ -310,19 +336,7 @@ p { color: var(--text-2); }
 .assessment-head h2 { margin-bottom: var(--s-3); }
 .assessment-head p { font-size: .95rem; line-height: 1.65; }
 
-.progress-track { display: flex; gap: 6px; margin-bottom: var(--s-2); }
-.progress-track span {
-  height: 4px; flex: 1; border-radius: 2px;
-  background: var(--border); transition: background .25s ease;
-}
-.progress-track span.done { background: var(--blue); }
-.progress-label {
-  font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
-  color: var(--text-3); margin-bottom: var(--s-8);
-}
-
-.step { display: none; }
-.step.active { display: block; animation: fadeIn .3s ease; }
+.step { display: block; margin-bottom: var(--s-8); }
 .step-question {
   font-size: 1.05rem; font-weight: 600; color: var(--navy);
   margin-bottom: var(--s-5); line-height: 1.4;
