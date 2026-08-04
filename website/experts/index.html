@@ -79,7 +79,7 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     HOME ASSESSMENT — ALL QUESTIONS VISIBLE
+     HOME ASSESSMENT — MULTI-STEP QUESTIONNAIRE
 ══════════════════════════════════════════════════════ -->
 <section class="assessment" id="assessment">
   <div class="container">
@@ -90,9 +90,14 @@
       </div>
 
       <div id="form-wrap">
+        <div class="progress-track" id="progress-track">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="progress-label" id="progress-label">Step 1 of 4</div>
+
         <form id="assessment-form" novalidate>
 
-          <div class="step" data-step="1">
+          <div class="step active" data-step="1">
             <div class="step-question">Which Of These Sounds Familiar?</div>
             <div class="choice-list">
               <label class="choice-pill"><input type="radio" name="improve" value="family_home" required> Simply Want Better Water</label>
@@ -120,7 +125,7 @@
           </div>
 
           <div class="step" data-step="4">
-            <div class="eyebrow eyebrow-copper">Your Details</div>
+            <div class="eyebrow eyebrow-copper">Last Step &middot; Contact Details</div>
             <div class="form-field">
               <label for="f-name">Name</label>
               <input type="text" id="f-name" name="name" placeholder="Your full name" required autocomplete="name">
@@ -140,7 +145,9 @@
           </div>
 
           <div class="step-actions">
-            <button type="submit" class="btn btn-primary btn-full" id="step-submit">Submit</button>
+            <button type="button" class="btn-text" id="step-back" style="display:none;">&larr; Back</button>
+            <button type="button" class="btn btn-primary btn-full" id="step-continue">Next</button>
+            <button type="submit" class="btn btn-primary btn-full" id="step-submit" style="display:none;">Submit</button>
           </div>
         </form>
       </div>
@@ -398,9 +405,15 @@
 
 <script>
 (function () {
-  var form    = document.getElementById('assessment-form');
+  var form   = document.getElementById('assessment-form');
+  var steps  = Array.prototype.slice.call(form.querySelectorAll('.step'));
+  var dots   = Array.prototype.slice.call(document.getElementById('progress-track').children);
+  var label  = document.getElementById('progress-label');
+  var backBtn = document.getElementById('step-back');
+  var contBtn = document.getElementById('step-continue');
   var subBtn  = document.getElementById('step-submit');
   var formWrap = document.getElementById('form-wrap');
+  var current = 0;
 
   var panels = {
     owner: document.getElementById('panel-disqualify-owner'),
@@ -408,13 +421,52 @@
     submitting: document.getElementById('panel-submitting')
   };
 
+  function showStep(i) {
+    current = i;
+    steps.forEach(function (s, idx) { s.classList.toggle('active', idx === i); });
+    dots.forEach(function (d, idx) { d.classList.toggle('done', idx <= i); });
+    label.textContent = 'Step ' + (i + 1) + ' of ' + steps.length;
+    backBtn.style.display = i === 0 ? 'none' : 'inline-block';
+    var isLast  = i === steps.length - 1;
+    var isRadio = !!steps[i].querySelector('input[type="radio"]');
+    contBtn.style.display = (isLast || isRadio) ? 'none' : 'block';
+    subBtn.style.display  = isLast ? 'block' : 'none';
+    var firstInput = steps[i].querySelector('input[type="text"], input[type="tel"], input[type="email"]');
+    if (firstInput) firstInput.focus();
+  }
+
   function showPanel(name) {
     formWrap.style.display = 'none';
     Object.keys(panels).forEach(function (k) { panels[k].classList.toggle('active', k === name); });
   }
 
-  form.querySelectorAll('input[type="radio"][data-disqualify]').forEach(function (r) {
-    r.addEventListener('change', function () { showPanel(r.dataset.disqualify); });
+  function currentIsValid() {
+    var radios = steps[current].querySelectorAll('input[type="radio"]');
+    if (radios.length) {
+      return Array.prototype.some.call(radios, function (r) { return r.checked; });
+    }
+    var inputs = steps[current].querySelectorAll('input');
+    var ok = true;
+    inputs.forEach(function (inp) { if (!inp.reportValidity()) ok = false; });
+    return ok;
+  }
+
+  function next() {
+    if (!currentIsValid()) return;
+    if (current < steps.length - 1) showStep(current + 1);
+  }
+
+  contBtn.addEventListener('click', next);
+  backBtn.addEventListener('click', function () { if (current > 0) showStep(current - 1); });
+
+  steps.forEach(function (step) {
+    var radios = step.querySelectorAll('input[type="radio"]');
+    radios.forEach(function (r) {
+      r.addEventListener('change', function () {
+        if (r.dataset.disqualify) { showPanel(r.dataset.disqualify); return; }
+        setTimeout(next, 260);
+      });
+    });
   });
 
   document.querySelectorAll('.scroll-to-assessment').forEach(function (btn) {
@@ -450,7 +502,7 @@
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
-    if (!form.reportValidity()) return;
+    if (!currentIsValid()) return;
 
     var name   = form.name.value.trim();
     var phone  = form.phone.value.trim();
