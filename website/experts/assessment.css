@@ -682,6 +682,13 @@ p { color: var(--text-2); }
 /* ============================================================
    FAQ ACCORDION
    ============================================================ */
+.faq-panel {
+  max-width: 720px; margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--s-6) var(--s-5);
+}
 .faq-list { max-width: var(--w-text); margin: 0 auto; }
 .faq-item { border-bottom: 1px solid var(--border); }
 .faq-item:first-child { border-top: 1px solid var(--border); }
