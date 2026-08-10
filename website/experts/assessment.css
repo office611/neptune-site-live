@@ -211,6 +211,16 @@ p { color: var(--text-2); }
   50% { transform: translateY(8px); }
 }
 
+/* Mobile only: a touch more room around headline/subheadline/gallery, trimmed elsewhere
+   so the arrow at least starts to peek into view on load (not full visibility — just enough
+   of a hint that there's more below) */
+@media (max-width: 767px) {
+  .hero-photo-content h1 { margin-bottom: var(--s-5); }
+  .hero-photo-gallery { margin-top: var(--s-8); padding-bottom: var(--s-3); }
+  .hero-photo-gallery .marquee-item { width: 145px; }
+  .hero-arrow-spacer { padding-block: var(--s-3); }
+}
+
 /* Nested assessment section sits on .hero-photo's flat navy — no background of its own */
 .hero-photo .assessment {
   position: relative; z-index: 4;
