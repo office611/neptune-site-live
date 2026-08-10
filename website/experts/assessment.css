@@ -160,8 +160,8 @@ p { color: var(--text-2); }
 .hero-photo-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
 .hero-photo-overlay {
   position: absolute; inset: 0;
-  /* Mobile: photo stays visible through the gallery and arrow, only settling to solid navy as the form approaches */
-  background: linear-gradient(180deg, rgba(11,30,61,.7) 0%, rgba(11,30,61,.78) 38%, rgba(11,30,61,.9) 58%, var(--navy) 72%, var(--navy) 100%);
+  /* Photo reads naturally at the very top, then settles to flat solid navy (no further gradient) the rest of the way to the form */
+  background: linear-gradient(180deg, rgba(11,30,61,.35) 0%, rgba(11,30,61,.6) 20%, var(--navy) 40%, var(--navy) 100%);
 }
 .hero-photo-content {
   position: relative; z-index: 2;
@@ -225,10 +225,6 @@ p { color: var(--text-2); }
   .hero-arrow-spacer { padding-block: var(--s-12); }
   .hero-scroll-arrow { width: 64px; height: 88px; }
   .hero-scroll-arrow svg { width: 28px; height: 28px; }
-  /* Desktop: keep the photo genuinely visible further down instead of fading out early */
-  .hero-photo-overlay {
-    background: linear-gradient(180deg, rgba(11,30,61,.62) 0%, rgba(11,30,61,.7) 35%, rgba(11,30,61,.82) 65%, rgba(11,30,61,.94) 88%, var(--navy) 100%);
-  }
 }
 
 @media (min-width: 768px) {
