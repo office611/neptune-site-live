@@ -225,6 +225,7 @@ p { color: var(--text-2); }
 .hero-photo .assessment {
   position: relative; z-index: 4;
   background: transparent;
+  padding-block: var(--s-8) var(--s-12);
 }
 
 @media (min-width: 768px) {
