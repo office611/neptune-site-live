@@ -730,6 +730,12 @@ p { color: var(--text-2); }
 .final-cta p { max-width: 460px; margin: 0 auto var(--s-8); font-size: 1rem; line-height: 1.7; }
 
 /* ============================================================
+   MID-PAGE CTA — lighter-weight than final-cta, just a nudge
+   ============================================================ */
+.mid-cta { text-align: center; }
+.mid-cta-text { font-size: 1.05rem; font-weight: 600; color: #fff; margin-bottom: var(--s-5); }
+
+/* ============================================================
    SECTION — DARK (extends the hero's canvas through Process +
    Recent Installs, and bookends with a dark Final CTA, while FAQ/
    benefits/closing-photo stay light for readability in between)
