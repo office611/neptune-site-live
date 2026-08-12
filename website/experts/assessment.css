@@ -425,9 +425,6 @@ p { color: var(--text-2); }
   border-radius: var(--r-lg);
   overflow: hidden;
   max-width: 680px;
-  /* Safari doesn't reliably clip an iframe's edges to a parent's border-radius via
-     overflow:hidden alone -- forcing the mask compositing path fixes it there too. */
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 .assessment-head { text-align: center; margin-bottom: var(--s-8); }
 /* On this page the heading sits directly on the dark hero backdrop, not a white card -- needs white text + shadow like the rest of the hero copy */
