@@ -82,97 +82,14 @@
         <span class="next-step-heading"><span class="hero-accent next-step-word">Next Step</span>: Answer 4 Questions For A Free Water Investigation</span>
       </div>
 
-      <div id="form-wrap">
-        <div class="progress-track" id="progress-track">
-          <span></span><span></span><span></span><span></span>
-        </div>
-        <div class="progress-label" id="progress-label">Step 1 of 4</div>
-
-        <form id="assessment-form" novalidate>
-
-          <div class="step active" data-step="1">
-            <div class="step-question">Which Of These Sounds Familiar?</div>
-            <div class="choice-list">
-              <label class="choice-pill"><input type="radio" name="improve" value="family_home" required> Simply Want Better Water</label>
-              <label class="choice-pill"><input type="radio" name="improve" value="taste_smell"> Weird Taste Or Smell</label>
-              <label class="choice-pill"><input type="radio" name="improve" value="skin_hair"> Skin &amp; Hair Issues</label>
-              <label class="choice-pill"><input type="radio" name="improve" value="just_exploring"> Just Exploring</label>
-            </div>
-          </div>
-
-          <div class="step" data-step="2">
-            <div class="step-question">Do you own the property?</div>
-            <div class="choice-list">
-              <label class="choice-pill"><input type="radio" name="owner" value="yes" required> Yes</label>
-              <label class="choice-pill"><input type="radio" name="owner" value="no" data-disqualify="owner"> No</label>
-            </div>
-          </div>
-
-          <div class="step" data-step="3">
-            <div class="step-question">Is your home connected to Melbourne mains water?</div>
-            <div class="choice-list">
-              <label class="choice-pill"><input type="radio" name="mains" value="yes" required> Yes</label>
-              <label class="choice-pill"><input type="radio" name="mains" value="no" data-disqualify="mains"> No</label>
-              <label class="choice-pill"><input type="radio" name="mains" value="not_sure"> Not Sure</label>
-            </div>
-          </div>
-
-          <div class="step" data-step="4">
-            <div class="eyebrow eyebrow-copper">Last Step &middot; Contact Details</div>
-            <div class="form-field">
-              <label for="f-name">Name</label>
-              <input type="text" id="f-name" name="name" placeholder="Your full name" required autocomplete="name">
-            </div>
-            <div class="form-field">
-              <label for="f-phone">Mobile</label>
-              <input type="tel" id="f-phone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
-            </div>
-            <div class="form-field">
-              <label for="f-email">Email</label>
-              <input type="email" id="f-email" name="email" placeholder="you@email.com" required autocomplete="email">
-            </div>
-            <div class="form-field">
-              <label for="f-suburb">Suburb</label>
-              <input type="text" id="f-suburb" name="suburb" placeholder="e.g. Brighton, Glen Waverley" required autocomplete="address-level2">
-            </div>
-          </div>
-
-          <div class="step-actions">
-            <button type="button" class="btn-text" id="step-back" style="display:none;">&larr; Back</button>
-            <button type="button" class="btn btn-primary btn-full" id="step-continue">Next</button>
-            <button type="submit" class="btn btn-primary btn-full" id="step-submit" style="display:none;">Submit</button>
-          </div>
-        </form>
-      </div>
-
-      <div class="state-panel" id="panel-disqualify-owner">
-        <div class="state-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12h6"/></svg>
-        </div>
-        <h3>Thank You For Your Interest</h3>
-        <p>Unfortunately our whole home filtration systems are designed for homeowners.</p>
-        <p>If your circumstances change in the future we'd love to help.</p>
-      </div>
-
-      <div class="state-panel" id="panel-disqualify-mains">
-        <div class="state-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12h6"/></svg>
-        </div>
-        <h3>Thank You For Your Enquiry</h3>
-        <p>Our current systems are designed for homes connected to Melbourne's mains water supply.</p>
-      </div>
-
-      <div class="state-panel" id="panel-submitting">
-        <div class="state-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
-        </div>
-        <h3>Just A Moment</h3>
-        <p>We're reviewing your answers.</p>
+      <div class="ghl-survey-wrap">
+        <iframe src="https://api.leadconnectorhq.com/widget/survey/tjDcvZmpGMug09R3s18K" style="border:none;width:100%;" scrolling="no" id="tjDcvZmpGMug09R3s18K" title="survey"></iframe>
       </div>
 
     </div>
   </div>
   </section>
+  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 </section>
 
 <!-- ══════════════════════════════════════════════════════
@@ -456,70 +373,6 @@
 
 <script>
 (function () {
-  var form   = document.getElementById('assessment-form');
-  var steps  = Array.prototype.slice.call(form.querySelectorAll('.step'));
-  var dots   = Array.prototype.slice.call(document.getElementById('progress-track').children);
-  var label  = document.getElementById('progress-label');
-  var backBtn = document.getElementById('step-back');
-  var contBtn = document.getElementById('step-continue');
-  var subBtn  = document.getElementById('step-submit');
-  var formWrap = document.getElementById('form-wrap');
-  var current = 0;
-
-  var panels = {
-    owner: document.getElementById('panel-disqualify-owner'),
-    mains: document.getElementById('panel-disqualify-mains'),
-    submitting: document.getElementById('panel-submitting')
-  };
-
-  function showStep(i) {
-    current = i;
-    steps.forEach(function (s, idx) { s.classList.toggle('active', idx === i); });
-    dots.forEach(function (d, idx) { d.classList.toggle('done', idx <= i); });
-    label.textContent = 'Step ' + (i + 1) + ' of ' + steps.length;
-    backBtn.style.display = i === 0 ? 'none' : 'inline-block';
-    var isLast  = i === steps.length - 1;
-    var isRadio = !!steps[i].querySelector('input[type="radio"]');
-    contBtn.style.display = (isLast || isRadio) ? 'none' : 'block';
-    subBtn.style.display  = isLast ? 'block' : 'none';
-    var firstInput = steps[i].querySelector('input[type="text"], input[type="tel"], input[type="email"]');
-    if (firstInput) firstInput.focus();
-  }
-
-  function showPanel(name) {
-    formWrap.style.display = 'none';
-    Object.keys(panels).forEach(function (k) { panels[k].classList.toggle('active', k === name); });
-  }
-
-  function currentIsValid() {
-    var radios = steps[current].querySelectorAll('input[type="radio"]');
-    if (radios.length) {
-      return Array.prototype.some.call(radios, function (r) { return r.checked; });
-    }
-    var inputs = steps[current].querySelectorAll('input');
-    var ok = true;
-    inputs.forEach(function (inp) { if (!inp.reportValidity()) ok = false; });
-    return ok;
-  }
-
-  function next() {
-    if (!currentIsValid()) return;
-    if (current < steps.length - 1) showStep(current + 1);
-  }
-
-  contBtn.addEventListener('click', next);
-  backBtn.addEventListener('click', function () { if (current > 0) showStep(current - 1); });
-
-  steps.forEach(function (step) {
-    var radios = step.querySelectorAll('input[type="radio"]');
-    radios.forEach(function (r) {
-      r.addEventListener('change', function () {
-        if (r.dataset.disqualify) { showPanel(r.dataset.disqualify); return; }
-        setTimeout(next, 260);
-      });
-    });
-  });
-
   document.querySelectorAll('.scroll-to-assessment').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
@@ -527,71 +380,26 @@
     });
   });
 
-  function readCookie(name) {
-    var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
-    return match ? decodeURIComponent(match[1]) : '';
-  }
+  // Fire the Meta Pixel Lead event when the embedded GHL survey is submitted.
+  // GHL's form_embed.js posts a message to this window on submit. Logging the
+  // raw payload below so this can be checked/adjusted against what actually
+  // arrives on a real test submission -- the exact shape isn't guaranteed,
+  // so this listens for a few likely patterns rather than one fixed one.
+  window.addEventListener('message', function (event) {
+    if (!/(^|\.)leadconnectorhq\.com$|(^|\.)msgsndr\.com$/.test(event.origin.replace(/^https?:\/\//, ''))) return;
+    console.log('GHL survey message:', event.data);
 
-  var utms = (function () {
-    var p = new URLSearchParams(window.location.search);
-    return {
-      utm_source: p.get('utm_source') || '',
-      utm_medium: p.get('utm_medium') || '',
-      utm_campaign: p.get('utm_campaign') || '',
-      utm_content: p.get('utm_content') || '',
-      utm_term: p.get('utm_term') || '',
-      fbclid: p.get('fbclid') || '',
-      fbc: readCookie('_fbc'),
-      fbp: readCookie('_fbp')
-    };
-  })();
+    var data = event.data;
+    var isSubmit = false;
+    if (typeof data === 'string') {
+      isSubmit = /submit/i.test(data);
+    } else if (data && typeof data === 'object') {
+      isSubmit = /submit/i.test(data.type || '') || /submit/i.test(data.event || '');
+    }
 
-  function makeEventId() {
-    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
-    return 'eid-' + Date.now() + '-' + Math.random().toString(36).slice(2);
-  }
-
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    if (!currentIsValid()) return;
-
-    var name   = form.name.value.trim();
-    var phone  = form.phone.value.trim();
-    var email  = form.email.value.trim();
-    var suburb = form.suburb.value.trim();
-    if (!name || !phone || !email || !suburb) return;
-
-    subBtn.disabled = true;
-    subBtn.textContent = 'Submitting…';
-
-    var eventId = makeEventId();
-
-    var payload = Object.assign({
-      name: name,
-      firstName: name,
-      phone: phone,
-      email: email,
-      suburb: suburb,
-      owns_property: form.owner.value,
-      mains_water: form.mains.value,
-      improvement_focus: form.improve.value,
-      source: 'experts_lp',
-      lead_source: 'meta_experts_lp',
-      event_id: eventId
-    }, utms);
-
-    try {
-      await fetch('/.netlify/functions/submit-lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-    } catch (err) { /* lead still forwarded server-side on retry */ }
-
-    sessionStorage.setItem('neptune_assessment_submitted', '1');
-    var qs = window.location.search;
-    var sep = qs ? '&' : '?';
-    window.location.href = '/experts/thank-you/' + qs + sep + 'eid=' + encodeURIComponent(eventId);
+    if (isSubmit && window.fbq) {
+      fbq('track', 'Lead');
+    }
   });
 })();
 </script>

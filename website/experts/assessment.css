@@ -405,6 +405,8 @@ p { color: var(--text-2); }
    ASSESSMENT FORM
    ============================================================ */
 .assessment { padding-block: var(--s-8) var(--s-5); background: var(--off-white); }
+.ghl-survey-wrap { min-height: 480px; }
+.ghl-survey-wrap iframe { display: block; min-height: 480px; }
 .assessment-card {
   background: var(--white);
   border: 2px solid var(--navy);
