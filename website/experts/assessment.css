@@ -405,6 +405,12 @@ p { color: var(--text-2); }
    ASSESSMENT FORM
    ============================================================ */
 .assessment { padding-block: var(--s-8) var(--s-5); background: var(--off-white); }
+/* Process section follows directly after the form -- trim its own top padding
+   (normally shared/larger via .section) so the gap into it isn't oversized. */
+#process { padding-top: var(--s-8); }
+@media (min-width: 768px) {
+  #process { padding-top: var(--s-10); }
+}
 .ghl-survey-wrap { min-height: 220px; }
 .ghl-survey-wrap iframe { display: block; width: 100%; min-height: 220px; }
 .assessment-card {
@@ -430,6 +436,9 @@ p { color: var(--text-2); }
 /* On this page the heading sits directly on the dark hero backdrop, not a white card -- needs white text + shadow like the rest of the hero copy */
 .hero-photo .assessment-head {
   max-width: 640px; margin-inline: auto; margin-bottom: var(--s-6);
+}
+@media (min-width: 768px) {
+  .hero-photo .assessment-head { margin-bottom: var(--s-4); }
 }
 .hero-photo .assessment-head .next-step-heading {
   color: #fff;
