@@ -229,7 +229,7 @@ p { color: var(--text-2); }
 .hero-photo .assessment {
   position: relative; z-index: 4;
   background: transparent;
-  padding-block: var(--s-8) var(--s-6);
+  padding-block: var(--s-8) var(--s-4);
 }
 
 @media (min-width: 768px) {
@@ -407,9 +407,9 @@ p { color: var(--text-2); }
 .assessment { padding-block: var(--s-8) var(--s-5); background: var(--off-white); }
 /* Process section follows directly after the form -- trim its own top padding
    (normally shared/larger via .section) so the gap into it isn't oversized. */
-#process { padding-top: var(--s-8); }
+#process { padding-top: var(--s-6); }
 @media (min-width: 768px) {
-  #process { padding-top: var(--s-10); }
+  #process { padding-top: var(--s-8); }
 }
 .ghl-survey-wrap { min-height: 220px; }
 .ghl-survey-wrap iframe { display: block; width: 100%; min-height: 220px; }
