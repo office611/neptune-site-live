@@ -808,16 +808,16 @@ p { color: var(--text-2); }
 /* ============================================================
    THANK YOU PAGE — SUCCESS HERO
    ============================================================ */
-.success-hero { text-align: center; padding-block: var(--s-16) var(--s-10); }
+.success-hero { text-align: center; padding-block: var(--s-16) var(--s-10); background: var(--navy-deep); }
 .success-icon-lg {
   width: 72px; height: 72px; border-radius: 50%;
   background: var(--success-pale); color: var(--success);
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto var(--s-6);
 }
-.success-hero h1 { margin-bottom: var(--s-5); }
+.success-hero h1 { margin-bottom: var(--s-5); color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,.4); }
 .success-hero .lede {
-  max-width: 560px; margin: 0 auto; font-size: 1.02rem; line-height: 1.75; color: var(--text-2);
+  max-width: 560px; margin: 0 auto; font-size: 1.02rem; line-height: 1.75; color: rgba(255,255,255,.85);
 }
 .success-hero .lede p + p { margin-top: var(--s-4); }
 
