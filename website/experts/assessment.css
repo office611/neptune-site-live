@@ -808,7 +808,12 @@ p { color: var(--text-2); }
 /* ============================================================
    THANK YOU PAGE — SUCCESS HERO
    ============================================================ */
-.success-hero { text-align: center; padding-block: var(--s-16) var(--s-10); background: var(--navy-deep); }
+.success-hero { text-align: center; padding-block: var(--s-16) var(--s-4); background: var(--navy-deep); }
+/* Thank-you page only -- .success-hero is unique to it, so this sibling selector
+   can't match anything on /experts or home, which reuse .installs-marquee's own
+   default padding untouched */
+.success-hero + .installs-marquee { padding-top: var(--s-4); }
+.success-hero + .installs-marquee .section-head { margin-bottom: var(--s-5); }
 .success-icon-lg {
   width: 72px; height: 72px; border-radius: 50%;
   background: var(--success-pale); color: var(--success);
