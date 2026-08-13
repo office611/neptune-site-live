@@ -379,28 +379,6 @@
       document.getElementById('assessment').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
-
-  // Fire the Meta Pixel Lead event when the embedded GHL survey is submitted.
-  // GHL's form_embed.js posts a message to this window on submit. Logging the
-  // raw payload below so this can be checked/adjusted against what actually
-  // arrives on a real test submission -- the exact shape isn't guaranteed,
-  // so this listens for a few likely patterns rather than one fixed one.
-  window.addEventListener('message', function (event) {
-    if (!/(^|\.)leadconnectorhq\.com$|(^|\.)msgsndr\.com$/.test(event.origin.replace(/^https?:\/\//, ''))) return;
-    console.log('GHL survey message:', event.data);
-
-    var data = event.data;
-    var isSubmit = false;
-    if (typeof data === 'string') {
-      isSubmit = /submit/i.test(data);
-    } else if (data && typeof data === 'object') {
-      isSubmit = /submit/i.test(data.type || '') || /submit/i.test(data.event || '');
-    }
-
-    if (isSubmit && window.fbq) {
-      fbq('track', 'Lead');
-    }
-  });
 })();
 </script>
 
