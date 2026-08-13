@@ -385,6 +385,7 @@
   // redirect is slow/interrupted.
   window.addEventListener('message', function (event) {
     if (!/(^|\.)leadconnectorhq\.com$|(^|\.)msgsndr\.com$/.test(event.origin.replace(/^https?:\/\//, ''))) return;
+    console.log('[GHL debug] message from', event.origin, '-> data:', JSON.stringify(event.data));
 
     var data = event.data;
     var isSubmit = false;
