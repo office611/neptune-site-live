@@ -73,14 +73,5 @@
   </div>
 </section>
 
-<script>
-  (function () {
-    var eid = new URLSearchParams(window.location.search).get('eid');
-    if (!window.fbq) return;
-    if (eid) { fbq('track', 'Lead', {}, { eventID: eid }); }
-    else { fbq('track', 'Lead'); }
-  })();
-</script>
-
 </body>
 </html>
