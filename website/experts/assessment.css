@@ -185,6 +185,18 @@ p { color: var(--text-2); }
   max-width: 600px; margin: 0 auto;
   text-shadow: 0 1px 10px rgba(0,0,0,.45);
 }
+.hero-quiet-link {
+  display: block;
+  font-size: .82rem; font-weight: 500;
+  color: rgba(255,255,255,.55);
+  margin-top: var(--s-4);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.hero-quiet-link:hover { color: rgba(255,255,255,.85); }
+.hero-quiet-link--static {
+  text-align: center; text-decoration: none; cursor: default;
+  margin-top: var(--s-6);
+}
 .hero-photo-gallery {
   position: relative; z-index: 3;
   margin-top: var(--s-6);
