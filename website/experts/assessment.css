@@ -195,7 +195,7 @@ p { color: var(--text-2); }
 .hero-quiet-link:hover { color: rgba(255,255,255,.85); }
 .hero-quiet-link--static {
   text-align: center; text-decoration: none; cursor: default;
-  margin-top: var(--s-6);
+  margin-top: var(--s-2);
 }
 .hero-photo-gallery {
   position: relative; z-index: 3;
