@@ -423,8 +423,8 @@ p { color: var(--text-2); }
 @media (min-width: 768px) {
   #process { padding-top: var(--s-8); }
 }
-.ghl-survey-wrap { min-height: 220px; max-height: 560px; overflow-y: auto; }
-.ghl-survey-wrap iframe { display: block; width: 100%; min-height: 220px; }
+.ghl-survey-wrap { min-height: 220px; max-height: 480px; overflow-y: auto; }
+.ghl-survey-wrap iframe { display: block; width: 100%; min-height: 220px; max-height: 480px; }
 .assessment-card {
   background: var(--white);
   border: 2px solid var(--navy);
