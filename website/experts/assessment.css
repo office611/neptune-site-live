@@ -424,7 +424,7 @@ p { color: var(--text-2); }
   #process { padding-top: var(--s-8); }
 }
 .ghl-survey-wrap { min-height: 220px; max-height: 480px; overflow-y: auto; }
-.ghl-survey-wrap iframe { display: block; width: 100%; min-height: 220px; max-height: 480px; }
+.ghl-survey-wrap iframe { display: block; width: 100%; min-height: 220px !important; max-height: 480px !important; height: 480px !important; }
 .assessment-card {
   background: var(--white);
   border: 2px solid var(--navy);
