@@ -9,8 +9,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
 <link rel="manifest" href="/assets/favicon/site.webmanifest">
 <meta name="theme-color" content="#0B1E3D">
+<meta name="color-scheme" content="light">
 <title>Give Your Family Clean, Filtered Water At Every Tap | Neptune</title>
-<meta name="description" content="Harmful contaminants have been found in Melbourne's water supply. Speak with your local whole home filtration experts to find out more.">
+<meta name="description" content="See exactly what's in your Melbourne tap water with a free water investigation, then get a whole-home filtration system tailored to what it finds.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
@@ -30,135 +31,119 @@
 <body>
 
 <!-- ══════════════════════════════════════════════════════
-     HERO
+     HERO — BACKGROUND PHOTO
 ══════════════════════════════════════════════════════ -->
-<section class="hero-static">
-  <div class="container">
-    <div class="hero-copy fade-in-up">
-      <h1>Built For Melbourne Homes, Delivering Clean, Filtered Water At Every Tap.</h1>
-      <p class="hero-sub">Harmful contaminants have been found in Melbourne's water supply — a <strong>Neptune whole-home water filtration system</strong> removes them, so every tap, shower and appliance in your home runs clean.</p>
+<section class="hero-photo">
+  <div class="hero-photo-upper">
+    <div class="hero-photo-media">
+      <img src="/assets/install-photos/1-hero.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager" fetchpriority="high">
+      <div class="hero-photo-overlay"></div>
+    </div>
+    <div class="container hero-photo-content fade-in-up">
+      <span class="hero-badge hero-badge-copper">Free Water Investigation</span>
+      <h1>No More Wondering — <span class="hero-accent">Know Exactly</span> What's In Your Melbourne Tap Water.</h1>
+      <p class="hero-sub">A whole-home filtration system for Melbourne homes, tailored to exactly what your free water investigation finds — so every tap, shower and appliance runs clean.</p>
+      <a href="#assessment" class="hero-quiet-link">Already had some sort of water investigation elsewhere? Click here.</a>
+    </div>
+
+    <!-- HERO GALLERY — UNTITLED FAST MARQUEE, nested so the background photo runs behind it too -->
+    <div class="marquee-viewport hero-photo-gallery" id="hero-gallery">
+      <div class="marquee-track marquee-track--fast">
+        <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-3.jpg" alt="Neptune whole home filtration system installed at a Melbourne home, Clyde North" loading="eager" fetchpriority="high"></div><span class="marquee-caption">Clyde North</span></div>
+        <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-7.jpg" alt="Neptune whole home filtration system installed beside a timber fence and garden bed, Kings Park" loading="eager"></div><span class="marquee-caption">Kings Park</span></div>
+        <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-10.jpg" alt="Neptune whole home filtration system installed on a Melbourne front lawn, Williams Landing" loading="lazy"></div><span class="marquee-caption">Williams Landing</span></div>
+        <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-13.jpg" alt="Neptune whole home filtration system installed at a two-storey Melbourne home, Werribee" loading="lazy"></div><span class="marquee-caption">Werribee</span></div>
+        <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-22.jpg" alt="Neptune whole home filtration system installed on a rendered wall, Watsonia" loading="lazy"></div><span class="marquee-caption">Watsonia</span></div>
+        <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/19-thumb.jpg" alt="Neptune whole home filtration system installed at a Melbourne home, Point Cook" loading="lazy"></div><span class="marquee-caption">Point Cook</span></div>
+        <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-21.jpg" alt="Neptune whole home filtration system installed on a brick wall, Mill Park" loading="lazy"></div><span class="marquee-caption">Mill Park</span></div>
+        <!-- duplicated for seamless loop -->
+        <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-3.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Clyde North</span></div>
+        <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-7.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Kings Park</span></div>
+        <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-10.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Williams Landing</span></div>
+        <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-13.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Werribee</span></div>
+        <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-22.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Watsonia</span></div>
+        <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/19-thumb.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Point Cook</span></div>
+        <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-21.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Mill Park</span></div>
+      </div>
     </div>
   </div>
+
+  <!-- Arrow gets generous room to breathe, on flat solid navy that continues to the form -->
+  <div class="hero-arrow-spacer">
+    <a href="#assessment" class="hero-scroll-arrow scroll-to-assessment" aria-label="Scroll to the free water investigation form">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       HOME ASSESSMENT — MULTI-STEP QUESTIONNAIRE
+       nested so the flat navy backdrop runs behind it too
+  ══════════════════════════════════════════════════════ -->
+  <section class="assessment" id="assessment">
+  <div class="container">
+
+    <div class="assessment-head">
+      <span class="next-step-heading"><span class="hero-accent next-step-word">Next Step</span>: Answer 4 Questions For A Free Water Investigation</span>
+      <p class="hero-quiet-link hero-quiet-link--static">Still worth answering — we'll explain exactly how Neptune compares.</p>
+    </div>
+
+    <div class="assessment-card assessment-card--form-only">
+      <div class="ghl-survey-wrap">
+        <iframe src="https://api.leadconnectorhq.com/widget/survey/tjDcvZmpGMug09R3s18K" style="border:none;width:100%;" scrolling="no" id="tjDcvZmpGMug09R3s18K" title="survey"></iframe>
+      </div>
+    </div>
+
+  </div>
+  </section>
+  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     HERO GALLERY — UNTITLED FAST MARQUEE
+     HOW OUR PROCESS WORKS
 ══════════════════════════════════════════════════════ -->
-<section class="installs-marquee" id="hero-gallery">
-  <div class="marquee-viewport">
-    <div class="marquee-track marquee-track--fast">
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-3.jpg" alt="Neptune whole home filtration system installed at a Melbourne home, Clyde North" loading="eager" fetchpriority="high"></div><span class="marquee-caption">Clyde North</span></div>
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-7.jpg" alt="Neptune whole home filtration system installed beside a timber fence and garden bed, Kings Park" loading="eager"></div><span class="marquee-caption">Kings Park</span></div>
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-10.jpg" alt="Neptune whole home filtration system installed on a Melbourne front lawn, Williams Landing" loading="lazy"></div><span class="marquee-caption">Williams Landing</span></div>
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-13.jpg" alt="Neptune whole home filtration system installed at a two-storey Melbourne home, Werribee" loading="lazy"></div><span class="marquee-caption">Werribee</span></div>
-      <!-- duplicated for seamless loop -->
-      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-3.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Clyde North</span></div>
-      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-7.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Kings Park</span></div>
-      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-10.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Williams Landing</span></div>
-      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-13.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Werribee</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════
-     HOME ASSESSMENT — MULTI-STEP QUESTIONNAIRE
-══════════════════════════════════════════════════════ -->
-<section class="assessment" id="assessment">
+<section class="section section-off section-dark" id="process">
   <div class="container">
-    <div class="assessment-card">
-
-      <div class="assessment-head">
-        <span class="next-step-heading"><u>Next Step</u>: Answer A Few Quick Questions To Speak With Your Local Whole Home Filtration Experts</span>
-      </div>
-
-      <div id="form-wrap">
-        <div class="progress-track" id="progress-track">
-          <span></span><span></span><span></span><span></span>
+    <div class="section-head">
+      <span class="eyebrow">How Our Process Works</span>
+      <h2>From Investigation To Installation</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="timeline-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
         </div>
-        <div class="progress-label" id="progress-label">Step 1 of 4</div>
-
-        <form id="assessment-form" novalidate>
-
-          <div class="step active" data-step="1">
-            <div class="step-question">Which Of These Sounds Familiar?</div>
-            <div class="choice-list">
-              <label class="choice-pill"><input type="radio" name="improve" value="family_home" required> Simply Want Better Water</label>
-              <label class="choice-pill"><input type="radio" name="improve" value="taste_smell"> Weird Taste Or Smell</label>
-              <label class="choice-pill"><input type="radio" name="improve" value="skin_hair"> Skin &amp; Hair Issues</label>
-              <label class="choice-pill"><input type="radio" name="improve" value="just_exploring"> Just Exploring</label>
-            </div>
-          </div>
-
-          <div class="step" data-step="2">
-            <div class="step-question">Do you own the property?</div>
-            <div class="choice-list">
-              <label class="choice-pill"><input type="radio" name="owner" value="yes" required> Yes</label>
-              <label class="choice-pill"><input type="radio" name="owner" value="no" data-disqualify="owner"> No</label>
-            </div>
-          </div>
-
-          <div class="step" data-step="3">
-            <div class="step-question">Is your home connected to Melbourne mains water?</div>
-            <div class="choice-list">
-              <label class="choice-pill"><input type="radio" name="mains" value="yes" required> Yes</label>
-              <label class="choice-pill"><input type="radio" name="mains" value="no" data-disqualify="mains"> No</label>
-              <label class="choice-pill"><input type="radio" name="mains" value="not_sure"> Not Sure</label>
-            </div>
-          </div>
-
-          <div class="step" data-step="4">
-            <div class="eyebrow eyebrow-copper">Last Step &middot; Contact Details</div>
-            <div class="form-field">
-              <label for="f-name">Name</label>
-              <input type="text" id="f-name" name="name" placeholder="Your full name" required autocomplete="name">
-            </div>
-            <div class="form-field">
-              <label for="f-phone">Mobile</label>
-              <input type="tel" id="f-phone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
-            </div>
-            <div class="form-field">
-              <label for="f-email">Email</label>
-              <input type="email" id="f-email" name="email" placeholder="you@email.com" required autocomplete="email">
-            </div>
-            <div class="form-field">
-              <label for="f-suburb">Suburb</label>
-              <input type="text" id="f-suburb" name="suburb" placeholder="e.g. Brighton, Glen Waverley" required autocomplete="address-level2">
-            </div>
-          </div>
-
-          <div class="step-actions">
-            <button type="button" class="btn-text" id="step-back" style="display:none;">&larr; Back</button>
-            <button type="button" class="btn btn-primary btn-full" id="step-continue">Next</button>
-            <button type="submit" class="btn btn-primary btn-full" id="step-submit" style="display:none;">Submit</button>
-          </div>
-        </form>
-      </div>
-
-      <div class="state-panel" id="panel-disqualify-owner">
-        <div class="state-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12h6"/></svg>
+        <div class="timeline-body">
+          <h3>1. Free Water Investigation</h3>
+          <p>Answer 4 quick questions and book your free water investigation — no obligation. Our lovely team will then arrange a time that best fits you.</p>
         </div>
-        <h3>Thank You For Your Interest</h3>
-        <p>Unfortunately our whole home filtration systems are designed for homeowners.</p>
-        <p>If your circumstances change in the future we'd love to help.</p>
       </div>
-
-      <div class="state-panel" id="panel-disqualify-mains">
-        <div class="state-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12h6"/></svg>
+      <div class="timeline-step">
+        <div class="timeline-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7l-9-5Z"/></svg>
         </div>
-        <h3>Thank You For Your Enquiry</h3>
-        <p>Our current systems are designed for homes connected to Melbourne's mains water supply.</p>
-      </div>
-
-      <div class="state-panel" id="panel-submitting">
-        <div class="state-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
+        <div class="timeline-body">
+          <h3>2. We Test Your Water</h3>
+          <p>Our expert local water technician visits your home, tests exactly what's coming through your taps, and conducts a full site inspection.</p>
         </div>
-        <h3>Just A Moment</h3>
-        <p>We're reviewing your answers.</p>
       </div>
-
+      <div class="timeline-step">
+        <div class="timeline-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M12 14 7 9M12 14l5-5M5 5h14"/></svg>
+        </div>
+        <div class="timeline-body">
+          <h3>3. A Recommendation Tailored To What's Found</h3>
+          <p>Based on your results, we recommend the right whole-home filtration setup for your home.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <div class="timeline-body">
+          <h3>4. Fast, Clean Installation</h3>
+          <p>Once you're happy, we schedule your professional install from our own dedicated plumbing crew — done in under two hours.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -166,24 +151,43 @@
 <!-- ══════════════════════════════════════════════════════
      MELBOURNE INSTALLS — AUTO-SCROLLING PHOTO STRIP
 ══════════════════════════════════════════════════════ -->
-<section class="installs-marquee" id="melbourne-installs">
+<section class="installs-marquee section-dark" id="melbourne-installs">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Recent Installs</span>
-      <h2>Built For Melbourne Homes</h2>
+      <span class="eyebrow">Recent Work</span>
+      <h2>Recent Melbourne Installs</h2>
     </div>
   </div>
   <div class="marquee-viewport">
-    <div class="marquee-track">
+    <div class="marquee-track marquee-track--fast">
       <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-14.jpg" alt="Neptune whole home filtration system installed on a red brick home, Noble Park" loading="lazy"></div><span class="marquee-caption">Noble Park</span></div>
       <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-11.jpg" alt="Neptune whole home filtration system installed against a brick wall, Narre Warren" loading="lazy"></div><span class="marquee-caption">Narre Warren</span></div>
       <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-15.jpg" alt="Neptune whole home filtration system installed on a Melbourne front lawn, Ashwood" loading="lazy"></div><span class="marquee-caption">Ashwood</span></div>
       <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-16.jpg" alt="Neptune whole home filtration system installed beside a timber fence, Ascot Vale" loading="lazy"></div><span class="marquee-caption">Ascot Vale</span></div>
+      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/18-thumb.jpg" alt="Neptune whole home filtration system installed at a Melbourne home, Surrey Hills" loading="lazy"></div><span class="marquee-caption">Surrey Hills</span></div>
+      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-20.jpg" alt="Neptune whole home filtration system installed against a brick wall, Box Hill" loading="lazy"></div><span class="marquee-caption">Box Hill</span></div>
       <!-- duplicated for seamless loop -->
       <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-14.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Noble Park</span></div>
       <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-11.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Narre Warren</span></div>
       <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-15.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Ashwood</span></div>
       <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-16.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Ascot Vale</span></div>
+      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/18-thumb.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Surrey Hills</span></div>
+      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-20.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Box Hill</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     VIDEO SHOWCASE
+══════════════════════════════════════════════════════ -->
+<section class="section section-off section-dark video-showcase" id="install-video">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Real Neptune Install</span>
+      <h2>Clean Unit. Tidy Piping. Total Precision.</h2>
+    </div>
+    <div class="video-frame">
+      <video class="lazy-video" data-src="/assets/videos/melbourne-install-web.mp4" muted loop playsinline disablepictureinpicture disableremoteplayback preload="none"></video>
     </div>
   </div>
 </section>
@@ -199,110 +203,133 @@
      specifics of what happens are covered on the call with
      your local expert, not spelled out on the page.
 ══════════════════════════════════════════════════════ -->
-<section class="section" id="faq">
+<section class="section section-dark" id="faq">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Still Not Sure?</span>
       <h2>Frequently Asked Questions</h2>
     </div>
+    <div class="faq-panel">
     <div class="faq-list">
 
-      <!-- Tier 1 — Initial questions -->
+      <!-- Tier 1 — Initial -->
       <details class="faq-item" open>
-        <summary>What happens when I submit my details?
+        <summary>Isn't Melbourne's water already safe and among the best in Australia?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">A member of our team will be in touch to discuss what's possible for your home.</p>
+        <p class="faq-answer">Yes to both — Melbourne's treated water meets Australian drinking water standards and is some of the best-treated water in the country. But "safe" and "already filtered to what you'd want" aren't the same thing. Treatment can still leave chlorine, sediment and other contaminants that affect taste, smell and feel — refining that further is exactly what whole-home filtration does.</p>
       </details>
+      <details class="faq-item">
+        <summary>Who is whole-home filtration actually for?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Most people come to us because of dry skin, itchy skin, hair loss, eczema, a bad taste or smell in their water, wanting to protect their appliances, or just wanting peace of mind about what's coming through their taps. If any of that sounds familiar, it's worth a free water investigation.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why is whole-home filtration becoming such a big thing?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">More homeowners are realising a jug or under-sink filter only treats one tap — everything else in the house still runs on unfiltered water. Whole-home systems treat it all at the source, which is why more Melbourne homes are switching over.</p>
+      </details>
+
       <!-- Tier 2 — Installation -->
       <details class="faq-item">
         <summary>Where does the system connect to my home?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Typically at your water meter, though the exact location can vary depending on your property — we're happy to install wherever works best for you.</p>
+        <p class="faq-answer">Wherever you want it — typically at your water meter, but we'll fit it wherever works best for you.</p>
       </details>
       <details class="faq-item">
         <summary>Is there a drop in water pressure?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">No — the system is sized to maintain your home's normal water pressure at every tap.</p>
+        <p class="faq-answer">No — our 20" system is designed to maintain your home's normal water pressure at every tap.</p>
       </details>
       <details class="faq-item">
         <summary>Will installation damage my garden?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Our team takes care around your property during installation.</p>
-      </details>
-      <details class="faq-item">
-        <summary>How long does installation take?
-          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        </summary>
-        <p class="faq-answer">Installation typically takes under two hours, carried out by licensed Melbourne plumbers.</p>
+        <p class="faq-answer">Nothing gets damaged. Our team has handled every type of property and install — there's nothing about your setup that would be new to us.</p>
       </details>
       <details class="faq-item">
         <summary>Do you service all Melbourne suburbs?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">We service homes across metropolitan Melbourne.</p>
+        <p class="faq-answer">Yes — right across Melbourne, no dramas.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is there any maintenance?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Filters do need changing over time, but how often depends on what your water investigation finds, your home's setup, and how many people are living there — we'll confirm exactly what that looks like for you.</p>
       </details>
 
-      <!-- Tier 3 — Results and expectations -->      <details class="faq-item">
+      <!-- Tier 3 — Results and expectations -->
+      <details class="faq-item">
         <summary>Can the system reduce chlorine?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Yes — whole home filtration is designed to address chlorine and other common water quality concerns.</p>
+        <p class="faq-answer">Yes — whole home filtration is designed to address chlorine, chloramine and other common contaminants.</p>
       </details>
       <details class="faq-item">
-        <summary>Is the system designed for Melbourne's water?
+        <summary>What's actually found in Melbourne's water supply?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Yes — built for Melbourne. We only install and support our systems here, nowhere else.</p>
+        <p class="faq-answer">Chlorine and sediment are present in any Melbourne home connected to mains water — that's standard as part of treatment and distribution. Beyond that, it varies home to home depending on your pipes and suburb, which is exactly what your free water investigation is for.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer a warranty?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Yes — every system we install comes with a warranty. The exact terms depend on your setup, and we'll go through the details with you as part of your free water investigation.</p>
       </details>
 
       <!-- Tier 4 — Objections -->
       <details class="faq-item">
-        <summary>I've already had a quote from another company — what's different?
+        <summary>I've already had a quote or water test from another company — what's different?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Worth asking us how Neptune compares — happy to explain the difference.</p>
+        <p class="faq-answer">Worth asking us how Neptune compares. Either way, we still need to come out and see your home in person to confirm the best system for your setup and answer any questions you have.</p>
       </details>
       <details class="faq-item">
         <summary>Can't I just use a filter jug or shower filter instead?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Jugs and shower filters only cover one outlet. Whole home filtration covers every tap in the house.</p>
+        <p class="faq-answer">Jugs and shower filters only cover one outlet — but you're in contact with water so much more than that every day, at every tap, shower and appliance. Whole home filtration covers all of it, not just one spot.</p>
       </details>
       <details class="faq-item">
         <summary>I rent — can I still get in touch?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Our systems are designed for homeowners, since installation is fitted to the property's own plumbing.</p>
+        <p class="faq-answer">Our systems are designed for homeowners, since installation is fitted to the property's own plumbing — unless you have your landlord's permission, in which case get in touch and we'll take it from there.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why does Neptune stand out from other companies?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">We're not a plumber selling filters as a side offering, and we're not a big national company treating Melbourne as one market among many. Melbourne is the only place we work, because we understand what your home actually needs — with our own dedicated plumbing crew doing every job. Every state's water is different, so we'd rather be specialists here than generalists everywhere.</p>
       </details>
 
+    </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     VIDEO SHOWCASE
+     MID-PAGE CTA — second conversion opportunity so people who've
+     decided partway through don't have to scroll back to the top
 ══════════════════════════════════════════════════════ -->
-<section class="section section-off video-showcase" id="install-video">
+<section class="section-sm mid-cta section-dark">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Real Neptune Install</span>
-      <h2>Clean Unit. Tidy Piping. Total Precision.</h2>
-    </div>
-    <div class="video-frame">
-      <video class="lazy-video" data-src="/assets/videos/melbourne-install.mp4" muted loop playsinline disablepictureinpicture disableremoteplayback preload="none"></video>
-    </div>
-    <p class="video-caption">Filmed on site in Narre Warren South, post installation.</p>
+    <p class="mid-cta-text">Already know this is right for your home?</p>
+    <a href="#assessment" class="btn btn-primary scroll-to-assessment">Get My Free Water Investigation</a>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════
      BETTER WATER THROUGHOUT YOUR HOME
 ══════════════════════════════════════════════════════ -->
-<section class="section" id="benefits">
+<section class="section section-dark" id="benefits">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">What Changes</span>
@@ -342,115 +369,18 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     MORE INSTALLS — SECOND MARQUEE
-══════════════════════════════════════════════════════ -->
-<section class="installs-marquee section-off" id="more-installs">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Even More Installs</span>
-      <h2>Melbourne Only</h2>
-    </div>
-  </div>
-  <div class="marquee-viewport">
-    <div class="marquee-track">
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-16.jpg" alt="Neptune whole home filtration system installed beside a timber fence, Ascot Vale" loading="lazy"></div><span class="marquee-caption">Ascot Vale</span></div>
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-7.jpg" alt="Neptune whole home filtration system installed beside a timber fence and garden bed, Kings Park" loading="lazy"></div><span class="marquee-caption">Kings Park</span></div>
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-14.jpg" alt="Neptune whole home filtration system installed on a red brick home, Noble Park" loading="lazy"></div><span class="marquee-caption">Noble Park</span></div>
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-13.jpg" alt="Neptune whole home filtration system installed at a two-storey Melbourne home, Werribee" loading="lazy"></div><span class="marquee-caption">Werribee</span></div>
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-15.jpg" alt="Neptune whole home filtration system installed on a Melbourne front lawn, Ashwood" loading="lazy"></div><span class="marquee-caption">Ashwood</span></div>
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-3.jpg" alt="Neptune whole home filtration system installed at a Melbourne home, Clyde North" loading="lazy"></div><span class="marquee-caption">Clyde North</span></div>
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-11.jpg" alt="Neptune whole home filtration system installed against a brick wall, Narre Warren" loading="lazy"></div><span class="marquee-caption">Narre Warren</span></div>
-      <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-10.jpg" alt="Neptune whole home filtration system installed on a Melbourne front lawn, Williams Landing" loading="lazy"></div><span class="marquee-caption">Williams Landing</span></div>
-      <!-- duplicated for seamless loop -->
-      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-16.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Ascot Vale</span></div>
-      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-7.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Kings Park</span></div>
-      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-14.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Noble Park</span></div>
-      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-13.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Werribee</span></div>
-      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-15.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Ashwood</span></div>
-      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-3.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Clyde North</span></div>
-      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-11.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Narre Warren</span></div>
-      <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/install-10.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Williams Landing</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════
      FINAL CTA
 ══════════════════════════════════════════════════════ -->
-<section class="section final-cta">
+<section class="section final-cta section-dark">
   <div class="container">
-    <h2>Ready To Get Started?</h2>
-    <p>Answer a few quick questions to speak with your local whole home filtration experts.</p>
-    <a href="#assessment" class="btn btn-primary scroll-to-assessment">Speak With An Expert</a>
+    <h2>No More Wondering. Get Your Free Water Investigation.</h2>
+    <p>Answer 4 quick questions to see if your home qualifies.</p>
+    <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get My Free Water Investigation</a>
   </div>
 </section>
 
 <script>
 (function () {
-  var form   = document.getElementById('assessment-form');
-  var steps  = Array.prototype.slice.call(form.querySelectorAll('.step'));
-  var dots   = Array.prototype.slice.call(document.getElementById('progress-track').children);
-  var label  = document.getElementById('progress-label');
-  var backBtn = document.getElementById('step-back');
-  var contBtn = document.getElementById('step-continue');
-  var subBtn  = document.getElementById('step-submit');
-  var formWrap = document.getElementById('form-wrap');
-  var current = 0;
-
-  var panels = {
-    owner: document.getElementById('panel-disqualify-owner'),
-    mains: document.getElementById('panel-disqualify-mains'),
-    submitting: document.getElementById('panel-submitting')
-  };
-
-  function showStep(i) {
-    current = i;
-    steps.forEach(function (s, idx) { s.classList.toggle('active', idx === i); });
-    dots.forEach(function (d, idx) { d.classList.toggle('done', idx <= i); });
-    label.textContent = 'Step ' + (i + 1) + ' of ' + steps.length;
-    backBtn.style.display = i === 0 ? 'none' : 'inline-block';
-    var isLast  = i === steps.length - 1;
-    var isRadio = !!steps[i].querySelector('input[type="radio"]');
-    contBtn.style.display = (isLast || isRadio) ? 'none' : 'block';
-    subBtn.style.display  = isLast ? 'block' : 'none';
-    var firstInput = steps[i].querySelector('input[type="text"], input[type="tel"], input[type="email"]');
-    if (firstInput) firstInput.focus();
-  }
-
-  function showPanel(name) {
-    formWrap.style.display = 'none';
-    Object.keys(panels).forEach(function (k) { panels[k].classList.toggle('active', k === name); });
-  }
-
-  function currentIsValid() {
-    var radios = steps[current].querySelectorAll('input[type="radio"]');
-    if (radios.length) {
-      return Array.prototype.some.call(radios, function (r) { return r.checked; });
-    }
-    var inputs = steps[current].querySelectorAll('input');
-    var ok = true;
-    inputs.forEach(function (inp) { if (!inp.reportValidity()) ok = false; });
-    return ok;
-  }
-
-  function next() {
-    if (!currentIsValid()) return;
-    if (current < steps.length - 1) showStep(current + 1);
-  }
-
-  contBtn.addEventListener('click', next);
-  backBtn.addEventListener('click', function () { if (current > 0) showStep(current - 1); });
-
-  steps.forEach(function (step) {
-    var radios = step.querySelectorAll('input[type="radio"]');
-    radios.forEach(function (r) {
-      r.addEventListener('change', function () {
-        if (r.dataset.disqualify) { showPanel(r.dataset.disqualify); return; }
-        setTimeout(next, 260);
-      });
-    });
-  });
-
   document.querySelectorAll('.scroll-to-assessment').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
@@ -458,71 +388,24 @@
     });
   });
 
-  function readCookie(name) {
-    var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
-    return match ? decodeURIComponent(match[1]) : '';
-  }
+  // Fire the Meta Pixel Lead event the instant the embedded GHL survey reports a
+  // submit -- not on the thank-you page redirect, so it fires even if the
+  // redirect is slow/interrupted.
+  window.addEventListener('message', function (event) {
+    if (!/(^|\.)leadconnectorhq\.com$|(^|\.)msgsndr\.com$/.test(event.origin.replace(/^https?:\/\//, ''))) return;
+    console.log('[GHL debug] message from', event.origin, '-> data:', JSON.stringify(event.data));
 
-  var utms = (function () {
-    var p = new URLSearchParams(window.location.search);
-    return {
-      utm_source: p.get('utm_source') || '',
-      utm_medium: p.get('utm_medium') || '',
-      utm_campaign: p.get('utm_campaign') || '',
-      utm_content: p.get('utm_content') || '',
-      utm_term: p.get('utm_term') || '',
-      fbclid: p.get('fbclid') || '',
-      fbc: readCookie('_fbc'),
-      fbp: readCookie('_fbp')
-    };
-  })();
+    var data = event.data;
+    var isSubmit = false;
+    if (typeof data === 'string') {
+      isSubmit = /submit/i.test(data);
+    } else if (data && typeof data === 'object') {
+      isSubmit = /submit/i.test(data.type || '') || /submit/i.test(data.event || '');
+    }
 
-  function makeEventId() {
-    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
-    return 'eid-' + Date.now() + '-' + Math.random().toString(36).slice(2);
-  }
-
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    if (!currentIsValid()) return;
-
-    var name   = form.name.value.trim();
-    var phone  = form.phone.value.trim();
-    var email  = form.email.value.trim();
-    var suburb = form.suburb.value.trim();
-    if (!name || !phone || !email || !suburb) return;
-
-    subBtn.disabled = true;
-    subBtn.textContent = 'Submitting…';
-
-    var eventId = makeEventId();
-
-    var payload = Object.assign({
-      name: name,
-      firstName: name,
-      phone: phone,
-      email: email,
-      suburb: suburb,
-      owns_property: form.owner.value,
-      mains_water: form.mains.value,
-      improvement_focus: form.improve.value,
-      source: 'experts_lp',
-      lead_source: 'meta_experts_lp',
-      event_id: eventId
-    }, utms);
-
-    try {
-      await fetch('/.netlify/functions/submit-lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-    } catch (err) { /* lead still forwarded server-side on retry */ }
-
-    sessionStorage.setItem('neptune_assessment_submitted', '1');
-    var qs = window.location.search;
-    var sep = qs ? '&' : '?';
-    window.location.href = '/experts/thank-you/' + qs + sep + 'eid=' + encodeURIComponent(eventId);
+    if (isSubmit && window.fbq) {
+      fbq('track', 'Lead');
+    }
   });
 })();
 </script>
@@ -539,7 +422,7 @@
       v.play();
       io.unobserve(v);
     });
-  }, { rootMargin: '200px' });
+  }, { rootMargin: '600px' });
   videos.forEach(function (v) { io.observe(v); });
 })();
 </script>
