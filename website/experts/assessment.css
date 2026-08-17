@@ -212,7 +212,7 @@ p { color: var(--text-2); }
 .hero-scroll-arrow {
   display: flex; align-items: center; justify-content: center;
   width: 56px; height: 76px;
-  border: 2px solid rgba(184,115,51,.75);
+  border: 2px solid rgba(26,95,168,.75);
   border-radius: var(--r-full);
   background: rgba(11,30,61,.4);
   color: var(--copper);
@@ -220,7 +220,7 @@ p { color: var(--text-2); }
   transition: border-color var(--ease), background var(--ease);
 }
 .hero-scroll-arrow svg { width: 24px; height: 24px; }
-.hero-scroll-arrow:hover { background: rgba(184,115,51,.14); }
+.hero-scroll-arrow:hover { background: rgba(26,95,168,.14); }
 
 @keyframes arrow-bounce {
   0%, 100% { transform: translateY(0); }
@@ -787,7 +787,7 @@ p { color: var(--text-2); }
 .section-dark h2 { color: #fff; }
 .section-dark p { color: rgba(255,255,255,.75); }
 .section-dark .timeline-icon {
-  border-color: rgba(184,115,51,.6);
+  border-color: rgba(26,95,168,.6);
   color: var(--copper);
   background: rgba(255,255,255,.06);
 }
