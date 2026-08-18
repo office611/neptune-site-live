@@ -391,9 +391,13 @@
   // Fire the Meta Pixel Lead event the instant the embedded GHL survey reports a
   // submit -- not on the thank-you page redirect, so it fires even if the
   // redirect is slow/interrupted.
+  // GHL's embedded form can post more than one "submit"-ish message per real
+  // completion (e.g. step-validation + final-completion), so this fires at
+  // most once per page load or the pixel double-counts a single lead.
+  var leadFired = false;
   window.addEventListener('message', function (event) {
+    if (leadFired) return;
     if (!/(^|\.)leadconnectorhq\.com$|(^|\.)msgsndr\.com$/.test(event.origin.replace(/^https?:\/\//, ''))) return;
-    console.log('[GHL debug] message from', event.origin, '-> data:', JSON.stringify(event.data));
 
     var data = event.data;
     var isSubmit = false;
@@ -404,6 +408,7 @@
     }
 
     if (isSubmit && window.fbq) {
+      leadFired = true;
       fbq('track', 'Lead');
     }
   });
