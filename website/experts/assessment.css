@@ -479,6 +479,17 @@ p { color: var(--text-2); }
   background: linear-gradient(180deg, rgba(7,15,30,.5) 0%, rgba(7,15,30,.7) 40%, rgba(7,15,30,.88) 65%, rgba(7,15,30,.97) 80%, var(--navy-deep) 92%, var(--navy-deep) 100%);
 }
 
+/* Mobile: the hero+arrow+form container is far taller relative to width
+   here than on desktop, so stretching the photo across all of it forces
+   an extreme scale-up -- the visible crop ends up showing almost nothing
+   recognisable (mostly sky, unit never appears). Capping the photo's
+   height keeps it looking like an actual photo; below that it falls back
+   to .hero-photo's own flat navy background, which matches the gradient's
+   end colour exactly, so there's still no visible seam. */
+@media (max-width: 767px) {
+  .page-melbourne .hero-photo-media { bottom: auto; height: 640px; }
+}
+
 /* ============================================================
    ASSESSMENT FORM
    ============================================================ */
