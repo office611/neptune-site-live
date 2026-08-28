@@ -467,22 +467,14 @@ p { color: var(--text-2); }
 .page-melbourne .vsl-frame { border-color: var(--accent); box-shadow: 0 16px 48px rgba(0,0,0,.5), 0 0 0 1px rgba(77,166,255,.25); }
 .page-melbourne .next-step-word { text-decoration-color: var(--accent); }
 
-/* Media now spans hero + arrow + form + the gallery section below (see
-   .hero-extended wrapper in the HTML). Both .hero-photo and the gallery's
-   .section-dark class normally paint their own opaque navy background on
-   top of the media div (later in DOM = higher paint order at the same
-   stacking level) -- overridden to transparent here so the photo/gradient
-   actually shows through instead of being hidden behind them. */
-.page-melbourne .hero-extended { position: relative; overflow: hidden; }
-.page-melbourne .hero-extended > .hero-photo { background: transparent; }
-.page-melbourne .hero-extended .installs-marquee.section-dark { background: transparent; }
-
-/* Overlay recalculated for the taller combined span. Darkens progressively
-   so the photo stays visible through the hero/arrow/form, reaching solid
-   navy by ~80% -- roughly the gallery heading, fading to solid before the
-   actual photo strip so those images keep clean contrast. */
+/* Reverted -- stretching the photo further (through form + gallery) blew
+   it up past its native resolution (visible blur) and made the unit
+   impossible to keep in frame. Media stays scoped to .hero-photo-upper
+   (see HTML), photo displays without distortion, fades to solid navy for
+   the arrow/form -- seamless (matches the site's flat navy exactly),
+   no blur, subject stays visible. */
 .page-melbourne .hero-photo-overlay {
-  background: linear-gradient(180deg, rgba(7,15,30,.65) 0%, rgba(7,15,30,.8) 25%, rgba(7,15,30,.9) 45%, rgba(7,15,30,.97) 65%, var(--navy-deep) 80%, var(--navy-deep) 100%);
+  background: linear-gradient(180deg, rgba(7,15,30,.7) 0%, rgba(7,15,30,.85) 35%, rgba(7,15,30,.96) 50%, var(--navy-deep) 62%, var(--navy-deep) 100%);
 }
 
 /* ============================================================
