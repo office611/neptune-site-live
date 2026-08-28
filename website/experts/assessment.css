@@ -467,6 +467,15 @@ p { color: var(--text-2); }
 .page-melbourne .vsl-frame { border-color: var(--accent); box-shadow: 0 16px 48px rgba(0,0,0,.5), 0 0 0 1px rgba(77,166,255,.25); }
 .page-melbourne .next-step-word { text-decoration-color: var(--accent); }
 
+/* Overlay recalculated -- media now spans the full .hero-photo section
+   (upper + arrow + form), not just the top. Darkens progressively so the
+   photo stays visible through the hero content, then reaches solid navy
+   by ~62% (roughly the arrow/form boundary) so the white form card keeps
+   proper contrast against it. */
+.page-melbourne .hero-photo-overlay {
+  background: linear-gradient(180deg, rgba(7,15,30,.7) 0%, rgba(7,15,30,.85) 35%, rgba(7,15,30,.96) 50%, var(--navy-deep) 62%, var(--navy-deep) 100%);
+}
+
 /* ============================================================
    ASSESSMENT FORM
    ============================================================ */

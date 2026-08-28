@@ -37,18 +37,16 @@
      be said standing in someone's kitchen, said here instead.
 ══════════════════════════════════════════════════════ -->
 <section class="hero-photo">
-  <!-- Photo is landscape (unit + house + garden), the hero+arrow+form area
-       is very tall/narrow by comparison -- stretching one landscape image
-       to literally cover that whole height would crop it hard. Instead: the
-       photo displays properly across the hero (where its proportions make
-       sense), then the overlay fades it smoothly into the site's solid dark
-       colour for the rest -- no visible seam, photo itself stays uncropped
-       in spirit. -->
+  <!-- Media spans the full .hero-photo section (upper + arrow + form) so the
+       photo reaches the bottom of the GHL form -- accepts heavier horizontal
+       crop on tall screens as a deliberate tradeoff. object-position biased
+       toward the unit (~30% from left in the source photo) so it stays in
+       frame as the container narrows. -->
+  <div class="hero-photo-media">
+    <img src="/assets/install-photos/1-hero.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager" fetchpriority="high" style="object-position: 30% 40%;">
+    <div class="hero-photo-overlay"></div>
+  </div>
   <div class="hero-photo-upper">
-    <div class="hero-photo-media">
-      <img src="/assets/install-photos/1-hero.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager" fetchpriority="high">
-      <div class="hero-photo-overlay"></div>
-    </div>
     <div class="container hero-photo-content fade-in-up">
       <h1>The Smarter Way To Find Out What Your Water Filtration Actually Costs <span class="hero-accent"><em>(Skip The Sales Pitch Disguised As A Free Water Test)</em></span></h1>
       <p class="hero-sub">Melbourne homeowners are skipping the hour-long in-home sales pitch and getting their exact price after one call — no one dropping a tablet at your kitchen table, no one pushing you in your own home.</p>
