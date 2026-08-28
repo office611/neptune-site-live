@@ -37,15 +37,18 @@
      be said standing in someone's kitchen, said here instead.
 ══════════════════════════════════════════════════════ -->
 <section class="hero-photo">
-  <!-- Media now spans the WHOLE .hero-photo section (upper + arrow + form),
-       not just hero-photo-upper -- same single image, no crop/distortion,
-       one continuous background down to the form instead of stopping partway
-       and handing off to a flat colour. -->
-  <div class="hero-photo-media">
-    <img src="/assets/install-photos/1-hero.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager" fetchpriority="high">
-    <div class="hero-photo-overlay"></div>
-  </div>
+  <!-- Photo is landscape (unit + house + garden), the hero+arrow+form area
+       is very tall/narrow by comparison -- stretching one landscape image
+       to literally cover that whole height would crop it hard. Instead: the
+       photo displays properly across the hero (where its proportions make
+       sense), then the overlay fades it smoothly into the site's solid dark
+       colour for the rest -- no visible seam, photo itself stays uncropped
+       in spirit. -->
   <div class="hero-photo-upper">
+    <div class="hero-photo-media">
+      <img src="/assets/install-photos/1-hero.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager" fetchpriority="high">
+      <div class="hero-photo-overlay"></div>
+    </div>
     <div class="container hero-photo-content fade-in-up">
       <h1>The Smarter Way To Find Out What Your Water Filtration Actually Costs <span class="hero-accent"><em>(Skip The Sales Pitch Disguised As A Free Water Test)</em></span></h1>
       <p class="hero-sub">Melbourne homeowners are skipping the hour-long in-home sales pitch and getting their exact price after one call — no one dropping a tablet at your kitchen table, no one pushing you in your own home.</p>

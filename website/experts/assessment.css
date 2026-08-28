@@ -467,15 +467,6 @@ p { color: var(--text-2); }
 .page-melbourne .vsl-frame { border-color: var(--accent); box-shadow: 0 16px 48px rgba(0,0,0,.5), 0 0 0 1px rgba(77,166,255,.25); }
 .page-melbourne .next-step-word { text-decoration-color: var(--accent); }
 
-/* Overlay recalculated for the taller span -- media now covers the whole
-   .hero-photo section (upper + arrow + form), not just the top. Darkens to
-   solid by ~38% of that new, much taller height so the photo stays genuinely
-   visible through the headline/VSL area, then the form sits on solid
-   near-black where it actually needs the contrast. */
-.page-melbourne .hero-photo-overlay {
-  background: linear-gradient(180deg, rgba(7,15,30,.7) 0%, rgba(7,15,30,.94) 26%, var(--navy-deep) 38%, var(--navy-deep) 100%);
-}
-
 /* ============================================================
    ASSESSMENT FORM
    ============================================================ */
