@@ -36,16 +36,17 @@
      job the in-home visit used to do — everything that would
      be said standing in someone's kitchen, said here instead.
 ══════════════════════════════════════════════════════ -->
+<div class="hero-extended">
+<!-- Media now spans hero + arrow + form + the "Melbourne's Own" gallery
+     section below -- wrapper here provides the positioning context so one
+     absolutely-positioned photo+overlay can cover all of it. installs-marquee
+     has its own opaque background normally; overridden to transparent below
+     (scoped to .hero-extended) so the photo/gradient shows through instead. -->
+<div class="hero-photo-media">
+  <img src="/assets/install-photos/1-hero.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager" fetchpriority="high" style="object-position: 30% 40%;">
+  <div class="hero-photo-overlay"></div>
+</div>
 <section class="hero-photo">
-  <!-- Media spans the full .hero-photo section (upper + arrow + form) so the
-       photo reaches the bottom of the GHL form -- accepts heavier horizontal
-       crop on tall screens as a deliberate tradeoff. object-position biased
-       toward the unit (~30% from left in the source photo) so it stays in
-       frame as the container narrows. -->
-  <div class="hero-photo-media">
-    <img src="/assets/install-photos/1-hero.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager" fetchpriority="high" style="object-position: 30% 40%;">
-    <div class="hero-photo-overlay"></div>
-  </div>
   <div class="hero-photo-upper">
     <div class="container hero-photo-content fade-in-up">
       <h1>The Smarter Way To Find Out What Your Water Filtration Actually Costs <span class="hero-accent"><em>(Skip The Sales Pitch Disguised As A Free Water Test)</em></span></h1>
@@ -135,6 +136,7 @@
     </div>
   </div>
 </section>
+</div><!-- /.hero-extended -->
 
 <!-- ══════════════════════════════════════════════════════
      VIDEO SHOWCASE — the install-quality proof, kept lower on
