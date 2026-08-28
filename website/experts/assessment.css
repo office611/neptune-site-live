@@ -469,10 +469,14 @@ p { color: var(--text-2); }
 
 /* Using 6.jpg (vertical shot, unit centred) -- holds up across the taller
    hero+arrow+form span without the blur the landscape photo had. Media
-   spans the full .hero-photo section again; gradient reaches solid navy
-   by ~62% (roughly the arrow/form boundary) for form contrast. */
+   spans the full .hero-photo section (everything ABOVE the "Melbourne's
+   Own" gallery, which keeps its own normal background untouched -- not
+   made transparent this time, avoiding the earlier contrast bug).
+   Gradient pushed later so the photo stays visible right up near the
+   bottom of the form, only reaching solid navy at ~92% -- as close to
+   the Melbourne's Own boundary as still leaves the form legible. */
 .page-melbourne .hero-photo-overlay {
-  background: linear-gradient(180deg, rgba(7,15,30,.55) 0%, rgba(7,15,30,.8) 35%, rgba(7,15,30,.95) 50%, var(--navy-deep) 62%, var(--navy-deep) 100%);
+  background: linear-gradient(180deg, rgba(7,15,30,.5) 0%, rgba(7,15,30,.7) 40%, rgba(7,15,30,.88) 65%, rgba(7,15,30,.97) 80%, var(--navy-deep) 92%, var(--navy-deep) 100%);
 }
 
 /* ============================================================
