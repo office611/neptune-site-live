@@ -466,6 +466,7 @@ p { color: var(--text-2); }
 .page-melbourne .watch-first-bar { background: var(--accent); color: #05131F; box-shadow: 0 8px 24px rgba(77,166,255,.35); }
 .page-melbourne .vsl-frame { border-color: var(--accent); box-shadow: 0 16px 48px rgba(0,0,0,.5), 0 0 0 1px rgba(77,166,255,.25); }
 .page-melbourne .next-step-word { text-decoration-color: var(--accent); }
+.page-melbourne .eyebrow { color: var(--accent); }
 
 /* Using 6.jpg (vertical shot, unit centred) -- holds up across the taller
    hero+arrow+form span without the blur the landscape photo had. Media
