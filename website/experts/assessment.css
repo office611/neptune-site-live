@@ -475,6 +475,9 @@ p { color: var(--text-2); }
 /* Tightest reasonable gap between the "Next Step" heading and the form
    card below it. */
 .page-melbourne .hero-photo .assessment-head { margin-bottom: var(--s-2); }
+@media (max-width: 767px) {
+  .page-melbourne .hero-photo .assessment-head { margin-bottom: var(--s-4); }
+}
 
 /* Using 6.jpg (vertical shot, unit centred) -- holds up across the taller
    hero+arrow+form span without the blur the landscape photo had. Media
