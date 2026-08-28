@@ -23,6 +23,11 @@
   status = 301
 
 [[redirects]]
+  from = "/melbourne"
+  to = "/melbourne/"
+  status = 301
+
+[[redirects]]
   from = "/experts/thank-you"
   to = "/experts/thank-you/"
   status = 301
