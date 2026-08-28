@@ -468,6 +468,10 @@ p { color: var(--text-2); }
 .page-melbourne .next-step-word { text-decoration-color: var(--accent); }
 .page-melbourne .eyebrow { color: var(--accent); }
 
+/* Gallery marquee slowed slightly -- 8s felt too fast/blurry with only
+   7 photos in the loop. */
+.page-melbourne .marquee-track--fast { animation-duration: 14s; }
+
 /* Using 6.jpg (vertical shot, unit centred) -- holds up across the taller
    hero+arrow+form span without the blur the landscape photo had. Media
    spans the full .hero-photo section (everything ABOVE the "Melbourne's
