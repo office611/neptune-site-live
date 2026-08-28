@@ -450,14 +450,31 @@ p { color: var(--text-2); }
   .watch-first-bar { font-size: 1.05rem; padding: 16px 26px; margin-top: var(--s-8); }
 }
 
-/* One consistent action colour on this page (copper), not split with blue --
-   trains the eye once instead of two competing "important" colours. Scoped
-   to .page-melbourne so /experts and the rest of the site keep blue buttons. */
-.page-melbourne .btn-primary { background: var(--copper); }
-.page-melbourne .btn-primary:hover { background: #A3652D; }
-.page-melbourne .choice-pill:has(input:checked) { border-color: var(--copper); background: rgba(184,115,51,.1); }
-.page-melbourne .choice-pill:has(input:checked)::before { border-color: var(--copper); background: var(--copper); }
-.page-melbourne .form-field input:focus { border-color: var(--copper); box-shadow: 0 0 0 3px rgba(184,115,51,.15); }
+/* One consistent action colour on this page -- a lighter, brighter blue
+   for stronger contrast against the near-black background than copper or
+   the site's default (darker) blue gave. Scoped to .page-melbourne so
+   /experts and the rest of the site are untouched. */
+.page-melbourne { --accent: #4DA6FF; }
+.page-melbourne .btn-primary { background: var(--accent); color: #05131F; }
+.page-melbourne .btn-primary:hover { background: #7CC0FF; }
+.page-melbourne .choice-pill:has(input:checked) { border-color: var(--accent); background: rgba(77,166,255,.12); }
+.page-melbourne .choice-pill:has(input:checked)::before { border-color: var(--accent); background: var(--accent); }
+.page-melbourne .form-field input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(77,166,255,.18); }
+.page-melbourne .hero-accent { color: var(--accent); }
+.page-melbourne .hero-scroll-arrow { border-color: rgba(77,166,255,.75); color: var(--accent); }
+.page-melbourne .hero-scroll-arrow:hover { background: rgba(77,166,255,.14); }
+.page-melbourne .watch-first-bar { background: var(--accent); color: #05131F; box-shadow: 0 8px 24px rgba(77,166,255,.35); }
+.page-melbourne .vsl-frame { border-color: var(--accent); box-shadow: 0 16px 48px rgba(0,0,0,.5), 0 0 0 1px rgba(77,166,255,.25); }
+.page-melbourne .next-step-word { text-decoration-color: var(--accent); }
+
+/* Overlay recalculated for the taller span -- media now covers the whole
+   .hero-photo section (upper + arrow + form), not just the top. Darkens to
+   solid by ~38% of that new, much taller height so the photo stays genuinely
+   visible through the headline/VSL area, then the form sits on solid
+   near-black where it actually needs the contrast. */
+.page-melbourne .hero-photo-overlay {
+  background: linear-gradient(180deg, rgba(7,15,30,.7) 0%, rgba(7,15,30,.94) 26%, var(--navy-deep) 38%, var(--navy-deep) 100%);
+}
 
 /* ============================================================
    ASSESSMENT FORM
