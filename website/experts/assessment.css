@@ -488,6 +488,15 @@ p { color: var(--text-2); }
    end colour exactly, so there's still no visible seam. */
 @media (max-width: 767px) {
   .page-melbourne .hero-photo-media { bottom: auto; height: 640px; }
+  /* The desktop gradient's percentage stops were tuned for a much taller
+     span -- reused as-is against this short 640px height, the darkening
+     compresses into a tiny space and the whole thing reads as near-black.
+     Recalibrated here: photo stays clearly visible through most of it,
+     only darkening toward the very bottom where it hands off to the flat
+     navy fallback. */
+  .page-melbourne .hero-photo-overlay {
+    background: linear-gradient(180deg, rgba(7,15,30,.4) 0%, rgba(7,15,30,.55) 50%, rgba(7,15,30,.85) 80%, var(--navy-deep) 100%);
+  }
 }
 
 /* ============================================================
