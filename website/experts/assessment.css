@@ -479,6 +479,23 @@ p { color: var(--text-2); }
   .page-melbourne .hero-photo .assessment-head { margin-bottom: var(--s-4); }
 }
 
+/* Why Neptune -- checklist instead of a wall of text, button sits right
+   under it with no dead gap (uses --success, the site's existing green
+   token, for the checkmarks -- distinct from the light-blue action
+   colour, since these are proof points, not click targets). */
+.page-melbourne #why-neptune .section-head { margin-bottom: var(--s-8); }
+.page-melbourne .why-list {
+  max-width: var(--w-text); margin: 0 auto var(--s-8);
+  display: flex; flex-direction: column; gap: var(--s-4);
+}
+.page-melbourne .why-list li {
+  display: flex; align-items: flex-start; gap: var(--s-3);
+  font-size: 1.02rem; line-height: 1.55; color: rgba(255,255,255,.9);
+  text-align: left;
+}
+.page-melbourne .why-list svg { flex-shrink: 0; margin-top: 2px; color: var(--success); }
+.page-melbourne .why-neptune-btn { display: flex; width: fit-content; margin: 0 auto; }
+
 /* Using 6.jpg (vertical shot, unit centred) -- holds up across the taller
    hero+arrow+form span without the blur the landscape photo had. Media
    spans the full .hero-photo section (everything ABOVE the "Melbourne's
