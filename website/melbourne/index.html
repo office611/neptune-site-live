@@ -467,20 +467,30 @@
 
   if (centerPlayBtn) {
     centerPlayBtn.addEventListener('click', function () {
-      // First real press converts from ambient muted autoplay into an
-      // actual watch -- restart from 0:00 with sound on, so they get the
-      // full thing rather than continuing from a point they never
-      // consciously saw or heard.
       if (!barActive) {
+        // First real press converts from ambient muted autoplay into an
+        // actual watch -- restart from 0:00 with sound on, so they get the
+        // full thing rather than continuing from a point they never
+        // consciously saw or heard. video.paused is false at this point
+        // (autoplay's already running), so togglePlay() below would
+        // wrongly pause it -- force play explicitly instead.
+        barActive = true;
         video.currentTime = 0;
         video.muted = false;
         setMuteIcon(false);
+        video.play();
+        hideCornerMute();
+      } else {
+        togglePlay();
       }
-      barActive = true;
     });
   }
 
-  playBtns.forEach(function (btn) { btn.addEventListener('click', togglePlay); });
+  // Bottom bar's own play button always uses the normal toggle -- by the
+  // time it's usable, barActive is already true so there's no first-press
+  // special case to worry about there.
+  var barPlayBtn = document.getElementById('vslBarPlay');
+  if (barPlayBtn) barPlayBtn.addEventListener('click', togglePlay);
   video.addEventListener('play', function () { setPlayIcon(true); });
   video.addEventListener('pause', function () { setPlayIcon(false); });
 
