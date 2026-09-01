@@ -438,13 +438,17 @@ p { color: var(--text-2); }
 .vsl-frame {
   position: relative; z-index: 3;
   max-width: 720px; margin: 0 auto var(--s-5);
-  aspect-ratio: 16/9;
+  display: flex; flex-direction: column;
   border-radius: var(--r-lg); overflow: hidden;
   border: 2px solid var(--copper);
   box-shadow: 0 16px 48px rgba(0,0,0,.5), 0 0 0 1px rgba(184,115,51,.2);
   background: var(--navy);
 }
-.vsl-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Video + its overlay buttons live in their own aspect-ratio box, separate
+   from the control bar below -- the bar is now added on, not overlapping
+   the picture. */
+.vsl-video-wrap { position: relative; aspect-ratio: 16/9; }
+.vsl-video-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .vsl-toggle-play {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -454,10 +458,10 @@ p { color: var(--text-2); }
   cursor: pointer; z-index: 4; transition: background .15s ease, transform .15s ease, opacity .3s ease;
 }
 .vsl-toggle-play:hover { background: rgba(0,0,0,.6); transform: translate(-50%, -50%) scale(1.06); }
-/* Fade the center button down once playing so it's not sitting solid over
-   the presenter the whole time -- still visible/tappable, just subtle. */
-.vsl-frame.is-playing .vsl-toggle-play { opacity: .45; }
-.vsl-frame.is-playing .vsl-toggle-play:hover { opacity: 1; }
+/* Fully hide the center button once playing so the video runs completely
+   unobstructed -- it only reappears once paused. The bottom bar's own
+   play/pause button is the ongoing control once playback has started. */
+.vsl-frame.is-playing .vsl-toggle-play { opacity: 0; pointer-events: none; }
 
 .vsl-toggle-mute {
   position: absolute; top: 12px; right: 12px;
@@ -475,7 +479,7 @@ p { color: var(--text-2); }
    matching the reference player's layout but in the page's own colour
    (--accent) rather than a fixed brand colour. */
 .vsl-controlbar {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 4;
+  position: relative; z-index: 4;
   display: flex; align-items: center; gap: 12px;
   padding: 10px 14px;
   background: var(--accent, #4DA6FF);
@@ -506,6 +510,29 @@ p { color: var(--text-2); }
   box-shadow: 0 1px 3px rgba(0,0,0,.35);
   pointer-events: none;
 }
+
+.vsl-settings-wrap { position: relative; flex-shrink: 0; }
+.vsl-settings-menu {
+  position: absolute; bottom: calc(100% + 10px); right: -8px;
+  background: var(--navy, #0B1E3D);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--r-sm); padding: 8px 0;
+  min-width: 84px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.5);
+  display: flex; flex-direction: column;
+}
+.vsl-settings-label {
+  color: rgba(255,255,255,.5); font-size: .68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em;
+  padding: 2px 14px 6px;
+}
+.vsl-speed-opt {
+  background: transparent; border: none; color: #fff;
+  font-size: .85rem; text-align: left; padding: 7px 14px;
+  cursor: pointer;
+}
+.vsl-speed-opt:hover { background: rgba(255,255,255,.08); }
+.vsl-speed-opt.is-active { color: var(--accent, #4DA6FF); font-weight: 700; }
 
 @media (min-width: 768px) {
   .watch-first-bar { font-size: 1.05rem; padding: 16px 26px; margin-top: var(--s-8); }

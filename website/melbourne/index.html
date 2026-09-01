@@ -62,15 +62,17 @@
         Click Below To Watch First!
       </div>
       <div class="vsl-frame">
-        <video class="lazy-video" id="vslVideo" data-src="/assets/videos/melbourne-vsl.mp4" muted playsinline preload="none" poster="/assets/install-photos/1-hero.jpg"></video>
-        <button class="vsl-toggle-play" id="vslTogglePlay" type="button" aria-label="Pause video">
-          <svg class="icon-pause" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
-          <svg class="icon-play" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <button class="vsl-toggle-mute" id="vslToggleMute" type="button" aria-label="Unmute video">
-          <svg class="icon-muted" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-          <svg class="icon-unmuted" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-        </button>
+        <div class="vsl-video-wrap">
+          <video class="lazy-video" id="vslVideo" data-src="/assets/videos/melbourne-vsl.mp4" muted playsinline preload="none" poster="/assets/install-photos/1-hero.jpg"></video>
+          <button class="vsl-toggle-play" id="vslTogglePlay" type="button" aria-label="Pause video">
+            <svg class="icon-pause" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+            <svg class="icon-play" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button class="vsl-toggle-mute" id="vslToggleMute" type="button" aria-label="Unmute video">
+            <svg class="icon-muted" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            <svg class="icon-unmuted" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          </button>
+        </div>
         <div class="vsl-controlbar">
           <button class="vsl-bar-btn" id="vslBarPlay" type="button" aria-label="Pause video">
             <svg class="icon-pause" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
@@ -85,9 +87,20 @@
             <svg class="icon-muted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
             <svg class="icon-unmuted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
           </button>
-          <button class="vsl-bar-btn" id="vslBarSettings" type="button" aria-label="Settings">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-          </button>
+          <div class="vsl-settings-wrap">
+            <button class="vsl-bar-btn" id="vslBarSettings" type="button" aria-label="Settings">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </button>
+            <div class="vsl-settings-menu" id="vslSettingsMenu" hidden>
+              <span class="vsl-settings-label">Speed</span>
+              <button type="button" class="vsl-speed-opt" data-speed="0.5">0.5x</button>
+              <button type="button" class="vsl-speed-opt" data-speed="0.75">0.75x</button>
+              <button type="button" class="vsl-speed-opt is-active" data-speed="1">1x</button>
+              <button type="button" class="vsl-speed-opt" data-speed="1.25">1.25x</button>
+              <button type="button" class="vsl-speed-opt" data-speed="1.5">1.5x</button>
+              <button type="button" class="vsl-speed-opt" data-speed="2">2x</button>
+            </div>
+          </div>
           <button class="vsl-bar-btn" id="vslBarFullscreen" type="button" aria-label="Fullscreen">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
           </button>
@@ -396,7 +409,15 @@
   var timeEl = document.getElementById('vslTime');
   var fullscreenBtn = document.getElementById('vslBarFullscreen');
   var cornerMuteBtn = document.getElementById('vslToggleMute');
+  var centerPlayBtn = document.getElementById('vslTogglePlay');
+  var settingsBtn = document.getElementById('vslBarSettings');
+  var settingsMenu = document.getElementById('vslSettingsMenu');
+  var speedOpts = document.querySelectorAll('.vsl-speed-opt');
   if (!video || !playBtns.length || !muteBtns.length) return;
+
+  // Bar/time stay frozen at 0:00 during the muted autoplay -- only start
+  // reflecting real progress once someone's pressed the center play button.
+  var barActive = false;
 
   // The corner mute button is just the initial "tap for sound" prompt --
   // once someone's actually engaged with the player (hit play/pause or
@@ -431,6 +452,10 @@
     hideCornerMute();
   }
 
+  if (centerPlayBtn) {
+    centerPlayBtn.addEventListener('click', function () { barActive = true; });
+  }
+
   playBtns.forEach(function (btn) { btn.addEventListener('click', togglePlay); });
   video.addEventListener('play', function () { setPlayIcon(true); });
   video.addEventListener('pause', function () { setPlayIcon(false); });
@@ -444,7 +469,7 @@
   });
 
   video.addEventListener('timeupdate', function () {
-    if (!video.duration) return;
+    if (!video.duration || !barActive) return;
     var pct = (video.currentTime / video.duration * 100);
     progressFill.style.width = pct + '%';
     if (seekHandle) seekHandle.style.left = pct + '%';
@@ -457,6 +482,7 @@
   if (seek) {
     seek.addEventListener('click', function (e) {
       if (!video.duration) return;
+      barActive = true;
       var rect = seek.getBoundingClientRect();
       var pct = (e.clientX - rect.left) / rect.width;
       video.currentTime = Math.max(0, Math.min(1, pct)) * video.duration;
@@ -469,6 +495,29 @@
       else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
     });
   }
+
+  // Settings menu -- playback speed. (Resolution switching isn't included:
+  // that needs multiple encoded versions of the file to switch between,
+  // which don't exist yet for this video.)
+  if (settingsBtn && settingsMenu) {
+    settingsBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      settingsMenu.hidden = !settingsMenu.hidden;
+    });
+    document.addEventListener('click', function (e) {
+      if (!settingsMenu.hidden && !settingsMenu.contains(e.target) && e.target !== settingsBtn) {
+        settingsMenu.hidden = true;
+      }
+    });
+  }
+  speedOpts.forEach(function (opt) {
+    opt.addEventListener('click', function () {
+      video.playbackRate = parseFloat(opt.dataset.speed);
+      speedOpts.forEach(function (o) { o.classList.remove('is-active'); });
+      opt.classList.add('is-active');
+      settingsMenu.hidden = true;
+    });
+  });
 
   setMuteIcon(true);
 })();
