@@ -433,12 +433,17 @@
     return m + ':' + (s < 10 ? '0' : '') + s;
   }
   function setPlayIcon(isPlaying) {
+    // Show "play" the whole time the muted ambient autoplay is running --
+    // only reflect the real playing state once someone's actually pressed
+    // play. Otherwise the icon shows "pause" from the instant the page
+    // loads, before anyone's touched anything.
+    var showPlaying = isPlaying && barActive;
     playBtns.forEach(function (btn) {
-      btn.querySelector('.icon-pause').style.display = isPlaying ? '' : 'none';
-      btn.querySelector('.icon-play').style.display = isPlaying ? 'none' : '';
-      btn.setAttribute('aria-label', isPlaying ? 'Pause video' : 'Play video');
+      btn.querySelector('.icon-pause').style.display = showPlaying ? '' : 'none';
+      btn.querySelector('.icon-play').style.display = showPlaying ? 'none' : '';
+      btn.setAttribute('aria-label', showPlaying ? 'Pause video' : 'Play video');
     });
-    if (frame) frame.classList.toggle('is-playing', isPlaying);
+    if (frame) frame.classList.toggle('is-playing', showPlaying);
   }
   function setMuteIcon(isMuted) {
     muteBtns.forEach(function (btn) {
@@ -455,9 +460,14 @@
   if (centerPlayBtn) {
     centerPlayBtn.addEventListener('click', function () {
       // First real press converts from ambient muted autoplay into an
-      // actual watch -- restart from 0:00 so they get the full thing
-      // rather than continuing from a point they never consciously saw.
-      if (!barActive) { video.currentTime = 0; }
+      // actual watch -- restart from 0:00 with sound on, so they get the
+      // full thing rather than continuing from a point they never
+      // consciously saw or heard.
+      if (!barActive) {
+        video.currentTime = 0;
+        video.muted = false;
+        setMuteIcon(false);
+      }
       barActive = true;
     });
   }
