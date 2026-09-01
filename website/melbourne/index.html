@@ -460,6 +460,10 @@
   }
 
   playBtns.forEach(function (btn) { btn.addEventListener('click', engageOrToggle); });
+  // Tapping the video itself also pauses/plays -- previously the only way
+  // once playing was the small bar button, since the center overlay button
+  // is hidden (pointer-events: none) at that point.
+  video.addEventListener('click', engageOrToggle);
   video.addEventListener('play', function () { setPlayIcon(true); });
   video.addEventListener('pause', function () { setPlayIcon(false); });
 
