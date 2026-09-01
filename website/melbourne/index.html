@@ -182,22 +182,6 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     VIDEO SHOWCASE — the install-quality proof, kept lower on
-     the page since the VSL up top already carries the main pitch
-══════════════════════════════════════════════════════ -->
-<section class="section section-off video-showcase" id="install-video">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">See It For Yourself</span>
-      <h2>This Is What A Proper Install Actually Looks Like</h2>
-    </div>
-    <div class="video-frame">
-      <video class="lazy-video" data-src="/assets/videos/melbourne-install-web.mp4" muted loop playsinline disablepictureinpicture disableremoteplayback preload="none"></video>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════
      FAQ — same tiers as /experts, with the objection-handling
      items updated to match the no-in-home-visit model instead
      of contradicting it.
@@ -303,7 +287,8 @@
 <section class="section section-dark" id="why-neptune">
   <div class="container">
     <div class="section-head">
-      <h2>Why Neptune Over The 10+ Other Filtration Companies</h2>
+      <span class="eyebrow">You're Probably Thinking: Who Should I Go With?</span>
+      <h2>Why Neptune</h2>
     </div>
     <ul class="why-list">
       <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Not a plumber selling filtration as a side offering</li>
@@ -465,32 +450,24 @@
     hideCornerMute();
   }
 
-  if (centerPlayBtn) {
-    centerPlayBtn.addEventListener('click', function () {
-      if (!barActive) {
-        // First real press converts from ambient muted autoplay into an
-        // actual watch -- restart from 0:00 with sound on, so they get the
-        // full thing rather than continuing from a point they never
-        // consciously saw or heard. video.paused is false at this point
-        // (autoplay's already running), so togglePlay() below would
-        // wrongly pause it -- force play explicitly instead.
-        barActive = true;
-        video.currentTime = 0;
-        video.muted = false;
-        setMuteIcon(false);
-        video.play();
-        hideCornerMute();
-      } else {
-        togglePlay();
-      }
-    });
+  // Shared by both play buttons (center overlay and bottom bar) -- whichever
+  // one someone touches first needs the same first-press special case:
+  // video.paused is false at that point (autoplay's already running), so a
+  // plain toggle would wrongly pause it instead of starting real playback.
+  function engageOrToggle() {
+    if (!barActive) {
+      barActive = true;
+      video.currentTime = 0;
+      video.muted = false;
+      setMuteIcon(false);
+      video.play();
+      hideCornerMute();
+    } else {
+      togglePlay();
+    }
   }
 
-  // Bottom bar's own play button always uses the normal toggle -- by the
-  // time it's usable, barActive is already true so there's no first-press
-  // special case to worry about there.
-  var barPlayBtn = document.getElementById('vslBarPlay');
-  if (barPlayBtn) barPlayBtn.addEventListener('click', togglePlay);
+  playBtns.forEach(function (btn) { btn.addEventListener('click', engageOrToggle); });
   video.addEventListener('play', function () { setPlayIcon(true); });
   video.addEventListener('pause', function () { setPlayIcon(false); });
 
