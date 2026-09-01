@@ -458,11 +458,8 @@ p { color: var(--text-2); }
   cursor: pointer; z-index: 4; transition: background .15s ease, transform .15s ease, opacity .3s ease;
 }
 .vsl-toggle-play:hover { background: rgba(77,166,255,.75); transform: translate(-50%, -50%) scale(1.04); }
-/* .is-playing only gets set once someone's actually pressed play (see the
-   barActive gate in setPlayIcon), so it's safe to fully hide here -- this
-   no longer fires during the pre-engagement muted autoplay. Reappears
-   automatically whenever the video is genuinely paused. */
-.vsl-frame.is-playing .vsl-toggle-play { opacity: 0; pointer-events: none; }
+/* Stays visible as an overlay the whole time -- video runs behind it,
+   pressed or not, playing or paused. */
 
 .vsl-toggle-mute {
   position: absolute; top: 12px; right: 12px;
@@ -883,6 +880,13 @@ p { color: var(--text-2); }
    ============================================================ */
 .installs-marquee { padding-block: var(--s-10); }
 .installs-marquee .section-head { margin-bottom: var(--s-8); }
+/* "100+ Melbourne Families Already Sorted" wraps awkwardly at the default
+   640px section-head width -- give it room on desktop to sit on one line,
+   leave it wrapping on mobile where there's no space for that anyway. */
+@media (min-width: 768px) {
+  .installs-marquee .section-head { max-width: none; }
+  .installs-marquee .section-head h2 { white-space: nowrap; }
+}
 #more-installs { padding-block: var(--s-12); }
 .marquee-viewport {
   overflow: hidden;
