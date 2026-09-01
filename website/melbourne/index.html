@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/experts/assessment.css">
+<link rel="preload" href="/assets/videos/melbourne-vsl.mp4" as="video" type="video/mp4" fetchpriority="high">
 <!-- Meta Pixel -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2043292147071202');fbq('track','PageView');</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2043292147071202&ev=PageView&noscript=1"/></noscript>
@@ -63,7 +64,7 @@
       </div>
       <div class="vsl-frame">
         <div class="vsl-video-wrap">
-          <video class="lazy-video" id="vslVideo" data-src="/assets/videos/melbourne-vsl.mp4" muted playsinline preload="none" poster="/assets/install-photos/1-hero.jpg"></video>
+          <video id="vslVideo" src="/assets/videos/melbourne-vsl.mp4" muted autoplay playsinline preload="auto" fetchpriority="high"></video>
           <button class="vsl-toggle-play" id="vslTogglePlay" type="button" aria-label="Pause video">
             <svg class="icon-pause" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
             <svg class="icon-play" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M8 5v14l11-7z"/></svg>
@@ -367,23 +368,6 @@
   // the GHL Workflow "Survey Form to Opportunity" already sends Lead to
   // Meta server-side via its Conversion API step on every submission.
   // Running both without a shared event_id causes double-counting.
-})();
-</script>
-
-<script>
-(function () {
-  var videos = document.querySelectorAll('video.lazy-video');
-  if (!videos.length) return;
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      var v = entry.target;
-      v.src = v.dataset.src;
-      if (!v.hasAttribute('controls')) v.play();
-      io.unobserve(v);
-    });
-  }, { rootMargin: '600px' });
-  videos.forEach(function (v) { io.observe(v); });
 })();
 </script>
 

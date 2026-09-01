@@ -458,8 +458,10 @@ p { color: var(--text-2); }
   cursor: pointer; z-index: 4; transition: background .15s ease, transform .15s ease, opacity .3s ease;
 }
 .vsl-toggle-play:hover { background: rgba(77,166,255,.75); transform: translate(-50%, -50%) scale(1.04); }
-/* Stays visible as an overlay the whole time -- video runs behind it,
-   pressed or not, playing or paused. */
+/* Disappears once actually playing (barActive-gated, so this only fires
+   after a real press, not during the muted ambient autoplay). Reappears
+   whenever genuinely paused. */
+.vsl-frame.is-playing .vsl-toggle-play { opacity: 0; pointer-events: none; }
 
 .vsl-toggle-mute {
   position: absolute; top: 12px; right: 12px;
@@ -886,6 +888,8 @@ p { color: var(--text-2); }
 @media (min-width: 768px) {
   .installs-marquee .section-head { max-width: none; }
   .installs-marquee .section-head h2 { white-space: nowrap; }
+  #benefits .section-head { max-width: none; }
+  #benefits .section-head h2 { white-space: nowrap; }
 }
 #more-installs { padding-block: var(--s-12); }
 .marquee-viewport {
