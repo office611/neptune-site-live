@@ -83,10 +83,15 @@
             <div class="vsl-seek-fill" id="vslProgressFill"></div>
             <div class="vsl-seek-handle" id="vslSeekHandle"></div>
           </div>
-          <button class="vsl-bar-btn" id="vslBarMute" type="button" aria-label="Unmute video">
-            <svg class="icon-muted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-            <svg class="icon-unmuted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-          </button>
+          <div class="vsl-volume-wrap">
+            <button class="vsl-bar-btn" id="vslBarMute" type="button" aria-label="Unmute video">
+              <svg class="icon-muted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+              <svg class="icon-unmuted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+            </button>
+            <div class="vsl-volume-menu" id="vslVolumeMenu" hidden>
+              <input type="range" id="vslVolumeSlider" min="0" max="1" step="0.05" value="1" orient="vertical" aria-label="Volume">
+            </div>
+          </div>
           <div class="vsl-settings-wrap">
             <button class="vsl-bar-btn" id="vslBarSettings" type="button" aria-label="Settings">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -413,6 +418,9 @@
   var settingsBtn = document.getElementById('vslBarSettings');
   var settingsMenu = document.getElementById('vslSettingsMenu');
   var speedOpts = document.querySelectorAll('.vsl-speed-opt');
+  var barMuteBtn = document.getElementById('vslBarMute');
+  var volumeMenu = document.getElementById('vslVolumeMenu');
+  var volumeSlider = document.getElementById('vslVolumeSlider');
   if (!video || !playBtns.length || !muteBtns.length) return;
 
   // Bar/time stay frozen at 0:00 during the muted autoplay -- only start
@@ -476,13 +484,16 @@
   video.addEventListener('play', function () { setPlayIcon(true); });
   video.addEventListener('pause', function () { setPlayIcon(false); });
 
-  muteBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
+  // Corner button (the initial "tap for sound" prompt) still does a
+  // straight instant mute toggle. The bar's mute button instead opens a
+  // volume slider -- see the volume-menu block below.
+  if (cornerMuteBtn) {
+    cornerMuteBtn.addEventListener('click', function () {
       video.muted = !video.muted;
       setMuteIcon(video.muted);
       hideCornerMute();
     });
-  });
+  }
 
   video.addEventListener('timeupdate', function () {
     if (!video.duration || !barActive) return;
@@ -509,6 +520,27 @@
     fullscreenBtn.addEventListener('click', function () {
       if (video.requestFullscreen) video.requestFullscreen();
       else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+    });
+  }
+
+  // Bar volume button -- opens a slider instead of straight-toggling, so
+  // sound isn't stuck at max/off, it can actually be dialled down.
+  if (barMuteBtn && volumeMenu && volumeSlider) {
+    barMuteBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      volumeMenu.hidden = !volumeMenu.hidden;
+    });
+    volumeSlider.addEventListener('input', function () {
+      var val = parseFloat(volumeSlider.value);
+      video.volume = val;
+      video.muted = val === 0;
+      setMuteIcon(video.muted);
+      hideCornerMute();
+    });
+    document.addEventListener('click', function (e) {
+      if (!volumeMenu.hidden && !volumeMenu.contains(e.target) && e.target !== barMuteBtn) {
+        volumeMenu.hidden = true;
+      }
     });
   }
 

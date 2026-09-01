@@ -458,9 +458,11 @@ p { color: var(--text-2); }
   cursor: pointer; z-index: 4; transition: background .15s ease, transform .15s ease, opacity .3s ease;
 }
 .vsl-toggle-play:hover { background: rgba(77,166,255,.75); transform: translate(-50%, -50%) scale(1.04); }
-/* Stays visible as an overlay while playing (video runs behind it), just
-   a touch more subtle than the solid paused state -- not hidden entirely. */
-.vsl-frame.is-playing .vsl-toggle-play { background: rgba(77,166,255,.4); }
+/* .is-playing only gets set once someone's actually pressed play (see the
+   barActive gate in setPlayIcon), so it's safe to fully hide here -- this
+   no longer fires during the pre-engagement muted autoplay. Reappears
+   automatically whenever the video is genuinely paused. */
+.vsl-frame.is-playing .vsl-toggle-play { opacity: 0; pointer-events: none; }
 
 .vsl-toggle-mute {
   position: absolute; top: 12px; right: 12px;
@@ -508,6 +510,26 @@ p { color: var(--text-2); }
   background: #fff; transform: translate(-50%, -50%);
   box-shadow: 0 1px 3px rgba(0,0,0,.35);
   pointer-events: none;
+}
+
+.vsl-volume-wrap { position: relative; flex-shrink: 0; }
+.vsl-volume-menu {
+  position: absolute; bottom: calc(100% + 10px); left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy, #0B1E3D);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--r-sm);
+  padding: 10px 8px;
+  height: 90px; width: 34px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.5);
+}
+.vsl-volume-menu[hidden] { display: none; }
+.vsl-volume-menu input[type="range"] {
+  writing-mode: vertical-lr; direction: rtl;
+  width: 4px; height: 100%;
+  accent-color: var(--accent, #4DA6FF);
+  cursor: pointer;
 }
 
 .vsl-settings-wrap { position: relative; flex-shrink: 0; }
