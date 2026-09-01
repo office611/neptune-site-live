@@ -452,16 +452,15 @@ p { color: var(--text-2); }
 
 .vsl-toggle-play {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 60px; height: 60px; border-radius: 50%;
-  background: rgba(0,0,0,.45); border: 2px solid rgba(255,255,255,.85);
+  width: 84px; height: 76px; border-radius: 14px;
+  background: rgba(77,166,255,.55); border: none;
   color: #fff; display: flex; align-items: center; justify-content: center;
   cursor: pointer; z-index: 4; transition: background .15s ease, transform .15s ease, opacity .3s ease;
 }
-.vsl-toggle-play:hover { background: rgba(0,0,0,.6); transform: translate(-50%, -50%) scale(1.06); }
-/* Fully hide the center button once playing so the video runs completely
-   unobstructed -- it only reappears once paused. The bottom bar's own
-   play/pause button is the ongoing control once playback has started. */
-.vsl-frame.is-playing .vsl-toggle-play { opacity: 0; pointer-events: none; }
+.vsl-toggle-play:hover { background: rgba(77,166,255,.75); transform: translate(-50%, -50%) scale(1.04); }
+/* Stays visible as an overlay while playing (video runs behind it), just
+   a touch more subtle than the solid paused state -- not hidden entirely. */
+.vsl-frame.is-playing .vsl-toggle-play { background: rgba(77,166,255,.4); }
 
 .vsl-toggle-mute {
   position: absolute; top: 12px; right: 12px;
@@ -521,6 +520,10 @@ p { color: var(--text-2); }
   box-shadow: 0 8px 24px rgba(0,0,0,.5);
   display: flex; flex-direction: column;
 }
+/* The [hidden] attribute needs this spelled out -- otherwise this rule's
+   own `display: flex` above overrides the browser's default [hidden]
+   behaviour and the menu never actually hides. */
+.vsl-settings-menu[hidden] { display: none; }
 .vsl-settings-label {
   color: rgba(255,255,255,.5); font-size: .68rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .04em;

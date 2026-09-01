@@ -453,7 +453,13 @@
   }
 
   if (centerPlayBtn) {
-    centerPlayBtn.addEventListener('click', function () { barActive = true; });
+    centerPlayBtn.addEventListener('click', function () {
+      // First real press converts from ambient muted autoplay into an
+      // actual watch -- restart from 0:00 so they get the full thing
+      // rather than continuing from a point they never consciously saw.
+      if (!barActive) { video.currentTime = 0; }
+      barActive = true;
+    });
   }
 
   playBtns.forEach(function (btn) { btn.addEventListener('click', togglePlay); });
