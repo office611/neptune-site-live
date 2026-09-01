@@ -62,7 +62,16 @@
         Click Below To Watch First!
       </div>
       <div class="vsl-frame">
-        <video class="lazy-video" data-src="/assets/videos/melbourne-vsl.mp4" controls playsinline preload="none" poster="/assets/install-photos/1-hero.jpg"></video>
+        <video class="lazy-video" id="vslVideo" data-src="/assets/videos/melbourne-vsl.mp4" muted playsinline preload="none" poster="/assets/install-photos/1-hero.jpg"></video>
+        <button class="vsl-toggle-play" id="vslTogglePlay" type="button" aria-label="Pause video">
+          <svg class="icon-pause" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+          <svg class="icon-play" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <button class="vsl-toggle-mute" id="vslToggleMute" type="button" aria-label="Unmute video">
+          <svg class="icon-muted" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          <svg class="icon-unmuted" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+        </button>
+        <div class="vsl-progress"><div class="vsl-progress-fill" id="vslProgressFill"></div></div>
       </div>
     </div>
   </div>
@@ -352,6 +361,45 @@
     });
   }, { rootMargin: '600px' });
   videos.forEach(function (v) { io.observe(v); });
+})();
+</script>
+
+<script>
+(function () {
+  var video = document.getElementById('vslVideo');
+  var playBtn = document.getElementById('vslTogglePlay');
+  var muteBtn = document.getElementById('vslToggleMute');
+  var progressFill = document.getElementById('vslProgressFill');
+  if (!video || !playBtn || !muteBtn) return;
+
+  function setPlayIcon(isPlaying) {
+    playBtn.querySelector('.icon-pause').style.display = isPlaying ? '' : 'none';
+    playBtn.querySelector('.icon-play').style.display = isPlaying ? 'none' : '';
+    playBtn.setAttribute('aria-label', isPlaying ? 'Pause video' : 'Play video');
+  }
+  function setMuteIcon(isMuted) {
+    muteBtn.querySelector('.icon-muted').style.display = isMuted ? '' : 'none';
+    muteBtn.querySelector('.icon-unmuted').style.display = isMuted ? 'none' : '';
+    muteBtn.setAttribute('aria-label', isMuted ? 'Unmute video' : 'Mute video');
+  }
+
+  playBtn.addEventListener('click', function () {
+    if (video.paused) { video.play(); } else { video.pause(); }
+  });
+  video.addEventListener('play', function () { setPlayIcon(true); });
+  video.addEventListener('pause', function () { setPlayIcon(false); });
+
+  muteBtn.addEventListener('click', function () {
+    video.muted = !video.muted;
+    setMuteIcon(video.muted);
+  });
+
+  video.addEventListener('timeupdate', function () {
+    if (!video.duration) return;
+    progressFill.style.width = (video.currentTime / video.duration * 100) + '%';
+  });
+
+  setMuteIcon(true);
 })();
 </script>
 
