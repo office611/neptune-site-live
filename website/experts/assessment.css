@@ -451,9 +451,13 @@ p { color: var(--text-2); }
   width: 60px; height: 60px; border-radius: 50%;
   background: rgba(0,0,0,.45); border: 2px solid rgba(255,255,255,.85);
   color: #fff; display: flex; align-items: center; justify-content: center;
-  cursor: pointer; z-index: 4; transition: background .15s ease, transform .15s ease;
+  cursor: pointer; z-index: 4; transition: background .15s ease, transform .15s ease, opacity .3s ease;
 }
 .vsl-toggle-play:hover { background: rgba(0,0,0,.6); transform: translate(-50%, -50%) scale(1.06); }
+/* Fade the center button down once playing so it's not sitting solid over
+   the presenter the whole time -- still visible/tappable, just subtle. */
+.vsl-frame.is-playing .vsl-toggle-play { opacity: .45; }
+.vsl-frame.is-playing .vsl-toggle-play:hover { opacity: 1; }
 
 .vsl-toggle-mute {
   position: absolute; top: 12px; right: 12px;
@@ -463,12 +467,45 @@ p { color: var(--text-2); }
   cursor: pointer; z-index: 4;
 }
 .vsl-toggle-mute:hover { background: rgba(0,0,0,.65); }
+.vsl-toggle-mute { transition: opacity .25s ease; }
+.vsl-toggle-mute.is-hidden { opacity: 0; pointer-events: none; }
 
-.vsl-progress {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 4px;
-  background: rgba(255,255,255,.25); z-index: 4;
+/* Bottom control bar -- play/pause, elapsed time, seekable progress, mute,
+   settings, fullscreen. Solid accent-coloured bar with a white track/handle,
+   matching the reference player's layout but in the page's own colour
+   (--accent) rather than a fixed brand colour. */
+.vsl-controlbar {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 4;
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 14px;
+  background: var(--accent, #4DA6FF);
 }
-.vsl-progress-fill { height: 100%; width: 0%; background: var(--accent, #4DA6FF); }
+.vsl-bar-btn {
+  flex-shrink: 0; width: 22px; height: 22px; border-radius: 0;
+  background: transparent; border: none; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; padding: 0; opacity: .95;
+}
+.vsl-bar-btn:hover { opacity: 1; }
+.vsl-time {
+  flex-shrink: 0; color: #fff; font-size: .82rem; font-weight: 700;
+  font-variant-numeric: tabular-nums; min-width: 32px;
+}
+.vsl-seek {
+  flex: 1 1 auto; height: 4px; border-radius: 3px;
+  background: rgba(255,255,255,.4); cursor: pointer; position: relative;
+}
+.vsl-seek-fill {
+  height: 100%; width: 0%; border-radius: 3px;
+  background: #fff;
+}
+.vsl-seek-handle {
+  position: absolute; top: 50%; left: 0%;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #fff; transform: translate(-50%, -50%);
+  box-shadow: 0 1px 3px rgba(0,0,0,.35);
+  pointer-events: none;
+}
 
 @media (min-width: 768px) {
   .watch-first-bar { font-size: 1.05rem; padding: 16px 26px; margin-top: var(--s-8); }
