@@ -445,6 +445,12 @@
       video.muted = false;
       setMuteIcon(false);
       video.play();
+      // video.play() on an already-playing video (autoplay was already
+      // running) doesn't fire a new 'play' event, since there's no
+      // paused->playing transition -- so setPlayIcon(true) never runs off
+      // the event listener alone. Call it directly so the button actually
+      // hides on this first press instead of only working from the second.
+      setPlayIcon(true);
       hideCornerMute();
     } else {
       togglePlay();
