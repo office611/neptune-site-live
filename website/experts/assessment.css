@@ -1088,6 +1088,7 @@ p { color: var(--text-2); }
 .success-hero--light { background: #fff; }
 .success-hero--light h1 { color: var(--text); text-shadow: none; }
 .success-hero--light .lede { color: var(--text-2); }
+.success-hero--light .success-icon-lg { margin-bottom: var(--s-3); }
 
 /* ============================================================
    NEXT-STEPS TIMELINE (thank you page)
