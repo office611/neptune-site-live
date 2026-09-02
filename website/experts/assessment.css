@@ -1083,6 +1083,12 @@ p { color: var(--text-2); }
 }
 .success-hero .lede p + p { margin-top: var(--s-4); }
 
+/* Light variant -- melbourne/thank-you uses this instead of the dark
+   navy default, to match the melbourne page's overall lighter feel. */
+.success-hero--light { background: #fff; }
+.success-hero--light h1 { color: var(--text); text-shadow: none; }
+.success-hero--light .lede { color: var(--text-2); }
+
 /* ============================================================
    NEXT-STEPS TIMELINE (thank you page)
    ============================================================ */
