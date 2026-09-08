@@ -62,13 +62,10 @@
 @media (max-width: 640px) {
   .benefit-grid-2col, .benefit-grid-3col { grid-template-columns: 1fr !important; }
   .benefit-grid-keep2 { grid-template-columns: repeat(2, 1fr) !important; }
-  .benefit-grid-triangle {
-    display: flex !important;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-  }
-  .benefit-grid-triangle .benefit-card { flex: 0 1 46%; }
+  .benefit-grid-keep3 { grid-template-columns: repeat(3, 1fr) !important; }
+  .benefit-grid-keep3 .benefit-card { padding: var(--s-3) !important; }
+  .benefit-grid-keep3 .benefit-card h3 { font-size: .85rem !important; }
+  .benefit-grid-keep3 .benefit-card p { font-size: .72rem !important; }
   .specs-btn-wrap { margin-top: 16px !important; }
 }
 #the-unit .why-list li, #filter-changes .why-list li {
@@ -399,7 +396,7 @@
       <div class="benefit-card"><h3 style="font-size:1.7rem; color:var(--accent);">Up to 99%</h3><p>Chlorine Reduction</p></div>
       <div class="benefit-card"><h3 style="font-size:1.7rem; color:var(--accent);">Up to 85%</h3><p>Heavy Metal Reduction</p></div>
     </div>
-    <div class="benefit-grid benefit-grid-3col" style="max-width:960px; margin:0 auto;">
+    <div class="benefit-grid benefit-grid-3col">
       <div class="benefit-card"><h3>01 — Pleated Sediment Filter (5 micron)</h3><p>Captures rust, dirt, sand, pipe scale and fine particulates entering from the supply main. Pleated design maximises surface area for a longer service life, protecting the carbon stages downstream from sediment loading.</p></div>
       <div class="benefit-card"><h3>02 — Scale Reduction Carbon Block (1 micron)</h3><p>A 1-micron polyphosphate media that binds calcium and magnesium to stop limescale forming on glass, taps and appliances — without removing or adding minerals to your water. High-density block construction keeps pressure steady, and also reduces trace lead and mercury from ageing pipes.</p></div>
       <div class="benefit-card"><h3>03 — Coconut Shell Activated Carbon (1 micron)</h3><p>A microporous structure with surface area exceeding 1,000 m²/g — targeting chlorine, chloramine, VOCs, trihalomethanes and broader heavy metals. Standard coal-based carbon, used in low-cost filters, has far less capacity to adsorb any of it.</p></div>
@@ -422,7 +419,7 @@
     </div>
 
     <p class="detail-subhead">What's Backing It</p>
-    <div class="benefit-grid benefit-grid-3col benefit-grid-triangle" style="margin-top:12px;">
+    <div class="benefit-grid benefit-grid-3col benefit-grid-keep3" style="margin-top:12px;">
       <div class="benefit-card"><h3>7-Year Warranty</h3><p>Backed by our dedicated plumbing team</p></div>
       <div class="benefit-card"><h3>No Change? Refunded</h3><p>Any pink on a chlorine tablet within 30 days, and your system's refunded — test it yourself</p></div>
       <div class="benefit-card"><h3>WaterMark Certified</h3><p>Peace of mind, compliance backed</p></div>
