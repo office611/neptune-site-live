@@ -35,6 +35,14 @@
   max-width: 680px;
   margin: 0 auto;
 }
+#the-unit .benefit-grid {
+  max-width: 680px;
+  margin: 40px auto 0;
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+@media (max-width: 640px) {
+  #the-unit .benefit-grid { grid-template-columns: 1fr !important; }
+}
 #the-unit .why-list li, #filter-changes .why-list li {
   color: var(--ink) !important;
 }
