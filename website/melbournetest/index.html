@@ -21,7 +21,7 @@
 .detail-photo-grid img { width:100%; height:auto; border-radius:10px; display:block; }
 @media (max-width:640px) { .detail-photo-grid { grid-template-columns:repeat(2,1fr); } }
 
-#offer-stack .why-list { max-width:680px; margin:0 auto; }
+#offer-stack .why-list { max-width:680px; margin:0 auto 24px; }
 #offer-stack .why-list li {
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.14);
@@ -31,6 +31,14 @@
 }
 #offer-stack .why-list b { color: #6AB0F2; }
 
+.detail-subhead {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--accent);
+  margin: 40px 0 20px;
+}
 #the-unit .why-list, #filter-changes .why-list {
   max-width: 680px;
   margin: 0 auto;
@@ -380,13 +388,15 @@
       <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Clean, simple design — not something ugly out the front of your home</li>
     </ul>
 
+    <p class="detail-subhead">3 Filters, 4-Stage Filtration</p>
     <div class="benefit-grid">
       <div class="benefit-card"><h3>01 — Pleated Sediment Filter (5 micron)</h3><p>Captures rust, dirt, sand, pipe scale and fine particulates entering from the supply main — protecting the carbon stages downstream.</p></div>
       <div class="benefit-card"><h3>02 — Scale Reduction Carbon Block (1 micron)</h3><p>Binds calcium and magnesium to stop limescale forming on glass, taps and appliances, and reduces trace lead and mercury from Melbourne's ageing pipes.</p></div>
       <div class="benefit-card"><h3>03 — Coconut Shell Activated Carbon (1 micron)</h3><p>The highest surface area of any carbon media — targets chlorine, chloramine, VOCs, trihalomethanes and broader heavy metals that standard filters miss.</p></div>
     </div>
 
-    <ul class="why-list" style="margin-top:32px;">
+    <p class="detail-subhead">Keeping It Running</p>
+    <ul class="why-list" style="margin-top:12px;">
       <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>2 ways to know it's time — a chlorine test tablet (any pink means change), or you'll naturally feel a pressure drop</li>
       <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>$300, delivered to your door — delivery and GST included, the only ongoing cost</li>
       <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>You change it yourself — instructions and a video provided</li>
