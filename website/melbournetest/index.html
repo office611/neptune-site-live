@@ -31,6 +31,18 @@
 }
 #offer-stack .why-list b { color: #6AB0F2; }
 
+.fc-modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.5); display:none; align-items:center; justify-content:center; z-index:999; padding:20px; }
+.fc-modal-overlay.open { display:flex; }
+.fc-modal { background:#fff; border-radius:16px; padding:32px; max-width:420px; width:100%; text-align:center; position:relative; }
+.fc-modal h3 { margin:0 0 8px; font-size:1.3rem; font-weight:800; color:var(--ink); }
+.fc-modal .fc-sub { color:var(--ink-soft); margin:0 0 20px; font-size:.95rem; }
+.fc-options { display:flex; flex-direction:column; gap:10px; }
+.fc-option-btn { padding:14px; border-radius:10px; border:1px solid var(--line); background:#fff; font-weight:700; cursor:pointer; font-size:1rem; color:var(--ink); }
+.fc-option-btn:hover { border-color:var(--accent); }
+.fc-result { display:none; }
+.fc-result.show { display:block; }
+.fc-result .fc-months { font-size:2rem; font-weight:800; color:var(--accent); margin:12px 0; }
+.fc-close { position:absolute; top:14px; right:14px; background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink-soft); line-height:1; }
 .detail-subhead {
   text-align: center;
   font-size: 1rem;
@@ -403,6 +415,44 @@
     </ul>
   </div>
 </section>
+
+<!-- ══════════════════════════════════════════════════════
+     FILTER LIFE CALCULATOR
+══════════════════════════════════════════════════════ -->
+<section class="section section-off" id="filter-calculator">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Filter Life</span>
+      <h2>How Often Do I Need To Change My Filters?</h2>
+      <p>These numbers are approximate — the more water usage in your home, the more often you'll need to change them.</p>
+    </div>
+    <div style="text-align:center;">
+      <button type="button" class="btn btn-primary" id="fcOpenBtn">See How Often For Your Home</button>
+    </div>
+  </div>
+</section>
+
+<div class="fc-modal-overlay" id="fcOverlay">
+  <div class="fc-modal">
+    <button type="button" class="fc-close" id="fcClose" aria-label="Close">&times;</button>
+    <div id="fcQuestion">
+      <h3>How many people live in your home?</h3>
+      <p class="fc-sub">This gives you a rough idea of how long your filters will last.</p>
+      <div class="fc-options">
+        <button type="button" class="fc-option-btn" data-months="15–18 months">1–2 people</button>
+        <button type="button" class="fc-option-btn" data-months="12–15 months">3–4 people</button>
+        <button type="button" class="fc-option-btn" data-months="9–12 months">5–6 people</button>
+      </div>
+    </div>
+    <div id="fcResult" class="fc-result">
+      <h3>Estimated Filter Life</h3>
+      <div class="fc-months" id="fcMonthsValue"></div>
+      <p class="fc-sub">Based on typical usage — actual timing depends on how much water your home uses.</p>
+      <button type="button" class="btn btn-primary" id="fcBack">Back</button>
+    </div>
+  </div>
+</div>
+
 <section class="section section-off" id="benefits">
   <div class="container">
     <div class="section-head">
@@ -647,6 +697,36 @@
   });
 
   setMuteIcon(true);
+})();
+</script>
+
+<script>
+(function(){
+  var overlay = document.getElementById('fcOverlay');
+  var openBtn = document.getElementById('fcOpenBtn');
+  var closeBtn = document.getElementById('fcClose');
+  var backBtn = document.getElementById('fcBack');
+  var question = document.getElementById('fcQuestion');
+  var result = document.getElementById('fcResult');
+  var monthsValue = document.getElementById('fcMonthsValue');
+  var options = document.querySelectorAll('.fc-option-btn');
+  if (!overlay || !openBtn) return;
+
+  function openModal(){ overlay.classList.add('open'); }
+  function closeModal(){ overlay.classList.remove('open'); question.style.display='block'; result.classList.remove('show'); }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  backBtn.addEventListener('click', function(){ question.style.display='block'; result.classList.remove('show'); });
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
+
+  options.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      monthsValue.textContent = btn.getAttribute('data-months');
+      question.style.display='none';
+      result.classList.add('show');
+    });
+  });
 })();
 </script>
 
