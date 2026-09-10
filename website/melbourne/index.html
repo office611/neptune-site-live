@@ -195,7 +195,7 @@
     </div>
 
     <div class="specs-btn-wrap" style="max-width:460px; margin:-70px auto 60px; text-align:center; position:relative; z-index:2;">
-      <a href="#the-unit" class="btn" style="width:100%; border:2px solid #fff; background:transparent; color:#fff; font-weight:700;">Everything You Need To Decide — Read Before You Get Price</a>
+      <a href="#the-unit" class="btn scroll-to-details" style="width:100%; border:2px solid #fff; background:transparent; color:#fff; font-weight:700;">Everything You Need To Decide — Read Before You Get Price</a>
     </div>
 
   </div>
@@ -521,6 +521,12 @@
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       document.getElementById('assessment').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  document.querySelectorAll('.scroll-to-details').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('the-unit').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
