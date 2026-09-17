@@ -72,6 +72,17 @@
   color: var(--ink-soft) !important;
 }
 :root { --navy-deep: #13233f; }
+.page-melbourne .hero-photo-overlay {
+  background: linear-gradient(180deg, rgba(19,35,63,.82) 0%, rgba(19,35,63,.86) 20%, rgba(19,35,63,.91) 45%, rgba(19,35,63,.96) 65%, rgba(19,35,63,.98) 80%, var(--navy-deep) 92%, var(--navy-deep) 100%);
+}
+@media (max-width: 640px) {
+  .page-melbourne .hero-photo-overlay {
+    background: linear-gradient(180deg, rgba(19,35,63,.4) 0%, rgba(19,35,63,.55) 50%, rgba(19,35,63,.85) 80%, var(--navy-deep) 100%);
+  }
+}
+.hero-photo-content h1, .hero-photo-content .hero-sub {
+  text-shadow: 0 2px 12px rgba(0,0,0,.45);
+}
 #benefits .benefit-grid { grid-template-columns: 1fr; }
 @media (min-width: 900px) {
   #benefits .benefit-grid { grid-template-columns: repeat(4, 1fr); }
@@ -475,21 +486,6 @@
 <!-- ══════════════════════════════════════════════════════
      FINAL CTA
 ══════════════════════════════════════════════════════ -->
-
-<!-- ══════════════════════════════════════════════════════
-     WHY NEPTUNE — pulled out of the FAQ list into its own
-     standalone, dark section so it lands as the one thing to
-     remember, not buried as one accordion item among a dozen.
-══════════════════════════════════════════════════════ -->
-<section class="section section-off" id="the-unit">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">About Us</span>
-      <h2>Why We Do It This Way</h2>
-    </div>
-    <p style="text-align:center; font-weight:700; font-size:1.15rem; line-height:1.5; max-width:640px; margin:0 auto; color:var(--ink);">That's me, the owner, in the video above. We used to do in-home consultations — chlorine tablet, the works. Melburnians want direct, transparent information, not a sales pitch — so that's exactly why we changed how we do things.</p>
-  </div>
-</section>
 
 <section class="section final-cta section-dark">
   <div class="container">
