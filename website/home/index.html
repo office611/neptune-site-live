@@ -71,6 +71,11 @@
 #the-unit .why-list .sub, #filter-changes .why-list .sub {
   color: var(--ink-soft) !important;
 }
+:root { --navy-deep: #13233f; }
+#benefits .benefit-grid { grid-template-columns: 1fr; }
+@media (min-width: 900px) {
+  #benefits .benefit-grid { grid-template-columns: repeat(4, 1fr); }
+}
 </style>
 <link rel="preload" href="/assets/videos/melbourne-vsl.mp4" as="video" type="video/mp4" fetchpriority="high">
 <!-- Meta Pixel -->
@@ -285,7 +290,7 @@
     <div class="faq-panel">
     <div class="faq-list">
 
-      <details class="faq-item" open>
+      <details class="faq-item">
         <summary>Isn't Melbourne's water already safe and among the best in Australia?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
@@ -322,14 +327,14 @@
         </summary>
         <div class="faq-answer">
           <ul style="margin:0; padding-left:20px; line-height:1.7;">
-            <li>20" system, built to last</li>
-            <li>No pressure drop at any tap</li>
-            <li>Stainless steel, powder coated and treated for Melbourne conditions</li>
-            <li>Water connection only — no electricity, no gas, no water wastage</li>
-            <li>Bypass valve, so you can skip filtration for pool filling or gardening</li>
-            <li>Concreted in — can't be stolen, adds real stability</li>
-            <li>Relocatable if you move house</li>
-            <li>Clean, simple design — nothing ugly out the front of your home</li>
+            <li><b>20" System</b> — a once-in-a-lifetime purchase, built to last</li>
+            <li><b>No Pressure Drop</b> — full pressure running at every tap</li>
+            <li><b>Stainless Steel</b> — powder coated and treated for Melbourne conditions</li>
+            <li><b>Water Connection Only</b> — no electricity, no gas, no water wastage</li>
+            <li><b>Bypass Valve</b> — skip filtration for pool filling or gardening</li>
+            <li><b>Concreted In</b> — can't be stolen, adds real stability</li>
+            <li><b>Relocatable</b> — moving house? A small fee applies</li>
+            <li><b>Clean, Simple Design</b> — nothing ugly out the front of your home</li>
           </ul>
         </div>
       </details>
@@ -338,10 +343,11 @@
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
         <div class="faq-answer">
+          <p style="margin:0 0 14px; font-weight:700;">A system that suits Melbourne conditions specifically — not Perth water, not Adelaide water, not anywhere else.</p>
           <p style="margin:0 0 14px;">3 filters, 4-stage filtration, reducing up to 99% of chlorine and up to 85% of heavy metals.</p>
-          <p style="margin:0 0 14px;"><b>Stage 1 — Pleated Sediment Filter:</b> captures rust, dirt, sand and pipe scale before it reaches the carbon stages.</p>
-          <p style="margin:0 0 14px;"><b>Stage 2 — Scale Reduction Carbon Block:</b> infused with polyphosphate, which binds to calcium and magnesium so they can't crystallise into limescale, without adding or removing minerals from your water — it also reduces trace lead and mercury from ageing pipes.</p>
-          <p style="margin:0;"><b>Stage 3 — Coconut Shell Activated Carbon:</b> targets chlorine, chloramine, VOCs and broader heavy metals with far more capacity than the standard coal-based carbon used in cheaper filters.</p>
+          <p style="margin:0 0 14px;"><b>Stage 1 — Pleated Sediment Filter (5 micron):</b> made from pleated polypropylene, folded to maximise surface area inside the housing. Captures rust, dirt, sand, pipe scale and fine particulates entering from the supply main, protecting the carbon stages downstream from sediment loading.</p>
+          <p style="margin:0 0 14px;"><b>Stage 2 — Scale Reduction Carbon Block (1 micron):</b> a carbon block infused with polyphosphate crystals — as water passes through, the polyphosphate binds to calcium and magnesium ions, stopping them crystallising into limescale on glass, taps and appliances, without removing or adding minerals to your water. High-density block construction keeps pressure steady, and also reduces trace lead and mercury from ageing pipes.</p>
+          <p style="margin:0;"><b>Stage 3 — Coconut Shell Activated Carbon (1 micron):</b> coconut shells are charred at high heat, then activated with steam to open up a microporous structure with surface area exceeding 1,000 m²/g — that activation process is what gives the carbon its adsorption power. Compressed into a dense block, it targets chlorine, chloramine, VOCs, trihalomethanes and broader heavy metals. Standard coal-based carbon, used in low-cost filters, has far less capacity to adsorb any of it.</p>
         </div>
       </details>
 
@@ -421,10 +427,10 @@
       <h2>Why Neptune</h2>
     </div>
     <ul class="why-list">
-      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>No pressure, ever</b> — you'll never feel like you're being sold to. No sales pitch, no games, just a straight answer when you're ready.</span></li>
-      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>A fair price, not a guess</b> — no commissioned sales guys, no corporate overhead, so you're never wondering if you're paying for someone else's markup.</span></li>
       <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Only Melbourne, only filtration</b> — whole-home filtration is all we do, and we only do it here. A system that suits Melbourne conditions specifically, not Perth water, not Adelaide water, not anywhere else.</span></li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>A fair price, not a guess</b> — no commissioned sales guys, no corporate overhead, so you're never wondering if you're paying for someone else's markup.</span></li>
       <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Done properly</b> — a dedicated plumbing crew installs every system, no job squeezed in between other work.</span></li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>No pressure, ever</b> — you'll never feel like you're being sold to. No sales pitch, no games, just a straight answer when you're ready.</span></li>
     </ul>
     <a href="#assessment" class="btn btn-primary scroll-to-assessment why-neptune-btn">Get My Price</a>
   </div>
@@ -481,11 +487,7 @@
       <span class="eyebrow">About Us</span>
       <h2>Why We Do It This Way</h2>
     </div>
-    <p style="text-align:center; font-weight:700; font-size:1.15rem; line-height:1.5; max-width:640px; margin:0 auto 28px; color:var(--ink);">That's me, the owner, in the video above. We used to do in-home consultations — chlorine tablet, the works. We built Neptune because we saw exactly what that process was doing to people, and did the opposite. Our reputation is on every single job — which is why we back it with a guarantee that puts the risk on us, not you.</p>
-
-    <div style="text-align:center; margin-top:32px;">
-      <a href="#assessment" class="btn btn-primary scroll-to-assessment">Get My Price</a>
-    </div>
+    <p style="text-align:center; font-weight:700; font-size:1.15rem; line-height:1.5; max-width:640px; margin:0 auto; color:var(--ink);">That's me, the owner, in the video above. We used to do in-home consultations — chlorine tablet, the works. Melburnians want direct, transparent information, not a sales pitch — so that's exactly why we changed how we do things.</p>
   </div>
 </section>
 
