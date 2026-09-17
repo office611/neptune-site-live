@@ -83,9 +83,11 @@
 .hero-photo-content h1, .hero-photo-content .hero-sub {
   text-shadow: 0 2px 12px rgba(0,0,0,.45);
 }
-#benefits .benefit-grid { grid-template-columns: 1fr; }
-@media (min-width: 900px) {
-  #benefits .benefit-grid { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 767px) {
+  .page-melbourne .hero-photo-media { height: auto; bottom: 0; }
+  .page-melbourne .hero-photo-overlay {
+    background: linear-gradient(180deg, rgba(19,35,63,.4) 0%, rgba(19,35,63,.55) 50%, rgba(19,35,63,.85) 80%, var(--navy-deep) 100%);
+  }
 }
 </style>
 <link rel="preload" href="/assets/videos/melbourne-vsl.mp4" as="video" type="video/mp4" fetchpriority="high">
@@ -487,7 +489,7 @@
      FINAL CTA
 ══════════════════════════════════════════════════════ -->
 
-<section class="section final-cta section-dark">
+<section class="section final-cta">
   <div class="container">
     <h2>If You've Gotten This Far, You've Seen Why People Go With Neptune.</h2>
     <p>Get your price and get moving with Neptune.</p>
