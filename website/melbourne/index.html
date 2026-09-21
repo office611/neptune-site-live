@@ -98,7 +98,6 @@
   .hero-photo-content .hero-sub { max-width: 1100px; }
 }
 </style>
-<link rel="preload" href="/assets/videos/melbourne-vsl.mp4" as="video" type="video/mp4" fetchpriority="high">
 <!-- Meta Pixel -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2043292147071202');fbq('track','PageView');</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2043292147071202&ev=PageView&noscript=1"/></noscript>
@@ -146,7 +145,7 @@
       </div>
       <div class="vsl-frame">
         <div class="vsl-video-wrap">
-          <video id="vslVideo" src="/assets/videos/melbourne-vsl.mp4" muted autoplay playsinline preload="auto" fetchpriority="high"></video>
+          <video id="vslVideo" src="/assets/videos/melbourne-vsl.mp4" muted autoplay playsinline preload="metadata"></video>
           <button class="vsl-toggle-play" id="vslTogglePlay" type="button" aria-label="Pause video">
             <svg class="icon-pause" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
             <svg class="icon-play" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M8 5v14l11-7z"/></svg>
