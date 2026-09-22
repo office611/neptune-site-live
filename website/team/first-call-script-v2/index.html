@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Neptune Filtration — First Call Script v2</title>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+:root {
+  --ink: #0B1E3D;
+  --ink-soft: #4B5A70;
+  --paper: #FBFCFE;
+  --card: #FFFFFF;
+  --line: #E2E7EE;
+  --accent: #2E7BC4;
+  --accent-soft: #EAF2FB;
+  --success: #2A8A50;
+  --navy: #0B1E3D;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #EAF0FA; --ink-soft: #9FB1C9; --paper: #0B1420; --card: #101C2C;
+    --line: #223349; --accent: #6AB0F2; --accent-soft: #16273B; --success: #4FBE7B; --navy: #060B14;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #EAF0FA; --ink-soft: #9FB1C9; --paper: #0B1420; --card: #101C2C;
+  --line: #223349; --accent: #6AB0F2; --accent-soft: #16273B; --success: #4FBE7B; --navy: #060B14;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.head { text-align: center; padding: 56px 24px 8px; }
+.head h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.015em; margin: 0 0 8px; text-wrap: balance; }
+.head p { font-size: 14px; color: var(--ink-soft); margin: 0; max-width: 480px; margin: 0 auto; line-height: 1.5; }
+
+.spine-wrap { max-width: 760px; margin: 0 auto; padding: 30px 24px 100px; position: relative; }
+
+.spine-wrap::before {
+  content: '';
+  position: absolute; left: 24px; top: 8px; bottom: 60px; width: 2px;
+  background: repeating-linear-gradient(to bottom, var(--accent) 0 6px, transparent 6px 12px);
+  opacity: .55;
+}
+@media (max-width: 640px) { .spine-wrap::before { left: 14px; } }
+
+.node { position: relative; padding-left: 60px; margin-bottom: 10px; }
+@media (max-width: 640px) { .node { padding-left: 38px; } }
+
+.node-dot {
+  position: absolute; left: 24px; top: 4px; transform: translateX(-50%);
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; font-variant-numeric: tabular-nums;
+  box-shadow: 0 0 0 5px var(--paper);
+}
+@media (max-width: 640px) { .node-dot { left: 14px; width: 22px; height: 22px; font-size: 9.5px; } }
+
+.arrow-down { position: absolute; left: 24px; bottom: -32px; transform: translateX(-50%); color: var(--accent); opacity: .6; }
+@media (max-width: 640px) { .arrow-down { left: 14px; } }
+
+section.block { margin-bottom: 68px; position: relative; }
+section.block:last-child { margin-bottom: 0; }
+
+.eyebrow { font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+h2 { font-size: 25px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; margin: 0 0 20px; text-wrap: balance; }
+
+.point-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.point-list li { display: flex; align-items: baseline; gap: 11px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; line-height: 1.5; }
+.point-list li:last-child { border-bottom: none; }
+.point-list .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; transform: translateY(-2px); }
+.point-list b { font-weight: 600; }
+.point-list .sub { color: var(--ink-soft); font-size: 13.5px; display: block; margin-top: 2px; }
+
+.quote-block { background: var(--accent-soft); border-radius: 10px; padding: 18px 20px; margin: 0 0 18px; }
+.quote-block p { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.45; color: var(--ink); }
+.quote-block p::before { content: '\201C'; } .quote-block p::after { content: '\201D'; }
+.quote-block .why { margin-top: 8px; font-size: 13px; font-weight: 500; color: var(--ink-soft); }
+.quote-block .why::before, .quote-block .why::after { content: none; }
+
+.stage-block { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 14px 16px; margin-bottom: 10px; }
+.stage-block .sb-t { font-size: 14.5px; font-weight: 700; color: var(--ink-soft); margin-bottom: 6px; }
+.stage-block .sb-q { font-size: 15.5px; font-weight: 600; line-height: 1.45; margin-bottom: 5px; }
+.stage-block .sb-q::before { content: '\2192 \201C'; color: var(--accent); } .stage-block .sb-q::after { content: '\201D'; }
+.stage-block .sb-d { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+.stage-block .sb-sub { margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); }
+.stage-block .sb-sub .sb-t { margin-bottom: 4px; }
+
+.big-ask { background: var(--navy); border-radius: 16px; padding: 34px 30px; color: #fff; text-align: center; }
+.big-ask .eyebrow { color: #C9822F; }
+.big-ask p { font-size: 22px; font-weight: 800; line-height: 1.35; margin: 0; text-wrap: balance; }
+.big-ask p::before { content: '\201C'; } .big-ask p::after { content: '\201D'; }
+.big-ask .why { margin-top: 14px; font-size: 13.5px; font-weight: 500; color: rgba(255,255,255,.7); }
+
+.rule-banner { background: var(--navy); color: #fff; border-radius: 14px; padding: 20px 24px; text-align: center; margin-top: 20px; }
+.rule-banner .eyebrow { color: #C9822F; }
+.rule-banner p { margin: 0; font-size: 16px; font-weight: 700; }
+
+.dropped-note { background: var(--card); border: 1px dashed var(--line); border-radius: 10px; padding: 14px 16px; margin-top: 30px; }
+.dropped-note .sb-t { font-size: 12.5px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+.dropped-note p { margin: 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; }
+</style>
+
+<div class="head">
+  <h1>Neptune Filtration</h1>
+  <p>First call script v2 — the fast qualifying call, not the close. No price given here. Job of this call: build rapport, find out what they actually know, get photos, book a same-day Zoom with the right people on it.</p>
+</div>
+
+<div class="spine-wrap">
+
+  <section class="block node">
+    <div class="node-dot">1</div>
+    <span class="eyebrow">Opening</span>
+    <h2>Greeting First</h2>
+    <div class="quote-block">
+      <p>Hey, is this [Name]? It's Stefan from Neptune Filtration — how you going?</p>
+      <div class="why">Keep it plain and quick — this call is short by design, don't slow the opening down.</div>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">2</div>
+    <span class="eyebrow">Story Arc</span>
+    <h2>Let Them Self-Select</h2>
+    <div class="quote-block">
+      <p>So look, most people who reach out to us fall into one of two camps — they've already sat down with one of these filtration companies and saw through the sales pitch, or they've heard enough about how it usually goes that they just want to skip straight past it. Where are you at?</p>
+      <div class="why">Categorization, not interrogation — builds rapport fast, still works even though this call no longer moves toward giving a price.</div>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">3</div>
+    <span class="eyebrow">Dig Pain Point</span>
+    <h2>What's Actually Going On</h2>
+    <div class="quote-block">
+      <p>So tell me — what's actually been going on with your water? How long's it been bothering you?</p>
+      <div class="why">Keep this brief — one or two exchanges, not a full interview. The Zoom is where this gets used properly.</div>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">4</div>
+    <span class="eyebrow">The Real Diagnostic</span>
+    <h2>Find Out What They Actually Know</h2>
+    <div class="quote-block">
+      <p>What have you already found out about us, and what's still unclear?</p>
+      <div class="why">Never ask "did you read the page?" — self-report is worthless, everyone says yes. This question reveals it through the quality of their answer instead. Specific and coherent = informed. Vague, or asking something clearly on the page = not informed. Either way, don't re-teach here — that's what drags calls out. Note it and move on.</div>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">5</div>
+    <span class="eyebrow">Why Photos, Not A Price Right Now</span>
+    <h2>Accuracy Reason, Not A Sales Reason</h2>
+    <div class="big-ask">
+      <span class="eyebrow">Say It Plainly, Confidently</span>
+      <p>To get you an accurate price — not just a rough guess — I need a couple of photos of your meter and where the system would go. Way easier than having someone come out to your house like other companies make you do.</p>
+      <div class="why">This is a real operational reason, not a stall — never frame it as "let's book a meeting to go over everything," that reads as evasive and gets pushback. Deliver as a stated fact, not a request up for negotiation.</div>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">6</div>
+    <span class="eyebrow">Decision-Maker Check</span>
+    <h2>Before You Book The Zoom, Not After</h2>
+    <div class="quote-block">
+      <p>Is this a decision you're making together with anyone else — partner, wife? Let's get them on the Zoom too so we're not doing this twice.</p>
+      <div class="why">Solves the recurring "need to talk to my wife" objection before it costs a wasted Zoom — asked upfront as a normal scheduling question, not reactively when it shows up as a stall.</div>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">7</div>
+    <span class="eyebrow">Book It — Same Day</span>
+    <h2>Offer Specific Times, Never "Whenever Works"</h2>
+    <div class="quote-block">
+      <p>I've actually got time in about an hour, or first thing tonight — which works better for you both?</p>
+      <div class="why">Open-ended "when works for you" is how bookings drift to 5 days out and no-shows go up. Two specific near-term options make soon the default, not a big ask.</div>
+    </div>
+    <div class="stage-block">
+      <div class="sb-t">If they push for something days out anyway</div>
+      <div class="sb-q">No worries, we can do that — I'll send a reminder closer to the time.</div>
+      <div class="sb-d">Book it if that's genuinely all that works, but treat it as lower-confidence — a person who wants something further out despite easier options existing is telling you something real about their urgency. Layer in nurture-style follow-up alongside it, don't treat it as a locked appointment.</div>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">8</div>
+    <span class="eyebrow">Close This Call</span>
+    <h2>Confirm And Get Off</h2>
+    <div class="quote-block">
+      <p>Perfect — send those photos through whenever suits, and I'll see you both on the Zoom at [time]. We'll sort your exact price and go from there.</p>
+      <div class="why">Keep it short. This call's only job is done: rapport built, photos requested, right people booked, same day. Everything else — price, objections, the actual ask — happens on the Zoom.</div>
+    </div>
+  </section>
+
+  <div class="rule-banner">
+    <span class="eyebrow">Hard Rule</span>
+    <p>Never ask a question which sounds unsure. Every line delivered with full confidence — hesitant delivery undermines the authority this whole call is built on.</p>
+  </div>
+
+  <div class="dropped-note">
+    <div class="sb-t">What's intentionally not in this call</div>
+    <p>No price. No objection handling (price/product/me branches). No guarantee pitch. All of that belongs on the Zoom, where there's actually time to do it properly — cramming it into this short call is exactly what was causing calls to drag. See close-script.html for that stage.</p>
+  </div>
+
+</div>
+</body>
+</html>
