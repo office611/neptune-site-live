@@ -271,17 +271,18 @@
 </script>
 
 <!-- ══════════════════════════════════════════════════════
-     Vimeo testimonial autoplay — lazily loaded. Each card's iframe
-     src and Vimeo.Player only get created the first time it scrolls
-     near the viewport (rootMargin gives it a head start), instead of
-     all 8 initialising on page load. Muted + looping while in view,
-     pauses when scrolled away. Tapping unmutes (same "ambient autoplay,
-     tap to engage" pattern as the hero VSL).
+     Vimeo testimonial autoplay — lazily loaded, each card's iframe
+     src and Vimeo.Player only get created the first time it's needed.
+     Mouse/desktop: hover to preview-play, mouse-leave pauses.
+     Touch/mobile (no hover): scroll-into-view autoplay instead, same
+     as before. Click/tap always unmutes and hands over normal controls.
 ══════════════════════════════════════════════════════ -->
 <script>
 (function () {
   var cards = document.querySelectorAll('.vimeo-autoplay-card');
   if (!cards.length) return;
+
+  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   var apiLoading = null;
   function loadVimeoApi() {
@@ -304,32 +305,41 @@
     var hasEngaged = false;
     var pendingEngage = false;
 
-    function initPlayer() {
-      if (loaded) return;
+    function initPlayer(andPlay) {
+      if (loaded) {
+        if (andPlay && player) player.play().catch(function () {});
+        return;
+      }
       loaded = true;
       iframe.src = iframe.dataset.src;
       loadVimeoApi().then(function () {
         player = new Vimeo.Player(iframe);
         player.setVolume(pendingEngage ? 1 : 0).catch(function () {});
         player.setLoop(!pendingEngage).catch(function () {});
-        player.play().catch(function () {});
+        if (andPlay) player.play().catch(function () {});
       });
     }
 
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          if (!loaded) { initPlayer(); return; }
-          if (player) player.play().catch(function () {});
-        } else if (player) {
-          player.pause().catch(function () {});
-        }
+    if (canHover) {
+      card.addEventListener('mouseenter', function () { initPlayer(true); });
+      card.addEventListener('mouseleave', function () {
+        if (player) player.pause().catch(function () {});
       });
-    }, { threshold: 0.4, rootMargin: '200px 0px' });
+    } else {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            initPlayer(true);
+          } else if (player) {
+            player.pause().catch(function () {});
+          }
+        });
+      }, { threshold: 0.4, rootMargin: '200px 0px' });
 
-    observer.observe(iframe);
+      observer.observe(iframe);
+    }
 
-    // First tap/click: unmute and hand over normal controls instead of
+    // Click/tap: unmute and hand over normal controls instead of
     // toggling play/pause -- matches the hero VSL's "engage" behaviour.
     card.addEventListener('click', function () {
       if (hasEngaged) return;
@@ -339,6 +349,7 @@
         player.setLoop(false).catch(function () {});
       } else {
         pendingEngage = true;
+        initPlayer(true);
       }
     });
   });
