@@ -358,11 +358,12 @@
     var player = null;
     var loaded = false;
     var hasEngaged = false;
-    var pendingEngage = false;
 
-    function initPlayer(andPlay) {
+    // Muted preview load (hover only) -- fine to do async, muted
+    // autoplay doesn't need a user gesture.
+    function initPreview() {
       if (loaded) {
-        if (andPlay && player) player.play().catch(function () {});
+        if (player) player.play().catch(function () {});
         return;
       }
       loaded = true;
@@ -370,9 +371,9 @@
       iframe.src = iframe.dataset.src;
       loadVimeoApi().then(function () {
         player = new Vimeo.Player(iframe);
-        player.setVolume(pendingEngage ? 1 : 0).catch(function () {});
-        player.setLoop(!pendingEngage).catch(function () {});
-        if (andPlay) player.play().catch(function () {});
+        player.setVolume(0).catch(function () {});
+        player.setLoop(true).catch(function () {});
+        player.play().catch(function () {});
       });
     }
 
@@ -380,23 +381,35 @@
     // Mobile/touch (no hover): thumbnail stays put, nothing loads or
     // plays until tapped -- no scroll-triggered autoplay at all.
     if (canHover) {
-      card.addEventListener('mouseenter', function () { initPlayer(true); });
+      card.addEventListener('mouseenter', initPreview);
       card.addEventListener('mouseleave', function () {
         if (player) player.pause().catch(function () {});
       });
     }
 
-    // Click/tap: load if needed, unmute, play, hand over normal controls.
+    // Click/tap: unmuted play with sound. If it's the first load, the
+    // sound+autoplay is baked straight into the iframe src (set
+    // synchronously, inside this click handler) rather than requested
+    // afterwards via the async Player API -- mobile browsers can treat
+    // a play() call made after an awaited script load as no longer tied
+    // to the tap, and silently block the sound.
     card.addEventListener('click', function () {
       if (hasEngaged) return;
       hasEngaged = true;
-      if (player) {
-        player.setVolume(1).catch(function () {});
-        player.setLoop(false).catch(function () {});
-        player.play().catch(function () {});
+      if (poster) poster.classList.add('is-hidden');
+      if (loaded) {
+        if (player) {
+          player.setVolume(1).catch(function () {});
+          player.setLoop(false).catch(function () {});
+          player.play().catch(function () {});
+        }
       } else {
-        pendingEngage = true;
-        initPlayer(true);
+        loaded = true;
+        iframe.src = iframe.dataset.src.replace('muted=1', 'muted=0').replace('autoplay=0', 'autoplay=1');
+        loadVimeoApi().then(function () {
+          player = new Vimeo.Player(iframe);
+          player.setLoop(false).catch(function () {});
+        });
       }
     });
   });
