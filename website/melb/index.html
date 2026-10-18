@@ -18,21 +18,6 @@
 <link rel="stylesheet" href="/experts/assessment.css">
 <style>
 :root { --navy-deep: #13233f; }
-/* Copied verbatim from /melbourne -- that page overrides the shared
-   (much darker) assessment.css overlay locally with this lighter one,
-   it doesn't actually use the shared rule. */
-.page-melbourne .hero-photo-overlay {
-  background: linear-gradient(180deg, rgba(19,35,63,.4) 0%, rgba(19,35,63,.5) 35%, rgba(19,35,63,.65) 100%);
-}
-.hero-photo-content h1, .hero-photo-content .hero-sub {
-  text-shadow: 0 2px 12px rgba(0,0,0,.45);
-}
-@media (max-width: 767px) {
-  .page-melbourne .hero-photo-media { height: auto; bottom: 0; }
-  .page-melbourne .hero-photo-overlay {
-    background: linear-gradient(180deg, rgba(19,35,63,.3) 0%, rgba(19,35,63,.4) 35%, rgba(19,35,63,.58) 100%);
-  }
-}
 .hero-photo .assessment { padding-bottom: var(--s-2); }
 .hero-arrow-spacer { padding-block: var(--s-3); }
 @media (min-width: 768px) {
@@ -112,15 +97,10 @@
 <body class="page-melbourne">
 
 <!-- ══════════════════════════════════════════════════════
-     HERO — headline/subheadline, no VSL. Photo spans the full
-     hero+arrow+form span (same .page-melbourne CSS /melbourne
-     itself uses), fading to flat navy near the bottom.
+     HERO — no background photo. Proof (the installs gallery) is
+     what's doing the work here, flat navy keeps it clean and simple.
 ══════════════════════════════════════════════════════ -->
 <section class="hero-photo">
-  <div class="hero-photo-media">
-    <img src="/assets/install-photos/17.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager" fetchpriority="high">
-    <div class="hero-photo-overlay"></div>
-  </div>
   <div class="hero-photo-upper">
     <div class="container hero-photo-content fade-in-up">
       <h1>The Water Your Whole <span class="hero-accent">Family Deserves</span>.</h1>
