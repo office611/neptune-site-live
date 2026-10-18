@@ -14,6 +14,11 @@
 <meta name="description" content="Whole-home filtration backed by real customers, not just our word for it. See real results and get your tailored set-up.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Gets the connection to Vimeo's domains warmed up ahead of time, so
+     tapping a testimonial isn't also paying for DNS/TLS handshake time. -->
+<link rel="preconnect" href="https://player.vimeo.com">
+<link rel="preconnect" href="https://i.vimeocdn.com">
+<link rel="preconnect" href="https://f.vimeocdn.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/experts/assessment.css">
 <style>
@@ -350,6 +355,10 @@
     });
     return apiLoading;
   }
+  // Fetch the player script in the background as soon as the page loads --
+  // doesn't play or load any video, just means the first tap isn't also
+  // waiting on this ~60KB script to download and parse.
+  loadVimeoApi();
 
   cards.forEach(function (card) {
     var iframe = card.querySelector('.vimeo-embed');
