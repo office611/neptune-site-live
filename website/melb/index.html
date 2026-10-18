@@ -14,11 +14,6 @@
 <meta name="description" content="Whole-home filtration backed by real customers, not just our word for it. See real results and get your tailored set-up.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Gets the connection to Vimeo's domains warmed up ahead of time, so
-     tapping a testimonial isn't also paying for DNS/TLS handshake time. -->
-<link rel="preconnect" href="https://player.vimeo.com">
-<link rel="preconnect" href="https://i.vimeocdn.com">
-<link rel="preconnect" href="https://f.vimeocdn.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/experts/assessment.css">
 <style>
@@ -99,27 +94,13 @@
   object-fit: cover;
   display: block;
 }
-.testimonial-card .vimeo-embed {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
 .testimonial-card .testimonial-name {
   padding: 12px 14px;
   font-weight: 700;
   font-size: .95rem;
   text-align: center;
 }
-.testimonial-card .testimonial-poster {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  cursor: pointer;
-}
-.testimonial-card .testimonial-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.testimonial-card .testimonial-poster.is-hidden { display: none; }
+.testimonial-card .testimonial-video { cursor: pointer; }
 .testimonial-card .testimonial-play-btn {
   position: absolute;
   top: 50%; left: 50%;
@@ -131,8 +112,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 .testimonial-card .testimonial-play-btn svg { width: 20px; height: 20px; margin-left: 3px; }
+.testimonial-media.is-engaged .testimonial-play-btn { display: none; }
 .testimonial-placeholder-note {
   text-align: center;
   max-width: 620px;
@@ -215,89 +198,65 @@
     <div class="testimonial-grid">
 
       <div class="testimonial-card">
-        <div class="testimonial-media vimeo-autoplay-card">
-          <div class="testimonial-poster">
-            <img src="/assets/videos/testimonials/nishanth-cover.jpg" alt="Nishanth testimonial" loading="lazy">
-            <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
-          </div>
-          <iframe class="vimeo-embed" data-src="https://player.vimeo.com/video/1236936707?background=0&muted=1&autoplay=0&controls=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/nishanth-cover.jpg" data-src="/assets/videos/testimonials/nishanth.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Nishanth</div>
       </div>
 
       <div class="testimonial-card">
-        <div class="testimonial-media vimeo-autoplay-card">
-          <div class="testimonial-poster">
-            <img src="/assets/videos/testimonials/jim-cover.jpg" alt="Jim testimonial" loading="lazy">
-            <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
-          </div>
-          <iframe class="vimeo-embed" data-src="https://player.vimeo.com/video/1236935237?background=0&muted=1&autoplay=0&controls=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/jim-cover.jpg" data-src="/assets/videos/testimonials/jim.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Jim</div>
       </div>
 
       <div class="testimonial-card">
-        <div class="testimonial-media vimeo-autoplay-card">
-          <div class="testimonial-poster">
-            <img src="/assets/videos/testimonials/jan-peter-cover.jpg" alt="Jan and Peter testimonial" loading="lazy">
-            <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
-          </div>
-          <iframe class="vimeo-embed" data-src="https://player.vimeo.com/video/1236934046?background=0&muted=1&autoplay=0&controls=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/jan-peter-cover.jpg" data-src="/assets/videos/testimonials/jan-peter.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Jan &amp; Peter</div>
       </div>
 
       <div class="testimonial-card">
-        <div class="testimonial-media vimeo-autoplay-card">
-          <div class="testimonial-poster">
-            <img src="/assets/videos/testimonials/lech-cover.jpg" alt="Lech testimonial" loading="lazy">
-            <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
-          </div>
-          <iframe class="vimeo-embed" data-src="https://player.vimeo.com/video/1236935861?background=0&muted=1&autoplay=0&controls=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/lech-cover.jpg" data-src="/assets/videos/testimonials/lech.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Lech</div>
       </div>
 
       <div class="testimonial-card">
-        <div class="testimonial-media vimeo-autoplay-card">
-          <div class="testimonial-poster">
-            <img src="/assets/videos/testimonials/girish-cover.jpg" alt="Girish testimonial" loading="lazy">
-            <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
-          </div>
-          <iframe class="vimeo-embed" data-src="https://player.vimeo.com/video/1236934906?background=0&muted=1&autoplay=0&controls=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/girish-cover.jpg" data-src="/assets/videos/testimonials/girish.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Girish</div>
       </div>
 
       <div class="testimonial-card">
-        <div class="testimonial-media vimeo-autoplay-card">
-          <div class="testimonial-poster">
-            <img src="/assets/videos/testimonials/cecilio-cover.jpg" alt="Cecilio testimonial" loading="lazy">
-            <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
-          </div>
-          <iframe class="vimeo-embed" data-src="https://player.vimeo.com/video/1236930605?background=0&muted=1&autoplay=0&controls=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/cecilio-cover.jpg" data-src="/assets/videos/testimonials/cecilio.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Cecilio</div>
       </div>
 
       <div class="testimonial-card">
-        <div class="testimonial-media vimeo-autoplay-card">
-          <div class="testimonial-poster">
-            <img src="/assets/videos/testimonials/marcus-cover.jpg" alt="Marcus testimonial" loading="lazy">
-            <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
-          </div>
-          <iframe class="vimeo-embed" data-src="https://player.vimeo.com/video/1236936246?background=0&muted=1&autoplay=0&controls=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/marcus-cover.jpg" data-src="/assets/videos/testimonials/marcus.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Marcus</div>
       </div>
 
       <div class="testimonial-card">
-        <div class="testimonial-media vimeo-autoplay-card">
-          <div class="testimonial-poster">
-            <img src="/assets/videos/testimonials/june-cover.jpg" alt="June testimonial" loading="lazy">
-            <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
-          </div>
-          <iframe class="vimeo-embed" data-src="https://player.vimeo.com/video/1236935574?background=0&muted=1&autoplay=0&controls=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/june-cover.jpg" data-src="/assets/videos/testimonials/june.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">June</div>
       </div>
@@ -329,74 +288,44 @@
 </script>
 
 <!-- ══════════════════════════════════════════════════════
-     Vimeo testimonials — lazily loaded, each card's iframe src and
-     Vimeo.Player only get created the first time it's needed. A real
-     thumbnail (not blank navy) shows until then.
+     Self-hosted testimonials — plain HTML5 video, no external player
+     script or iframe handshake at all. A real thumbnail (the poster
+     attribute) shows until played.
      Mouse/desktop: hover to preview-play (muted), mouse-leave pauses.
      Touch/mobile (no hover): nothing plays automatically -- thumbnail
      only, tap to load and play with sound.
 ══════════════════════════════════════════════════════ -->
 <script>
 (function () {
-  var cards = document.querySelectorAll('.vimeo-autoplay-card');
+  var cards = document.querySelectorAll('.video-autoplay-card');
   if (!cards.length) return;
 
   var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  var apiLoading = null;
-  function loadVimeoApi() {
-    if (window.Vimeo) return Promise.resolve();
-    if (apiLoading) return apiLoading;
-    apiLoading = new Promise(function (resolve) {
-      var s = document.createElement('script');
-      s.src = 'https://player.vimeo.com/api/player.js';
-      s.onload = resolve;
-      document.head.appendChild(s);
-    });
-    return apiLoading;
-  }
-  // Fetch the player script in the background as soon as the page loads --
-  // doesn't play or load any video, just means the first tap isn't also
-  // waiting on this ~60KB script to download and parse.
-  loadVimeoApi();
-
   cards.forEach(function (card, index) {
-    var iframe = card.querySelector('.vimeo-embed');
-    var poster = card.querySelector('.testimonial-poster');
-    if (!iframe || !iframe.dataset.src) return;
-    var player = null;
-    var playerReady = null;
+    var video = card.querySelector('.testimonial-video');
+    if (!video || !video.dataset.src) return;
     var loaded = false;
     var hasEngaged = false;
 
-    // Gets the iframe (and its player) ready in the background -- muted,
-    // not played, poster still covers it so nothing visibly changes.
-    function ensurePlayer() {
-      if (playerReady) return playerReady;
+    function ensureLoaded() {
+      if (loaded) return;
       loaded = true;
-      iframe.src = iframe.dataset.src;
-      playerReady = loadVimeoApi().then(function () {
-        player = new Vimeo.Player(iframe);
-        return player;
-      });
-      return playerReady;
+      video.src = video.dataset.src;
     }
 
-    // First 2 cards: start preloading right on page load, staggered a
+    // First 2 cards: start loading right on page load, staggered a
     // little so they don't fight each other for bandwidth -- these are
-    // the most likely to be seen/tapped first, so they get the longest
-    // possible head start instead of waiting on scroll position.
+    // the most likely to be seen/tapped first.
     if (index < 2) {
-      setTimeout(ensurePlayer, index * 400);
+      setTimeout(ensureLoaded, index * 300);
     }
 
-    // Preload as the card nears the viewport, on every device -- doesn't
-    // play anything, just means it's already buffered/ready by the time
-    // someone actually hovers or taps instead of starting cold then.
+    // Preload as the card nears the viewport, on every device.
     var preloadObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          ensurePlayer();
+          ensureLoaded();
           preloadObserver.disconnect();
         }
       });
@@ -408,44 +337,30 @@
     // tapped -- no scroll-triggered autoplay.
     if (canHover) {
       card.addEventListener('mouseenter', function () {
-        if (poster) poster.classList.add('is-hidden');
-        ensurePlayer().then(function (p) {
-          p.setVolume(0).catch(function () {});
-          p.setLoop(true).catch(function () {});
-          p.play().catch(function () {});
-        });
+        ensureLoaded();
+        video.muted = true;
+        video.loop = true;
+        video.play().catch(function () {});
       });
       card.addEventListener('mouseleave', function () {
-        if (player) player.pause().catch(function () {});
+        video.pause();
       });
     }
 
-    // Click/tap: unmuted play with sound. If the card was already
-    // preloaded, the player exists and play() runs effectively
-    // synchronously with the tap. If not (rare -- tapped before the
-    // preload observer fired), sound+autoplay is baked straight into
-    // the iframe src instead of requested afterwards, since a play()
-    // call made after an awaited script load can get disconnected from
-    // the original tap on mobile and get silently blocked muted.
+    // Click/tap: unmuted play with sound, native controls, loop off.
+    // A plain video.play() called synchronously inside the click
+    // handler is the standard, reliable way to get unmuted autoplay
+    // on mobile -- no async script/API round-trip to disconnect it
+    // from the tap.
     card.addEventListener('click', function () {
       if (hasEngaged) return;
       hasEngaged = true;
-      if (poster) poster.classList.add('is-hidden');
-      if (loaded) {
-        ensurePlayer().then(function (p) {
-          p.setVolume(1).catch(function () {});
-          p.setLoop(false).catch(function () {});
-          p.play().catch(function () {});
-        });
-      } else {
-        loaded = true;
-        iframe.src = iframe.dataset.src.replace('muted=1', 'muted=0').replace('autoplay=0', 'autoplay=1');
-        playerReady = loadVimeoApi().then(function () {
-          player = new Vimeo.Player(iframe);
-          player.setLoop(false).catch(function () {});
-          return player;
-        });
-      }
+      card.classList.add('is-engaged');
+      ensureLoaded();
+      video.muted = false;
+      video.loop = false;
+      video.controls = true;
+      video.play().catch(function () {});
     });
   });
 })();
