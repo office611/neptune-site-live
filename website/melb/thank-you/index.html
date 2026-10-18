@@ -22,10 +22,48 @@
 /* Solo VSL player -- same self-hosted pattern as /melb's testimonials
    and the booking page, single centered video. */
 #watch-vsl { padding-block: var(--s-10) var(--s-10); }
+
+/* Benefit callouts flanking the video on desktop, arrows pointing in.
+   Collapses to a simple pill checklist below the video on mobile. */
+.vsl-showcase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  max-width: 1040px;
+  margin: 28px auto 0;
+}
+.vsl-benefits-col {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  flex: 1;
+  max-width: 210px;
+}
+.vsl-benefits-col.col-left { align-items: flex-end; text-align: right; }
+.vsl-benefits-col.col-right { align-items: flex-start; text-align: left; }
+.vsl-benefit { display: flex; align-items: center; gap: 8px; font-size: .92rem; font-weight: 600; color: var(--text); }
+.col-left .vsl-benefit { flex-direction: row-reverse; }
+.vsl-benefit svg { flex-shrink: 0; color: var(--accent); width: 22px; height: 14px; }
+@media (max-width: 900px) {
+  .vsl-showcase { flex-direction: column; max-width: 420px; gap: 18px; }
+  .vsl-benefits-col {
+    flex-direction: row; flex-wrap: wrap; max-width: none;
+    justify-content: center; align-items: center; text-align: center;
+    gap: 8px 10px; order: 2;
+  }
+  .col-left .vsl-benefit, .vsl-benefit { flex-direction: row; }
+  .vsl-benefit svg { display: none; }
+  .vsl-benefit {
+    background: #eaf2fd; padding: 7px 12px; border-radius: 20px; font-size: .82rem;
+  }
+  .solo-vsl-wrap { max-width: 380px; order: 1; }
+}
 .solo-vsl-wrap {
   position: relative;
-  max-width: 380px;
-  margin: 28px auto 0;
+  width: 100%;
+  max-width: 300px;
+  flex-shrink: 0;
   aspect-ratio: 9 / 16;
   border-radius: 16px;
   overflow: hidden;
@@ -104,10 +142,26 @@
       <span class="eyebrow">While You Wait</span>
       <h2>Watch This If You Haven't Yet</h2>
     </div>
-    <div class="solo-vsl-wrap video-autoplay-card" id="solo-vsl">
-      <video class="testimonial-video" poster="/assets/videos/big-vsl/big-vsl-cover.jpg" data-src="/assets/videos/big-vsl/big-vsl.mp4" muted loop playsinline preload="none"></video>
-      <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
-      <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+    <div class="vsl-showcase">
+      <div class="vsl-benefits-col col-left">
+        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="0" y1="7" x2="17" y2="7"/><polyline points="12 2 18 7 12 12"/></svg><span>Customers Report Less Eczema &amp; Dry Skin</span></div>
+        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="0" y1="7" x2="17" y2="7"/><polyline points="12 2 18 7 12 12"/></svg><span>Less Limescale Build-Up</span></div>
+        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="0" y1="7" x2="17" y2="7"/><polyline points="12 2 18 7 12 12"/></svg><span>Excellent Installation</span></div>
+        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="0" y1="7" x2="17" y2="7"/><polyline points="12 2 18 7 12 12"/></svg><span>Tailored To Melbourne's Water</span></div>
+      </div>
+
+      <div class="solo-vsl-wrap video-autoplay-card" id="solo-vsl">
+        <video class="testimonial-video" poster="/assets/videos/big-vsl/big-vsl-cover.jpg" data-src="/assets/videos/big-vsl/big-vsl.mp4" muted loop playsinline preload="none"></video>
+        <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
+        <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+
+      <div class="vsl-benefits-col col-right">
+        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="24" y1="7" x2="7" y2="7"/><polyline points="12 2 6 7 12 12"/></svg><span>Customers Report Less Hair Loss</span></div>
+        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="24" y1="7" x2="7" y2="7"/><polyline points="12 2 6 7 12 12"/></svg><span>Fast Turnaround</span></div>
+        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="24" y1="7" x2="7" y2="7"/><polyline points="12 2 6 7 12 12"/></svg><span>No In-Home Appointments</span></div>
+        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="24" y1="7" x2="7" y2="7"/><polyline points="12 2 6 7 12 12"/></svg><span>Small Investment, Big Difference</span></div>
+      </div>
     </div>
   </div>
 </section>
