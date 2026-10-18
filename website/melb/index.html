@@ -18,15 +18,15 @@
 <link rel="stylesheet" href="/experts/assessment.css">
 <style>
 :root { --navy-deep: #13233f; }
-/* Lighter than the shared /melbourne overlay -- photo stays visible
-   further down, still fading to flat navy near the bottom so the
-   arrow/form area has no visible seam. */
+/* Lighter than the shared /melbourne overlay, and one continuous ramp
+   all the way to 100% (no flat plateau near the bottom) so it fades
+   smoothly into .hero-photo's own navy instead of cutting off hard. */
 .page-melbourne .hero-photo-overlay {
-  background: linear-gradient(180deg, rgba(7,15,30,.45) 0%, rgba(7,15,30,.5) 20%, rgba(7,15,30,.55) 45%, rgba(7,15,30,.65) 65%, rgba(7,15,30,.75) 80%, var(--navy-deep) 92%, var(--navy-deep) 100%);
+  background: linear-gradient(180deg, rgba(7,15,30,.35) 0%, rgba(7,15,30,.45) 30%, rgba(7,15,30,.6) 55%, rgba(7,15,30,.8) 78%, var(--navy-deep) 100%);
 }
 @media (max-width: 767px) {
   .page-melbourne .hero-photo-overlay {
-    background: linear-gradient(180deg, rgba(7,15,30,.25) 0%, rgba(7,15,30,.35) 50%, rgba(7,15,30,.55) 80%, var(--navy-deep) 100%);
+    background: linear-gradient(180deg, rgba(7,15,30,.2) 0%, rgba(7,15,30,.35) 40%, rgba(7,15,30,.6) 70%, var(--navy-deep) 100%);
   }
 }
 /* IMG_1172 is a portrait/vertical photo -- stretched across the full
