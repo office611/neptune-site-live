@@ -360,7 +360,7 @@
   // waiting on this ~60KB script to download and parse.
   loadVimeoApi();
 
-  cards.forEach(function (card) {
+  cards.forEach(function (card, index) {
     var iframe = card.querySelector('.vimeo-embed');
     var poster = card.querySelector('.testimonial-poster');
     if (!iframe || !iframe.dataset.src) return;
@@ -380,6 +380,14 @@
         return player;
       });
       return playerReady;
+    }
+
+    // First 2 cards: start preloading right on page load, staggered a
+    // little so they don't fight each other for bandwidth -- these are
+    // the most likely to be seen/tapped first, so they get the longest
+    // possible head start instead of waiting on scroll position.
+    if (index < 2) {
+      setTimeout(ensurePlayer, index * 400);
     }
 
     // Preload as the card nears the viewport, on every device -- doesn't
