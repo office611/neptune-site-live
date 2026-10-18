@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+<meta name="theme-color" content="#0B1E3D">
+<meta name="color-scheme" content="light">
+<title>You're Booked In | Neptune Filtration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/experts/assessment.css">
+<style>
+:root { --navy-deep: #13233f; }
+
+/* Solo VSL player -- same self-hosted pattern as /melb's testimonials
+   and the booking page, single centered video. */
+#watch-vsl { padding-block: var(--s-10) var(--s-10); }
+.solo-vsl-wrap {
+  position: relative;
+  max-width: 380px;
+  margin: 28px auto 0;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0b1e3d;
+  box-shadow: 0 20px 44px rgba(0,0,0,.35);
+}
+.solo-vsl-wrap video, .solo-vsl-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.solo-vsl-wrap .testimonial-video { cursor: pointer; }
+.solo-vsl-wrap .testimonial-seek-wrap {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 14px 10px 10px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,.55));
+  z-index: 3;
+}
+.solo-vsl-wrap .testimonial-seek {
+  position: relative; height: 16px; display: flex; align-items: center;
+  cursor: pointer; touch-action: none;
+}
+.solo-vsl-wrap .testimonial-seek::before {
+  content: ''; position: absolute; left: 0; right: 0; height: 4px;
+  border-radius: 2px; background: rgba(255,255,255,.3);
+}
+.solo-vsl-wrap .testimonial-seek-fill {
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  height: 4px; border-radius: 2px; background: #fff; width: 0%; pointer-events: none;
+}
+.solo-vsl-wrap .testimonial-seek-handle {
+  position: absolute; top: 50%; left: 0%; width: 14px; height: 14px;
+  border-radius: 50%; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.5);
+  transform: translate(-50%, -50%); pointer-events: none;
+}
+.solo-vsl-wrap .testimonial-play-btn {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(19,35,63,.75); border: 2px solid rgba(255,255,255,.9);
+  display: flex; align-items: center; justify-content: center; pointer-events: none;
+}
+.solo-vsl-wrap .testimonial-play-btn svg { width: 26px; height: 26px; margin-left: 3px; }
+.solo-vsl-wrap.is-playing .testimonial-play-btn { display: none; }
+</style>
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2043292147071202');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2043292147071202&ev=PageView&noscript=1"/></noscript>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xtyiud4n4o");
+</script>
+</head>
+<body class="page-melbourne">
+
+<!-- ══════════════════════════════════════════════════════
+     STEP 2 THANK-YOU — separate from /melbourne/thank-you, built
+     fresh for the /melb funnel. Shown after the calendar booking
+     is confirmed. Congratulatory tone, then the Big VSL again for
+     anyone who hasn't watched it yet.
+══════════════════════════════════════════════════════ -->
+<section class="success-hero success-hero--light">
+  <div class="container-text">
+    <div class="success-icon-lg fade-in-up">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h1 class="fade-in-up">You're All Booked In</h1>
+    <div class="lede fade-in-up">
+      <p>Well done — that's the hard part done. We'll see you on the call.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-off" id="watch-vsl">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">While You Wait</span>
+      <h2>Watch This If You Haven't Yet</h2>
+    </div>
+    <div class="solo-vsl-wrap video-autoplay-card" id="solo-vsl">
+      <video class="testimonial-video" poster="/assets/videos/big-vsl/big-vsl-cover.jpg" data-src="/assets/videos/big-vsl/big-vsl.mp4" muted loop playsinline preload="none"></video>
+      <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
+      <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var cards = document.querySelectorAll('.video-autoplay-card');
+  if (!cards.length) return;
+
+  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  cards.forEach(function (card, index) {
+    var video = card.querySelector('.testimonial-video');
+    var seek = card.querySelector('.testimonial-seek');
+    var seekFill = card.querySelector('.testimonial-seek-fill');
+    var seekHandle = card.querySelector('.testimonial-seek-handle');
+    if (!video || !video.dataset.src) return;
+    var loaded = false;
+    var hasEngaged = false;
+
+    function ensureLoaded() {
+      if (loaded) return;
+      loaded = true;
+      video.src = video.dataset.src;
+    }
+
+    video.addEventListener('play', function () { card.classList.add('is-playing'); });
+    video.addEventListener('pause', function () { card.classList.remove('is-playing'); });
+
+    if (seek && seekFill && seekHandle) {
+      video.addEventListener('timeupdate', function () {
+        if (!video.duration) return;
+        var pct = (video.currentTime / video.duration) * 100;
+        seekFill.style.width = pct + '%';
+        seekHandle.style.left = pct + '%';
+      });
+
+      var dragging = false;
+      function seekTo(clientX) {
+        if (!video.duration) return;
+        var rect = seek.getBoundingClientRect();
+        var pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+        video.currentTime = pct * video.duration;
+        seekFill.style.width = (pct * 100) + '%';
+        seekHandle.style.left = (pct * 100) + '%';
+      }
+      seek.addEventListener('pointerdown', function (e) {
+        dragging = true;
+        hasEngaged = true;
+        ensureLoaded();
+        video.muted = false;
+        video.loop = false;
+        video.play().catch(function () {});
+        seek.setPointerCapture(e.pointerId);
+        seekTo(e.clientX);
+        e.stopPropagation();
+      });
+      seek.addEventListener('pointermove', function (e) { if (dragging) seekTo(e.clientX); });
+      seek.addEventListener('pointerup', function () { dragging = false; });
+      seek.addEventListener('pointercancel', function () { dragging = false; });
+      seek.addEventListener('click', function (e) { e.stopPropagation(); });
+    }
+
+    if (index < 2) setTimeout(ensureLoaded, index * 300);
+
+    var preloadObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          ensureLoaded();
+          preloadObserver.disconnect();
+        }
+      });
+    }, { rootMargin: '1600px 0px' });
+    preloadObserver.observe(card);
+
+    if (canHover) {
+      card.addEventListener('mouseenter', function () {
+        if (hasEngaged) return;
+        ensureLoaded();
+        video.muted = true;
+        video.loop = true;
+        video.play().catch(function () {});
+      });
+      card.addEventListener('mouseleave', function () {
+        if (!hasEngaged) video.pause();
+      });
+    }
+
+    card.addEventListener('click', function () {
+      if (!hasEngaged) {
+        hasEngaged = true;
+        ensureLoaded();
+        video.muted = false;
+        video.loop = false;
+        video.play().catch(function () {});
+      } else if (video.paused) {
+        video.play().catch(function () {});
+      } else {
+        video.pause();
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
