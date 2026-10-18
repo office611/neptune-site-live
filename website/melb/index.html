@@ -18,8 +18,20 @@
 <link rel="stylesheet" href="/experts/assessment.css">
 <style>
 :root { --navy-deep: #13233f; }
+/* Copied verbatim from /melbourne -- that page overrides the shared
+   (much darker) assessment.css overlay locally with this lighter one,
+   it doesn't actually use the shared rule. */
+.page-melbourne .hero-photo-overlay {
+  background: linear-gradient(180deg, rgba(19,35,63,.4) 0%, rgba(19,35,63,.5) 35%, rgba(19,35,63,.65) 100%);
+}
 .hero-photo-content h1, .hero-photo-content .hero-sub {
   text-shadow: 0 2px 12px rgba(0,0,0,.45);
+}
+@media (max-width: 767px) {
+  .page-melbourne .hero-photo-media { height: auto; bottom: 0; }
+  .page-melbourne .hero-photo-overlay {
+    background: linear-gradient(180deg, rgba(19,35,63,.3) 0%, rgba(19,35,63,.4) 35%, rgba(19,35,63,.58) 100%);
+  }
 }
 .hero-photo .assessment { padding-bottom: var(--s-2); }
 .hero-arrow-spacer { padding-block: var(--s-3); }
