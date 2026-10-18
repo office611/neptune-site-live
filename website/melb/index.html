@@ -101,6 +101,52 @@
   text-align: center;
 }
 .testimonial-card .testimonial-video { cursor: pointer; }
+/* Custom seek bar -- native video controls shrink/hide the scrub bar at
+   small widths (only really usable in fullscreen), so this is a fixed-size
+   bar that's always full-width and draggable regardless of card size. */
+.testimonial-card .testimonial-seek-wrap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 14px 8px 8px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,.55));
+  z-index: 3;
+}
+.testimonial-card .testimonial-seek {
+  position: relative;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  touch-action: none;
+}
+.testimonial-card .testimonial-seek::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,.3);
+}
+.testimonial-card .testimonial-seek-fill {
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  border-radius: 2px;
+  background: #fff;
+  width: 0%;
+  pointer-events: none;
+}
+.testimonial-card .testimonial-seek-handle {
+  position: absolute;
+  top: 50%; left: 0%;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.5);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
 .testimonial-card .testimonial-play-btn {
   position: absolute;
   top: 50%; left: 50%;
@@ -199,7 +245,8 @@
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
-          <video class="testimonial-video" poster="/assets/videos/testimonials/nishanth-cover.jpg" data-src="/assets/videos/testimonials/nishanth.mp4" muted loop playsinline controls preload="none"></video>
+          <video class="testimonial-video" poster="/assets/videos/testimonials/nishanth-cover.jpg" data-src="/assets/videos/testimonials/nishanth.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Nishanth</div>
@@ -207,7 +254,8 @@
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
-          <video class="testimonial-video" poster="/assets/videos/testimonials/jim-cover.jpg" data-src="/assets/videos/testimonials/jim.mp4" muted loop playsinline controls preload="none"></video>
+          <video class="testimonial-video" poster="/assets/videos/testimonials/jim-cover.jpg" data-src="/assets/videos/testimonials/jim.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Jim</div>
@@ -215,7 +263,8 @@
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
-          <video class="testimonial-video" poster="/assets/videos/testimonials/jan-peter-cover.jpg" data-src="/assets/videos/testimonials/jan-peter.mp4" muted loop playsinline controls preload="none"></video>
+          <video class="testimonial-video" poster="/assets/videos/testimonials/jan-peter-cover.jpg" data-src="/assets/videos/testimonials/jan-peter.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Jan &amp; Peter</div>
@@ -223,7 +272,8 @@
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
-          <video class="testimonial-video" poster="/assets/videos/testimonials/lech-cover.jpg" data-src="/assets/videos/testimonials/lech.mp4" muted loop playsinline controls preload="none"></video>
+          <video class="testimonial-video" poster="/assets/videos/testimonials/lech-cover.jpg" data-src="/assets/videos/testimonials/lech.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Lech</div>
@@ -231,7 +281,8 @@
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
-          <video class="testimonial-video" poster="/assets/videos/testimonials/girish-cover.jpg" data-src="/assets/videos/testimonials/girish.mp4" muted loop playsinline controls preload="none"></video>
+          <video class="testimonial-video" poster="/assets/videos/testimonials/girish-cover.jpg" data-src="/assets/videos/testimonials/girish.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Girish</div>
@@ -239,7 +290,8 @@
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
-          <video class="testimonial-video" poster="/assets/videos/testimonials/cecilio-cover.jpg" data-src="/assets/videos/testimonials/cecilio.mp4" muted loop playsinline controls preload="none"></video>
+          <video class="testimonial-video" poster="/assets/videos/testimonials/cecilio-cover.jpg" data-src="/assets/videos/testimonials/cecilio.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Cecilio</div>
@@ -247,7 +299,8 @@
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
-          <video class="testimonial-video" poster="/assets/videos/testimonials/marcus-cover.jpg" data-src="/assets/videos/testimonials/marcus.mp4" muted loop playsinline controls preload="none"></video>
+          <video class="testimonial-video" poster="/assets/videos/testimonials/marcus-cover.jpg" data-src="/assets/videos/testimonials/marcus.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">Marcus</div>
@@ -255,7 +308,8 @@
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
-          <video class="testimonial-video" poster="/assets/videos/testimonials/june-cover.jpg" data-src="/assets/videos/testimonials/june.mp4" muted loop playsinline controls preload="none"></video>
+          <video class="testimonial-video" poster="/assets/videos/testimonials/june-cover.jpg" data-src="/assets/videos/testimonials/june.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="testimonial-name">June</div>
@@ -290,7 +344,9 @@
 <!-- ══════════════════════════════════════════════════════
      Self-hosted testimonials — plain HTML5 video, no external player
      script or iframe handshake at all. A real thumbnail (the poster
-     attribute) shows until played.
+     attribute) shows until played. Custom seek bar instead of native
+     controls -- native controls shrink/hide the scrub bar at small
+     widths, this one's always full card width and draggable.
      Mouse/desktop: hover to preview-play (muted), mouse-leave pauses.
      Touch/mobile (no hover): nothing plays automatically -- thumbnail
      only, tap to load and play with sound.
@@ -304,6 +360,9 @@
 
   cards.forEach(function (card, index) {
     var video = card.querySelector('.testimonial-video');
+    var seek = card.querySelector('.testimonial-seek');
+    var seekFill = card.querySelector('.testimonial-seek-fill');
+    var seekHandle = card.querySelector('.testimonial-seek-handle');
     if (!video || !video.dataset.src) return;
     var loaded = false;
     var hasEngaged = false;
@@ -312,6 +371,46 @@
       if (loaded) return;
       loaded = true;
       video.src = video.dataset.src;
+    }
+
+    // Custom seek bar -- native controls shrink/hide the scrub bar at
+    // small widths, only really usable in fullscreen. This one's always
+    // full card width and works the same at any size.
+    if (seek && seekFill && seekHandle) {
+      video.addEventListener('timeupdate', function () {
+        if (!video.duration) return;
+        var pct = (video.currentTime / video.duration) * 100;
+        seekFill.style.width = pct + '%';
+        seekHandle.style.left = pct + '%';
+      });
+
+      var dragging = false;
+      function seekTo(clientX) {
+        if (!video.duration) return;
+        var rect = seek.getBoundingClientRect();
+        var pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+        video.currentTime = pct * video.duration;
+        seekFill.style.width = (pct * 100) + '%';
+        seekHandle.style.left = (pct * 100) + '%';
+      }
+      seek.addEventListener('pointerdown', function (e) {
+        dragging = true;
+        hasEngaged = true;
+        card.classList.add('is-engaged');
+        ensureLoaded();
+        video.muted = false;
+        video.loop = false;
+        video.play().catch(function () {});
+        seek.setPointerCapture(e.pointerId);
+        seekTo(e.clientX);
+        e.stopPropagation();
+      });
+      seek.addEventListener('pointermove', function (e) {
+        if (dragging) seekTo(e.clientX);
+      });
+      seek.addEventListener('pointerup', function () { dragging = false; });
+      seek.addEventListener('pointercancel', function () { dragging = false; });
+      seek.addEventListener('click', function (e) { e.stopPropagation(); });
     }
 
     // First 2 cards: start loading right on page load, staggered a
@@ -347,7 +446,7 @@
       });
     }
 
-    // Click/tap: unmuted play with sound, native controls, loop off.
+    // Click/tap: unmuted play with sound, loop off.
     // A plain video.play() called synchronously inside the click
     // handler is the standard, reliable way to get unmuted autoplay
     // on mobile -- no async script/API round-trip to disconnect it
@@ -359,7 +458,6 @@
       ensureLoaded();
       video.muted = false;
       video.loop = false;
-      video.controls = true;
       video.play().catch(function () {});
     });
   });
