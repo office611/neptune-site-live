@@ -29,6 +29,15 @@
     background: linear-gradient(180deg, rgba(7,15,30,.25) 0%, rgba(7,15,30,.35) 50%, rgba(7,15,30,.55) 80%, var(--navy-deep) 100%);
   }
 }
+/* IMG_1172 is a portrait/vertical photo -- stretched across the full
+   hero+arrow+form height (uncapped, like the shared /melbourne rule
+   does for its landscape photo) it has to crop in hard and reads as
+   zoomed in. Capping the height keeps it looking like an actual photo;
+   below that it falls back to .hero-photo's own flat navy, matching
+   the overlay's end colour so there's still no visible seam. */
+@media (min-width: 768px) {
+  .page-melbourne .hero-photo-media { bottom: auto; height: 900px; }
+}
 .hero-photo-content h1, .hero-photo-content .hero-sub {
   text-shadow: 0 2px 12px rgba(0,0,0,.45);
 }
