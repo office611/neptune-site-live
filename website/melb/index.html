@@ -161,7 +161,7 @@
   pointer-events: none;
 }
 .testimonial-card .testimonial-play-btn svg { width: 20px; height: 20px; margin-left: 3px; }
-.testimonial-media.is-engaged .testimonial-play-btn { display: none; }
+.testimonial-media.is-playing .testimonial-play-btn { display: none; }
 .testimonial-placeholder-note {
   text-align: center;
   max-width: 620px;
@@ -373,6 +373,12 @@
       video.src = video.dataset.src;
     }
 
+    // Play icon shows whenever actually paused, hides whenever actually
+    // playing -- driven by the video's own state, not a one-way flag, so
+    // it works correctly for pause/resume too, not just the first play.
+    video.addEventListener('play', function () { card.classList.add('is-playing'); });
+    video.addEventListener('pause', function () { card.classList.remove('is-playing'); });
+
     // Custom seek bar -- native controls shrink/hide the scrub bar at
     // small widths, only really usable in fullscreen. This one's always
     // full card width and works the same at any size.
@@ -396,7 +402,6 @@
       seek.addEventListener('pointerdown', function (e) {
         dragging = true;
         hasEngaged = true;
-        card.classList.add('is-engaged');
         ensureLoaded();
         video.muted = false;
         video.loop = false;
@@ -436,29 +441,34 @@
     // tapped -- no scroll-triggered autoplay.
     if (canHover) {
       card.addEventListener('mouseenter', function () {
+        if (hasEngaged) return; // deliberately playing -- hover shouldn't touch it
         ensureLoaded();
         video.muted = true;
         video.loop = true;
         video.play().catch(function () {});
       });
       card.addEventListener('mouseleave', function () {
-        video.pause();
+        if (!hasEngaged) video.pause(); // only pause the muted ambient preview
       });
     }
 
-    // Click/tap: unmuted play with sound, loop off.
-    // A plain video.play() called synchronously inside the click
-    // handler is the standard, reliable way to get unmuted autoplay
-    // on mobile -- no async script/API round-trip to disconnect it
-    // from the tap.
+    // Click/tap: first tap unmutes and plays with sound (loop off). After
+    // that, tapping toggles pause/resume -- a plain video.play() called
+    // synchronously inside the click handler is the standard, reliable
+    // way to get unmuted autoplay on mobile, no async round-trip to
+    // disconnect it from the tap.
     card.addEventListener('click', function () {
-      if (hasEngaged) return;
-      hasEngaged = true;
-      card.classList.add('is-engaged');
-      ensureLoaded();
-      video.muted = false;
-      video.loop = false;
-      video.play().catch(function () {});
+      if (!hasEngaged) {
+        hasEngaged = true;
+        ensureLoaded();
+        video.muted = false;
+        video.loop = false;
+        video.play().catch(function () {});
+      } else if (video.paused) {
+        video.play().catch(function () {});
+      } else {
+        video.pause();
+      }
     });
   });
 })();
