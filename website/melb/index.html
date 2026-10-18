@@ -30,25 +30,60 @@
 
 /* Hero photo trio -- 3 real photos, staggered/overlapping, instead
    of a scrolling gallery strip. Middle one raised + slightly bigger. */
-/* Who Am I -- short founder intro, since the face is already familiar
-   from ads. Sits right above the photo wall as a lead-in to the proof. */
-.who-am-i {
-  text-align: center;
-  max-width: 460px;
-  margin: 36px auto 0;
+.hero-photo-trio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 820px;
+  margin: 40px auto 0;
   padding: 0 24px;
 }
-.who-am-i-photo {
-  width: 92px; height: 92px;
-  border-radius: 50%;
+.hero-photo-trio .trio-item {
+  position: relative;
+  width: 30%;
+  max-width: 240px;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
   overflow: hidden;
-  margin: 0 auto 14px;
-  border: 3px solid rgba(255,255,255,.9);
-  box-shadow: 0 8px 20px rgba(0,0,0,.4);
+  border: 4px solid #fff;
+  box-shadow: 0 12px 28px rgba(0,0,0,.4);
+  background: #0b1e3d;
 }
-.who-am-i-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block; }
-.who-am-i p { font-size: .98rem; line-height: 1.55; color: rgba(255,255,255,.92); margin: 0; }
-.who-am-i .who-name { font-weight: 700; color: #fff; }
+.hero-photo-trio .trio-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-photo-trio .trio-item:nth-child(1) { transform: rotate(-6deg) translateY(14px); margin-right: -16px; z-index: 1; }
+.hero-photo-trio .trio-item:nth-child(2) { width: 34%; max-width: 272px; transform: translateY(-14px); z-index: 3; }
+.hero-photo-trio .trio-item:nth-child(3) { transform: rotate(6deg) translateY(14px); margin-left: -16px; z-index: 1; }
+@media (max-width: 640px) {
+  .hero-photo-trio { max-width: 380px; margin-top: 28px; padding: 0 16px; }
+  .hero-photo-trio .trio-item { border-width: 3px; }
+  .hero-photo-trio .trio-item:nth-child(1) { transform: rotate(-5deg) translateY(8px); margin-right: -10px; }
+  .hero-photo-trio .trio-item:nth-child(2) { transform: translateY(-8px); }
+  .hero-photo-trio .trio-item:nth-child(3) { transform: rotate(5deg) translateY(8px); margin-left: -10px; }
+}
+
+/* About Me -- full section after the testimonials, photo + bio. */
+.about-me-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--s-8);
+  align-items: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.about-me-photo {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 16px 36px rgba(0,0,0,.25);
+}
+.about-me-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-me-text .eyebrow { display: block; margin-bottom: var(--s-2); }
+.about-me-text h2 { margin-bottom: var(--s-3); }
+.about-me-text p { font-size: 1.02rem; line-height: 1.6; color: var(--text-2); }
+@media (max-width: 640px) {
+  .about-me-grid { grid-template-columns: 1fr; text-align: center; max-width: 360px; }
+  .about-me-photo { max-width: 220px; margin: 0 auto; }
+}
 
 /* Photo wall -- dense, overlapping pattern so a lot of real installs
    read at a glance without eating vertical space, instead of a
@@ -215,31 +250,12 @@
       <p class="hero-sub">Whole-home filtration, backed by real customers — not just our word for it.</p>
     </div>
 
-    <!-- WHO AM I — short founder intro, face already familiar from ads. -->
-    <div class="who-am-i">
-      <div class="who-am-i-photo"><img src="/assets/install-photos/img-1172.jpg" alt="Stefan, founder of Neptune Filtration" loading="eager"></div>
-      <p><span class="who-name">I'm Stefan</span> — I run Neptune here in Melbourne. You've probably seen my face in our ads. Here's the proof behind it.</p>
-    </div>
-
-    <!-- PHOTO WALL — 16 real installs, dense and overlapping so it reads
-         as volume at a glance instead of a one-at-a-time scrolling strip. -->
-    <div class="photo-wall">
-      <div class="wall-item"><img src="/assets/install-photos/6.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/10.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/13.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/17.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/18.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/21.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/22.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/23.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/24.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/29.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/30.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/34.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/36.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/37.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/38.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/39.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+    <!-- 3-PHOTO TRIO — sits directly below the subheadline, staggered/
+         overlapping instead of a scrolling gallery strip. -->
+    <div class="hero-photo-trio">
+      <div class="trio-item"><img src="/assets/install-photos/img-1171.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager"></div>
+      <div class="trio-item"><img src="/assets/install-photos/girish-cover.jpg" alt="Neptune whole home water filtration customer, Girish" loading="eager"></div>
+      <div class="trio-item"><img src="/assets/install-photos/img-1216.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager"></div>
     </div>
   </div>
 
@@ -354,6 +370,56 @@
         <div class="testimonial-name">June</div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     ABOUT ME — full section, after testimonials. Face is already
+     familiar from ads, so this is a proper introduction rather
+     than a tiny avatar.
+══════════════════════════════════════════════════════ -->
+<section class="section" id="about-me">
+  <div class="container">
+    <div class="about-me-grid">
+      <div class="about-me-photo">
+        <img src="/assets/install-photos/img-1172.jpg" alt="Stefan, founder of Neptune Filtration" loading="lazy">
+      </div>
+      <div class="about-me-text">
+        <span class="eyebrow">Who's Behind Neptune</span>
+        <h2>I'm Stefan.</h2>
+        <p>I started Neptune right here in Melbourne because our water deserved better than what was coming out of the tap. If you've seen our ads, that's me. Every install on this page, every customer — real, not stock photos, not actors. I built Neptune to do whole-home filtration properly: no guesswork, no sales pressure, just a system tailored to your home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     MORE PROOF — second photo wall, same dense overlapping pattern.
+══════════════════════════════════════════════════════ -->
+<section class="section section-off" id="more-proof">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Even More Installs</span>
+      <h2>We've Done A Lot Of These.</h2>
+    </div>
+    <div class="photo-wall">
+      <div class="wall-item"><img src="/assets/install-photos/6.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/10.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/13.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/17.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/18.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/21.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/22.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/23.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/24.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/29.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/30.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/34.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/36.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/37.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/38.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+      <div class="wall-item"><img src="/assets/install-photos/39.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
     </div>
   </div>
 </section>
