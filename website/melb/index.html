@@ -430,7 +430,7 @@
 ══════════════════════════════════════════════════════ -->
 <section class="section final-cta section-off">
   <div class="container">
-    <h2>If This Sounds Like Your Home, Next Step's Simple.</h2>
+    <h2>Next Step: Get Your Tailored Set-Up.</h2>
     <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get Your Tailored Set-Up</a>
   </div>
 </section>
@@ -460,8 +460,6 @@
 (function () {
   var cards = document.querySelectorAll('.video-autoplay-card');
   if (!cards.length) return;
-
-  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   cards.forEach(function (card, index) {
     var video = card.querySelector('.testimonial-video');
@@ -541,23 +539,8 @@
     }, { rootMargin: '1600px 0px' });
     preloadObserver.observe(card);
 
-    // Desktop/mouse: hover previews it (muted), mouse-leave pauses.
-    // Mobile/touch (no hover): thumbnail stays put, nothing plays until
-    // tapped -- no scroll-triggered autoplay.
-    if (canHover) {
-      card.addEventListener('mouseenter', function () {
-        if (hasEngaged) return; // deliberately playing -- hover shouldn't touch it
-        ensureLoaded();
-        video.muted = true;
-        video.loop = true;
-        video.play().catch(function () {});
-      });
-      card.addEventListener('mouseleave', function () {
-        if (!hasEngaged) video.pause(); // only pause the muted ambient preview
-      });
-    }
-
-    // Click/tap: first tap unmutes and plays with sound (loop off). After
+    // No hover-preview on any device -- thumbnail stays put until someone
+    // actually presses play. Click/tap: first tap unmutes and plays with sound (loop off). After
     // that, tapping toggles pause/resume -- a plain video.play() called
     // synchronously inside the click handler is the standard, reliable
     // way to get unmuted autoplay on mobile, no async round-trip to
