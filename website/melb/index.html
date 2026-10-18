@@ -365,59 +365,77 @@
     var poster = card.querySelector('.testimonial-poster');
     if (!iframe || !iframe.dataset.src) return;
     var player = null;
+    var playerReady = null;
     var loaded = false;
     var hasEngaged = false;
 
-    // Muted preview load (hover only) -- fine to do async, muted
-    // autoplay doesn't need a user gesture.
-    function initPreview() {
-      if (loaded) {
-        if (player) player.play().catch(function () {});
-        return;
-      }
+    // Gets the iframe (and its player) ready in the background -- muted,
+    // not played, poster still covers it so nothing visibly changes.
+    function ensurePlayer() {
+      if (playerReady) return playerReady;
       loaded = true;
-      if (poster) poster.classList.add('is-hidden');
       iframe.src = iframe.dataset.src;
-      loadVimeoApi().then(function () {
+      playerReady = loadVimeoApi().then(function () {
         player = new Vimeo.Player(iframe);
-        player.setVolume(0).catch(function () {});
-        player.setLoop(true).catch(function () {});
-        player.play().catch(function () {});
+        return player;
       });
+      return playerReady;
     }
 
+    // Preload as the card nears the viewport, on every device -- doesn't
+    // play anything, just means it's already buffered/ready by the time
+    // someone actually hovers or taps instead of starting cold then.
+    var preloadObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          ensurePlayer();
+          preloadObserver.disconnect();
+        }
+      });
+    }, { rootMargin: '800px 0px' });
+    preloadObserver.observe(card);
+
     // Desktop/mouse: hover previews it (muted), mouse-leave pauses.
-    // Mobile/touch (no hover): thumbnail stays put, nothing loads or
-    // plays until tapped -- no scroll-triggered autoplay at all.
+    // Mobile/touch (no hover): thumbnail stays put, nothing plays until
+    // tapped -- no scroll-triggered autoplay.
     if (canHover) {
-      card.addEventListener('mouseenter', initPreview);
+      card.addEventListener('mouseenter', function () {
+        if (poster) poster.classList.add('is-hidden');
+        ensurePlayer().then(function (p) {
+          p.setVolume(0).catch(function () {});
+          p.setLoop(true).catch(function () {});
+          p.play().catch(function () {});
+        });
+      });
       card.addEventListener('mouseleave', function () {
         if (player) player.pause().catch(function () {});
       });
     }
 
-    // Click/tap: unmuted play with sound. If it's the first load, the
-    // sound+autoplay is baked straight into the iframe src (set
-    // synchronously, inside this click handler) rather than requested
-    // afterwards via the async Player API -- mobile browsers can treat
-    // a play() call made after an awaited script load as no longer tied
-    // to the tap, and silently block the sound.
+    // Click/tap: unmuted play with sound. If the card was already
+    // preloaded, the player exists and play() runs effectively
+    // synchronously with the tap. If not (rare -- tapped before the
+    // preload observer fired), sound+autoplay is baked straight into
+    // the iframe src instead of requested afterwards, since a play()
+    // call made after an awaited script load can get disconnected from
+    // the original tap on mobile and get silently blocked muted.
     card.addEventListener('click', function () {
       if (hasEngaged) return;
       hasEngaged = true;
       if (poster) poster.classList.add('is-hidden');
       if (loaded) {
-        if (player) {
-          player.setVolume(1).catch(function () {});
-          player.setLoop(false).catch(function () {});
-          player.play().catch(function () {});
-        }
+        ensurePlayer().then(function (p) {
+          p.setVolume(1).catch(function () {});
+          p.setLoop(false).catch(function () {});
+          p.play().catch(function () {});
+        });
       } else {
         loaded = true;
         iframe.src = iframe.dataset.src.replace('muted=1', 'muted=0').replace('autoplay=0', 'autoplay=1');
-        loadVimeoApi().then(function () {
+        playerReady = loadVimeoApi().then(function () {
           player = new Vimeo.Player(iframe);
           player.setLoop(false).catch(function () {});
+          return player;
         });
       }
     });
