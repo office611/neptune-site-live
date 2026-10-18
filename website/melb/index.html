@@ -25,7 +25,6 @@
   text-shadow: 0 2px 12px rgba(0,0,0,.45);
 }
 @media (max-width: 767px) {
-  .page-melbourne .hero-photo-media { height: auto; bottom: 0; }
   .page-melbourne .hero-photo-overlay {
     background: linear-gradient(180deg, rgba(19,35,63,.3) 0%, rgba(19,35,63,.4) 35%, rgba(19,35,63,.58) 100%);
   }
@@ -111,32 +110,24 @@
 <!-- ══════════════════════════════════════════════════════
      HERO — headline/subheadline, no VSL. Stefan's face already
      opens every testimonial and appears in ads, so a separate
-     founder-fronted video here is redundant. Real installs
-     gallery (same one from /melbourne) sits in its place.
+     founder-fronted video here is redundant. Installs gallery
+     nested on the hero's own navy background (same pattern as
+     /experts), not a separate light section — that mismatch
+     was the layout/colour break on the previous version.
 ══════════════════════════════════════════════════════ -->
 <section class="hero-photo">
-  <div class="hero-photo-media">
-    <img src="/assets/install-photos/17.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager" fetchpriority="high">
-    <div class="hero-photo-overlay"></div>
-  </div>
   <div class="hero-photo-upper">
+    <div class="hero-photo-media">
+      <img src="/assets/install-photos/img-1172.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager" fetchpriority="high">
+      <div class="hero-photo-overlay"></div>
+    </div>
     <div class="container hero-photo-content fade-in-up">
       <h1>The Water Your Whole <span class="hero-accent">Family Deserves</span>.</h1>
       <p class="hero-sub">Whole-home filtration, backed by real customers — not just our word for it.</p>
     </div>
-  </div>
 
-  <!-- ══════════════════════════════════════════════════════
-       RECENT MELBOURNE INSTALLS — full gallery, same as /melbourne.
-  ══════════════════════════════════════════════════════ -->
-  <section class="installs-marquee section-off" id="melbourne-installs">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Recent Melbourne Installs</span>
-        <h2>See For Yourself</h2>
-      </div>
-    </div>
-    <div class="marquee-viewport">
+    <!-- RECENT MELBOURNE INSTALLS — nested gallery, same pattern as /experts -->
+    <div class="marquee-viewport hero-photo-gallery" id="hero-gallery">
       <div class="marquee-track marquee-track--fast">
         <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/3.jpg" alt="Neptune whole home filtration system installed at a Melbourne home, Clyde North" loading="lazy"></div><span class="marquee-caption">Clyde North</span></div>
         <div class="marquee-item"><div class="marquee-photo"><img src="/assets/install-photos/install-14.jpg" alt="Neptune whole home filtration system installed on a red brick home, Noble Park" loading="lazy"></div><span class="marquee-caption">Noble Park</span></div>
@@ -154,7 +145,7 @@
         <div class="marquee-item" aria-hidden="true"><div class="marquee-photo"><img src="/assets/install-photos/25.jpg" alt="" loading="lazy"></div><span class="marquee-caption">Beaumaris</span></div>
       </div>
     </div>
-  </section>
+  </div>
 
   <div class="hero-arrow-spacer">
     <a href="#assessment" class="hero-scroll-arrow scroll-to-assessment" aria-label="Scroll to the form">
