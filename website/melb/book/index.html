@@ -20,6 +20,15 @@
 :root { --navy-deep: #13233f; }
 .hero-photo .assessment { padding-bottom: var(--s-2); }
 
+/* Headline's long ("Last Step: Book Your Tailored Water Solution
+   Call") -- widen the content box and tune the mobile font scaling
+   so it wraps to fewer lines instead of defaulting to the generic
+   narrower hero width. */
+.hero-photo-content h1 { font-size: clamp(1.4rem, 5.8vw, 2.9rem); }
+@media (min-width: 768px) {
+  .hero-photo-content { max-width: 1400px; }
+}
+
 /* Before you pick a time -- two quick requirements, sits right
    below the subheadline, above the calendar. Boxed as its own card
    so it reads as a distinct instruction block instead of blending
