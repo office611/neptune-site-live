@@ -19,6 +19,11 @@
 <style>
 :root { --navy-deep: #13233f; }
 
+/* Page ends right after the showcase (no form/footer below), so give
+   it its own bottom breathing room instead of relying on whatever
+   default padding the shared hero styles assume. */
+.hero-photo-upper { padding-bottom: var(--s-10); }
+
 /* Benefit callouts flanking the video on desktop, arrows pointing in.
    Collapses to a simple pill checklist below the video on mobile. */
 .vsl-showcase {
