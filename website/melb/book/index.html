@@ -11,7 +11,7 @@
 <link rel="manifest" href="/assets/favicon/site.webmanifest">
 <meta name="theme-color" content="#0B1E3D">
 <meta name="color-scheme" content="light">
-<title>Last Step: Book Your Zoom Call | Neptune Filtration</title>
+<title>Last Step: Book Your Tailored Set-Up Call | Neptune Filtration</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
@@ -19,6 +19,42 @@
 <style>
 :root { --navy-deep: #13233f; }
 .hero-photo .assessment { padding-bottom: var(--s-2); }
+
+/* Before you pick a time -- two quick requirements, sits right
+   below the subheadline, above the calendar. */
+.pre-booking-notes {
+  max-width: 460px;
+  margin: 28px auto 0;
+  text-align: center;
+}
+.pre-booking-notes-label {
+  display: block;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: var(--s-2);
+  text-shadow: 0 2px 12px rgba(0,0,0,.45);
+}
+.pre-booking-notes ol {
+  list-style: none;
+  counter-reset: pre-booking;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pre-booking-notes li {
+  counter-increment: pre-booking;
+  color: rgba(255,255,255,.9);
+  font-size: .96rem;
+  line-height: 1.5;
+  text-shadow: 0 2px 12px rgba(0,0,0,.45);
+}
+.pre-booking-notes li::before {
+  content: counter(pre-booking) ". ";
+  font-weight: 700;
+  color: var(--accent);
+}
 
 /* Solo VSL player -- single centered video, same self-hosted pattern
    (poster, custom seek bar, hover/tap behaviour) as the testimonial
@@ -129,8 +165,16 @@
 <section class="hero-photo">
   <div class="hero-photo-upper">
     <div class="container hero-photo-content fade-in-up">
-      <h1>Last Step: <span class="hero-accent">Book Your Zoom Call</span></h1>
-      <p class="hero-sub">Booking this means you're serious about getting it sorted — on the call we'll go through what you told us and give you your price.</p>
+      <h1>Last Step: <span class="hero-accent">Book Your Tailored Set-Up Call</span></h1>
+      <p class="hero-sub">You're one step away from filtered water, sorted. One quick call beats having someone show up at your door — we've made it that simple.</p>
+    </div>
+
+    <div class="pre-booking-notes">
+      <span class="pre-booking-notes-label">Before you pick a time:</span>
+      <ol>
+        <li>Choose a time with no distractions around.</li>
+        <li>Make sure it works for everyone involved in the decision — so we only have to do this once.</li>
+      </ol>
     </div>
   </div>
 
