@@ -22,6 +22,8 @@
 /* Solo VSL player -- same self-hosted pattern as /melb's testimonials
    and the booking page, single centered video. */
 #watch-vsl { padding-block: var(--s-10) var(--s-10); }
+#watch-vsl .eyebrow { color: var(--accent); }
+#watch-vsl .section-head p { color: rgba(255,255,255,.85); }
 
 /* Benefit callouts flanking the video on desktop, arrows pointing in.
    Collapses to a simple pill checklist below the video on mobile. */
@@ -42,7 +44,7 @@
 }
 .vsl-benefits-col.col-left { align-items: flex-end; text-align: right; }
 .vsl-benefits-col.col-right { align-items: flex-start; text-align: left; }
-.vsl-benefit { display: flex; align-items: center; gap: 10px; font-size: .92rem; font-weight: 600; color: var(--text); }
+.vsl-benefit { display: flex; align-items: center; gap: 10px; font-size: .92rem; font-weight: 600; color: #fff; }
 .col-left .vsl-benefit { flex-direction: row-reverse; }
 .vsl-benefit svg { flex-shrink: 0; color: var(--accent); width: 32px; height: 20px; }
 @media (max-width: 900px) {
@@ -56,7 +58,7 @@
   .vsl-benefit svg { width: 18px; height: 11px; }
   .col-right .vsl-benefit svg { transform: scaleX(-1); }
   .vsl-benefit {
-    background: #eaf2fd; padding: 7px 12px; border-radius: 20px; font-size: .82rem;
+    background: rgba(255,255,255,.1); padding: 7px 12px; border-radius: 20px; font-size: .82rem; color: #fff;
   }
   .solo-vsl-wrap { max-width: 380px; order: 1; }
 }
@@ -137,7 +139,7 @@
   </div>
 </section>
 
-<section class="section" id="watch-vsl">
+<section class="section section-off section-dark" id="watch-vsl">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Everything Our Customers Have Experienced</span>
