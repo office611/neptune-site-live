@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Neptune Filtration — No-Booking Call Script</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+:root {
+  --ink: #0B1E3D;
+  --ink-soft: #4B5A70;
+  --paper: #FBFCFE;
+  --card: #FFFFFF;
+  --line: #E2E7EE;
+  --accent: #2E7BC4;
+  --accent-soft: #EAF2FB;
+  --navy: #0B1E3D;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #EAF0FA; --ink-soft: #9FB1C9; --paper: #0B1420; --card: #101C2C;
+    --line: #223349; --accent: #6AB0F2; --accent-soft: #16273B; --navy: #060B14;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #EAF0FA; --ink-soft: #9FB1C9; --paper: #0B1420; --card: #101C2C;
+  --line: #223349; --accent: #6AB0F2; --accent-soft: #16273B; --navy: #060B14;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.head { text-align: center; padding: 48px 24px 8px; }
+.head h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.015em; margin: 0 0 8px; text-wrap: balance; }
+.head p { font-size: 14px; color: var(--ink-soft); margin: 0 auto; max-width: 480px; line-height: 1.5; }
+.print-btn {
+  margin-top: 16px; font: 600 13px 'Poppins', sans-serif; color: var(--accent);
+  background: var(--accent-soft); border: none; border-radius: 999px; padding: 8px 18px; cursor: pointer;
+}
+
+.spine-wrap { max-width: 760px; margin: 0 auto; padding: 30px 24px 0; position: relative; }
+.foot { max-width: 760px; margin: 0 auto; padding: 0 24px 80px; }
+.spine-wrap::before {
+  content: '';
+  position: absolute; left: 47px; top: 8px; bottom: 40px; width: 2px;
+  background: repeating-linear-gradient(to bottom, var(--accent) 0 6px, transparent 6px 12px);
+  opacity: .55;
+}
+@media (max-width: 640px) { .spine-wrap::before { left: 37px; } }
+
+.node { position: relative; padding-left: 60px; }
+@media (max-width: 640px) { .node { padding-left: 38px; } }
+
+.node-dot {
+  position: absolute; left: 24px; top: 4px; transform: translateX(-50%);
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; font-variant-numeric: tabular-nums;
+  box-shadow: 0 0 0 5px var(--paper);
+}
+@media (max-width: 640px) { .node-dot { left: 14px; width: 22px; height: 22px; font-size: 9.5px; } }
+
+.arrow-down { position: absolute; left: 24px; bottom: -32px; transform: translateX(-50%); color: var(--accent); opacity: .6; }
+@media (max-width: 640px) { .arrow-down { left: 14px; } }
+
+section.block { margin-bottom: 56px; position: relative; }
+
+.eyebrow { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; margin: 0 0 16px; text-wrap: balance; }
+
+.quote-block { background: var(--accent-soft); border-radius: 10px; padding: 16px 20px; margin: 0 0 12px; }
+.quote-block p { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.45; }
+.quote-block p::before { content: '\201C'; } .quote-block p::after { content: '\201D'; }
+.quote-block .why { margin-top: 8px; font-size: 13px; font-weight: 500; color: var(--ink-soft); }
+
+.stage-block { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 12px 16px; margin-bottom: 10px; }
+.stage-block .sb-t { font-size: 14px; font-weight: 700; color: var(--ink-soft); margin-bottom: 4px; }
+.stage-block .sb-q { font-size: 15.5px; font-weight: 600; line-height: 1.45; }
+.stage-block .sb-q::before { content: '\2192 \201C'; color: var(--accent); } .stage-block .sb-q::after { content: '\201D'; }
+.stage-block .sb-d { font-size: 13px; color: var(--ink-soft); line-height: 1.5; margin-top: 4px; }
+
+.action { display: flex; gap: 10px; align-items: baseline; font-size: 14.5px; font-weight: 700; color: var(--accent); margin-top: 4px; }
+
+.rule-banner { background: var(--navy); color: #fff; border-radius: 14px; padding: 20px 24px; text-align: center; margin-top: 8px; }
+.rule-banner .eyebrow { color: #C9822F; }
+.rule-banner p { margin: 0; font-size: 15.5px; font-weight: 700; line-height: 1.5; }
+
+@media print {
+  :root, :root[data-theme="dark"], :root:not([data-theme="light"]) {
+    --ink: #0B1E3D; --ink-soft: #4B5A70; --paper: #FFFFFF; --card: #FFFFFF;
+    --line: #D5DCE5; --accent: #2E7BC4; --accent-soft: #EAF2FB; --navy: #0B1E3D;
+  }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { margin: 10mm 12mm; }
+  body { background: #fff; }
+  .print-btn, .arrow-down { display: none; }
+  .head { padding: 0 0 2px; }
+  .head h1 { font-size: 18px; margin-bottom: 2px; }
+  .head p { font-size: 10px; max-width: none; }
+  .spine-wrap { padding: 8px 0 0; max-width: none; }
+  .spine-wrap::before { left: 10px; top: 4px; bottom: 16px; }
+  .foot { padding: 0; max-width: none; }
+  .node { padding-left: 32px; }
+  .node-dot { left: 11px; top: 1px; width: 18px; height: 18px; font-size: 8.5px; box-shadow: 0 0 0 3px #fff; }
+  section.block { margin-bottom: 7px; break-inside: avoid; }
+  .eyebrow { font-size: 7.5px; margin-bottom: 0; }
+  h2 { font-size: 12px; margin-bottom: 3px; }
+  .quote-block { padding: 5px 10px; margin-bottom: 3px; border-radius: 6px; }
+  .quote-block p { font-size: 10.5px; line-height: 1.38; }
+  .quote-block .why { font-size: 8.5px; margin-top: 2px; }
+  .stage-block { padding: 4px 9px; margin-bottom: 3px; }
+  .stage-block .sb-t { font-size: 8.5px; margin-bottom: 0; }
+  .stage-block .sb-q { font-size: 10px; }
+  .stage-block .sb-d { font-size: 8.5px; margin-top: 1px; }
+  .action { font-size: 9.5px; margin-top: 2px; }
+  .rule-banner { padding: 7px 12px; margin-top: 4px; border-radius: 8px; break-inside: avoid; }
+  .rule-banner .eyebrow { font-size: 7.5px; }
+  .rule-banner p { font-size: 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="head">
+  <h1>Neptune Filtration</h1>
+  <p>No-booking call script — for leads who filled out the survey but didn't pick a time. Job of this call: book a Zoom with everyone involved and ask for photos. No price on this call.</p>
+  <button class="print-btn" onclick="window.print()">Print this script</button>
+</div>
+
+<div class="spine-wrap">
+
+  <section class="block node">
+    <div class="node-dot">1</div>
+    <span class="eyebrow">Opening</span>
+    <h2>Greeting + Why I'm Calling</h2>
+    <div class="quote-block">
+      <p>Hey, is this [Name]? It's Stefan from Neptune Filtration — how you going? Saw you filled out our form about [what they ticked] but didn't get to lock in a time, so thought I'd give you a quick ring and sort it with you.</p>
+      <div class="why">Plain and friendly. Don't make them feel caught out for not booking.</div>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">2</div>
+    <span class="eyebrow">Story Arc</span>
+    <h2>Let Them Self-Select</h2>
+    <div class="quote-block">
+      <p>Quick one — have you already sat down with one of these filtration companies before, or is this your first time looking into it?</p>
+      <div class="why">Yes → step 3. First time → straight to step 4.</div>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">3</div>
+    <span class="eyebrow">If They've Sat With A Company</span>
+    <h2>Follow-Up Questions</h2>
+    <div class="quote-block">
+      <p>Which company was that, out of curiosity? What was it that put you off going ahead with them? And how long ago was that?</p>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">4</div>
+    <span class="eyebrow">Dig Pain Point</span>
+    <h2>What's Actually Going On</h2>
+    <div class="quote-block">
+      <p>You mentioned [what they ticked] — what's been going on with that? How long's it been bothering you? Have you tried anything already?</p>
+      <div class="why">You already know their reason from the survey — use it. One or two exchanges, not an interview.</div>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">5</div>
+    <span class="eyebrow">Confidence, Then The Zoom, Then Photos</span>
+    <h2>Why We Jump On A Zoom</h2>
+    <div class="quote-block">
+      <p>Based on what you've told me, we can definitely help you get that sorted. All my customers jump on a quick Zoom with me and I run through everything with them — that's where I'll get you your exact price. Just need a couple of photos first so it's accurate, not a guess.</p>
+    </div>
+    <div class="stage-block">
+      <div class="sb-t">If they ask for a price now</div>
+      <div class="sb-q">That's exactly what the Zoom's for — I need to see your setup first so it's accurate, not a guess. It's quick.</div>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">6</div>
+    <span class="eyebrow">Decision-Maker Check</span>
+    <h2>Get Everyone On The Zoom</h2>
+    <div class="quote-block">
+      <p>Is this a decision you're making with anyone else — partner, wife? Let's get them on the Zoom too so we're not doing this twice.</p>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">7</div>
+    <span class="eyebrow">Book It — Same Day</span>
+    <h2>Two Specific Times, Never "Whenever Works"</h2>
+    <div class="quote-block">
+      <p>I can do [time] or [time] today — we run big hours every day for exactly this reason. Just need those photos through beforehand.</p>
+      <div class="why">Real clock times ("4" or "7:30"), not "this afternoon".</div>
+    </div>
+    <div class="stage-block">
+      <div class="sb-t">If they push for days out</div>
+      <div class="sb-q">No worries, we can do that.</div>
+      <div class="sb-d">Book it, but treat it as lower intent.</div>
+    </div>
+    <svg class="arrow-down" width="16" height="26" viewBox="0 0 16 26" fill="none"><path d="M8 0v22M2 17l6 7 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">8</div>
+    <span class="eyebrow">Close This Call</span>
+    <h2>Confirm And Get Off</h2>
+    <div class="quote-block">
+      <p>Perfect — I'll send you a confirmation now with the Zoom link and the exact photos we need, and I'll have a proposal ready for your home by the time we jump on at [time].</p>
+    </div>
+    <div class="action">→ Book it in the GHL calendar while you're still on the call, so the confirmation text goes out.</div>
+  </section>
+
+  <section class="block node">
+    <div class="node-dot">✉</div>
+    <span class="eyebrow">If They Don't Answer</span>
+    <h2>Text, Then Call Once More Later</h2>
+    <div class="quote-block">
+      <p>Hey [Name], it's Stefan from Neptune Filtration. Saw you filled out the form but didn't get to pick a time — grab one here: neptunefiltration.com.au/melb/book</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="foot">
+  <div class="rule-banner">
+    <span class="eyebrow">Hard Rule</span>
+    <p>No price, no discount talk, no guarantee pitch on this call — that's all for the Zoom. Every line delivered with full confidence.</p>
+  </div>
+</div>
+</body>
+</html>
