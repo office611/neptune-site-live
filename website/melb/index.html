@@ -26,32 +26,35 @@
    bottom of the survey iframe (measured constant across slides: 55px
    mobile, 61px desktop). */
 .process-strip {
-  list-style: none; margin: -36px auto 0; padding: 0;
+  list-style: none; margin: -15px auto 0; padding: 0;
   position: relative;
-  display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
   width: fit-content;
 }
 .process-strip li {
-  display: flex; align-items: center; gap: 12px;
-  color: rgba(255,255,255,.92); font-size: .95rem; font-weight: 500; line-height: 1.35;
+  display: block; text-align: center;
+  color: rgba(255,255,255,.92); font-size: .95rem; font-weight: 500; line-height: 1.5;
 }
 .process-strip .ps-num {
   flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
   display: inline-flex; align-items: center; justify-content: center;
+  vertical-align: middle; margin: -3px 10px 0 0;
   background: var(--accent); color: #05131F; font-size: .8rem; font-weight: 800;
 }
 @media (min-width: 768px) {
   .hero-photo .assessment { padding-bottom: var(--s-12); }
+  .process-strip { margin-top: -13px; }
 }
 /* From 1024px assessment.css adds 40px padding to the card, so pull the
    strip up by that too. One-line layout only from 1200px -- narrower than
    that the copy runs off the edge. */
 @media (min-width: 1024px) {
-  .process-strip { margin-top: -80px; } /* -40 for the card's padding, -40 into the iframe's empty strip */
+  .process-strip { margin-top: -53px; } /* -40 for the card's padding, the rest into the iframe's empty strip */
 }
 @media (min-width: 1200px) {
   .process-strip { flex-direction: row; align-items: center; gap: 14px; width: auto; justify-content: center; }
-  .process-strip li { white-space: nowrap; }
+  .process-strip li { display: flex; align-items: center; white-space: nowrap; }
+  .process-strip .ps-num { margin: 0 12px 0 0; }
   .process-strip li:not(:last-child)::after { content: '\2192'; color: var(--accent); margin-left: 14px; font-weight: 700; }
 }
 .hero-arrow-spacer { padding-block: var(--s-3); }
