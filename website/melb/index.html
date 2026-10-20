@@ -43,10 +43,14 @@
 @media (min-width: 768px) {
   .hero-photo .assessment { padding-bottom: var(--s-12); }
 }
-/* One line only from 1024px -- narrower than that it runs off the edge.
-   1024px is also where assessment.css adds 40px padding to the card. */
+/* From 1024px assessment.css adds 40px padding to the card, so pull the
+   strip up by that too. One-line layout only from 1200px -- narrower than
+   that the copy runs off the edge. */
 @media (min-width: 1024px) {
-  .process-strip { flex-direction: row; align-items: center; gap: 14px; width: auto; justify-content: center; margin-top: -80px; } /* -40 for the card's padding, -40 into the iframe's empty strip */
+  .process-strip { margin-top: -80px; } /* -40 for the card's padding, -40 into the iframe's empty strip */
+}
+@media (min-width: 1200px) {
+  .process-strip { flex-direction: row; align-items: center; gap: 14px; width: auto; justify-content: center; }
   .process-strip li { white-space: nowrap; }
   .process-strip li:not(:last-child)::after { content: '\2192'; color: var(--accent); margin-left: 14px; font-weight: 700; }
 }
@@ -317,7 +321,7 @@
     <ol class="process-strip" aria-label="How it works">
       <li><span class="ps-num">1</span>Answer 3 quick questions</li>
       <li><span class="ps-num">2</span>If you qualify, a quick call with our filtration specialist</li>
-      <li><span class="ps-num">3</span>Get your price today</li>
+      <li><span class="ps-num">3</span>Get your price today —&nbsp;no&nbsp;home&nbsp;visit&nbsp;needed</li>
     </ol>
 
   </div>
