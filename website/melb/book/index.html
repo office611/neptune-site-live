@@ -43,6 +43,20 @@
   .hero-photo-content { max-width: 1400px; }
 }
 
+/* Only shown to people who passed the survey -- GHL disqualifies
+   non-homeowners before they ever reach this page. */
+.qualify-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff;
+  background: rgba(79,190,123,.14);
+  border: 1px solid rgba(79,190,123,.45);
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: var(--s-4);
+}
+.qualify-badge svg { width: 14px; height: 14px; color: #4FBE7B; flex-shrink: 0; }
+
 /* Before you pick a time -- two quick requirements, sits right
    below the subheadline, above the calendar. Boxed as its own card
    so it reads as a distinct instruction block instead of blending
@@ -209,6 +223,7 @@
 <section class="hero-photo">
   <div class="hero-photo-upper">
     <div class="container hero-photo-content fade-in-up">
+      <span class="qualify-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Good news — you qualify</span>
       <h1>Last Step: <span class="hero-accent">Book Your Call With A Filtration Specialist</span></h1>
       <p class="hero-sub">On your call, we'll hear what you're experiencing or what you're after, put together a tailored solution and give you your price. No obligation, and no one needs to come to your home — we make it that easy.</p>
     </div>
