@@ -19,6 +19,29 @@
 <style>
 :root { --navy-deep: #13233f; }
 .hero-photo .assessment { padding-bottom: var(--s-2); }
+
+/* 3-step "how it works" under the survey. "As soon as today" (not
+   "today") keeps it true -- same-day slots exist, but not every
+   booking is same-day. */
+.process-strip {
+  list-style: none; margin: var(--s-2) auto 0; padding: 0;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+  width: fit-content;
+}
+.process-strip li {
+  display: flex; align-items: center; gap: 12px;
+  color: rgba(255,255,255,.92); font-size: .95rem; font-weight: 500; line-height: 1.35;
+}
+.process-strip .ps-num {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent); color: #05131F; font-size: .8rem; font-weight: 800;
+}
+@media (min-width: 768px) {
+  .process-strip { flex-direction: row; align-items: center; gap: 14px; width: auto; justify-content: center; }
+  .process-strip li { white-space: nowrap; }
+  .process-strip li:not(:last-child)::after { content: '\2192'; color: var(--accent); margin-left: 14px; font-weight: 700; }
+}
 .hero-arrow-spacer { padding-block: var(--s-3); }
 @media (min-width: 768px) {
   .hero-arrow-spacer { padding-block: var(--s-5); }
@@ -282,6 +305,12 @@
         <iframe src="https://api.leadconnectorhq.com/widget/survey/yGb8cMeyn5JXAm5VyTN6" style="border:none;width:100%;" scrolling="no" id="yGb8cMeyn5JXAm5VyTN6" title="survey" data-cookie-consent="true" data-cookie-consent-provider="auto"></iframe>
       </div>
     </div>
+
+    <ol class="process-strip" aria-label="How it works">
+      <li><span class="ps-num">1</span>Answer 3 quick questions</li>
+      <li><span class="ps-num">2</span>Call with a filtration specialist</li>
+      <li><span class="ps-num">3</span>Get your price — as soon as today</li>
+    </ol>
 
   </div>
   </section>
