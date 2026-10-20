@@ -42,6 +42,12 @@
 @media (min-width: 768px) {
   .hero-photo-content { max-width: 1400px; }
 }
+/* Phones and portrait tablets: 2 lines, not 3 -- 16px gutter plus 5.5vw
+   tested across 360-899px widths. */
+@media (max-width: 899px) {
+  .hero-photo-content { padding-inline: 16px; }
+  .hero-photo-content h1 { font-size: min(5.5vw, 2.9rem); }
+}
 /* Laptops and up: one line. The headline needs ~1440px at full size, so it
    scales with the viewport until it fits, then caps at the normal 2.9rem. */
 @media (min-width: 1200px) {
