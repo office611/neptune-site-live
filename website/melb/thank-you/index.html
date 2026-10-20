@@ -109,6 +109,21 @@
 </style>
 <!-- Meta Pixel -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2043292147071202');fbq('track','PageView');</script>
+<!-- Schedule fires here, on arrival from the GHL booking calendar, not
+     inside the calendar: its redirect after booking cancels any pixel
+     request made inside its iframe. -->
+<script>
+(function () {
+  var p = new URLSearchParams(location.search);
+  var fromCalendar = /leadconnectorhq\.com|msgsndr\.com/.test(document.referrer) || p.get('booked') === '1';
+  var done = false;
+  try { done = sessionStorage.getItem('nf_schedule_tracked') === '1'; } catch (e) {}
+  if (fromCalendar && !done) {
+    fbq('track', 'Schedule');
+    try { sessionStorage.setItem('nf_schedule_tracked', '1'); } catch (e) {}
+  }
+})();
+</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2043292147071202&ev=PageView&noscript=1"/></noscript>
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
