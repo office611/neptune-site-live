@@ -47,12 +47,12 @@
   .process-strip { margin-top: -13px; }
 }
 /* From 1024px assessment.css adds 40px padding to the card, so pull the
-   strip up by that too. One-line layout only from 1200px -- narrower than
+   strip up by that too. One-line layout only from 1300px -- narrower than
    that the copy runs off the edge. */
 @media (min-width: 1024px) {
   .process-strip { margin-top: -53px; } /* -40 for the card's padding, the rest into the iframe's empty strip */
 }
-@media (min-width: 1200px) {
+@media (min-width: 1300px) {
   .process-strip { flex-direction: row; align-items: center; gap: 14px; width: auto; justify-content: center; }
   .process-strip li { display: flex; align-items: center; white-space: nowrap; }
   .process-strip .ps-num { margin: 0 12px 0 0; }
@@ -324,7 +324,7 @@
 
     <ol class="process-strip" aria-label="How it works">
       <li><span class="ps-num">1</span>Answer 3 quick questions</li>
-      <li><span class="ps-num">2</span>If you qualify, a quick call with our filtration specialist</li>
+      <li><span class="ps-num">2</span>If you qualify, a quick call with one of our filtration specialists</li>
       <li><span class="ps-num">3</span>Get your price today — <span class="ps-keep">no in-home visit needed</span></li>
     </ol>
 
