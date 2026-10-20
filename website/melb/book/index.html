@@ -42,6 +42,12 @@
 @media (min-width: 768px) {
   .hero-photo-content { max-width: 1400px; }
 }
+/* Laptops and up: one line. The headline needs ~1440px at full size, so it
+   scales with the viewport until it fits, then caps at the normal 2.9rem. */
+@media (min-width: 1200px) {
+  .hero-photo-content { max-width: 1600px; }
+  .hero-photo-content h1 { font-size: min(2.9rem, 3vw); }
+}
 
 /* Only shown to people who passed the survey -- GHL disqualifies
    non-homeowners before they ever reach this page. */
