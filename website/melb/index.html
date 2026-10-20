@@ -20,9 +20,8 @@
 :root { --navy-deep: #13233f; }
 .hero-photo .assessment { padding-bottom: var(--s-2); }
 
-/* 3-step "how it works" under the survey. "As soon as today" (not
-   "today") keeps it true -- same-day slots exist, but not every
-   booking is same-day. */
+/* 3-step "how it works" under the survey. "Today" relies on the
+   calendar always offering same-day slots -- keep it that way. */
 .process-strip {
   list-style: none; margin: var(--s-2) auto 0; padding: 0;
   display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
@@ -309,7 +308,7 @@
     <ol class="process-strip" aria-label="How it works">
       <li><span class="ps-num">1</span>Answer 3 quick questions</li>
       <li><span class="ps-num">2</span>Call with a filtration specialist</li>
-      <li><span class="ps-num">3</span>Get your price — as soon as today</li>
+      <li><span class="ps-num">3</span>Get your price today</li>
     </ol>
 
   </div>
