@@ -93,6 +93,26 @@
   .hero-photo-content { max-width: 1600px; }
   .hero-photo-content h1 { font-size: min(2.9rem, 3vw); }
 }
+/* Desktop (900px+) only -- phones and tablets are deliberately untouched.
+   Bigger two-line headline, calendar pulled up under the sub (the shared
+   form card's 40px desktop padding doesn't belong on this bare widget),
+   and a lighter, more saturated photo behind it. */
+@media (min-width: 900px) {
+  .hero-photo-content { max-width: 1200px; }
+  .hero-photo-content h1 { font-size: clamp(2.6rem, 3.9vw, 4.2rem); line-height: 1.12; margin-bottom: var(--s-5); }
+  .hero-photo-content h1 .h1-line2 { display: block; }
+  .hero-photo-content .qualify-badge { font-size: 14px; padding: 10px 20px; gap: 10px; margin-bottom: var(--s-5); }
+  .hero-photo-content .qualify-badge svg { width: 17px; height: 17px; }
+  .hero-photo-content .hero-sub { font-size: 1.2rem; max-width: 760px; }
+  .hero-photo .assessment { padding-top: var(--s-6); }
+  .hero-photo .assessment-card--form-only { padding-top: 0; }
+  .book-bg img { filter: saturate(1.2) contrast(1.06); }
+  .page-melbourne .hero-photo .book-bg-overlay {
+    background: linear-gradient(180deg, rgba(7,15,30,.8) 0%, rgba(7,15,30,.6) 32%, rgba(7,15,30,.42) 62%, rgba(7,15,30,.55) 100%);
+  }
+  /* Notes box sits over the lighter part of the photo now: darken + blur behind it. */
+  .hero-photo .pre-booking-notes { background: rgba(7,15,30,.6); border-color: rgba(255,255,255,.18); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+}
 
 /* Only shown to people who passed the survey -- GHL disqualifies
    non-homeowners before they ever reach this page. */
@@ -407,7 +427,7 @@
   <div class="hero-photo-upper">
     <div class="container hero-photo-content fade-in-up">
       <span class="qualify-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Good news — we can help</span>
-      <h1>Last Step: <span class="hero-accent">Book Your Call With Our Filtration Specialists</span></h1>
+      <h1>Last Step: <span class="hero-accent">Book Your Call With <span class="h1-line2">Our Filtration Specialists</span></span></h1>
       <p class="hero-sub">On your call, we'll tailor a filtration set-up to you and give you your price. No obligation, and no one needs to come to your home.</p>
     </div>
   </div>
