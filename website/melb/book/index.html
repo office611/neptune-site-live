@@ -11,7 +11,7 @@
 <link rel="manifest" href="/assets/favicon/site.webmanifest">
 <meta name="theme-color" content="#0B1E3D">
 <meta name="color-scheme" content="light">
-<title>Last Step: Book Your Call With One Of Our Filtration Specialists | Neptune Filtration</title>
+<title>Last Step: Book Your Call With Our Filtration Specialists | Neptune Filtration</title>
 <!-- Tracking scripts sit above the stylesheets on purpose: an inline script
      after a stylesheet waits for it to download, which held up the parser
      and delayed the calendar iframe from starting to load. -->
@@ -51,7 +51,7 @@
 .book-bg img { object-fit: cover; object-position: center 35%; }
 .page-melbourne .hero-photo .book-bg-overlay {
   position: fixed; inset: 0; z-index: 0;
-  background: linear-gradient(180deg, rgba(7,15,30,.78) 0%, rgba(7,15,30,.62) 45%, rgba(7,15,30,.7) 100%);
+  background: linear-gradient(180deg, rgba(7,15,30,.86) 0%, rgba(7,15,30,.72) 45%, rgba(7,15,30,.78) 100%);
 }
 .hero-photo-upper, .hero-photo .assessment { position: relative; z-index: 1; }
 
@@ -157,92 +157,153 @@
 .ghl-survey-wrap.calendar-wrap.is-loaded { min-height: 0; }
 .calendar-wrap.is-loaded .calendar-loading { display: none; }
 
-/* Solo VSL player -- single centered video, same self-hosted pattern
-   (poster, custom seek bar, hover/tap behaviour) as the testimonial
-   cards on /melb, just sized up for one video instead of a grid. */
-#watch-vsl { padding-block: var(--s-10); }
-
-/* Benefit callouts flanking the video on desktop, arrows pointing in.
-   Collapses to a simple pill checklist below the video on mobile. */
-.vsl-showcase {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  max-width: 1200px;
-  margin: 28px auto 0;
+/* Testimonials grid */
+#real-testimonials { padding-block: var(--s-10); }
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 32px;
 }
-.vsl-benefits-col {
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-  flex: 1;
-  max-width: 260px;
+@media (max-width: 1024px) {
+  .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
 }
-.vsl-benefits-col.col-left { align-items: flex-end; text-align: right; }
-.vsl-benefits-col.col-right { align-items: flex-start; text-align: left; }
-.vsl-benefit { display: flex; align-items: center; gap: 10px; font-size: .92rem; font-weight: 600; color: var(--text); }
-.col-left .vsl-benefit { flex-direction: row-reverse; }
-.vsl-benefit svg { flex-shrink: 0; color: var(--accent); width: 32px; height: 20px; }
-@media (max-width: 900px) {
-  .vsl-showcase { flex-direction: column; max-width: 420px; gap: 18px; }
-  .vsl-benefits-col {
-    flex-direction: row; flex-wrap: wrap; max-width: none;
-    justify-content: center; align-items: center; text-align: center;
-    gap: 8px 10px; order: 2;
-  }
-  .col-left .vsl-benefit, .vsl-benefit { flex-direction: row; }
-  .vsl-benefit svg { width: 18px; height: 11px; }
-  .col-right .vsl-benefit svg { transform: scaleX(-1); }
-  .vsl-benefit {
-    background: #eaf2fd; padding: 7px 12px; border-radius: 20px; font-size: .82rem;
-  }
-  .solo-vsl-wrap { max-width: 380px; order: 1; }
+@media (max-width: 640px) {
+  .testimonial-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
 }
-.solo-vsl-wrap {
+.testimonial-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+}
+.testimonial-card .testimonial-media {
   position: relative;
   width: 100%;
-  max-width: 300px;
-  flex-shrink: 0;
   aspect-ratio: 9 / 16;
-  border-radius: 16px;
-  overflow: hidden;
   background: #0b1e3d;
-  box-shadow: 0 20px 44px rgba(0,0,0,.35);
+  overflow: hidden;
 }
-.solo-vsl-wrap video, .solo-vsl-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.solo-vsl-wrap .testimonial-video { cursor: pointer; }
-.solo-vsl-wrap .testimonial-seek-wrap {
-  position: absolute; left: 0; right: 0; bottom: 0;
-  padding: 14px 10px 10px;
+.testimonial-card video, .testimonial-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.testimonial-card .testimonial-video { cursor: pointer; }
+/* Custom seek bar -- native video controls shrink/hide the scrub bar at
+   small widths (only really usable in fullscreen), so this is a fixed-size
+   bar that's always full-width and draggable regardless of card size. */
+.testimonial-card .testimonial-seek-wrap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 14px 8px 8px;
   background: linear-gradient(180deg, transparent, rgba(0,0,0,.55));
   z-index: 3;
 }
-.solo-vsl-wrap .testimonial-seek {
-  position: relative; height: 16px; display: flex; align-items: center;
-  cursor: pointer; touch-action: none;
+.testimonial-card .testimonial-seek {
+  position: relative;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  touch-action: none;
 }
-.solo-vsl-wrap .testimonial-seek::before {
-  content: ''; position: absolute; left: 0; right: 0; height: 4px;
-  border-radius: 2px; background: rgba(255,255,255,.3);
+.testimonial-card .testimonial-seek::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,.3);
 }
-.solo-vsl-wrap .testimonial-seek-fill {
-  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-  height: 4px; border-radius: 2px; background: #fff; width: 0%; pointer-events: none;
+.testimonial-card .testimonial-seek-fill {
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  border-radius: 2px;
+  background: #fff;
+  width: 0%;
+  pointer-events: none;
 }
-.solo-vsl-wrap .testimonial-seek-handle {
-  position: absolute; top: 50%; left: 0%; width: 14px; height: 14px;
-  border-radius: 50%; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.5);
-  transform: translate(-50%, -50%); pointer-events: none;
+.testimonial-card .testimonial-seek-handle {
+  position: absolute;
+  top: 50%; left: 0%;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.5);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
-.solo-vsl-wrap .testimonial-play-btn {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 64px; height: 64px; border-radius: 50%;
-  background: rgba(19,35,63,.75); border: 2px solid rgba(255,255,255,.9);
-  display: flex; align-items: center; justify-content: center; pointer-events: none;
+.testimonial-card .testimonial-play-btn {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: rgba(19,35,63,.75);
+  border: 2px solid rgba(255,255,255,.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
-.solo-vsl-wrap .testimonial-play-btn svg { width: 26px; height: 26px; margin-left: 3px; }
-.solo-vsl-wrap.is-playing .testimonial-play-btn { display: none; }
+.testimonial-card .testimonial-play-btn svg { width: 20px; height: 20px; margin-left: 3px; }
+.testimonial-media.is-playing .testimonial-play-btn { display: none; }
+/* Pull-quote on the poster -- each customer's strongest line, sits in the
+   lower third (faces are up top), fades out once the video plays. */
+.testimonial-card .testimonial-quote {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 56px 14px 36px;
+  background: linear-gradient(180deg, transparent, rgba(5,19,31,.88) 50%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  text-align: center;
+  text-wrap: balance;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity .25s;
+}
+.testimonial-card .testimonial-quote .tq-pop { color: var(--accent); }
+.testimonial-card .testimonial-quote .tq-by {
+  display: block;
+  margin-top: 8px;
+  font-size: .78rem;
+  font-weight: 500;
+  opacity: .8;
+}
+.testimonial-media.is-playing .testimonial-quote { opacity: 0; }
+@media (max-width: 640px) {
+  .testimonial-card .testimonial-quote { font-size: .82rem; padding: 40px 8px 32px; }
+  .testimonial-card .testimonial-quote .tq-by { font-size: .7rem; margin-top: 5px; }
+}
+
+/* Install gallery -- tidy bento grid (no tilt/overlap), so it reads
+   differently from the polaroid wall on /melb. Tall tiles placed so the
+   grid fills with no holes at both column counts. */
+#install-gallery { padding-block: var(--s-10); }
+.install-bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 150px;
+  grid-auto-flow: dense;
+  gap: 10px;
+  max-width: 900px;
+  margin: 32px auto 0;
+}
+.install-bento figure { margin: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(11,30,61,.14); }
+.install-bento img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.install-bento .b-tall { grid-row: span 2; }
+@media (max-width: 640px) {
+  .install-bento { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 110px; gap: 6px; }
+  .install-bento figure { border-radius: 8px; }
+  .install-bento .b-tall-desk { grid-row: auto; }
+}
 </style>
 </head>
 <body class="page-melbourne">
@@ -264,7 +325,7 @@
   <div class="hero-photo-upper">
     <div class="container hero-photo-content fade-in-up">
       <span class="qualify-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Good news — we can help</span>
-      <h1>Last Step: <span class="hero-accent">Book Your Call With One Of Our Filtration Specialists</span></h1>
+      <h1>Last Step: <span class="hero-accent">Book Your Call With Our Filtration Specialists</span></h1>
       <p class="hero-sub">On your call, we'll hear what you're experiencing or what you're after, put together a tailored filtration set-up and give you your price. No obligation, and no one needs to come to your home — we make it that easy.</p>
     </div>
 
@@ -311,36 +372,116 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     WATCH WHILE YOU WAIT — Big VSL, self-hosted. Same player
-     pattern as the /melb testimonials (poster, custom seek bar,
-     hover-preview on desktop / tap-to-play-with-sound on mobile).
+     TESTIMONIALS — same 8 customer videos as /melb (posters, pull-
+     quotes, custom seek bar), shuffled order so it doesn't read as a
+     repeat. The Big VSL lives on the thank-you page instead.
 ══════════════════════════════════════════════════════ -->
-<section class="section section-off" id="watch-vsl">
+<section class="section section-off" id="real-testimonials">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Everything Our Customers Have Experienced</span>
-      <h2>Watch This</h2>
+      <span class="eyebrow">Melbourne Homeowners</span>
+      <h2>Hear It From Our Customers</h2>
     </div>
-    <div class="vsl-showcase">
-      <div class="vsl-benefits-col col-left">
-        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="0" y1="7" x2="17" y2="7"/><polyline points="12 2 18 7 12 12"/></svg><span>Customers Report Less Eczema &amp; Psoriasis</span></div>
-        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="0" y1="7" x2="17" y2="7"/><polyline points="12 2 18 7 12 12"/></svg><span>Customers Report Softer, Less Itchy Skin</span></div>
-        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="0" y1="7" x2="17" y2="7"/><polyline points="12 2 18 7 12 12"/></svg><span>Customers Report Healthier Hair &amp; Scalp</span></div>
-        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="0" y1="7" x2="17" y2="7"/><polyline points="12 2 18 7 12 12"/></svg><span>Customers Report Better Tasting Water</span></div>
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/girish-poster.jpg" data-src="/assets/videos/testimonials/girish.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-quote">&ldquo;Couldn't have asked for a <span class="tq-pop">better installation.</span>&rdquo;<span class="tq-by">Girish &middot; Ashwood</span></div>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
       </div>
 
-      <div class="solo-vsl-wrap video-autoplay-card" id="solo-vsl">
-        <video class="testimonial-video" poster="/assets/videos/big-vsl/big-vsl-cover.jpg" data-src="/assets/videos/big-vsl/big-vsl.mp4" muted loop playsinline preload="none"></video>
-        <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
-        <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="testimonial-card">
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/cecilio-poster.jpg" data-src="/assets/videos/testimonials/cecilio.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-quote">&ldquo;My <span class="tq-pop">eczema&rsquo;s gone.</span> I&rsquo;m not saying this to promote, but it&rsquo;s true.&rdquo;<span class="tq-by">Cecilio &middot; Cranbourne West</span></div>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
       </div>
 
-      <div class="vsl-benefits-col col-right">
-        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="24" y1="7" x2="7" y2="7"/><polyline points="12 2 6 7 12 12"/></svg><span>Customers Report No More Chlorine Smell</span></div>
-        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="24" y1="7" x2="7" y2="7"/><polyline points="12 2 6 7 12 12"/></svg><span>Customers Report Real Peace Of Mind</span></div>
-        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="24" y1="7" x2="7" y2="7"/><polyline points="12 2 6 7 12 12"/></svg><span>Customers Report A Smooth, Hassle-Free Process</span></div>
-        <div class="vsl-benefit"><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="24" y1="7" x2="7" y2="7"/><polyline points="12 2 6 7 12 12"/></svg><span>Customers Call The Installation Unreal</span></div>
+      <div class="testimonial-card">
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/june-poster.jpg" data-src="/assets/videos/testimonials/june.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-quote">&ldquo;My friend told me, my hair <span class="tq-pop">looks better than before.</span>&rdquo;<span class="tq-by">June &middot; Point Cook</span></div>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
       </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/lech-poster.jpg" data-src="/assets/videos/testimonials/lech.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-quote">&ldquo;My scalp was itchy. <span class="tq-pop">Now I forget it.</span>&rdquo;<span class="tq-by">Lech &middot; Keysborough</span></div>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/marcus-poster.jpg" data-src="/assets/videos/testimonials/marcus.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-quote">&ldquo;We drink <span class="tq-pop">straight from the taps</span> now.&rdquo;<span class="tq-by">Marcus &middot; Lyndhurst</span></div>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/nishanth-poster.jpg" data-src="/assets/videos/testimonials/nishanth.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-quote">&ldquo;The hair loss has <span class="tq-pop">reduced significantly.</span>&rdquo;<span class="tq-by">Nishanth &middot; Strathtulloh</span></div>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/jan-peter-poster.jpg" data-src="/assets/videos/testimonials/jan-peter.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-quote">&ldquo;Especially the hair. It's <span class="tq-pop">much, much softer.</span>&rdquo;<span class="tq-by">Jan &amp; Peter &middot; Beaumaris</span></div>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-media video-autoplay-card">
+          <video class="testimonial-video" poster="/assets/videos/testimonials/jim-poster.jpg" data-src="/assets/videos/testimonials/jim.mp4" muted loop playsinline preload="none"></video>
+          <div class="testimonial-quote">&ldquo;<span class="tq-pop">Crystal clear.</span> You can tell straight away.&rdquo;<span class="tq-by">Jim &middot; Point Cook</span></div>
+          <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
+          <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     INSTALL GALLERY — different photos from /melb's wall.
+══════════════════════════════════════════════════════ -->
+<section class="section" id="install-gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Recent Installs</span>
+      <h2>Installed Right Across Melbourne</h2>
+    </div>
+    <div class="install-bento">
+      <figure class="b-tall"><img src="/assets/install-photos/install-14.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+      <figure><img src="/assets/install-photos/3.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+      <figure><img src="/assets/install-photos/install-21.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+      <figure class="b-tall b-tall-desk"><img src="/assets/install-photos/install-10.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+      <figure><img src="/assets/install-photos/25.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+      <figure class="b-tall"><img src="/assets/install-photos/install-22.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+      <figure><img src="/assets/install-photos/4.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+      <figure><img src="/assets/install-photos/install-13.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+      <figure class="b-tall"><img src="/assets/install-photos/install-7.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+      <figure><img src="/assets/install-photos/install-15.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+      <figure><img src="/assets/install-photos/install-20.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+      <figure><img src="/assets/install-photos/install-11.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -348,7 +489,7 @@
 <!-- ══════════════════════════════════════════════════════
      Self-hosted video player -- identical pattern to /melb's
      testimonials, scoped generically so it works for however many
-     .video-autoplay-card elements are on the page (here, just one).
+     .video-autoplay-card elements are on the page.
 ══════════════════════════════════════════════════════ -->
 <script>
 (function () {
