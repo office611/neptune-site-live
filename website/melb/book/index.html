@@ -36,7 +36,7 @@
 <link rel="stylesheet" href="/experts/assessment.css">
 <style>
 :root { --navy-deep: #13233f; }
-.hero-photo .assessment { padding-bottom: var(--s-2); }
+.hero-photo .assessment { padding-bottom: var(--s-8); }
 
 /* Install photo behind the whole headline + calendar span. The section is
    far taller than any photo, so the photo is pinned to the viewport (fixed
@@ -61,13 +61,14 @@
    iOS Safari misaligned by a sub-pixel and left a hard line under. */
 @media (max-width: 767px) {
   .page-melbourne .hero-photo .book-bg {
-    position: relative; inset: auto; height: auto; aspect-ratio: 4 / 3;
+    position: relative; inset: auto; height: auto; aspect-ratio: 3 / 2;
     -webkit-mask-image: linear-gradient(180deg, #000 50%, transparent 100%);
     mask-image: linear-gradient(180deg, #000 50%, transparent 100%);
   }
   .book-bg img { object-position: 36% center; }
   .page-melbourne .hero-photo .book-bg-overlay { display: none; }
-  .hero-photo-upper { margin-top: -28px; }
+  .hero-photo-upper { margin-top: -40px; }
+  .hero-photo .assessment { padding-top: 20px; }
 }
 
 /* Headline's long ("Last Step: Book Your Call With A Filtration
@@ -106,14 +107,13 @@
 }
 .qualify-badge svg { width: 14px; height: 14px; color: #4FBE7B; flex-shrink: 0; }
 
-/* Before you pick a time -- two quick requirements, sits right
-   below the subheadline, above the calendar. Boxed as its own card
-   so it reads as a distinct instruction block instead of blending
-   into the hero headline/sub above it. */
+/* Before you book -- two quick requirements, sits under the calendar
+   so the calendar itself is visible on the first screen (on phones it
+   was being pushed below the fold). */
 .pre-booking-notes {
   width: calc(100% - 40px);
   max-width: 460px;
-  margin: 32px auto 0;
+  margin: 20px auto 0;
   text-align: left;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.14);
@@ -343,14 +343,6 @@
       <h1>Last Step: <span class="hero-accent">Book Your Call With Our Filtration Specialists</span></h1>
       <p class="hero-sub">On your call, we'll tailor a filtration set-up to you and give you your price. No obligation, and no one needs to come to your home.</p>
     </div>
-
-    <div class="pre-booking-notes">
-      <span class="pre-booking-notes-label">Before you pick a time:</span>
-      <ol>
-        <li>Choose a time with 15–30 minutes free, no distractions.</li>
-        <li>Make sure it works for everyone involved in the decision — so we only have to do this once.</li>
-      </ol>
-    </div>
   </div>
 
   <!-- ══════════════════════════════════════════════════════
@@ -379,6 +371,14 @@
         }, 200);
       })();
       </script>
+    </div>
+
+    <div class="pre-booking-notes">
+      <span class="pre-booking-notes-label">Before you book:</span>
+      <ol>
+        <li>Choose a time with 15–30 minutes free, no distractions.</li>
+        <li>Make sure it works for everyone involved in the decision — so we only have to do this once.</li>
+      </ol>
     </div>
 
   </div>
