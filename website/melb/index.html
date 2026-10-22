@@ -189,19 +189,6 @@
   object-fit: cover;
   display: block;
 }
-.testimonial-card .testimonial-name {
-  padding: 12px 14px;
-  font-weight: 700;
-  font-size: .95rem;
-  text-align: center;
-}
-.testimonial-card .testimonial-suburb {
-  display: block;
-  margin-top: 2px;
-  font-weight: 500;
-  font-size: .8rem;
-  opacity: .65;
-}
 .testimonial-card .testimonial-video { cursor: pointer; }
 /* Custom seek bar -- native video controls shrink/hide the scrub bar at
    small widths (only really usable in fullscreen), so this is a fixed-size
@@ -282,9 +269,17 @@
   transition: opacity .25s;
 }
 .testimonial-card .testimonial-quote .tq-pop { color: var(--accent); }
+.testimonial-card .testimonial-quote .tq-by {
+  display: block;
+  margin-top: 8px;
+  font-size: .78rem;
+  font-weight: 500;
+  opacity: .8;
+}
 .testimonial-media.is-playing .testimonial-quote { opacity: 0; }
 @media (max-width: 640px) {
   .testimonial-card .testimonial-quote { font-size: .82rem; padding: 40px 8px 32px; }
+  .testimonial-card .testimonial-quote .tq-by { font-size: .7rem; margin-top: 5px; }
 }
 .testimonial-placeholder-note {
   text-align: center;
@@ -376,81 +371,73 @@
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
           <video class="testimonial-video" poster="/assets/videos/testimonials/nishanth-cover.jpg" data-src="/assets/videos/testimonials/nishanth.mp4" muted loop playsinline preload="none"></video>
-          <div class="testimonial-quote">&ldquo;The hair loss has <span class="tq-pop">reduced significantly.</span>&rdquo;</div>
+          <div class="testimonial-quote">&ldquo;The hair loss has <span class="tq-pop">reduced significantly.</span>&rdquo;<span class="tq-by">Nishanth &middot; Strathtulloh</span></div>
           <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
-        <div class="testimonial-name">Nishanth<span class="testimonial-suburb">Strathtulloh</span></div>
       </div>
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
           <video class="testimonial-video" poster="/assets/videos/testimonials/jim-cover.jpg" data-src="/assets/videos/testimonials/jim.mp4" muted loop playsinline preload="none"></video>
-          <div class="testimonial-quote">&ldquo;<span class="tq-pop">Crystal clear.</span> You can tell straight away.&rdquo;</div>
+          <div class="testimonial-quote">&ldquo;<span class="tq-pop">Crystal clear.</span> You can tell straight away.&rdquo;<span class="tq-by">Jim &middot; Point Cook</span></div>
           <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
-        <div class="testimonial-name">Jim<span class="testimonial-suburb">Point Cook</span></div>
       </div>
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
           <video class="testimonial-video" poster="/assets/videos/testimonials/jan-peter-cover.jpg" data-src="/assets/videos/testimonials/jan-peter.mp4" muted loop playsinline preload="none"></video>
-          <div class="testimonial-quote">&ldquo;Especially the hair. It's <span class="tq-pop">much, much softer.</span>&rdquo;</div>
+          <div class="testimonial-quote">&ldquo;Especially the hair. It's <span class="tq-pop">much, much softer.</span>&rdquo;<span class="tq-by">Jan &amp; Peter &middot; Beaumaris</span></div>
           <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
-        <div class="testimonial-name">Jan &amp; Peter<span class="testimonial-suburb">Beaumaris</span></div>
       </div>
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
           <video class="testimonial-video" poster="/assets/videos/testimonials/lech-cover.jpg" data-src="/assets/videos/testimonials/lech.mp4" muted loop playsinline preload="none"></video>
-          <div class="testimonial-quote">&ldquo;My scalp was itchy. <span class="tq-pop">Now I forget it.</span>&rdquo;</div>
+          <div class="testimonial-quote">&ldquo;My scalp was itchy. <span class="tq-pop">Now I forget it.</span>&rdquo;<span class="tq-by">Lech &middot; Keysborough</span></div>
           <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
-        <div class="testimonial-name">Lech<span class="testimonial-suburb">Keysborough</span></div>
       </div>
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
           <video class="testimonial-video" poster="/assets/videos/testimonials/girish-cover.jpg" data-src="/assets/videos/testimonials/girish.mp4" muted loop playsinline preload="none"></video>
-          <div class="testimonial-quote">&ldquo;Couldn't have asked for a <span class="tq-pop">better installation.</span>&rdquo;</div>
+          <div class="testimonial-quote">&ldquo;Couldn't have asked for a <span class="tq-pop">better installation.</span>&rdquo;<span class="tq-by">Girish &middot; Ashwood</span></div>
           <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
-        <div class="testimonial-name">Girish<span class="testimonial-suburb">Ashwood</span></div>
       </div>
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
           <video class="testimonial-video" poster="/assets/videos/testimonials/cecilio-cover.jpg" data-src="/assets/videos/testimonials/cecilio.mp4" muted loop playsinline preload="none"></video>
-          <div class="testimonial-quote">&ldquo;My <span class="tq-pop">eczema&rsquo;s gone.</span> I&rsquo;m not saying this to promote, but it&rsquo;s true.&rdquo;</div>
+          <div class="testimonial-quote">&ldquo;My <span class="tq-pop">eczema&rsquo;s gone.</span> I&rsquo;m not saying this to promote, but it&rsquo;s true.&rdquo;<span class="tq-by">Cecilio &middot; Cranbourne West</span></div>
           <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
-        <div class="testimonial-name">Cecilio<span class="testimonial-suburb">Cranbourne West</span></div>
       </div>
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
           <video class="testimonial-video" poster="/assets/videos/testimonials/marcus-cover.jpg" data-src="/assets/videos/testimonials/marcus.mp4" muted loop playsinline preload="none"></video>
-          <div class="testimonial-quote">&ldquo;We drink <span class="tq-pop">straight from the taps</span> now.&rdquo;</div>
+          <div class="testimonial-quote">&ldquo;We drink <span class="tq-pop">straight from the taps</span> now.&rdquo;<span class="tq-by">Marcus &middot; Lyndhurst</span></div>
           <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
-        <div class="testimonial-name">Marcus<span class="testimonial-suburb">Lyndhurst</span></div>
       </div>
 
       <div class="testimonial-card">
         <div class="testimonial-media video-autoplay-card">
           <video class="testimonial-video" poster="/assets/videos/testimonials/june-cover.jpg" data-src="/assets/videos/testimonials/june.mp4" muted loop playsinline preload="none"></video>
-          <div class="testimonial-quote">&ldquo;My friend told me, my hair <span class="tq-pop">looks better than before.</span>&rdquo;</div>
+          <div class="testimonial-quote">&ldquo;My friend told me, my hair <span class="tq-pop">looks better than before.</span>&rdquo;<span class="tq-by">June &middot; Point Cook</span></div>
           <div class="testimonial-seek-wrap"><div class="testimonial-seek"><div class="testimonial-seek-fill"></div><div class="testimonial-seek-handle"></div></div></div>
           <div class="testimonial-play-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
-        <div class="testimonial-name">June<span class="testimonial-suburb">Point Cook</span></div>
       </div>
 
     </div>
