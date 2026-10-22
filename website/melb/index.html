@@ -192,8 +192,13 @@
 }
 @media (max-width: 640px) {
   .install-fan .fan-sub { font-size: .66rem; left: 6px; bottom: 6px; padding: 3px 7px 3px 6px; }
-  /* Side cards are too narrow for a suburb on phones: centre card only. */
-  .install-fan .fan-l .fan-sub, .install-fan .fan-r .fan-sub { display: none; }
+  /* Side cards only show ~90px past the centre card on phones: smaller tag
+     that wraps onto two lines inside that strip. */
+  .install-fan .fan-l .fan-sub, .install-fan .fan-r .fan-sub {
+    max-width: 70px; font-size: .58rem; line-height: 1.25; border-radius: 8px; align-items: flex-start;
+  }
+  .install-fan .fan-sub::before { margin-top: 1px; }
+  .install-fan .fan-r .fan-sub { right: 6px; }
 }
 /* North / West / South East filter */
 .area-pick { text-align: center; margin-top: 18px; }
