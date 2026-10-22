@@ -323,8 +323,8 @@
 }
 @keyframes install-word-pan { to { background-position: 100% 50%; } }
 @media (prefers-reduced-motion: reduce) { .install-word { animation: none; } }
-/* Two fans of 3 overlapping installs, each dealing out its next 3 every
-   few seconds -- together they cycle through every photo in INSTALLS
+/* Fan of 3 overlapping installs that deals out the next 3 every few
+   seconds -- cycles through INSTALLS, or the picked area's photos
    (script below), so adding photos never changes the layout. */
 .install-fan { position: relative; height: 410px; max-width: 760px; margin: 22px auto 0; }
 .install-fan .fan-card {
@@ -347,8 +347,6 @@
   .install-fan .fan-l { width: 140px; transform: translate(calc(-50% - 110px), -46%) rotate(-7deg); }
   .install-fan .fan-r { width: 140px; transform: translate(calc(-50% + 110px), -46%) rotate(7deg); }
 }
-.install-fan + .install-fan { margin-top: 0; }
-.install-fan[hidden] { display: none; }
 /* Suburb tag on each card (empty for photos we don't have a suburb for). */
 .install-fan .fan-sub {
   position: absolute; left: 8px; bottom: 8px;
@@ -540,8 +538,7 @@
 
 <!-- ══════════════════════════════════════════════════════
      INSTALL GALLERY — NEPTUNE word, North/West/South East chips, then
-     two fans of 3 installs (one fan when an area is picked) that deal
-     out their next 3 every few seconds. Photos come from INSTALLS /
+     a fan of 3 installs that deals out the next 3 every few seconds. Photos come from INSTALLS /
      AREAS / SUBURB below: to add photos, drop them in
      /assets/install-photos/ and add the names.
 ══════════════════════════════════════════════════════ -->
@@ -561,15 +558,10 @@
         <button type="button" class="area-chip" data-area="southeast" aria-pressed="false">South East</button>
       </div>
     </div>
-    <div class="install-fan">
+    <div class="install-fan" id="install-fan">
       <figure class="fan-card fan-l"><img src="/assets/install-photos/install-22.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
       <figure class="fan-card fan-c"><img src="/assets/install-photos/install-14.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
       <figure class="fan-card fan-r"><img src="/assets/install-photos/install-10.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
-    </div>
-    <div class="install-fan">
-      <figure class="fan-card fan-l"><img src="/assets/install-photos/install-31.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
-      <figure class="fan-card fan-c"><img src="/assets/install-photos/3.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
-      <figure class="fan-card fan-r"><img src="/assets/install-photos/install-7.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
     </div>
   </div>
 </section>
@@ -628,64 +620,40 @@
     southeast: ['6', '30', '37', '18', '24', '34']
   };
   var src = function (name) { return '/assets/install-photos/' + name + '.jpg'; };
+  var fan = document.getElementById('install-fan');
+  // Centre card takes the first photo of each set, sides the next two.
+  var cards = [fan.querySelector('.fan-c'), fan.querySelector('.fan-l'), fan.querySelector('.fan-r')];
+  var list = INSTALLS, at = 0, timer = null, onScreen = false;
 
-  function makeFan(el) {
-    // Centre card takes the first photo of each set, sides the next two.
-    var fan = { el: el, list: INSTALLS, at: 0, step: 3, timer: null, delay: null, onScreen: false, startDelay: 0,
-      cards: [el.querySelector('.fan-c'), el.querySelector('.fan-l'), el.querySelector('.fan-r')] };
-
-    fan.show = function (animate) {
-      fan.cards.forEach(function (card, k) {
-        var name = fan.list[(fan.at + k) % fan.list.length];
-        var swap = function () {
-          card.querySelector('img').src = src(name);
-          card.querySelector('.fan-sub').textContent = SUBURB[name] || '';
-        };
-        if (!animate) return swap();
-        setTimeout(function () {
-          card.classList.add('is-out');
-          setTimeout(function () { swap(); card.classList.remove('is-out'); }, 450);
-        }, k * 110);
-      });
-      for (var k = 0; k < fan.cards.length; k++) new Image().src = src(fan.list[(fan.at + fan.step + k) % fan.list.length]);
-    };
-    fan.deal = function () {
-      if (document.hidden || fan.list.length <= fan.cards.length) return;
-      fan.at = (fan.at + fan.step) % fan.list.length;
-      fan.show(true);
-    };
-    fan.stop = function () { clearTimeout(fan.delay); clearInterval(fan.timer); fan.delay = fan.timer = null; };
-    fan.start = function () {
-      fan.stop();
-      if (!fan.onScreen || el.hidden) return;
-      fan.delay = setTimeout(function () { fan.delay = null; fan.timer = setInterval(fan.deal, 3200); }, fan.startDelay);
-    };
-    // Only deal while on screen.
-    new IntersectionObserver(function (entries) {
-      fan.onScreen = entries[0].isIntersecting;
-      if (fan.onScreen) fan.start(); else fan.stop();
-    }).observe(el);
-    return fan;
+  function show(animate) {
+    cards.forEach(function (card, k) {
+      var name = list[(at + k) % list.length];
+      var swap = function () {
+        card.querySelector('img').src = src(name);
+        card.querySelector('.fan-sub').textContent = SUBURB[name] || '';
+      };
+      if (!animate) return swap();
+      setTimeout(function () {
+        card.classList.add('is-out');
+        setTimeout(function () { swap(); card.classList.remove('is-out'); }, 450);
+      }, k * 110);
+    });
+    for (var k = 0; k < 3; k++) new Image().src = src(list[(at + 3 + k) % list.length]);
   }
-  var fans = Array.prototype.map.call(document.querySelectorAll('.install-fan'), makeFan);
-
-  function setArea(area, animate) {
-    if (area === 'all') {
-      // Both fans on the full list; fan n starts on set n and jumps a whole
-      // round of sets each deal so they never match. Second deals half a beat later.
-      fans.forEach(function (fan, n) {
-        fan.el.hidden = false;
-        fan.list = INSTALLS; fan.step = 3 * fans.length; fan.at = n * 3;
-        fan.startDelay = n * 1600;
-      });
-    } else {
-      // One fan, just this area's photos.
-      var fan = fans[0];
-      fans.slice(1).forEach(function (f) { f.stop(); f.el.hidden = true; });
-      fan.list = AREAS[area]; fan.at = 0; fan.step = 3; fan.startDelay = 0;
-    }
-    fans.forEach(function (fan) { if (!fan.el.hidden) { fan.show(animate); fan.start(); } });
+  function deal() {
+    if (document.hidden || list.length <= 3) return;
+    at = (at + 3) % list.length;
+    show(true);
   }
+  function start() {
+    clearInterval(timer);
+    timer = onScreen ? setInterval(deal, 3200) : null;
+  }
+  // Only deal while on screen.
+  new IntersectionObserver(function (entries) {
+    onScreen = entries[0].isIntersecting;
+    start();
+  }).observe(fan);
 
   document.querySelectorAll('.area-chip').forEach(function (chip) {
     chip.addEventListener('click', function () {
@@ -694,10 +662,13 @@
         c.classList.toggle('is-active', c === chip);
         c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
       });
-      setArea(chip.dataset.area, true);
+      list = AREAS[chip.dataset.area] || INSTALLS;
+      at = 0;
+      show(true);
+      start();
     });
   });
-  setArea('all', false);
+  show(false);
 })();
 </script>
 
