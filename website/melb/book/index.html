@@ -324,7 +324,7 @@
 @keyframes install-word-pan { to { background-position: 100% 50%; } }
 @media (prefers-reduced-motion: reduce) { .install-word { animation: none; } }
 /* Fan of 3 overlapping installs that deals out the next 3 every few
-   seconds -- cycles through INSTALLS, or the picked area's photos
+   seconds -- cycles through all areas mixed, or the picked area's photos
    (script below), so adding photos never changes the layout. */
 .install-fan { position: relative; height: 410px; max-width: 760px; margin: 22px auto 0; }
 .install-fan .fan-card {
@@ -538,9 +538,9 @@
 
 <!-- ══════════════════════════════════════════════════════
      INSTALL GALLERY — NEPTUNE word, North/West/South East chips, then
-     a fan of 3 installs that deals out the next 3 every few seconds. Photos come from INSTALLS /
-     AREAS / SUBURB below: to add photos, drop them in
-     /assets/install-photos/ and add the names.
+     a fan of 3 installs that deals out the next 3 every few seconds. Every
+     photo comes from AREAS / SUBURB below ("All" mixes the areas): to add
+     photos, drop them in /assets/install-photos/ and add the names to both.
 ══════════════════════════════════════════════════════ -->
 <section class="section" id="install-gallery">
   <div class="container">
@@ -559,62 +559,14 @@
       </div>
     </div>
     <div class="install-fan" id="install-fan">
-      <figure class="fan-card fan-l"><img src="/assets/install-photos/install-22.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
-      <figure class="fan-card fan-c"><img src="/assets/install-photos/install-14.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
-      <figure class="fan-card fan-r"><img src="/assets/install-photos/install-10.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
+      <figure class="fan-card fan-l"><img src="/assets/install-photos/38.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
+      <figure class="fan-card fan-c"><img src="/assets/install-photos/23.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
+      <figure class="fan-card fan-r"><img src="/assets/install-photos/6.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
     </div>
   </div>
 </section>
 <script>
 (function () {
-  var INSTALLS = [
-    'install-14',
-    'install-22',
-    'install-10',
-    '45',
-    '3',
-    'install-31',
-    'install-7',
-    '41',
-    'install-21',
-    'install-35',
-    '25',
-    '43',
-    'install-13',
-    'install-30',
-    'install-15',
-    '50',
-    'install-33',
-    'install-20',
-    'install-11',
-    '42',
-    '4',
-    'install-1',
-    'install-36',
-    '44',
-    '17',
-    'install-32',
-    '23',
-    '46',
-    'install-16',
-    '6',
-    'install-34',
-    '47',
-    '24',
-    '26',
-    'install-37',
-    '48',
-    '29',
-    'install-38',
-    '30',
-    '49',
-    '18',
-    '34',
-    '36',
-    '37',
-    '38',
-    '39'
-  ];
   // Suburb per photo, and which photos show for each area (council-based
   // Vic Government metro regions, Southern + Eastern merged into South East).
   // New tagged photos: add to both.
@@ -632,11 +584,28 @@
     west: ['38', '43', 'install-10', '44', 'install-13', '47', '17', '29', '36'],
     southeast: ['6', '41', '37', '3', '30', '42', '18', '24', '34']
   };
+  // All = the areas woven together: each set of 3 is one North, one West and
+  // one South East (which one sits in the middle rotates), and nothing repeats
+  // until every photo has shown. Each area's order is shuffled per visit.
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  var keys = Object.keys(AREAS), ALL = [];
+  keys.forEach(function (k) { shuffle(AREAS[k]); });
+  var rounds = Math.max.apply(null, keys.map(function (k) { return AREAS[k].length; }));
+  for (var i = 0; i < rounds; i++) {
+    for (var j = 0; j < keys.length; j++) {
+      var name = AREAS[keys[(i + j) % keys.length]][i];
+      if (name) ALL.push(name);
+    }
+  }
+
   var src = function (name) { return '/assets/install-photos/' + name + '.jpg'; };
   var fan = document.getElementById('install-fan');
   // Centre card takes the first photo of each set, sides the next two.
   var cards = [fan.querySelector('.fan-c'), fan.querySelector('.fan-l'), fan.querySelector('.fan-r')];
-  var list = INSTALLS, at = 0, timer = null, onScreen = false;
+  var list = ALL, at = 0, timer = null, onScreen = false;
 
   function show(animate) {
     cards.forEach(function (card, k) {
@@ -675,7 +644,7 @@
         c.classList.toggle('is-active', c === chip);
         c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
       });
-      list = AREAS[chip.dataset.area] || INSTALLS;
+      list = AREAS[chip.dataset.area] || ALL;
       at = 0;
       show(true);
       start();
