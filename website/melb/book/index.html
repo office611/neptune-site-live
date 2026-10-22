@@ -300,9 +300,7 @@
   .testimonial-card .testimonial-quote .tq-by { font-size: .7rem; margin-top: 5px; }
 }
 
-/* Install gallery -- tidy bento grid (no tilt/overlap), so it reads
-   differently from the polaroid wall on /melb. Tall tiles placed so the
-   grid fills with no holes at both column counts (4 desktop, 3 phone). */
+/* Install gallery -- different look from the polaroid wall on /melb. */
 #install-gallery { padding-block: var(--s-10); }
 /* "NEPTUNE" with install photos showing through the letters. The strip
    behind is 10 installs side by side; it drifts slowly so each letter
@@ -325,25 +323,41 @@
 }
 @keyframes install-word-pan { to { background-position: 100% 50%; } }
 @media (prefers-reduced-motion: reduce) { .install-word { animation: none; } }
-.install-bento {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 150px;
-  grid-auto-flow: dense;
-  gap: 10px;
-  max-width: 900px;
-  margin: 28px auto 0;
+/* Fan of 3 overlapping installs that deals out the next 3 every few
+   seconds -- cycles through every photo in INSTALLS (script below), so
+   adding photos never changes the layout. */
+.install-fan { position: relative; height: 410px; max-width: 760px; margin: 22px auto 0; }
+.install-fan .fan-card {
+  position: absolute; top: 50%; left: 50%; margin: 0;
+  aspect-ratio: 4 / 5; border-radius: 14px; overflow: hidden;
+  border: 4px solid #fff; background: #e9eef5;
+  box-shadow: 0 18px 40px rgba(11,30,61,.28);
+  transition: opacity .45s ease, scale .45s ease;
 }
-.install-bento figure { margin: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(11,30,61,.14); }
-.install-bento img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.install-bento .b-tall { grid-row: span 2; }
-.install-bento .is-extra { display: none; }
-.install-bento.show-all .is-extra { display: block; }
-.install-more { display: flex; margin: 24px auto 0; }
+.install-fan .fan-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.install-fan .fan-c { width: 280px; z-index: 3; transform: translate(-50%, -50%); }
+.install-fan .fan-l { width: 236px; z-index: 2; transform: translate(calc(-50% - 215px), -46%) rotate(-7deg); }
+.install-fan .fan-r { width: 236px; z-index: 2; transform: translate(calc(-50% + 215px), -46%) rotate(7deg); }
+.install-fan .fan-card.is-out { opacity: 0; scale: .9; }
+@media (prefers-reduced-motion: reduce) { .install-fan .fan-card { transition: none; } }
 @media (max-width: 640px) {
-  .install-bento { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 110px; gap: 6px; }
-  .install-bento figure { border-radius: 8px; }
-  .install-bento .b-tall-desk { grid-row: auto; }
+  .install-fan { height: 270px; }
+  .install-fan .fan-card { border-width: 3px; border-radius: 10px; }
+  .install-fan .fan-c { width: 180px; }
+  .install-fan .fan-l { width: 140px; transform: translate(calc(-50% - 110px), -46%) rotate(-7deg); }
+  .install-fan .fan-r { width: 140px; transform: translate(calc(-50% + 110px), -46%) rotate(7deg); }
+}
+.install-more { display: flex; margin: 18px auto 0; }
+.install-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  max-width: 900px; margin: 28px auto 0;
+}
+.install-grid[hidden] { display: none; }
+.install-grid figure { margin: 0; aspect-ratio: 4 / 5; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 16px rgba(11,30,61,.12); }
+.install-grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 640px) {
+  .install-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .install-grid figure { border-radius: 8px; }
 }
 </style>
 </head>
@@ -501,9 +515,10 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     INSTALL GALLERY — 16 installs not on /melb, the rest behind a
-     "See more installs" button (generic on purpose: no "still don't
-     believe us?", which reads defensive).
+     INSTALL GALLERY — NEPTUNE word, then a fan of 3 installs that
+     deals out the next 3 every few seconds, then "See all installs"
+     for the full grid. Every photo comes from INSTALLS below: to add
+     photos, drop them in /assets/install-photos/ and add the names.
 ══════════════════════════════════════════════════════ -->
 <section class="section" id="install-gallery">
   <div class="container">
@@ -512,56 +527,99 @@
       <span class="install-word" aria-hidden="true">NEPTUNE</span>
       <h2>Installed Right Across Melbourne</h2>
     </div>
-    <div class="install-bento" id="install-bento">
-      <figure class="b-tall"><img src="/assets/install-photos/install-14.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure><img src="/assets/install-photos/3.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure><img src="/assets/install-photos/install-21.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="b-tall b-tall-desk"><img src="/assets/install-photos/install-10.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure><img src="/assets/install-photos/install-31.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="b-tall"><img src="/assets/install-photos/install-22.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure><img src="/assets/install-photos/4.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure><img src="/assets/install-photos/install-13.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="b-tall b-tall-desk"><img src="/assets/install-photos/install-7.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure><img src="/assets/install-photos/install-15.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure><img src="/assets/install-photos/install-20.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure><img src="/assets/install-photos/install-33.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure><img src="/assets/install-photos/25.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure><img src="/assets/install-photos/install-30.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure><img src="/assets/install-photos/install-35.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure><img src="/assets/install-photos/install-11.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/install-1.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/install-36.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/17.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/install-32.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/23.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/install-16.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/6.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/install-34.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/24.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/26.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/install-37.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/29.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/10.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/install-38.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/13.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/30.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/18.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/34.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/21.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/36.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/22.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/37.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/38.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
-      <figure class="is-extra"><img src="/assets/install-photos/39.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+    <div class="install-fan" id="install-fan">
+      <figure class="fan-card fan-l"><img src="/assets/install-photos/install-22.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+      <figure class="fan-card fan-c"><img src="/assets/install-photos/install-14.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
+      <figure class="fan-card fan-r"><img src="/assets/install-photos/install-10.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>
     </div>
-    <button type="button" class="btn btn-outline install-more" id="install-more">See more installs</button>
+    <button type="button" class="btn btn-outline install-more" id="install-more">See all installs</button>
+    <div class="install-grid" id="install-grid" hidden></div>
   </div>
 </section>
 <script>
-document.getElementById('install-more').addEventListener('click', function () {
-  document.getElementById('install-bento').classList.add('show-all');
-  this.remove();
-});
+(function () {
+  var INSTALLS = [
+    'install-14',
+    'install-22',
+    'install-10',
+    '3',
+    'install-31',
+    'install-7',
+    'install-21',
+    'install-35',
+    '25',
+    'install-13',
+    'install-30',
+    'install-15',
+    'install-33',
+    'install-20',
+    'install-11',
+    '4',
+    'install-1',
+    'install-36',
+    '17',
+    'install-32',
+    '23',
+    'install-16',
+    '6',
+    'install-34',
+    '24',
+    '26',
+    'install-37',
+    '29',
+    '10',
+    'install-38',
+    '13',
+    '30',
+    '18',
+    '34',
+    '21',
+    '36',
+    '22',
+    '37',
+    '38',
+    '39'
+  ];
+  var src = function (name) { return '/assets/install-photos/' + name + '.jpg'; };
+  var fan = document.getElementById('install-fan');
+  // Centre card shows the first photo of each set, sides the next two.
+  var cards = [fan.querySelector('.fan-c'), fan.querySelector('.fan-l'), fan.querySelector('.fan-r')];
+  var at = 0, timer = null;
+
+  function preload(start) {
+    for (var k = 0; k < 3; k++) new Image().src = src(INSTALLS[(start + k) % INSTALLS.length]);
+  }
+  function deal() {
+    at = (at + 3) % INSTALLS.length;
+    cards.forEach(function (card, k) {
+      setTimeout(function () {
+        card.classList.add('is-out');
+        setTimeout(function () {
+          card.querySelector('img').src = src(INSTALLS[(at + k) % INSTALLS.length]);
+          card.classList.remove('is-out');
+        }, 450);
+      }, k * 110);
+    });
+    preload(at + 3);
+  }
+  // Only deal while the fan is on screen and the tab is visible.
+  new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) {
+      if (!timer) { preload(at + 3); timer = setInterval(function () { if (!document.hidden) deal(); }, 3200); }
+    } else if (timer) {
+      clearInterval(timer); timer = null;
+    }
+  }).observe(fan);
+
+  document.getElementById('install-more').addEventListener('click', function () {
+    var grid = document.getElementById('install-grid');
+    grid.innerHTML = INSTALLS.map(function (name) {
+      return '<figure><img src="' + src(name) + '" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></figure>';
+    }).join('');
+    grid.hidden = false;
+    this.remove();
+  });
+})();
 </script>
 
 <!-- ══════════════════════════════════════════════════════
