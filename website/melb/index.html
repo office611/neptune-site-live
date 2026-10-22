@@ -214,6 +214,35 @@
 .area-chip.is-active { background: var(--navy); border-color: var(--navy); color: #fff; }
 @media (max-width: 640px) { .area-chip { padding: 7px 14px; font-size: .85rem; } }
 
+/* Sound Like Your Home? -- the survey's four first-question options, word
+   for word, each with a line in the ads' language, so the visitor sees why
+   they clicked and then the same words again when the form opens. Sits
+   straight above the closing CTA as one block. */
+.familiar { max-width: 760px; margin: 0 auto var(--s-10); }
+.familiar h2 { margin-bottom: var(--s-6); }
+.familiar-list {
+  list-style: none; margin: 0; padding: 0; text-align: left;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+}
+.familiar-list li {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--off-white); border: 1px solid var(--border); border-radius: 14px;
+  padding: 16px 18px;
+}
+.familiar-list .fam-check {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px;
+}
+.familiar-list .fam-check svg { width: 14px; height: 14px; }
+.familiar-list strong { display: block; font-size: 1.02rem; color: var(--navy); margin-bottom: 3px; }
+.familiar-list span { display: block; font-size: .9rem; line-height: 1.5; color: var(--text-2); text-wrap: pretty; }
+.familiar-lead { font-size: 1rem; font-weight: 600; color: var(--text-2); margin-bottom: var(--s-2); }
+@media (max-width: 640px) {
+  .familiar-list { grid-template-columns: 1fr; gap: 10px; }
+  .familiar-list li { padding: 14px 16px; }
+}
+
 /* Testimonials grid */
 #real-testimonials { padding-block: var(--s-10); }
 .testimonial-grid {
@@ -642,11 +671,22 @@
 </script>
 
 <!-- ══════════════════════════════════════════════════════
-     FINAL CTA — keeping this page simple, no benefits/FAQ/
-     why-neptune sections. Just hero, form, proof, close.
+     FINAL CTA — "Sound Like Your Home?" (the survey's four first-question
+     options, same words, same order) straight into the closing ask.
+     White band so it doesn't run into the off-white gallery above.
 ══════════════════════════════════════════════════════ -->
-<section class="section final-cta section-off">
+<section class="section final-cta" id="sound-familiar">
   <div class="container">
+    <div class="familiar">
+      <h2>Sound Like Your Home?</h2>
+      <ul class="familiar-list">
+        <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Simply Want Better Water</strong><span>Better water at every tap, shower and appliance, without buying bottled.</span></div></li>
+        <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Weird Taste Or Smell</strong><span>A taste in the tap water or a smell in the shower you can&rsquo;t put your finger on.</span></div></li>
+        <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Skin &amp; Hair Issues</strong><span>You or someone at home dealing with dry, itchy skin, eczema flare-ups or hair loss.</span></div></li>
+        <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Limescale Build Up</strong><span>White marks on shower screens and taps, or scale in the kettle, coffee machine and hot water system.</span></div></li>
+      </ul>
+    </div>
+    <p class="familiar-lead">If any of these sound familiar:</p>
     <h2>Next Step: Answer 3 Quick Questions To See If We Can&nbsp;Help.</h2>
     <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Answer The 3 Questions</a>
   </div>
