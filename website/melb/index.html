@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&text=NEPTUNE&display=swap">
 <link rel="stylesheet" href="/experts/assessment.css">
 <style>
 :root { --navy-deep: #13233f; }
@@ -125,36 +126,88 @@
   .about-me-photo { max-width: 220px; margin: 0 auto; }
 }
 
-/* Photo wall -- dense, overlapping pattern so a lot of real installs
-   read at a glance without eating vertical space, instead of a
-   one-at-a-time scrolling strip. */
-.photo-wall {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px;
-  max-width: 720px;
-  margin: 24px auto 0;
-  padding: 0 20px;
+/* Install gallery -- NEPTUNE word, area chips and a rotating fan. Same
+   block on /melb: keep the two in sync. */
+#install-gallery { padding-block: var(--s-10); }
+/* "NEPTUNE" with install photos showing through the letters. The strip
+   behind is 10 installs side by side; it drifts slowly so each letter
+   cycles through different homes. */
+.install-word {
+  display: block;
+  width: fit-content;
+  margin: 6px auto 2px;
+  font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
+  font-size: min(25vw, 200px);
+  line-height: 1;
+  letter-spacing: .02em;
+  color: transparent;
+  background: #0b1e3d url(/assets/install-photos/neptune-letters.jpg) 0 50% / auto 100% repeat-x;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 6px 14px rgba(11,30,61,.22));
+  animation: install-word-pan 70s linear infinite alternate;
+  user-select: none;
 }
-.photo-wall .wall-item {
-  width: 86px;
-  aspect-ratio: 4 / 5;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 3px solid #fff;
-  box-shadow: 0 6px 16px rgba(0,0,0,.35);
-  flex-shrink: 0;
+@keyframes install-word-pan { to { background-position: 100% 50%; } }
+@media (prefers-reduced-motion: reduce) { .install-word { animation: none; } }
+/* Fan of 3 overlapping installs that deals out the next 3 every few
+   seconds -- cycles through all areas mixed, or the picked area's photos
+   (script below), so adding photos never changes the layout. */
+.install-fan { position: relative; height: 410px; max-width: 760px; margin: 22px auto 0; }
+.install-fan .fan-card {
+  position: absolute; top: 50%; left: 50%; margin: 0;
+  aspect-ratio: 4 / 5; border-radius: 14px; overflow: hidden;
+  border: 4px solid #fff; background: #e9eef5;
+  box-shadow: 0 18px 40px rgba(11,30,61,.28);
+  transition: opacity .45s ease, scale .45s ease;
 }
-.photo-wall .wall-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.photo-wall .wall-item:nth-child(4n+1) { transform: rotate(-4deg); margin-top: 6px; }
-.photo-wall .wall-item:nth-child(4n+2) { transform: rotate(3deg); margin-top: -4px; }
-.photo-wall .wall-item:nth-child(4n+3) { transform: rotate(-2deg); margin-top: 8px; }
-.photo-wall .wall-item:nth-child(4n+4) { transform: rotate(5deg); margin-top: -2px; }
+.install-fan .fan-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.install-fan .fan-c { width: 280px; z-index: 3; transform: translate(-50%, -50%); }
+.install-fan .fan-l { width: 236px; z-index: 2; transform: translate(calc(-50% - 215px), -46%) rotate(-7deg); }
+.install-fan .fan-r { width: 236px; z-index: 2; transform: translate(calc(-50% + 215px), -46%) rotate(7deg); }
+.install-fan .fan-card.is-out { opacity: 0; scale: .9; }
+@media (prefers-reduced-motion: reduce) { .install-fan .fan-card { transition: none; } }
 @media (max-width: 640px) {
-  .photo-wall { gap: 4px; max-width: 360px; margin-top: 20px; }
-  .photo-wall .wall-item { width: 68px; border-width: 2px; }
+  .install-fan { height: 270px; }
+  .install-fan .fan-card { border-width: 3px; border-radius: 10px; }
+  .install-fan .fan-c { width: 180px; }
+  .install-fan .fan-l { width: 140px; transform: translate(calc(-50% - 110px), -46%) rotate(-7deg); }
+  .install-fan .fan-r { width: 140px; transform: translate(calc(-50% + 110px), -46%) rotate(7deg); }
 }
+/* Suburb tag on each card (empty for photos we don't have a suburb for). */
+.install-fan .fan-sub {
+  position: absolute; left: 8px; bottom: 8px;
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 9px 4px 7px; border-radius: 999px;
+  background: rgba(11,30,61,.82); color: #fff;
+  font-size: .74rem; font-weight: 600; line-height: 1.2;
+}
+.install-fan .fan-sub:empty { display: none; }
+/* Side cards are half-covered by the centre one: tag the outer corner. */
+.install-fan .fan-r .fan-sub { left: auto; right: 8px; }
+.install-fan .fan-sub::before {
+  content: ''; width: 9px; height: 11px; flex-shrink: 0; background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 30'%3E%3Cpath d='M12 0C5.4 0 0 5.4 0 12c0 9 12 18 12 18s12-9 12-18C24 5.4 18.6 0 12 0zm0 16.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 30'%3E%3Cpath d='M12 0C5.4 0 0 5.4 0 12c0 9 12 18 12 18s12-9 12-18C24 5.4 18.6 0 12 0zm0 16.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+@media (max-width: 640px) {
+  .install-fan .fan-sub { font-size: .66rem; left: 6px; bottom: 6px; padding: 3px 7px 3px 6px; }
+  /* Side cards are too narrow for a suburb on phones: centre card only. */
+  .install-fan .fan-l .fan-sub, .install-fan .fan-r .fan-sub { display: none; }
+}
+/* North / West / South East filter */
+.area-pick { text-align: center; margin-top: 18px; }
+.area-pick-label { display: block; font-size: .85rem; font-weight: 600; color: var(--text-2); margin-bottom: 10px; }
+.area-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.area-chip {
+  font: inherit; font-size: .9rem; font-weight: 600; cursor: pointer;
+  padding: 8px 18px; border-radius: 999px;
+  border: 1.5px solid var(--border); background: #fff; color: var(--navy);
+  transition: background .2s, color .2s, border-color .2s;
+}
+.area-chip:hover { border-color: var(--accent); }
+.area-chip.is-active { background: var(--navy); border-color: var(--navy); color: #fff; }
+@media (max-width: 640px) { .area-chip { padding: 7px 14px; font-size: .85rem; } }
 
 /* Testimonials grid */
 #real-testimonials { padding-block: var(--s-10); }
@@ -466,34 +519,122 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     MORE PROOF — second photo wall, same dense overlapping pattern.
+     INSTALL GALLERY — NEPTUNE word, North/West/South East chips, then
+     a fan of 3 installs that deals out the next 3 every few seconds. Every
+     photo comes from AREAS / SUBURB below ("All" mixes the areas): to add
+     photos, drop them in /assets/install-photos/ and add the names to both.
 ══════════════════════════════════════════════════════ -->
-<section class="section section-off" id="more-proof">
+<section class="section section-off" id="install-gallery">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Even More Installs</span>
-      <h2>We've Done A Lot Of These.</h2>
+      <span class="eyebrow">Recent Installs</span>
+      <span class="install-word" aria-hidden="true">NEPTUNE</span>
+      <h2>Installed Right Across Melbourne</h2>
     </div>
-    <div class="photo-wall">
-      <div class="wall-item"><img src="/assets/install-photos/6.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/10.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/13.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/17.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/18.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/21.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/22.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/23.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/24.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/29.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/30.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/34.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/36.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/37.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/38.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
-      <div class="wall-item"><img src="/assets/install-photos/39.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"></div>
+    <div class="area-pick">
+      <span class="area-pick-label">See installs near you</span>
+      <div class="area-chips" role="group" aria-label="Filter installs by area">
+        <button type="button" class="area-chip is-active" data-area="all" aria-pressed="true">All</button>
+        <button type="button" class="area-chip" data-area="north" aria-pressed="false">North</button>
+        <button type="button" class="area-chip" data-area="west" aria-pressed="false">West</button>
+        <button type="button" class="area-chip" data-area="southeast" aria-pressed="false">South East</button>
+      </div>
+    </div>
+    <div class="install-fan" id="install-fan">
+      <figure class="fan-card fan-l"><img src="/assets/install-photos/38.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
+      <figure class="fan-card fan-c"><img src="/assets/install-photos/23.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
+      <figure class="fan-card fan-r"><img src="/assets/install-photos/6.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
     </div>
   </div>
 </section>
+<script>
+(function () {
+  // Suburb per photo, and which photos show for each area (council-based
+  // Vic Government metro regions, Southern + Eastern merged into South East).
+  // New tagged photos: add to both.
+  var SUBURB = {
+    '6': 'Narre Warren South', 'install-10': 'Williams Landing', 'install-13': 'Werribee',
+    '17': 'Ascot Vale', '18': 'Surrey Hills', 'install-21': 'Mill Park', 'install-22': 'Watsonia',
+    '23': 'Epping', '24': 'Black Rock', '29': 'Diggers Rest', '30': 'Balwyn North',
+    '34': 'Junction Village', '36': 'Niddrie', '37': 'Keysborough', '38': 'Deer Park', '39': 'Wollert',
+    '3': 'Clyde North', '41': 'Middle Park', '42': 'Frankston', '43': 'Deanside', '44': 'Williamstown',
+    '45': 'Bundoora', '46': 'Lower Plenty', '47': 'Darley', '48': 'Roxburgh Park', '49': 'Preston',
+    '50': 'Thomastown'
+  };
+  var AREAS = {
+    north: ['23', '45', 'install-21', '49', 'install-22', '50', '39', '46', '48'],
+    west: ['38', '43', 'install-10', '44', 'install-13', '47', '17', '29', '36'],
+    southeast: ['6', '41', '37', '3', '30', '42', '18', '24', '34']
+  };
+  // All = the areas woven together: each set of 3 is one North, one West and
+  // one South East (which one sits in the middle rotates), and nothing repeats
+  // until every photo has shown. Each area's order is shuffled per visit.
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  var keys = Object.keys(AREAS), ALL = [];
+  keys.forEach(function (k) { shuffle(AREAS[k]); });
+  var rounds = Math.max.apply(null, keys.map(function (k) { return AREAS[k].length; }));
+  for (var i = 0; i < rounds; i++) {
+    for (var j = 0; j < keys.length; j++) {
+      var name = AREAS[keys[(i + j) % keys.length]][i];
+      if (name) ALL.push(name);
+    }
+  }
+
+  var src = function (name) { return '/assets/install-photos/' + name + '.jpg'; };
+  var fan = document.getElementById('install-fan');
+  // Centre card takes the first photo of each set, sides the next two.
+  var cards = [fan.querySelector('.fan-c'), fan.querySelector('.fan-l'), fan.querySelector('.fan-r')];
+  var list = ALL, at = 0, timer = null, onScreen = false;
+
+  function show(animate) {
+    cards.forEach(function (card, k) {
+      var name = list[(at + k) % list.length];
+      var swap = function () {
+        card.querySelector('img').src = src(name);
+        card.querySelector('.fan-sub').textContent = SUBURB[name] || '';
+      };
+      if (!animate) return swap();
+      setTimeout(function () {
+        card.classList.add('is-out');
+        setTimeout(function () { swap(); card.classList.remove('is-out'); }, 450);
+      }, k * 110);
+    });
+    for (var k = 0; k < 3; k++) new Image().src = src(list[(at + 3 + k) % list.length]);
+  }
+  function deal() {
+    if (document.hidden || list.length <= 3) return;
+    at = (at + 3) % list.length;
+    show(true);
+  }
+  function start() {
+    clearInterval(timer);
+    timer = onScreen ? setInterval(deal, 3200) : null;
+  }
+  // Only deal while on screen.
+  new IntersectionObserver(function (entries) {
+    onScreen = entries[0].isIntersecting;
+    start();
+  }).observe(fan);
+
+  document.querySelectorAll('.area-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      if (chip.classList.contains('is-active')) return;
+      document.querySelectorAll('.area-chip').forEach(function (c) {
+        c.classList.toggle('is-active', c === chip);
+        c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+      });
+      list = AREAS[chip.dataset.area] || ALL;
+      at = 0;
+      show(true);
+      start();
+    });
+  });
+  show(false);
+})();
+</script>
 
 <!-- ══════════════════════════════════════════════════════
      FINAL CTA — keeping this page simple, no benefits/FAQ/
