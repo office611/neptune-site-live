@@ -398,6 +398,37 @@
   <div class="hero-photo-upper">
     <div class="container hero-photo-content fade-in-up">
       <h1>The Water Your Whole <span class="hero-accent">Family Deserves</span>.</h1>
+      <script>
+      /* Message match: swap the headline to the angle of the ad they clicked.
+         Reads the ad name Meta passes in utm_content (or ?a=angle to force one);
+         anything unrecognised keeps the default headline above. First match wins,
+         so the more specific angles come first. */
+      (function () {
+        var p = new URLSearchParams(location.search);
+        var key = ((p.get('a') || '') + ' ' + (p.get('utm_content') || '')).toLowerCase();
+        if (!key.trim()) return;
+        var A = function (t) { return '<span class="hero-accent">' + t + '</span>'; };
+        var angles = [
+          [/soft|realisation|realization/, 'Gentler Water For ' + A('Every Shower') + ' In Your Home.'],
+          [/hair|scalp/, 'Gentler Water For Your ' + A('Hair &amp; Scalp') + '.'],
+          [/eczema|skin/, 'Gentler Water For ' + A('Every Shower') + ' In Your Home.'],
+          [/smell|taste|chlorine|test/, 'Get That ' + A('Weird Taste &amp; Smell') + ' Out Of Every Tap.'],
+          [/drink|bottle/, 'Drink Straight From ' + A('The Tap') + ' Again.'],
+          [/lime|scale/, 'Fewer Lime Marks. ' + A('Better Water') + ' At Every Tap.'],
+          [/home visit|in home|in-home|appointment|process/, 'Get Your Price ' + A('Without A Home Visit') + '.'],
+          [/plumber|install/, 'Whole-Home Filtration, ' + A('Installed Right') + '.'],
+          [/discount|pricing|price/, A('Fair Pricing') + ', No Pressure.'],
+          [/service|sales/, 'Straight Answers, ' + A('No Sales Pitch') + '.']
+        ];
+        for (var i = 0; i < angles.length; i++) {
+          if (angles[i][0].test(key)) {
+            var h = document.currentScript.previousElementSibling;
+            if (h && h.tagName === 'H1') h.innerHTML = angles[i][1];
+            return;
+          }
+        }
+      })();
+      </script>
       <p class="hero-sub">Whole-home filtration, backed by real customers — not just our word for it.</p>
     </div>
 
