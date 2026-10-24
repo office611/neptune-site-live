@@ -6,6 +6,8 @@
 /replacement-filters /replacement-filters/ 301
 /experts /experts/ 301
 /experts/thank-you /experts/thank-you/ 301
+/terms /terms/ 301
+/privacy /privacy/ 301
 
 # Old /assessment URL — preserve any existing links, bookmarks or live ad traffic
 /assessment/thank-you /experts/thank-you/ 301
