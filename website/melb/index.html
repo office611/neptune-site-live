@@ -409,16 +409,17 @@
         if (!key.trim()) return;
         var A = function (t) { return '<span class="hero-accent">' + t + '</span>'; };
         var angles = [
-          [/soft|realisation|realization/, 'Gentler Water For ' + A('Every Shower') + ' In Your Home.'],
-          [/hair|scalp/, 'Gentler Water For Your ' + A('Hair &amp; Scalp') + '.'],
-          [/eczema|skin/, 'Gentler Water For ' + A('Every Shower') + ' In Your Home.'],
-          [/smell|taste|chlorine|test/, 'Get That ' + A('Weird Taste &amp; Smell') + ' Out Of Every Tap.'],
-          [/drink|bottle/, 'Drink Straight From ' + A('The Tap') + ' Again.'],
+          [/soft|realisation|realization/, A('Feel The Difference') + ' In Every Shower.'],
+          [/hair|scalp/, A('Feel The Difference') + ' In Your ' + A('Hair &amp; Scalp') + '.'],
+          [/eczema|skin/, A('Feel The Difference') + ' In Every Shower.'],
+          [/smell|taste|chlorine|test/, A('Love The Taste') + ' Of Your Tap Water Again.'],
+          [/drink|bottle/, A('Drink Straight From The Tap') + ' Again, With Confidence.'],
           [/lime|scale/, 'Fewer Lime Marks. ' + A('Better Water') + ' At Every Tap.'],
-          [/home visit|in home|in-home|appointment|process/, 'Get Your Price ' + A('Without A Home Visit') + '.'],
-          [/plumber|install/, 'Whole-Home Filtration, ' + A('Installed Right') + '.'],
-          [/discount|pricing|price/, A('Fair Pricing') + ', No Pressure.'],
-          [/service|sales/, 'Straight Answers, ' + A('No Sales Pitch') + '.']
+          [/home visit|in home|in-home|appointment|process/, A('Relax.') + ' Get Your Price ' + A('Without A Home Visit') + '.'],
+          [/plumber|install/, A('Relax') + ' While Licensed Plumbers ' + A('Install It Right') + '.'],
+          [/discount|pricing|price/, A('Feel Confident') + ' With ' + A('Clear Pricing') + '.'],
+          [/service|sales/, 'Straight Answers, ' + A('No Sales Pitch') + '.'],
+          [/melbourne/, A('Better Water') + ' For Your ' + A('Melbourne Home') + '.']
         ];
         for (var i = 0; i < angles.length; i++) {
           if (angles[i][0].test(key)) {
