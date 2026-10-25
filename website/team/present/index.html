@@ -130,9 +130,9 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .specs .ck { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--blue-d); color: #fff; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
 .specs .ck svg { width: 12px; height: 12px; }
 .ph3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; height: min(60vh, 460px); }
-.ph3 figure, .steps4 figure { margin: 0; position: relative; border-radius: 14px; overflow: hidden; background: #dfe6ee; }
-.ph3 img, .steps4 img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.ph3 figcaption, .steps4 figcaption { position: absolute; left: 8px; bottom: 8px; background: rgba(5,19,31,.85); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; }
+.ph3 figure { margin: 0; position: relative; border-radius: 14px; overflow: hidden; background: #dfe6ee; }
+.ph3 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph3 figcaption { position: absolute; left: 8px; bottom: 8px; background: rgba(5,19,31,.85); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; }
 
 /* how it works */
 .flow { display: flex; align-items: center; gap: 2vw; flex-wrap: wrap; margin-top: 2vh; }
@@ -219,23 +219,12 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .fcx.hl .s { color: rgba(255,255,255,.8); }
 .fc-note { margin: 3.6vh 0 0; font-size: clamp(15px, 1.5vw, 19px); line-height: 1.5; color: var(--soft); max-width: 980px; }
 
-/* install */
-.steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; height: min(37vh, 300px); }
-@media (max-width: 860px) { .steps4 { grid-template-columns: repeat(2, 1fr); height: auto; } .steps4 figure { aspect-ratio: 3 / 4; } }
-.steps4 figcaption b { display: inline-flex; width: 18px; height: 18px; border-radius: 50%; background: var(--blue); color: var(--navy); align-items: center; justify-content: center; font-size: 11px; margin-right: 6px; }
-.facts { list-style: none; padding: 0; margin: 2.6vh 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4vh 2vw; }
-@media (max-width: 860px) { .facts { grid-template-columns: 1fr; } }
-.facts li { font-size: clamp(14px, 1.3vw, 17px); color: var(--soft); line-height: 1.35; }
-.facts b { display: block; color: var(--blue-d); font-size: 1.15em; }
-.fine { margin: 2vh 0 0; font-size: clamp(12px, 1.05vw, 14px); color: var(--soft); }
-
 /* peace of mind */
-.badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4vw; }
+.badges { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2vw; }
 @media (max-width: 860px) { .badges { grid-template-columns: repeat(2, 1fr); } }
-.bd { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 4vh 1.4vw; text-align: center; }
-.bd .big { font-size: clamp(34px, 4vw, 58px); font-weight: 800; color: var(--blue); line-height: 1; }
+.bd { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 5vh 1.1vw; text-align: center; }
+.bd .big { white-space: nowrap; font-size: clamp(26px, 3vw, 44px); font-weight: 800; color: var(--blue); line-height: 1; }
 .bd .t { font-size: clamp(15px, 1.5vw, 20px); font-weight: 700; margin-top: 1.4vh; }
-.bd .s { font-size: clamp(12px, 1.1vw, 15px); color: rgba(255,255,255,.7); margin-top: 6px; line-height: 1.4; }
 
 /* calculators */
 .calc { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: center; }
@@ -487,36 +476,16 @@ body.on-light .nav { color: var(--ink); }
   <p class="fc-note">Delivered to your door with GST included, and always our latest version. Swap them yourself with our video. Any pink on the test tablet, or a drop in pressure, means it's time.</p>
 </section>
 
-<!-- 7. Install day -->
-<section class="slide light">
-  <div class="eyebrow">Install day</div>
-  <h2>In and out in <span class="accent">a few hours</span></h2>
-  <div class="steps4">
-    <figure><img src="/assets/present/install-1.jpg" alt=""><figcaption><b>1</b>Arrives</figcaption></figure>
-    <figure><img src="/assets/present/install-2.jpg" alt=""><figcaption><b>2</b>Fitted at the meter</figcaption></figure>
-    <figure><img src="/assets/present/install-3.jpg" alt=""><figcaption><b>3</b>Filters in</figcaption></figure>
-    <figure><img src="/assets/present/install-4.jpg" alt=""><figcaption><b>4</b>Done and tested</figcaption></figure>
-  </div>
-  <ul class="facts">
-    <li><b>2–3 hours</b>and it's done</li>
-    <li><b>1–2 weeks</b>from booking to your install</li>
-    <li><b>Your photos</b>reviewed by our plumbers before they arrive</li>
-    <li><b>Licensed plumbers</b>our own dedicated crew, on every job</li>
-    <li><b>Final spot</b>confirmed with you on the day</li>
-    <li><b>Tested</b>your water, in front of you</li>
-  </ul>
-  <p class="fine">Standard install is at your water meter. Anything outside a standard install costs extra.</p>
-</section>
-
-<!-- 8. Peace of mind: guarantees, no photos -->
+<!-- 7. Install & peace of mind: one page, no photos -->
 <section class="slide">
-  <div class="eyebrow">Peace of mind</div>
-  <h2>Backed by us, <span class="accent">in writing</span></h2>
+  <div class="eyebrow">Install &amp; peace of mind</div>
+  <h2>Done right, <span class="accent">backed by us</span></h2>
   <div class="badges">
-    <div class="bd"><div class="big">7 yrs</div><div class="t">Plumbing workmanship warranty</div><div class="s">backed by our own plumbing team</div></div>
-    <div class="bd"><div class="big">30 days</div><div class="t">Money-back guarantee</div><div class="s">any pink in your water in the first 30 days, you get your money back</div></div>
-    <div class="bd"><div class="big">1 yr</div><div class="t">Product warranty</div><div class="s">on the system</div></div>
-    <div class="bd"><div class="big">&#10003;</div><div class="t">WaterMark certified</div><div class="s">compliance backed</div></div>
+    <div class="bd"><div class="big">7 yrs</div><div class="t">Workmanship warranty from our dedicated plumbing team</div></div>
+    <div class="bd"><div class="big">30 days</div><div class="t">Money-back guarantee</div></div>
+    <div class="bd"><div class="big">5 days</div><div class="t">Average from booking to install</div></div>
+    <div class="bd"><div class="big">2–3 hrs</div><div class="t">On the day, and it's done</div></div>
+    <div class="bd"><div class="big">&#10003;</div><div class="t">WaterMark certified</div></div>
   </div>
 </section>
 
@@ -571,7 +540,7 @@ body.on-light .nav { color: var(--ink); }
   <div class="steps">
     <div class="st"><b>Lock in your date</b><span>We confirm everything with you today.</span></div>
     <div class="st"><b>We book you in</b><span>Our install team calls you within 1–4 business days.</span></div>
-    <div class="st"><b>Install day</b><span>2–3 hours, tested in front of you.</span></div>
+    <div class="st"><b>Install day</b><span>2–3 hours, and it's done.</span></div>
   </div>
 </section>
 
