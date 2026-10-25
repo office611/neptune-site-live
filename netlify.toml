@@ -4,8 +4,8 @@
 
 [[redirects]]
   from = "/"
-  to = "/melb/"
-  status = 302
+  to = "/melb/index.html"
+  status = 200
   force = true
 
 [[redirects]]

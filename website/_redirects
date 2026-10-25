@@ -1,5 +1,5 @@
-# Root → home
-/ /melb/ 302!
+# Root → serve the /melb page at / (official homepage; URL stays /)
+/ /melb/index.html 200!
 
 # Trailing-slash enforcement
 /home /home/ 301
