@@ -77,18 +77,38 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .taps span.hot { background: var(--blue); color: var(--navy); }
 
 /* filters */
-.filters { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6vw; }
-@media (max-width: 860px) { .filters { grid-template-columns: 1fr; } }
-.fcard { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 3vh 1.8vw; color: var(--ink); display: flex; flex-direction: column; }
-.fcard.hl { border: 2px solid var(--blue-d); box-shadow: 0 12px 30px rgba(46,123,196,.18); }
-.fcard.dim { opacity: .55; }
-.fcard .badge { position: absolute; top: -12px; right: 16px; background: var(--blue-d); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .06em; padding: 4px 10px; border-radius: 999px; display: none; }
-.fcard.hl .badge { display: block; }
-.fcard .num { font-size: 12px; font-weight: 800; letter-spacing: .14em; color: var(--blue-d); }
-.fcard .nm { font-size: clamp(22px, 2.4vw, 32px); font-weight: 800; margin: 4px 0 2px; }
-.fcard .mat { font-size: clamp(13px, 1.15vw, 15px); font-weight: 600; color: var(--soft); margin-bottom: 1.4vh; }
-.fcard p { margin: 0; font-size: clamp(14px, 1.25vw, 16px); line-height: 1.55; }
-.fcard .you { margin-top: auto; padding-top: 1.6vh; font-size: clamp(14px, 1.3vw, 17px); font-weight: 700; color: var(--blue-d); }
+/* 5-stage diagram: water runs left to right through the 3 filters */
+.sys { position: relative; display: flex; align-items: stretch; gap: 1.2vw; margin-top: 2vh; }
+.sys::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 8px; margin-top: -4px; border-radius: 4px; background: repeating-linear-gradient(90deg, #a9d0f5 0 14px, var(--blue) 14px 28px); animation: flow 1.2s linear infinite; }
+@keyframes flow { from { background-position: 0 0; } to { background-position: 28px 0; } }
+@media (prefers-reduced-motion: reduce) { .sys::before { animation: none; } }
+.end { position: relative; align-self: center; flex: 0 0 84px; text-align: center; background: var(--navy); color: #fff; border-radius: 14px; padding: 12px 6px; font-size: 13px; font-weight: 700; line-height: 1.25; }
+.end small { display: block; font-weight: 500; font-size: 11px; opacity: .7; }
+.hs { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 2.6vh 1.1vw 1.8vh; display: flex; flex-direction: column; gap: 1.4vh; color: var(--ink); transition: border-color .3s, box-shadow .3s; }
+.hs[data-f="guard"] { flex: 1; }
+.hs[data-f="disruptor"], .hs[data-f="extractor"] { flex: 2; }
+.hs.hl { border: 2px solid var(--blue-d); box-shadow: 0 12px 30px rgba(46,123,196,.18); }
+.hs .nm { font-size: clamp(19px, 2.2vw, 30px); font-weight: 800; line-height: 1.1; }
+.hs .mat { font-size: clamp(11px, 1.05vw, 14px); font-weight: 600; color: var(--soft); margin-top: 3px; line-height: 1.35; }
+.hs .mat b { color: var(--blue-d); }
+.hs .mat .mic { white-space: nowrap; }
+.stgs { display: flex; gap: .7vw; flex: 1; }
+.stg { flex: 1; border-radius: 12px; background: #EEF4FB; padding: 3vh .9vw; display: flex; flex-direction: column; gap: 3px; transition: background .3s, color .3s, opacity .3s; }
+.stg .n { font-size: 11px; font-weight: 800; letter-spacing: .12em; color: var(--blue-d); }
+.stg b { font-size: clamp(16px, 1.75vw, 24px); line-height: 1.15; }
+.stg small { font-size: clamp(11px, 1.05vw, 14px); color: var(--soft); line-height: 1.35; }
+.stg.hl { background: var(--blue-d); color: #fff; }
+.stg.hl .n, .stg.hl small { color: rgba(255,255,255,.85); }
+.sys.focus .stg:not(.hl) { opacity: .45; }
+.foryou { margin: 4vh 0 0; font-size: clamp(16px, 1.7vw, 22px); font-weight: 600; color: var(--ink); max-width: 1050px; }
+.foryou b { color: var(--blue-d); }
+.upgrade { margin-top: 2vh; display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 10px 18px; font-size: clamp(13px, 1.25vw, 16px); font-weight: 600; color: var(--ink); }
+.upgrade svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--blue-d); }
+@media (max-width: 860px) {
+  .sys { flex-direction: column; }
+  .sys::before { left: 50%; right: auto; top: 0; bottom: 0; width: 8px; height: auto; margin: 0 0 0 -4px; }
+  .end { flex: 0 0 auto; width: 120px; }
+}
 
 /* proof */
 .people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4vw; }
@@ -236,18 +256,36 @@ body.on-light .nav { color: var(--ink); }
   <p class="lead" style="margin-top:3vh" data-t="howLine"></p>
 </section>
 
-<!-- 4. Filters -->
+<!-- 4. Filters: the 5 stages -->
 <section class="slide light">
-  <div class="eyebrow">What's inside</div>
-  <h2>What does the work for <span class="accent" data-t="short">your water</span></h2>
-  <div class="filters">
-    <div class="fcard" data-f="guard"><span class="badge">YOUR KEY FILTER</span><div class="num">STAGE 1</div><div class="nm">The Guard</div><div class="mat">Pleated polypropylene · 5 micron</div>
-      <p>Folded over and over to pack in as much surface area as possible. The first thing your water meets, so everything after it stays clean.</p><div class="you" data-you="guard"></div></div>
-    <div class="fcard" data-f="disruptor"><span class="badge">YOUR KEY FILTER</span><div class="num">STAGES 2 + 3</div><div class="nm">The Disruptor</div><div class="mat">Carbon block with polyphosphate crystals · 1 micron</div>
-      <p>A dense carbon block infused with polyphosphate crystals that stop hard minerals turning into scale, without taking the minerals out of your water.</p><div class="you" data-you="disruptor"></div></div>
-    <div class="fcard" data-f="extractor"><span class="badge">YOUR KEY FILTER</span><div class="num">STAGE 4</div><div class="nm">The Extractor</div><div class="mat">Coconut shell activated carbon · 1 micron</div>
-      <p>Coconut shells, charred at high heat, then activated with steam to open up millions of microscopic pores. One gram holds over 1,000 m² of surface, nearly four tennis courts. Not the coal-based carbon cheaper filters use.</p><div class="you" data-you="extractor"></div></div>
+  <div class="eyebrow">5-stage whole-home filtration</div>
+  <h2>5 stages, all working for <span class="accent" data-t="short">your water</span></h2>
+  <div class="sys" id="sys">
+    <div class="end">Water main<small>street supply</small></div>
+    <div class="hs" data-f="guard">
+      <div><div class="nm">The Guard</div><div class="mat">Pleated polypropylene <span class="mic">· 5 micron</span></div></div>
+      <div class="stgs">
+        <div class="stg" data-s="1"><span class="n">STAGE 1</span><b>Sediment</b><small>Sand, rust &amp; grit</small></div>
+      </div>
+    </div>
+    <div class="hs" data-f="disruptor">
+      <div><div class="nm">The Disruptor</div><div class="mat">Carbon block with polyphosphate crystals <span class="mic">· 1 micron</span></div></div>
+      <div class="stgs">
+        <div class="stg" data-s="2"><span class="n">STAGE 2</span><b>Limescale</b><small>Stops hard minerals forming scale</small></div>
+        <div class="stg" data-s="3"><span class="n">STAGE 3</span><b>Chlorine</b><small>Added to treat the water</small></div>
+      </div>
+    </div>
+    <div class="hs" data-f="extractor">
+      <div><div class="nm">The Extractor</div><div class="mat"><b>Activated</b> coconut shell carbon <span class="mic">· 1 micron</span></div></div>
+      <div class="stgs">
+        <div class="stg" data-s="4"><span class="n">STAGE 4</span><b>Chloramine</b><small>The longer-lasting treatment chemical</small></div>
+        <div class="stg" data-s="5"><span class="n">STAGE 5</span><b>Heavy metals</b><small>Picked up from older pipes</small></div>
+      </div>
+    </div>
+    <div class="end">Your home<small>every tap</small></div>
   </div>
+  <p class="foryou"><b>For you:</b> <span data-t="stageLine"></span></p>
+  <div class="upgrade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><polyline points="21 3 21 9 15 9"/></svg>When our filters get better, yours do too. Every yearly change brings you our latest.</div>
 </section>
 
 <!-- 5. People like you -->
@@ -264,7 +302,7 @@ body.on-light .nav { color: var(--ink); }
   <div class="plan">
     <div class="pcard"><div class="ic">1</div><div><b>Installed at your water meter</b><span data-t="planMeter"></span></div></div>
     <div class="pcard"><div class="ic">2</div><div><b data-t="planFilterTitle"></b><span data-t="planFilter"></span></div></div>
-    <div class="pcard"><div class="ic">3</div><div><b>Fresh filters every 12 months</b><span>Delivered to your door. The test tablet shows you when it's time.</span></div></div>
+    <div class="pcard"><div class="ic">3</div><div><b>Fresh filters every 12 months</b><span>Delivered to your door, always our latest version. The test tablet shows you when it's time.</span></div></div>
     <div class="pcard"><div class="ic">4</div><div><b>Your appliances, protected too</b><span>Hot water system, washing machine, dishwasher and kettle all run on filtered water.</span></div></div>
     <div class="pcard wide" id="p-photo-card"><div class="ic">✓</div><div><b>From your photos</b><span id="p-photo"></span></div></div>
   </div>
@@ -397,49 +435,48 @@ body.on-light .nav { color: var(--ink); }
   var C = {
     skin: { title: 'Comfortable Skin', short: 'your skin', costLead: 'What dry, itchy skin is',
       howLine: 'Every shower and bath in your home runs on filtered water, so your skin meets it in every wash.',
-      hot: ['Every shower', 'Bath'], key: ['extractor'],
-      you: { guard: 'Catches grit and rust before it reaches your shower heads.', disruptor: 'Keeps scale off your shower screens and out of your hot water system.', extractor: 'Takes out the chemicals used to treat the water, before your skin meets them in the shower.' },
+      hot: ['Every shower', 'Bath'], stages: [3, 4],
+      stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine before your skin meets them in the shower.',
       people: ['cecilio', 'jan-peter', 'june', 'girish'], proofTitle: 'People who had <span class="accent">the same problem</span>',
-      planFilter: 'The Extractor does the heavy lifting for your skin, in every shower and bath.',
+      planFilter: 'The Disruptor and Extractor reduce chlorine and chloramine in every shower and bath.',
       costs: ['care', 'jugs', 'bottled', 'clean'], feel: 'comfortable skin in every shower' },
     hair: { title: 'Hair You Love', short: 'your hair &amp; scalp', costLead: 'What hair &amp; scalp trouble is',
       howLine: 'Every shower in your home runs on filtered water, so your hair and scalp get it with every wash.',
-      hot: ['Every shower'], key: ['extractor'],
-      you: { guard: 'Catches grit and rust before it reaches your shower heads.', disruptor: 'Keeps scale off your shower screens and out of your hot water system.', extractor: 'Takes out the chemicals used to treat the water, before every wash.' },
+      hot: ['Every shower'], stages: [3, 4],
+      stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine your hair and scalp get with every wash.',
       people: ['nishanth', 'lech', 'june', 'jan-peter'], proofTitle: 'People who had <span class="accent">the same problem</span>',
-      planFilter: 'The Extractor does the heavy lifting for your hair and scalp, with every wash.',
+      planFilter: 'The Disruptor and Extractor reduce chlorine and chloramine, with every wash.',
       costs: ['care', 'jugs', 'bottled', 'clean'], feel: 'hair you love, every wash' },
     taste: { title: 'Water That Tastes Great', short: 'better-tasting water', costLead: 'What that taste &amp; smell is',
       howLine: 'Every tap in your home runs on filtered water. No more weird taste in your glass, or smell in the shower.',
-      hot: ['Kitchen tap', 'Every shower'], key: ['extractor'],
-      you: { guard: 'Catches sediment so your water runs crystal clear.', disruptor: 'Keeps your kettle and coffee machine free of scale.', extractor: 'This is where the weird taste and smell get taken out, before any tap.' },
+      hot: ['Kitchen tap', 'Every shower'], stages: [3, 4],
+      stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine, where that weird taste and smell comes from.',
       people: ['jim', 'marcus', 'lech', 'girish'], proofTitle: 'People who noticed <span class="accent">the difference straight away</span>',
-      planFilter: 'The Extractor does the heavy lifting on taste and smell, at every tap.',
+      planFilter: 'The Disruptor and Extractor reduce the chlorine and chloramine, at every tap.',
       costs: ['bottled', 'jugs', 'care', 'clean'], feel: 'water that tastes great from every tap' },
-    drinking: { title: 'Drinking Straight From The Tap', short: 'drinking from the tap', costLead: 'What bottled water is',
+    drinking: { title: 'Drinking Straight From The Tap', short: 'every glass you pour', costLead: 'What bottled water is',
       howLine: 'Every tap becomes a drinking tap. Fill your bottle straight from the kitchen, or the garden.',
-      hot: ['Kitchen tap', 'Garden'], key: ['extractor', 'guard'],
-      you: { guard: 'Catches the rust and grit from the main, so every glass is clear.', disruptor: 'Keeps your kettle and coffee machine free of scale.', extractor: 'The stage that makes your kitchen tap the drinking tap again.' },
+      hot: ['Kitchen tap', 'Garden'], stages: [3, 4, 5],
+      stageLine: 'Stages 3, 4 and 5 reduce chlorine, chloramine and heavy metals, so every tap is a drinking tap.',
       people: ['marcus', 'jim', 'june', 'girish'], proofTitle: 'People who <span class="accent">drink straight from the tap</span> now',
-      planFilter: 'The Extractor and Guard do the heavy lifting, so every tap is a drinking tap.',
+      planFilter: 'Chlorine, chloramine and heavy metals reduced at the meter, so every tap is a drinking tap.',
       costs: ['bottled', 'jugs', 'care', 'clean'], feel: 'drinking straight from every tap' },
     scale: { title: 'Sparkling Taps &amp; Glass', short: 'sparkling taps &amp; glass', costLead: 'What limescale is',
       howLine: 'Every tap, shower screen and appliance runs on filtered water, so scale has nothing to build from.',
-      hot: ['Every shower', 'Hot water system', 'Washing machine', 'Dishwasher'], key: ['disruptor'],
-      you: { guard: 'Catches sediment before it reaches your appliances.', disruptor: 'This is the one for you. It stops scale forming on shower screens, taps, the kettle and the hot water system.', extractor: 'Takes out the chemicals used to treat the water, at every tap.' },
+      hot: ['Every shower', 'Hot water system', 'Washing machine', 'Dishwasher'], stages: [2],
+      stageLine: 'Stage 2 stops hard minerals turning into scale on your screens, taps, kettle and hot water system.',
       people: ['girish', 'jim', 'marcus', 'june'], proofTitle: 'People just like you, <span class="accent">in their own words</span>',
-      planFilter: 'The Disruptor does the heavy lifting on scale, across every tap, screen and appliance.',
+      planFilter: 'The Disruptor’s polyphosphate crystals stop scale forming across every tap, screen and appliance.',
       costs: ['clean', 'jugs', 'bottled', 'care'], feel: 'sparkling taps and glass' },
     family: { title: 'Better Water At Every Tap', short: 'your whole family', costLead: 'What it&rsquo;s',
       howLine: 'One system, every tap and shower. No jugs, no shower heads, no thinking about it again.',
-      hot: [], key: ['guard', 'disruptor', 'extractor'],
-      you: { guard: 'The first line: catches grit, rust and sand from the main.', disruptor: 'Stops scale on your taps, screens and appliances.', extractor: 'Takes out the chemicals used to treat the water, at every tap.' },
+      hot: [], stages: [1, 2, 3, 4, 5],
+      stageLine: 'From the grit in the main to the chlorine in the shower, every stage works for your whole family.',
       people: ['cecilio', 'nishanth', 'jim', 'girish'], proofTitle: 'People just like you, <span class="accent">in their own words</span>',
-      planFilter: 'All three filters working together, for every tap and shower your family uses.',
+      planFilter: 'All 5 stages working together, for every tap and shower your family uses.',
       costs: ['bottled', 'jugs', 'care', 'clean'], feel: 'better water for your whole family' }
   };
   var TAPS = ['Kitchen tap', 'Every shower', 'Bath', 'Bathroom basins', 'Washing machine', 'Dishwasher', 'Hot water system', 'Garden'];
-  var NAMES = { guard: 'The Guard', disruptor: 'The Disruptor', extractor: 'The Extractor' };
 
   var $ = function (id) { return document.getElementById(id); };
   var all = function (sel) { return [].slice.call(document.querySelectorAll(sel)); };
@@ -476,18 +513,16 @@ body.on-light .nav { color: var(--ink); }
     // taps, theirs first and highlighted
     var taps = c.hot.concat(TAPS.filter(function (t) { return c.hot.indexOf(t) < 0; }));
     $('taps').innerHTML = taps.map(function (t) { return '<span class="' + (c.hot.indexOf(t) >= 0 ? 'hot' : '') + '">' + t + '</span>'; }).join('');
-    // filters
-    all('.fcard').forEach(function (f) {
-      var k = f.dataset.f, isKey = c.key.indexOf(k) >= 0, allKey = c.key.length === 3;
-      f.classList.toggle('hl', isKey && !allKey);
-      f.classList.toggle('dim', !isKey);
-      f.querySelector('[data-you]').textContent = 'For you: ' + c.you[k];
-    });
+    // the 5 stages: theirs lit up, the rest dimmed (all lit for "family")
+    var allStages = c.stages.length === 5;
+    $('sys').classList.toggle('focus', !allStages);
+    all('.stg').forEach(function (el) { el.classList.toggle('hl', c.stages.indexOf(+el.dataset.s) >= 0); });
+    all('.hs').forEach(function (h) { h.classList.toggle('hl', !allStages && !!h.querySelector('.stg.hl')); });
     // proof
     $('people').innerHTML = c.people.map(function (p) { return '<div class="person"><img src="/assets/videos/testimonials/' + p + '-poster.jpg" alt=""><div class="q">“' + esc(Q[p][0]) + '”<i>' + esc(Q[p][1]) + '</i></div></div>'; }).join('');
     // tailored set-up
     all('[data-t="planMeter"]').forEach(function (el) { el.textContent = 'So every ' + (state.concern === 'drinking' || state.concern === 'taste' ? 'tap' : 'shower and tap') + ' in your ' + (suburb ? suburb + ' ' : '') + 'home is covered.'; });
-    all('[data-t="planFilterTitle"]').forEach(function (el) { el.textContent = c.key.length === 3 ? 'All three filters, working together' : 'Your key filter' + (c.key.length > 1 ? 's' : '') + ': ' + c.key.map(function (k) { return NAMES[k]; }).join(' + '); });
+    all('[data-t="planFilterTitle"]').forEach(function (el) { el.textContent = allStages ? 'All 5 stages, working together' : 'Your key stage' + (c.stages.length > 1 ? 's' : '') + ': ' + c.stages.join(' + '); });
     var photo = $('s-photo').value.trim();
     $('p-photo-card').style.display = photo ? '' : 'none';
     $('p-photo').textContent = photo;
