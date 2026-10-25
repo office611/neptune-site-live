@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your Whole-Home Water Plan | Neptune Filtration</title>
+<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+/* Screenshare deck for the Zoom call. One slide on screen at a time:
+   arrow keys / space / the buttons move between them. Price stays
+   hidden until "Show price" is clicked on its slide. Personalise with
+   ?name=Sarah&suburb=Point%20Cook&people=4 or by clicking the text. */
+:root { --navy: #0B1E3D; --navy-2: #13233f; --blue: #4DA6FF; --ink: #0B1E3D; --soft: #4B5A70; --line: #E2E7EE; --paper: #F6F8FA; --green: #2A8A50; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--navy); color: #fff; font-family: 'Poppins', system-ui, sans-serif; overflow: hidden; -webkit-text-size-adjust: 100%; }
+.deck { height: 100%; position: relative; }
+.slide { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 6vh 7vw 12vh; opacity: 0; pointer-events: none; transition: opacity .35s ease; overflow-y: auto; }
+.slide.on { opacity: 1; pointer-events: auto; }
+.slide.light { background: var(--paper); color: var(--ink); }
+.eyebrow { font-size: clamp(12px, 1.3vw, 15px); font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.2vh; }
+.light .eyebrow { color: #2E7BC4; }
+h1 { font-size: clamp(30px, 5vw, 64px); font-weight: 800; line-height: 1.08; margin: 0 0 2vh; letter-spacing: -0.02em; }
+h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; margin: 0 0 3vh; letter-spacing: -0.015em; }
+.accent { color: var(--blue); }
+.light .accent { color: #2E7BC4; }
+.lead { font-size: clamp(16px, 1.7vw, 22px); color: rgba(255,255,255,.82); max-width: 900px; margin: 0; }
+.light .lead { color: var(--soft); }
+[contenteditable] { outline: none; border-radius: 6px; }
+[contenteditable]:focus { box-shadow: 0 0 0 2px rgba(77,166,255,.25); }
+[contenteditable]:empty::before { content: attr(data-ph); color: rgba(127,140,160,.6); }
+.logo { height: clamp(26px, 3vw, 38px); width: auto; align-self: flex-start; margin-bottom: 5vh; }
+
+/* cover */
+.cover { background: linear-gradient(90deg, rgba(7,15,30,.92) 0%, rgba(7,15,30,.72) 55%, rgba(7,15,30,.35) 100%), url(/assets/install-photos/book-bg.jpg) center / cover; }
+.cover .meta { margin-top: 3vh; font-size: clamp(15px, 1.5vw, 20px); color: rgba(255,255,255,.8); }
+
+/* told us */
+.goals { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.6vh; max-width: 1000px; }
+.goals li { display: flex; gap: 16px; align-items: flex-start; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 2vh 22px; font-size: clamp(17px, 1.9vw, 26px); font-weight: 600; color: var(--ink); }
+.goals .chk { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: #2E7BC4; color: #fff; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.goals .chk svg { width: 18px; height: 18px; }
+.goals [contenteditable] { flex: 1; min-height: 1.3em; }
+
+/* how it works */
+.flow { display: flex; align-items: center; gap: 2vw; flex-wrap: wrap; margin-top: 2vh; }
+.flow .box { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; padding: 2.6vh 2vw; text-align: center; min-width: 150px; flex: 1; }
+.flow .box b { display: block; font-size: clamp(16px, 1.7vw, 22px); margin-bottom: 4px; }
+.flow .box span { font-size: clamp(13px, 1.2vw, 16px); color: rgba(255,255,255,.7); }
+.flow .box.hl { background: var(--blue); border-color: var(--blue); color: var(--navy); }
+.flow .box.hl span { color: rgba(11,30,61,.75); }
+.flow .arr { font-size: 28px; color: var(--blue); }
+.taps { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 3vh; }
+.taps span { background: rgba(77,166,255,.14); color: #cfe6ff; border-radius: 999px; padding: 8px 16px; font-size: clamp(13px, 1.3vw, 17px); font-weight: 600; }
+
+/* filters */
+.filters { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6vw; }
+@media (max-width: 860px) { .filters { grid-template-columns: 1fr; } }
+.fcard { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 3vh 1.8vw; color: var(--ink); }
+.fcard .num { font-size: 12px; font-weight: 800; letter-spacing: .14em; color: #2E7BC4; }
+.fcard .nm { font-size: clamp(22px, 2.4vw, 32px); font-weight: 800; margin: 4px 0 2px; }
+.fcard .mat { font-size: clamp(13px, 1.15vw, 15px); font-weight: 600; color: var(--soft); margin-bottom: 1.4vh; }
+.fcard p { margin: 0; font-size: clamp(14px, 1.3vw, 17px); line-height: 1.55; color: var(--ink); }
+
+/* proof */
+.people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4vw; }
+@media (max-width: 860px) { .people { grid-template-columns: repeat(2, 1fr); } }
+.person { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 3 / 4; background: #0b1e3d; }
+.person img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.person .q { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 14px 14px; background: linear-gradient(180deg, transparent, rgba(5,19,31,.9) 45%); font-size: clamp(13px, 1.25vw, 17px); font-weight: 700; line-height: 1.3; }
+.person .q i { display: block; font-style: normal; font-weight: 500; font-size: .8em; opacity: .8; margin-top: 5px; }
+
+/* install */
+.split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4vw; align-items: center; }
+@media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+.facts { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.6vh; }
+.facts li { display: flex; gap: 14px; align-items: baseline; font-size: clamp(16px, 1.7vw, 22px); }
+.facts b { color: var(--blue); min-width: 3.6em; font-size: 1.15em; }
+.light .facts b { color: #2E7BC4; }
+.photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.photos img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; display: block; }
+
+/* backing */
+.badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4vw; }
+@media (max-width: 860px) { .badges { grid-template-columns: repeat(2, 1fr); } }
+.badge { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 3vh 1.4vw; text-align: center; }
+.badge .big { font-size: clamp(30px, 3.6vw, 52px); font-weight: 800; color: var(--blue); line-height: 1; }
+.badge .t { font-size: clamp(14px, 1.35vw, 18px); font-weight: 600; margin-top: 1.2vh; }
+.badge .s { font-size: clamp(12px, 1.05vw, 14px); color: rgba(255,255,255,.65); margin-top: 4px; }
+
+/* calculators */
+.calc { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: center; }
+@media (max-width: 860px) { .calc { grid-template-columns: 1fr; } }
+.inputs { display: grid; gap: 1.8vh; }
+.inp { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.6vh 18px; }
+.inp label { font-size: clamp(14px, 1.4vw, 18px); font-weight: 600; color: var(--ink); }
+.inp label small { display: block; font-weight: 500; color: var(--soft); font-size: .78em; }
+.inp .field { display: flex; align-items: center; gap: 4px; font-size: clamp(18px, 1.9vw, 26px); font-weight: 800; color: #2E7BC4; }
+.inp input { width: 4.2em; font: inherit; color: inherit; border: 0; border-bottom: 2px dashed #b8cce4; background: transparent; text-align: right; padding: 2px 0; }
+.inp input:focus { outline: none; border-bottom-color: #2E7BC4; }
+.result { background: var(--navy); color: #fff; border-radius: 22px; padding: 4vh 3vw; text-align: center; }
+.result .l { font-size: clamp(14px, 1.4vw, 18px); color: rgba(255,255,255,.75); }
+.result .v { font-size: clamp(44px, 6.5vw, 96px); font-weight: 800; color: var(--blue); line-height: 1.05; margin: 1vh 0; font-variant-numeric: tabular-nums; }
+.result .sub { font-size: clamp(14px, 1.4vw, 19px); color: rgba(255,255,255,.85); }
+
+/* price */
+.price-wrap { text-align: center; }
+.reveal-btn { font: inherit; font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; color: var(--navy); background: var(--blue); border: 0; border-radius: 999px; padding: 16px 34px; cursor: pointer; }
+.price { display: none; }
+.price.shown { display: block; }
+.price .big { font-size: clamp(64px, 11vw, 160px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin: 2vh 0 1vh; }
+.price .big [contenteditable] { display: inline-block; min-width: 2ch; }
+.price .incl { font-size: clamp(16px, 1.7vw, 22px); color: rgba(255,255,255,.8); }
+.perday { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6vw; margin-top: 2vh; }
+@media (max-width: 860px) { .perday { grid-template-columns: 1fr; } }
+.pd { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 3vh 1.6vw; text-align: center; color: var(--ink); }
+.pd .v { font-size: clamp(38px, 5vw, 72px); font-weight: 800; color: #2E7BC4; line-height: 1; font-variant-numeric: tabular-nums; }
+.pd .l { font-size: clamp(14px, 1.35vw, 18px); font-weight: 600; margin-top: 1vh; }
+.pd .s { font-size: clamp(12px, 1.1vw, 15px); color: var(--soft); margin-top: 4px; }
+.compare { margin-top: 3vh; font-size: clamp(16px, 1.7vw, 22px); font-weight: 600; text-align: center; color: var(--ink); }
+.compare b { color: #2E7BC4; }
+
+/* steps */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6vw; counter-reset: s; }
+@media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+.st { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 3vh 1.8vw; counter-increment: s; }
+.st::before { content: counter(s); display: flex; width: 44px; height: 44px; border-radius: 50%; background: var(--blue); color: var(--navy); font-weight: 800; font-size: 20px; align-items: center; justify-content: center; margin-bottom: 1.6vh; }
+.st b { display: block; font-size: clamp(17px, 1.8vw, 24px); margin-bottom: 6px; }
+.st span { font-size: clamp(14px, 1.3vw, 17px); color: rgba(255,255,255,.75); }
+
+/* nav */
+.nav { position: fixed; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; z-index: 5; pointer-events: none; }
+.nav button { pointer-events: auto; font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 999px; padding: 10px 18px; cursor: pointer; background: rgba(127,140,160,.18); color: inherit; }
+.nav .dots { display: flex; gap: 7px; pointer-events: auto; }
+.nav .dots i { width: 8px; height: 8px; border-radius: 50%; background: rgba(127,140,160,.45); cursor: pointer; }
+.nav .dots i.on { background: var(--blue); width: 22px; border-radius: 6px; }
+body.on-light .nav { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- 1. Cover -->
+  <section class="slide cover on">
+    <img class="logo" src="/assets/logos/Neptune_Logo_White.png" alt="Neptune Filtration">
+    <div class="eyebrow">Your whole-home water plan</div>
+    <h1><span contenteditable="true" spellcheck="false" id="nm" data-ph="Your">Your</span> <span class="accent">Better Water</span> Plan</h1>
+    <p class="meta">Prepared for your home in <span contenteditable="true" spellcheck="false" id="sb" data-ph="Melbourne">Melbourne</span></p>
+  </section>
+
+  <!-- 2. What you told us -->
+  <section class="slide light">
+    <div class="eyebrow">What you told us</div>
+    <h2>What we're <span class="accent">solving for you</span></h2>
+    <ul class="goals">
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span contenteditable="true" spellcheck="false" data-ph="Click and type what they said…"></span></li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span contenteditable="true" spellcheck="false" data-ph="Click and type what they said…"></span></li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span contenteditable="true" spellcheck="false" data-ph="Click and type what they said…"></span></li>
+    </ul>
+  </section>
+
+  <!-- 3. How it works -->
+  <section class="slide">
+    <div class="eyebrow">How it works</div>
+    <h2>Filtered <span class="accent">before it reaches your home</span></h2>
+    <div class="flow">
+      <div class="box"><b>Water main</b><span>Your street supply</span></div>
+      <div class="arr">→</div>
+      <div class="box hl"><b>Neptune system</b><span>At your water meter</span></div>
+      <div class="arr">→</div>
+      <div class="box"><b>Your whole home</b><span>Every tap, every shower</span></div>
+    </div>
+    <div class="taps"><span>Kitchen tap</span><span>Every shower</span><span>Bathroom basins</span><span>Washing machine</span><span>Dishwasher</span><span>Hot water system</span><span>Garden</span></div>
+    <p class="lead" style="margin-top:3vh">No jugs, no shower heads, no changing ten filters around the house. One system, and you never think about it again.</p>
+  </section>
+
+  <!-- 4. Filters -->
+  <section class="slide light">
+    <div class="eyebrow">What's inside</div>
+    <h2>3 filters. <span class="accent">4 stages.</span> Made properly.</h2>
+    <div class="filters">
+      <div class="fcard"><div class="num">STAGE 1</div><div class="nm">The Guard</div><div class="mat">Pleated polypropylene · 5 micron</div>
+        <p>Folded over and over to pack in as much surface area as possible. The first thing your water meets, catching the grit, rust and sand from the main so everything after it stays clean.</p></div>
+      <div class="fcard"><div class="num">STAGES 2 + 3</div><div class="nm">The Disruptor</div><div class="mat">Carbon block with polyphosphate crystals · 1 micron</div>
+        <p>A dense carbon block infused with polyphosphate crystals that stop hard minerals turning into scale on your glass, taps and appliances, without taking the minerals out of your water.</p></div>
+      <div class="fcard"><div class="num">STAGE 4</div><div class="nm">The Extractor</div><div class="mat">Coconut shell activated carbon · 1 micron</div>
+        <p>Coconut shells, charred at high heat, then activated with steam to open up millions of microscopic pores. One gram holds over 1,000 m² of surface, nearly four tennis courts. Not the coal-based carbon cheaper filters use.</p></div>
+    </div>
+  </section>
+
+  <!-- 5. People like you -->
+  <section class="slide">
+    <div class="eyebrow">Melbourne homeowners</div>
+    <h2>People just like you, <span class="accent">in their own words</span></h2>
+    <div class="people">
+      <div class="person"><img src="/assets/videos/testimonials/cecilio-poster.jpg" alt=""><div class="q">&ldquo;My eczema&rsquo;s gone. I&rsquo;m not saying this to promote, but it&rsquo;s true.&rdquo;<i>Cecilio &middot; Cranbourne West</i></div></div>
+      <div class="person"><img src="/assets/videos/testimonials/nishanth-poster.jpg" alt=""><div class="q">&ldquo;The hair loss has reduced significantly.&rdquo;<i>Nishanth &middot; Strathtulloh</i></div></div>
+      <div class="person"><img src="/assets/videos/testimonials/jim-poster.jpg" alt=""><div class="q">&ldquo;Crystal clear. You can tell straight away.&rdquo;<i>Jim &middot; Point Cook</i></div></div>
+      <div class="person"><img src="/assets/videos/testimonials/girish-poster.jpg" alt=""><div class="q">&ldquo;Couldn&rsquo;t have asked for a better installation.&rdquo;<i>Girish &middot; Ashwood</i></div></div>
+    </div>
+  </section>
+
+  <!-- 6. Install day -->
+  <section class="slide light">
+    <div class="split">
+      <div>
+        <div class="eyebrow">Install day</div>
+        <h2>In and out in <span class="accent">a few hours</span></h2>
+        <ul class="facts">
+          <li><b>2–3 hrs</b><span>and it's done</span></li>
+          <li><b>Licensed</b><span>plumbers on every job</span></li>
+          <li><b>At the meter</b><span>tidy, out of the way</span></li>
+          <li><b>Tested</b><span>your water, in front of you</span></li>
+        </ul>
+      </div>
+      <div class="photos">
+        <img src="/assets/install-photos/23.jpg" alt=""><img src="/assets/install-photos/6.jpg" alt=""><img src="/assets/install-photos/39.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Backing -->
+  <section class="slide">
+    <div class="eyebrow">What's backing you</div>
+    <h2>Peace of mind, <span class="accent">built in</span></h2>
+    <div class="badges">
+      <div class="badge"><div class="big">7 yrs</div><div class="t">Workmanship warranty</div><div class="s">on the installation</div></div>
+      <div class="badge"><div class="big">1 yr</div><div class="t">Product warranty</div><div class="s">on the system</div></div>
+      <div class="badge"><div class="big">30 days</div><div class="t">Chlorine-free guarantee</div><div class="s">we test it and make it right</div></div>
+      <div class="badge"><div class="big">&#10003;</div><div class="t">WaterMark certified</div><div class="s">compliance backed</div></div>
+    </div>
+  </section>
+
+  <!-- 8. What it's costing now -->
+  <section class="slide light">
+    <div class="calc">
+      <div>
+        <div class="eyebrow">Before we talk price</div>
+        <h2>What it's <span class="accent">costing you now</span></h2>
+        <div class="inputs">
+          <div class="inp"><label>Bottled water<small>per week</small></label><div class="field">$<input id="k-bottled" type="number" inputmode="decimal" value="0" min="0"></div></div>
+          <div class="inp"><label>Filter jugs &amp; shower filters<small>per year</small></label><div class="field">$<input id="k-jugs" type="number" inputmode="decimal" value="0" min="0"></div></div>
+          <div class="inp"><label>Creams, shampoos &amp; treatments<small>per month</small></label><div class="field">$<input id="k-care" type="number" inputmode="decimal" value="0" min="0"></div></div>
+        </div>
+      </div>
+      <div class="result">
+        <div class="l">You're already spending</div>
+        <div class="v" id="k-year">$0</div>
+        <div class="sub">a year, <b id="k-ten" style="color:#4DA6FF">$0</b> over 10 years, and it's not fixing it.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Price -->
+  <section class="slide">
+    <div class="price-wrap">
+      <div class="eyebrow">Your price</div>
+      <h2>Your whole-home system, <span class="accent">all in</span></h2>
+      <button class="reveal-btn" id="reveal" type="button">Show price</button>
+      <div class="price" id="price">
+        <div class="big">$<span contenteditable="true" spellcheck="false" id="pr">3,990</span></div>
+        <div class="incl">Supply, installation by licensed plumbers, and your first set of filters.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Per day -->
+  <section class="slide light">
+    <div class="eyebrow">Broken down</div>
+    <h2>What it <span class="accent">really costs</span></h2>
+    <div class="perday">
+      <div class="pd"><div class="v" id="d-sys">$1.09</div><div class="l">a day</div><div class="s">for the system, over 10 years</div></div>
+      <div class="pd"><div class="v" id="d-all">$1.92</div><div class="l">a day</div><div class="s">including a new set of filters every year</div></div>
+      <div class="pd"><div class="v" id="d-per">48¢</div><div class="l">a day, per person</div><div class="s">for a home of <span contenteditable="true" spellcheck="false" id="pp">4</span></div></div>
+    </div>
+    <div class="compare" id="d-compare"></div>
+  </section>
+
+  <!-- 11. Referral -->
+  <section class="slide">
+    <div class="calc">
+      <div>
+        <div class="eyebrow">Our referral program</div>
+        <h2>Know people who'd <span class="accent">want this too?</span></h2>
+        <p class="lead">For every person you refer who gets a system installed, we pay you <b style="color:#4DA6FF">$500</b>. No limit.</p>
+        <div class="inp" style="margin-top:3vh;max-width:420px"><label>People you'd refer</label><div class="field"><input id="r-n" type="number" inputmode="numeric" value="3" min="0" style="width:2.6em"></div></div>
+      </div>
+      <div class="result">
+        <div class="l">Back in your pocket</div>
+        <div class="v" id="r-back">$1,500</div>
+        <div class="sub">Your system effectively comes down to <b id="r-net" style="color:#4DA6FF">$2,490</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. Next steps -->
+  <section class="slide">
+    <div class="eyebrow">Next steps</div>
+    <h2>Locking in <span class="accent">your install</span></h2>
+    <div class="steps">
+      <div class="st"><b>Lock in your date</b><span>A 20% deposit secures your install.</span></div>
+      <div class="st"><b>We book you in</b><span>Our install team calls you within 1–4 business days.</span></div>
+      <div class="st"><b>Install day</b><span>2–3 hours, tested in front of you. The balance is due once it's done.</span></div>
+    </div>
+  </section>
+
+</div>
+
+<nav class="nav">
+  <button type="button" id="prev">&larr; Back</button>
+  <div class="dots" id="dots"></div>
+  <button type="button" id="next">Next &rarr;</button>
+</nav>
+
+<script>
+(function () {
+  var slides = [].slice.call(document.querySelectorAll('.slide'));
+  var dots = document.getElementById('dots');
+  var cur = 0;
+  slides.forEach(function (_, i) { var d = document.createElement('i'); d.addEventListener('click', function () { go(i); }); dots.appendChild(d); });
+  function go(i) {
+    cur = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === cur); });
+    [].forEach.call(dots.children, function (d, k) { d.classList.toggle('on', k === cur); });
+    document.body.classList.toggle('on-light', slides[cur].classList.contains('light'));
+  }
+  document.getElementById('prev').addEventListener('click', function () { go(cur - 1); });
+  document.getElementById('next').addEventListener('click', function () { go(cur + 1); });
+  document.addEventListener('keydown', function (e) {
+    var t = e.target;
+    if (t.isContentEditable || t.tagName === 'INPUT') {
+      // Enter / Esc finishes typing so the arrow keys move slides again.
+      if (e.key === 'Enter' || e.key === 'Escape') { e.preventDefault(); t.blur(); }
+      return;
+    }
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(cur + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(cur - 1); }
+  });
+  go(0);
+
+  // Personalise from the URL: ?name=Sarah&suburb=Point%20Cook&people=4
+  var q = new URLSearchParams(location.search);
+  if (q.get('name')) document.getElementById('nm').textContent = q.get('name') + "'s";
+  if (q.get('suburb')) document.getElementById('sb').textContent = q.get('suburb');
+  if (q.get('people')) document.getElementById('pp').textContent = q.get('people');
+
+  var $ = function (id) { return document.getElementById(id); };
+  var num = function (v) { return Math.max(0, parseFloat(String(v).replace(/[^0-9.]/g, '')) || 0); };
+  var money = function (n) { return n < 1 ? Math.round(n * 100) + '¢' : '$' + n.toFixed(2); };
+  var whole = function (n) { return '$' + Math.round(n).toLocaleString('en-AU'); };
+
+  function update() {
+    var yearNow = num($('k-bottled').value) * 52 + num($('k-jugs').value) + num($('k-care').value) * 12;
+    $('k-year').textContent = whole(yearNow);
+    $('k-ten').textContent = whole(yearNow * 10);
+    var price = num($('pr').textContent) || 3990, people = Math.max(1, num($('pp').textContent) || 1);
+    var sys = price / 3650, all = (price + 300 * 10) / 3650;
+    $('d-sys').textContent = money(sys);
+    $('d-all').textContent = money(all);
+    $('d-per').textContent = money(all / people);
+    $('d-compare').innerHTML = yearNow > 0
+      ? 'You’re already spending about <b>' + money(yearNow / 365) + ' a day</b>, without fixing it.'
+      : 'Less than a coffee a day, for every tap and shower in your home.';
+    var n = num($('r-n').value);
+    $('r-back').textContent = whole(n * 500);
+    $('r-net').textContent = whole(Math.max(0, price - n * 500));
+  }
+  ['k-bottled', 'k-jugs', 'k-care', 'r-n'].forEach(function (id) { $(id).addEventListener('input', update); });
+  ['pr', 'pp'].forEach(function (id) { $(id).addEventListener('input', update); });
+  $('reveal').addEventListener('click', function () { this.style.display = 'none'; $('price').classList.add('shown'); });
+  update();
+})();
+</script>
+</body>
+</html>
