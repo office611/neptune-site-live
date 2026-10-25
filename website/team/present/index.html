@@ -58,15 +58,14 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .chips.said button.on::before { content: '\2713  '; opacity: 1; }
 .chips .none { font-size: 13px; color: rgba(255,255,255,.45); }
 #s-people button { min-width: 46px; padding: 10px; }
-.costs { display: grid; grid-template-columns: repeat(2, minmax(0, 330px)); gap: 12px; }
+.costs { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)) 1fr; gap: 12px; align-items: center; }
 @media (max-width: 700px) { .costs { grid-template-columns: 1fr; } }
 .costs .c { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 12px 16px; font-size: 15px; font-weight: 600; }
-.costs .c span { flex: 1; line-height: 1.2; }
+.costs .c span { flex: 1; line-height: 1.2; white-space: nowrap; }
 .costs .c input { width: 70px; font: inherit; font-size: 15px; font-weight: 700; color: #fff; background: transparent; border: 0; border-bottom: 1px dashed rgba(255,255,255,.35); text-align: right; padding: 2px 0; }
 .costs .c input:focus { outline: none; border-bottom-color: var(--blue); }
 .costs .c em { font-style: normal; font-size: 12px; color: rgba(255,255,255,.5); }
-.setup .start { margin-top: clamp(20px, 4vh, 40px); font: inherit; font-size: 17px; font-weight: 800; padding: 15px 28px; border: 0; border-radius: 999px; background: var(--blue); color: var(--navy); cursor: pointer; }
-.setup .hint { font-size: 13px; color: rgba(255,255,255,.55); margin-top: 10px; }
+.setup .start { justify-self: end; white-space: nowrap; font: inherit; font-size: 17px; font-weight: 800; padding: 15px 28px; border: 0; border-radius: 999px; background: var(--blue); color: var(--navy); cursor: pointer; }
 
 /* cover */
 .cover { background: linear-gradient(90deg, rgba(7,15,30,.92) 0%, rgba(7,15,30,.72) 55%, rgba(7,15,30,.35) 100%), url(/assets/install-photos/book-bg.jpg) center / cover; }
@@ -282,7 +281,7 @@ body.on-light .nav { color: var(--ink); }
   <div class="box">
     <div class="eyebrow">Setup · don't share this screen</div>
     <h1>Build their plan</h1>
-    <p class="warn">Click as they answer, then share this tab and press Start.</p>
+    <p class="warn">Click as they answer, then share this tab and press Start. Press S to come back here (stop sharing first).</p>
     <label>1 · What brought them here? <span class="opt">pick all that apply, main one first</span></label>
     <div class="chips" id="s-concern">
       <button type="button" data-c="skin">Eczema / dry skin</button>
@@ -304,9 +303,8 @@ body.on-light .nav { color: var(--ink); }
     <div class="costs">
       <div class="c"><span>Bottled water</span>$<input id="s-bottled" type="number" min="0" inputmode="decimal" placeholder="0"><em>/wk</em></div>
       <div class="c"><span>Jug &amp; shower filters</span>$<input id="s-jugs" type="number" min="0" inputmode="decimal" placeholder="0"><em>/yr</em></div>
+      <button type="button" class="start" id="s-start">Start presentation →</button>
     </div>
-    <button type="button" class="start" id="s-start">Start presentation →</button>
-    <p class="hint">Press S to come back here. Stop sharing first, because they'd see it.</p>
   </div>
 </div>
 
@@ -675,7 +673,7 @@ body.on-light .nav { color: var(--ink); }
         state.concerns.splice(i, 1);
         state.said = state.said.filter(function (t) { return state.concerns.some(function (c) { return C[c].said.indexOf(t) >= 0; }); });
       } else state.concerns.push(k);
-      markConcerns(); renderSaid();
+      markConcerns(); renderSaid(); fitSetup();
     });
   });
   // 3. people
@@ -691,6 +689,19 @@ body.on-light .nav { color: var(--ink); }
     if (C[k] && state.concerns.indexOf(k) < 0) state.concerns.push(k);
   });
   markConcerns(); renderSaid();
+
+  // setup never scrolls: if their answers make it taller than the window, shrink it to fit
+  function fitSetup() {
+    var box = document.querySelector('.setup .box'), wrap = $('setup'), z = 1;
+    box.style.zoom = 1;
+    // shrinking re-wraps the chips, so re-check a few times
+    for (var i = 0; i < 6 && wrap.scrollHeight > wrap.clientHeight + 1 && z > 0.6; i++) {
+      z *= Math.max(0.85, wrap.clientHeight / wrap.scrollHeight - 0.01);
+      box.style.zoom = z;
+    }
+  }
+  fitSetup();
+  addEventListener('resize', fitSetup);
 
   function build() {
     var list = state.concerns.length ? state.concerns : ['better'];
