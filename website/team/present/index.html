@@ -158,14 +158,33 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .hs .mat b { color: var(--blue-d); }
 .hs .mat .mic { white-space: nowrap; }
 .stgs { display: flex; gap: .7vw; flex: 1; }
-.stg { flex: 1; border-radius: 12px; background: #EEF4FB; padding: 3vh .9vw; display: flex; flex-direction: column; gap: 3px; transition: background .3s, color .3s, opacity .3s; }
+.stg { flex: 1; border-radius: 12px; background: #EEF4FB; padding: 2.4vh .9vw; display: flex; flex-direction: column; gap: 3px; transition: background .3s, color .3s, opacity .3s; }
 .stg .n { font-size: 11px; font-weight: 800; letter-spacing: .12em; color: var(--blue-d); }
 .stg b { font-size: clamp(16px, 1.75vw, 24px); line-height: 1.15; }
 .stg small { font-size: clamp(11px, 1.05vw, 14px); color: var(--soft); line-height: 1.35; }
 .stg.hl { background: var(--blue-d); color: #fff; }
 .stg.hl .n, .stg.hl small { color: rgba(255,255,255,.85); }
 .sys.focus .stg:not(.hl) { opacity: .45; }
-.foryou { margin: 4vh 0 0; font-size: clamp(16px, 1.7vw, 22px); font-weight: 600; color: var(--ink); max-width: 1050px; }
+.stg { cursor: pointer; position: relative; }
+.stg:hover { filter: brightness(1.05); }
+.stg:focus { outline: none; }
+.stg:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.stg .more { position: absolute; top: 10px; right: 10px; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid currentColor; font-size: 14px; font-style: normal; line-height: 19px; text-align: center; font-weight: 800; opacity: .55; }
+.tap-hint { margin: 1.4vh 0 0; font-size: 13px; color: var(--soft); }
+#st-h { font-size: clamp(24px, 3vw, 40px); }
+.pop { position: absolute; inset: 0; z-index: 4; background: rgba(5,19,31,.55); display: flex; align-items: center; justify-content: center; padding: 5vh 6vw 11vh; }
+.pop[hidden] { display: none; }
+.pop-card { position: relative; display: grid; grid-template-columns: minmax(0, .9fr) 1.1fr; width: 100%; max-width: 1000px; max-height: 100%; background: #fff; color: var(--ink); border-radius: 22px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+@media (max-width: 860px) { .pop-card { grid-template-columns: 1fr; } }
+.pop-card img { width: 100%; height: 100%; min-height: 280px; max-height: 66vh; object-fit: cover; display: block; }
+.pop-body { padding: 4vh 2.8vw; display: flex; flex-direction: column; justify-content: center; }
+.pop-body .n { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-d); }
+.pop-body h3 { font-size: clamp(26px, 3vw, 40px); font-weight: 800; line-height: 1.1; margin: 6px 0 4px; }
+.pop-body .m { font-size: clamp(13px, 1.15vw, 15px); font-weight: 700; color: var(--soft); margin-bottom: 2vh; }
+.pop-body p { margin: 0; font-size: clamp(15px, 1.45vw, 19px); line-height: 1.55; }
+.pop-body .cap { margin-top: 2vh; font-size: 13px; color: var(--soft); }
+.pop-x { position: absolute; top: 12px; right: 12px; z-index: 1; width: 38px; height: 38px; border-radius: 50%; border: 0; background: rgba(255,255,255,.9); color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+.foryou { margin: 3vh 0 0; font-size: clamp(16px, 1.7vw, 22px); font-weight: 600; color: var(--ink); max-width: 1050px; }
 .foryou b { color: var(--blue-d); }
 .upgrade { margin-top: 2vh; display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 10px 18px; font-size: clamp(13px, 1.25vw, 16px); font-weight: 600; color: var(--ink); }
 .upgrade svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--blue-d); }
@@ -348,7 +367,7 @@ body.on-light .nav { color: var(--ink); }
     <div class="bcard" data-b="skin hair"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.3 6 11a6 6 0 0 1-12 0c0-4.7 6-11 6-11z"/></svg></div>
       <b>Skin &amp; hair</b><p>Chlorine is a bleach. It can strip away the natural oils your skin and hair need, leaving them dry and itchy.</p></div>
     <div class="bcard" data-b="taste smell"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1.5 17a2 2 0 0 1-2 1.8h-5a2 2 0 0 1-2-1.8L6 3z"/><path d="M6.5 8h11"/></svg></div>
-      <b>Taste &amp; smell</b><p>Chlorine and chloramine are what give tap water that weird taste and smell.</p></div>
+      <b>Taste &amp; smell</b><p>In water, chlorine forms a weak acid. Together with chloramine, that's the weird taste and smell. Reduce them, and your water tastes the way filtered water should.</p></div>
   </div>
   <p class="matters" data-t="whyLine"></p>
 </section>
@@ -384,17 +403,17 @@ body.on-light .nav { color: var(--ink); }
       <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Clean, simple design</b>, not an eyesore on the side of your house</span></li>
     </ul>
     <div class="ph3">
-      <figure><img src="/assets/present/unit-closed.jpg" alt=""><figcaption>Stainless steel cover</figcaption></figure>
-      <figure><img src="/assets/present/unit-open.jpg" alt=""><figcaption>3 filters inside</figcaption></figure>
-      <figure><img src="/assets/present/unit-side.jpg" alt=""><figcaption>Copper piping</figcaption></figure>
+      <figure><img src="/assets/install-photos/6.jpg" alt=""><figcaption>Stainless steel cover</figcaption></figure>
+      <figure><img src="/assets/install-photos/35.jpg" alt=""><figcaption>3 filters inside</figcaption></figure>
+      <figure><img src="/assets/install-photos/49.jpg" alt=""><figcaption>Copper piping</figcaption></figure>
     </div>
   </div>
 </section>
 
 <!-- 4. Filters: the 5 stages -->
 <section class="slide light">
-  <div class="eyebrow">5-stage whole-home filtration</div>
-  <h2 id="st-h">5 stages, tailored to <span class="accent">your home</span></h2>
+  <div class="eyebrow">Melbourne only · 5-stage filtration</div>
+  <h2 id="st-h">5 stages for what's coming through <span class="accent">your pipes</span></h2>
   <div class="sys" id="sys">
     <div class="end">Water main<small>street supply</small></div>
     <div class="hs" data-f="guard">
@@ -419,8 +438,16 @@ body.on-light .nav { color: var(--ink); }
     </div>
     <div class="end">Your home<small>every tap</small></div>
   </div>
+  <p class="tap-hint">Click any stage to see what's inside.</p>
   <p class="foryou"><b>For you:</b> <span data-t="stageLine"></span></p>
   <div class="upgrade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><polyline points="21 3 21 9 15 9"/></svg>When our filters get better, yours do too. Every yearly change brings you our latest.</div>
+  <div class="pop" id="pop" hidden>
+    <div class="pop-card" role="dialog" aria-modal="true" aria-labelledby="pop-h">
+      <button type="button" class="pop-x" id="pop-x" aria-label="Close">&times;</button>
+      <img id="pop-img" alt="">
+      <div class="pop-body"><div class="n" id="pop-n"></div><h3 id="pop-h"></h3><div class="m" id="pop-m"></div><p id="pop-p"></p><div class="cap" id="pop-cap"></div></div>
+    </div>
+  </div>
 </section>
 
 <!-- 5. People like you -->
@@ -612,6 +639,13 @@ body.on-light .nav { color: var(--ink); }
       planFilter: 'The Disruptor’s polyphosphate crystals stop scale forming across every tap, screen and appliance.',
       costs: ['jugs', 'bottled'], feel: 'sparkling taps and glass' }
   };
+  var STAGE = {
+    1: ['Stage 1 · The Guard', 'Sediment', 'Pleated polypropylene · 5 micron', 'Folded over and over to pack in as much surface area as possible. It’s the first thing your water meets, catching the sand, rust and grit from the main so everything after it stays clean.', '/assets/present/old-filter.jpg', 'A used Guard filter next to a new one. That brown is what it kept out of your home.'],
+    2: ['Stage 2 · The Disruptor', 'Limescale', 'Carbon block with polyphosphate crystals · 1 micron', 'Polyphosphate crystals are infused right into the carbon block. As water passes through, they stop hard minerals turning into scale on your glass, taps, kettle and hot water system, without taking the minerals out of your water.', '/assets/install-photos/35.jpg', 'Inside the system: the Guard, the Disruptor and the Extractor.'],
+    3: ['Stage 3 · The Disruptor', 'Chlorine', 'Dense carbon block · 1 micron', 'A carbon block packed tight enough to catch particles down to 1 micron, a fraction of the width of a hair. It reduces the chlorine added to treat the water, while keeping your pressure strong.', '/assets/present/chlorine-test.jpg', 'Unfiltered vs filtered, tested with pool chlorine tablets.'],
+    4: ['Stage 4 · The Extractor', 'Chloramine', 'Activated coconut shell carbon · 1 micron', 'Coconut shells, charred at high heat, then activated with steam to open up millions of microscopic pores. One gram holds over 1,000 m² of surface, nearly four tennis courts. Not the coal-based carbon cheaper filters use.', '/assets/install-photos/filter-replacement.png', 'Your fresh set of filters, delivered every year.'],
+    5: ['Stage 5 · The Extractor', 'Heavy metals', 'Activated coconut shell carbon · 1 micron', 'Older suburbs still have ageing galvanised pipes. As they corrode, metals can get into your water on its way to your home. The same activated coconut carbon reduces them before they reach your taps.', '/assets/present/old-gal-pipe.jpg', 'Inside an old galvanised water pipe.']
+  };
   var TAPS = ['Kitchen tap', 'Every shower', 'Bath', 'Bathroom basins', 'Washing machine', 'Dishwasher', 'Hot water system', 'Garden'];
 
   var $ = function (id) { return document.getElementById(id); };
@@ -692,7 +726,7 @@ body.on-light .nav { color: var(--ink); }
     });
     all('[data-t="stageLine"]').forEach(function (el) { el.textContent = lines.join(' '); });
     all('.bcard').forEach(function (el) { el.classList.toggle('hl', list.some(function (k) { return el.dataset.b.split(' ').indexOf(k) >= 0; })); });
-    $('st-h').innerHTML = '5 stages, tailored to your home' + (suburb ? ' in <span class="accent">' + esc(suburb) + '</span>' : '');
+    $('st-h').innerHTML = suburb ? '5 stages for what’s coming through your pipes in <span class="accent" style="white-space:nowrap">' + esc(suburb) + '</span>' : '5 stages for what’s coming through <span class="accent">your pipes</span>';
     $('sys').classList.toggle('focus', !allStages);
     all('.stg').forEach(function (el) { el.classList.toggle('hl', stages.indexOf(+el.dataset.s) >= 0); });
     all('.hs').forEach(function (h) { h.classList.toggle('hl', !allStages && !!h.querySelector('.stg.hl')); });
@@ -741,6 +775,22 @@ body.on-light .nav { color: var(--ink); }
   $('pp').addEventListener('input', update);
   $('reveal').addEventListener('click', function () { this.style.display = 'none'; $('price').classList.add('shown'); });
 
+  // stage pop-ups
+  function openPop(n) {
+    var d = STAGE[n];
+    $('pop-n').textContent = d[0]; $('pop-h').textContent = d[1]; $('pop-m').textContent = d[2];
+    $('pop-p').textContent = d[3]; $('pop-img').src = d[4]; $('pop-cap').textContent = d[5];
+    $('pop').hidden = false;
+  }
+  function closePop() { $('pop').hidden = true; }
+  all('.stg').forEach(function (el) {
+    el.insertAdjacentHTML('beforeend', '<i class="more" aria-hidden="true">+</i>');
+    el.setAttribute('role', 'button'); el.tabIndex = 0;
+    el.addEventListener('click', function () { openPop(el.dataset.s); });
+  });
+  $('pop-x').addEventListener('click', closePop);
+  $('pop').addEventListener('click', function (e) { if (e.target === this) closePop(); });
+
   // slides (anything marked .skip is left out of the run and the dots)
   var slides = [], dots = $('dots'), cur = 0;
   function layout() {
@@ -749,6 +799,7 @@ body.on-light .nav { color: var(--ink); }
     slides.forEach(function (_, i) { var d = document.createElement('i'); d.addEventListener('click', function () { go(i); }); dots.appendChild(d); });
   }
   function go(i) {
+    closePop();
     cur = Math.max(0, Math.min(slides.length - 1, i));
     all('.slide').forEach(function (el) { el.classList.toggle('on', el === slides[cur]); });
     [].forEach.call(dots.children, function (d, k) { d.classList.toggle('on', k === cur); });
@@ -761,6 +812,8 @@ body.on-light .nav { color: var(--ink); }
   document.addEventListener('keydown', function (e) {
     var t = e.target;
     if (!$('setup').classList.contains('hidden')) return;
+    if (!$('pop').hidden) { if (e.key === 'Escape') closePop(); return; }
+    if (t.classList && t.classList.contains('stg') && e.key === 'Enter') { openPop(t.dataset.s); return; }
     if (t.isContentEditable || t.tagName === 'INPUT') {
       if (e.key === 'Enter' || e.key === 'Escape') { e.preventDefault(); t.blur(); }
       return;
