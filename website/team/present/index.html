@@ -70,6 +70,34 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .goals .chk { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--blue-d); color: #fff; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
 .goals .chk svg { width: 18px; height: 18px; }
 
+/* why filter */
+.why { display: grid; grid-template-columns: 1fr auto; gap: 4vw; align-items: center; }
+.why ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 2.2vh; counter-reset: w; max-width: 680px; }
+.why li { counter-increment: w; display: flex; gap: 14px; font-size: clamp(16px, 1.7vw, 22px); line-height: 1.45; color: rgba(255,255,255,.85); }
+.why li::before { content: counter(w); flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: rgba(77,166,255,.18); color: var(--blue); font-weight: 800; font-size: 16px; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.why li b { color: #fff; }
+.why li.you { color: #fff; font-weight: 600; }
+.why li.you::before { background: var(--blue); color: var(--navy); }
+.clip { position: relative; width: clamp(200px, 21vw, 290px); aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: #000; box-shadow: 0 20px 50px rgba(0,0,0,.45); }
+.clip video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.clip .tag { position: absolute; left: 10px; top: 10px; background: rgba(5,19,31,.85); color: #fff; font-size: 12px; font-weight: 700; padding: 6px 11px; border-radius: 999px; }
+.clip-cap { margin-top: 10px; font-size: 13px; color: rgba(255,255,255,.7); text-align: center; width: clamp(200px, 21vw, 290px); }
+@media (max-width: 860px) { .why { grid-template-columns: 1fr; } }
+
+/* the system */
+.unit { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3.5vw; align-items: center; }
+@media (max-width: 860px) { .unit { grid-template-columns: 1fr; } }
+.specs { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.6vh; }
+.specs li { display: flex; gap: 12px; align-items: flex-start; font-size: clamp(15px, 1.45vw, 19px); color: var(--soft); line-height: 1.4; }
+.specs li b { color: var(--ink); }
+.specs .ck { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--blue-d); color: #fff; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.specs .ck svg { width: 12px; height: 12px; }
+.ph3 { display: grid; grid-template-columns: 1.2fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px; height: min(60vh, 460px); }
+.ph3 figure, .steps4 figure { margin: 0; position: relative; border-radius: 14px; overflow: hidden; background: #dfe6ee; }
+.ph3 figure:first-child { grid-row: 1 / 3; }
+.ph3 img, .steps4 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph3 figcaption, .steps4 figcaption { position: absolute; left: 8px; bottom: 8px; background: rgba(5,19,31,.85); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; }
+
 /* how it works */
 .flow { display: flex; align-items: center; gap: 2vw; flex-wrap: wrap; margin-top: 2vh; }
 .flow .box { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; padding: 2.6vh 2vw; text-align: center; min-width: 150px; flex: 1; }
@@ -134,13 +162,14 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .pcard.wide { grid-column: 1 / -1; }
 
 /* install */
-.split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4vw; align-items: center; }
-@media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
-.facts { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.6vh; }
-.facts li { display: flex; gap: 14px; align-items: baseline; font-size: clamp(16px, 1.7vw, 22px); }
-.facts b { color: var(--blue-d); min-width: 3.6em; font-size: 1.15em; }
-.photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.photos img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; display: block; }
+.steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; height: min(37vh, 300px); }
+@media (max-width: 860px) { .steps4 { grid-template-columns: repeat(2, 1fr); height: auto; } .steps4 figure { aspect-ratio: 3 / 4; } }
+.steps4 figcaption b { display: inline-flex; width: 18px; height: 18px; border-radius: 50%; background: var(--blue); color: var(--navy); align-items: center; justify-content: center; font-size: 11px; margin-right: 6px; }
+.facts { list-style: none; padding: 0; margin: 2.6vh 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4vh 2vw; }
+@media (max-width: 860px) { .facts { grid-template-columns: 1fr; } }
+.facts li { font-size: clamp(14px, 1.3vw, 17px); color: var(--soft); line-height: 1.35; }
+.facts b { display: block; color: var(--blue-d); font-size: 1.15em; }
+.fine { margin: 2vh 0 0; font-size: clamp(12px, 1.05vw, 14px); color: var(--soft); }
 
 /* backing */
 .badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4vw; }
@@ -181,6 +210,10 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .pd .s { font-size: clamp(12px, 1.1vw, 15px); color: var(--soft); margin-top: 4px; }
 .compare { margin-top: 3vh; font-size: clamp(16px, 1.7vw, 22px); font-weight: 600; text-align: center; color: var(--ink); }
 .compare b { color: var(--blue-d); }
+
+.why-us { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 3vh; }
+.why-us span { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 999px; padding: 10px 18px; font-size: clamp(13px, 1.25vw, 16px); font-weight: 600; color: rgba(255,255,255,.85); }
+.why-us b { color: var(--blue); }
 
 /* steps */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6vw; counter-reset: s; }
@@ -247,6 +280,25 @@ body.on-light .nav { color: var(--ink); }
   <ul class="goals" id="goals"></ul>
 </section>
 
+<!-- Why filter: safe water, but the chlorine is still there (muted test clip loops) -->
+<section class="slide">
+  <div class="why">
+    <div>
+      <div class="eyebrow">Why filter?</div>
+      <h2>Your water's safe to drink. <span class="accent">Here's what's still in it.</span></h2>
+      <ol>
+        <li><span><b>Chlorine or chloramine</b> is added to keep your water safe on its way to you. That's a good thing.</span></li>
+        <li><span><b>It doesn't switch off at your front door.</b> It's still there in every shower, bath and glass.</span></li>
+        <li class="you"><span data-t="whyLine"></span></li>
+      </ol>
+    </div>
+    <div>
+      <div class="clip"><video src="/assets/present/chlorine-test.mp4" poster="/assets/present/chlorine-test.jpg" autoplay muted loop playsinline preload="auto"></video><span class="tag">Pink = chlorine</span></div>
+      <div class="clip-cap">Unfiltered vs filtered. We do this test in your home on install day.</div>
+    </div>
+  </div>
+</section>
+
 <!-- 3. How it works -->
 <section class="slide">
   <div class="eyebrow">How it works</div>
@@ -260,6 +312,29 @@ body.on-light .nav { color: var(--ink); }
   </div>
   <div class="taps" id="taps"></div>
   <p class="lead" style="margin-top:3vh" data-t="howLine"></p>
+</section>
+
+<!-- The system: everything from the call-reference brief, with real photos -->
+<section class="slide light">
+  <div class="eyebrow">The system</div>
+  <h2>Buy it once. <span class="accent">Built to last.</span></h2>
+  <div class="unit">
+    <ul class="specs">
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Stainless steel cover</b>, powder coated and treated</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>20-inch system</b> with full pressure at every tap</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Copper piping</b>, naturally antibacterial</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Bypass valve</b> included</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Concreted into the ground</b> (or mounted on the wall), so it's solid and can't be taken</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Water connection only</b>: no power, no gas</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Moves with you</b> if you ever sell (fee applies)</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Clean, simple design</b>, not an eyesore on the side of your house</span></li>
+    </ul>
+    <div class="ph3">
+      <figure><img src="/assets/present/unit-closed.jpg" alt=""><figcaption>Stainless steel cover</figcaption></figure>
+      <figure><img src="/assets/present/unit-open.jpg" alt=""><figcaption>3 filters inside</figcaption></figure>
+      <figure><img src="/assets/present/unit-side.jpg" alt=""><figcaption>Copper piping</figcaption></figure>
+    </div>
+  </div>
 </section>
 
 <!-- 4. Filters: the 5 stages -->
@@ -308,7 +383,7 @@ body.on-light .nav { color: var(--ink); }
   <div class="plan">
     <div class="pcard"><div class="ic">1</div><div><b>Installed at your water meter</b><span data-t="planMeter"></span></div></div>
     <div class="pcard"><div class="ic">2</div><div><b data-t="planFilterTitle"></b><span data-t="planFilter"></span></div></div>
-    <div class="pcard"><div class="ic">3</div><div><b>Fresh filters every 12 months</b><span>Delivered to your door, always our latest version. The test tablet shows you when it's time.</span></div></div>
+    <div class="pcard"><div class="ic">3</div><div><b>Fresh filters, about once a year</b><span>$300 a set, delivered with GST included, and always our latest version. Swap them yourself with our video. Any pink on the test tablet, or a drop in pressure, means it's time.</span></div></div>
     <div class="pcard"><div class="ic">4</div><div><b>Your appliances, protected too</b><span>Hot water system, washing machine, dishwasher and kettle all run on filtered water.</span></div></div>
     <div class="pcard wide" id="p-photo-card"><div class="ic">✓</div><div><b>From your photos</b><span id="p-photo"></span></div></div>
   </div>
@@ -316,19 +391,23 @@ body.on-light .nav { color: var(--ink); }
 
 <!-- 7. Install day -->
 <section class="slide light">
-  <div class="split">
-    <div>
-      <div class="eyebrow">Install day</div>
-      <h2>In and out in <span class="accent">a few hours</span></h2>
-      <ul class="facts">
-        <li><b>2–3 hrs</b><span>and it's done</span></li>
-        <li><b>Licensed</b><span>plumbers on every job</span></li>
-        <li><b>At the meter</b><span>tidy, out of the way</span></li>
-        <li><b>Tested</b><span>your water, in front of you</span></li>
-      </ul>
-    </div>
-    <div class="photos"><img src="/assets/install-photos/23.jpg" alt=""><img src="/assets/install-photos/6.jpg" alt=""><img src="/assets/install-photos/39.jpg" alt=""></div>
+  <div class="eyebrow">Install day</div>
+  <h2>In and out in <span class="accent">a few hours</span></h2>
+  <div class="steps4">
+    <figure><img src="/assets/present/install-1.jpg" alt=""><figcaption><b>1</b>Arrives</figcaption></figure>
+    <figure><img src="/assets/present/install-2.jpg" alt=""><figcaption><b>2</b>Fitted at the meter</figcaption></figure>
+    <figure><img src="/assets/present/install-3.jpg" alt=""><figcaption><b>3</b>Filters in</figcaption></figure>
+    <figure><img src="/assets/present/install-4.jpg" alt=""><figcaption><b>4</b>Done and tested</figcaption></figure>
   </div>
+  <ul class="facts">
+    <li><b>2–3 hours</b>and it's done</li>
+    <li><b>1–2 weeks</b>from booking to your install</li>
+    <li><b>Your photos</b>reviewed by our plumbers before they arrive</li>
+    <li><b>Licensed plumbers</b>our own dedicated crew, on every job</li>
+    <li><b>Final spot</b>confirmed with you on the day</li>
+    <li><b>Tested</b>your water, in front of you</li>
+  </ul>
+  <p class="fine">Standard install is at your water meter. Anything outside a standard install costs extra.</p>
 </section>
 
 <!-- 8. Backing -->
@@ -338,8 +417,14 @@ body.on-light .nav { color: var(--ink); }
   <div class="badges">
     <div class="bd"><div class="big">7 yrs</div><div class="t">Workmanship warranty</div><div class="s">on the installation</div></div>
     <div class="bd"><div class="big">1 yr</div><div class="t">Product warranty</div><div class="s">on the system</div></div>
-    <div class="bd"><div class="big">30 days</div><div class="t">Chlorine-free guarantee</div><div class="s">we test it and make it right</div></div>
+    <div class="bd"><div class="big">30 days</div><div class="t">Chlorine-free guarantee</div><div class="s">any pink in the first 30 days, we make it right</div></div>
     <div class="bd"><div class="big">&#10003;</div><div class="t">WaterMark certified</div><div class="s">compliance backed</div></div>
+  </div>
+  <div class="why-us">
+    <span><b>100+</b> families already done</span>
+    <span>Our own dedicated plumbing crew</span>
+    <span>No commissioned salespeople</span>
+    <span>Melbourne owned &amp; operated</span>
   </div>
 </section>
 
@@ -441,6 +526,7 @@ body.on-light .nav { color: var(--ink); }
   var C = {
     skin: { title: 'Comfortable Skin', short: 'your skin', costLead: 'What dry, itchy skin is',
       said: ['Eczema flare-ups at home', 'Dry, itchy skin that never settles', 'We’ve tried every cream and nothing sticks', 'The kids’ skin gets irritated', 'Dry hair and an itchy scalp', 'Want to feel comfortable in our own skin'],
+      whyLine: 'That’s the water your skin meets every single day.',
       howLine: 'Every shower and bath in your home runs on filtered water, so your skin meets it in every wash.',
       hot: ['Every shower', 'Bath'], stages: [3, 4],
       stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine before your skin meets them in the shower.',
@@ -449,6 +535,7 @@ body.on-light .nav { color: var(--ink); }
       costs: ['care', 'jugs', 'bottled', 'clean'], feel: 'comfortable skin in every shower' },
     better: { title: 'Better Water At Every Tap', short: 'your whole family', costLead: 'What it&rsquo;s',
       said: ['Want the best for our family', 'Don’t trust what’s in the tap water', 'Every tap filtered, not just the kitchen', 'Sick of buying bottled water', 'Just moved in and want it sorted', 'Peace of mind, without thinking about it'],
+      whyLine: 'Plus the sediment and old-pipe metals it picks up on the way.',
       howLine: 'One system, every tap and shower. No jugs, no shower heads, no thinking about it again.',
       hot: [], stages: [1, 2, 3, 4, 5],
       stageLine: 'From the grit in the main to the chlorine in the shower, every stage works for your whole family.',
@@ -457,6 +544,7 @@ body.on-light .nav { color: var(--ink); }
       costs: ['bottled', 'jugs', 'care', 'clean'], feel: 'better water for your whole family' },
     taste: { title: 'Water That Tastes Great', short: 'better-tasting water', costLead: 'What that taste is',
       said: ['The tap water tastes off', 'We buy bottled water because of the taste', 'The kids won’t drink from the tap', 'Tea and coffee don’t taste right', 'Want to drink straight from the tap again'],
+      whyLine: 'That’s the taste you notice in your glass.',
       howLine: 'Every tap in your home runs on filtered water, so you can drink straight from any of them.',
       hot: ['Kitchen tap', 'Bathroom basins'], stages: [3, 4],
       stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine, where that weird taste comes from.',
@@ -465,6 +553,7 @@ body.on-light .nav { color: var(--ink); }
       costs: ['bottled', 'jugs', 'care', 'clean'], feel: 'water that tastes great from every tap' },
     smell: { title: 'Fresh, Clean Water At Every Tap', short: 'fresh, clean water', costLead: 'What that smell is',
       said: ['The water smells like a pool', 'You notice the smell in the shower', 'The kitchen tap smells off', 'Some days it’s worse than others', 'Want water that smells like nothing'],
+      whyLine: 'That’s the pool smell when you turn the shower on.',
       howLine: 'Every tap and shower in your home runs on filtered water. No more weird smell when you turn the shower on.',
       hot: ['Every shower', 'Kitchen tap'], stages: [3, 4],
       stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine, where that weird smell comes from.',
@@ -473,6 +562,7 @@ body.on-light .nav { color: var(--ink); }
       costs: ['jugs', 'bottled', 'care', 'clean'], feel: 'fresh, clean water in every shower' },
     scale: { title: 'Sparkling Taps &amp; Glass', short: 'sparkling taps &amp; glass', costLead: 'What limescale is',
       said: ['White marks on the shower screen and taps', 'Always scrubbing the glass', 'The kettle’s full of white build-up', 'Worried about the hot water system', 'Want sparkling glass without the scrubbing'],
+      whyLine: 'Plus the hard minerals that leave scale on your glass, taps and hot water system.',
       howLine: 'Every tap, shower screen and appliance runs on filtered water, so scale has nothing to build from.',
       hot: ['Every shower', 'Hot water system', 'Washing machine', 'Dishwasher'], stages: [2],
       stageLine: 'Stage 2 stops hard minerals turning into scale on your screens, taps, kettle and hot water system.',
