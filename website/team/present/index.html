@@ -180,6 +180,8 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .pop[hidden] { display: none; }
 .pop-card { position: relative; display: flex; width: 100%; max-width: 1000px; max-height: 100%; background: #fff; color: var(--ink); border-radius: 22px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
 .pop-card img { flex-shrink: 0; height: min(62vh, 520px); width: auto; max-width: 46%; object-fit: cover; display: block; background: #0b1e3d; }
+.pop-card img[hidden] { display: none; }
+.pop-card.noimg { max-width: 680px; }
 @media (max-width: 860px) { .pop-card { flex-direction: column; } .pop-card img { width: 100%; max-width: 100%; height: 34vh; } }
 .pop-body { flex: 1; padding: 4vh 2.8vw; display: flex; flex-direction: column; justify-content: center; }
 .pop-body .n { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-d); }
@@ -219,10 +221,11 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .fc-note { margin: 3.6vh 0 0; font-size: clamp(15px, 1.5vw, 19px); line-height: 1.5; color: var(--soft); max-width: 980px; }
 
 /* peace of mind */
-.badges { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2vw; }
+.badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4vw; }
 @media (max-width: 860px) { .badges { grid-template-columns: repeat(2, 1fr); } }
-.bd { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 5vh 1.1vw; text-align: center; }
+.bd { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 5vh 1.4vw; text-align: center; }
 .bd .big { white-space: nowrap; font-size: clamp(26px, 3vw, 44px); font-weight: 800; color: var(--blue); line-height: 1; }
+.bd .big svg { width: 1em; height: 1em; display: inline-block; vertical-align: top; }
 .bd .t { font-size: clamp(15px, 1.5vw, 20px); font-weight: 700; margin-top: 1.4vh; }
 
 /* calculators */
@@ -256,6 +259,17 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .pd .s { font-size: clamp(12px, 1.1vw, 15px); color: var(--soft); margin-top: 4px; }
 .compare { margin-top: 3vh; font-size: clamp(16px, 1.7vw, 22px); font-weight: 600; text-align: center; color: var(--ink); }
 .compare b { color: var(--blue-d); }
+
+/* payment */
+.pay { display: flex; align-items: center; gap: 2vw; margin-top: 2vh; }
+@media (max-width: 860px) { .pay { flex-direction: column; align-items: stretch; } .parr { display: none; } }
+.pstep { flex: 1; max-width: 460px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 4vh 2vw; color: var(--ink); text-align: center; }
+.pstep:first-child { border: 2px solid var(--blue-d); box-shadow: 0 12px 30px rgba(46,123,196,.15); }
+.pstep .n { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-d); }
+.pstep .v { font-size: clamp(44px, 6vw, 84px); font-weight: 800; line-height: 1.05; margin: 1.4vh 0 .6vh; font-variant-numeric: tabular-nums; }
+.pstep .l { font-size: clamp(16px, 1.7vw, 22px); font-weight: 700; }
+.pstep .s { font-size: clamp(13px, 1.25vw, 16px); color: var(--soft); margin-top: 4px; }
+.parr { font-size: 40px; color: var(--blue-d); }
 
 /* steps */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6vw; counter-reset: s; }
@@ -479,7 +493,8 @@ body.on-light .nav { color: var(--ink); }
   <div class="eyebrow">Install &amp; peace of mind</div>
   <h2>Done right, <span class="accent">backed by us</span></h2>
   <div class="badges">
-    <div class="bd"><div class="big">7 yrs</div><div class="t">Workmanship warranty from our dedicated plumbing team</div></div>
+    <div class="bd"><div class="big">7 yrs</div><div class="t">Workmanship warranty</div></div>
+    <div class="bd"><div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="t">Dedicated plumbing team</div></div>
     <div class="bd"><div class="big">30 days</div><div class="t">Money-back guarantee</div></div>
     <div class="bd"><div class="big">5 days</div><div class="t">Average from booking to install</div></div>
     <div class="bd"><div class="big">2–3 hrs</div><div class="t">On the day, and it's done</div></div>
@@ -487,7 +502,7 @@ body.on-light .nav { color: var(--ink); }
   </div>
 </section>
 
-<!-- 9. What it's costing now (filled from setup; skipped when they gave no numbers) -->
+<!-- 9. What it's costing now (prefilled from setup; type on it live too) -->
 <section class="slide light" id="cost-slide">
   <div class="calc">
     <div>
@@ -529,6 +544,17 @@ body.on-light .nav { color: var(--ink); }
     <div class="pd"><div class="v" id="d-per">48¢</div><div class="l">a day, per person</div><div class="s">for a home of <span contenteditable="true" spellcheck="false" id="pp">4</span></div></div>
   </div>
   <div class="compare" id="d-compare"></div>
+</section>
+
+<!-- Payment: after the price, before next steps -->
+<section class="slide light">
+  <div class="eyebrow">How payment works</div>
+  <h2>Simple, <span class="accent">in two steps</span></h2>
+  <div class="pay">
+    <div class="pstep"><div class="n">Today</div><div class="v" id="pay-dep">$798</div><div class="l">20% deposit</div><div class="s">locks in your install date</div></div>
+    <div class="parr">→</div>
+    <div class="pstep"><div class="n">Install day</div><div class="v" id="pay-bal">$3,192</div><div class="l">80% balance</div><div class="s">once it's installed</div></div>
+  </div>
 </section>
 
 <!-- 13. Next steps -->
@@ -632,9 +658,9 @@ body.on-light .nav { color: var(--ink); }
   };
   var STAGE = {
     1: ['Stage 1 · The Guard', 'Sediment', 'Pleated polypropylene · 5 micron', 'Folded over and over to pack in as much surface area as possible. It’s the first thing your water meets, catching the sand, rust and grit from the main so everything after it stays clean.', '/assets/present/old-filter.jpg', 'A used Guard filter next to a new one. That brown is what it kept out of your home.'],
-    2: ['Stage 2 · The Disruptor', 'Limescale', 'Carbon block with polyphosphate crystals · 1 micron', 'Polyphosphate crystals are infused right into the carbon block. As water passes through, they stop hard minerals turning into scale on your glass, taps, kettle and hot water system, without taking the minerals out of your water.', '/assets/install-photos/35.jpg', 'Inside the system: the Guard, the Disruptor and the Extractor.'],
-    3: ['Stage 3 · The Disruptor', 'Chlorine', 'Dense carbon block · 1 micron', 'A carbon block packed tight enough to catch particles down to 1 micron, a fraction of the width of a hair. It reduces the chlorine added to treat the water, while keeping your pressure strong.', '/assets/present/chlorine-test.jpg', 'Unfiltered vs filtered, tested with pool chlorine tablets.'],
-    4: ['Stage 4 · The Extractor', 'Chloramine', 'Activated coconut shell carbon · 1 micron', 'Coconut shells, charred at high heat, then activated with steam to open up millions of microscopic pores. One gram holds over 1,000 m² of surface, nearly four tennis courts. Not the coal-based carbon cheaper filters use.', '/assets/install-photos/filter-replacement.png', 'Your fresh set of filters, delivered every year.'],
+    2: ['Stage 2 · The Disruptor', 'Limescale', 'Carbon block with polyphosphate crystals · 1 micron', 'Polyphosphate crystals are infused right into the carbon block. As water passes through, they stop hard minerals turning into scale on your glass, taps, kettle and hot water system, without taking the minerals out of your water.', '/assets/present/limescale.jpg', 'Limescale building up on a shower screen.'],
+    3: ['Stage 3 · The Disruptor', 'Chlorine', 'Dense carbon block · 1 micron', 'A carbon block packed tight enough to catch particles down to 1 micron, a fraction of the width of a hair. It reduces the chlorine added to treat the water, while keeping your pressure strong.', '', ''],
+    4: ['Stage 4 · The Extractor', 'Chloramine', 'Activated coconut shell carbon · 1 micron', 'Coconut shells, charred at high heat, then activated with steam to open up millions of microscopic pores. One gram holds over 1,000 m² of surface, nearly four tennis courts. Not the coal-based carbon cheaper filters use.', '', ''],
     5: ['Stage 5 · The Extractor', 'Heavy metals', 'Activated coconut shell carbon · 1 micron', 'Older suburbs still have ageing galvanised pipes. As they corrode, metals can get into your water on its way to your home. The same activated coconut carbon reduces them before they reach your taps.', '/assets/present/old-gal-pipe.jpg', 'Inside an old galvanised water pipe.']
   };
   var TAPS = ['Kitchen tap', 'Every shower', 'Bath', 'Bathroom basins', 'Washing machine', 'Dishwasher', 'Hot water system', 'Garden'];
@@ -742,14 +768,12 @@ body.on-light .nav { color: var(--ink); }
     // filter running costs, down to per person per day for their household
     $('f-mo').textContent = whole(300 / 12); $('f-day').textContent = money(300 / 365);
     $('f-pp').textContent = money(300 / 365 / people); $('f-n').textContent = people;
-    // what they spend now: only the numbers they gave, most relevant first; no numbers, no slide
-    var box = $('k-inputs'), any = false;
+    // what they spend now, most relevant first
+    var box = $('k-inputs');
     c.costs.forEach(function (k) {
-      var v = num($('s-' + k).value), row = box.querySelector('[data-k="' + k + '"]');
-      $('k-' + k).value = v; row.style.display = v ? '' : 'none'; if (v) any = true;
-      box.appendChild(row);
+      $('k-' + k).value = num($('s-' + k).value);
+      box.appendChild(box.querySelector('[data-k="' + k + '"]'));
     });
-    $('cost-slide').classList.toggle('skip', !any);
     $('pp').textContent = people;
     layout();
     update();
@@ -771,6 +795,8 @@ body.on-light .nav { color: var(--ink); }
     $('d-compare').innerHTML = yearNow > 0
       ? 'You’re already spending <b>' + money(yearNow / 365) + ' a day</b>, without fixing it. This is ' + money(allIn) + ' a day for <b>' + c.feel + '</b>.'
       : 'Less than a coffee a day, for <b>' + c.feel + '</b>.';
+    var dep = Math.round(price * 0.2);
+    $('pay-dep').textContent = whole(dep); $('pay-bal').textContent = whole(price - dep);
     var n = num($('r-n').value);
     $('r-back').textContent = whole(n * 500);
     $('r-net').textContent = whole(Math.max(0, price - n * 500));
@@ -784,7 +810,9 @@ body.on-light .nav { color: var(--ink); }
   function openPop(n) {
     var d = STAGE[n];
     $('pop-n').textContent = d[0]; $('pop-h').textContent = d[1]; $('pop-m').textContent = d[2];
-    $('pop-p').textContent = d[3]; $('pop-img').src = d[4]; $('pop-cap').textContent = d[5];
+    $('pop-p').textContent = d[3]; $('pop-cap').textContent = d[5];
+    $('pop-img').hidden = !d[4]; if (d[4]) $('pop-img').src = d[4];
+    document.querySelector('.pop-card').classList.toggle('noimg', !d[4]);
     $('pop').hidden = false;
   }
   function closePop() { $('pop').hidden = true; }
