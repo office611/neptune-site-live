@@ -12,7 +12,7 @@
 <style>
 /* Screenshare deck for the Zoom call.
    1. Before sharing: click through the setup screen as they answer
-      (concerns, their words, people, meter, what they spend, their photo).
+      (concerns, their words, people, meter, what they spend).
    2. Share the tab, press Start. Every slide is built around their concern.
    Arrow keys / space / buttons move slides; Enter or Esc finishes typing.
    S reopens setup (stop sharing first). Price stays hidden until clicked.
@@ -66,10 +66,6 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .costs .c input { width: 58px; font: inherit; font-size: 15px; font-weight: 700; color: #fff; background: transparent; border: 0; border-bottom: 1px dashed rgba(255,255,255,.35); text-align: right; padding: 2px 0; }
 .costs .c input:focus { outline: none; border-bottom-color: var(--blue); }
 .costs .c em { font-style: normal; font-size: 12px; color: rgba(255,255,255,.5); }
-.file { position: relative; border: 1px dashed rgba(255,255,255,.3); border-radius: 10px; padding: 11px 12px; font-size: 14px; color: rgba(255,255,255,.75); cursor: pointer; }
-.file input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
-.file.has { border-style: solid; border-color: var(--blue); color: #fff; }
-.file.bad { border-color: #ffcf8a; color: #ffcf8a; }
 .setup .start { margin-top: 22px; font: inherit; font-size: 17px; font-weight: 800; padding: 15px 26px; border: 0; border-radius: 999px; background: var(--blue); color: var(--navy); cursor: pointer; }
 .setup .hint { font-size: 13px; color: rgba(255,255,255,.55); margin-top: 10px; }
 
@@ -111,16 +107,6 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .clip video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .clip .tag { position: absolute; left: 10px; top: 10px; background: rgba(5,19,31,.85); color: #fff; font-size: 12px; font-weight: 700; padding: 6px 11px; border-radius: 999px; }
 .clip-cap { margin-top: 10px; font-size: 13px; color: var(--soft); text-align: center; width: clamp(200px, 21vw, 290px); }
-
-/* mockup: their photo with the real unit dragged into place */
-.mock-wrap { display: grid; grid-template-columns: minmax(240px, 1fr) auto; gap: 3vw; align-items: center; }
-@media (max-width: 860px) { .mock-wrap { grid-template-columns: 1fr; } }
-.mock { position: relative; border-radius: 16px; overflow: hidden; touch-action: none; justify-self: center; background: #dfe6ee; }
-#mock-photo { display: block; height: min(66vh, 560px); width: auto; max-width: 58vw; object-fit: cover; }
-#mock-unit { position: absolute; left: 39%; top: 45%; width: 22%; cursor: grab; user-select: none; -webkit-user-drag: none; filter: drop-shadow(0 12px 14px rgba(0,0,0,.35)); }
-.mock-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 3vh; }
-.mock-tools button { font: inherit; font-size: 14px; font-weight: 700; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; }
-.mock-tools button.on { background: var(--blue-d); border-color: var(--blue-d); color: #fff; }
 
 /* the system */
 .unit { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3.5vw; align-items: center; }
@@ -294,8 +280,6 @@ body.on-light .nav { color: var(--ink); }
           <div class="c"><span>Creams &amp; shampoos</span>$<input id="s-care" type="number" min="0" inputmode="decimal" placeholder="0"><em>/mo</em></div>
           <div class="c"><span>Descalers &amp; cleaning</span>$<input id="s-clean" type="number" min="0" inputmode="decimal" placeholder="0"><em>/mo</em></div>
         </div>
-        <label>6 · Their photo <span class="opt">for the mockup, stays on this computer</span></label>
-        <div class="file" id="s-photo-box"><input type="file" id="s-photo" accept="image/jpeg,image/png,image/webp"><span id="s-photo-name">Choose their meter or front-of-house photo, or drop it here</span></div>
         <div class="row2">
           <div><label for="s-name">First name <span class="opt">optional</span></label><input id="s-name" type="text" placeholder="Sarah" autocomplete="off"></div>
           <div><label for="s-suburb">Suburb <span class="opt">optional</span></label><input id="s-suburb" type="text" placeholder="Point Cook" autocomplete="off"></div>
@@ -450,24 +434,6 @@ body.on-light .nav { color: var(--ink); }
     <div class="pcard"><div class="ic">3</div><div><b>Fresh filters, about once a year</b><span>$300 a set, delivered with GST included, and always our latest version. Swap them yourself with our video. Any pink on the test tablet, or a drop in pressure, means it's time.</span></div></div>
     <div class="pcard"><div class="ic">4</div><div><b>Your appliances, protected too</b><span>Hot water system, washing machine, dishwasher and kettle all run on filtered water.</span></div></div>
     <div class="pcard wide" id="p-photo-card"><div class="ic">✓</div><div><b>From your photos</b><span id="p-photo"></span></div></div>
-  </div>
-</section>
-
-<!-- Mockup: their own photo with the real unit dragged into place (only when a photo is loaded) -->
-<section class="slide light skip" id="mock-slide">
-  <div class="mock-wrap">
-    <div>
-      <div class="eyebrow">From your photos</div>
-      <h2>How it'll look <span class="accent">at your home</span></h2>
-      <p class="lead">A mockup from the photo you sent us. Our plumbers confirm the final spot with you on install day.</p>
-      <div class="mock-tools">
-        <button type="button" data-u="ground" class="on">In the ground</button>
-        <button type="button" data-u="wall">On the wall</button>
-        <button type="button" data-z="0.9" aria-label="Smaller">−</button>
-        <button type="button" data-z="1.1" aria-label="Bigger">+</button>
-      </div>
-    </div>
-    <div class="mock" id="mock"><img id="mock-photo" alt=""><img id="mock-unit" src="/assets/present/unit-ground.png" alt="" draggable="false"></div>
   </div>
 </section>
 
@@ -648,7 +614,7 @@ body.on-light .nav { color: var(--ink); }
   var $ = function (id) { return document.getElementById(id); };
   var all = function (sel) { return [].slice.call(document.querySelectorAll(sel)); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
-  var state = { concerns: [], said: [], people: 4, meter: '', photo: '' };
+  var state = { concerns: [], said: [], people: 4, meter: '' };
   var pick = function (box, v) { all('#' + box + ' button').forEach(function (x) { x.classList.toggle('on', x.dataset.v === String(v)); }); };
   var uniq = function (a) { return a.filter(function (x, i) { return a.indexOf(x) === i; }); };
 
@@ -685,24 +651,6 @@ body.on-light .nav { color: var(--ink); }
   // 3. people, 4. meter (click again to clear)
   all('#s-people button').forEach(function (b) { b.addEventListener('click', function () { state.people = +b.dataset.v; pick('s-people', b.dataset.v); }); });
   all('#s-meter button').forEach(function (b) { b.addEventListener('click', function () { state.meter = state.meter === b.dataset.v ? '' : b.dataset.v; pick('s-meter', state.meter); }); });
-  // 6. their photo: read locally, never uploaded
-  function usePhoto(file) {
-    var box = $('s-photo-box');
-    if (!file || !/^image\/(jpeg|png|webp)$/.test(file.type)) {
-      box.className = 'file bad';
-      $('s-photo-name').textContent = 'Can’t open ' + (file ? file.name : 'that') + '. Use a JPG or PNG (a screenshot of it works).';
-      return;
-    }
-    if (state.photo) URL.revokeObjectURL(state.photo);
-    state.photo = URL.createObjectURL(file);
-    $('mock-photo').src = state.photo;
-    box.className = 'file has';
-    $('s-photo-name').textContent = '✓ ' + file.name;
-  }
-  $('s-photo').addEventListener('change', function () { usePhoto(this.files[0]); });
-  $('setup').addEventListener('dragover', function (e) { e.preventDefault(); });
-  $('setup').addEventListener('drop', function (e) { e.preventDefault(); usePhoto(e.dataTransfer.files[0]); });
-
   // prefill from the URL (old concern names still work)
   var q = new URLSearchParams(location.search);
   if (q.get('name')) $('s-name').value = q.get('name');
@@ -754,7 +702,6 @@ body.on-light .nav { color: var(--ink); }
     all('[data-t="planFilterTitle"]').forEach(function (el) { el.textContent = allStages ? 'All 5 stages, working together' : 'Your key stage' + (stages.length > 1 ? 's' : '') + ': ' + stages.join(' + '); });
     $('p-photo-card').style.display = state.meter ? '' : 'none';
     $('p-photo').textContent = 'Your meter’s at the ' + state.meter + ' of the house. We’ve planned your install around it.';
-    $('mock-slide').classList.toggle('skip', !state.photo);
     // what they spend now: only the numbers they gave, most relevant first; no numbers, no slide
     var box = $('k-inputs'), any = false;
     c.costs.forEach(function (k) {
@@ -806,42 +753,6 @@ body.on-light .nav { color: var(--ink); }
     [].forEach.call(dots.children, function (d, k) { d.classList.toggle('on', k === cur); });
     document.body.classList.toggle('on-light', slides[cur].classList.contains('light'));
   }
-
-  // mockup: drag the unit onto their photo, wheel or -/+ to resize (keeps its base in place)
-  var mk = $('mock'), mu = $('mock-unit'), mw = 22, drag = null;
-  function size(f) {
-    var r = mk.getBoundingClientRect(), b = mu.getBoundingClientRect();
-    var cx = (b.left + b.width / 2 - r.left) / r.width * 100, by = (b.bottom - r.top) / r.height * 100;
-    mw = Math.max(5, Math.min(80, mw * f)); mu.style.width = mw + '%';
-    var b2 = mu.getBoundingClientRect();
-    mu.style.left = (cx - b2.width / 2 / r.width * 100) + '%';
-    mu.style.top = (by - b2.height / r.height * 100) + '%';
-  }
-  mu.addEventListener('pointerdown', function (e) {
-    e.preventDefault(); mu.setPointerCapture(e.pointerId);
-    var r = mk.getBoundingClientRect();
-    drag = { x: e.clientX, y: e.clientY, l: mu.offsetLeft / r.width * 100, t: mu.offsetTop / r.height * 100, w: r.width, h: r.height };
-    mu.style.cursor = 'grabbing';
-  });
-  mu.addEventListener('pointermove', function (e) {
-    if (!drag) return;
-    mu.style.left = (drag.l + (e.clientX - drag.x) / drag.w * 100) + '%';
-    mu.style.top = (drag.t + (e.clientY - drag.y) / drag.h * 100) + '%';
-  });
-  mu.addEventListener('pointerup', function () { drag = null; mu.style.cursor = ''; });
-  mk.addEventListener('wheel', function (e) { e.preventDefault(); size(e.deltaY < 0 ? 1.06 : 1 / 1.06); }, { passive: false });
-  all('.mock-tools [data-z]').forEach(function (b) { b.addEventListener('click', function () { size(+b.dataset.z); }); });
-  all('.mock-tools [data-u]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      mu.src = '/assets/present/unit-' + b.dataset.u + '.png';
-      all('.mock-tools [data-u]').forEach(function (x) { x.classList.toggle('on', x === b); });
-    });
-  });
-  $('mock-photo').addEventListener('error', function () {
-    if (!state.photo) return;
-    state.photo = ''; $('s-photo-box').className = 'file bad';
-    $('s-photo-name').textContent = 'Couldn’t open that photo. Try a JPG or PNG (a screenshot of it works).';
-  });
 
   $('prev').addEventListener('click', function () { go(cur - 1); });
   $('next').addEventListener('click', function () { go(cur + 1); });
