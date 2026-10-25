@@ -6,6 +6,7 @@
   from = "/"
   to = "/melb/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/home"

@@ -1,5 +1,5 @@
 # Root → home
-/ /melb/ 302
+/ /melb/ 302!
 
 # Trailing-slash enforcement
 /home /home/ 301
