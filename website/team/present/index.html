@@ -77,6 +77,8 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .goals li.empty { display: none; }
 .goals .chk { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--blue-d); color: #fff; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
 .goals .chk svg { width: 18px; height: 18px; }
+.goals.recap li { font-size: clamp(16px, 1.6vw, 22px); padding: 1.6vh 20px; }
+.goals.recap .chk { width: 30px; height: 30px; }
 
 /* why filter: where chlorine comes from, then why home isn't a pool */
 .flow.src .box { min-width: 0; }
@@ -574,11 +576,18 @@ body.on-light .nav { color: var(--ink); }
   </div>
 </section>
 
+<!-- Before the price: recap what's covered, flush out anything left (decision makers, blockers asked out loud) -->
+<section class="slide light">
+  <div class="eyebrow">Before your price</div>
+  <h2>Is there anything we <span class="accent">haven't covered?</span></h2>
+  <ul class="goals recap" id="recap"></ul>
+</section>
+
 <!-- 10. Price -->
 <section class="slide">
   <div class="price-wrap">
     <div class="eyebrow">Your price</div>
-    <h2>Your whole home system, <span class="accent">installed</span></h2>
+    <h2>Your Neptune whole home system, <span class="accent">installed</span></h2>
     <button class="reveal-btn" id="reveal" type="button">Show price</button>
     <div class="price" id="price">
       <div class="big">$<span contenteditable="true" spellcheck="false" id="pr">3,990</span></div>
@@ -821,6 +830,14 @@ body.on-light .nav { color: var(--ink); }
     // tailored set-up
     // filter running costs, down to per person per day for their household
     $('f-mo').textContent = whole(300 / 12); $('f-day').textContent = money(300 / 365);
+    var tick = '<span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>';
+    $('recap').innerHTML = [
+      'Your plan for ' + view.title,
+      '5 stages for what’s coming through your pipes' + (suburb ? ' in ' + esc(suburb) : ''),
+      'Where it goes, from your photos',
+      'Our dedicated plumbing team, 7-year workmanship warranty and 30-day money-back guarantee',
+      'Fresh filters for about ' + money(300 / 365) + ' a day'
+    ].map(function (t) { return '<li>' + tick + '<span>' + t + '</span></li>'; }).join('');
     $('f-pp').textContent = money(300 / 365 / people); $('f-n').textContent = people; $('life-n').textContent = people;
     // what they spend now, most relevant first
     var box = $('k-inputs');
