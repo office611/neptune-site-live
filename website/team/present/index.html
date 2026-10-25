@@ -58,11 +58,11 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .chips.said button.on::before { content: '\2713  '; opacity: 1; }
 .chips .none { font-size: 13px; color: rgba(255,255,255,.45); }
 #s-people button { min-width: 38px; padding: 7px 8px; }
-.costs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-@media (max-width: 860px) { .costs { grid-template-columns: 1fr 1fr; } }
-.costs .c { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 6px 10px; font-size: 13px; font-weight: 600; }
+.costs { display: grid; grid-template-columns: repeat(2, minmax(0, 330px)); gap: 12px; }
+@media (max-width: 700px) { .costs { grid-template-columns: 1fr; } }
+.costs .c { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 9px 14px; font-size: 15px; font-weight: 600; }
 .costs .c span { flex: 1; line-height: 1.2; }
-.costs .c input { width: 58px; font: inherit; font-size: 15px; font-weight: 700; color: #fff; background: transparent; border: 0; border-bottom: 1px dashed rgba(255,255,255,.35); text-align: right; padding: 2px 0; }
+.costs .c input { width: 70px; font: inherit; font-size: 15px; font-weight: 700; color: #fff; background: transparent; border: 0; border-bottom: 1px dashed rgba(255,255,255,.35); text-align: right; padding: 2px 0; }
 .costs .c input:focus { outline: none; border-bottom-color: var(--blue); }
 .costs .c em { font-style: normal; font-size: 12px; color: rgba(255,255,255,.5); }
 .setup .start { margin-top: 16px; font: inherit; font-size: 17px; font-weight: 800; padding: 13px 24px; border: 0; border-radius: 999px; background: var(--blue); color: var(--navy); cursor: pointer; }
@@ -280,8 +280,6 @@ body.on-light .nav { color: var(--ink); }
     <div class="costs">
       <div class="c"><span>Bottled water</span>$<input id="s-bottled" type="number" min="0" inputmode="decimal" placeholder="0"><em>/wk</em></div>
       <div class="c"><span>Jug &amp; shower filters</span>$<input id="s-jugs" type="number" min="0" inputmode="decimal" placeholder="0"><em>/yr</em></div>
-      <div class="c"><span>Creams &amp; shampoos</span>$<input id="s-care" type="number" min="0" inputmode="decimal" placeholder="0"><em>/mo</em></div>
-      <div class="c"><span>Descalers &amp; cleaning</span>$<input id="s-clean" type="number" min="0" inputmode="decimal" placeholder="0"><em>/mo</em></div>
     </div>
     <button type="button" class="start" id="s-start">Start presentation →</button>
     <p class="hint">Press S to come back here. Stop sharing first, because they'd see it.</p>
@@ -472,10 +470,8 @@ body.on-light .nav { color: var(--ink); }
       <div class="eyebrow">Before we talk price</div>
       <h2><span data-t="costLead">What it's</span> <span class="accent">costing you now</span></h2>
       <div class="inputs" id="k-inputs">
-        <div class="inp" data-k="care"><label>Creams, shampoos &amp; treatments<small>per month</small></label><div class="field">$<input id="k-care" type="number" inputmode="decimal" value="0" min="0"></div></div>
         <div class="inp" data-k="bottled"><label>Bottled water<small>per week</small></label><div class="field">$<input id="k-bottled" type="number" inputmode="decimal" value="0" min="0"></div></div>
         <div class="inp" data-k="jugs"><label>Filter jugs &amp; shower filters<small>per year</small></label><div class="field">$<input id="k-jugs" type="number" inputmode="decimal" value="0" min="0"></div></div>
-        <div class="inp" data-k="clean"><label>Descalers &amp; cleaning products<small>per month</small></label><div class="field">$<input id="k-clean" type="number" inputmode="decimal" value="0" min="0"></div></div>
       </div>
     </div>
     <div class="result">
@@ -569,7 +565,7 @@ body.on-light .nav { color: var(--ink); }
       stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine before your skin meets them in the shower.',
       people: ['cecilio', 'lech', 'jan-peter', 'girish'], proofTitle: 'People who had <span class="accent">the same problem</span>',
       planFilter: 'The Disruptor and Extractor reduce chlorine and chloramine in every shower and bath.',
-      costs: ['care', 'jugs', 'bottled', 'clean'], feel: 'comfortable skin in every shower' },
+      costs: ['jugs', 'bottled'], feel: 'comfortable skin in every shower' },
     hair: { label: 'Hair loss', title: 'Hair You Love', short: 'your hair', costLead: 'What hair loss is',
       said: ['Hair loss that’s getting worse', 'Hair coming out in the shower', 'Itchy, flaky scalp', 'Hair feels dry and brittle', 'Tried every shampoo out there', 'Want our hair back to how it was'],
       whyLine: 'Customers with hair loss and itchy scalps tell us the shower is where they noticed the difference first.',
@@ -578,7 +574,7 @@ body.on-light .nav { color: var(--ink); }
       stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine your hair and scalp get with every wash.',
       people: ['nishanth', 'lech', 'june', 'jan-peter'], proofTitle: 'People who had <span class="accent">the same problem</span>',
       planFilter: 'The Disruptor and Extractor reduce chlorine and chloramine, with every wash.',
-      costs: ['care', 'jugs', 'bottled', 'clean'], feel: 'hair you love, every wash' },
+      costs: ['jugs', 'bottled'], feel: 'hair you love, every wash' },
     better: { label: 'Just want better water', title: 'Better Water At Every Tap', short: 'your whole family', costLead: 'What it&rsquo;s',
       said: ['Want the best for our family', 'Don’t trust what’s in the tap water', 'Every tap filtered, not just the kitchen', 'Sick of buying bottled water', 'Just moved in and want it sorted', 'Peace of mind, without thinking about it'],
       whyLine: 'It’s in every glass your family drinks and every shower they take.',
@@ -587,7 +583,7 @@ body.on-light .nav { color: var(--ink); }
       stageLine: 'From the grit in the main to the chlorine in the shower, every stage works for your whole family.',
       people: ['cecilio', 'marcus', 'jim', 'girish'], proofTitle: 'People just like you, <span class="accent">in their own words</span>',
       planFilter: 'All 5 stages working together, for every tap and shower your family uses.',
-      costs: ['bottled', 'jugs', 'care', 'clean'], feel: 'better water for your whole family' },
+      costs: ['bottled', 'jugs'], feel: 'better water for your whole family' },
     taste: { label: 'Weird taste', title: 'Water That Tastes Great', short: 'better-tasting water', costLead: 'What that taste is',
       said: ['The tap water tastes off', 'We buy bottled water because of the taste', 'The kids won’t drink from the tap', 'Tea and coffee don’t taste right', 'Want to drink straight from the tap again'],
       whyLine: 'It’s the taste you notice in your glass.',
@@ -596,7 +592,7 @@ body.on-light .nav { color: var(--ink); }
       stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine, where that weird taste comes from.',
       people: ['jim', 'marcus', 'girish', 'june'], proofTitle: 'People who noticed <span class="accent">the difference straight away</span>',
       planFilter: 'The Disruptor and Extractor reduce the chlorine and chloramine, at every tap.',
-      costs: ['bottled', 'jugs', 'care', 'clean'], feel: 'water that tastes great from every tap' },
+      costs: ['bottled', 'jugs'], feel: 'water that tastes great from every tap' },
     smell: { label: 'Weird smell', title: 'Water With No Weird Smell', short: 'every tap and shower', costLead: 'What that smell is',
       said: ['The water smells like a pool', 'You notice the smell in the shower', 'The kitchen tap smells off', 'Some days it’s worse than others', 'Want water that smells like nothing'],
       whyLine: 'It’s the pool smell you notice when you turn the shower on.',
@@ -605,7 +601,7 @@ body.on-light .nav { color: var(--ink); }
       stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine, where that weird smell comes from.',
       people: ['jim', 'marcus', 'girish', 'cecilio'], proofTitle: 'People who noticed <span class="accent">the difference straight away</span>',
       planFilter: 'The Disruptor and Extractor reduce the chlorine and chloramine, in every shower and tap.',
-      costs: ['jugs', 'bottled', 'care', 'clean'], feel: 'no weird smell in your shower' },
+      costs: ['jugs', 'bottled'], feel: 'no weird smell in your shower' },
     scale: { label: 'Scale build up', title: 'Sparkling Taps &amp; Glass', short: 'sparkling taps &amp; glass', costLead: 'What limescale is',
       said: ['White marks on the shower screen and taps', 'Always scrubbing the glass', 'The kettle’s full of white build-up', 'Worried about the hot water system', 'Want sparkling glass without the scrubbing'],
       whyLine: 'Hard minerals come along with it too, leaving scale on your glass, taps and hot water system.',
@@ -614,7 +610,7 @@ body.on-light .nav { color: var(--ink); }
       stageLine: 'Stage 2 stops hard minerals turning into scale on your screens, taps, kettle and hot water system.',
       people: ['girish', 'jim', 'marcus', 'june'], proofTitle: 'People just like you, <span class="accent">in their own words</span>',
       planFilter: 'The Disruptor’s polyphosphate crystals stop scale forming across every tap, screen and appliance.',
-      costs: ['clean', 'jugs', 'bottled', 'care'], feel: 'sparkling taps and glass' }
+      costs: ['jugs', 'bottled'], feel: 'sparkling taps and glass' }
   };
   var TAPS = ['Kitchen tap', 'Every shower', 'Bath', 'Bathroom basins', 'Washing machine', 'Dishwasher', 'Hot water system', 'Garden'];
 
@@ -725,7 +721,7 @@ body.on-light .nav { color: var(--ink); }
   var whole = function (n) { return '$' + Math.round(n).toLocaleString('en-AU'); };
   function update() {
     var c = C[state.concerns[0] || 'better'];
-    var yearNow = num($('k-bottled').value) * 52 + num($('k-jugs').value) + num($('k-care').value) * 12 + num($('k-clean').value) * 12;
+    var yearNow = num($('k-bottled').value) * 52 + num($('k-jugs').value);
     $('k-year').textContent = whole(yearNow);
     $('k-ten').textContent = whole(yearNow * 10);
     var price = num($('pr').textContent) || 3990, people = Math.max(1, num($('pp').textContent) || 1);
@@ -740,7 +736,7 @@ body.on-light .nav { color: var(--ink); }
     $('r-back').textContent = whole(n * 500);
     $('r-net').textContent = whole(Math.max(0, price - n * 500));
   }
-  ['k-bottled', 'k-jugs', 'k-care', 'k-clean', 'r-n'].forEach(function (id) { $(id).addEventListener('input', update); });
+  ['k-bottled', 'k-jugs', 'r-n'].forEach(function (id) { $(id).addEventListener('input', update); });
   $('pr').addEventListener('input', update);
   $('pp').addEventListener('input', update);
   $('reveal').addEventListener('click', function () { this.style.display = 'none'; $('price').classList.add('shown'); });
