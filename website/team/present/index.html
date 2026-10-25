@@ -98,15 +98,15 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .pp-punch { margin: 2.6vh 0 0; font-size: clamp(18px, 2vw, 26px); font-weight: 800; color: var(--ink); }
 .pp-punch b { color: var(--blue-d); }
 .vs ul { margin: 0; padding-left: 18px; display: grid; gap: .7vh; font-size: clamp(13px, 1.2vw, 16px); line-height: 1.4; color: var(--soft); }
-.bcards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6vw; margin-top: 1vh; }
+.bcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4vw; margin-top: 1vh; }
 @media (max-width: 860px) { .bcards { grid-template-columns: 1fr; } }
-.bcard { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 20px; padding: 3.4vh 2vw; transition: background .3s, color .3s; }
+.bcard { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 20px; padding: 3.4vh 1.6vw; transition: background .3s, color .3s; }
 .bcard.hl { background: var(--blue); border-color: var(--blue); color: var(--navy); }
 .bcard .ic { width: 52px; height: 52px; border-radius: 14px; background: rgba(77,166,255,.18); color: var(--blue); display: flex; align-items: center; justify-content: center; margin-bottom: 2vh; }
 .bcard.hl .ic { background: rgba(11,30,61,.12); color: var(--navy); }
 .bcard .ic svg { width: 28px; height: 28px; }
 .bcard b { display: block; font-size: clamp(20px, 2.2vw, 30px); font-weight: 800; margin-bottom: 1vh; }
-.bcard p { margin: 0; font-size: clamp(16px, 1.6vw, 21px); line-height: 1.5; color: rgba(255,255,255,.82); }
+.bcard p { margin: 0; font-size: clamp(15px, 1.45vw, 19px); line-height: 1.5; color: rgba(255,255,255,.82); }
 .bcard.hl p { color: rgba(11,30,61,.85); }
 .matters { margin: 4vh 0 0; font-size: clamp(16px, 1.7vw, 22px); font-weight: 600; color: rgba(255,255,255,.9); max-width: 1000px; }
 .dpd { margin-top: 2.6vh; max-width: 560px; }
@@ -382,6 +382,8 @@ body.on-light .nav { color: var(--ink); }
   <div class="eyebrow">Why it matters</div>
   <h2>Why reducing it makes <span class="accent">a huge difference</span></h2>
   <div class="bcards">
+    <div class="bcard" data-b="skin hair smell better"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4a4 4 0 0 1 4 4v1"/><path d="M9 9h6"/><path d="M10 13v1M14 13v1M12 16v1M9 18v1M15 18v1"/></svg></div>
+      <b>In the shower</b><p>Hot water opens up your pores, and the chlorine turns to steam you breathe in. That&rsquo;s where it hits hardest.</p></div>
     <div class="bcard" data-b="skin hair"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.3 6 11a6 6 0 0 1-12 0c0-4.7 6-11 6-11z"/></svg></div>
       <b>Skin &amp; hair</b><p>Chlorine is a bleach. It strips away the natural oils your skin and hair need, which can lead to dry skin, itchy skin, eczema flare-ups and hair loss.</p></div>
     <div class="bcard" data-b="taste smell"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1.5 17a2 2 0 0 1-2 1.8h-5a2 2 0 0 1-2-1.8L6 3z"/><path d="M6.5 8h11"/></svg></div>
@@ -628,7 +630,7 @@ body.on-light .nav { color: var(--ink); }
       whyLine: 'It’s in every glass your family drinks and every shower they take.',
       howLine: 'One system, every tap and shower. No jugs, no shower heads, no thinking about it again.',
       hot: [], stages: [1, 2, 3, 4, 5],
-      stageLine: 'From the grit in the main to the chlorine in the shower, every stage works for your whole family.',
+      stageLine: 'All 5 stages work together, so every tap and shower your family uses runs on filtered water.',
       people: ['cecilio', 'marcus', 'jim', 'girish'], proofTitle: 'People just like you, <span class="accent">in their own words</span>',
       costs: ['bottled', 'jugs'], feel: 'better water for your whole family' },
     taste: { label: 'Weird taste', title: 'Water That Tastes Great', short: 'better-tasting water', costLead: 'What that taste is',
