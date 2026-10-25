@@ -229,6 +229,14 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .fcx.hl .s { color: rgba(255,255,255,.8); }
 .fc-note { margin: 3.6vh 0 0; font-size: clamp(15px, 1.5vw, 19px); line-height: 1.5; color: var(--soft); max-width: 980px; }
 
+/* homes near you */
+.near { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2vw; height: min(58vh, 470px); }
+@media (max-width: 860px) { .near { grid-template-columns: repeat(2, 1fr); height: auto; } .near figure { aspect-ratio: 3 / 4; } }
+.near figure { margin: 0; position: relative; border-radius: 16px; overflow: hidden; background: #0b1e3d; }
+.near img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.near figcaption { position: absolute; left: 10px; bottom: 10px; background: rgba(5,19,31,.85); color: #fff; font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 999px; }
+.near figure.match figcaption { background: var(--blue); color: var(--navy); }
+
 /* filter life */
 .life { display: grid; grid-template-columns: minmax(260px, .8fr) 1.2fr; gap: 2.4vw; align-items: stretch; margin-top: 1vh; }
 @media (max-width: 860px) { .life { grid-template-columns: 1fr; } }
@@ -511,6 +519,13 @@ body.on-light .nav { color: var(--ink); }
   <div class="people" id="people"></div>
 </section>
 
+<!-- Homes near you: installs in their suburb, then their area (same photos as the /melb gallery) -->
+<section class="slide">
+  <div class="eyebrow">Homes near you</div>
+  <h2 id="near-h">Homes we've done across <span class="accent">Melbourne</span></h2>
+  <div class="near" id="near"></div>
+</section>
+
 <!-- Filter life: how long they last in a Melbourne home -->
 <section class="slide light">
   <div class="eyebrow">Filter life</div>
@@ -749,6 +764,34 @@ body.on-light .nav { color: var(--ink); }
     4: ['Stage 4 · The Extractor', 'Chloramine', 'Activated coconut shell carbon · 1 micron', 'Coconut shells, charred at high heat, then activated with steam to open up millions of microscopic pores. One gram holds over 1,000 m² of surface, nearly four tennis courts. Not the coal-based carbon cheaper filters use.', '', ''],
     5: ['Stage 5 · The Extractor', 'Heavy metals', 'Activated coconut shell carbon · 1 micron', 'Older suburbs still have ageing galvanised pipes. As they corrode, metals can get into your water on its way to your home. The same activated coconut carbon reduces them before they reach your taps.', '/assets/present/old-gal-pipe.jpg', 'Inside an old galvanised water pipe.']
   };
+  // Install photos by suburb and area: same as the /melb gallery. New tagged photos: add to both pages.
+  var PHOTO_SUBURB = {
+    '6': 'Narre Warren South', 'install-10': 'Williams Landing', 'install-13': 'Werribee',
+    '17': 'Ascot Vale', '18': 'Surrey Hills', 'install-21': 'Mill Park', 'install-22': 'Watsonia',
+    '23': 'Epping', '24': 'Black Rock', '29': 'Diggers Rest', '30': 'Balwyn North',
+    '34': 'Junction Village', '36': 'Niddrie', '37': 'Keysborough', '38': 'Deer Park', '39': 'Wollert',
+    '3': 'Clyde North', '41': 'Middle Park', '42': 'Frankston', '43': 'Deanside', '44': 'Williamstown',
+    '45': 'Bundoora', '46': 'Lower Plenty', '47': 'Darley', '48': 'Roxburgh Park', '49': 'Preston',
+    '50': 'Thomastown'
+  };
+  var PHOTO_AREAS = {
+    north: ['23', '45', 'install-21', '49', 'install-22', '50', '39', '46', '48'],
+    west: ['38', '43', 'install-10', '44', 'install-13', '47', '17', '29', '36'],
+    southeast: ['6', '41', '37', '3', '30', '42', '18', '24', '34']
+  };
+  // Council-based metro regions, like the gallery (photos group Southern + Eastern as South East);
+  // 'east' = inner and eastern suburbs, so a Narre Warren customer sees Clyde North before Middle Park.
+  var REGION_LIST = {
+    north: 'epping,wollert,craigieburn,mickleham,kalkallo,donnybrook,beveridge,roxburgh park,greenvale,meadow heights,broadmeadows,coolaroo,dallas,campbellfield,westmeadows,attwood,gladstone park,jacana,glenroy,oak park,pascoe vale,pascoe vale south,coburg,coburg north,brunswick,brunswick east,brunswick west,fawkner,hadfield,thomastown,lalor,mill park,south morang,mernda,doreen,bundoora,kingsbury,watsonia,watsonia north,greensborough,macleod,yallambie,rosanna,heidelberg,heidelberg west,heidelberg heights,bellfield,ivanhoe,ivanhoe east,eaglemont,viewbank,montmorency,eltham,eltham north,briar hill,lower plenty,diamond creek,plenty,yarrambat,hurstbridge,research,preston,reservoir,northcote,thornbury,fairfield,alphington,whittlesea,sunbury',
+    west: 'point cook,werribee,werribee south,hoppers crossing,tarneit,truganina,williams landing,wyndham vale,manor lakes,mambourin,laverton,laverton north,altona,altona north,altona meadows,seabrook,seaholme,williamstown,williamstown north,newport,spotswood,south kingsville,brooklyn,yarraville,seddon,footscray,west footscray,kingsville,maidstone,maribyrnong,braybrook,tottenham,sunshine,sunshine north,sunshine west,albion,ardeer,deer park,derrimut,cairnlea,albanvale,kings park,st albans,kealba,keilor,keilor east,keilor downs,keilor north,keilor park,taylors lakes,delahey,sydenham,hillside,burnside,burnside heights,caroline springs,taylors hill,plumpton,fraser rise,aintree,rockbank,mount cottrell,thornhill park,deanside,strathtulloh,cobblebank,weir views,harkness,brookfield,kurunjang,melton,melton south,melton west,exford,eynesbury,diggers rest,ravenhall,essendon,essendon north,essendon west,moonee ponds,ascot vale,flemington,travancore,aberfeldie,niddrie,airport west,strathmore,strathmore heights,avondale heights,tullamarine,darley,bacchus marsh,maddingley,little river',
+    southeast: 'narre warren,narre warren south,narre warren north,berwick,harkaway,beaconsfield,officer,officer south,pakenham,cardinia,clyde,clyde north,cranbourne,cranbourne north,cranbourne east,cranbourne west,cranbourne south,junction village,botanic ridge,devon meadows,lynbrook,lyndhurst,hampton park,hallam,endeavour hills,doveton,eumemmerring,dandenong,dandenong north,dandenong south,noble park,noble park north,springvale,springvale south,keysborough,bangholme,frankston,frankston north,frankston south,carrum downs,skye,sandhurst,seaford,langwarrin,karingal,mornington,mount eliza,mount martha,somerville,hastings,rosebud,dromana,safety beach,chelsea,chelsea heights,edithvale,aspendale,aspendale gardens,carrum,patterson lakes,bonbeach,mordialloc,braeside,parkdale,mentone,cheltenham',
+    east: 'highett,moorabbin,bentleigh,bentleigh east,mckinnon,ormond,carnegie,murrumbeena,caulfield,caulfield north,caulfield south,elsternwick,brighton,brighton east,hampton,hampton east,sandringham,black rock,beaumaris,clayton,clayton south,oakleigh,oakleigh east,oakleigh south,huntingdale,chadstone,ashwood,burwood,burwood east,mount waverley,glen waverley,wheelers hill,mulgrave,notting hill,rowville,lysterfield,ferntree gully,upper ferntree gully,knoxfield,scoresby,boronia,bayswater,bayswater north,wantirna,wantirna south,vermont,vermont south,forest hill,nunawading,mitcham,blackburn,blackburn north,blackburn south,box hill,box hill north,box hill south,mont albert,surrey hills,canterbury,camberwell,hawthorn,hawthorn east,kew,kew east,kooyong,balwyn,balwyn north,deepdene,ashburton,glen iris,malvern,malvern east,armadale,toorak,prahran,south yarra,windsor,st kilda,st kilda east,elwood,balaclava,middle park,albert park,port melbourne,south melbourne,doncaster,doncaster east,templestowe,templestowe lower,bulleen,donvale,park orchards,warrandyte,wonga park,ringwood,ringwood east,ringwood north,heathmont,croydon,croydon north,croydon south,kilsyth,mooroolbark,lilydale,chirnside park,montrose,mount evelyn,belgrave,upwey,tecoma,emerald'
+  };
+  var REGION_OF = {};
+  Object.keys(REGION_LIST).forEach(function (r) { REGION_LIST[r].split(',').forEach(function (n) { REGION_OF[n] = r; }); });
+  var EAST_PHOTOS = ['24', '41', '18', '30'];
+  var AREA_OF = {};
+  Object.keys(PHOTO_AREAS).forEach(function (r) { PHOTO_AREAS[r].forEach(function (k) { AREA_OF[k] = r; }); });
   var TAPS = ['Kitchen tap', 'Every shower', 'Bath', 'Bathroom basins', 'Washing machine', 'Dishwasher', 'Hot water system', 'Garden'];
 
   var $ = function (id) { return document.getElementById(id); };
@@ -852,6 +895,28 @@ body.on-light .nav { color: var(--ink); }
     for (var r = 0; ppl.length < 4 && r < 4; r++) list.forEach(function (k) { var p = C[k].people[r]; if (p && ppl.length < 4 && ppl.indexOf(p) < 0) ppl.push(p); });
     $('people').innerHTML = ppl.map(function (p) { return '<div class="person"><img src="/assets/videos/testimonials/' + p + '-poster.jpg" alt=""><div class="q">“' + esc(Q[p][0]) + '”<i>' + esc(Q[p][1]) + '</i></div></div>'; }).join('');
     // tailored set-up
+    // homes near you: their suburb first (exact, then e.g. Narre Warren → Narre Warren South), then their area
+    var sub = suburb.toLowerCase().replace(/\s+/g, ' '), base = sub.replace(/ (north|south|east|west|upper|lower)$/, '');
+    var exact = [], partial = [];
+    Object.keys(PHOTO_SUBURB).forEach(function (k) {
+      var p = PHOTO_SUBURB[k].toLowerCase();
+      if (!sub) return;
+      if (p === sub) exact.push(k);
+      else if (p === base || p.indexOf(base + ' ') === 0) partial.push(k);
+    });
+    var mine = exact.concat(partial), zone = REGION_OF[sub] || REGION_OF[base] || '';
+    var area = zone === 'east' ? 'southeast' : zone || (mine.length ? AREA_OF[mine[0]] : '');
+    var rest = area ? PHOTO_AREAS[area].filter(function (k) { return mine.indexOf(k) < 0; }) : [];
+    if (area === 'southeast') {
+      var wantEast = zone === 'east' || (!zone && mine.length && EAST_PHOTOS.indexOf(mine[0]) >= 0);
+      rest.sort(function (a, b) { return (EAST_PHOTOS.indexOf(a) >= 0) === wantEast ? ((EAST_PHOTOS.indexOf(b) >= 0) === wantEast ? 0 : -1) : ((EAST_PHOTOS.indexOf(b) >= 0) === wantEast ? 1 : 0); });
+    }
+    if (!area) for (var r2 = 0; r2 < 3; r2++) ['north', 'west', 'southeast'].forEach(function (a) { rest.push(PHOTO_AREAS[a][r2]); });
+    var near = mine.concat(rest).slice(0, 4);
+    $('near-h').innerHTML = exact.length ? 'Homes we’ve done in <span class="accent">' + esc(suburb) + '</span>'
+      : (partial.length || area) ? 'Homes we’ve done near <span class="accent">' + esc(suburb) + '</span>'
+      : 'Homes we’ve done across <span class="accent">Melbourne</span>';
+    $('near').innerHTML = near.map(function (k) { return '<figure' + (mine.indexOf(k) >= 0 ? ' class="match"' : '') + '><img src="/assets/install-photos/' + k + '.jpg" alt=""><figcaption>' + PHOTO_SUBURB[k] + '</figcaption></figure>'; }).join('');
     // filter running costs, down to per person per day for their household
     $('f-mo').textContent = whole(300 / 12); $('f-day').textContent = money(300 / 365);
     var tick = '<span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>';
@@ -900,7 +965,7 @@ body.on-light .nav { color: var(--ink); }
   ['k-bottled', 'k-jugs', 'r-n'].forEach(function (id) { $(id).addEventListener('input', update); });
   $('pr').addEventListener('input', update);
   $('pp').addEventListener('input', update);
-  $('reveal').addEventListener('click', function () { this.style.display = 'none'; $('price').classList.add('shown'); });
+  $('reveal').addEventListener('click', function () { this.style.display = 'none'; $('price').classList.add('shown'); fitSlide(slides[cur]); });
 
   // stage pop-ups
   function openPop(n) {
@@ -927,12 +992,22 @@ body.on-light .nav { color: var(--ink); }
     dots.innerHTML = '';
     slides.forEach(function (_, i) { var d = document.createElement('i'); d.addEventListener('click', function () { go(i); }); dots.appendChild(d); });
   }
+  function fitSlide(el) {
+    var kids = [].filter.call(el.children, function (k) { return !k.classList.contains('pop'); });
+    kids.forEach(function (k) { k.style.zoom = ''; });
+    for (var i = 0, z = 1; i < 6 && el.scrollHeight > el.clientHeight + 1 && z > 0.6; i++) {
+      z *= Math.max(0.85, el.clientHeight / el.scrollHeight - 0.01);
+      kids.forEach(function (k) { k.style.zoom = z; });
+    }
+  }
+  addEventListener('resize', function () { if (slides[cur]) fitSlide(slides[cur]); });
   function go(i) {
     closePop();
     cur = Math.max(0, Math.min(slides.length - 1, i));
     all('.slide').forEach(function (el) { el.classList.toggle('on', el === slides[cur]); });
     [].forEach.call(dots.children, function (d, k) { d.classList.toggle('on', k === cur); });
     document.body.classList.toggle('on-light', slides[cur].classList.contains('light'));
+    fitSlide(slides[cur]);
   }
 
   $('prev').addEventListener('click', function () { go(cur - 1); });
