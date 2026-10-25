@@ -220,6 +220,29 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .fcx.hl .s { color: rgba(255,255,255,.8); }
 .fc-note { margin: 3.6vh 0 0; font-size: clamp(15px, 1.5vw, 19px); line-height: 1.5; color: var(--soft); max-width: 980px; }
 
+/* filter life */
+.life { display: grid; grid-template-columns: minmax(260px, .8fr) 1.2fr; gap: 2.4vw; align-items: stretch; margin-top: 1vh; }
+@media (max-width: 860px) { .life { grid-template-columns: 1fr; } }
+.life .big { background: var(--blue-d); color: #fff; border-radius: 22px; padding: 4vh 2vw; display: flex; flex-direction: column; justify-content: center; }
+.life .big .v { font-size: clamp(72px, 9vw, 130px); font-weight: 800; line-height: .95; letter-spacing: -0.02em; }
+.life .big .l { font-size: clamp(18px, 2vw, 26px); font-weight: 700; margin-top: 1vh; }
+.life .big .s { font-size: clamp(14px, 1.35vw, 18px); color: rgba(255,255,255,.8); margin-top: 1.6vh; }
+.life ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.4vw; }
+.life li { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 2.6vh 1.8vw; color: var(--ink); }
+.life li b { display: block; font-size: clamp(16px, 1.6vw, 21px); margin-bottom: 4px; }
+.life li span { font-size: clamp(14px, 1.35vw, 18px); color: var(--soft); line-height: 1.45; }
+
+/* where it goes */
+.where { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4vw; margin-top: 1vh; }
+@media (max-width: 860px) { .where { grid-template-columns: 1fr; } }
+.where > div { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 3vh 1.6vw; color: var(--ink); }
+.where .ck { width: 38px; height: 38px; border-radius: 50%; background: var(--blue-d); color: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: 1.6vh; }
+.where .ck svg { width: 20px; height: 20px; }
+.where b { display: block; font-size: clamp(17px, 1.7vw, 22px); margin-bottom: 6px; }
+.where span { font-size: clamp(14px, 1.35vw, 18px); color: var(--soft); line-height: 1.45; }
+.ask { align-self: flex-start; margin-top: 4vh; display: inline-flex; align-items: center; gap: 14px; background: var(--navy); color: #fff; border-radius: 999px; padding: 16px 28px; font-size: clamp(18px, 2vw, 26px); font-weight: 800; }
+.ask .q { width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+
 /* peace of mind */
 .badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4vw; }
 @media (max-width: 860px) { .badges { grid-template-columns: repeat(2, 1fr); } }
@@ -479,6 +502,20 @@ body.on-light .nav { color: var(--ink); }
   <div class="people" id="people"></div>
 </section>
 
+<!-- Filter life: how long they last in a Melbourne home -->
+<section class="slide light">
+  <div class="eyebrow">Filter life</div>
+  <h2>How long your filters <span class="accent">last</span></h2>
+  <div class="life">
+    <div class="big"><div class="v">12</div><div class="l">months, in a Melbourne home</div><div class="s">for your home of <span id="life-n">4</span>, up to a year per set</div></div>
+    <ul>
+      <li><b>What changes it</b><span>How many people are at home and how much water you use.</span></li>
+      <li><b>How you'll know</b><span>Any pink on the chlorine test tablet, or a drop in your water pressure.</span></li>
+      <li><b>What happens next</b><span>A fresh set, delivered to your door. Swap them yourself with our video.</span></li>
+    </ul>
+  </div>
+</section>
+
 <!-- 6. Your tailored set-up: what the filters cost, down to per person per day -->
 <section class="slide light">
   <div class="eyebrow">Your tailored set-up</div>
@@ -489,7 +526,19 @@ body.on-light .nav { color: var(--ink); }
     <div class="fcx"><div class="v" id="f-day">82¢</div><div class="l">a day</div></div>
     <div class="fcx hl"><div class="v" id="f-pp">21¢</div><div class="l">a day, per person</div><div class="s">for your home of <span id="f-n">4</span></div></div>
   </div>
-  <p class="fc-note">Delivered to your door with GST included, and always our latest version. Swap them yourself with our video. Any pink on the test tablet, or a drop in pressure, means it's time.</p>
+  <p class="fc-note">Delivered to your door with GST included, and always our latest version.</p>
+</section>
+
+<!-- Where it goes: from their photos; ask about any concerns before install -->
+<section class="slide light">
+  <div class="eyebrow">From your photos</div>
+  <h2>Where your system <span class="accent">will go</span></h2>
+  <div class="where">
+    <div><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><b>At your water meter</b><span>The standard spot for most homes, tidy and out of the way.</span></div>
+    <div><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><b>Reviewed by our plumbers</b><span>They go over your photos before install day, so there are no surprises.</span></div>
+    <div><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><b>Confirmed with you</b><span>We agree the final spot with you on the day. Anything outside a standard install, we tell you upfront.</span></div>
+  </div>
+  <div class="ask"><span class="q">?</span>Any concerns about where it'll go?</div>
 </section>
 
 <!-- 7. Install & peace of mind: one page, no photos -->
@@ -772,7 +821,7 @@ body.on-light .nav { color: var(--ink); }
     // tailored set-up
     // filter running costs, down to per person per day for their household
     $('f-mo').textContent = whole(300 / 12); $('f-day').textContent = money(300 / 365);
-    $('f-pp').textContent = money(300 / 365 / people); $('f-n').textContent = people;
+    $('f-pp').textContent = money(300 / 365 / people); $('f-n').textContent = people; $('life-n').textContent = people;
     // what they spend now, most relevant first
     var box = $('k-inputs');
     c.costs.forEach(function (k) {
