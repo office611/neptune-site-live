@@ -11,12 +11,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
 <style>
 /* Screenshare deck for the Zoom call.
-   1. Before sharing: fill in the setup screen while you ask your questions
-      (name, suburb, people, their main concern, their words, photo notes).
+   1. Before sharing: click through the setup screen as they answer
+      (what brought them here, what they told you, people, water meter).
    2. Share the tab, press Start. Every slide is built around their concern.
    Arrow keys / space / buttons move slides; Enter or Esc finishes typing.
    S reopens setup (stop sharing first). Price stays hidden until clicked.
-   Prefill: ?name=Sarah&suburb=Point%20Cook&people=4&concern=skin */
+   Prefill: ?name=Sarah&suburb=Point%20Cook&people=4&concern=skin
+   (concern = skin | better | taste | smell | scale) */
 :root { --navy: #0B1E3D; --blue: #4DA6FF; --blue-d: #2E7BC4; --ink: #0B1E3D; --soft: #4B5A70; --line: #E2E7EE; --paper: #F6F8FA; }
 * { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; }
@@ -43,14 +44,19 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .setup .box { max-width: 760px; margin: 0 auto; }
 .setup h1 { font-size: 26px; }
 .setup .warn { font-size: 13px; color: #ffcf8a; margin: 0 0 22px; }
-.setup label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: 14px 0 6px; }
-.setup input[type=text], .setup input[type=number] { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #fff; }
-.setup .row3 { display: grid; grid-template-columns: 1.4fr 1.4fr .8fr; gap: 10px; }
-@media (max-width: 600px) { .setup .row3 { grid-template-columns: 1fr; } }
+.setup label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: 16px 0 7px; }
+.setup .opt { text-transform: none; letter-spacing: 0; font-weight: 500; color: rgba(255,255,255,.4); margin-left: 6px; }
+.setup input[type=text] { width: 100%; font: inherit; font-size: 15px; padding: 9px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #fff; }
+.setup .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 600px) { .setup .row2 { grid-template-columns: 1fr; } }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chips button { font: inherit; font-size: 14px; font-weight: 600; padding: 10px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.2); background: transparent; color: #fff; cursor: pointer; }
+.chips button { font: inherit; font-size: 14px; font-weight: 600; padding: 9px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.2); background: transparent; color: #fff; cursor: pointer; }
 .chips button.on { background: var(--blue); border-color: var(--blue); color: var(--navy); }
-.setup .start { margin-top: 20px; font: inherit; font-size: 17px; font-weight: 800; padding: 15px 26px; border: 0; border-radius: 999px; background: var(--blue); color: var(--navy); cursor: pointer; }
+.chips.said button { border-radius: 10px; text-align: left; }
+.chips.said button::before { content: '+ '; opacity: .55; }
+.chips.said button.on::before { content: '\2713  '; opacity: 1; }
+#s-people button { min-width: 46px; }
+.setup .start { margin-top: 22px; font: inherit; font-size: 17px; font-weight: 800; padding: 15px 26px; border: 0; border-radius: 999px; background: var(--blue); color: var(--navy); cursor: pointer; }
 .setup .hint { font-size: 13px; color: rgba(255,255,255,.55); margin-top: 10px; }
 
 /* cover */
@@ -200,27 +206,27 @@ body.on-light .nav { color: var(--ink); }
   <div class="box">
     <div class="eyebrow">Setup · don't share this screen</div>
     <h1>Build their plan</h1>
-    <p class="warn">Ask your questions first, type their answers here, then share this tab and press Start.</p>
-    <div class="row3">
-      <div><label for="s-name">First name</label><input id="s-name" type="text" placeholder="Sarah" autocomplete="off"></div>
-      <div><label for="s-suburb">Suburb</label><input id="s-suburb" type="text" placeholder="Point Cook" autocomplete="off"></div>
-      <div><label for="s-people">People at home</label><input id="s-people" type="number" min="1" value="4"></div>
-    </div>
-    <label>Their main concern</label>
+    <p class="warn">Click as they answer, then share this tab and press Start.</p>
+    <label>1 · What brought them here?</label>
     <div class="chips" id="s-concern">
-      <button type="button" data-c="skin">Dry, itchy skin / eczema</button>
-      <button type="button" data-c="hair">Hair &amp; scalp</button>
-      <button type="button" data-c="taste">Weird taste or smell</button>
-      <button type="button" data-c="drinking">Drinking water / bottled</button>
-      <button type="button" data-c="scale">Limescale</button>
-      <button type="button" data-c="family">Better water for the family</button>
+      <button type="button" data-c="skin">Eczema / dry skin</button>
+      <button type="button" data-c="better">Just want better water</button>
+      <button type="button" data-c="taste">Weird taste</button>
+      <button type="button" data-c="smell">Weird smell</button>
+      <button type="button" data-c="scale">Scale build up</button>
     </div>
-    <label for="s-g1">In their words (what they told you)</label>
-    <input id="s-g1" type="text" placeholder="e.g. Our daughter's eczema flares up after every bath" autocomplete="off">
-    <input id="s-g2" type="text" placeholder="e.g. We've tried every cream and nothing's stuck" autocomplete="off" style="margin-top:8px">
-    <input id="s-g3" type="text" placeholder="e.g. Just want her comfortable again" autocomplete="off" style="margin-top:8px">
-    <label for="s-photo">From their photos (optional)</label>
-    <input id="s-photo" type="text" placeholder="e.g. Meter's at the front left, easy access, garden tap right there" autocomplete="off">
+    <label>2 · What they told you <span class="opt">click up to 3</span></label>
+    <div class="chips said" id="s-said"></div>
+    <div class="row2">
+      <div><label>3 · People at home</label>
+        <div class="chips" id="s-people"><button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="4">4</button><button type="button" data-v="5">5</button><button type="button" data-v="6">6+</button></div></div>
+      <div><label>4 · Water meter <span class="opt">from their photos</span></label>
+        <div class="chips" id="s-meter"><button type="button" data-v="front">Front</button><button type="button" data-v="side">Side</button><button type="button" data-v="back">Back</button></div></div>
+    </div>
+    <div class="row2">
+      <div><label for="s-name">First name <span class="opt">optional</span></label><input id="s-name" type="text" placeholder="Sarah" autocomplete="off"></div>
+      <div><label for="s-suburb">Suburb <span class="opt">optional</span></label><input id="s-suburb" type="text" placeholder="Point Cook" autocomplete="off"></div>
+    </div>
     <button type="button" class="start" id="s-start">Start presentation →</button>
     <p class="hint">Press S to come back here. Stop sharing first, because they'd see it.</p>
   </div>
@@ -231,7 +237,7 @@ body.on-light .nav { color: var(--ink); }
   <img class="logo" src="/assets/logos/Neptune_Logo_White.png" alt="Neptune Filtration">
   <div class="eyebrow">Your whole-home water plan</div>
   <h1><span id="c-name">Your</span> Plan For <span class="accent" data-t="title">Better Water At Every Tap</span></h1>
-  <p class="meta">Built around what you told us, for your home in <span id="c-suburb">Melbourne</span></p>
+  <p class="meta">Built around what you told us<span id="c-suburb"></span>.</p>
 </section>
 
 <!-- 2. What you told us -->
@@ -290,7 +296,7 @@ body.on-light .nav { color: var(--ink); }
 
 <!-- 5. People like you -->
 <section class="slide">
-  <div class="eyebrow">Melbourne homeowners</div>
+  <div class="eyebrow">Homeowners like you</div>
   <h2 data-t="proofTitle">People just like you, <span class="accent">in their own words</span></h2>
   <div class="people" id="people"></div>
 </section>
@@ -434,81 +440,96 @@ body.on-light .nav { color: var(--ink); }
   };
   var C = {
     skin: { title: 'Comfortable Skin', short: 'your skin', costLead: 'What dry, itchy skin is',
+      said: ['Eczema flare-ups at home', 'Dry, itchy skin that never settles', 'We’ve tried every cream and nothing sticks', 'The kids’ skin gets irritated', 'Dry hair and an itchy scalp', 'Want to feel comfortable in our own skin'],
       howLine: 'Every shower and bath in your home runs on filtered water, so your skin meets it in every wash.',
       hot: ['Every shower', 'Bath'], stages: [3, 4],
       stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine before your skin meets them in the shower.',
-      people: ['cecilio', 'jan-peter', 'june', 'girish'], proofTitle: 'People who had <span class="accent">the same problem</span>',
+      people: ['cecilio', 'lech', 'jan-peter', 'girish'], proofTitle: 'People who had <span class="accent">the same problem</span>',
       planFilter: 'The Disruptor and Extractor reduce chlorine and chloramine in every shower and bath.',
       costs: ['care', 'jugs', 'bottled', 'clean'], feel: 'comfortable skin in every shower' },
-    hair: { title: 'Hair You Love', short: 'your hair &amp; scalp', costLead: 'What hair &amp; scalp trouble is',
-      howLine: 'Every shower in your home runs on filtered water, so your hair and scalp get it with every wash.',
-      hot: ['Every shower'], stages: [3, 4],
-      stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine your hair and scalp get with every wash.',
-      people: ['nishanth', 'lech', 'june', 'jan-peter'], proofTitle: 'People who had <span class="accent">the same problem</span>',
-      planFilter: 'The Disruptor and Extractor reduce chlorine and chloramine, with every wash.',
-      costs: ['care', 'jugs', 'bottled', 'clean'], feel: 'hair you love, every wash' },
-    taste: { title: 'Water That Tastes Great', short: 'better-tasting water', costLead: 'What that taste &amp; smell is',
-      howLine: 'Every tap in your home runs on filtered water. No more weird taste in your glass, or smell in the shower.',
-      hot: ['Kitchen tap', 'Every shower'], stages: [3, 4],
-      stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine, where that weird taste and smell comes from.',
-      people: ['jim', 'marcus', 'lech', 'girish'], proofTitle: 'People who noticed <span class="accent">the difference straight away</span>',
+    better: { title: 'Better Water At Every Tap', short: 'your whole family', costLead: 'What it&rsquo;s',
+      said: ['Want the best for our family', 'Don’t trust what’s in the tap water', 'Every tap filtered, not just the kitchen', 'Sick of buying bottled water', 'Just moved in and want it sorted', 'Peace of mind, without thinking about it'],
+      howLine: 'One system, every tap and shower. No jugs, no shower heads, no thinking about it again.',
+      hot: [], stages: [1, 2, 3, 4, 5],
+      stageLine: 'From the grit in the main to the chlorine in the shower, every stage works for your whole family.',
+      people: ['cecilio', 'marcus', 'jim', 'girish'], proofTitle: 'People just like you, <span class="accent">in their own words</span>',
+      planFilter: 'All 5 stages working together, for every tap and shower your family uses.',
+      costs: ['bottled', 'jugs', 'care', 'clean'], feel: 'better water for your whole family' },
+    taste: { title: 'Water That Tastes Great', short: 'better-tasting water', costLead: 'What that taste is',
+      said: ['The tap water tastes off', 'We buy bottled water because of the taste', 'The kids won’t drink from the tap', 'Tea and coffee don’t taste right', 'Want to drink straight from the tap again'],
+      howLine: 'Every tap in your home runs on filtered water, so you can drink straight from any of them.',
+      hot: ['Kitchen tap', 'Bathroom basins'], stages: [3, 4],
+      stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine, where that weird taste comes from.',
+      people: ['jim', 'marcus', 'girish', 'june'], proofTitle: 'People who noticed <span class="accent">the difference straight away</span>',
       planFilter: 'The Disruptor and Extractor reduce the chlorine and chloramine, at every tap.',
       costs: ['bottled', 'jugs', 'care', 'clean'], feel: 'water that tastes great from every tap' },
-    drinking: { title: 'Drinking Straight From The Tap', short: 'every glass you pour', costLead: 'What bottled water is',
-      howLine: 'Every tap becomes a drinking tap. Fill your bottle straight from the kitchen, or the garden.',
-      hot: ['Kitchen tap', 'Garden'], stages: [3, 4, 5],
-      stageLine: 'Stages 3, 4 and 5 reduce chlorine, chloramine and heavy metals, so every tap is a drinking tap.',
-      people: ['marcus', 'jim', 'june', 'girish'], proofTitle: 'People who <span class="accent">drink straight from the tap</span> now',
-      planFilter: 'Chlorine, chloramine and heavy metals reduced at the meter, so every tap is a drinking tap.',
-      costs: ['bottled', 'jugs', 'care', 'clean'], feel: 'drinking straight from every tap' },
+    smell: { title: 'Fresh, Clean Water At Every Tap', short: 'fresh, clean water', costLead: 'What that smell is',
+      said: ['The water smells like a pool', 'You notice the smell in the shower', 'The kitchen tap smells off', 'Some days it’s worse than others', 'Want water that smells like nothing'],
+      howLine: 'Every tap and shower in your home runs on filtered water. No more weird smell when you turn the shower on.',
+      hot: ['Every shower', 'Kitchen tap'], stages: [3, 4],
+      stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine, where that weird smell comes from.',
+      people: ['jim', 'marcus', 'girish', 'cecilio'], proofTitle: 'People who noticed <span class="accent">the difference straight away</span>',
+      planFilter: 'The Disruptor and Extractor reduce the chlorine and chloramine, in every shower and tap.',
+      costs: ['jugs', 'bottled', 'care', 'clean'], feel: 'fresh, clean water in every shower' },
     scale: { title: 'Sparkling Taps &amp; Glass', short: 'sparkling taps &amp; glass', costLead: 'What limescale is',
+      said: ['White marks on the shower screen and taps', 'Always scrubbing the glass', 'The kettle’s full of white build-up', 'Worried about the hot water system', 'Want sparkling glass without the scrubbing'],
       howLine: 'Every tap, shower screen and appliance runs on filtered water, so scale has nothing to build from.',
       hot: ['Every shower', 'Hot water system', 'Washing machine', 'Dishwasher'], stages: [2],
       stageLine: 'Stage 2 stops hard minerals turning into scale on your screens, taps, kettle and hot water system.',
       people: ['girish', 'jim', 'marcus', 'june'], proofTitle: 'People just like you, <span class="accent">in their own words</span>',
       planFilter: 'The Disruptor’s polyphosphate crystals stop scale forming across every tap, screen and appliance.',
-      costs: ['clean', 'jugs', 'bottled', 'care'], feel: 'sparkling taps and glass' },
-    family: { title: 'Better Water At Every Tap', short: 'your whole family', costLead: 'What it&rsquo;s',
-      howLine: 'One system, every tap and shower. No jugs, no shower heads, no thinking about it again.',
-      hot: [], stages: [1, 2, 3, 4, 5],
-      stageLine: 'From the grit in the main to the chlorine in the shower, every stage works for your whole family.',
-      people: ['cecilio', 'nishanth', 'jim', 'girish'], proofTitle: 'People just like you, <span class="accent">in their own words</span>',
-      planFilter: 'All 5 stages working together, for every tap and shower your family uses.',
-      costs: ['bottled', 'jugs', 'care', 'clean'], feel: 'better water for your whole family' }
+      costs: ['clean', 'jugs', 'bottled', 'care'], feel: 'sparkling taps and glass' }
   };
   var TAPS = ['Kitchen tap', 'Every shower', 'Bath', 'Bathroom basins', 'Washing machine', 'Dishwasher', 'Hot water system', 'Garden'];
 
   var $ = function (id) { return document.getElementById(id); };
   var all = function (sel) { return [].slice.call(document.querySelectorAll(sel)); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
-  var state = { concern: 'family' };
+  var state = { concern: 'better', said: [], people: 4, meter: '' };
+  var pick = function (box, v) { all('#' + box + ' button').forEach(function (x) { x.classList.toggle('on', x.dataset.v === String(v)); }); };
 
-  // concern chips
+  // 1. concern: swaps the "what they told you" options
+  function renderSaid() {
+    $('s-said').innerHTML = C[state.concern].said.map(function (t) { return '<button type="button">' + esc(t) + '</button>'; }).join('');
+    all('#s-said button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var t = b.textContent, i = state.said.indexOf(t);
+        if (i >= 0) state.said.splice(i, 1);
+        else { state.said.push(t); if (state.said.length > 3) state.said.shift(); }
+        all('#s-said button').forEach(function (x) { x.classList.toggle('on', state.said.indexOf(x.textContent) >= 0); });
+      });
+    });
+  }
   all('#s-concern button').forEach(function (b) {
     b.addEventListener('click', function () {
+      if (state.concern !== b.dataset.c) state.said = [];
       state.concern = b.dataset.c;
       all('#s-concern button').forEach(function (x) { x.classList.toggle('on', x === b); });
+      renderSaid();
     });
   });
+  // 3. people, 4. meter (click again to clear)
+  all('#s-people button').forEach(function (b) { b.addEventListener('click', function () { state.people = +b.dataset.v; pick('s-people', b.dataset.v); }); });
+  all('#s-meter button').forEach(function (b) { b.addEventListener('click', function () { state.meter = state.meter === b.dataset.v ? '' : b.dataset.v; pick('s-meter', state.meter); }); });
 
-  // prefill from the URL
+  // prefill from the URL (old concern names still work)
   var q = new URLSearchParams(location.search);
   if (q.get('name')) $('s-name').value = q.get('name');
   if (q.get('suburb')) $('s-suburb').value = q.get('suburb');
-  if (q.get('people')) $('s-people').value = q.get('people');
-  var qc = q.get('concern');
-  var startBtn = document.querySelector('#s-concern button[data-c="' + (C[qc] ? qc : 'family') + '"]');
+  if (q.get('people')) state.people = Math.min(6, Math.max(1, parseInt(q.get('people'), 10) || 4));
+  pick('s-people', state.people);
+  var qc = { family: 'better', hair: 'skin', drinking: 'taste' }[q.get('concern')] || q.get('concern');
+  var startBtn = document.querySelector('#s-concern button[data-c="' + (C[qc] ? qc : 'better') + '"]');
   if (startBtn) startBtn.click();
 
   function build() {
     var c = C[state.concern], name = $('s-name').value.trim(), suburb = $('s-suburb').value.trim();
-    var people = Math.max(1, parseInt($('s-people').value, 10) || 1);
+    var people = state.people;
     all('[data-t]').forEach(function (el) { var k = el.dataset.t; if (c[k] != null) el.innerHTML = c[k]; });
     $('c-name').textContent = name ? name + '’s' : 'Your';
-    $('c-suburb').textContent = suburb || 'Melbourne';
+    $('c-suburb').textContent = suburb ? ', for your home in ' + suburb : '';
     // their words
-    var g = ['s-g1', 's-g2', 's-g3'].map(function (id) { return $(id).value.trim(); }).filter(Boolean);
-    if (!g.length) g = ['Better water for everyone at home'];
+    var g = state.said.length ? state.said : [c.said[0]];
     $('goals').innerHTML = g.map(function (t) { return '<li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>' + esc(t) + '</span></li>'; }).join('');
     // taps, theirs first and highlighted
     var taps = c.hot.concat(TAPS.filter(function (t) { return c.hot.indexOf(t) < 0; }));
@@ -521,11 +542,10 @@ body.on-light .nav { color: var(--ink); }
     // proof
     $('people').innerHTML = c.people.map(function (p) { return '<div class="person"><img src="/assets/videos/testimonials/' + p + '-poster.jpg" alt=""><div class="q">“' + esc(Q[p][0]) + '”<i>' + esc(Q[p][1]) + '</i></div></div>'; }).join('');
     // tailored set-up
-    all('[data-t="planMeter"]').forEach(function (el) { el.textContent = 'So every ' + (state.concern === 'drinking' || state.concern === 'taste' ? 'tap' : 'shower and tap') + ' in your ' + (suburb ? suburb + ' ' : '') + 'home is covered.'; });
+    all('[data-t="planMeter"]').forEach(function (el) { el.textContent = 'So every ' + (state.concern === 'taste' ? 'tap' : 'shower and tap') + ' in your ' + (suburb ? suburb + ' ' : '') + 'home is covered.'; });
     all('[data-t="planFilterTitle"]').forEach(function (el) { el.textContent = allStages ? 'All 5 stages, working together' : 'Your key stage' + (c.stages.length > 1 ? 's' : '') + ': ' + c.stages.join(' + '); });
-    var photo = $('s-photo').value.trim();
-    $('p-photo-card').style.display = photo ? '' : 'none';
-    $('p-photo').textContent = photo;
+    $('p-photo-card').style.display = state.meter ? '' : 'none';
+    $('p-photo').textContent = 'Your meter’s at the ' + state.meter + ' of the house. We’ve planned your install around it.';
     // costs, most relevant first
     var box = $('k-inputs');
     c.costs.forEach(function (k) { box.appendChild(box.querySelector('[data-k="' + k + '"]')); });
