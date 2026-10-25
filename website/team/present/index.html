@@ -235,6 +235,7 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .near figure { margin: 0; position: relative; border-radius: 16px; overflow: hidden; background: #0b1e3d; }
 .near img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .near figcaption { position: absolute; left: 10px; bottom: 10px; background: rgba(5,19,31,.85); color: #fff; font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 999px; }
+.near-sub { margin: 2vh 0 0; font-size: clamp(14px, 1.35vw, 18px); color: rgba(255,255,255,.75); }
 .near figure.match figcaption { background: var(--blue); color: var(--navy); }
 
 /* filter life */
@@ -524,6 +525,7 @@ body.on-light .nav { color: var(--ink); }
   <div class="eyebrow">Homes near you</div>
   <h2 id="near-h">Homes we've done across <span class="accent">Melbourne</span></h2>
   <div class="near" id="near"></div>
+  <p class="near-sub">Just a few of the 100+ Melbourne homes we've done.</p>
 </section>
 
 <!-- Filter life: how long they last in a Melbourne home -->
@@ -913,8 +915,11 @@ body.on-light .nav { color: var(--ink); }
     }
     if (!area) for (var r2 = 0; r2 < 3; r2++) ['north', 'west', 'southeast'].forEach(function (a) { rest.push(PHOTO_AREAS[a][r2]); });
     var near = mine.concat(rest).slice(0, 4);
+    // 'in' only for their exact suburb, 'near' only for a next-door match; otherwise the whole region (never 'near' a suburb we haven't done)
+    var REGION_NAME = { north: 'Melbourne’s north', west: 'Melbourne’s west', southeast: 'Melbourne’s south east', east: 'Melbourne’s east' };
     $('near-h').innerHTML = exact.length ? 'Homes we’ve done in <span class="accent">' + esc(suburb) + '</span>'
-      : (partial.length || area) ? 'Homes we’ve done near <span class="accent">' + esc(suburb) + '</span>'
+      : partial.length ? 'Homes we’ve done near <span class="accent">' + esc(suburb) + '</span>'
+      : zone ? 'Homes we’ve done across <span class="accent">' + REGION_NAME[zone] + '</span>'
       : 'Homes we’ve done across <span class="accent">Melbourne</span>';
     $('near').innerHTML = near.map(function (k) { return '<figure' + (mine.indexOf(k) >= 0 ? ' class="match"' : '') + '><img src="/assets/install-photos/' + k + '.jpg" alt=""><figcaption>' + PHOTO_SUBURB[k] + '</figcaption></figure>'; }).join('');
     // filter running costs, down to per person per day for their household
