@@ -15,7 +15,7 @@
       (concerns, their words, people, what they spend).
    2. Share the tab, press Start. Every slide is built around their concern.
    Arrow keys / space / buttons move slides; Enter or Esc finishes typing.
-   S reopens setup (stop sharing first). Price stays hidden until clicked.
+   S reopens setup (stop sharing first). R jumps to the referral slide (if they push back on price). Price stays hidden until clicked.
    Prefill: ?name=Sarah&suburb=Point%20Cook&people=4&concern=skin
    (concern = skin,hair,better,taste,smell,scale; comma-separate several, main first) */
 :root { --navy: #0B1E3D; --blue: #4DA6FF; --blue-d: #2E7BC4; --ink: #0B1E3D; --soft: #4B5A70; --line: #E2E7EE; --paper: #F6F8FA; }
@@ -39,33 +39,33 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .logo { height: clamp(26px, 3vw, 38px); width: auto; align-self: flex-start; margin-bottom: 5vh; }
 
 /* setup (never shown while sharing) */
-.setup { position: fixed; inset: 0; z-index: 20; background: #081426; overflow-y: auto; padding: 2.4vh 16px 3vh; }
+.setup { position: fixed; inset: 0; z-index: 20; background: #081426; overflow-y: auto; padding: 4vh 24px; display: flex; }
 .setup.hidden { display: none; }
-.setup .box { max-width: 900px; margin: 0 auto; }
-.setup h1 { font-size: 24px; margin: 0 0 6px; }
-.setup .warn { font-size: 13px; color: #ffcf8a; margin: 0 0 6px; }
-.setup label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: 12px 0 6px; }
+.setup .box { max-width: 1000px; width: 100%; margin: auto; }
+.setup h1 { font-size: 32px; margin: 0 0 8px; }
+.setup .warn { font-size: 15px; color: #ffcf8a; margin: 0; }
+.setup label { display: block; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: clamp(18px, 3.4vh, 34px) 0 12px; }
 .setup .opt { text-transform: none; letter-spacing: 0; font-weight: 500; color: rgba(255,255,255,.4); margin-left: 6px; }
-.setup input[type=text] { width: 100%; font: inherit; font-size: 15px; padding: 7px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #fff; }
+.setup input[type=text] { width: 100%; font: inherit; font-size: 16px; padding: 11px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #fff; }
 .setup .row3 { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 18px; align-items: end; }
 @media (max-width: 700px) { .setup .row3 { grid-template-columns: 1fr; } }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chips button { font: inherit; font-size: 13.5px; font-weight: 600; padding: 7px 13px; border-radius: 999px; border: 1px solid rgba(255,255,255,.2); background: transparent; color: #fff; cursor: pointer; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chips button { font: inherit; font-size: 15px; font-weight: 600; padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.2); background: transparent; color: #fff; cursor: pointer; }
 .chips button.on { background: var(--blue); border-color: var(--blue); color: var(--navy); }
 .chips button.main::after { content: ' · MAIN'; font-size: 10px; font-weight: 800; letter-spacing: .06em; }
 .chips.said button { border-radius: 10px; text-align: left; }
 .chips.said button::before { content: '+ '; opacity: .55; }
 .chips.said button.on::before { content: '\2713  '; opacity: 1; }
 .chips .none { font-size: 13px; color: rgba(255,255,255,.45); }
-#s-people button { min-width: 38px; padding: 7px 8px; }
+#s-people button { min-width: 46px; padding: 10px; }
 .costs { display: grid; grid-template-columns: repeat(2, minmax(0, 330px)); gap: 12px; }
 @media (max-width: 700px) { .costs { grid-template-columns: 1fr; } }
-.costs .c { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 9px 14px; font-size: 15px; font-weight: 600; }
+.costs .c { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 12px 16px; font-size: 15px; font-weight: 600; }
 .costs .c span { flex: 1; line-height: 1.2; }
 .costs .c input { width: 70px; font: inherit; font-size: 15px; font-weight: 700; color: #fff; background: transparent; border: 0; border-bottom: 1px dashed rgba(255,255,255,.35); text-align: right; padding: 2px 0; }
 .costs .c input:focus { outline: none; border-bottom-color: var(--blue); }
 .costs .c em { font-style: normal; font-size: 12px; color: rgba(255,255,255,.5); }
-.setup .start { margin-top: 16px; font: inherit; font-size: 17px; font-weight: 800; padding: 13px 24px; border: 0; border-radius: 999px; background: var(--blue); color: var(--navy); cursor: pointer; }
+.setup .start { margin-top: clamp(20px, 4vh, 40px); font: inherit; font-size: 17px; font-weight: 800; padding: 15px 28px; border: 0; border-radius: 999px; background: var(--blue); color: var(--navy); cursor: pointer; }
 .setup .hint { font-size: 13px; color: rgba(255,255,255,.55); margin-top: 10px; }
 
 /* cover */
@@ -92,6 +92,12 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .vs .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 2.2vh 1.4vw; color: var(--ink); }
 .vs .card.home { border: 2px solid var(--blue-d); box-shadow: 0 12px 30px rgba(46,123,196,.15); }
 .vs .card .t { display: block; font-size: clamp(16px, 1.6vw, 21px); font-weight: 800; margin-bottom: 1vh; }
+.vs .ppm { font-size: clamp(30px, 3.6vw, 48px); font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+.vs .card.home .ppm { color: var(--blue-d); }
+.vs .ppm small { font-size: .42em; font-weight: 700; color: var(--soft); letter-spacing: 0; }
+.vs .src { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--soft); margin: 6px 0 1.4vh; }
+.pp-punch { margin: 2.6vh 0 0; font-size: clamp(18px, 2vw, 26px); font-weight: 800; color: var(--ink); }
+.pp-punch b { color: var(--blue-d); }
 .vs ul { margin: 0; padding-left: 18px; display: grid; gap: .7vh; font-size: clamp(13px, 1.2vw, 16px); line-height: 1.4; color: var(--soft); }
 .bcards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6vw; margin-top: 1vh; }
 @media (max-width: 860px) { .bcards { grid-template-columns: 1fr; } }
@@ -123,9 +129,8 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .specs li b { color: var(--ink); }
 .specs .ck { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--blue-d); color: #fff; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
 .specs .ck svg { width: 12px; height: 12px; }
-.ph3 { display: grid; grid-template-columns: 1.2fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px; height: min(60vh, 460px); }
+.ph3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; height: min(60vh, 460px); }
 .ph3 figure, .steps4 figure { margin: 0; position: relative; border-radius: 14px; overflow: hidden; background: #dfe6ee; }
-.ph3 figure:first-child { grid-row: 1 / 3; }
 .ph3 img, .steps4 img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ph3 figcaption, .steps4 figcaption { position: absolute; left: 8px; bottom: 8px; background: rgba(5,19,31,.85); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; }
 
@@ -174,10 +179,10 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 #st-h { font-size: clamp(24px, 3vw, 40px); }
 .pop { position: absolute; inset: 0; z-index: 4; background: rgba(5,19,31,.55); display: flex; align-items: center; justify-content: center; padding: 5vh 6vw 11vh; }
 .pop[hidden] { display: none; }
-.pop-card { position: relative; display: grid; grid-template-columns: minmax(0, .9fr) 1.1fr; width: 100%; max-width: 1000px; max-height: 100%; background: #fff; color: var(--ink); border-radius: 22px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
-@media (max-width: 860px) { .pop-card { grid-template-columns: 1fr; } }
-.pop-card img { width: 100%; height: 100%; min-height: 280px; max-height: 66vh; object-fit: cover; display: block; }
-.pop-body { padding: 4vh 2.8vw; display: flex; flex-direction: column; justify-content: center; }
+.pop-card { position: relative; display: flex; width: 100%; max-width: 1000px; max-height: 100%; background: #fff; color: var(--ink); border-radius: 22px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+.pop-card img { flex-shrink: 0; height: min(62vh, 520px); width: auto; max-width: 46%; object-fit: cover; display: block; background: #0b1e3d; }
+@media (max-width: 860px) { .pop-card { flex-direction: column; } .pop-card img { width: 100%; max-width: 100%; height: 34vh; } }
+.pop-body { flex: 1; padding: 4vh 2.8vw; display: flex; flex-direction: column; justify-content: center; }
 .pop-body .n { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-d); }
 .pop-body h3 { font-size: clamp(26px, 3vw, 40px); font-weight: 800; line-height: 1.1; margin: 6px 0 4px; }
 .pop-body .m { font-size: clamp(13px, 1.15vw, 15px); font-weight: 700; color: var(--soft); margin-bottom: 2vh; }
@@ -202,14 +207,17 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .person .q { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 14px 14px; background: linear-gradient(180deg, transparent, rgba(5,19,31,.9) 45%); font-size: clamp(13px, 1.25vw, 17px); font-weight: 700; line-height: 1.3; }
 .person .q i { display: block; font-style: normal; font-weight: 500; font-size: .8em; opacity: .8; margin-top: 5px; }
 
-/* tailored set-up */
-.plan { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6vw; }
-@media (max-width: 860px) { .plan { grid-template-columns: 1fr; } }
-.pcard { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 2.6vh 1.8vw; color: var(--ink); display: flex; gap: 14px; }
-.pcard .ic { flex-shrink: 0; width: 42px; height: 42px; border-radius: 12px; background: #EAF2FB; color: var(--blue-d); display: flex; align-items: center; justify-content: center; font-weight: 800; }
-.pcard b { display: block; font-size: clamp(16px, 1.6vw, 21px); }
-.pcard span { font-size: clamp(14px, 1.25vw, 16px); color: var(--soft); }
-.pcard.wide { grid-column: 1 / -1; }
+/* tailored set-up: filter running costs */
+.fc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4vw; margin-top: 1vh; }
+@media (max-width: 860px) { .fc { grid-template-columns: 1fr 1fr; } }
+.fcx { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 3.6vh 1.4vw; text-align: center; color: var(--ink); }
+.fcx .v { font-size: clamp(38px, 5vw, 72px); font-weight: 800; color: var(--blue-d); line-height: 1; font-variant-numeric: tabular-nums; }
+.fcx .l { font-size: clamp(14px, 1.4vw, 18px); font-weight: 700; margin-top: 1.2vh; }
+.fcx .s { font-size: clamp(12px, 1.1vw, 15px); color: var(--soft); margin-top: 4px; }
+.fcx.hl { background: var(--blue-d); border-color: var(--blue-d); color: #fff; }
+.fcx.hl .v { color: #fff; }
+.fcx.hl .s { color: rgba(255,255,255,.8); }
+.fc-note { margin: 3.6vh 0 0; font-size: clamp(15px, 1.5vw, 19px); line-height: 1.5; color: var(--soft); max-width: 980px; }
 
 /* install */
 .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; height: min(37vh, 300px); }
@@ -220,6 +228,14 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .facts li { font-size: clamp(14px, 1.3vw, 17px); color: var(--soft); line-height: 1.35; }
 .facts b { display: block; color: var(--blue-d); font-size: 1.15em; }
 .fine { margin: 2vh 0 0; font-size: clamp(12px, 1.05vw, 14px); color: var(--soft); }
+
+/* peace of mind */
+.badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4vw; }
+@media (max-width: 860px) { .badges { grid-template-columns: repeat(2, 1fr); } }
+.bd { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 4vh 1.4vw; text-align: center; }
+.bd .big { font-size: clamp(34px, 4vw, 58px); font-weight: 800; color: var(--blue); line-height: 1; }
+.bd .t { font-size: clamp(15px, 1.5vw, 20px); font-weight: 700; margin-top: 1.4vh; }
+.bd .s { font-size: clamp(12px, 1.1vw, 15px); color: rgba(255,255,255,.7); margin-top: 6px; line-height: 1.4; }
 
 /* calculators */
 .calc { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: center; }
@@ -341,11 +357,12 @@ body.on-light .nav { color: var(--ink); }
   <div class="why">
     <div>
       <div class="eyebrow">Chlorine at home</div>
-      <h2>Why your home <span class="accent">isn't a pool</span></h2>
+      <h2>Your tap water vs <span class="accent">a swimming pool</span></h2>
       <div class="vs">
-        <div class="card"><span class="t">A swimming pool</span><ul><li>Open air, so the chlorine gas escapes</li><li>Topped up to keep it working</li></ul></div>
-        <div class="card home"><span class="t">Your home</span><ul><li>A fresh supply every time you turn on a tap</li><li>Hot showers release more of it as steam</li><li>In a closed bathroom, so it stays in the air</li></ul></div>
+        <div class="card"><span class="t">A swimming pool</span><div class="ppm">1–3 <small>ppm</small></div><div class="src">Recommended for home pools</div><ul><li>Open air, so the chlorine gas escapes</li><li>The same water, topped up, not drained and refilled every day</li></ul></div>
+        <div class="card home"><span class="t">Your home</span><div class="ppm">1.5–3 <small>ppm</small></div><div class="src">Melbourne homes we've tested</div><ul><li>A fresh supply of chlorinated water every time you turn on a tap</li></ul></div>
       </div>
+      <p class="pp-punch">As much chlorine as a swimming pool, <b>in every shower.</b></p>
       <div class="dpd">
         <div class="sw"><span style="background:#fbf7f9"></span><span style="background:#f6d3e2"></span><span style="background:#efafcb"></span><span style="background:#e58ab5"></span><span style="background:#d9659f"></span><span style="background:#c23d86"></span></div>
         <div class="lb"><span>0</span><span>0.5</span><span>1.0</span><span>1.5</span><span>2.0</span><span>3.0 ppm</span></div>
@@ -354,7 +371,7 @@ body.on-light .nav { color: var(--ink); }
     </div>
     <div>
       <div class="clip"><video src="/assets/present/chlorine-test.mp4" poster="/assets/present/chlorine-test.jpg" autoplay muted loop playsinline preload="auto"></video><span class="tag">Pink = chlorine</span></div>
-      <div class="clip-cap">Unfiltered vs filtered, using the same chlorine tablets pools use. We test yours on install day.</div>
+      <div class="clip-cap">Unfiltered vs filtered, using the same chlorine tablets pools use.</div>
     </div>
   </div>
 </section>
@@ -365,9 +382,9 @@ body.on-light .nav { color: var(--ink); }
   <h2>Why reducing it makes <span class="accent">a huge difference</span></h2>
   <div class="bcards">
     <div class="bcard" data-b="skin hair"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.3 6 11a6 6 0 0 1-12 0c0-4.7 6-11 6-11z"/></svg></div>
-      <b>Skin &amp; hair</b><p>Chlorine is a bleach. It can strip away the natural oils your skin and hair need, leaving them dry and itchy.</p></div>
+      <b>Skin &amp; hair</b><p>Chlorine is a bleach. It strips away the natural oils your skin and hair need, which can lead to dry skin, itchy skin, eczema flare-ups and hair loss.</p></div>
     <div class="bcard" data-b="taste smell"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1.5 17a2 2 0 0 1-2 1.8h-5a2 2 0 0 1-2-1.8L6 3z"/><path d="M6.5 8h11"/></svg></div>
-      <b>Taste &amp; smell</b><p>In water, chlorine forms a weak acid. Together with chloramine, that's the weird taste and smell. Reduce them, and your water tastes the way filtered water should.</p></div>
+      <b>Taste &amp; smell</b><p>Chlorine is acidic. Reduce it, and your water tastes and smells better. Simple.</p></div>
   </div>
   <p class="matters" data-t="whyLine"></p>
 </section>
@@ -404,7 +421,7 @@ body.on-light .nav { color: var(--ink); }
     </ul>
     <div class="ph3">
       <figure><img src="/assets/install-photos/6.jpg" alt=""><figcaption>Stainless steel cover</figcaption></figure>
-      <figure><img src="/assets/install-photos/35.jpg" alt=""><figcaption>3 filters inside</figcaption></figure>
+      <figure><img src="/assets/install-photos/38.jpg" alt=""><figcaption>On the wall</figcaption></figure>
       <figure><img src="/assets/install-photos/49.jpg" alt=""><figcaption>Copper piping</figcaption></figure>
     </div>
   </div>
@@ -457,16 +474,17 @@ body.on-light .nav { color: var(--ink); }
   <div class="people" id="people"></div>
 </section>
 
-<!-- 6. Your tailored set-up -->
+<!-- 6. Your tailored set-up: what the filters cost, down to per person per day -->
 <section class="slide light">
   <div class="eyebrow">Your tailored set-up</div>
-  <h2>Built around <span class="accent" data-t="short">your water</span></h2>
-  <div class="plan">
-    <div class="pcard"><div class="ic">1</div><div><b>Installed at your water meter</b><span data-t="planMeter"></span></div></div>
-    <div class="pcard"><div class="ic">2</div><div><b data-t="planFilterTitle"></b><span data-t="planFilter"></span></div></div>
-    <div class="pcard"><div class="ic">3</div><div><b>Fresh filters, about once a year</b><span>$300 a set, delivered with GST included, and always our latest version. Swap them yourself with our video. Any pink on the test tablet, or a drop in pressure, means it's time.</span></div></div>
-    <div class="pcard"><div class="ic">4</div><div><b>Your appliances, protected too</b><span>Hot water system, washing machine, dishwasher and kettle all run on filtered water.</span></div></div>
+  <h2>Your filters, <span class="accent">broken down</span></h2>
+  <div class="fc">
+    <div class="fcx"><div class="v">$300</div><div class="l">a year</div><div class="s">a fresh set of all 3 filters</div></div>
+    <div class="fcx"><div class="v" id="f-mo">$25</div><div class="l">a month</div></div>
+    <div class="fcx"><div class="v" id="f-day">82¢</div><div class="l">a day</div></div>
+    <div class="fcx hl"><div class="v" id="f-pp">21¢</div><div class="l">a day, per person</div><div class="s">for your home of <span id="f-n">4</span></div></div>
   </div>
+  <p class="fc-note">Delivered to your door with GST included, and always our latest version. Swap them yourself with our video. Any pink on the test tablet, or a drop in pressure, means it's time.</p>
 </section>
 
 <!-- 7. Install day -->
@@ -488,6 +506,18 @@ body.on-light .nav { color: var(--ink); }
     <li><b>Tested</b>your water, in front of you</li>
   </ul>
   <p class="fine">Standard install is at your water meter. Anything outside a standard install costs extra.</p>
+</section>
+
+<!-- 8. Peace of mind: guarantees, no photos -->
+<section class="slide">
+  <div class="eyebrow">Peace of mind</div>
+  <h2>Backed by us, <span class="accent">in writing</span></h2>
+  <div class="badges">
+    <div class="bd"><div class="big">7 yrs</div><div class="t">Plumbing workmanship warranty</div><div class="s">backed by our own plumbing team</div></div>
+    <div class="bd"><div class="big">30 days</div><div class="t">Money-back guarantee</div><div class="s">any pink in your water in the first 30 days, you get your money back</div></div>
+    <div class="bd"><div class="big">1 yr</div><div class="t">Product warranty</div><div class="s">on the system</div></div>
+    <div class="bd"><div class="big">&#10003;</div><div class="t">WaterMark certified</div><div class="s">compliance backed</div></div>
+  </div>
 </section>
 
 <!-- 9. What it's costing now (filled from setup; skipped when they gave no numbers) -->
@@ -534,8 +564,19 @@ body.on-light .nav { color: var(--ink); }
   <div class="compare" id="d-compare"></div>
 </section>
 
-<!-- 12. Referral -->
+<!-- 13. Next steps -->
 <section class="slide">
+  <div class="eyebrow">Next steps</div>
+  <h2>Locking in <span class="accent">your install</span></h2>
+  <div class="steps">
+    <div class="st"><b>Lock in your date</b><span>We confirm everything with you today.</span></div>
+    <div class="st"><b>We book you in</b><span>Our install team calls you within 1–4 business days.</span></div>
+    <div class="st"><b>Install day</b><span>2–3 hours, tested in front of you.</span></div>
+  </div>
+</section>
+
+<!-- Referral: last, for when they push back on price (press R) -->
+<section class="slide" id="ref-slide">
   <div class="calc">
     <div>
       <div class="eyebrow">Our referral program</div>
@@ -548,17 +589,6 @@ body.on-light .nav { color: var(--ink); }
       <div class="v" id="r-back">$1,500</div>
       <div class="sub">Your system effectively comes down to <b id="r-net" style="color:#4DA6FF">$2,490</b></div>
     </div>
-  </div>
-</section>
-
-<!-- 13. Next steps -->
-<section class="slide">
-  <div class="eyebrow">Next steps</div>
-  <h2>Locking in <span class="accent">your install</span></h2>
-  <div class="steps">
-    <div class="st"><b>Lock in your date</b><span>We confirm everything with you today.</span></div>
-    <div class="st"><b>We book you in</b><span>Our install team calls you within 1–4 business days.</span></div>
-    <div class="st"><b>Install day</b><span>2–3 hours, tested in front of you.</span></div>
   </div>
 </section>
 
@@ -591,7 +621,6 @@ body.on-light .nav { color: var(--ink); }
       hot: ['Every shower', 'Bath'], stages: [3, 4],
       stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine before your skin meets them in the shower.',
       people: ['cecilio', 'lech', 'jan-peter', 'girish'], proofTitle: 'People who had <span class="accent">the same problem</span>',
-      planFilter: 'The Disruptor and Extractor reduce chlorine and chloramine in every shower and bath.',
       costs: ['jugs', 'bottled'], feel: 'comfortable skin in every shower' },
     hair: { label: 'Hair loss', title: 'Hair You Love', short: 'your hair', costLead: 'What hair loss is',
       said: ['Hair loss that’s getting worse', 'Hair coming out in the shower', 'Itchy, flaky scalp', 'Hair feels dry and brittle', 'Tried every shampoo out there', 'Want our hair back to how it was'],
@@ -600,7 +629,6 @@ body.on-light .nav { color: var(--ink); }
       hot: ['Every shower'], stages: [3, 4],
       stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine your hair and scalp get with every wash.',
       people: ['nishanth', 'lech', 'june', 'jan-peter'], proofTitle: 'People who had <span class="accent">the same problem</span>',
-      planFilter: 'The Disruptor and Extractor reduce chlorine and chloramine, with every wash.',
       costs: ['jugs', 'bottled'], feel: 'hair you love, every wash' },
     better: { label: 'Just want better water', title: 'Better Water At Every Tap', short: 'your whole family', costLead: 'What it&rsquo;s',
       said: ['Want the best for our family', 'Don’t trust what’s in the tap water', 'Every tap filtered, not just the kitchen', 'Sick of buying bottled water', 'Just moved in and want it sorted', 'Peace of mind, without thinking about it'],
@@ -609,7 +637,6 @@ body.on-light .nav { color: var(--ink); }
       hot: [], stages: [1, 2, 3, 4, 5],
       stageLine: 'From the grit in the main to the chlorine in the shower, every stage works for your whole family.',
       people: ['cecilio', 'marcus', 'jim', 'girish'], proofTitle: 'People just like you, <span class="accent">in their own words</span>',
-      planFilter: 'All 5 stages working together, for every tap and shower your family uses.',
       costs: ['bottled', 'jugs'], feel: 'better water for your whole family' },
     taste: { label: 'Weird taste', title: 'Water That Tastes Great', short: 'better-tasting water', costLead: 'What that taste is',
       said: ['The tap water tastes off', 'We buy bottled water because of the taste', 'The kids won’t drink from the tap', 'Tea and coffee don’t taste right', 'Want to drink straight from the tap again'],
@@ -618,7 +645,6 @@ body.on-light .nav { color: var(--ink); }
       hot: ['Kitchen tap', 'Bathroom basins'], stages: [3, 4],
       stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine, where that weird taste comes from.',
       people: ['jim', 'marcus', 'girish', 'june'], proofTitle: 'People who noticed <span class="accent">the difference straight away</span>',
-      planFilter: 'The Disruptor and Extractor reduce the chlorine and chloramine, at every tap.',
       costs: ['bottled', 'jugs'], feel: 'water that tastes great from every tap' },
     smell: { label: 'Weird smell', title: 'Water With No Weird Smell', short: 'every tap and shower', costLead: 'What that smell is',
       said: ['The water smells like a pool', 'You notice the smell in the shower', 'The kitchen tap smells off', 'Some days it’s worse than others', 'Want water that smells like nothing'],
@@ -627,7 +653,6 @@ body.on-light .nav { color: var(--ink); }
       hot: ['Every shower', 'Kitchen tap'], stages: [3, 4],
       stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine, where that weird smell comes from.',
       people: ['jim', 'marcus', 'girish', 'cecilio'], proofTitle: 'People who noticed <span class="accent">the difference straight away</span>',
-      planFilter: 'The Disruptor and Extractor reduce the chlorine and chloramine, in every shower and tap.',
       costs: ['jugs', 'bottled'], feel: 'no weird smell in your shower' },
     scale: { label: 'Scale build up', title: 'Sparkling Taps &amp; Glass', short: 'sparkling taps &amp; glass', costLead: 'What limescale is',
       said: ['White marks on the shower screen and taps', 'Always scrubbing the glass', 'The kettle’s full of white build-up', 'Worried about the hot water system', 'Want sparkling glass without the scrubbing'],
@@ -636,7 +661,6 @@ body.on-light .nav { color: var(--ink); }
       hot: ['Every shower', 'Hot water system', 'Washing machine', 'Dishwasher'], stages: [2],
       stageLine: 'Stage 2 stops hard minerals turning into scale on your screens, taps, kettle and hot water system.',
       people: ['girish', 'jim', 'marcus', 'june'], proofTitle: 'People just like you, <span class="accent">in their own words</span>',
-      planFilter: 'The Disruptor’s polyphosphate crystals stop scale forming across every tap, screen and appliance.',
       costs: ['jugs', 'bottled'], feel: 'sparkling taps and glass' }
   };
   var STAGE = {
@@ -735,8 +759,9 @@ body.on-light .nav { color: var(--ink); }
     for (var r = 0; ppl.length < 4 && r < 4; r++) list.forEach(function (k) { var p = C[k].people[r]; if (p && ppl.length < 4 && ppl.indexOf(p) < 0) ppl.push(p); });
     $('people').innerHTML = ppl.map(function (p) { return '<div class="person"><img src="/assets/videos/testimonials/' + p + '-poster.jpg" alt=""><div class="q">“' + esc(Q[p][0]) + '”<i>' + esc(Q[p][1]) + '</i></div></div>'; }).join('');
     // tailored set-up
-    all('[data-t="planMeter"]').forEach(function (el) { el.textContent = 'So every ' + (list.length === 1 && list[0] === 'taste' ? 'tap' : 'shower and tap') + ' in your ' + (suburb ? suburb + ' ' : '') + 'home is covered.'; });
-    all('[data-t="planFilterTitle"]').forEach(function (el) { el.textContent = allStages ? 'All 5 stages, working together' : 'Your key stage' + (stages.length > 1 ? 's' : '') + ': ' + stages.join(' + '); });
+    // filter running costs, down to per person per day for their household
+    $('f-mo').textContent = whole(300 / 12); $('f-day').textContent = money(300 / 365);
+    $('f-pp').textContent = money(300 / 365 / people); $('f-n').textContent = people;
     // what they spend now: only the numbers they gave, most relevant first; no numbers, no slide
     var box = $('k-inputs'), any = false;
     c.costs.forEach(function (k) {
@@ -821,6 +846,7 @@ body.on-light .nav { color: var(--ink); }
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(cur + 1); }
     if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(cur - 1); }
     if (e.key === 's' || e.key === 'S') { $('setup').classList.remove('hidden'); }
+    if (e.key === 'r' || e.key === 'R') { go(slides.indexOf($('ref-slide'))); }
   });
   layout();
   go(0);
