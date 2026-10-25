@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Neptune Filtration — Call Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+:root {
+  --ink: #0B1E3D; --ink-soft: #4B5A70; --paper: #FBFCFE; --card: #FFFFFF; --line: #E2E7EE;
+  --accent: #2E7BC4; --accent-soft: #EAF2FB; --success: #2A8A50; --warn: #B4531F; --warn-soft: #FCF1EA; --navy: #0B1E3D;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #EAF0FA; --ink-soft: #9FB1C9; --paper: #0B1420; --card: #101C2C; --line: #223349;
+    --accent: #6AB0F2; --accent-soft: #16273B; --success: #4FBE7B; --warn: #F0A06E; --warn-soft: #2A1C14; --navy: #060B14;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #EAF0FA; --ink-soft: #9FB1C9; --paper: #0B1420; --card: #101C2C; --line: #223349;
+  --accent: #6AB0F2; --accent-soft: #16273B; --success: #4FBE7B; --warn: #F0A06E; --warn-soft: #2A1C14; --navy: #060B14;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; -webkit-text-size-adjust: 100%; }
+.wrap { max-width: 780px; margin: 0 auto; padding: 0 16px 100px; }
+.head { text-align: center; padding: 48px 0 6px; }
+.head .brand { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.head h1 { font-size: clamp(26px, 6vw, 32px); font-weight: 800; letter-spacing: -0.015em; margin: 6px 0 8px; }
+.head p { margin: 0 auto; max-width: 560px; color: var(--ink-soft); font-size: 15px; }
+.jump { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 22px 0 8px; }
+.jump a { font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 7px 13px; border-radius: 999px; text-decoration: none; }
+.part { margin-top: 56px; }
+.part-title { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); border-bottom: 1px solid var(--line); padding-bottom: 8px; margin: 0 0 22px; }
+.step { position: relative; padding-left: 44px; margin-bottom: 34px; }
+.step-n { position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.eyebrow { font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 3px 0 2px; }
+h2 { font-size: 22px; font-weight: 800; line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.01em; }
+h3 { font-size: 15px; font-weight: 700; margin: 16px 0 6px; }
+p { margin: 0 0 10px; }
+.say { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 12px 15px; margin: 8px 0; font-size: 15.5px; }
+.say::before { content: 'SAY'; display: block; font-size: 10px; font-weight: 800; letter-spacing: .14em; color: var(--accent); margin-bottom: 3px; }
+.ask { border-left-color: var(--success); }
+.ask::before { content: 'ASK'; color: var(--success); }
+.note { font-size: 13.5px; color: var(--ink-soft); margin: 6px 0 0; }
+.rule { background: var(--warn-soft); border: 1px solid var(--line); border-left: 3px solid var(--warn); border-radius: 0 10px 10px 0; padding: 11px 15px; font-size: 14px; margin: 10px 0; }
+.rule b { color: var(--warn); }
+ul.qs { margin: 6px 0 0; padding-left: 20px; font-size: 15px; }
+ul.qs li { margin-bottom: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+th, td { text-align: left; padding: 9px 11px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); background: var(--accent-soft); }
+tr:last-child td { border-bottom: 0; }
+.journey { list-style: none; margin: 0; padding: 0; counter-reset: j; }
+.journey li { position: relative; padding: 0 0 18px 44px; counter-increment: j; }
+.journey li::before { content: counter(j); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.journey li:not(:last-child)::after { content: ''; position: absolute; left: 14px; top: 32px; bottom: 2px; width: 2px; background: var(--line); }
+.journey b { display: block; font-size: 15px; }
+.journey .feel { font-size: 13.5px; color: var(--ink-soft); }
+.journey .do { font-size: 13.5px; }
+.tag { display: inline-block; font-size: 10.5px; font-weight: 700; padding: 1px 7px; border-radius: 5px; margin-left: 4px; vertical-align: 1px; }
+.tag.auto { background: var(--accent-soft); color: var(--accent); }
+.tag.you { background: var(--warn-soft); color: var(--warn); }
+.filters { display: grid; gap: 10px; margin: 10px 0; }
+.filter { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.filter .top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.filter .name { font-size: 18px; font-weight: 800; color: var(--accent); }
+.filter .spec { font-size: 11.5px; font-weight: 700; color: var(--ink-soft); background: var(--accent-soft); padding: 2px 8px; border-radius: 5px; }
+.filter p { font-size: 14.5px; margin: 6px 0 0; }
+.calc { background: var(--navy); color: #fff; border-radius: 16px; padding: 22px 20px; margin: 12px 0; }
+.calc .row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 14px; }
+@media (min-width: 620px) { .calc .row { grid-template-columns: repeat(4, 1fr); } }
+.calc label { font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,.7); display: block; margin-bottom: 4px; }
+.calc input, .calc select { width: 100%; font: inherit; font-size: 16px; font-weight: 700; padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.08); color: #fff; }
+.calc select option { color: #0B1E3D; }
+.calc .out { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+.calc .o { background: rgba(255,255,255,.07); border-radius: 10px; padding: 12px; text-align: center; }
+.calc .o .v { font-size: clamp(22px, 6vw, 30px); font-weight: 800; color: #6AB0F2; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.calc .o .l { font-size: 11.5px; color: rgba(255,255,255,.75); margin-top: 4px; }
+.calc .line { margin-top: 16px; font-size: 15px; background: rgba(255,255,255,.06); border-left: 3px solid #6AB0F2; padding: 10px 13px; border-radius: 0 8px 8px 0; }
+.calc .ref { margin-top: 12px; font-size: 13.5px; color: rgba(255,255,255,.8); }
+@media print { .jump, .calc input, .calc select { display: none; } body { background: #fff; } .step { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="head">
+  <div class="brand">Neptune Filtration · Internal</div>
+  <h1>Call Guide</h1>
+  <p>Feeling first, product second. Every touchpoint from ad to referral, then the Zoom call step by step.</p>
+  <nav class="jump">
+    <a href="#journey">Customer journey</a>
+    <a href="#call">The Zoom call</a>
+    <a href="#filters">The filters</a>
+    <a href="#calc">Cost per day</a>
+    <a href="#referral">Referral + discount</a>
+    <a href="#objections">Objections</a>
+  </nav>
+</header>
+
+<!-- ═══════════════ PART 1: JOURNEY ═══════════════ -->
+<section class="part" id="journey">
+  <h2 class="part-title">Part 1 · Sales touchpoints</h2>
+  <p class="note" style="margin-bottom:16px">What they feel at each step, and who does the work. <span class="tag auto">Auto</span> runs by itself. <span class="tag you">You</span> is you.</p>
+  <ol class="journey">
+    <li><b>Ad <span class="tag auto">Auto</span></b><span class="feel">"That's me." A real customer with the same problem.</span></li>
+    <li><b>Landing page <span class="tag auto">Auto</span></b><span class="feel">"I'm in the right place." The headline matches the ad, real customers, installs near them.</span></li>
+    <li><b>3-question survey <span class="tag auto">Auto</span></b><span class="feel">"They're picky about who they help." Renters and non-mains homes are filtered out.</span></li>
+    <li><b>"Good news, we can help" + self-book <span class="tag auto">Auto</span></b><span class="feel">Qualified and committed: they chose their own time.</span></li>
+    <li><b>Thank-you page (VSL) <span class="tag auto">Auto</span></b><span class="feel">Seeing customers like them before the call. The pre-sell.</span></li>
+    <li><b>Confirmation text + email <span class="tag auto">Auto</span></b><span class="do">Zoom link + photos: water meter up close · behind the meter facing the house · front of the house.</span></li>
+    <li><b>Reminders + pre-Zoom page <span class="tag auto">Auto</span></b><span class="do">Day before, 2 hours, 30 minutes. Reminders link the pre-Zoom page, never /answers (retired).</span></li>
+    <li><b>Didn't book? <span class="tag you">You</span></b><span class="do">Call the same day. Book only, don't sell: "Saw you got through our questions but didn't lock in a time, so I'll sort that with you now."</span></li>
+    <li><b>The Zoom call <span class="tag you">You</span></b><span class="do">Part 2 below. Their why → tailored set-up → price per day → referral → the ask → payment, all on the call.</span></li>
+    <li><b>Payment + Won <span class="tag you">You</span></b><span class="do">Deposit on the call (or finance once approved). Move to Won and the automation texts the confirmation.</span></li>
+    <li><b>Plumbers book the install <span class="tag auto">Auto</span></b><span class="do">The install team contacts them within 1–4 business days.</span></li>
+    <li><b>Install day <span class="tag you">You</span></b><span class="do">2–3 hours. Balance paid before the plumber leaves. Do the chlorine test with them, which is the "wow" moment.</span></li>
+    <li><b>The day after <span class="tag you">You</span></b><span class="do">Thank-you text + ask for a quick video or Google review + remind them about the $500 referral, while they're happiest.</span></li>
+    <li><b>12 months <span class="tag you">You</span></b><span class="do">Filter reminder ($300 set delivered). Another referral nudge. The relationship lasts years, not one sale.</span></li>
+  </ol>
+</section>
+
+<!-- ═══════════════ PART 2: THE CALL ═══════════════ -->
+<section class="part" id="call">
+  <h2 class="part-title">Part 2 · The Zoom call</h2>
+
+  <div class="rule"><b>Hard rules.</b> Every question asked with full confidence. Feelings before features. Never promise a health outcome ("it'll fix your eczema"); say what customers tell us. Never say the system is built for Melbourne's water; say it <i>suits</i> it and the set-up is <i>tailored</i>. No fake urgency.</div>
+
+  <div class="step"><div class="step-n">1</div>
+    <div class="eyebrow">Open</div><h2>Warm, then set the plan</h2>
+    <div class="say">Hey [Name], great to finally put a face to it. How's your day going?</div>
+    <div class="say">Here's how this'll go: I'll ask a few questions about your home and what's going on, show you what we'd set up for you, and give you your price. If it feels right, we'll lock in your install date today. Sound good?</div>
+    <p class="note">Getting a "yes" to the plan up front makes the ask at the end feel expected, not pushy. If a decision maker isn't on, ask now: "Is anyone else part of this decision? Let's grab them."</p>
+  </div>
+
+  <div class="step"><div class="step-n">2</div>
+    <div class="eyebrow">Their why</div><h2>Get to the feeling</h2>
+    <p>Ask, then <b>shut up and listen</b>. Use their words back to them later.</p>
+    <ul class="qs">
+      <li>What made you reach out about your water?</li>
+      <li>How long has that been going on?</li>
+      <li>Who in the house is it affecting most? <span class="note">(Often a partner or kid, not the person on the call.)</span></li>
+      <li>What have you tried so far? How did that go?</li>
+      <li>How does that make you feel, watching them deal with it?</li>
+      <li>If this was sorted, what would that look like day to day?</li>
+      <li>Why now? What made today the day?</li>
+    </ul>
+    <div class="say">So what I'm hearing is [their words]. You've tried [X], it hasn't helped, and you want [their day-to-day picture]. Is that right?</div>
+    <p class="note">The summary is the most important line on the call. When they say "exactly", they've sold themselves.</p>
+  </div>
+
+  <div class="step"><div class="step-n">3</div>
+    <div class="eyebrow">Proof</div><h2>Someone just like them</h2>
+    <p>Match a customer to what they told you:</p>
+    <table>
+      <tr><th>They said</th><th>Tell them about</th></tr>
+      <tr><td>Eczema, dry or itchy skin</td><td><b>Cecilio</b> (Cranbourne West)</td></tr>
+      <tr><td>Hair loss</td><td><b>Nishanth</b> (Strathtulloh)</td></tr>
+      <tr><td>Itchy scalp</td><td><b>Lech</b> (Keysborough)</td></tr>
+      <tr><td>Hair feel / softness</td><td><b>June</b> (Point Cook), <b>Jan &amp; Peter</b> (Beaumaris)</td></tr>
+      <tr><td>Taste / drinking water</td><td><b>Jim</b> (Point Cook), <b>Marcus</b> (Lyndhurst)</td></tr>
+      <tr><td>Worried about the install</td><td><b>Girish</b> (Ashwood)</td></tr>
+    </table>
+    <div class="say">You're not the first. Cecilio had the same thing with his skin. He told us it's made a real difference, and he's not one to say it lightly.</div>
+  </div>
+
+  <div class="step"><div class="step-n">4</div>
+    <div class="eyebrow">Their set-up</div><h2>Paint the picture, then the product</h2>
+    <div class="say">From your photos, here's what we'd do for your home. The whole system goes in at your water meter, so the water's filtered <b>before it even reaches your house</b>. Every tap, every shower, the washing machine, the garden. You never think about it again.</div>
+    <div class="say">Picture [their person] stepping out of the shower, or the kids drinking straight from the tap, and you not thinking twice about it.</div>
+    <p class="note">Then the filters, briefly, as a story (see the filter section). Feeling first, features only if they ask.</p>
+  </div>
+
+  <div class="step"><div class="step-n">5</div>
+    <div class="eyebrow">Price</div><h2>Say it, then make it a day</h2>
+    <div class="say">For your home, it's <b>$3,990</b>, all in: supply, install, licensed plumbers.</div>
+    <p>Pause. Then break it down with the <a href="#calc">cost-per-day calculator</a>:</p>
+    <div class="say">Over 10 years, that's about <b>$1.09 a day</b> for the system. Even with a fresh set of filters every year, it's under <b>$2 a day for the whole house</b>, less than 50 cents a person.</div>
+  </div>
+
+  <div class="step"><div class="step-n">6</div>
+    <div class="eyebrow">Referral</div><h2>Let them pay it down</h2>
+    <div class="ask">How many people do you know who'd want filtered water like this? Family, neighbours, mates?</div>
+    <div class="say">[They say 3.] We pay <b>$500 for every person you refer</b> who gets a system in. That's <b>$1,500</b> back in your pocket, a big chunk of your system paid for.</div>
+    <p class="note">Ask it as a real question and let them count. The number is theirs, so they believe it.</p>
+  </div>
+
+  <div class="step"><div class="step-n">7</div>
+    <div class="eyebrow">The ask</div><h2>Direct, every call</h2>
+    <div class="ask">So, are you ready to lock in your install?</div>
+    <p class="note">Then stop talking. Not "let me know", not "have a think". A direct question, then silence.</p>
+  </div>
+
+  <div class="step"><div class="step-n">8</div>
+    <div class="eyebrow">Payment</div><h2>Done before you hang up</h2>
+    <div class="say">Perfect. It's 20% today to lock in your date, that's <b>$798</b>, and the rest on install day once the job's done. I'll read you our details now.</div>
+    <p class="note">Finance (once Zip or Elevant is approved): "$400 today to lock it in, then the rest split monthly." The customer fills in the finance application on their own phone while you talk them through it. Never fill it in for them.</p>
+    <div class="say">You're locked in. Our install team will reach out in the next few days to book your time. Make sure those photos are through, and you're all set.</div>
+    <p class="note">Move the deal to Won before you close the laptop.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ FILTERS ═══════════════ -->
+<section class="part" id="filters">
+  <h2 class="part-title">The filters · tell it through the materials</h2>
+  <p>3 filters, 4 stages. Talk about <b>what they're made of and how</b>, not a list of what they remove. The craft sells it.</p>
+  <div class="filters">
+    <div class="filter"><div class="top"><span class="name">The Guard</span><span class="spec">Stage 1 · 5 micron · pleated sediment</span></div>
+      <p>Pleated polypropylene, folded over and over to pack in as much surface area as possible. It's the first thing your water meets: it catches the grit, rust and sand from the main so everything after it stays clean.</p></div>
+    <div class="filter"><div class="top"><span class="name">The Disruptor</span><span class="spec">Stages 2 + 3 · 1 micron · scale-reduction carbon block</span></div>
+      <p>A dense carbon block infused with polyphosphate crystals. As water passes through, the crystals stop hard minerals from crystallising into scale on your glass, taps and appliances, without taking the minerals out of your water. Packed tight so your pressure stays strong.</p></div>
+    <div class="filter"><div class="top"><span class="name">The Extractor</span><span class="spec">Stage 4 · 1 micron · coconut shell activated carbon</span></div>
+      <p>Made from coconut shells, charred at high heat, then activated with steam to open up millions of microscopic pores. A single gram has more than 1,000 m² of surface area inside it, nearly four tennis courts. Then it's compressed into a dense block. The cheap filters use coal-based carbon. This is the good stuff.</p></div>
+  </div>
+  <p class="note"><b>Only if they ask for numbers:</b> reduces up to 99% of chlorine and up to 85% of heavy metals. WaterMark certified. Filters changed every 12 months ($300 a set, delivered). The chlorine test tablet shows any pink when it's time.</p>
+</section>
+
+<!-- ═══════════════ CALCULATOR ═══════════════ -->
+<section class="part" id="calc">
+  <h2 class="part-title">Cost per day · use it live on the call</h2>
+  <div class="calc">
+    <div class="row">
+      <div><label for="c-price">Price ($)</label><input id="c-price" type="number" inputmode="decimal" value="3990" min="0" step="10"></div>
+      <div><label for="c-years">Over how many years</label><select id="c-years"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></div>
+      <div><label for="c-filters">Filters per year ($)</label><input id="c-filters" type="number" inputmode="decimal" value="300" min="0" step="10"></div>
+      <div><label for="c-people">People in the home</label><input id="c-people" type="number" inputmode="numeric" value="4" min="1" step="1"></div>
+    </div>
+    <div class="out">
+      <div class="o"><div class="v" id="o-sys">$1.09</div><div class="l">a day, system only</div></div>
+      <div class="o"><div class="v" id="o-all">$1.92</div><div class="l">a day, with filters</div></div>
+      <div class="o"><div class="v" id="o-person">48¢</div><div class="l">a day, per person</div></div>
+    </div>
+    <div class="line" id="o-line"></div>
+    <div class="ref"><label for="c-refs" style="display:inline;color:rgba(255,255,255,.75)">If they refer </label><input id="c-refs" type="number" inputmode="numeric" value="3" min="0" step="1" style="width:64px;display:inline-block;padding:4px 8px;font-size:14px"> people → <b id="o-refs">$1,500</b> back, bringing the system down to <b id="o-net">$2,490</b>.</div>
+  </div>
+</section>
+
+<!-- ═══════════════ REFERRAL + DISCOUNT ═══════════════ -->
+<section class="part" id="referral">
+  <h2 class="part-title">Referral vs discount</h2>
+  <p>If they push for a discount, you <b>can</b> give one, but discounted orders aren't part of the referral program. Let them choose. Most will keep the referral, because it's worth more.</p>
+  <div class="say">I can take $200 off for you. Just so you know, discounted orders aren't part of our referral program. You mentioned 3 people who'd want this, which is $1,500 you'd get back. Totally up to you which you'd rather.</div>
+  <p class="note">Only say this if it's true for everyone: the terms page says referral rewards aren't available on discounted purchases. Never invent a "usual price" or a "today only" deal.</p>
+</section>
+
+<!-- ═══════════════ OBJECTIONS ═══════════════ -->
+<section class="part" id="objections">
+  <h2 class="part-title">Objections</h2>
+  <h3>"I need to think about it."</h3>
+  <div class="say">Totally fair. What specifically do you want to think through? If it's something I can answer now, let's sort it.</div>
+  <p class="note">If they can't name it, go back to their why ("You said [their words]…") and ask again.</p>
+  <h3>"I need to talk to my partner."</h3>
+  <div class="say">Of course. Can we grab them now for five minutes? Otherwise let's book a time today when you're both on, so you're not relaying it second-hand.</div>
+  <h3>"It's expensive."</h3>
+  <div class="say">Compared to what? Over 10 years it's under $2 a day for the whole house, and you've got 3 people who'd want it, which is $1,500 back.</div>
+  <h3>"Can someone come out and look first?"</h3>
+  <div class="say">That's the one thing we don't do, on purpose. Your photos go to our plumbing team, who plan it before they arrive. That's what keeps it quick and keeps your price where it is.</div>
+  <h3>"How do I know it works?"</h3>
+  <div class="say">On install day we test your water in front of you, before and after. And if a test shows chlorine in your filtered water in the first 30 days, we'll check it and make it right.</div>
+  <h3>"Someone else quoted cheaper."</h3>
+  <div class="say">Plenty of them use the cheapest coal-based carbon and a generic set-up. Yours is tailored to your home, installed by licensed plumbers, with a 7-year workmanship warranty. What did they include?</div>
+</section>
+
+</div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (n) { return n < 1 ? Math.round(n * 100) + '¢' : '$' + n.toFixed(2); };
+  var whole = function (n) { return '$' + Math.round(n).toLocaleString('en-AU'); };
+  function calc() {
+    var price = Math.max(0, +$('c-price').value || 0), years = +$('c-years').value || 10;
+    var filt = Math.max(0, +$('c-filters').value || 0), people = Math.max(1, +$('c-people').value || 1);
+    var refs = Math.max(0, +$('c-refs').value || 0), days = years * 365;
+    var sys = price / days, all = (price + filt * years) / days, per = all / people;
+    $('o-sys').textContent = money(sys);
+    $('o-all').textContent = money(all);
+    $('o-person').textContent = money(per);
+    $('o-line').textContent = 'Over ' + years + ' years, that’s about ' + money(sys) + ' a day for the system. Even with a fresh set of filters every year, it’s ' + money(all) + ' a day for the whole house, ' + money(per) + ' a person.';
+    $('o-refs').textContent = whole(refs * 500);
+    $('o-net').textContent = whole(Math.max(0, price - refs * 500));
+  }
+  ['c-price', 'c-years', 'c-filters', 'c-people', 'c-refs'].forEach(function (id) { $(id).addEventListener('input', calc); });
+  calc();
+})();
+</script>
+</body>
+</html>
