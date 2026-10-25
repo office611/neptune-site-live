@@ -69,6 +69,13 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 
 /* cover */
 .cover { background: linear-gradient(90deg, rgba(7,15,30,.92) 0%, rgba(7,15,30,.72) 55%, rgba(7,15,30,.35) 100%), url(/assets/install-photos/book-bg.jpg) center / cover; }
+.cover.welcome { background: linear-gradient(90deg, rgba(7,15,30,.95) 0%, rgba(7,15,30,.84) 60%, rgba(7,15,30,.55) 100%), url(/assets/install-photos/book-bg.jpg) center / cover; }
+.welcome .paid { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; background: rgba(77,166,255,.16); color: var(--blue); border: 1px solid rgba(77,166,255,.35); border-radius: 999px; padding: 8px 16px; font-size: clamp(13px, 1.3vw, 16px); font-weight: 800; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 2.4vh; }
+.welcome .paid span { width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 13px; }
+.wsteps { display: grid; grid-template-columns: repeat(3, minmax(0, 300px)); gap: 1.4vw; margin-top: 3.4vh; }
+@media (max-width: 860px) { .wsteps { grid-template-columns: 1fr; } }
+.wsteps div { background: rgba(7,15,30,.55); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 2.4vh 1.4vw; font-size: clamp(13px, 1.25vw, 16px); color: rgba(255,255,255,.8); line-height: 1.4; }
+.wsteps b { display: block; font-size: clamp(18px, 1.9vw, 25px); color: #fff; margin-bottom: 4px; }
 .cover .meta { margin-top: 3vh; font-size: clamp(15px, 1.5vw, 20px); color: rgba(255,255,255,.8); }
 
 /* told us */
@@ -631,6 +638,19 @@ body.on-light .nav { color: var(--ink); }
   </div>
 </section>
 
+<!-- Welcome: once payment is confirmed -->
+<section class="slide cover welcome">
+  <img class="logo" src="/assets/logos/Neptune_Logo_White.png" alt="Neptune Filtration">
+  <div class="paid"><span>&#10003;</span>Payment confirmed</div>
+  <h1>Welcome to the Neptune family<span id="w-name"></span>.</h1>
+  <p class="meta">You're all set. Here's what happens next:</p>
+  <div class="wsteps">
+    <div><b>1–4 business days</b>Our install team calls you to book your date</div>
+    <div><b>About 5 days</b>on average, from today to installed</div>
+    <div><b>2–3 hours</b>on the day, and you're on filtered water</div>
+  </div>
+</section>
+
 <!-- Referral: last, for when they push back on price (press R) -->
 <section class="slide" id="ref-slide">
   <div class="calc">
@@ -803,6 +823,7 @@ body.on-light .nav { color: var(--ink); }
     });
     all('[data-t]').forEach(function (el) { var k = el.dataset.t; if (view[k] != null) el.innerHTML = view[k]; });
     $('c-name').textContent = name ? name + '’s' : 'Your';
+    $('w-name').textContent = name ? ', ' + name : '';
     $('c-suburb').textContent = suburb ? ', for your home in ' + suburb : '';
     // their words
     var g = state.said.length ? state.said : [c.said[0]];
