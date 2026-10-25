@@ -12,7 +12,7 @@
 <style>
 /* Screenshare deck for the Zoom call.
    1. Before sharing: click through the setup screen as they answer
-      (concerns, their words, people, meter, what they spend).
+      (concerns, their words, people, what they spend).
    2. Share the tab, press Start. Every slide is built around their concern.
    Arrow keys / space / buttons move slides; Enter or Esc finishes typing.
    S reopens setup (stop sharing first). Price stays hidden until clicked.
@@ -39,34 +39,33 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .logo { height: clamp(26px, 3vw, 38px); width: auto; align-self: flex-start; margin-bottom: 5vh; }
 
 /* setup (never shown while sharing) */
-.setup { position: fixed; inset: 0; z-index: 20; background: #081426; overflow-y: auto; padding: 3vh 16px 4vh; }
+.setup { position: fixed; inset: 0; z-index: 20; background: #081426; overflow-y: auto; padding: 2.4vh 16px 3vh; }
 .setup.hidden { display: none; }
-.setup .box { max-width: 1120px; margin: 0 auto; }
-.setup h1 { font-size: 26px; }
+.setup .box { max-width: 900px; margin: 0 auto; }
+.setup h1 { font-size: 24px; margin: 0 0 6px; }
 .setup .warn { font-size: 13px; color: #ffcf8a; margin: 0 0 6px; }
-.setup .cols { display: grid; grid-template-columns: 1.15fr 1fr; gap: 36px; }
-@media (max-width: 860px) { .setup .cols { grid-template-columns: 1fr; gap: 0; } }
-.setup label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: 16px 0 7px; }
+.setup label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: 12px 0 6px; }
 .setup .opt { text-transform: none; letter-spacing: 0; font-weight: 500; color: rgba(255,255,255,.4); margin-left: 6px; }
-.setup input[type=text] { width: 100%; font: inherit; font-size: 15px; padding: 9px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #fff; }
-.setup .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-@media (max-width: 600px) { .setup .row2 { grid-template-columns: 1fr; } }
+.setup input[type=text] { width: 100%; font: inherit; font-size: 15px; padding: 7px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #fff; }
+.setup .row3 { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 18px; align-items: end; }
+@media (max-width: 700px) { .setup .row3 { grid-template-columns: 1fr; } }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chips button { font: inherit; font-size: 14px; font-weight: 600; padding: 9px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.2); background: transparent; color: #fff; cursor: pointer; }
+.chips button { font: inherit; font-size: 13.5px; font-weight: 600; padding: 7px 13px; border-radius: 999px; border: 1px solid rgba(255,255,255,.2); background: transparent; color: #fff; cursor: pointer; }
 .chips button.on { background: var(--blue); border-color: var(--blue); color: var(--navy); }
 .chips button.main::after { content: ' · MAIN'; font-size: 10px; font-weight: 800; letter-spacing: .06em; }
 .chips.said button { border-radius: 10px; text-align: left; }
 .chips.said button::before { content: '+ '; opacity: .55; }
 .chips.said button.on::before { content: '\2713  '; opacity: 1; }
 .chips .none { font-size: 13px; color: rgba(255,255,255,.45); }
-#s-people button { min-width: 46px; }
-.costs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+#s-people button { min-width: 38px; padding: 7px 8px; }
+.costs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+@media (max-width: 860px) { .costs { grid-template-columns: 1fr 1fr; } }
 .costs .c { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 6px 10px; font-size: 13px; font-weight: 600; }
 .costs .c span { flex: 1; line-height: 1.2; }
 .costs .c input { width: 58px; font: inherit; font-size: 15px; font-weight: 700; color: #fff; background: transparent; border: 0; border-bottom: 1px dashed rgba(255,255,255,.35); text-align: right; padding: 2px 0; }
 .costs .c input:focus { outline: none; border-bottom-color: var(--blue); }
 .costs .c em { font-style: normal; font-size: 12px; color: rgba(255,255,255,.5); }
-.setup .start { margin-top: 22px; font: inherit; font-size: 17px; font-weight: 800; padding: 15px 26px; border: 0; border-radius: 999px; background: var(--blue); color: var(--navy); cursor: pointer; }
+.setup .start { margin-top: 16px; font: inherit; font-size: 17px; font-weight: 800; padding: 13px 24px; border: 0; border-radius: 999px; background: var(--blue); color: var(--navy); cursor: pointer; }
 .setup .hint { font-size: 13px; color: rgba(255,255,255,.55); margin-top: 10px; }
 
 /* cover */
@@ -94,9 +93,17 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .vs .card.home { border: 2px solid var(--blue-d); box-shadow: 0 12px 30px rgba(46,123,196,.15); }
 .vs .card .t { display: block; font-size: clamp(16px, 1.6vw, 21px); font-weight: 800; margin-bottom: 1vh; }
 .vs ul { margin: 0; padding-left: 18px; display: grid; gap: .7vh; font-size: clamp(13px, 1.2vw, 16px); line-height: 1.4; color: var(--soft); }
-.bleach { margin: 2.6vh 0 0; font-size: clamp(16px, 1.6vw, 21px); font-weight: 600; color: var(--ink); }
-.bleach b { color: var(--blue-d); }
-.who { margin: .8vh 0 0; font-size: clamp(14px, 1.35vw, 18px); color: var(--soft); }
+.bcards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6vw; margin-top: 1vh; }
+@media (max-width: 860px) { .bcards { grid-template-columns: 1fr; } }
+.bcard { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 20px; padding: 3.4vh 2vw; transition: background .3s, color .3s; }
+.bcard.hl { background: var(--blue); border-color: var(--blue); color: var(--navy); }
+.bcard .ic { width: 52px; height: 52px; border-radius: 14px; background: rgba(77,166,255,.18); color: var(--blue); display: flex; align-items: center; justify-content: center; margin-bottom: 2vh; }
+.bcard.hl .ic { background: rgba(11,30,61,.12); color: var(--navy); }
+.bcard .ic svg { width: 28px; height: 28px; }
+.bcard b { display: block; font-size: clamp(20px, 2.2vw, 30px); font-weight: 800; margin-bottom: 1vh; }
+.bcard p { margin: 0; font-size: clamp(16px, 1.6vw, 21px); line-height: 1.5; color: rgba(255,255,255,.82); }
+.bcard.hl p { color: rgba(11,30,61,.85); }
+.matters { margin: 4vh 0 0; font-size: clamp(16px, 1.7vw, 22px); font-weight: 600; color: rgba(255,255,255,.9); max-width: 1000px; }
 .dpd { margin-top: 2.6vh; max-width: 560px; }
 .dpd .sw { display: flex; gap: 6px; }
 .dpd .sw span { flex: 1; height: 26px; border-radius: 6px; border: 1px solid rgba(11,30,61,.08); }
@@ -252,39 +259,29 @@ body.on-light .nav { color: var(--ink); }
     <div class="eyebrow">Setup · don't share this screen</div>
     <h1>Build their plan</h1>
     <p class="warn">Click as they answer, then share this tab and press Start.</p>
-    <div class="cols">
-      <div>
-        <label>1 · What brought them here? <span class="opt">pick all that apply, main one first</span></label>
-        <div class="chips" id="s-concern">
-          <button type="button" data-c="skin">Eczema / dry skin</button>
-          <button type="button" data-c="hair">Hair loss</button>
-          <button type="button" data-c="better">Just want better water</button>
-          <button type="button" data-c="taste">Weird taste</button>
-          <button type="button" data-c="smell">Weird smell</button>
-          <button type="button" data-c="scale">Scale build up</button>
-        </div>
-        <label>2 · What they told you <span class="opt">click up to 3</span></label>
-        <div class="chips said" id="s-said"></div>
-      </div>
-      <div>
-        <div class="row2">
-          <div><label>3 · People at home</label>
-            <div class="chips" id="s-people"><button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="4">4</button><button type="button" data-v="5">5</button><button type="button" data-v="6">6+</button></div></div>
-          <div><label>4 · Water meter</label>
-            <div class="chips" id="s-meter"><button type="button" data-v="front">Front</button><button type="button" data-v="side">Side</button><button type="button" data-v="back">Back</button></div></div>
-        </div>
-        <label>5 · What they spend now <span class="opt">leave blank if they don't know</span></label>
-        <div class="costs">
-          <div class="c"><span>Bottled water</span>$<input id="s-bottled" type="number" min="0" inputmode="decimal" placeholder="0"><em>/wk</em></div>
-          <div class="c"><span>Jug &amp; shower filters</span>$<input id="s-jugs" type="number" min="0" inputmode="decimal" placeholder="0"><em>/yr</em></div>
-          <div class="c"><span>Creams &amp; shampoos</span>$<input id="s-care" type="number" min="0" inputmode="decimal" placeholder="0"><em>/mo</em></div>
-          <div class="c"><span>Descalers &amp; cleaning</span>$<input id="s-clean" type="number" min="0" inputmode="decimal" placeholder="0"><em>/mo</em></div>
-        </div>
-        <div class="row2">
-          <div><label for="s-name">First name <span class="opt">optional</span></label><input id="s-name" type="text" placeholder="Sarah" autocomplete="off"></div>
-          <div><label for="s-suburb">Suburb <span class="opt">optional</span></label><input id="s-suburb" type="text" placeholder="Point Cook" autocomplete="off"></div>
-        </div>
-      </div>
+    <label>1 · What brought them here? <span class="opt">pick all that apply, main one first</span></label>
+    <div class="chips" id="s-concern">
+      <button type="button" data-c="skin">Eczema / dry skin</button>
+      <button type="button" data-c="hair">Hair loss</button>
+      <button type="button" data-c="better">Just want better water</button>
+      <button type="button" data-c="taste">Weird taste</button>
+      <button type="button" data-c="smell">Weird smell</button>
+      <button type="button" data-c="scale">Scale build up</button>
+    </div>
+    <label>2 · What they told you <span class="opt">click up to 3</span></label>
+    <div class="chips said" id="s-said"></div>
+    <div class="row3">
+      <div><label>3 · People at home</label>
+        <div class="chips" id="s-people"><button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="4">4</button><button type="button" data-v="5">5</button><button type="button" data-v="6">6+</button></div></div>
+      <div><label for="s-name">First name <span class="opt">optional</span></label><input id="s-name" type="text" placeholder="Sarah" autocomplete="off"></div>
+      <div><label for="s-suburb">Suburb <span class="opt">optional</span></label><input id="s-suburb" type="text" placeholder="Point Cook" autocomplete="off"></div>
+    </div>
+    <label>4 · What they spend now <span class="opt">leave blank if they don't know</span></label>
+    <div class="costs">
+      <div class="c"><span>Bottled water</span>$<input id="s-bottled" type="number" min="0" inputmode="decimal" placeholder="0"><em>/wk</em></div>
+      <div class="c"><span>Jug &amp; shower filters</span>$<input id="s-jugs" type="number" min="0" inputmode="decimal" placeholder="0"><em>/yr</em></div>
+      <div class="c"><span>Creams &amp; shampoos</span>$<input id="s-care" type="number" min="0" inputmode="decimal" placeholder="0"><em>/mo</em></div>
+      <div class="c"><span>Descalers &amp; cleaning</span>$<input id="s-clean" type="number" min="0" inputmode="decimal" placeholder="0"><em>/mo</em></div>
     </div>
     <button type="button" class="start" id="s-start">Start presentation →</button>
     <p class="hint">Press S to come back here. Stop sharing first, because they'd see it.</p>
@@ -332,8 +329,6 @@ body.on-light .nav { color: var(--ink); }
         <div class="card"><span class="t">A swimming pool</span><ul><li>Open air, so the chlorine gas escapes</li><li>Topped up to keep it working</li></ul></div>
         <div class="card home"><span class="t">Your home</span><ul><li>A fresh supply every time you turn on a tap</li><li>Hot showers release more of it as steam</li><li>In a closed bathroom, so it stays in the air</li></ul></div>
       </div>
-      <p class="bleach">Chlorine is a bleach. <b>Great for killing bacteria. Harsh on skin and hair.</b></p>
-      <p class="who" data-t="whyLine"></p>
       <div class="dpd">
         <div class="sw"><span style="background:#fbf7f9"></span><span style="background:#f6d3e2"></span><span style="background:#efafcb"></span><span style="background:#e58ab5"></span><span style="background:#d9659f"></span><span style="background:#c23d86"></span></div>
         <div class="lb"><span>0</span><span>0.5</span><span>1.0</span><span>1.5</span><span>2.0</span><span>3.0 ppm</span></div>
@@ -342,9 +337,22 @@ body.on-light .nav { color: var(--ink); }
     </div>
     <div>
       <div class="clip"><video src="/assets/present/chlorine-test.mp4" poster="/assets/present/chlorine-test.jpg" autoplay muted loop playsinline preload="auto"></video><span class="tag">Pink = chlorine</span></div>
-      <div class="clip-cap">Unfiltered vs filtered. We test yours on install day.</div>
+      <div class="clip-cap">Unfiltered vs filtered, using the same chlorine tablets pools use. We test yours on install day.</div>
     </div>
   </div>
+</section>
+
+<!-- Why filter 3: what reducing it changes (their concern's card lights up) -->
+<section class="slide">
+  <div class="eyebrow">Why it matters</div>
+  <h2>Why reducing it makes <span class="accent">a huge difference</span></h2>
+  <div class="bcards">
+    <div class="bcard" data-b="skin hair"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.3 6 11a6 6 0 0 1-12 0c0-4.7 6-11 6-11z"/></svg></div>
+      <b>Skin &amp; hair</b><p>Chlorine is a bleach. It can strip away the natural oils your skin and hair need, leaving them dry and itchy.</p></div>
+    <div class="bcard" data-b="taste smell"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1.5 17a2 2 0 0 1-2 1.8h-5a2 2 0 0 1-2-1.8L6 3z"/><path d="M6.5 8h11"/></svg></div>
+      <b>Taste &amp; smell</b><p>Chlorine and chloramine are what give tap water that weird taste and smell.</p></div>
+  </div>
+  <p class="matters" data-t="whyLine"></p>
 </section>
 
 <!-- 3. How it works -->
@@ -433,7 +441,6 @@ body.on-light .nav { color: var(--ink); }
     <div class="pcard"><div class="ic">2</div><div><b data-t="planFilterTitle"></b><span data-t="planFilter"></span></div></div>
     <div class="pcard"><div class="ic">3</div><div><b>Fresh filters, about once a year</b><span>$300 a set, delivered with GST included, and always our latest version. Swap them yourself with our video. Any pink on the test tablet, or a drop in pressure, means it's time.</span></div></div>
     <div class="pcard"><div class="ic">4</div><div><b>Your appliances, protected too</b><span>Hot water system, washing machine, dishwasher and kettle all run on filtered water.</span></div></div>
-    <div class="pcard wide" id="p-photo-card"><div class="ic">✓</div><div><b>From your photos</b><span id="p-photo"></span></div></div>
   </div>
 </section>
 
@@ -614,7 +621,7 @@ body.on-light .nav { color: var(--ink); }
   var $ = function (id) { return document.getElementById(id); };
   var all = function (sel) { return [].slice.call(document.querySelectorAll(sel)); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
-  var state = { concerns: [], said: [], people: 4, meter: '' };
+  var state = { concerns: [], said: [], people: 4 };
   var pick = function (box, v) { all('#' + box + ' button').forEach(function (x) { x.classList.toggle('on', x.dataset.v === String(v)); }); };
   var uniq = function (a) { return a.filter(function (x, i) { return a.indexOf(x) === i; }); };
 
@@ -648,9 +655,8 @@ body.on-light .nav { color: var(--ink); }
       markConcerns(); renderSaid();
     });
   });
-  // 3. people, 4. meter (click again to clear)
+  // 3. people
   all('#s-people button').forEach(function (b) { b.addEventListener('click', function () { state.people = +b.dataset.v; pick('s-people', b.dataset.v); }); });
-  all('#s-meter button').forEach(function (b) { b.addEventListener('click', function () { state.meter = state.meter === b.dataset.v ? '' : b.dataset.v; pick('s-meter', state.meter); }); });
   // prefill from the URL (old concern names still work)
   var q = new URLSearchParams(location.search);
   if (q.get('name')) $('s-name').value = q.get('name');
@@ -689,6 +695,7 @@ body.on-light .nav { color: var(--ink); }
       if (lines.length < 2 && C[k].stages.some(function (n) { return seen.indexOf(n) < 0; })) { lines.push(C[k].stageLine); seen = seen.concat(C[k].stages); }
     });
     all('[data-t="stageLine"]').forEach(function (el) { el.textContent = lines.join(' '); });
+    all('.bcard').forEach(function (el) { el.classList.toggle('hl', list.some(function (k) { return el.dataset.b.split(' ').indexOf(k) >= 0; })); });
     $('st-h').innerHTML = '5 stages, tailored to your home' + (suburb ? ' in <span class="accent">' + esc(suburb) + '</span>' : '');
     $('sys').classList.toggle('focus', !allStages);
     all('.stg').forEach(function (el) { el.classList.toggle('hl', stages.indexOf(+el.dataset.s) >= 0); });
@@ -700,8 +707,6 @@ body.on-light .nav { color: var(--ink); }
     // tailored set-up
     all('[data-t="planMeter"]').forEach(function (el) { el.textContent = 'So every ' + (list.length === 1 && list[0] === 'taste' ? 'tap' : 'shower and tap') + ' in your ' + (suburb ? suburb + ' ' : '') + 'home is covered.'; });
     all('[data-t="planFilterTitle"]').forEach(function (el) { el.textContent = allStages ? 'All 5 stages, working together' : 'Your key stage' + (stages.length > 1 ? 's' : '') + ': ' + stages.join(' + '); });
-    $('p-photo-card').style.display = state.meter ? '' : 'none';
-    $('p-photo').textContent = 'Your meter’s at the ' + state.meter + ' of the house. We’ve planned your install around it.';
     // what they spend now: only the numbers they gave, most relevant first; no numbers, no slide
     var box = $('k-inputs'), any = false;
     c.costs.forEach(function (k) {
