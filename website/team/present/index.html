@@ -311,8 +311,13 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .zip .terms button { font: inherit; font-size: clamp(14px, 1.35vw, 18px); font-weight: 800; padding: 12px 6px; white-space: nowrap; border-radius: 999px; border: 2px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; }
 .zip .terms button.on { background: var(--blue-d); border-color: var(--blue-d); color: #fff; }
 .zip .monthly { background: var(--navy); color: #fff; border-radius: 22px; padding: 4vh 2.4vw; text-align: center; }
-.zip .monthly .v { font-size: clamp(52px, 7vw, 100px); font-weight: 800; line-height: 1; color: var(--blue); font-variant-numeric: tabular-nums; }
+.zip .monthly .v { font-size: clamp(44px, 5.6vw, 80px); font-weight: 800; line-height: 1; color: var(--blue); font-variant-numeric: tabular-nums; }
 .zip .monthly .l { font-size: clamp(16px, 1.7vw, 22px); font-weight: 700; margin-top: 1vh; }
+.zmath { width: 100%; border-collapse: collapse; margin-top: 2.4vh; font-size: clamp(13px, 1.25vw, 16px); color: rgba(255,255,255,.8); font-variant-numeric: tabular-nums; }
+.zmath td { padding: .55vh 0; text-align: left; }
+.zmath td:last-child { text-align: right; color: #fff; font-weight: 700; }
+.zmath tr.tot td { border-top: 1px solid rgba(255,255,255,.25); color: #fff; font-weight: 800; padding-top: 1vh; }
+.zmath tr.all td { color: rgba(255,255,255,.65); font-weight: 500; }
 .zip .monthly .s { font-size: clamp(13px, 1.3vw, 17px); color: rgba(255,255,255,.75); margin-top: 6px; }
 .zip .fees { display: grid; gap: 1.2vh; margin-top: 3vh; }
 .zip .fee { display: flex; align-items: baseline; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.6vh 18px; color: var(--ink); }
@@ -321,17 +326,17 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .zip .fee span strong { color: var(--ink); }
 
 /* payment */
-.pay { display: flex; align-items: center; gap: 2vw; margin-top: 2vh; }
+.pay { display: flex; align-items: stretch; gap: 2vw; margin-top: 2vh; }
 @media (max-width: 860px) { .pay { flex-direction: column; align-items: stretch; } .parr { display: none; } }
-.pstep { flex: 1; max-width: 560px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 4vh 2vw; color: var(--ink); text-align: center; }
-.pstep:first-child { max-width: 400px; border: 2px solid var(--blue-d); box-shadow: 0 12px 30px rgba(46,123,196,.15); }
+.pstep { flex: 1; max-width: 560px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 4vh 2vw; display: flex; flex-direction: column; justify-content: center; color: var(--ink); text-align: center; }
+.pstep:first-child { border: 2px solid var(--blue-d); box-shadow: 0 12px 30px rgba(46,123,196,.15); }
 .pstep .n { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-d); }
 .pstep .v { font-size: clamp(44px, 6vw, 84px); font-weight: 800; line-height: 1.05; margin: 1.4vh 0 .6vh; font-variant-numeric: tabular-nums; }
 .pstep .l { font-size: clamp(16px, 1.7vw, 22px); font-weight: 700; }
 .pstep .s { font-size: clamp(13px, 1.25vw, 16px); color: var(--soft); margin-top: 4px; }
-.parr { font-size: clamp(18px, 1.8vw, 24px); font-weight: 800; color: var(--soft); text-transform: uppercase; }
+.parr { align-self: center; font-size: clamp(18px, 1.8vw, 24px); font-weight: 800; color: var(--soft); text-transform: uppercase; }
 .split2 { display: flex; justify-content: center; gap: 2.4vw; margin-top: 1.6vh; }
-.split2 .v2 { font-size: clamp(30px, 3.6vw, 52px); font-weight: 800; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.split2 .v2 { font-size: clamp(38px, 4.8vw, 68px); font-weight: 800; line-height: 1.05; font-variant-numeric: tabular-nums; }
 
 /* steps */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6vw; counter-reset: s; }
@@ -642,34 +647,22 @@ body.on-light .nav { color: var(--ink); }
   </div>
 </section>
 
-<!-- Payment options: straight after the price (A: pay in full today, B: 20/80) -->
+<!-- Payment options: straight after the price. A = 20% deposit + 80% after install, B = Zip. Same price either way (Zip rule) -->
 <section class="slide light">
   <div class="eyebrow">Payment options</div>
   <h2>Two ways <span class="accent">to pay</span></h2>
   <div class="pay">
-    <div class="pstep"><div class="n">Option A · Pay in full today</div><div class="v" id="pay-full">$3,790</div><div class="l">Save $200 + priority booking</div></div>
-    <div class="parr">or</div>
-    <div class="pstep"><div class="n">Option B · Split it</div>
+    <div class="pstep"><div class="n">Option A · Deposit</div>
       <div class="split2"><div><div class="v2" id="pay-dep">$798</div><div class="s">today (20%)</div></div><div><div class="v2" id="pay-bal">$3,192</div><div class="s">after installation (80%)</div></div></div></div>
+    <div class="parr">or</div>
+    <div class="pstep"><div class="n">Option B · Interest free with Zip</div><div class="v" id="pay-zip">$176.20</div><div class="l">a month over 24 months</div><div class="s">incl. Zip's $9.95 monthly account fee</div></div>
   </div>
 </section>
 
-<!-- 11. Per day (if they hesitate on price) -->
-<section class="slide light">
-  <div class="eyebrow">Broken down</div>
-  <h2>What it <span class="accent">really costs</span></h2>
-  <div class="perday">
-    <div class="pd"><div class="v" id="d-sys">$1.09</div><div class="l">a day</div><div class="s">for the system, over 10 years</div></div>
-    <div class="pd"><div class="v" id="d-all">$1.92</div><div class="l">a day</div><div class="s">including a new set of filters every year</div></div>
-    <div class="pd"><div class="v" id="d-per">48¢</div><div class="l">a day, per person</div><div class="s">for a home of <span contenteditable="true" spellcheck="false" id="pp">4</span></div></div>
-  </div>
-  <div class="compare" id="d-compare"></div>
-</section>
-
-<!-- Zip: spread it out (Z jumps here). Customer-facing Zip Money fees, $75 = establishment fee on a $4,000 limit -->
+<!-- Zip breakdown: right after the options, for anyone looking at B (Z jumps here) -->
 <section class="slide light" id="zip-slide">
-  <div class="eyebrow">Spread it out with Zip</div>
-  <h2>Interest free, <span class="accent">from <span id="zip-from">$111</span> a month</span></h2>
+  <div class="eyebrow">Option B · Interest free with Zip</div>
+  <h2>Spread it out, <span class="accent">from <span id="zip-from">$120.79</span> a month</span></h2>
   <div class="zip">
     <div>
       <div class="terms" id="zip-terms">
@@ -685,11 +678,29 @@ body.on-light .nav { color: var(--ink); }
       </div>
     </div>
     <div class="monthly">
-      <div class="v" id="zip-mo">$166</div>
+      <div class="v" id="zip-mo">$176.20</div>
       <div class="l">a month for <span id="zip-m">24</span> months</div>
-      <div class="s">about <span id="zip-wk">$38</span> a week &middot; on <span id="zip-p">$3,990</span></div>
+      <table class="zmath">
+        <tr><td>Repayment (<span id="zip-p">$3,990</span> &divide; <span class="zip-m2">24</span>)</td><td id="zip-rep">$166.25</td></tr>
+        <tr><td>Monthly account fee</td><td>$9.95</td></tr>
+        <tr class="tot"><td>A month</td><td id="zip-mo2">$176.20</td></tr>
+        <tr><td>A week (&times; 12 &divide; 52)</td><td id="zip-wk">$40.66</td></tr>
+        <tr class="all"><td>All up, incl. $75 setup</td><td id="zip-all">$4,303.80</td></tr>
+      </table>
     </div>
   </div>
+</section>
+
+<!-- 11. Per day (if they hesitate on price) -->
+<section class="slide light">
+  <div class="eyebrow">Broken down</div>
+  <h2>What it <span class="accent">really costs</span></h2>
+  <div class="perday">
+    <div class="pd"><div class="v" id="d-sys">$1.09</div><div class="l">a day</div><div class="s">for the system, over 10 years</div></div>
+    <div class="pd"><div class="v" id="d-all">$1.92</div><div class="l">a day</div><div class="s">including a new set of filters every year</div></div>
+    <div class="pd"><div class="v" id="d-per">48¢</div><div class="l">a day, per person</div><div class="s">for a home of <span contenteditable="true" spellcheck="false" id="pp">4</span></div></div>
+  </div>
+  <div class="compare" id="d-compare"></div>
 </section>
 
 <!-- 13. Next steps -->
@@ -1007,12 +1018,15 @@ body.on-light .nav { color: var(--ink); }
       : 'Less than a coffee a day, for <b>' + c.feel + '</b>.';
     var dep = Math.round(price * 0.2);
     $('pay-dep').textContent = whole(dep); $('pay-bal').textContent = whole(price - dep);
-    $('pay-full').textContent = whole(price - 200);
-    // zip repayments for the selected term (rounded up to the dollar so it's paid off in time)
-    var zm = +document.querySelector('#zip-terms .on').dataset.m;
-    $('zip-mo').textContent = whole(Math.ceil(price / zm)); $('zip-m').textContent = zm;
-    $('zip-wk').textContent = whole(Math.ceil(price / zm * 12 / 52)); $('zip-p').textContent = whole(price);
-    $('zip-from').textContent = whole(Math.ceil(price / 36));
+    // zip: repayment rounded up to the cent (so it's paid off within the term) + $9.95 monthly account fee
+    var ZIP_FEE = 9.95, ZIP_SETUP = 75, cents = function (n) { return '$' + n.toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+    var zipMonth = function (m) { return Math.ceil(price / m * 100) / 100 + ZIP_FEE; };
+    var zm = +document.querySelector('#zip-terms .on').dataset.m, zrep = Math.ceil(price / zm * 100) / 100, zmo = zrep + ZIP_FEE;
+    $('zip-mo').textContent = cents(zmo); $('zip-mo2').textContent = cents(zmo); $('zip-rep').textContent = cents(zrep);
+    $('zip-m').textContent = zm; all('.zip-m2').forEach(function (el) { el.textContent = zm; });
+    $('zip-wk').textContent = cents(Math.round(zmo * 12 / 52 * 100) / 100); $('zip-p').textContent = whole(price);
+    $('zip-all').textContent = cents(price + ZIP_SETUP + ZIP_FEE * zm);
+    $('zip-from').textContent = cents(zipMonth(36)); $('pay-zip').textContent = cents(zipMonth(24));
     var n = num($('r-n').value);
     $('r-back').textContent = whole(n * 500);
     $('r-net').textContent = whole(Math.max(0, price - n * 500));
