@@ -340,6 +340,9 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .pstep .l { font-size: clamp(16px, 1.7vw, 22px); font-weight: 700; }
 .pstep .s { font-size: clamp(13px, 1.25vw, 16px); color: var(--soft); margin-top: 4px; }
 .parr { align-self: center; font-size: clamp(18px, 1.8vw, 24px); font-weight: 800; color: var(--soft); text-transform: uppercase; }
+.zfees { list-style: none; margin: 2.2vh 0 0; padding: 1.8vh 0 0; border-top: 1px solid var(--line); display: grid; gap: .8vh; font-size: clamp(13px, 1.25vw, 16px); color: var(--soft); }
+.zfees b { color: var(--ink); }
+.zdep label small { display: block; font-size: .78em; font-weight: 600; color: var(--soft); }
 .split2 { display: flex; justify-content: center; gap: 2.4vw; margin-top: 1.6vh; }
 .split2 .v2 { font-size: clamp(38px, 4.8vw, 68px); font-weight: 800; line-height: 1.05; font-variant-numeric: tabular-nums; }
 
@@ -661,7 +664,8 @@ body.on-light .nav { color: var(--ink); }
       <div class="split2"><div><div class="v2" id="pay-dep">$798</div><div class="s">today (20%)</div></div><div><div class="v2" id="pay-bal">$3,192</div><div class="s">after installation (80%)</div></div></div></div>
     <div class="parr">or</div>
     <div class="pstep"><div class="n">Option B · Interest free with Zip</div>
-      <div class="split2"><div><div class="v2" id="pay-zdep">$400</div><div class="s">deposit today</div></div><div><div class="v2" id="pay-zrest">$3,590</div><div class="s">the rest over 6–36 months</div></div></div></div>
+      <div class="split2"><div><div class="v2" id="pay-zdep">$400</div><div class="s">today (minimum $400)</div></div><div><div class="v2" id="pay-zrest">$3,590</div><div class="s">the rest over 6–36 months</div></div></div>
+      <ul class="zfees"><li><b>$75</b> one-off setup fee</li><li><b>$9.95</b> a month while you owe</li><li><b>Pay it off any time</b> and the $9.95 stops</li></ul></div>
   </div>
 </section>
 
@@ -670,7 +674,7 @@ body.on-light .nav { color: var(--ink); }
   <div class="eyebrow">Option B · Interest free with Zip</div>
   <h2>Your Zip options, <span class="accent">to the cent</span></h2>
   <div class="zdep">
-    <div class="box"><label for="z-dep">Deposit today</label><div class="field">$<input id="z-dep" type="number" inputmode="decimal" min="0" step="50" value="400"></div></div>
+    <div class="box"><label for="z-dep">Deposit today <small>min $400</small></label><div class="field">$<input id="z-dep" type="number" inputmode="decimal" min="0" step="50" value="400"></div></div>
     <span class="arr">→</span>
     <span class="rest">Zip covers the rest:<b id="z-rest">$3,590</b></span>
   </div>
