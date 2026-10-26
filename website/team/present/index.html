@@ -18,7 +18,7 @@
       (concerns, their words, people, what they spend).
    2. Share the tab, press Start. Every slide is built around their concern.
    Arrow keys / space / buttons move slides; Enter or Esc finishes typing.
-   S reopens setup (stop sharing first). R jumps to the referral slide (if they push back on price). Price stays hidden until clicked.
+   S reopens setup (stop sharing first). R jumps to the referral slide (if they push back on price). Z jumps to the Zip slide (if they want to spread it out). Price stays hidden until clicked.
    Prefill: ?name=Sarah&suburb=Point%20Cook&people=4&concern=skin
    (concern = skin,hair,better,taste,smell,scale; comma-separate several, main first) */
 :root { --navy: #0B1E3D; --blue: #4DA6FF; --blue-d: #2E7BC4; --ink: #0B1E3D; --soft: #4B5A70; --line: #E2E7EE; --paper: #F6F8FA; }
@@ -303,6 +303,22 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .pd .s { font-size: clamp(12px, 1.1vw, 15px); color: var(--soft); margin-top: 4px; }
 .compare { margin-top: 3vh; font-size: clamp(16px, 1.7vw, 22px); font-weight: 600; text-align: center; color: var(--ink); }
 .compare b { color: var(--blue-d); }
+
+/* zip: spread it out, repayments by term (Zip Money customer fees, $4,000 limit) */
+.zip { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3vw; align-items: center; margin-top: 1vh; }
+@media (max-width: 860px) { .zip { grid-template-columns: 1fr; } }
+.zip .terms { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.zip .terms button { font: inherit; font-size: clamp(14px, 1.35vw, 18px); font-weight: 800; padding: 12px 6px; white-space: nowrap; border-radius: 999px; border: 2px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; }
+.zip .terms button.on { background: var(--blue-d); border-color: var(--blue-d); color: #fff; }
+.zip .monthly { background: var(--navy); color: #fff; border-radius: 22px; padding: 4vh 2.4vw; text-align: center; }
+.zip .monthly .v { font-size: clamp(52px, 7vw, 100px); font-weight: 800; line-height: 1; color: var(--blue); font-variant-numeric: tabular-nums; }
+.zip .monthly .l { font-size: clamp(16px, 1.7vw, 22px); font-weight: 700; margin-top: 1vh; }
+.zip .monthly .s { font-size: clamp(13px, 1.3vw, 17px); color: rgba(255,255,255,.75); margin-top: 6px; }
+.zip .fees { display: grid; gap: 1.2vh; margin-top: 3vh; }
+.zip .fee { display: flex; align-items: baseline; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.6vh 18px; color: var(--ink); }
+.zip .fee b { flex-shrink: 0; min-width: 4.2em; font-size: clamp(20px, 2vw, 28px); color: var(--blue-d); font-variant-numeric: tabular-nums; }
+.zip .fee span { font-size: clamp(14px, 1.35vw, 18px); line-height: 1.4; color: var(--soft); }
+.zip .fee span strong { color: var(--ink); }
 
 /* payment */
 .pay { display: flex; align-items: center; gap: 2vw; margin-top: 2vh; }
@@ -650,6 +666,32 @@ body.on-light .nav { color: var(--ink); }
   <div class="compare" id="d-compare"></div>
 </section>
 
+<!-- Zip: spread it out (Z jumps here). Customer-facing Zip Money fees, $75 = establishment fee on a $4,000 limit -->
+<section class="slide light" id="zip-slide">
+  <div class="eyebrow">Spread it out with Zip</div>
+  <h2>Interest free, <span class="accent">from <span id="zip-from">$111</span> a month</span></h2>
+  <div class="zip">
+    <div>
+      <div class="terms" id="zip-terms">
+        <button type="button" data-m="6">6 months</button>
+        <button type="button" data-m="12">12 months</button>
+        <button type="button" data-m="24" class="on">24 months</button>
+        <button type="button" data-m="36">36 months</button>
+      </div>
+      <div class="fees">
+        <div class="fee"><b>$75</b><span><strong>One-off establishment fee</strong>, paid once</span></div>
+        <div class="fee"><b>$9.95</b><span><strong>Monthly account fee</strong>, only while you owe. Pay it off early and it stops.</span></div>
+        <div class="fee"><b>0%</b><span><strong>Interest</strong> when it's paid off within your term</span></div>
+      </div>
+    </div>
+    <div class="monthly">
+      <div class="v" id="zip-mo">$166</div>
+      <div class="l">a month for <span id="zip-m">24</span> months</div>
+      <div class="s">about <span id="zip-wk">$38</span> a week &middot; on <span id="zip-p">$3,990</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- 13. Next steps -->
 <section class="slide">
   <div class="eyebrow">Next steps</div>
@@ -966,12 +1008,20 @@ body.on-light .nav { color: var(--ink); }
     var dep = Math.round(price * 0.2);
     $('pay-dep').textContent = whole(dep); $('pay-bal').textContent = whole(price - dep);
     $('pay-full').textContent = whole(price - 200);
+    // zip repayments for the selected term (rounded up to the dollar so it's paid off in time)
+    var zm = +document.querySelector('#zip-terms .on').dataset.m;
+    $('zip-mo').textContent = whole(Math.ceil(price / zm)); $('zip-m').textContent = zm;
+    $('zip-wk').textContent = whole(Math.ceil(price / zm * 12 / 52)); $('zip-p').textContent = whole(price);
+    $('zip-from').textContent = whole(Math.ceil(price / 36));
     var n = num($('r-n').value);
     $('r-back').textContent = whole(n * 500);
     $('r-net').textContent = whole(Math.max(0, price - n * 500));
   }
   ['k-bottled', 'k-jugs', 'r-n'].forEach(function (id) { $(id).addEventListener('input', update); });
   $('pr').addEventListener('input', update);
+  all('#zip-terms button').forEach(function (b) {
+    b.addEventListener('click', function () { all('#zip-terms button').forEach(function (x) { x.classList.toggle('on', x === b); }); update(); });
+  });
   $('pp').addEventListener('input', update);
   $('reveal').addEventListener('click', function () { this.style.display = 'none'; $('price').classList.add('shown'); fitSlide(slides[cur]); });
 
@@ -1034,6 +1084,7 @@ body.on-light .nav { color: var(--ink); }
     if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(cur - 1); }
     if (e.key === 's' || e.key === 'S') { $('setup').classList.remove('hidden'); }
     if (e.key === 'r' || e.key === 'R') { go(slides.indexOf($('ref-slide'))); }
+    if (e.key === 'z' || e.key === 'Z') { go(slides.indexOf($('zip-slide'))); }
   });
   layout();
   go(0);
