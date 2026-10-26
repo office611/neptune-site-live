@@ -304,26 +304,31 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .compare { margin-top: 3vh; font-size: clamp(16px, 1.7vw, 22px); font-weight: 600; text-align: center; color: var(--ink); }
 .compare b { color: var(--blue-d); }
 
-/* zip: spread it out, repayments by term (Zip Money customer fees, $4,000 limit) */
-.zip { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3vw; align-items: center; margin-top: 1vh; }
-@media (max-width: 860px) { .zip { grid-template-columns: 1fr; } }
-.zip .terms { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-.zip .terms button { font: inherit; font-size: clamp(14px, 1.35vw, 18px); font-weight: 800; padding: 12px 6px; white-space: nowrap; border-radius: 999px; border: 2px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; }
-.zip .terms button.on { background: var(--blue-d); border-color: var(--blue-d); color: #fff; }
-.zip .monthly { background: var(--navy); color: #fff; border-radius: 22px; padding: 4vh 2.4vw; text-align: center; }
-.zip .monthly .v { font-size: clamp(44px, 5.6vw, 80px); font-weight: 800; line-height: 1; color: var(--blue); font-variant-numeric: tabular-nums; }
-.zip .monthly .l { font-size: clamp(16px, 1.7vw, 22px); font-weight: 700; margin-top: 1vh; }
-.zmath { width: 100%; border-collapse: collapse; margin-top: 2.4vh; font-size: clamp(13px, 1.25vw, 16px); color: rgba(255,255,255,.8); font-variant-numeric: tabular-nums; }
-.zmath td { padding: .55vh 0; text-align: left; }
-.zmath td:last-child { text-align: right; color: #fff; font-weight: 700; }
-.zmath tr.tot td { border-top: 1px solid rgba(255,255,255,.25); color: #fff; font-weight: 800; padding-top: 1vh; }
-.zmath tr.all td { color: rgba(255,255,255,.65); font-weight: 500; }
-.zip .monthly .s { font-size: clamp(13px, 1.3vw, 17px); color: rgba(255,255,255,.75); margin-top: 6px; }
-.zip .fees { display: grid; gap: 1.2vh; margin-top: 3vh; }
-.zip .fee { display: flex; align-items: baseline; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.6vh 18px; color: var(--ink); }
-.zip .fee b { flex-shrink: 0; min-width: 4.2em; font-size: clamp(20px, 2vw, 28px); color: var(--blue-d); font-variant-numeric: tabular-nums; }
-.zip .fee span { font-size: clamp(14px, 1.35vw, 18px); line-height: 1.4; color: var(--soft); }
-.zip .fee span strong { color: var(--ink); }
+/* zip: deposit today, the rest interest free; every term side by side (Zip Money customer fees, $4,000 limit) */
+.zdep { display: flex; align-items: center; flex-wrap: wrap; gap: 1.2vw; margin: 1vh 0 2.4vh; }
+.zdep .box { display: flex; align-items: center; gap: 10px; background: #fff; border: 2px solid var(--blue-d); border-radius: 14px; padding: 1.2vh 18px; color: var(--ink); }
+.zdep label { font-size: clamp(14px, 1.35vw, 18px); font-weight: 700; }
+.zdep .field { display: flex; align-items: center; font-size: clamp(22px, 2.4vw, 32px); font-weight: 800; color: var(--blue-d); }
+.zdep input { width: 4em; font: inherit; color: inherit; border: 0; border-bottom: 2px dashed #b8cce4; background: transparent; text-align: right; padding: 0; }
+.zdep input:focus { outline: none; border-bottom-color: var(--blue-d); }
+.zdep .arr { font-size: 24px; color: var(--soft); }
+.zdep .rest { font-size: clamp(14px, 1.35vw, 18px); color: var(--soft); }
+.zdep .rest b { font-size: clamp(22px, 2.4vw, 32px); color: var(--ink); margin-left: 6px; }
+.ztab { width: 100%; border-collapse: separate; border-spacing: 0 8px; font-variant-numeric: tabular-nums; }
+.ztab th { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--soft); text-align: right; padding: 0 18px; }
+.ztab th:first-child, .ztab td:first-child { text-align: left; }
+.ztab td { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.5vh 18px; text-align: right; font-size: clamp(15px, 1.5vw, 20px); color: var(--ink); }
+.ztab td:first-child { border-left: 1px solid var(--line); border-radius: 14px 0 0 14px; font-weight: 800; }
+.ztab td:last-child { border-right: 1px solid var(--line); border-radius: 0 14px 14px 0; }
+.ztab td b { font-size: 1.2em; }
+.ztab td small { display: block; font-size: .72em; color: var(--soft); }
+.ztab td.x { color: var(--blue-d); font-weight: 800; }
+.ztab tbody tr { cursor: pointer; }
+.ztab tbody tr.on td { background: var(--navy); color: #fff; border-color: var(--navy); }
+.ztab tbody tr.on td small { color: rgba(255,255,255,.7); }
+.ztab tbody tr.on td.x { color: var(--blue); }
+.znote { margin: 1.6vh 0 0; font-size: clamp(13px, 1.25vw, 16px); color: var(--soft); }
+.znote b { color: var(--ink); }
 
 /* payment */
 .pay { display: flex; align-items: stretch; gap: 2vw; margin-top: 2vh; }
@@ -655,40 +660,30 @@ body.on-light .nav { color: var(--ink); }
     <div class="pstep"><div class="n">Option A · Deposit</div>
       <div class="split2"><div><div class="v2" id="pay-dep">$798</div><div class="s">today (20%)</div></div><div><div class="v2" id="pay-bal">$3,192</div><div class="s">after installation (80%)</div></div></div></div>
     <div class="parr">or</div>
-    <div class="pstep"><div class="n">Option B · Interest free with Zip</div><div class="v" id="pay-zip">$176.20</div><div class="l">a month over 24 months</div><div class="s">incl. Zip's $9.95 monthly account fee</div></div>
+    <div class="pstep"><div class="n">Option B · Interest free with Zip</div>
+      <div class="split2"><div><div class="v2" id="pay-zdep">$400</div><div class="s">deposit today</div></div><div><div class="v2" id="pay-zrest">$3,590</div><div class="s">the rest over 6–36 months</div></div></div></div>
   </div>
 </section>
 
 <!-- Zip breakdown: right after the options, for anyone looking at B (Z jumps here) -->
 <section class="slide light" id="zip-slide">
   <div class="eyebrow">Option B · Interest free with Zip</div>
-  <h2>Spread it out, <span class="accent">from <span id="zip-from">$120.79</span> a month</span></h2>
-  <div class="zip">
-    <div>
-      <div class="terms" id="zip-terms">
-        <button type="button" data-m="6">6 months</button>
-        <button type="button" data-m="12">12 months</button>
-        <button type="button" data-m="24" class="on">24 months</button>
-        <button type="button" data-m="36">36 months</button>
-      </div>
-      <div class="fees">
-        <div class="fee"><b>$75</b><span><strong>One-off establishment fee</strong>, paid once</span></div>
-        <div class="fee"><b>$9.95</b><span><strong>Monthly account fee</strong>, only while you owe. Pay it off early and it stops.</span></div>
-        <div class="fee"><b>0%</b><span><strong>Interest</strong> when it's paid off within your term</span></div>
-      </div>
-    </div>
-    <div class="monthly">
-      <div class="v" id="zip-mo">$176.20</div>
-      <div class="l">a month for <span id="zip-m">24</span> months</div>
-      <table class="zmath">
-        <tr><td>Repayment (<span id="zip-p">$3,990</span> &divide; <span class="zip-m2">24</span>)</td><td id="zip-rep">$166.25</td></tr>
-        <tr><td>Monthly account fee</td><td>$9.95</td></tr>
-        <tr class="tot"><td>A month</td><td id="zip-mo2">$176.20</td></tr>
-        <tr><td>A week (&times; 12 &divide; 52)</td><td id="zip-wk">$40.66</td></tr>
-        <tr class="all"><td>All up, incl. $75 setup</td><td id="zip-all">$4,303.80</td></tr>
-      </table>
-    </div>
+  <h2>Your Zip options, <span class="accent">to the cent</span></h2>
+  <div class="zdep">
+    <div class="box"><label for="z-dep">Deposit today</label><div class="field">$<input id="z-dep" type="number" inputmode="decimal" min="0" step="50" value="400"></div></div>
+    <span class="arr">→</span>
+    <span class="rest">Zip covers the rest:<b id="z-rest">$3,590</b></span>
   </div>
+  <table class="ztab">
+    <thead><tr><th>Term</th><th>A month</th><th>A week</th><th>Extra in Zip fees</th><th>All up</th></tr></thead>
+    <tbody id="z-rows">
+      <tr data-m="6"><td>6 months</td><td></td><td></td><td class="x"></td><td></td></tr>
+      <tr data-m="12"><td>12 months</td><td></td><td></td><td class="x"></td><td></td></tr>
+      <tr data-m="24"><td>24 months</td><td></td><td></td><td class="x"></td><td></td></tr>
+      <tr data-m="36"><td>36 months</td><td></td><td></td><td class="x"></td><td></td></tr>
+    </tbody>
+  </table>
+  <p class="znote"><b>Extra in Zip fees</b> = $75 one-off setup + $9.95 a month for the full term. Pay it off early and the $9.95 stops. 0% interest when it's paid off within the term.</p>
 </section>
 
 <!-- 11. Per day (if they hesitate on price) -->
@@ -1018,23 +1013,27 @@ body.on-light .nav { color: var(--ink); }
       : 'Less than a coffee a day, for <b>' + c.feel + '</b>.';
     var dep = Math.round(price * 0.2);
     $('pay-dep').textContent = whole(dep); $('pay-bal').textContent = whole(price - dep);
-    // zip: repayment rounded up to the cent (so it's paid off within the term) + $9.95 monthly account fee
+    // zip: deposit today, the rest financed. Repayment = rest / term rounded up to the cent (paid off in time),
+    // + $9.95 monthly account fee. Extra in fees = $75 setup + $9.95 x term. A week = a month x 12 / 52.
     var ZIP_FEE = 9.95, ZIP_SETUP = 75, cents = function (n) { return '$' + n.toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
-    var zipMonth = function (m) { return Math.ceil(price / m * 100) / 100 + ZIP_FEE; };
-    var zm = +document.querySelector('#zip-terms .on').dataset.m, zrep = Math.ceil(price / zm * 100) / 100, zmo = zrep + ZIP_FEE;
-    $('zip-mo').textContent = cents(zmo); $('zip-mo2').textContent = cents(zmo); $('zip-rep').textContent = cents(zrep);
-    $('zip-m').textContent = zm; all('.zip-m2').forEach(function (el) { el.textContent = zm; });
-    $('zip-wk').textContent = cents(Math.round(zmo * 12 / 52 * 100) / 100); $('zip-p').textContent = whole(price);
-    $('zip-all').textContent = cents(price + ZIP_SETUP + ZIP_FEE * zm);
-    $('zip-from').textContent = cents(zipMonth(36)); $('pay-zip').textContent = cents(zipMonth(24));
+    var zdep = Math.min(price, num($('z-dep').value)), zrest = Math.round((price - zdep) * 100) / 100;
+    $('z-rest').textContent = cents(zrest); $('pay-zdep').textContent = whole(zdep); $('pay-zrest').textContent = whole(zrest);
+    all('#z-rows tr').forEach(function (tr) {
+      var m = +tr.dataset.m, rep = Math.ceil(zrest / m * 100) / 100, mo = rep + ZIP_FEE, extra = ZIP_SETUP + ZIP_FEE * m, td = tr.children;
+      td[1].innerHTML = '<b>' + cents(mo) + '</b><small>' + cents(rep) + ' + $9.95</small>';
+      td[2].textContent = cents(Math.round(mo * 12 / 52 * 100) / 100);
+      td[3].textContent = '+' + cents(extra);
+      td[4].textContent = cents(price + extra);
+    });
     var n = num($('r-n').value);
     $('r-back').textContent = whole(n * 500);
     $('r-net').textContent = whole(Math.max(0, price - n * 500));
   }
   ['k-bottled', 'k-jugs', 'r-n'].forEach(function (id) { $(id).addEventListener('input', update); });
   $('pr').addEventListener('input', update);
-  all('#zip-terms button').forEach(function (b) {
-    b.addEventListener('click', function () { all('#zip-terms button').forEach(function (x) { x.classList.toggle('on', x === b); }); update(); });
+  $('z-dep').addEventListener('input', update);
+  all('#z-rows tr').forEach(function (tr) {
+    tr.addEventListener('click', function () { all('#z-rows tr').forEach(function (x) { x.classList.toggle('on', x === tr && !x.classList.contains('on')); }); });
   });
   $('pp').addEventListener('input', update);
   $('reveal').addEventListener('click', function () { this.style.display = 'none'; $('price').classList.add('shown'); fitSlide(slides[cur]); });
