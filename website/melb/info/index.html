@@ -407,10 +407,13 @@
 @media (max-width: 640px) { .area-chip { padding: 7px 14px; font-size: .85rem; } }
 
 /* ══ PAGE 2 (/melb/info) ══ the deck's content as a page. Hero has no calendar under it, so it closes itself */
-.info-hero .hero-photo-upper { padding-bottom: clamp(44px, 8vw, 88px); }
+.info-hero .hero-photo-upper { padding-bottom: clamp(28px, 3.5vw, 44px); }
 .info-hero .hero-photo-content .hero-sub { max-width: 640px; margin-left: auto; margin-right: auto; }
-.i-read { display: inline-flex; align-items: center; gap: 8px; margin: 16px 0 0; padding: 7px 14px; border-radius: 999px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); color: #fff; font-size: .85rem; font-weight: 600; }
-.i-read svg { width: 16px; height: 16px; }
+/* "please read before our call": the most important line on the page */
+.i-read { display: flex; align-items: center; gap: 14px; text-align: left; margin: 22px auto 0; max-width: 560px; padding: 16px 22px; border-radius: 16px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3); color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.i-read svg { flex-shrink: 0; width: 34px; height: 34px; color: #7fb8ff; }
+.i-read b { display: block; font-size: clamp(1.12rem, 3.8vw, 1.4rem); line-height: 1.25; }
+.i-read span { display: block; font-size: clamp(.92rem, 2.8vw, 1.04rem); color: rgba(255,255,255,.88); margin-top: 3px; line-height: 1.45; }
 .info-page .section-head h2 { text-wrap: balance; }
 .i-acc { color: var(--blue); }
 .info-page .section-dark .eyebrow { color: #7fb8ff; }
@@ -501,12 +504,9 @@
 .i-specs .ck { margin-top: 1px; }
 .i-specs b { color: var(--navy); }
 .i-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.i-ph { all: unset; box-sizing: border-box; cursor: pointer; position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 3 / 4; background: var(--placeholder); display: block; }
-.i-ph:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
-.i-ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
-.i-ph:hover img { transform: scale(1.04); }
-.i-ph span { position: absolute; left: 6px; right: 6px; bottom: 6px; background: rgba(5,19,31,.85); color: #fff; font-size: .7rem; font-weight: 700; padding: 5px 8px; border-radius: 999px; text-align: center; line-height: 1.25; }
-.i-photos + .i-hint { text-align: center; }
+.i-ph { margin: 0; position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 3 / 4; background: var(--placeholder); display: block; }
+.i-ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.i-ph figcaption { position: absolute; left: 6px; right: 6px; bottom: 6px; background: rgba(5,19,31,.85); color: #fff; font-size: .7rem; font-weight: 700; padding: 5px 8px; border-radius: 999px; text-align: center; line-height: 1.25; }
 
 /* 5 stages: water runs left to right through the 3 filters (top to bottom on phones) */
 .i-diagram { position: relative; display: flex; align-items: stretch; gap: 14px; }
@@ -550,7 +550,6 @@ html.i-pop-open { overflow: hidden; }
 .i-pop-card img { flex-shrink: 0; width: 46%; height: min(68vh, 540px); object-fit: cover; display: block; background: var(--navy); }
 .i-pop-card img[hidden] { display: none; }
 .i-pop-card.noimg { max-width: 620px; }
-.i-pop-card.photo img { width: 58%; }
 .i-pop-body { flex: 1; padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; overflow-y: auto; }
 .i-pop-body .n { font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
 .i-pop-body h3 { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 800; line-height: 1.1; margin: 6px 0 4px; color: var(--navy); }
@@ -563,8 +562,7 @@ html.i-pop-open { overflow: hidden; }
 @media (max-width: 760px) {
   .i-pop { align-items: flex-end; padding: 0; }
   .i-pop-card { flex-direction: column; max-height: 92vh; max-height: 92dvh; border-radius: 22px 22px 0 0; animation-name: i-sheet-in; }
-  .i-pop-card img, .i-pop-card.photo img { width: 100%; height: 38vh; }
-  .i-pop-card.photo img { height: 56vh; }
+  .i-pop-card img { width: 100%; height: 38vh; }
   .i-pop-body { padding: 22px 20px 30px; justify-content: flex-start; }
 }
 @keyframes i-sheet-in { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
@@ -630,8 +628,7 @@ html.i-pop-open { overflow: hidden; }
     <div class="container hero-photo-content fade-in-up">
       <span class="qualify-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Good news — we can help</span>
       <h1>Here&rsquo;s Everything About <span class="hero-accent">Your Neptune System</span></h1>
-      <p class="hero-sub">Please take a few minutes to read through this before we talk. It covers why filter, how it works, what&rsquo;s inside, and what our customers say.</p>
-      <p class="i-read"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>About a 5 minute read</p>
+      <div class="i-read"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg><div><b>Please read this before our&nbsp;call</b><span>It only takes a few minutes and covers all your questions.</span></div></div>
     </div>
   </div>
 </section>
@@ -716,7 +713,7 @@ html.i-pop-open { overflow: hidden; }
   </div>
 </section>
 
-<!-- THE SYSTEM (photos open bigger) -->
+<!-- THE SYSTEM -->
 <section class="section section-off" id="the-system">
   <div class="container">
     <div class="section-head">
@@ -736,11 +733,10 @@ html.i-pop-open { overflow: hidden; }
       </ul>
       <div>
         <div class="i-photos">
-          <button type="button" class="i-ph" data-h="3 filters inside" data-p="Open the cover and there they are: The Guard, The Disruptor and The Extractor, side by side."><img src="/assets/install-photos/26.jpg" alt="Neptune system with the cover open, showing three filters" loading="lazy"><span>3 filters inside</span></button>
-          <button type="button" class="i-ph" data-h="On the wall" data-p="No room on the ground? It mounts on the wall instead, solid and out of the way."><img src="/assets/install-photos/38.jpg" alt="Neptune system mounted on a wall" loading="lazy"><span>On the wall</span></button>
-          <button type="button" class="i-ph" data-h="Tidy install, no mess" data-p="Copper piping and a neat finish. Water connection only: no power, no gas."><img src="/assets/present/unit-back.jpg" alt="Back of a Neptune system showing copper piping" loading="lazy"><span>Tidy install, no mess</span></button>
+          <figure class="i-ph"><img src="/assets/install-photos/26.jpg" alt="Neptune system with the cover open, showing three filters" loading="lazy"><figcaption>3 filters inside</figcaption></figure>
+          <figure class="i-ph"><img src="/assets/install-photos/38.jpg" alt="Neptune system mounted on a wall" loading="lazy"><figcaption>On the wall</figcaption></figure>
+          <figure class="i-ph"><img src="/assets/present/unit-back.jpg" alt="Back of a Neptune system showing copper piping" loading="lazy"><figcaption>Tidy install, no mess</figcaption></figure>
         </div>
-        <p class="i-hint">Tap a photo to see it bigger.</p>
       </div>
     </div>
   </div>
@@ -1045,7 +1041,7 @@ html.i-pop-open { overflow: hidden; }
   </div>
 </section>
 
-<!-- Pop-up: stage details (same data as the deck) and bigger system photos -->
+<!-- Pop-up: stage details (same data as the deck) -->
 <div class="i-pop" id="i-pop" hidden>
   <div class="i-pop-card" role="dialog" aria-modal="true" aria-labelledby="i-pop-h">
     <button type="button" class="i-pop-x" id="i-pop-x" aria-label="Close">&times;</button>
@@ -1175,7 +1171,7 @@ html.i-pop-open { overflow: hidden; }
   }, { rootMargin: '200px 0px' }).observe(v);
 })();
 
-// Stage + photo pop-ups. STAGE is the deck's (/team/present): keep the two in step.
+// Stage pop-ups. STAGE is the deck's (/team/present): keep the two in step.
 (function () {
   var STAGE = {
     1: ['Stage 1 · The Guard', 'Sediment', 'Pleated polypropylene · 5 micron', 'Folded over and over to pack in as much surface area as possible. It’s the first thing your water meets, catching the sand, rust and grit from the main so everything after it stays clean.', '/assets/present/old-filter.jpg', 'A used Guard filter next to a new one. That brown is what it kept out of your home.'],
@@ -1191,7 +1187,6 @@ html.i-pop-open { overflow: hidden; }
     $('i-pop-p').textContent = d[3]; $('i-pop-cap').textContent = d[5];
     img.hidden = !d[4]; if (d[4]) { img.src = d[4]; img.alt = d[5] || d[1]; }
     card.classList.toggle('noimg', !d[4]);
-    card.classList.toggle('photo', !!d[6]);
     pop.hidden = false; document.documentElement.classList.add('i-pop-open');
     back = from; $('i-pop-x').focus();
   }
@@ -1201,9 +1196,6 @@ html.i-pop-open { overflow: hidden; }
   }
   document.querySelectorAll('.stg').forEach(function (el) {
     el.addEventListener('click', function () { open(STAGE[el.dataset.s], el); });
-  });
-  document.querySelectorAll('.i-ph').forEach(function (el) {
-    el.addEventListener('click', function () { open(['The system', el.dataset.h, '', el.dataset.p, el.querySelector('img').getAttribute('src'), '', true], el); });
   });
   $('i-pop-x').addEventListener('click', close);
   pop.addEventListener('click', function (e) { if (e.target === pop) close(); });
