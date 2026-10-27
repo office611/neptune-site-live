@@ -381,9 +381,8 @@
 .gallery-cta .btn { margin-top: 18px; }
 /* Next Step line: even line lengths so desktop doesn't end line one on "To" */
 .next-step-heading { text-wrap: balance; }
-/* FAQ shares the white band with "Sound Like Your Home?" */
-#faq { padding-bottom: 0; }
-#faq + .final-cta { padding-top: var(--s-12); }
+/* FAQ follows the white install gallery: a hairline keeps the two apart */
+#faq { border-top: 1px solid var(--border); }
 </style>
 <!-- Meta Pixel -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2043292147071202');fbq('track','PageView');</script>
@@ -694,38 +693,15 @@
 </script>
 
 <!-- ══════════════════════════════════════════════════════
-     ABOUT ME — after the proof (testimonials, then installs), right
-     before "Sound Like Your Home?": his "whatever it is, I'm confident
-     we'll fix it" hands straight to that list. Face is already
-     familiar from ads, so this is a proper introduction rather
-     than a tiny avatar.
-══════════════════════════════════════════════════════ -->
-<section class="section section-off" id="about-me">
-  <div class="container">
-    <div class="about-me-grid">
-      <div class="about-me-photo">
-        <img src="/assets/install-photos/img-1172.jpg" alt="Stefan, founder of Neptune Filtration" loading="lazy">
-      </div>
-      <div class="about-me-text">
-        <span class="eyebrow">Who's Behind Neptune</span>
-        <h2>I'm Stefan.</h2>
-        <p>My own eczema and scalp issues are what pulled me into this industry in the first place — chasing a natural fix became a genuine passion. Before Neptune, I worked for other filtration companies, learning the industry inside out and speaking with 1000+ customers along the way — so I know exactly what it takes to fix your concern.</p>
-        <p>Whatever it is, I'm confident we'll fix it. I know the level we operate at — that's exactly why my face is on every ad, every page. Why would I hide it?</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════
      FAQ — small and general (Stefan 2026-10-27): filtration questions
      that stop people filling in the survey. No specs, no price, no
-     stages: those live on page 2 (/melb/info) and the Zoom. Sits in the
-     same white band as "Sound Like Your Home?" below (no bottom padding).
+     stages: those live on page 2 (/melb/info) and the Zoom. Sits after the
+     installs and before Who's Behind Neptune (Stefan); white band.
 ══════════════════════════════════════════════════════ -->
 <section class="section" id="faq">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Questions</span>
+      <span class="eyebrow">FAQs</span>
       <h2>Common Questions</h2>
     </div>
     <div class="faq-list">
@@ -771,6 +747,29 @@
         </summary>
         <p class="faq-answer">You&rsquo;re covered by our 30-day money-back guarantee, plus a 7-year workmanship warranty on the install.</p>
       </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     ABOUT ME — after the proof (testimonials, then installs), right
+     before "Sound Like Your Home?": his "whatever it is, I'm confident
+     we'll fix it" hands straight to that list. Face is already
+     familiar from ads, so this is a proper introduction rather
+     than a tiny avatar.
+══════════════════════════════════════════════════════ -->
+<section class="section section-off" id="about-me">
+  <div class="container">
+    <div class="about-me-grid">
+      <div class="about-me-photo">
+        <img src="/assets/install-photos/img-1172.jpg" alt="Stefan, founder of Neptune Filtration" loading="lazy">
+      </div>
+      <div class="about-me-text">
+        <span class="eyebrow">Who's Behind Neptune</span>
+        <h2>I'm Stefan.</h2>
+        <p>My own eczema and scalp issues are what pulled me into this industry in the first place — chasing a natural fix became a genuine passion. Before Neptune, I worked for other filtration companies, learning the industry inside out and speaking with 1000+ customers along the way — so I know exactly what it takes to fix your concern.</p>
+        <p>Whatever it is, I'm confident we'll fix it. I know the level we operate at — that's exactly why my face is on every ad, every page. Why would I hide it?</p>
+      </div>
     </div>
   </div>
 </section>
