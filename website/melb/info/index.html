@@ -406,33 +406,77 @@
 .area-chip.is-active { background: var(--navy); border-color: var(--navy); color: #fff; }
 @media (max-width: 640px) { .area-chip { padding: 7px 14px; font-size: .85rem; } }
 
-/* ══ PAGE 2 (/melb/info) ══ hero has no calendar under it, so it closes itself */
+/* ══ PAGE 2 (/melb/info) ══ the deck's content as a page. Hero has no calendar under it, so it closes itself */
 .info-hero .hero-photo-upper { padding-bottom: clamp(44px, 8vw, 88px); }
 .info-hero .hero-photo-content .hero-sub { max-width: 640px; margin-left: auto; margin-right: auto; }
+.info-page .section-head h2 { text-wrap: balance; }
+.i-acc { color: var(--blue); }
+.info-page .section-dark .eyebrow { color: #7fb8ff; }
+.section-dark .i-acc { color: #7fb8ff; }
+.i-sub { text-align: center; font-size: clamp(1.2rem, 3vw, 1.5rem); color: var(--navy); margin: 48px 0 20px; }
+.i-hint { font-size: .82rem; color: var(--text-3); margin: 10px 0 0; }
+.i-center { text-align: center; }
+.i-note { font-size: .9rem; color: var(--text-2); margin: 20px 0 0; }
+.ck { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: #fff; display: inline-flex; align-items: center; justify-content: center; }
+.ck svg { width: 12px; height: 12px; }
+/* the fan's rotated side card pokes ~10px past a 360px screen; clip it so the page never scrolls sideways */
+#install-gallery { overflow-x: clip; }
 
-/* why filter */
-.i-flow { list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 980px; }
-.i-flow li { background: #fff; border: 1px solid var(--border); border-radius: var(--r-md); padding: 18px 14px; text-align: center; }
+/* why filter: where the chlorine comes from */
+.i-flow { list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 1040px; }
+.i-flow li { background: #fff; border: 1px solid var(--border); border-radius: var(--r-md); padding: 20px 14px; text-align: center; position: relative; }
 .i-flow small { display: block; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
-.i-flow b { display: block; font-size: 1.02rem; color: var(--navy); margin-bottom: 4px; }
+.i-flow b { display: block; font-size: 1.05rem; color: var(--navy); margin-bottom: 4px; }
 .i-flow span { font-size: .86rem; color: var(--text-2); line-height: 1.5; }
 .i-flow li.hl { background: var(--navy); border-color: var(--navy); }
 .i-flow li.hl b { color: #fff; }
 .i-flow li.hl span { color: rgba(255,255,255,.78); }
 .i-flow li.hl small { color: #7fb8ff; }
 @media (max-width: 760px) { .i-flow { grid-template-columns: 1fr 1fr; } }
-.i-punch { text-align: center; font-weight: 800; font-size: clamp(1.15rem, 3.6vw, 1.5rem); color: var(--navy); margin: 28px 0 0; }
+.i-punch { text-align: center; font-weight: 800; font-size: clamp(1.2rem, 3.6vw, 1.6rem); color: var(--navy); margin: 32px 0 0; }
 .i-punch span { color: var(--blue); }
-.i-why { display: grid; grid-template-columns: 250px 1fr; gap: 28px; align-items: center; max-width: 880px; margin: 36px auto 0; }
-@media (max-width: 760px) { .i-why { grid-template-columns: 1fr; } }
-.i-clip { position: relative; width: 100%; max-width: 250px; margin: 0 auto; aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: #0b1e3d; box-shadow: var(--shadow-lg); }
+
+/* chlorine at home: vs cards, test scale, clip */
+.i-why { display: grid; grid-template-columns: 1fr 270px; gap: 48px; align-items: center; max-width: 1000px; margin: 0 auto; }
+@media (max-width: 860px) { .i-why { grid-template-columns: 1fr; gap: 32px; } }
+.section-head.i-left { text-align: left; margin-left: 0; }
+@media (max-width: 860px) { .section-head.i-left { text-align: center; } }
+.i-vs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.i-vs .c { background: #fff; border: 1px solid var(--border); border-radius: var(--r-md); padding: 18px; }
+.i-vs .c.home { border: 2px solid var(--blue); box-shadow: 0 12px 30px rgba(26,95,168,.14); }
+.i-vs .t { display: block; font-size: 1rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+.i-vs .ppm { font-size: clamp(1.8rem, 6vw, 2.6rem); font-weight: 800; line-height: 1; letter-spacing: -.02em; color: var(--navy); }
+.i-vs .home .ppm { color: var(--blue); }
+.i-vs .ppm small { font-size: .42em; font-weight: 700; color: var(--text-3); letter-spacing: 0; }
+.i-vs .src { font-size: .66rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin: 6px 0 10px; }
+@media (max-width: 480px) { .i-vs { gap: 8px; } .i-vs .c { padding: 14px 12px; } .i-vs .t { font-size: .92rem; } }
+.i-next .mic { white-space: nowrap; }
+.i-vs ul { margin: 0; padding-left: 16px; display: grid; gap: 6px; font-size: .86rem; line-height: 1.45; color: var(--text-2); }
+.i-pp { margin: 22px 0 0; font-size: clamp(1.1rem, 3.4vw, 1.4rem); font-weight: 800; color: var(--navy); }
+.i-pp b { color: var(--blue); }
+@media (max-width: 860px) { .i-pp { text-align: center; } }
+.i-dpd { margin-top: 20px; max-width: 520px; }
+@media (max-width: 860px) { .i-dpd { margin-left: auto; margin-right: auto; } }
+.i-dpd .sw { display: flex; gap: 6px; }
+.i-dpd .sw span { flex: 1; height: 26px; border-radius: 6px; border: 1px solid rgba(11,30,61,.08); }
+.i-dpd .lb { display: flex; gap: 6px; margin-top: 5px; }
+.i-dpd .lb span { flex: 1; text-align: center; font-size: .7rem; font-weight: 700; color: var(--text-3); white-space: nowrap; }
+.i-dpd p { margin: 8px 0 0; font-size: .8rem; color: var(--text-3); }
+.i-clip-wrap { margin: 0; }
+.i-clip { position: relative; width: 100%; max-width: 270px; margin: 0 auto; aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: #0b1e3d; box-shadow: var(--shadow-lg); }
 .i-clip video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .i-clip span { position: absolute; left: 10px; top: 10px; background: rgba(5,19,31,.85); color: #fff; font-size: .75rem; font-weight: 700; padding: 6px 11px; border-radius: 999px; }
-.i-cards { display: grid; gap: 12px; }
-.i-card { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 18px 20px; }
-.i-card b { display: block; font-size: 1.05rem; color: var(--navy); margin-bottom: 4px; }
-.i-card p { margin: 0; color: var(--text-2); line-height: 1.6; font-size: .95rem; }
-.i-note { font-size: .82rem; color: var(--text-3); margin: 2px 0 0; }
+.i-clip-wrap figcaption { text-align: center; font-size: .8rem; color: var(--text-3); margin: 10px auto 0; max-width: 270px; }
+
+/* why it matters (dark) */
+.i-bcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 860px) { .i-bcards { grid-template-columns: 1fr; } }
+.i-bcard { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-lg); padding: 26px 22px; }
+.i-bcard .ic { width: 50px; height: 50px; border-radius: 14px; background: rgba(127,184,255,.16); color: #7fb8ff; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.i-bcard .ic svg { width: 26px; height: 26px; }
+.i-bcard b { display: block; font-size: 1.25rem; color: #fff; margin-bottom: 8px; }
+.section-dark .i-bcard p { margin: 0; font-size: .96rem; line-height: 1.6; color: rgba(255,255,255,.8); }
+.section-dark .i-matters { text-align: center; margin: 30px auto 0; font-size: clamp(1.02rem, 2.6vw, 1.2rem); font-weight: 600; color: rgba(255,255,255,.92); max-width: 640px; }
 
 /* how it works */
 .i-steps { display: flex; align-items: stretch; gap: 10px; max-width: 880px; margin: 0 auto; }
@@ -446,84 +490,160 @@
 .i-taps { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 22px auto 0; max-width: 760px; }
 .i-taps span { background: var(--blue-pale); color: var(--blue); border-radius: 999px; padding: 7px 14px; font-size: .85rem; font-weight: 600; }
 .i-lead { text-align: center; color: var(--text-2); max-width: 620px; margin: 20px auto 0; line-height: 1.7; }
+.i-where { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 980px; margin: 0 auto; }
+@media (max-width: 760px) { .i-where { grid-template-columns: 1fr; } }
+.i-where > div { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 20px; }
+.i-where .ck { margin-bottom: 12px; }
+.i-where b { display: block; color: var(--navy); font-size: 1.02rem; margin-bottom: 4px; }
+.i-where span:not(.ck) { font-size: .9rem; color: var(--text-2); line-height: 1.55; }
 
 /* the system */
-.i-sys { display: grid; grid-template-columns: 1fr 1.15fr; gap: 32px; align-items: center; }
+.i-sys { display: grid; grid-template-columns: 1fr 1.15fr; gap: 36px; align-items: center; }
 @media (max-width: 860px) { .i-sys { grid-template-columns: 1fr; } }
-.i-specs, .i-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-.i-specs li, .i-list li { display: flex; gap: 12px; color: var(--text-2); line-height: 1.5; font-size: .96rem; }
+.i-specs { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.i-specs li { display: flex; gap: 12px; color: var(--text-2); line-height: 1.5; font-size: .96rem; }
+.i-specs .ck { margin-top: 1px; }
 .i-specs b { color: var(--navy); }
-.i-specs .ck, .i-list .ck { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
-.i-specs .ck svg, .i-list .ck svg { width: 12px; height: 12px; }
 .i-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.i-photos figure { margin: 0; position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 3 / 4; background: var(--placeholder); }
-.i-photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.i-photos figcaption { position: absolute; left: 6px; right: 6px; bottom: 6px; background: rgba(5,19,31,.85); color: #fff; font-size: .7rem; font-weight: 700; padding: 5px 8px; border-radius: 999px; text-align: center; line-height: 1.25; }
+.i-ph { all: unset; box-sizing: border-box; cursor: pointer; position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 3 / 4; background: var(--placeholder); display: block; }
+.i-ph:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.i-ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+.i-ph:hover img { transform: scale(1.04); }
+.i-ph span { position: absolute; left: 6px; right: 6px; bottom: 6px; background: rgba(5,19,31,.85); color: #fff; font-size: .7rem; font-weight: 700; padding: 5px 8px; border-radius: 999px; text-align: center; line-height: 1.25; }
+.i-photos + .i-hint { text-align: center; }
 
-/* 5 stages */
-.i-stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-@media (max-width: 860px) { .i-stages { grid-template-columns: 1fr; } }
-.i-filter { background: #fff; border: 1px solid var(--border); border-radius: var(--r-lg); padding: 22px 20px; display: flex; flex-direction: column; gap: 10px; }
-.i-filter h3 { margin: 0; font-size: 1.3rem; color: var(--navy); }
-.i-filter .mat { font-size: .82rem; font-weight: 600; color: var(--text-3); margin-top: -6px; }
-.i-filter p { margin: 0; font-size: .92rem; color: var(--text-2); line-height: 1.6; }
-.i-stg { display: flex; gap: 12px; align-items: baseline; background: var(--blue-pale); border-radius: 10px; padding: 10px 12px; }
-.i-stg .n { flex-shrink: 0; font-size: .66rem; font-weight: 800; letter-spacing: .1em; color: var(--blue); }
-.i-stg b { color: var(--navy); font-size: .96rem; }
-.i-stg span:not(.n) { display: block; font-size: .82rem; color: var(--text-2); }
-.i-upgrade { text-align: center; margin: 24px auto 0; font-weight: 600; color: var(--navy); }
+/* 5 stages: water runs left to right through the 3 filters (top to bottom on phones) */
+.i-diagram { position: relative; display: flex; align-items: stretch; gap: 14px; }
+.i-diagram::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 8px; margin-top: -4px; border-radius: 4px; background: repeating-linear-gradient(90deg, #a9d0f5 0 14px, var(--blue) 14px 28px); animation: i-flow 1.2s linear infinite; }
+@keyframes i-flow { from { background-position: 0 0; } to { background-position: 28px 0; } }
+@media (prefers-reduced-motion: reduce) { .i-diagram::before { animation: none; } }
+.i-diagram .end { position: relative; align-self: center; flex: 0 0 84px; text-align: center; background: var(--navy); color: #fff; border-radius: 14px; padding: 12px 6px; font-size: .8rem; font-weight: 700; line-height: 1.25; }
+.i-diagram .end small { display: block; font-weight: 500; font-size: .7rem; opacity: .7; }
+.i-diagram .hs { position: relative; background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 20px 14px 14px; display: flex; flex-direction: column; gap: 12px; box-shadow: var(--shadow-md); }
+.i-diagram .hs[data-f="guard"] { flex: 1; }
+.i-diagram .hs[data-f="disruptor"], .i-diagram .hs[data-f="extractor"] { flex: 2; }
+.i-diagram .nm { font-size: 1.35rem; font-weight: 800; line-height: 1.1; color: var(--navy); }
+.i-diagram .mat { font-size: .78rem; font-weight: 600; color: var(--text-3); margin-top: 3px; line-height: 1.35; }
+.i-diagram .mat b { color: var(--blue); }
+.i-diagram .mic { white-space: nowrap; }
+.i-diagram .stgs { display: flex; gap: 8px; flex: 1; }
+.i-diagram .stg { all: unset; box-sizing: border-box; flex: 1; cursor: pointer; position: relative; border-radius: 12px; background: var(--blue-pale); padding: 16px 12px; display: flex; flex-direction: column; gap: 3px; transition: background .2s, transform .2s; }
+.i-diagram .stg:hover { background: #dce9f7; transform: translateY(-2px); }
+.i-diagram .stg:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.i-diagram .stg .n { font-size: .66rem; font-weight: 800; letter-spacing: .12em; color: var(--blue); }
+.i-diagram .stg b { font-size: 1.12rem; line-height: 1.15; color: var(--navy); padding-right: 24px; }
+.i-diagram .stg small { font-size: .78rem; color: var(--text-2); line-height: 1.35; }
+.i-diagram .stg .more { position: absolute; top: 10px; right: 10px; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 15px; font-style: normal; line-height: 22px; text-align: center; font-weight: 800; }
+@media (max-width: 860px) {
+  .i-diagram { flex-direction: column; }
+  .i-diagram::before { left: 50%; right: auto; top: 0; bottom: 0; width: 8px; height: auto; margin: 0 0 0 -4px; background: repeating-linear-gradient(180deg, #a9d0f5 0 14px, var(--blue) 14px 28px); animation-name: i-flow-v; }
+  .i-diagram .end { flex: 0 0 auto; width: 130px; }
+}
+@keyframes i-flow-v { from { background-position: 0 0; } to { background-position: 0 28px; } }
+.i-diagram + .i-hint { margin-top: 14px; }
+.i-upgrade { display: flex; align-items: center; justify-content: center; gap: 10px; width: fit-content; max-width: 100%; margin: 18px auto 0; background: var(--off-white); border: 1px solid var(--border); border-radius: 999px; padding: 10px 18px; font-size: .9rem; font-weight: 600; color: var(--navy); }
+.i-upgrade svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--blue); }
+@media (max-width: 640px) { .i-upgrade { border-radius: 16px; text-align: left; } }
 
-/* filters */
-.i-fc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 760px; margin: 0 auto; }
-@media (max-width: 640px) { .i-fc { gap: 8px; } .i-fc div { padding: 16px 6px; } .i-fc .v { font-size: 1.45rem; } .i-fc .l { font-size: .86rem; } .i-fc .s { font-size: .72rem; } }
-.i-fc div { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 20px; text-align: center; }
-.i-fc .v { display: block; font-size: 2rem; font-weight: 800; color: var(--blue); line-height: 1; }
-.i-fc .l { display: block; font-weight: 700; color: var(--navy); margin-top: 6px; }
-.i-fc .s { display: block; font-size: .82rem; color: var(--text-3); margin-top: 2px; }
-.i-list { max-width: 620px; margin: 24px auto 0; }
+/* pop-up (stages + photos); bottom sheet on phones */
+.i-pop { position: fixed; inset: 0; z-index: 1000; background: rgba(5,19,31,.6); display: flex; align-items: center; justify-content: center; padding: 20px; }
+.i-pop[hidden] { display: none; }
+html.i-pop-open { overflow: hidden; }
+.i-pop-card { position: relative; display: flex; width: 100%; max-width: 960px; max-height: calc(100vh - 40px); max-height: calc(100dvh - 40px); background: #fff; color: var(--navy); border-radius: 22px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.35); animation: i-pop-in .22s ease-out; }
+@keyframes i-pop-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.i-pop-card img { flex-shrink: 0; width: 46%; height: min(68vh, 540px); object-fit: cover; display: block; background: var(--navy); }
+.i-pop-card img[hidden] { display: none; }
+.i-pop-card.noimg { max-width: 620px; }
+.i-pop-card.photo img { width: 58%; }
+.i-pop-body { flex: 1; padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; overflow-y: auto; }
+.i-pop-body .n { font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
+.i-pop-body h3 { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 800; line-height: 1.1; margin: 6px 0 4px; color: var(--navy); }
+.i-pop-body .m { font-size: .86rem; font-weight: 700; color: var(--text-3); margin-bottom: 16px; }
+.i-pop-body .m:empty { display: none; }
+.i-pop-body p { margin: 0; font-size: 1.02rem; line-height: 1.6; color: var(--text-2); }
+.i-pop-body .cap { margin-top: 16px; font-size: .82rem; color: var(--text-3); }
+.i-pop-body .cap:empty { display: none; }
+.i-pop-x { position: absolute; top: 12px; right: 12px; z-index: 1; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255,255,255,.92); color: var(--navy); font-size: 26px; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
+@media (max-width: 760px) {
+  .i-pop { align-items: flex-end; padding: 0; }
+  .i-pop-card { flex-direction: column; max-height: 92vh; max-height: 92dvh; border-radius: 22px 22px 0 0; animation-name: i-sheet-in; }
+  .i-pop-card img, .i-pop-card.photo img { width: 100%; height: 38vh; }
+  .i-pop-card.photo img { height: 56vh; }
+  .i-pop-body { padding: 22px 20px 30px; justify-content: flex-start; }
+}
+@keyframes i-sheet-in { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* filters: life + breakdown */
+.i-life { display: grid; grid-template-columns: minmax(240px, .8fr) 1.2fr; gap: 14px; max-width: 980px; margin: 0 auto; }
+@media (max-width: 760px) { .i-life { grid-template-columns: 1fr; } }
+.i-life .big { background: var(--blue); color: #fff; border-radius: var(--r-lg); padding: 28px 26px; display: flex; flex-direction: column; justify-content: center; }
+.i-life .big .v { font-size: clamp(4.2rem, 12vw, 6.5rem); font-weight: 800; line-height: .95; letter-spacing: -.02em; }
+.i-life .big .l { font-size: 1.2rem; font-weight: 700; margin-top: 8px; }
+.i-life .big .s { font-size: .92rem; color: rgba(255,255,255,.82); margin-top: 8px; }
+.i-life ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.i-life li { background: #fff; border: 1px solid var(--border); border-radius: var(--r-md); padding: 18px 20px; }
+.i-life li b { display: block; font-size: 1.05rem; color: var(--navy); margin-bottom: 4px; }
+.i-life li span { font-size: .92rem; color: var(--text-2); line-height: 1.5; }
+.i-fc { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: 980px; margin: 0 auto; }
+@media (max-width: 760px) { .i-fc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.i-fc > div { background: #fff; border: 1px solid var(--border); border-radius: var(--r-md); padding: 24px 12px; text-align: center; }
+.i-fc .v { display: block; font-size: clamp(2rem, 6vw, 2.8rem); font-weight: 800; color: var(--blue); line-height: 1; font-variant-numeric: tabular-nums; }
+.i-fc .l { display: block; font-weight: 700; color: var(--navy); margin-top: 8px; }
+.i-fc .s { display: block; font-size: .8rem; color: var(--text-3); margin-top: 3px; }
+.i-fc > div.hl { background: var(--blue); border-color: var(--blue); }
+.i-fc .hl .v, .i-fc .hl .l { color: #fff; }
+.i-fc .hl .s { color: rgba(255,255,255,.82); }
 
 /* peace of mind (dark) */
-#peace-of-mind .eyebrow { color: #7fb8ff; }
-#peace-of-mind h2 { color: #fff; }
-.i-badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
-@media (max-width: 640px) { .i-badges { grid-template-columns: 1fr 1fr; } .i-badges div:last-child { grid-column: 1 / -1; } }
-.i-badges div { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-md); padding: 20px 12px; text-align: center; }
-.i-badges b { display: block; font-size: 1.35rem; font-weight: 800; color: #7fb8ff; line-height: 1.15; }
-.i-badges span { display: block; color: rgba(255,255,255,.9); font-weight: 600; margin-top: 6px; font-size: .88rem; }
+.i-badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 920px; margin: 0 auto; }
+@media (max-width: 640px) { .i-badges { grid-template-columns: 1fr 1fr; } .i-badges > div:last-child { grid-column: 1 / -1; } }
+.i-badges > div { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-md); padding: 22px 12px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.i-badges .big { display: flex; align-items: center; justify-content: center; min-height: 40px; font-size: 1.6rem; font-weight: 800; color: #7fb8ff; line-height: 1.1; }
+.i-badges .big svg { width: 34px; height: 34px; }
+.i-badges .t { color: rgba(255,255,255,.92); font-weight: 600; font-size: .9rem; line-height: 1.35; }
 
 /* paying */
-.i-pay { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 820px; margin: 0 auto; }
-@media (max-width: 640px) { .i-pay { grid-template-columns: 1fr; } }
-.i-pay > div { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 22px 20px; }
+.i-pay { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: center; max-width: 920px; margin: 0 auto; }
+@media (max-width: 760px) { .i-pay { grid-template-columns: 1fr; } }
+.i-pay > div:not(.or) { align-self: stretch; background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 22px 20px; }
 .i-pay .n { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); }
-.i-pay b { display: block; font-size: 1.2rem; color: var(--navy); margin: 6px 0; }
-.i-pay p { margin: 0; color: var(--text-2); line-height: 1.6; font-size: .94rem; }
-.i-pay p.fees { margin-top: 10px; font-size: .82rem; color: var(--text-3); }
-.i-price { text-align: center; margin: 24px auto 0; font-weight: 700; color: var(--navy); }
+.i-pay .split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.i-pay .split > div { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px 12px; }
+.i-pay .split b { display: block; font-size: 1.6rem; font-weight: 800; color: var(--navy); line-height: 1.1; }
+.i-pay .split span { display: block; font-size: .84rem; color: var(--text-2); margin-top: 4px; line-height: 1.4; }
+.i-pay .or { text-align: center; font-weight: 800; color: var(--text-3); font-size: .9rem; text-transform: uppercase; letter-spacing: .1em; }
+.i-pay .fees { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 6px; font-size: .88rem; color: var(--text-2); }
+.i-pay .fees li::before { content: '•'; color: var(--blue); font-weight: 800; margin-right: 8px; }
+.i-pay .fees b { color: var(--navy); }
+.i-pay .znote { margin: 10px 0 0; font-size: .8rem; color: var(--text-3); }
+.i-price { text-align: center; margin: 26px auto 0; font-weight: 700; color: var(--navy); max-width: 560px; line-height: 1.55; }
 
-/* closing */
+/* what happens next */
 .i-close { text-align: center; }
 .i-close .i-ok { display: inline-flex; width: 52px; height: 52px; border-radius: 50%; background: var(--success-pale); color: var(--success); align-items: center; justify-content: center; margin-bottom: 14px; }
 .i-close .i-ok svg { width: 26px; height: 26px; }
-.i-close p { color: var(--text-2); margin: 10px 0 0; font-size: 1.02rem; }
-
-/* the fan's rotated side card pokes ~10px past a 360px screen; clip it so the page never scrolls sideways */
-#install-gallery { overflow-x: clip; }
-
-/* no lone last word on the section headings */
-.info-page .section-head h2 { text-wrap: balance; }
+.i-close h2 { text-wrap: balance; }
+.i-next { list-style: none; margin: 26px auto 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 980px; text-align: left; }
+@media (max-width: 760px) { .i-next { grid-template-columns: 1fr; } }
+.i-next li { background: #fff; border: 1px solid var(--border); border-radius: var(--r-md); padding: 20px; }
+.i-next .num { display: inline-flex; width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; font-size: .9rem; align-items: center; justify-content: center; margin-bottom: 10px; }
+.i-next b { display: block; color: var(--navy); font-size: 1.02rem; margin-bottom: 4px; }
+.i-next li > span:not(.num) { font-size: .9rem; color: var(--text-2); line-height: 1.55; }
+.i-close > .container > p { color: var(--text-2); margin: 22px 0 0; font-size: 1.02rem; font-weight: 600; }
 </style>
 </head>
 <body class="page-melbourne info-page">
 
 <!-- ══════════════════════════════════════════════════════
-     PAGE 2 — straight after the /melb survey. Everything up to the price:
-     why filter, how it works, the system, the 5 stages, proof, filters,
-     peace of mind, how paying works. No price, no calendar, no buttons:
-     a filtration specialist calls them (Call 1) and books the Zoom.
-     Built from /melb/book (same hero photo, badge, tracking, testimonials
-     and install gallery). Keep claims in line with the deck: "reduces",
-     no stats, no health promises.
+     PAGE 2 — straight after the /melb survey. The deck (/team/present)
+     as a page, in the same order, minus anything personal and the price:
+     why filter, chlorine at home, why it matters, how it works, the
+     system, the 5 stages (tap a stage for the pop-up), proof, filters,
+     peace of mind, how paying works, what happens next.
+     No price, no calendar, no buttons. "Our team" calls (Call 1); the
+     filtration specialist is only on the Zoom. Built from /melb/book
+     (same hero photo, badge, tracking, testimonials, install gallery).
+     Keep claims in line with the deck: "reduces", no removal stats.
 ══════════════════════════════════════════════════════ -->
 <section class="hero-photo info-hero">
   <div class="hero-photo-media book-bg" aria-hidden="true">
@@ -536,42 +656,78 @@
     <div class="container hero-photo-content fade-in-up">
       <span class="qualify-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Good news — we can help</span>
       <h1>Here&rsquo;s Everything About <span class="hero-accent">Your Neptune System</span></h1>
-      <p class="hero-sub">Your filtration specialist will be in touch shortly. In the meantime, here&rsquo;s everything you need to know: how it works, what&rsquo;s inside, and what our customers say.</p>
+      <p class="hero-sub">Our team will be in touch shortly. In the meantime, here&rsquo;s everything you need to know: why filter, how it works, what&rsquo;s inside, and what our customers say.</p>
     </div>
   </div>
 </section>
 
-<!-- WHY FILTER -->
+<!-- WHY FILTER: where the chlorine comes from -->
 <section class="section" id="why-filter">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Why Filter?</span>
-      <h2>Your Water&rsquo;s Safe To Drink. Here&rsquo;s What&rsquo;s Still In It.</h2>
+      <h2>Your Water&rsquo;s Safe To Drink. <span class="i-acc">Here&rsquo;s What Keeps It That Way.</span></h2>
     </div>
     <ol class="i-flow">
       <li><small>Stored</small><b>Dams &amp; reservoirs</b><span>Where your water sits before it reaches you</span></li>
       <li><small>Treated</small><b>Chlorine added</b><span>Kills bacteria while it&rsquo;s stored and piped to you</span></li>
-      <li><small>In parts of Melbourne</small><b>Ammonia added</b><span>Makes chloramine, which lasts longer and smells less</span></li>
+      <li><small>In parts of Melbourne</small><b>Ammonia added</b><span>Makes chloramine. It lasts longer and smells less, so you often can&rsquo;t tell it&rsquo;s there</span></li>
       <li class="hl"><small>Your home</small><b>Still there</b><span>In every shower, bath and glass</span></li>
     </ol>
     <p class="i-punch">It doesn&rsquo;t switch off at <span>your front&nbsp;door.</span></p>
+  </div>
+</section>
+
+<!-- CHLORINE AT HOME: tap water vs a pool, the test scale, the test clip -->
+<section class="section section-off" id="chlorine-at-home">
+  <div class="container">
     <div class="i-why">
-      <div class="i-clip"><video data-src="/assets/present/chlorine-test.mp4" poster="/assets/present/chlorine-test.jpg" muted loop playsinline preload="none"></video><span>Pink = chlorine</span></div>
-      <div class="i-cards">
-        <div class="i-card"><b>Skin &amp; hair</b><p>Chlorine is a bleach. Great for keeping water safe on its way to you, harsh on skin and hair, especially in a hot shower.</p></div>
-        <div class="i-card"><b>Taste &amp; smell</b><p>Chlorine and chloramine are what give tap water that weird taste and smell.</p></div>
-        <p class="i-note">Unfiltered vs filtered, tested with the same chlorine tablets pools use.</p>
+      <div>
+        <div class="section-head i-left">
+          <span class="eyebrow">Chlorine At Home</span>
+          <h2>Your Tap Water vs <span class="i-acc">A Swimming Pool</span></h2>
+        </div>
+        <div class="i-vs">
+          <div class="c"><span class="t">A swimming pool</span><div class="ppm">1–1.5 <small>ppm</small></div><div class="src">Where many home pools sit</div><ul><li>Open air, so the chlorine gas escapes</li><li>The same water, topped up, not drained and refilled every day</li></ul></div>
+          <div class="c home"><span class="t">Your home</span><div class="ppm">1.5–3 <small>ppm</small></div><div class="src">Melbourne homes we&rsquo;ve tested</div><ul><li>A fresh supply of chlorinated water every time you turn on a tap</li></ul></div>
+        </div>
+        <p class="i-pp">As much chlorine as a swimming pool, <b>in every shower.</b></p>
+        <div class="i-dpd">
+          <div class="sw"><span style="background:#fbf7f9"></span><span style="background:#f6d3e2"></span><span style="background:#efafcb"></span><span style="background:#e58ab5"></span><span style="background:#d9659f"></span><span style="background:#c23d86"></span></div>
+          <div class="lb"><span>0</span><span>0.5</span><span>1.0</span><span>1.5</span><span>2.0</span><span>3.0 ppm</span></div>
+          <p>The test scale. Filtered water sits at 0. The darker the pink, the more chlorine.</p>
+        </div>
       </div>
+      <figure class="i-clip-wrap">
+        <div class="i-clip"><video data-src="/assets/present/chlorine-test.mp4" poster="/assets/present/chlorine-test.jpg" muted loop playsinline preload="none"></video><span>Pink = chlorine</span></div>
+        <figcaption>Unfiltered vs filtered, using the same chlorine tablets pools use.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section section-off" id="how-it-works">
+<!-- WHY IT MATTERS -->
+<section class="section section-dark" id="why-it-matters">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Why It Matters</span>
+      <h2>Why Reducing It Makes <span class="i-acc">A Huge Difference</span></h2>
+    </div>
+    <div class="i-bcards">
+      <div class="i-bcard"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4a4 4 0 0 1 4 4v1"/><path d="M9 9h6"/><path d="M10 13v1M14 13v1M12 16v1M9 18v1M15 18v1"/></svg></div><b>Your skin soaks it up</b><p>Our test: two fingers in a cup of cold tap water, then the chlorine tablet. It stays clear. Your skin absorbed the chlorine, and that&rsquo;s cold water. Hot showers open your pores even more, and you breathe in the steam.</p></div>
+      <div class="i-bcard"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.3 6 11a6 6 0 0 1-12 0c0-4.7 6-11 6-11z"/></svg></div><b>Skin &amp; hair</b><p>Chlorine is a bleach. It strips away the natural oils your skin and hair need, which can lead to dry skin, itchy skin, eczema flare-ups and hair loss.</p></div>
+      <div class="i-bcard"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1.5 17a2 2 0 0 1-2 1.8h-5a2 2 0 0 1-2-1.8L6 3z"/><path d="M6.5 8h11"/></svg></div><b>Taste &amp; smell</b><p>Chlorine is acidic. Reduce it, and your water tastes and smells better. Simple.</p></div>
+    </div>
+    <p class="i-matters">It&rsquo;s in every glass your family drinks and every shower they take.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS + where it goes -->
+<section class="section" id="how-it-works">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">How It Works</span>
-      <h2>Filtered At Your Meter, Before It Reaches Your Home</h2>
+      <h2>Filtered <span class="i-acc">Before It Reaches Your Home</span></h2>
     </div>
     <div class="i-steps">
       <div class="s"><b>Water main</b><span>Your street supply</span></div>
@@ -582,15 +738,21 @@
     </div>
     <div class="i-taps"><span>Kitchen tap</span><span>Every shower</span><span>Bath</span><span>Bathroom basins</span><span>Washing machine</span><span>Dishwasher</span><span>Hot water system</span><span>Garden</span></div>
     <p class="i-lead">One system, every tap and shower. No jugs, no shower heads, no thinking about it again.</p>
+    <h3 class="i-sub">Where your system goes</h3>
+    <div class="i-where">
+      <div><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>At your water meter</b><span>The standard spot for most homes, tidy and out of the way.</span></div>
+      <div><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>Reviewed by our plumbers</b><span>They go over your photos before install day, so there are no surprises.</span></div>
+      <div><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>Confirmed with you</b><span>We agree the final spot with you on the day. Anything outside a standard install, we tell you upfront.</span></div>
+    </div>
   </div>
 </section>
 
-<!-- THE SYSTEM -->
-<section class="section" id="the-system">
+<!-- THE SYSTEM (photos open bigger) -->
+<section class="section section-off" id="the-system">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">The System</span>
-      <h2>Buy It Once. Built To Last.</h2>
+      <h2>Buy It Once. <span class="i-acc">Built To Last.</span></h2>
     </div>
     <div class="i-sys">
       <ul class="i-specs">
@@ -598,47 +760,56 @@
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>20-inch system</b> with full pressure at every tap</span></li>
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Copper piping</b>, naturally antibacterial</span></li>
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Bypass valve</b> included</span></li>
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Concreted into the ground</b> or mounted on the wall, so it&rsquo;s solid and can&rsquo;t be taken</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Concreted into the ground</b> (or mounted on the wall), so it&rsquo;s solid and can&rsquo;t be taken</span></li>
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Water connection only</b>: no power, no gas</span></li>
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Moves with you</b> if you ever sell (fee applies)</span></li>
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Clean, simple design</b>, not an eyesore on the side of your house</span></li>
       </ul>
-      <div class="i-photos">
-        <figure><img src="/assets/install-photos/26.jpg" alt="Neptune system with the cover open, showing three filters" loading="lazy"><figcaption>3 filters inside</figcaption></figure>
-        <figure><img src="/assets/install-photos/38.jpg" alt="Neptune system mounted on a wall" loading="lazy"><figcaption>On the wall</figcaption></figure>
-        <figure><img src="/assets/present/unit-back.jpg" alt="Back of a Neptune system showing copper piping" loading="lazy"><figcaption>Tidy install, no mess</figcaption></figure>
+      <div>
+        <div class="i-photos">
+          <button type="button" class="i-ph" data-h="3 filters inside" data-p="Open the cover and there they are: The Guard, The Disruptor and The Extractor, side by side."><img src="/assets/install-photos/26.jpg" alt="Neptune system with the cover open, showing three filters" loading="lazy"><span>3 filters inside</span></button>
+          <button type="button" class="i-ph" data-h="On the wall" data-p="No room on the ground? It mounts on the wall instead, solid and out of the way."><img src="/assets/install-photos/38.jpg" alt="Neptune system mounted on a wall" loading="lazy"><span>On the wall</span></button>
+          <button type="button" class="i-ph" data-h="Tidy install, no mess" data-p="Copper piping and a neat finish. Water connection only: no power, no gas."><img src="/assets/present/unit-back.jpg" alt="Back of a Neptune system showing copper piping" loading="lazy"><span>Tidy install, no mess</span></button>
+        </div>
+        <p class="i-hint">Tap a photo to see it bigger.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 5 STAGES -->
-<section class="section section-off" id="five-stages">
+<!-- 5 STAGES: water runs through the 3 filters; tap a stage for the pop-up -->
+<section class="section" id="five-stages">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">5-Stage Filtration</span>
-      <h2>3 Filters. 5 Stages. Every Tap.</h2>
+      <span class="eyebrow">Melbourne Only · 5-Stage Filtration</span>
+      <h2>5 Stages For What&rsquo;s Coming Through <span class="i-acc">Your Pipes</span></h2>
     </div>
-    <div class="i-stages">
-      <div class="i-filter">
-        <h3>The Guard</h3><div class="mat">Pleated polypropylene · 5 micron</div>
-        <div class="i-stg"><span class="n">STAGE 1</span><div><b>Sediment</b><span>Sand, rust &amp; grit</span></div></div>
-        <p>Folded over and over to pack in as much surface area as possible. The first thing your water meets, so everything after it stays clean.</p>
+    <div class="i-diagram">
+      <div class="end">Water main<small>street supply</small></div>
+      <div class="hs" data-f="guard">
+        <div><div class="nm">The Guard</div><div class="mat">Pleated polypropylene <span class="mic">· 5 micron</span></div></div>
+        <div class="stgs">
+          <button type="button" class="stg" data-s="1"><span class="n">STAGE 1</span><b>Sediment</b><small>Sand, rust &amp; grit</small><i class="more" aria-hidden="true">+</i></button>
+        </div>
       </div>
-      <div class="i-filter">
-        <h3>The Disruptor</h3><div class="mat">Carbon block with polyphosphate crystals · 1 micron</div>
-        <div class="i-stg"><span class="n">STAGE 2</span><div><b>Limescale</b><span>Stops hard minerals forming scale</span></div></div>
-        <div class="i-stg"><span class="n">STAGE 3</span><div><b>Chlorine</b><span>Added to treat the water</span></div></div>
-        <p>Polyphosphate crystals stop scale on your glass, taps and hot water system, without taking the minerals out of your water.</p>
+      <div class="hs" data-f="disruptor">
+        <div><div class="nm">The Disruptor</div><div class="mat">Carbon block with polyphosphate crystals <span class="mic">· 1 micron</span></div></div>
+        <div class="stgs">
+          <button type="button" class="stg" data-s="2"><span class="n">STAGE 2</span><b>Limescale</b><small>Stops hard minerals forming scale</small><i class="more" aria-hidden="true">+</i></button>
+          <button type="button" class="stg" data-s="3"><span class="n">STAGE 3</span><b>Chlorine</b><small>Added to treat the water</small><i class="more" aria-hidden="true">+</i></button>
+        </div>
       </div>
-      <div class="i-filter">
-        <h3>The Extractor</h3><div class="mat">Activated coconut shell carbon · 1 micron</div>
-        <div class="i-stg"><span class="n">STAGE 4</span><div><b>Chloramine</b><span>The longer-lasting treatment chemical</span></div></div>
-        <div class="i-stg"><span class="n">STAGE 5</span><div><b>Heavy metals</b><span>Picked up from older pipes</span></div></div>
-        <p>Coconut shells, charred at high heat, then activated with steam to open up millions of microscopic pores.</p>
+      <div class="hs" data-f="extractor">
+        <div><div class="nm">The Extractor</div><div class="mat"><b>Activated</b> coconut shell carbon <span class="mic">· 1 micron</span></div></div>
+        <div class="stgs">
+          <button type="button" class="stg" data-s="4"><span class="n">STAGE 4</span><b>Chloramine</b><small>The longer-lasting treatment chemical</small><i class="more" aria-hidden="true">+</i></button>
+          <button type="button" class="stg" data-s="5"><span class="n">STAGE 5</span><b>Heavy metals</b><small>Picked up from older pipes</small><i class="more" aria-hidden="true">+</i></button>
+        </div>
       </div>
+      <div class="end">Your home<small>every tap</small></div>
     </div>
-    <p class="i-upgrade">When our filters get better, yours do too. Every yearly change brings you our latest.</p>
+    <p class="i-hint i-center">Tap any stage to see what&rsquo;s inside.</p>
+    <div class="i-upgrade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><polyline points="21 3 21 9 15 9"/></svg>When our filters get better, yours do too. Every yearly change brings you our latest.</div>
   </div>
 </section>
 
@@ -849,70 +1020,95 @@
 })();
 </script>
 
-<!-- FILTERS -->
-<section class="section" id="filters">
+<!-- FILTERS: how long they last + what they cost -->
+<section class="section section-off" id="filters">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Filters</span>
-      <h2>Fresh Filters About Once A Year</h2>
+      <span class="eyebrow">Filter Life</span>
+      <h2>How Long Your Filters <span class="i-acc">Last</span></h2>
     </div>
+    <div class="i-life">
+      <div class="big"><div class="v">12</div><div class="l">months, in a Melbourne home</div><div class="s">up to a year per set</div></div>
+      <ul>
+        <li><b>What changes it</b><span>How many people are at home and how much water you use.</span></li>
+        <li><b>How you&rsquo;ll know</b><span>Any pink on the chlorine test tablet, or a drop in your water pressure.</span></li>
+        <li><b>What happens next</b><span>A fresh set, delivered to your door. Swap them yourself with our video.</span></li>
+      </ul>
+    </div>
+    <h3 class="i-sub">Your filters, broken down</h3>
     <div class="i-fc">
-      <div><span class="v">$300</span><span class="l">a set, delivered</span><span class="s">GST included</span></div>
-      <div><span class="v">82&cent;</span><span class="l">a day</span><span class="s">for the whole home</span></div>
-      <div><span class="v">12</span><span class="l">months</span><span class="s">in a typical Melbourne home</span></div>
+      <div><span class="v">$300</span><span class="l">a year</span><span class="s">a fresh set of all 3 filters</span></div>
+      <div><span class="v">$25</span><span class="l">a month</span></div>
+      <div><span class="v">82&cent;</span><span class="l">a day</span></div>
+      <div class="hl"><span class="v">21&cent;</span><span class="l">a day, per person</span><span class="s">for a home of 4</span></div>
     </div>
-    <ul class="i-list">
-      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Any pink on the chlorine test tablet, or a drop in your water pressure, means it&rsquo;s time.</span></li>
-      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Delivered to your door. Swap them yourself with our video.</span></li>
-      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Always our latest version.</span></li>
-    </ul>
+    <p class="i-note i-center">Delivered to your door with GST included, and always our latest version.</p>
   </div>
 </section>
 
 <!-- PEACE OF MIND -->
-<section class="section section-off section-dark" id="peace-of-mind">
+<section class="section section-dark" id="peace-of-mind">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Peace Of Mind</span>
-      <h2>Done Right, Backed By Us</h2>
+      <span class="eyebrow">Install &amp; Peace Of Mind</span>
+      <h2>Done Right, <span class="i-acc">Backed By Us</span></h2>
     </div>
     <div class="i-badges">
-      <div><b>Whole home</b><span>filtration only</span></div>
-      <div><b>Melbourne</b><span>only</span></div>
-      <div><b>Our filters improve</b><span>and yours do too</span></div>
-      <div><b>Dedicated</b><span>plumbing team</span></div>
-      <div><b>7 yrs</b><span>workmanship warranty</span></div>
-      <div><b>30 days</b><span>money-back guarantee</span></div>
-      <div><b>~5 days</b><span>average from booking to install</span></div>
-      <div><b>2–3 hrs</b><span>on the day, and it&rsquo;s done</span></div>
-      <div><b>&#10003;</b><span>WaterMark certified</span></div>
+      <div><span class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></span><span class="t">Whole home filtration only</span></div>
+      <div><span class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span class="t">Melbourne only</span></div>
+      <div><span class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><polyline points="21 3 21 9 15 9"/></svg></span><span class="t">Our filters improve, yours do too</span></div>
+      <div><span class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span class="t">Dedicated plumbing team</span></div>
+      <div><span class="big">7 yrs</span><span class="t">Workmanship warranty</span></div>
+      <div><span class="big">30 days</span><span class="t">Money-back guarantee</span></div>
+      <div><span class="big">5 days</span><span class="t">Average from booking to install</span></div>
+      <div><span class="big">2–3 hrs</span><span class="t">On the day, and it&rsquo;s done</span></div>
+      <div><span class="big">&#10003;</span><span class="t">WaterMark certified</span></div>
     </div>
   </div>
 </section>
 
-<!-- HOW PAYING WORKS (no price) -->
+<!-- HOW PAYING WORKS (no price: that's on the Zoom) -->
 <section class="section" id="paying">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">How Paying Works</span>
-      <h2>Two Simple Ways To Pay</h2>
+      <span class="eyebrow">Payment Options</span>
+      <h2>Two Ways <span class="i-acc">To Pay</span></h2>
     </div>
     <div class="i-pay">
-      <div><span class="n">Option A</span><b>20% deposit</b><p>Locks in your install date. The rest is paid after installation.</p></div>
-      <div><span class="n">Option B</span><b>Interest free with Zip</b><p>Spread it over 6 to 36 months.</p><p class="fees">Zip fees: $75 one-off setup fee, plus $9.95 a month while you owe. Pay it off early and the $9.95 stops.</p></div>
+      <div><span class="n">Option A · Deposit</span>
+        <div class="split"><div><b>20%</b><span>today, to lock in your install date</span></div><div><b>80%</b><span>after installation</span></div></div></div>
+      <div class="or" aria-hidden="true">or</div>
+      <div><span class="n">Option B · Interest free with Zip</span>
+        <div class="split"><div><b>Deposit</b><span>today</span></div><div><b>6–36</b><span>months for the rest</span></div></div>
+        <ul class="fees"><li><b>$75</b> one-off setup fee</li><li><b>$9.95</b> a month while you owe</li><li><b>Pay it off any time</b> and the $9.95 stops</li></ul>
+        <p class="znote">0% interest when it&rsquo;s paid off within the term.</p></div>
     </div>
-    <p class="i-price">Your filtration specialist will go through your price with you on your call.</p>
+    <p class="i-price">Same price whichever way you pay. You&rsquo;ll get your exact price on your Zoom with one of our filtration specialists.</p>
   </div>
 </section>
 
-<!-- CLOSING -->
+<!-- WHAT HAPPENS NEXT -->
 <section class="section section-off i-close">
   <div class="container">
     <span class="i-ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
     <h2>Good News: We Can Help</h2>
-    <p>Your filtration specialist will be in touch shortly.</p>
+    <ol class="i-next">
+      <li><span class="num">1</span><b>A quick call from our team</b><span>A few quick questions about your home, then we book your Zoom.</span></li>
+      <li><span class="num">2</span><b>Your Zoom with a filtration specialist</b><span>Your tailored set-up and your exact price. Bring everyone who&rsquo;s part of the decision.</span></li>
+      <li><span class="num">3</span><b>Install day</b><span>About 5 days on average from booking. <span class="mic">2–3 hours</span> on the day, and it&rsquo;s done.</span></li>
+    </ol>
+    <p>Our team will be in touch shortly.</p>
   </div>
 </section>
+
+<!-- Pop-up: stage details (same data as the deck) and bigger system photos -->
+<div class="i-pop" id="i-pop" hidden>
+  <div class="i-pop-card" role="dialog" aria-modal="true" aria-labelledby="i-pop-h">
+    <button type="button" class="i-pop-x" id="i-pop-x" aria-label="Close">&times;</button>
+    <img id="i-pop-img" alt="">
+    <div class="i-pop-body"><div class="n" id="i-pop-n"></div><h3 id="i-pop-h"></h3><div class="m" id="i-pop-m"></div><p id="i-pop-p"></p><div class="cap" id="i-pop-cap"></div></div>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════════════════
      Self-hosted video player -- identical pattern to /melb's
@@ -1033,6 +1229,41 @@
       obs.disconnect();
     });
   }, { rootMargin: '200px 0px' }).observe(v);
+})();
+
+// Stage + photo pop-ups. STAGE is the deck's (/team/present): keep the two in step.
+(function () {
+  var STAGE = {
+    1: ['Stage 1 · The Guard', 'Sediment', 'Pleated polypropylene · 5 micron', 'Folded over and over to pack in as much surface area as possible. It’s the first thing your water meets, catching the sand, rust and grit from the main so everything after it stays clean.', '/assets/present/old-filter.jpg', 'A used Guard filter next to a new one. That brown is what it kept out of your home.'],
+    2: ['Stage 2 · The Disruptor', 'Limescale', 'Carbon block with polyphosphate crystals · 1 micron', 'Polyphosphate crystals are infused right into the carbon block. As water passes through, they stop hard minerals turning into scale on your glass, taps, kettle and hot water system, without taking the minerals out of your water.', '/assets/present/limescale.jpg', 'Limescale building up on a shower screen.'],
+    3: ['Stage 3 · The Disruptor', 'Chlorine', 'Dense carbon block · 1 micron', 'A carbon block packed tight enough to catch particles down to 1 micron, a fraction of the width of a hair. It reduces the chlorine added to treat the water, while keeping your pressure strong.', '', ''],
+    4: ['Stage 4 · The Extractor', 'Chloramine', 'Activated coconut shell carbon · 1 micron', 'Coconut shells, charred at high heat, then activated with steam to open up millions of microscopic pores. One gram holds over 1,000 m² of surface, nearly four tennis courts. Not the coal-based carbon cheaper filters use.', '', ''],
+    5: ['Stage 5 · The Extractor', 'Heavy metals', 'Activated coconut shell carbon · 1 micron', 'Older suburbs still have ageing galvanised pipes. As they corrode, metals can get into your water on its way to your home. The same activated coconut carbon reduces them before they reach your taps.', '/assets/present/old-gal-pipe.jpg', 'Inside an old galvanised water pipe.']
+  };
+  var $ = function (id) { return document.getElementById(id); };
+  var pop = $('i-pop'), card = pop.querySelector('.i-pop-card'), img = $('i-pop-img'), back = null;
+  function open(d, from) {
+    $('i-pop-n').textContent = d[0]; $('i-pop-h').textContent = d[1]; $('i-pop-m').textContent = d[2];
+    $('i-pop-p').textContent = d[3]; $('i-pop-cap').textContent = d[5];
+    img.hidden = !d[4]; if (d[4]) { img.src = d[4]; img.alt = d[5] || d[1]; }
+    card.classList.toggle('noimg', !d[4]);
+    card.classList.toggle('photo', !!d[6]);
+    pop.hidden = false; document.documentElement.classList.add('i-pop-open');
+    back = from; $('i-pop-x').focus();
+  }
+  function close() {
+    pop.hidden = true; document.documentElement.classList.remove('i-pop-open');
+    if (back) back.focus();
+  }
+  document.querySelectorAll('.stg').forEach(function (el) {
+    el.addEventListener('click', function () { open(STAGE[el.dataset.s], el); });
+  });
+  document.querySelectorAll('.i-ph').forEach(function (el) {
+    el.addEventListener('click', function () { open(['The system', el.dataset.h, '', el.dataset.p, el.querySelector('img').getAttribute('src'), '', true], el); });
+  });
+  $('i-pop-x').addEventListener('click', close);
+  pop.addEventListener('click', function (e) { if (e.target === pop) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !pop.hidden) close(); });
 })();
 </script>
 
