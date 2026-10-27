@@ -408,9 +408,11 @@
 
 /* ══ PAGE 2 (/melb/info) ══ the deck's content as a page. Hero has no calendar under it, so it closes itself */
 .info-hero .hero-photo-upper { padding-bottom: clamp(28px, 3.5vw, 44px); }
+/* wider than the shared 720px so the read box's bold line fits on one line on desktop */
+.info-hero .hero-photo-content { max-width: 880px; }
 .info-hero .hero-photo-content .hero-sub { max-width: 640px; margin-left: auto; margin-right: auto; }
 /* "please read before our call": the most important line on the page */
-.i-read { display: flex; align-items: center; gap: 14px; text-align: left; margin: 22px auto 0; max-width: 560px; padding: 16px 22px; border-radius: 16px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3); color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.i-read { display: flex; align-items: center; gap: 14px; text-align: left; margin: 22px auto 0; max-width: 780px; padding: 16px 22px; border-radius: 16px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3); color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
 .i-read svg { flex-shrink: 0; width: 34px; height: 34px; color: #7fb8ff; }
 .i-read b { display: block; font-size: clamp(1.12rem, 3.8vw, 1.4rem); line-height: 1.25; }
 .i-read span { display: block; font-size: clamp(.92rem, 2.8vw, 1.04rem); color: rgba(255,255,255,.88); margin-top: 3px; line-height: 1.45; }
@@ -628,7 +630,7 @@ html.i-pop-open { overflow: hidden; }
     <div class="container hero-photo-content fade-in-up">
       <span class="qualify-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Good news — we can help</span>
       <h1>Here&rsquo;s Everything About <span class="hero-accent">Your Neptune System</span></h1>
-      <div class="i-read"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg><div><b>Please read this before our&nbsp;call</b><span>It only takes a few minutes and covers all your questions.</span></div></div>
+      <div class="i-read"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg><div><b>Please read everything below before our team&nbsp;calls</b><span>It only takes a few minutes and covers all your questions.</span></div></div>
     </div>
   </div>
 </section>
