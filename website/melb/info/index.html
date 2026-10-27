@@ -412,7 +412,7 @@
 .info-hero .hero-photo-content { max-width: 880px; }
 .info-hero .hero-photo-content .hero-sub { max-width: 640px; margin-left: auto; margin-right: auto; }
 /* "please read before our call": the most important line on the page */
-.i-read { display: flex; align-items: center; gap: 14px; text-align: left; margin: 22px auto 0; max-width: 780px; padding: 16px 22px; border-radius: 16px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3); color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.i-read { display: flex; align-items: center; gap: 14px; text-align: left; margin: 22px auto 0; width: 100%; max-width: 780px; box-sizing: border-box; padding: 16px 22px; border-radius: 16px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3); color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
 /* phones: box sits right under the heading (was a 42px gap) */
 @media (max-width: 760px) { .info-hero .hero-photo-content h1 { margin-bottom: 0; } .i-read { margin-top: 14px; padding: 14px 16px; } }
 .i-read svg { flex-shrink: 0; width: 34px; height: 34px; color: #7fb8ff; }
@@ -430,6 +430,15 @@
 .ck svg { width: 12px; height: 12px; }
 /* the fan's rotated side card pokes ~10px past a 360px screen; clip it so the page never scrolls sideways */
 #install-gallery { overflow-x: clip; }
+
+/* what's inside: jump boxes under the read box */
+.i-toc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; max-width: 780px; margin: 12px auto 0; }
+.i-toc a { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 11px 14px; border-radius: 12px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); color: #fff; font-size: .88rem; font-weight: 600; text-decoration: none; text-align: left; line-height: 1.25; transition: background .2s, border-color .2s; }
+.i-toc a:hover { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.4); }
+.i-toc a span { color: #7fb8ff; font-weight: 800; }
+@media (max-width: 760px) { .i-toc { grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; } .i-toc a { padding: 9px 12px; font-size: .82rem; } }
+/* jumped-to sections land with a little room above the heading */
+.info-page section[id] { scroll-margin-top: 8px; }
 
 /* why filter: where the chlorine comes from */
 .i-flow { list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 1040px; }
@@ -633,6 +642,7 @@ html.i-pop-open { overflow: hidden; }
       <span class="qualify-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Good news — we can help</span>
       <h1>Here&rsquo;s Everything About <span class="hero-accent">Your Neptune System</span></h1>
       <div class="i-read"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg><div><b>Please read everything below before our team&nbsp;calls</b><span>It only takes a few minutes and covers all your questions.</span></div></div>
+      <nav class="i-toc" aria-label="What’s inside"><a href="#why-filter">Why filter?<span aria-hidden="true">&darr;</span></a><a href="#chlorine-at-home">Chlorine at home<span aria-hidden="true">&darr;</span></a><a href="#how-it-works">How it works<span aria-hidden="true">&darr;</span></a><a href="#the-system">The system<span aria-hidden="true">&darr;</span></a><a href="#five-stages">The 5 stages<span aria-hidden="true">&darr;</span></a><a href="#real-testimonials">Customer reviews<span aria-hidden="true">&darr;</span></a><a href="#filters">Filter costs<span aria-hidden="true">&darr;</span></a><a href="#peace-of-mind">Peace of mind<span aria-hidden="true">&darr;</span></a></nav>
     </div>
   </div>
 </section>
