@@ -381,6 +381,7 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .slide.loc { align-items: center; text-align: center; }
 .loc-ic { width: clamp(64px, 7vw, 92px); height: clamp(64px, 7vw, 92px); border-radius: 50%; background: rgba(77,166,255,.16); color: var(--blue); display: flex; align-items: center; justify-content: center; margin-bottom: 3vh; }
 .loc-ic svg { width: 50%; height: 50%; }
+.light .loc-ic { background: rgba(46,123,196,.12); color: var(--blue-d); }
 
 /* nav */
 .nav { position: fixed; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; z-index: 5; pointer-events: none; }
@@ -679,11 +680,11 @@ body.on-light .nav { color: var(--ink); }
   </div>
 </section>
 
-<!-- Before the price: recap what's covered, flush out anything left (decision makers, blockers asked out loud) -->
-<section class="slide light">
+<!-- Before the price: just ask. Flush out anything left (decision makers, blockers) out loud -->
+<section class="slide light loc">
+  <div class="loc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M9.2 9.2a2.9 2.9 0 0 1 5.6 1c0 1.9-2.8 2.6-2.8 4.3"/><circle cx="12" cy="17.6" r=".6" fill="currentColor"/></svg></div>
   <div class="eyebrow">Before your price</div>
-  <h2>Is there anything we <span class="accent">haven't covered?</span></h2>
-  <ul class="goals recap" id="recap"></ul>
+  <h1>Any more <span class="accent">questions?</span></h1>
 </section>
 
 <!-- 10. Price -->
@@ -1048,14 +1049,6 @@ body.on-light .nav { color: var(--ink); }
     $('near').innerHTML = near.map(function (k) { return '<figure' + (mine.indexOf(k) >= 0 ? ' class="match"' : '') + '><img src="/assets/install-photos/' + k + '.jpg" alt=""><figcaption>' + PHOTO_SUBURB[k] + '</figcaption></figure>'; }).join('');
     // filter running costs, down to per person per day for their household
     $('f-mo').textContent = whole(300 / 12); $('f-day').textContent = money(300 / 365);
-    var tick = '<span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>';
-    $('recap').innerHTML = [
-      'Your plan for ' + view.title,
-      '5 stages for what’s coming through your pipes' + (suburb ? ' in ' + esc(suburb) : ''),
-      'Your installation location, from your photos',
-      'Our dedicated plumbing team, 7-year workmanship warranty and 30-day money-back guarantee',
-      'Fresh filters for about ' + money(300 / 365) + ' a day'
-    ].map(function (t) { return '<li>' + tick + '<span>' + t + '</span></li>'; }).join('');
     $('f-pp').textContent = money(300 / 365 / people); $('f-n').textContent = people; $('life-n').textContent = people;
     // what they spend now, most relevant first
     var box = $('k-inputs');
