@@ -450,7 +450,6 @@
 .i-vs .ppm small { font-size: .42em; font-weight: 700; color: var(--text-3); letter-spacing: 0; }
 .i-vs .src { font-size: .66rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin: 6px 0 10px; }
 @media (max-width: 480px) { .i-vs { gap: 8px; } .i-vs .c { padding: 14px 12px; } .i-vs .t { font-size: .92rem; } }
-.i-next .mic { white-space: nowrap; }
 .i-vs ul { margin: 0; padding-left: 16px; display: grid; gap: 6px; font-size: .86rem; line-height: 1.45; color: var(--text-2); }
 .i-pp { margin: 22px 0 0; font-size: clamp(1.1rem, 3.4vw, 1.4rem); font-weight: 800; color: var(--navy); }
 .i-pp b { color: var(--blue); }
@@ -490,12 +489,7 @@
 .i-taps { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 22px auto 0; max-width: 760px; }
 .i-taps span { background: var(--blue-pale); color: var(--blue); border-radius: 999px; padding: 7px 14px; font-size: .85rem; font-weight: 600; }
 .i-lead { text-align: center; color: var(--text-2); max-width: 620px; margin: 20px auto 0; line-height: 1.7; }
-.i-where { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 980px; margin: 0 auto; }
-@media (max-width: 760px) { .i-where { grid-template-columns: 1fr; } }
-.i-where > div { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 20px; }
-.i-where .ck { margin-bottom: 12px; }
-.i-where b { display: block; color: var(--navy); font-size: 1.02rem; margin-bottom: 4px; }
-.i-where span:not(.ck) { font-size: .9rem; color: var(--text-2); line-height: 1.55; }
+
 
 /* the system */
 .i-sys { display: grid; grid-template-columns: 1fr 1.15fr; gap: 36px; align-items: center; }
@@ -602,33 +596,11 @@ html.i-pop-open { overflow: hidden; }
 .i-badges .big svg { width: 34px; height: 34px; }
 .i-badges .t { color: rgba(255,255,255,.92); font-weight: 600; font-size: .9rem; line-height: 1.35; }
 
-/* paying */
-.i-pay { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: center; max-width: 920px; margin: 0 auto; }
-@media (max-width: 760px) { .i-pay { grid-template-columns: 1fr; } }
-.i-pay > div:not(.or) { align-self: stretch; background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 22px 20px; }
-.i-pay .n { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); }
-.i-pay .split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
-.i-pay .split > div { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px 12px; }
-.i-pay .split b { display: block; font-size: 1.6rem; font-weight: 800; color: var(--navy); line-height: 1.1; }
-.i-pay .split span { display: block; font-size: .84rem; color: var(--text-2); margin-top: 4px; line-height: 1.4; }
-.i-pay .or { text-align: center; font-weight: 800; color: var(--text-3); font-size: .9rem; text-transform: uppercase; letter-spacing: .1em; }
-.i-pay .fees { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 6px; font-size: .88rem; color: var(--text-2); }
-.i-pay .fees li::before { content: '•'; color: var(--blue); font-weight: 800; margin-right: 8px; }
-.i-pay .fees b { color: var(--navy); }
-.i-pay .znote { margin: 10px 0 0; font-size: .8rem; color: var(--text-3); }
-.i-price { text-align: center; margin: 26px auto 0; font-weight: 700; color: var(--navy); max-width: 560px; line-height: 1.55; }
-
-/* what happens next */
+/* closing */
 .i-close { text-align: center; }
 .i-close .i-ok { display: inline-flex; width: 52px; height: 52px; border-radius: 50%; background: var(--success-pale); color: var(--success); align-items: center; justify-content: center; margin-bottom: 14px; }
 .i-close .i-ok svg { width: 26px; height: 26px; }
 .i-close h2 { text-wrap: balance; }
-.i-next { list-style: none; margin: 26px auto 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 980px; text-align: left; }
-@media (max-width: 760px) { .i-next { grid-template-columns: 1fr; } }
-.i-next li { background: #fff; border: 1px solid var(--border); border-radius: var(--r-md); padding: 20px; }
-.i-next .num { display: inline-flex; width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; font-size: .9rem; align-items: center; justify-content: center; margin-bottom: 10px; }
-.i-next b { display: block; color: var(--navy); font-size: 1.02rem; margin-bottom: 4px; }
-.i-next li > span:not(.num) { font-size: .9rem; color: var(--text-2); line-height: 1.55; }
 .i-close > .container > p { color: var(--text-2); margin: 22px 0 0; font-size: 1.02rem; font-weight: 600; }
 </style>
 </head>
@@ -639,8 +611,8 @@ html.i-pop-open { overflow: hidden; }
      as a page, in the same order, minus anything personal and the price:
      why filter, chlorine at home, why it matters, how it works, the
      system, the 5 stages (tap a stage for the pop-up), proof, filters,
-     peace of mind, how paying works, what happens next.
-     No price, no calendar, no buttons. "Our team" calls (Call 1); the
+     peace of mind, then "our team will be in touch".
+     No price, no payment options, no calendar, no buttons. "Our team" calls (Call 1); the
      filtration specialist is only on the Zoom. Built from /melb/book
      (same hero photo, badge, tracking, testimonials, install gallery).
      Keep claims in line with the deck: "reduces", no removal stats.
@@ -722,7 +694,7 @@ html.i-pop-open { overflow: hidden; }
   </div>
 </section>
 
-<!-- HOW IT WORKS + where it goes -->
+<!-- HOW IT WORKS -->
 <section class="section" id="how-it-works">
   <div class="container">
     <div class="section-head">
@@ -738,12 +710,6 @@ html.i-pop-open { overflow: hidden; }
     </div>
     <div class="i-taps"><span>Kitchen tap</span><span>Every shower</span><span>Bath</span><span>Bathroom basins</span><span>Washing machine</span><span>Dishwasher</span><span>Hot water system</span><span>Garden</span></div>
     <p class="i-lead">One system, every tap and shower. No jugs, no shower heads, no thinking about it again.</p>
-    <h3 class="i-sub">Where your system goes</h3>
-    <div class="i-where">
-      <div><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>At your water meter</b><span>The standard spot for most homes, tidy and out of the way.</span></div>
-      <div><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>Reviewed by our plumbers</b><span>They go over your photos before install day, so there are no surprises.</span></div>
-      <div><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>Confirmed with you</b><span>We agree the final spot with you on the day. Anything outside a standard install, we tell you upfront.</span></div>
-    </div>
   </div>
 </section>
 
@@ -1067,36 +1033,11 @@ html.i-pop-open { overflow: hidden; }
   </div>
 </section>
 
-<!-- HOW PAYING WORKS (no price: that's on the Zoom) -->
-<section class="section" id="paying">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Payment Options</span>
-      <h2>Two Ways <span class="i-acc">To Pay</span></h2>
-    </div>
-    <div class="i-pay">
-      <div><span class="n">Option A · Deposit</span>
-        <div class="split"><div><b>20%</b><span>today, to lock in your install date</span></div><div><b>80%</b><span>after installation</span></div></div></div>
-      <div class="or" aria-hidden="true">or</div>
-      <div><span class="n">Option B · Interest free with Zip</span>
-        <div class="split"><div><b>Deposit</b><span>today</span></div><div><b>6–36</b><span>months for the rest</span></div></div>
-        <ul class="fees"><li><b>$75</b> one-off setup fee</li><li><b>$9.95</b> a month while you owe</li><li><b>Pay it off any time</b> and the $9.95 stops</li></ul>
-        <p class="znote">0% interest when it&rsquo;s paid off within the term.</p></div>
-    </div>
-    <p class="i-price">Same price whichever way you pay. You&rsquo;ll get your exact price on your Zoom with one of our filtration specialists.</p>
-  </div>
-</section>
-
-<!-- WHAT HAPPENS NEXT -->
+<!-- CLOSING -->
 <section class="section section-off i-close">
   <div class="container">
     <span class="i-ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
     <h2>Good News: We Can Help</h2>
-    <ol class="i-next">
-      <li><span class="num">1</span><b>A quick call from our team</b><span>A few quick questions about your home, then we book your Zoom.</span></li>
-      <li><span class="num">2</span><b>Your Zoom with a filtration specialist</b><span>Your tailored set-up and your exact price. Bring everyone who&rsquo;s part of the decision.</span></li>
-      <li><span class="num">3</span><b>Install day</b><span>About 5 days on average from booking. <span class="mic">2–3 hours</span> on the day, and it&rsquo;s done.</span></li>
-    </ol>
     <p>Our team will be in touch shortly.</p>
   </div>
 </section>
