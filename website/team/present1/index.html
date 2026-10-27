@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your Whole-Home Water Plan | Neptune Filtration</title>
+<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+/* Screenshare deck for the Zoom call: PRESENT1, for leads who've read page 2 (/melb/info).
+   Same as /team/present, but the basics page 2 already covers (why filter, chlorine at home,
+   why it matters, how it works, the system, filter life) are left out of the run. They sit
+   behind the "Any questions from what you read?" slide: click a topic there to go over it.
+   Their photos (setup step 5) show on the where-it-goes slide, just before the price.
+   1. Before sharing: click through the setup screen as they answer
+      (concerns, their words, people, what they spend).
+   2. Share the tab, press Start. Every slide is built around their concern.
+   Arrow keys / space / buttons move slides; Enter or Esc finishes typing.
+   S reopens setup (stop sharing first). Q jumps to the questions slide. R jumps to the referral slide (if they push back on price). Z jumps to the Zip slide (if they want to spread it out). Price stays hidden until clicked.
+   Prefill: ?name=Sarah&suburb=Point%20Cook&people=4&concern=skin
+   (concern = skin,hair,better,taste,smell,scale; comma-separate several, main first) */
+:root { --navy: #0B1E3D; --blue: #4DA6FF; --blue-d: #2E7BC4; --ink: #0B1E3D; --soft: #4B5A70; --line: #E2E7EE; --paper: #F6F8FA; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--navy); color: #fff; font-family: 'Poppins', system-ui, sans-serif; overflow: hidden; -webkit-text-size-adjust: 100%; }
+.slide { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 6vh 7vw 12vh; opacity: 0; pointer-events: none; transition: opacity .35s ease; overflow-y: auto; }
+.slide.on { opacity: 1; pointer-events: auto; }
+.slide.light { background: var(--paper); color: var(--ink); }
+.eyebrow { font-size: clamp(12px, 1.3vw, 15px); font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.2vh; }
+.light .eyebrow { color: var(--blue-d); }
+h1 { font-size: clamp(30px, 5vw, 64px); font-weight: 800; line-height: 1.08; margin: 0 0 2vh; letter-spacing: -0.02em; }
+h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; margin: 0 0 3vh; letter-spacing: -0.015em; }
+.accent { color: var(--blue); }
+.light .accent { color: var(--blue-d); }
+.lead { font-size: clamp(16px, 1.7vw, 22px); color: rgba(255,255,255,.82); max-width: 900px; margin: 0; }
+.light .lead { color: var(--soft); }
+[contenteditable] { outline: none; border-radius: 6px; }
+[contenteditable]:focus { box-shadow: 0 0 0 2px rgba(77,166,255,.25); }
+[contenteditable]:empty::before { content: attr(data-ph); color: rgba(127,140,160,.6); }
+.logo { height: clamp(26px, 3vw, 38px); width: auto; align-self: flex-start; margin-bottom: 5vh; }
+
+/* setup (never shown while sharing) */
+.setup { position: fixed; inset: 0; z-index: 20; background: #081426; overflow-y: auto; padding: 4vh 24px; display: flex; }
+.setup.hidden { display: none; }
+.setup .box { max-width: 1000px; width: 100%; margin: auto; }
+.setup h1 { font-size: 32px; margin: 0 0 8px; }
+.setup .warn { font-size: 15px; color: #ffcf8a; margin: 0; }
+.setup label { display: block; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: clamp(18px, 3.4vh, 34px) 0 12px; }
+.setup .opt { text-transform: none; letter-spacing: 0; font-weight: 500; color: rgba(255,255,255,.4); margin-left: 6px; }
+.setup input[type=text] { width: 100%; font: inherit; font-size: 16px; padding: 11px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #fff; }
+.setup .row3 { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 18px; align-items: end; }
+@media (max-width: 700px) { .setup .row3 { grid-template-columns: 1fr; } }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chips button { font: inherit; font-size: 15px; font-weight: 600; padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.2); background: transparent; color: #fff; cursor: pointer; }
+.chips button.on { background: var(--blue); border-color: var(--blue); color: var(--navy); }
+.chips button.main::after { content: ' · MAIN'; font-size: 10px; font-weight: 800; letter-spacing: .06em; }
+.chips.said button { border-radius: 10px; text-align: left; }
+.chips.said button::before { content: '+ '; opacity: .55; }
+.chips.said button.on::before { content: '\2713  '; opacity: 1; }
+.chips .none { font-size: 13px; color: rgba(255,255,255,.45); }
+#s-people button { min-width: 46px; padding: 10px; }
+.costs { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); gap: 12px; align-items: center; }
+.phrow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; border: 1px dashed rgba(255,255,255,.25); border-radius: 12px; padding: 10px; transition: background .2s, border-color .2s; }
+.phrow.drag { background: rgba(77,166,255,.12); border-color: var(--blue); }
+.addph { font: inherit; font-size: 15px; font-weight: 700; padding: 10px 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.06); color: #fff; cursor: pointer; }
+.thumbs { display: flex; gap: 8px; flex: 1; flex-wrap: wrap; min-height: 10px; }
+.thumbs .t { position: relative; width: 64px; height: 64px; border-radius: 8px; overflow: hidden; background: #000; }
+.thumbs .t img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumbs .t button { position: absolute; top: 2px; right: 2px; width: 20px; height: 20px; border-radius: 50%; border: 0; background: rgba(0,0,0,.7); color: #fff; font-size: 14px; line-height: 20px; padding: 0; cursor: pointer; }
+.phrow .start { margin-left: auto; }
+@media (max-width: 700px) { .costs { grid-template-columns: 1fr; } }
+.costs .c { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 12px 16px; font-size: 15px; font-weight: 600; }
+.costs .c span { flex: 1; line-height: 1.2; white-space: nowrap; }
+.costs .c input { width: 70px; font: inherit; font-size: 15px; font-weight: 700; color: #fff; background: transparent; border: 0; border-bottom: 1px dashed rgba(255,255,255,.35); text-align: right; padding: 2px 0; }
+.costs .c input:focus { outline: none; border-bottom-color: var(--blue); }
+.costs .c em { font-style: normal; font-size: 12px; color: rgba(255,255,255,.5); }
+.setup .start { justify-self: end; white-space: nowrap; font: inherit; font-size: 17px; font-weight: 800; padding: 15px 28px; border: 0; border-radius: 999px; background: var(--blue); color: var(--navy); cursor: pointer; }
+
+/* cover */
+.cover { background: linear-gradient(90deg, rgba(7,15,30,.92) 0%, rgba(7,15,30,.72) 55%, rgba(7,15,30,.35) 100%), url(/assets/install-photos/book-bg.jpg) center / cover; }
+.cover.welcome { background: linear-gradient(90deg, rgba(7,15,30,.95) 0%, rgba(7,15,30,.84) 60%, rgba(7,15,30,.55) 100%), url(/assets/install-photos/book-bg.jpg) center / cover; }
+.welcome .paid { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; background: rgba(77,166,255,.16); color: var(--blue); border: 1px solid rgba(77,166,255,.35); border-radius: 999px; padding: 8px 16px; font-size: clamp(13px, 1.3vw, 16px); font-weight: 800; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 2.4vh; }
+.welcome .paid span { width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 13px; }
+.wsteps { display: grid; grid-template-columns: repeat(3, minmax(0, 300px)); gap: 1.4vw; margin-top: 3.4vh; }
+@media (max-width: 860px) { .wsteps { grid-template-columns: 1fr; } }
+.wsteps div { background: rgba(7,15,30,.55); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 2.4vh 1.4vw; font-size: clamp(13px, 1.25vw, 16px); color: rgba(255,255,255,.8); line-height: 1.4; }
+.wsteps b { display: block; font-size: clamp(18px, 1.9vw, 25px); color: #fff; margin-bottom: 4px; }
+.cover .meta { margin-top: 3vh; font-size: clamp(15px, 1.5vw, 20px); color: rgba(255,255,255,.8); }
+
+/* told us */
+.goals { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.6vh; max-width: 1000px; }
+.goals li { display: flex; gap: 16px; align-items: flex-start; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 2vh 22px; font-size: clamp(17px, 1.9vw, 26px); font-weight: 600; color: var(--ink); }
+.goals li.empty { display: none; }
+.goals .chk { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--blue-d); color: #fff; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.goals .chk svg { width: 18px; height: 18px; }
+.goals.recap li { font-size: clamp(16px, 1.6vw, 22px); padding: 1.6vh 20px; }
+.goals.recap .chk { width: 30px; height: 30px; }
+
+/* why filter: where chlorine comes from, then why home isn't a pool */
+.flow.src .box { min-width: 0; }
+.flow.src .box span { display: block; line-height: 1.4; }
+.flow.src .box small { display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
+.flow.src .box.hl small { color: var(--navy); }
+.punch { margin: 4vh 0 0; font-size: clamp(20px, 2.4vw, 32px); font-weight: 800; color: #fff; }
+.punch .accent { color: var(--blue); }
+.why { display: grid; grid-template-columns: 1fr auto; gap: 3.5vw; align-items: center; }
+@media (max-width: 860px) { .why { grid-template-columns: 1fr; } }
+.vs { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2vw; }
+.vs .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 2.2vh 1.4vw; color: var(--ink); }
+.vs .card.home { border: 2px solid var(--blue-d); box-shadow: 0 12px 30px rgba(46,123,196,.15); }
+.vs .card .t { display: block; font-size: clamp(16px, 1.6vw, 21px); font-weight: 800; margin-bottom: 1vh; }
+.vs .ppm { font-size: clamp(30px, 3.6vw, 48px); font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+.vs .card.home .ppm { color: var(--blue-d); }
+.vs .ppm small { font-size: .42em; font-weight: 700; color: var(--soft); letter-spacing: 0; }
+.vs .src { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--soft); margin: 6px 0 1.4vh; }
+.pp-punch { margin: 2.6vh 0 0; font-size: clamp(18px, 2vw, 26px); font-weight: 800; color: var(--ink); }
+.pp-punch b { color: var(--blue-d); }
+.vs ul { margin: 0; padding-left: 18px; display: grid; gap: .7vh; font-size: clamp(13px, 1.2vw, 16px); line-height: 1.4; color: var(--soft); }
+.bcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4vw; margin-top: 1vh; }
+@media (max-width: 860px) { .bcards { grid-template-columns: 1fr; } }
+.bcard { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 20px; padding: 3.4vh 1.6vw; transition: background .3s, color .3s; }
+.bcard.hl { background: var(--blue); border-color: var(--blue); color: var(--navy); }
+.bcard .ic { width: 52px; height: 52px; border-radius: 14px; background: rgba(77,166,255,.18); color: var(--blue); display: flex; align-items: center; justify-content: center; margin-bottom: 2vh; }
+.bcard.hl .ic { background: rgba(11,30,61,.12); color: var(--navy); }
+.bcard .ic svg { width: 28px; height: 28px; }
+.bcard b { display: block; font-size: clamp(20px, 2.2vw, 30px); font-weight: 800; margin-bottom: 1vh; }
+.bcard p { margin: 0; font-size: clamp(15px, 1.45vw, 19px); line-height: 1.5; color: rgba(255,255,255,.82); }
+.bcard.hl p { color: rgba(11,30,61,.85); }
+.matters { margin: 4vh 0 0; font-size: clamp(16px, 1.7vw, 22px); font-weight: 600; color: rgba(255,255,255,.9); max-width: 1000px; }
+.dpd { margin-top: 2.6vh; max-width: 560px; }
+.dpd .sw { display: flex; gap: 6px; }
+.dpd .sw span { flex: 1; height: 26px; border-radius: 6px; border: 1px solid rgba(11,30,61,.08); }
+.dpd .lb { display: flex; gap: 6px; margin-top: 5px; }
+.dpd .lb span { flex: 1; text-align: center; font-size: 11px; font-weight: 700; color: var(--soft); }
+.dpd p { margin: 6px 0 0; font-size: 12px; color: var(--soft); }
+.clip { position: relative; width: clamp(200px, 21vw, 290px); aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: #000; box-shadow: 0 16px 40px rgba(11,30,61,.3); }
+.clip video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.clip .tag { position: absolute; left: 10px; top: 10px; background: rgba(5,19,31,.85); color: #fff; font-size: 12px; font-weight: 700; padding: 6px 11px; border-radius: 999px; }
+.clip-cap { margin-top: 10px; font-size: 13px; color: var(--soft); text-align: center; width: clamp(200px, 21vw, 290px); }
+
+/* the system */
+.unit { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3.5vw; align-items: center; }
+@media (max-width: 860px) { .unit { grid-template-columns: 1fr; } }
+.specs { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.6vh; }
+.specs li { display: flex; gap: 12px; align-items: flex-start; font-size: clamp(15px, 1.45vw, 19px); color: var(--soft); line-height: 1.4; }
+.specs li b { color: var(--ink); }
+.specs .ck { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--blue-d); color: #fff; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.specs .ck svg { width: 12px; height: 12px; }
+.ph3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; height: min(60vh, 460px); }
+.ph3 figure { margin: 0; position: relative; border-radius: 14px; overflow: hidden; background: #dfe6ee; }
+.ph3 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph3 figcaption { position: absolute; left: 8px; bottom: 8px; background: rgba(5,19,31,.85); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; }
+
+/* how it works */
+.flow { display: flex; align-items: center; gap: 2vw; flex-wrap: wrap; margin-top: 2vh; }
+.flow .box { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; padding: 2.6vh 2vw; text-align: center; min-width: 150px; flex: 1; }
+.flow .box b { display: block; font-size: clamp(16px, 1.7vw, 22px); margin-bottom: 4px; }
+.flow .box span { font-size: clamp(13px, 1.2vw, 16px); color: rgba(255,255,255,.7); }
+.flow .box.hl { background: var(--blue); border-color: var(--blue); color: var(--navy); }
+.flow .box.hl span { color: rgba(11,30,61,.75); }
+.flow .arr { font-size: 28px; color: var(--blue); }
+.taps { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 3vh; }
+.taps span { background: rgba(77,166,255,.14); color: #cfe6ff; border-radius: 999px; padding: 8px 16px; font-size: clamp(13px, 1.3vw, 17px); font-weight: 600; }
+.taps span.hot { background: var(--blue); color: var(--navy); }
+
+/* filters */
+/* 5-stage diagram: water runs left to right through the 3 filters */
+.sys { position: relative; display: flex; align-items: stretch; gap: 1.2vw; margin-top: 2vh; }
+.sys::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 8px; margin-top: -4px; border-radius: 4px; background: repeating-linear-gradient(90deg, #a9d0f5 0 14px, var(--blue) 14px 28px); animation: flow 1.2s linear infinite; }
+@keyframes flow { from { background-position: 0 0; } to { background-position: 28px 0; } }
+@media (prefers-reduced-motion: reduce) { .sys::before { animation: none; } }
+.end { position: relative; align-self: center; flex: 0 0 84px; text-align: center; background: var(--navy); color: #fff; border-radius: 14px; padding: 12px 6px; font-size: 13px; font-weight: 700; line-height: 1.25; }
+.end small { display: block; font-weight: 500; font-size: 11px; opacity: .7; }
+.hs { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 2.6vh 1.1vw 1.8vh; display: flex; flex-direction: column; gap: 1.4vh; color: var(--ink); transition: border-color .3s, box-shadow .3s; }
+.hs[data-f="guard"] { flex: 1; }
+.hs[data-f="disruptor"], .hs[data-f="extractor"] { flex: 2; }
+.hs.hl { border: 2px solid var(--blue-d); box-shadow: 0 12px 30px rgba(46,123,196,.18); }
+.hs .nm { font-size: clamp(19px, 2.2vw, 30px); font-weight: 800; line-height: 1.1; }
+.hs .mat { font-size: clamp(11px, 1.05vw, 14px); font-weight: 600; color: var(--soft); margin-top: 3px; line-height: 1.35; }
+.hs .mat b { color: var(--blue-d); }
+.hs .mat .mic { white-space: nowrap; }
+.stgs { display: flex; gap: .7vw; flex: 1; }
+.stg { flex: 1; border-radius: 12px; background: #EEF4FB; padding: 2.4vh .9vw; display: flex; flex-direction: column; gap: 3px; transition: background .3s, color .3s, opacity .3s; }
+.stg .n { font-size: 11px; font-weight: 800; letter-spacing: .12em; color: var(--blue-d); }
+.stg b { font-size: clamp(16px, 1.75vw, 24px); line-height: 1.15; }
+.stg small { font-size: clamp(11px, 1.05vw, 14px); color: var(--soft); line-height: 1.35; }
+.stg.hl { background: var(--blue-d); color: #fff; }
+.stg.hl .n, .stg.hl small { color: rgba(255,255,255,.85); }
+.sys.focus .stg:not(.hl) { opacity: .45; }
+.stg { cursor: pointer; position: relative; }
+.stg:hover { filter: brightness(1.05); }
+.stg:focus { outline: none; }
+.stg:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.stg .more { position: absolute; top: 10px; right: 10px; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid currentColor; font-size: 14px; font-style: normal; line-height: 19px; text-align: center; font-weight: 800; opacity: .55; }
+.tap-hint { margin: 1.4vh 0 0; font-size: 13px; color: var(--soft); }
+#st-h { font-size: clamp(24px, 3vw, 40px); }
+.pop { position: absolute; inset: 0; z-index: 4; background: rgba(5,19,31,.55); display: flex; align-items: center; justify-content: center; padding: 5vh 6vw 11vh; }
+.pop[hidden] { display: none; }
+.pop-card { position: relative; display: flex; width: 100%; max-width: 1000px; max-height: 100%; background: #fff; color: var(--ink); border-radius: 22px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+.pop-card img { flex-shrink: 0; height: min(62vh, 520px); width: auto; max-width: 46%; object-fit: cover; display: block; background: #0b1e3d; }
+.pop-card img[hidden] { display: none; }
+.pop-card.noimg { max-width: 680px; }
+@media (max-width: 860px) { .pop-card { flex-direction: column; } .pop-card img { width: 100%; max-width: 100%; height: 34vh; } }
+.pop-body { flex: 1; padding: 4vh 2.8vw; display: flex; flex-direction: column; justify-content: center; }
+.pop-body .n { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-d); }
+.pop-body h3 { font-size: clamp(26px, 3vw, 40px); font-weight: 800; line-height: 1.1; margin: 6px 0 4px; }
+.pop-body .m { font-size: clamp(13px, 1.15vw, 15px); font-weight: 700; color: var(--soft); margin-bottom: 2vh; }
+.pop-body p { margin: 0; font-size: clamp(15px, 1.45vw, 19px); line-height: 1.55; }
+.pop-body .cap { margin-top: 2vh; font-size: 13px; color: var(--soft); }
+.pop-x { position: absolute; top: 12px; right: 12px; z-index: 1; width: 38px; height: 38px; border-radius: 50%; border: 0; background: rgba(255,255,255,.9); color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+.foryou { margin: 3vh 0 0; font-size: clamp(16px, 1.7vw, 22px); font-weight: 600; color: var(--ink); max-width: 1050px; }
+.foryou b { color: var(--blue-d); }
+.upgrade { margin-top: 2vh; display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 10px 18px; font-size: clamp(13px, 1.25vw, 16px); font-weight: 600; color: var(--ink); }
+.upgrade svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--blue-d); }
+@media (max-width: 860px) {
+  .sys { flex-direction: column; }
+  .sys::before { left: 50%; right: auto; top: 0; bottom: 0; width: 8px; height: auto; margin: 0 0 0 -4px; }
+  .end { flex: 0 0 auto; width: 120px; }
+}
+
+/* proof */
+.people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4vw; }
+@media (max-width: 860px) { .people { grid-template-columns: repeat(2, 1fr); } }
+.person { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 3 / 4; background: #0b1e3d; }
+.person img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.person .q { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 14px 14px; background: linear-gradient(180deg, transparent, rgba(5,19,31,.9) 45%); font-size: clamp(13px, 1.25vw, 17px); font-weight: 700; line-height: 1.3; }
+.person .q i { display: block; font-style: normal; font-weight: 500; font-size: .8em; opacity: .8; margin-top: 5px; }
+
+/* tailored set-up: filter running costs */
+.fc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4vw; margin-top: 1vh; }
+@media (max-width: 860px) { .fc { grid-template-columns: 1fr 1fr; } }
+.fcx { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 3.6vh 1.4vw; text-align: center; color: var(--ink); }
+.fcx .v { font-size: clamp(38px, 5vw, 72px); font-weight: 800; color: var(--blue-d); line-height: 1; font-variant-numeric: tabular-nums; }
+.fcx .l { font-size: clamp(14px, 1.4vw, 18px); font-weight: 700; margin-top: 1.2vh; }
+.fcx .s { font-size: clamp(12px, 1.1vw, 15px); color: var(--soft); margin-top: 4px; }
+.fcx.hl { background: var(--blue-d); border-color: var(--blue-d); color: #fff; }
+.fcx.hl .v { color: #fff; }
+.fcx.hl .s { color: rgba(255,255,255,.8); }
+.fc-note { margin: 3.6vh 0 0; font-size: clamp(15px, 1.5vw, 19px); line-height: 1.5; color: var(--soft); max-width: 980px; }
+
+/* homes near you */
+.near { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2vw; height: min(58vh, 470px); }
+@media (max-width: 860px) { .near { grid-template-columns: repeat(2, 1fr); height: auto; } .near figure { aspect-ratio: 3 / 4; } }
+.near figure { margin: 0; position: relative; border-radius: 16px; overflow: hidden; background: #0b1e3d; }
+.near img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.near figcaption { position: absolute; left: 10px; bottom: 10px; background: rgba(5,19,31,.85); color: #fff; font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 999px; }
+.near-sub { margin: 2vh 0 0; font-size: clamp(14px, 1.35vw, 18px); color: rgba(255,255,255,.75); }
+.near figure.match figcaption { background: var(--blue); color: var(--navy); }
+
+/* filter life */
+.life { display: grid; grid-template-columns: minmax(260px, .8fr) 1.2fr; gap: 2.4vw; align-items: stretch; margin-top: 1vh; }
+@media (max-width: 860px) { .life { grid-template-columns: 1fr; } }
+.life .big { background: var(--blue-d); color: #fff; border-radius: 22px; padding: 4vh 2vw; display: flex; flex-direction: column; justify-content: center; }
+.life .big .v { font-size: clamp(72px, 9vw, 130px); font-weight: 800; line-height: .95; letter-spacing: -0.02em; }
+.life .big .l { font-size: clamp(18px, 2vw, 26px); font-weight: 700; margin-top: 1vh; }
+.life .big .s { font-size: clamp(14px, 1.35vw, 18px); color: rgba(255,255,255,.8); margin-top: 1.6vh; }
+.life ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.4vw; }
+.life li { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 2.6vh 1.8vw; color: var(--ink); }
+.life li b { display: block; font-size: clamp(16px, 1.6vw, 21px); margin-bottom: 4px; }
+.life li span { font-size: clamp(14px, 1.35vw, 18px); color: var(--soft); line-height: 1.45; }
+
+/* where it goes */
+.where { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4vw; margin-top: 1vh; }
+@media (max-width: 860px) { .where { grid-template-columns: 1fr; } }
+.where > div { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 3vh 1.6vw; color: var(--ink); }
+.where .ck { width: 38px; height: 38px; border-radius: 50%; background: var(--blue-d); color: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: 1.6vh; }
+.where .ck svg { width: 20px; height: 20px; }
+.where b { display: block; font-size: clamp(17px, 1.7vw, 22px); margin-bottom: 6px; }
+.where span { font-size: clamp(14px, 1.35vw, 18px); color: var(--soft); line-height: 1.45; }
+.ask { align-self: flex-start; margin-top: 4vh; display: inline-flex; align-items: center; gap: 14px; background: var(--navy); color: #fff; border-radius: 999px; padding: 16px 28px; font-size: clamp(18px, 2vw, 26px); font-weight: 800; }
+.ask .q { width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+
+/* peace of mind */
+.badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4vw; }
+@media (max-width: 860px) { .badges { grid-template-columns: repeat(2, 1fr); } }
+.bd { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 3vh 1.4vw; text-align: center; }
+.bd .big { white-space: nowrap; font-size: clamp(26px, 3vw, 44px); font-weight: 800; color: var(--blue); line-height: 1; }
+.bd .big svg { width: 1em; height: 1em; display: inline-block; vertical-align: top; }
+.bd .t { font-size: clamp(15px, 1.5vw, 20px); font-weight: 700; margin-top: 1.4vh; }
+
+/* calculators */
+.calc { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: center; }
+@media (max-width: 860px) { .calc { grid-template-columns: 1fr; } }
+.inputs { display: flex; flex-direction: column; gap: 1.6vh; }
+.inp { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.5vh 18px; }
+.inp label { font-size: clamp(14px, 1.4vw, 18px); font-weight: 600; color: var(--ink); }
+.inp label small { display: block; font-weight: 500; color: var(--soft); font-size: .78em; }
+.inp .field { display: flex; align-items: center; gap: 4px; font-size: clamp(18px, 1.9vw, 26px); font-weight: 800; color: var(--blue-d); }
+.inp input { width: 4.2em; font: inherit; color: inherit; border: 0; border-bottom: 2px dashed #b8cce4; background: transparent; text-align: right; padding: 2px 0; }
+.inp input:focus { outline: none; border-bottom-color: var(--blue-d); }
+.result { background: var(--navy); color: #fff; border-radius: 22px; padding: 4vh 3vw; text-align: center; }
+.result .l { font-size: clamp(14px, 1.4vw, 18px); color: rgba(255,255,255,.75); }
+.result .v { font-size: clamp(44px, 6.5vw, 96px); font-weight: 800; color: var(--blue); line-height: 1.05; margin: 1vh 0; font-variant-numeric: tabular-nums; }
+.result .sub { font-size: clamp(14px, 1.4vw, 19px); color: rgba(255,255,255,.85); }
+
+/* price */
+.price-wrap { text-align: center; }
+.reveal-btn { font: inherit; font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; color: var(--navy); background: var(--blue); border: 0; border-radius: 999px; padding: 16px 34px; cursor: pointer; }
+.price { display: none; }
+.price.shown { display: block; }
+.price .big { font-size: clamp(64px, 11vw, 160px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin: 2vh 0 1vh; }
+.price .big [contenteditable] { display: inline-block; min-width: 2ch; }
+.price .incl { font-size: clamp(16px, 1.7vw, 22px); color: rgba(255,255,255,.8); }
+.perday { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6vw; margin-top: 2vh; }
+@media (max-width: 860px) { .perday { grid-template-columns: 1fr; } }
+.pd { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 3vh 1.6vw; text-align: center; color: var(--ink); }
+.pd .v { font-size: clamp(38px, 5vw, 72px); font-weight: 800; color: var(--blue-d); line-height: 1; font-variant-numeric: tabular-nums; }
+.pd .l { font-size: clamp(14px, 1.35vw, 18px); font-weight: 600; margin-top: 1vh; }
+.pd .s { font-size: clamp(12px, 1.1vw, 15px); color: var(--soft); margin-top: 4px; }
+.compare { margin-top: 3vh; font-size: clamp(16px, 1.7vw, 22px); font-weight: 600; text-align: center; color: var(--ink); }
+.compare b { color: var(--blue-d); }
+
+/* zip: deposit today, the rest interest free; every term side by side (Zip Money customer fees, $4,000 limit) */
+.zdep { display: flex; align-items: center; flex-wrap: wrap; gap: 1.2vw; margin: 1vh 0 2.4vh; }
+.zdep .box { display: flex; align-items: center; gap: 10px; background: #fff; border: 2px solid var(--blue-d); border-radius: 14px; padding: 1.2vh 18px; color: var(--ink); }
+.zdep label { font-size: clamp(14px, 1.35vw, 18px); font-weight: 700; }
+.zdep .field { display: flex; align-items: center; font-size: clamp(22px, 2.4vw, 32px); font-weight: 800; color: var(--blue-d); }
+.zdep input { width: 4em; font: inherit; color: inherit; border: 0; border-bottom: 2px dashed #b8cce4; background: transparent; text-align: right; padding: 0; }
+.zdep input:focus { outline: none; border-bottom-color: var(--blue-d); }
+.zdep .arr { font-size: 24px; color: var(--soft); }
+.zdep .rest { font-size: clamp(14px, 1.35vw, 18px); color: var(--soft); }
+.zdep .rest b { font-size: clamp(22px, 2.4vw, 32px); color: var(--ink); margin-left: 6px; }
+.ztab { width: 100%; border-collapse: separate; border-spacing: 0 8px; font-variant-numeric: tabular-nums; }
+.ztab th { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--soft); text-align: right; padding: 0 18px; }
+.ztab th:first-child, .ztab td:first-child { text-align: left; }
+.ztab td { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.5vh 18px; text-align: right; font-size: clamp(15px, 1.5vw, 20px); color: var(--ink); }
+.ztab td:first-child { border-left: 1px solid var(--line); border-radius: 14px 0 0 14px; font-weight: 800; }
+.ztab td:last-child { border-right: 1px solid var(--line); border-radius: 0 14px 14px 0; }
+.ztab td b { font-size: 1.2em; }
+.ztab td small { display: block; font-size: .72em; color: var(--soft); }
+.ztab td.x { color: var(--blue-d); font-weight: 800; }
+.ztab tbody tr { cursor: pointer; }
+.ztab tbody tr.on td { background: var(--navy); color: #fff; border-color: var(--navy); }
+.ztab tbody tr.on td small { color: rgba(255,255,255,.7); }
+.ztab tbody tr.on td.x { color: var(--blue); }
+.znote { margin: 1.6vh 0 0; font-size: clamp(13px, 1.25vw, 16px); color: var(--soft); }
+.znote b { color: var(--ink); }
+
+/* payment */
+.pay { display: flex; align-items: stretch; gap: 2vw; margin-top: 2vh; }
+@media (max-width: 860px) { .pay { flex-direction: column; align-items: stretch; } .parr { display: none; } }
+.pstep { flex: 1; max-width: 560px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 4vh 2vw; display: flex; flex-direction: column; justify-content: center; color: var(--ink); text-align: center; }
+.pstep:first-child { border: 2px solid var(--blue-d); box-shadow: 0 12px 30px rgba(46,123,196,.15); }
+.pstep .n { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-d); }
+.pstep .v { font-size: clamp(44px, 6vw, 84px); font-weight: 800; line-height: 1.05; margin: 1.4vh 0 .6vh; font-variant-numeric: tabular-nums; }
+.pstep .l { font-size: clamp(16px, 1.7vw, 22px); font-weight: 700; }
+.pstep .s { font-size: clamp(13px, 1.25vw, 16px); color: var(--soft); margin-top: 4px; }
+.parr { align-self: center; font-size: clamp(18px, 1.8vw, 24px); font-weight: 800; color: var(--soft); text-transform: uppercase; }
+.zfees { list-style: none; margin: 2.2vh 0 0; padding: 1.8vh 0 0; border-top: 1px solid var(--line); display: grid; gap: .8vh; font-size: clamp(13px, 1.25vw, 16px); color: var(--soft); }
+.zfees b { color: var(--ink); }
+.zdep label small { display: block; font-size: .78em; font-weight: 600; color: var(--soft); }
+.split2 { display: flex; justify-content: center; gap: 2.4vw; margin-top: 1.6vh; }
+.split2 .v2 { font-size: clamp(38px, 4.8vw, 68px); font-weight: 800; line-height: 1.05; font-variant-numeric: tabular-nums; }
+
+/* steps */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6vw; counter-reset: s; }
+@media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+.st { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 3vh 1.8vw; counter-increment: s; }
+.st::before { content: counter(s); display: flex; width: 44px; height: 44px; border-radius: 50%; background: var(--blue); color: var(--navy); font-weight: 800; font-size: 20px; align-items: center; justify-content: center; margin-bottom: 1.6vh; }
+.st b { display: block; font-size: clamp(17px, 1.8vw, 24px); margin-bottom: 6px; }
+.st span { font-size: clamp(14px, 1.3vw, 17px); color: rgba(255,255,255,.75); }
+
+/* questions: topics from the info page */
+.topics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2vw; margin-top: 3vh; max-width: 1100px; }
+@media (max-width: 860px) { .topics { grid-template-columns: 1fr 1fr; } }
+.topics button { position: relative; font: inherit; text-align: left; cursor: pointer; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 2.4vh 1.4vw; color: var(--ink); transition: border-color .2s, box-shadow .2s, transform .2s; }
+.topics button:hover { transform: translateY(-2px); border-color: var(--blue-d); }
+.topics button:focus { outline: none; }
+.topics button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.topics b { display: block; font-size: clamp(17px, 1.8vw, 24px); }
+.topics span { display: block; font-size: clamp(13px, 1.2vw, 16px); color: var(--soft); margin-top: 4px; }
+.topics i { position: absolute; top: 12px; right: 12px; width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--line); display: flex; align-items: center; justify-content: center; color: transparent; }
+.topics i svg { width: 14px; height: 14px; }
+.topics button.on { border: 2px solid var(--blue-d); box-shadow: 0 10px 26px rgba(46,123,196,.15); }
+.topics button.on i { background: var(--blue-d); border-color: var(--blue-d); color: #fff; }
+.topics-all { align-self: flex-start; margin-top: 2.4vh; font: inherit; font-size: clamp(14px, 1.3vw, 17px); font-weight: 700; color: var(--blue-d); background: transparent; border: 2px solid var(--blue-d); border-radius: 999px; padding: 10px 22px; cursor: pointer; }
+
+/* their photos beside where it goes */
+.where-wrap.has { display: grid; grid-template-columns: 1.35fr 1fr; gap: 2vw; align-items: stretch; }
+.where-wrap.has .where { grid-template-columns: 1fr; gap: 1.2vh; margin-top: 0; }
+.where-wrap.has .where > div { padding: 2vh 1.4vw; }
+.where-wrap.has .where .ck { width: 30px; height: 30px; margin-bottom: 1vh; }
+.yph { display: none; }
+.where-wrap.has .yph { display: grid; gap: 10px; height: min(58vh, 500px); }
+.yph[data-n="2"] { grid-template-columns: 1fr 1fr; }
+.yph[data-n="3"] { grid-template-columns: 1.4fr 1fr; grid-template-rows: 1fr 1fr; }
+.yph[data-n="3"] figure:first-child { grid-row: 1 / 3; }
+.yph[data-n="4"] { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+.yph figure { margin: 0; border-radius: 14px; overflow: hidden; background: #0b1e3d; cursor: zoom-in; min-height: 0; }
+.yph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.phview { position: fixed; inset: 0; z-index: 30; background: rgba(5,12,24,.94); display: flex; align-items: center; justify-content: center; padding: 3vh 3vw; cursor: zoom-out; }
+.phview[hidden] { display: none; }
+.phview img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px; }
+@media (max-width: 860px) { .where-wrap.has { grid-template-columns: 1fr; } }
+
+/* nav */
+.nav { position: fixed; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; z-index: 5; pointer-events: none; }
+.nav button { pointer-events: auto; font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 999px; padding: 10px 18px; cursor: pointer; background: rgba(127,140,160,.18); color: inherit; }
+.nav .dots { display: flex; gap: 7px; pointer-events: auto; }
+.nav .dots i { width: 8px; height: 8px; border-radius: 50%; background: rgba(127,140,160,.45); cursor: pointer; }
+.nav .dots i.on { background: var(--blue); width: 22px; border-radius: 6px; }
+body.on-light .nav { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<!-- ═════ SETUP: click through while you ask your questions, BEFORE sharing ═════ -->
+<div class="setup" id="setup">
+  <div class="box">
+    <div class="eyebrow">Setup · don't share this screen</div>
+    <h1>Build their plan</h1>
+    <p class="warn">Click as they answer, then share this tab and press Start. Press S to come back here (stop sharing first).</p>
+    <label>1 · What brought them here? <span class="opt">pick all that apply, main one first</span></label>
+    <div class="chips" id="s-concern">
+      <button type="button" data-c="skin">Eczema / dry skin</button>
+      <button type="button" data-c="hair">Hair loss</button>
+      <button type="button" data-c="better">Just want better water</button>
+      <button type="button" data-c="taste">Weird taste</button>
+      <button type="button" data-c="smell">Weird smell</button>
+      <button type="button" data-c="scale">Scale build up</button>
+    </div>
+    <label>2 · What they told you <span class="opt">click up to 3</span></label>
+    <div class="chips said" id="s-said"></div>
+    <div class="row3">
+      <div><label>3 · People at home</label>
+        <div class="chips" id="s-people"><button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="4">4</button><button type="button" data-v="5">5</button><button type="button" data-v="6">6+</button></div></div>
+      <div><label for="s-name">First name <span class="opt">optional</span></label><input id="s-name" type="text" placeholder="Sarah" autocomplete="off"></div>
+      <div><label for="s-suburb">Suburb <span class="opt">optional</span></label><input id="s-suburb" type="text" placeholder="Point Cook" autocomplete="off"></div>
+    </div>
+    <label>4 · What they spend now <span class="opt">leave blank if they don't know</span></label>
+    <div class="costs">
+      <div class="c"><span>Bottled water</span>$<input id="s-bottled" type="number" min="0" inputmode="decimal" placeholder="0"><em>/wk</em></div>
+      <div class="c"><span>Jug &amp; shower filters</span>$<input id="s-jugs" type="number" min="0" inputmode="decimal" placeholder="0"><em>/yr</em></div>
+    </div>
+    <label>5 · Their photos <span class="opt">optional · choose, drag in or paste (Ctrl+V) · shown on the where-it-goes slide, never uploaded</span></label>
+    <div class="phrow" id="s-phdrop">
+      <button type="button" class="addph" id="s-addph">+ Add photos</button>
+      <input id="s-phfile" type="file" accept="image/*" multiple hidden>
+      <div class="thumbs" id="s-thumbs"></div>
+      <button type="button" class="start" id="s-start">Start presentation →</button>
+    </div>
+  </div>
+</div>
+
+<!-- 1. Cover -->
+<section class="slide cover on">
+  <img class="logo" src="/assets/logos/Neptune_Logo_White.png" alt="Neptune Filtration">
+  <div class="eyebrow">Your whole-home water plan</div>
+  <h1><span id="c-name">Your</span> Plan For <span class="accent" data-t="title">Better Water At Every Tap</span></h1>
+  <p class="meta">Built around what you told us<span id="c-suburb"></span>.</p>
+</section>
+
+<!-- 2. What you told us -->
+<section class="slide light">
+  <div class="eyebrow">What you told us</div>
+  <h2>What your plan is <span class="accent">built around</span></h2>
+  <ul class="goals" id="goals"></ul>
+</section>
+
+<!-- Questions: "Did you get a look at the info? What final questions have you got?"
+     Click a topic to go over it (that slide joins the run right after this one); "all of it" adds every basic. -->
+<section class="slide light" id="q-slide">
+  <div class="eyebrow">The info we sent you</div>
+  <h2>Any questions from <span class="accent">what you read?</span></h2>
+  <p class="lead">Anything you&rsquo;d like to go over again, we&rsquo;ll go through it now.</p>
+  <div class="topics" id="topics">
+    <button type="button" data-topic="why"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><b>Why filter?</b><span>Where the chlorine comes from</span></button>
+    <button type="button" data-topic="chlorine"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><b>Chlorine at home</b><span>Your tap water vs a swimming pool</span></button>
+    <button type="button" data-topic="matters"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><b>Why it matters</b><span>Skin, hair, taste &amp; smell</span></button>
+    <button type="button" data-topic="how"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><b>How it works</b><span>Filtered at your water meter</span></button>
+    <button type="button" data-topic="system"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><b>The system</b><span>What it&rsquo;s made of</span></button>
+    <button type="button" data-topic="life"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><b>Filter life</b><span>How long your filters last</span></button>
+  </div>
+  <button type="button" class="topics-all" id="topics-all">Go through all of it</button>
+</section>
+
+<!-- Why filter 1: where the chlorine comes from -->
+<section data-topic="why" class="slide skip basic">
+  <div class="eyebrow">Why filter?</div>
+  <h2>Your water's safe to drink. <span class="accent">Here's what keeps it that way.</span></h2>
+  <div class="flow src">
+    <div class="box"><small>Stored</small><b>Dams &amp; reservoirs</b><span>Where your water sits before it reaches you</span></div>
+    <div class="arr">→</div>
+    <div class="box"><small>Treated</small><b>Chlorine added</b><span>Kills bacteria while it's stored and piped to you</span></div>
+    <div class="arr">→</div>
+    <div class="box"><small>In parts of Melbourne</small><b>Ammonia added</b><span>Makes chloramine. It lasts longer and smells less, so you often can't tell it's there</span></div>
+    <div class="arr">→</div>
+    <div class="box hl"><small>Your home</small><b>Still there</b><span>In every shower, bath and glass</span></div>
+  </div>
+  <p class="punch">It doesn't switch off at <span class="accent">your front door.</span></p>
+</section>
+
+<!-- Why filter 2: home isn't a pool (muted test clip loops) -->
+<section data-topic="chlorine" class="slide skip basic light">
+  <div class="why">
+    <div>
+      <div class="eyebrow">Chlorine at home</div>
+      <h2>Your tap water vs <span class="accent">a swimming pool</span></h2>
+      <div class="vs">
+        <div class="card"><span class="t">A swimming pool</span><div class="ppm">1–1.5 <small>ppm</small></div><div class="src">Where many home pools sit</div><ul><li>Open air, so the chlorine gas escapes</li><li>The same water, topped up, not drained and refilled every day</li></ul></div>
+        <div class="card home"><span class="t">Your home</span><div class="ppm">1.5–3 <small>ppm</small></div><div class="src">Melbourne homes we've tested</div><ul><li>A fresh supply of chlorinated water every time you turn on a tap</li></ul></div>
+      </div>
+      <p class="pp-punch">As much chlorine as a swimming pool, <b>in every shower.</b></p>
+      <div class="dpd">
+        <div class="sw"><span style="background:#fbf7f9"></span><span style="background:#f6d3e2"></span><span style="background:#efafcb"></span><span style="background:#e58ab5"></span><span style="background:#d9659f"></span><span style="background:#c23d86"></span></div>
+        <div class="lb"><span>0</span><span>0.5</span><span>1.0</span><span>1.5</span><span>2.0</span><span>3.0 ppm</span></div>
+        <p>The test scale. Filtered water sits at 0. The darker the pink, the more chlorine.</p>
+      </div>
+    </div>
+    <div>
+      <div class="clip"><video src="/assets/present/chlorine-test.mp4" poster="/assets/present/chlorine-test.jpg" autoplay muted loop playsinline preload="auto"></video><span class="tag">Pink = chlorine</span></div>
+      <div class="clip-cap">Unfiltered vs filtered, using the same chlorine tablets pools use.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Why filter 3: what reducing it changes (their concern's card lights up) -->
+<section data-topic="matters" class="slide skip basic">
+  <div class="eyebrow">Why it matters</div>
+  <h2>Why reducing it makes <span class="accent">a huge difference</span></h2>
+  <div class="bcards">
+    <div class="bcard" data-b="skin hair smell better"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4a4 4 0 0 1 4 4v1"/><path d="M9 9h6"/><path d="M10 13v1M14 13v1M12 16v1M9 18v1M15 18v1"/></svg></div>
+      <b>Your skin soaks it up</b><p>Our test: two fingers in a cup of cold tap water, then the chlorine tablet. It stays clear. Your skin absorbed the chlorine, and that&rsquo;s cold water. Hot showers open your pores even more, and you breathe in the steam.</p></div>
+    <div class="bcard" data-b="skin hair"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.3 6 11a6 6 0 0 1-12 0c0-4.7 6-11 6-11z"/></svg></div>
+      <b>Skin &amp; hair</b><p>Chlorine is a bleach. It strips away the natural oils your skin and hair need, which can lead to dry skin, itchy skin, eczema flare-ups and hair loss.</p></div>
+    <div class="bcard" data-b="taste smell"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1.5 17a2 2 0 0 1-2 1.8h-5a2 2 0 0 1-2-1.8L6 3z"/><path d="M6.5 8h11"/></svg></div>
+      <b>Taste &amp; smell</b><p>Chlorine is acidic. Reduce it, and your water tastes and smells better. Simple.</p></div>
+  </div>
+  <p class="matters" data-t="whyLine"></p>
+</section>
+
+<!-- 3. How it works -->
+<section data-topic="how" class="slide skip basic">
+  <div class="eyebrow">How it works</div>
+  <h2>Filtered <span class="accent">before it reaches your home</span></h2>
+  <div class="flow">
+    <div class="box"><b>Water main</b><span>Your street supply</span></div>
+    <div class="arr">→</div>
+    <div class="box hl"><b>Neptune system</b><span>At your water meter</span></div>
+    <div class="arr">→</div>
+    <div class="box"><b>Your whole home</b><span>Every tap, every shower</span></div>
+  </div>
+  <div class="taps" id="taps"></div>
+  <p class="lead" style="margin-top:3vh" data-t="howLine"></p>
+</section>
+
+<!-- The system: everything from the call-reference brief, with real photos -->
+<section data-topic="system" class="slide skip basic light">
+  <div class="eyebrow">The system</div>
+  <h2>Buy it once. <span class="accent">Built to last.</span></h2>
+  <div class="unit">
+    <ul class="specs">
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Stainless steel cover</b>, powder coated and treated</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>20-inch system</b> with full pressure at every tap</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Copper piping</b>, naturally antibacterial</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Bypass valve</b> included</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Concreted into the ground</b> (or mounted on the wall), so it's solid and can't be taken</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Water connection only</b>: no power, no gas</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Moves with you</b> if you ever sell (fee applies)</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Clean, simple design</b>, not an eyesore on the side of your house</span></li>
+    </ul>
+    <div class="ph3">
+      <figure><img src="/assets/install-photos/26.jpg" alt=""><figcaption>3 filters inside</figcaption></figure>
+      <figure><img src="/assets/install-photos/38.jpg" alt=""><figcaption>On the wall</figcaption></figure>
+      <figure><img src="/assets/present/unit-back.jpg" alt=""><figcaption>Tidy install, no mess</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Filter life: how long they last in a Melbourne home -->
+<section data-topic="life" class="slide light skip basic">
+  <div class="eyebrow">Filter life</div>
+  <h2>How long your filters <span class="accent">last</span></h2>
+  <div class="life">
+    <div class="big"><div class="v">12</div><div class="l">months, in a Melbourne home</div><div class="s">for your home of <span id="life-n">4</span>, up to a year per set</div></div>
+    <ul>
+      <li><b>What changes it</b><span>How many people are at home and how much water you use.</span></li>
+      <li><b>How you'll know</b><span>Any pink on the chlorine test tablet, or a drop in your water pressure.</span></li>
+      <li><b>What happens next</b><span>A fresh set, delivered to your door. Swap them yourself with our video.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4. Filters: the 5 stages -->
+<section class="slide light">
+  <div class="eyebrow">Melbourne only · 5-stage filtration</div>
+  <h2 id="st-h">5 stages for what's coming through <span class="accent">your pipes</span></h2>
+  <div class="sys" id="sys">
+    <div class="end">Water main<small>street supply</small></div>
+    <div class="hs" data-f="guard">
+      <div><div class="nm">The Guard</div><div class="mat">Pleated polypropylene <span class="mic">· 5 micron</span></div></div>
+      <div class="stgs">
+        <div class="stg" data-s="1"><span class="n">STAGE 1</span><b>Sediment</b><small>Sand, rust &amp; grit</small></div>
+      </div>
+    </div>
+    <div class="hs" data-f="disruptor">
+      <div><div class="nm">The Disruptor</div><div class="mat">Carbon block with polyphosphate crystals <span class="mic">· 1 micron</span></div></div>
+      <div class="stgs">
+        <div class="stg" data-s="2"><span class="n">STAGE 2</span><b>Limescale</b><small>Stops hard minerals forming scale</small></div>
+        <div class="stg" data-s="3"><span class="n">STAGE 3</span><b>Chlorine</b><small>Added to treat the water</small></div>
+      </div>
+    </div>
+    <div class="hs" data-f="extractor">
+      <div><div class="nm">The Extractor</div><div class="mat"><b>Activated</b> coconut shell carbon <span class="mic">· 1 micron</span></div></div>
+      <div class="stgs">
+        <div class="stg" data-s="4"><span class="n">STAGE 4</span><b>Chloramine</b><small>The longer-lasting treatment chemical</small></div>
+        <div class="stg" data-s="5"><span class="n">STAGE 5</span><b>Heavy metals</b><small>Picked up from older pipes</small></div>
+      </div>
+    </div>
+    <div class="end">Your home<small>every tap</small></div>
+  </div>
+  <p class="tap-hint">Click any stage to see what's inside.</p>
+  <p class="foryou"><b>For you:</b> <span data-t="stageLine"></span></p>
+  <div class="upgrade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><polyline points="21 3 21 9 15 9"/></svg>When our filters get better, yours do too. Every yearly change brings you our latest.</div>
+  <div class="pop" id="pop" hidden>
+    <div class="pop-card" role="dialog" aria-modal="true" aria-labelledby="pop-h">
+      <button type="button" class="pop-x" id="pop-x" aria-label="Close">&times;</button>
+      <img id="pop-img" alt="">
+      <div class="pop-body"><div class="n" id="pop-n"></div><h3 id="pop-h"></h3><div class="m" id="pop-m"></div><p id="pop-p"></p><div class="cap" id="pop-cap"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. People like you -->
+<section class="slide">
+  <div class="eyebrow">Homeowners like you</div>
+  <h2 data-t="proofTitle">People just like you, <span class="accent">in their own words</span></h2>
+  <div class="people" id="people"></div>
+</section>
+
+<!-- Homes near you: installs in their suburb, then their area (same photos as the /melb gallery) -->
+<section class="slide">
+  <div class="eyebrow">Homes near you</div>
+  <h2 id="near-h">Homes we've done across <span class="accent">Melbourne</span></h2>
+  <div class="near" id="near"></div>
+  <p class="near-sub">Just a few of the Melbourne homes we've done.</p>
+</section>
+
+<!-- 6. Your tailored set-up: what the filters cost, down to per person per day -->
+<section class="slide light">
+  <div class="eyebrow">Your tailored set-up</div>
+  <h2>Your filters, <span class="accent">broken down</span></h2>
+  <div class="fc">
+    <div class="fcx"><div class="v">$300</div><div class="l">a year</div><div class="s">a fresh set of all 3 filters</div></div>
+    <div class="fcx"><div class="v" id="f-mo">$25</div><div class="l">a month</div></div>
+    <div class="fcx"><div class="v" id="f-day">82¢</div><div class="l">a day</div></div>
+    <div class="fcx hl"><div class="v" id="f-pp">21¢</div><div class="l">a day, per person</div><div class="s">for your home of <span id="f-n">4</span></div></div>
+  </div>
+  <p class="fc-note">Delivered to your door with GST included, and always our latest version.</p>
+</section>
+
+<!-- 7. Install & peace of mind: one page, no photos -->
+<section class="slide">
+  <div class="eyebrow">Install &amp; peace of mind</div>
+  <h2>Done right, <span class="accent">backed by us</span></h2>
+  <div class="badges">
+    <div class="bd"><div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></div><div class="t">Whole home filtration only</div></div>
+    <div class="bd"><div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div><div class="t">Melbourne only</div></div>
+    <div class="bd"><div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><polyline points="21 3 21 9 15 9"/></svg></div><div class="t">Our filters improve, yours do too</div></div>
+    <div class="bd"><div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="t">Dedicated plumbing team</div></div>
+    <div class="bd"><div class="big">7 yrs</div><div class="t">Workmanship warranty</div></div>
+    <div class="bd"><div class="big">30 days</div><div class="t">Money-back guarantee</div></div>
+    <div class="bd"><div class="big">5 days</div><div class="t">Average from booking to install</div></div>
+    <div class="bd"><div class="big">2–3 hrs</div><div class="t">On the day, and it's done</div></div>
+    <div class="bd"><div class="big">&#10003;</div><div class="t">WaterMark certified</div></div>
+  </div>
+</section>
+
+<!-- Their photos: where it goes, just before the price. Photos come from setup step 5 (or drag in / paste on this slide); click one to see it full screen -->
+<section class="slide light" id="ph-slide">
+  <div class="eyebrow">From your photos</div>
+  <h2>Where your system <span class="accent">will go</span></h2>
+  <div class="where-wrap" id="where-wrap">
+  <div class="yph" id="yph"></div>
+  <div class="where">
+    <div><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><b>At your water meter</b><span>The standard spot for most homes, tidy and out of the way.</span></div>
+    <div><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><b>Reviewed by our plumbers</b><span>They go over your photos before install day, so there are no surprises.</span></div>
+    <div><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><b>Confirmed with you</b><span>We agree the final spot with you on the day. Anything outside a standard install, we tell you upfront.</span></div>
+  </div>
+  </div>
+  <div class="ask"><span class="q">?</span>Any concerns about where it'll go?</div>
+</section>
+
+<!-- 9. What it's costing now (prefilled from setup; type on it live too) -->
+<section class="slide light" id="cost-slide">
+  <div class="calc">
+    <div>
+      <div class="eyebrow">Before we talk price</div>
+      <h2><span data-t="costLead">What it's</span> <span class="accent">costing you now</span></h2>
+      <div class="inputs" id="k-inputs">
+        <div class="inp" data-k="bottled"><label>Bottled water<small>per week</small></label><div class="field">$<input id="k-bottled" type="number" inputmode="decimal" value="0" min="0"></div></div>
+        <div class="inp" data-k="jugs"><label>Filter jugs &amp; shower filters<small>per year</small></label><div class="field">$<input id="k-jugs" type="number" inputmode="decimal" value="0" min="0"></div></div>
+      </div>
+    </div>
+    <div class="result">
+      <div class="l">You're already spending</div>
+      <div class="v" id="k-year">$0</div>
+      <div class="sub">a year, <b id="k-ten" style="color:#4DA6FF">$0</b> over 10 years, and it's not fixing it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Before the price: recap what's covered, flush out anything left (decision makers, blockers asked out loud) -->
+<section class="slide light">
+  <div class="eyebrow">Before your price</div>
+  <h2>Is there anything we <span class="accent">haven't covered?</span></h2>
+  <ul class="goals recap" id="recap"></ul>
+</section>
+
+<!-- 10. Price -->
+<section class="slide">
+  <div class="price-wrap">
+    <div class="eyebrow">Your price</div>
+    <h2>Your Neptune whole home system, <span class="accent">installed</span></h2>
+    <button class="reveal-btn" id="reveal" type="button">Show price</button>
+    <div class="price" id="price">
+      <div class="big">$<span contenteditable="true" spellcheck="false" id="pr">3,990</span></div>
+      <div class="incl">incl. GST</div>
+    </div>
+  </div>
+</section>
+
+<!-- Payment options: straight after the price. A = 20% deposit + 80% after install, B = Zip. Same price either way (Zip rule) -->
+<section class="slide light">
+  <div class="eyebrow">Payment options</div>
+  <h2>Two ways <span class="accent">to pay</span></h2>
+  <div class="pay">
+    <div class="pstep"><div class="n">Option A · Deposit</div>
+      <div class="split2"><div><div class="v2" id="pay-dep">$798</div><div class="s">today (20%)</div></div><div><div class="v2" id="pay-bal">$3,192</div><div class="s">after installation (80%)</div></div></div></div>
+    <div class="parr">or</div>
+    <div class="pstep"><div class="n">Option B · Interest free with Zip</div>
+      <div class="split2"><div><div class="v2" id="pay-zdep">$400</div><div class="s">deposit today</div></div><div><div class="v2" id="pay-zrest">$3,590</div><div class="s">the rest over 6–36 months</div></div></div>
+      <ul class="zfees"><li><b>$75</b> one-off setup fee</li><li><b>$9.95</b> a month while you owe</li><li><b>Pay it off any time</b> and the $9.95 stops</li></ul></div>
+  </div>
+</section>
+
+<!-- Zip breakdown: right after the options, for anyone looking at B (Z jumps here) -->
+<section class="slide light" id="zip-slide">
+  <div class="eyebrow">Option B · Interest free with Zip</div>
+  <h2>Your Zip options, <span class="accent">to the cent</span></h2>
+  <div class="zdep">
+    <div class="box"><label for="z-dep">Deposit today</label><div class="field">$<input id="z-dep" type="number" inputmode="decimal" min="0" step="50" value="400"></div></div>
+    <span class="arr">→</span>
+    <span class="rest">Zip covers the rest:<b id="z-rest">$3,590</b></span>
+  </div>
+  <table class="ztab">
+    <thead><tr><th>Term</th><th>A month</th><th>A week</th><th>Extra in Zip fees</th><th>All up</th></tr></thead>
+    <tbody id="z-rows">
+      <tr data-m="6"><td>6 months</td><td></td><td></td><td class="x"></td><td></td></tr>
+      <tr data-m="12"><td>12 months</td><td></td><td></td><td class="x"></td><td></td></tr>
+      <tr data-m="24"><td>24 months</td><td></td><td></td><td class="x"></td><td></td></tr>
+      <tr data-m="36"><td>36 months</td><td></td><td></td><td class="x"></td><td></td></tr>
+    </tbody>
+  </table>
+  <p class="znote"><b>Extra in Zip fees</b> = $75 one-off setup + $9.95 a month for the full term. Pay it off early and the $9.95 stops. 0% interest when it's paid off within the term.</p>
+</section>
+
+<!-- 11. Per day (if they hesitate on price) -->
+<section class="slide light">
+  <div class="eyebrow">Broken down</div>
+  <h2>What it <span class="accent">really costs</span></h2>
+  <div class="perday">
+    <div class="pd"><div class="v" id="d-sys">$1.09</div><div class="l">a day</div><div class="s">for the system, over 10 years</div></div>
+    <div class="pd"><div class="v" id="d-all">$1.92</div><div class="l">a day</div><div class="s">including a new set of filters every year</div></div>
+    <div class="pd"><div class="v" id="d-per">48¢</div><div class="l">a day, per person</div><div class="s">for a home of <span contenteditable="true" spellcheck="false" id="pp">4</span></div></div>
+  </div>
+  <div class="compare" id="d-compare"></div>
+</section>
+
+<!-- 13. Next steps -->
+<section class="slide">
+  <div class="eyebrow">Next steps</div>
+  <h2>Locking in <span class="accent">your install</span></h2>
+  <div class="steps">
+    <div class="st"><b>Lock in your date</b><span>We confirm everything with you today.</span></div>
+    <div class="st"><b>We book you in</b><span>Our install team calls you within 1–4 business days.</span></div>
+    <div class="st"><b>Install day</b><span>2–3 hours, and it's done.</span></div>
+  </div>
+</section>
+
+<!-- Referral: the last lever before payment, $500 back per friend (R jumps here) -->
+<section class="slide" id="ref-slide">
+  <div class="calc">
+    <div>
+      <div class="eyebrow">Our referral program</div>
+      <h2>Know people who'd <span class="accent">want this too?</span></h2>
+      <p class="lead">For every person you refer who gets a system installed, we pay you <b style="color:#4DA6FF">$500</b>. No limit.</p>
+      <div class="inp" style="margin-top:3vh;max-width:420px"><label>People you'd refer</label><div class="field"><input id="r-n" type="number" inputmode="numeric" value="3" min="0" style="width:2.6em"></div></div>
+    </div>
+    <div class="result">
+      <div class="l">Back in your pocket</div>
+      <div class="v" id="r-back">$1,500</div>
+      <div class="sub">Your system effectively comes down to <b id="r-net" style="color:#4DA6FF">$2,490</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- Welcome: once payment is confirmed -->
+<section class="slide cover welcome">
+  <img class="logo" src="/assets/logos/Neptune_Logo_White.png" alt="Neptune Filtration">
+  <div class="paid"><span>&#10003;</span>Payment confirmed</div>
+  <h1>Welcome to the Neptune family<span id="w-name"></span>.</h1>
+  <p class="meta">You're all set. Here's what happens next:</p>
+  <div class="wsteps">
+    <div><b>1–4 business days</b>Our install team calls you to book your date</div>
+    <div><b>About 5 days</b>on average, from today to installed</div>
+    <div><b>2–3 hours</b>on the day, and you're on filtered water</div>
+  </div>
+</section>
+
+<div class="phview" id="phview" hidden><img id="phview-img" alt=""></div>
+
+<nav class="nav">
+  <button type="button" id="prev">&larr; Back</button>
+  <div class="dots" id="dots"></div>
+  <button type="button" id="next">Next &rarr;</button>
+</nav>
+
+<script>
+(function () {
+  // Everything that changes with the customer's main concern. Filter lines say
+  // what each stage does for THEIR concern (function, not health claims);
+  // customer quotes are their own words.
+  var Q = {
+    cecilio: ['My eczema’s gone. I’m not saying this to promote, but it’s true.', 'Cecilio · Cranbourne West'],
+    nishanth: ['The hair loss has reduced significantly.', 'Nishanth · Strathtulloh'],
+    lech: ['My scalp was itchy. Now I forget it.', 'Lech · Keysborough'],
+    june: ['My friend told me, my hair looks better than before.', 'June · Point Cook'],
+    'jan-peter': ['Especially the hair. It’s much, much softer.', 'Jan & Peter · Beaumaris'],
+    jim: ['Crystal clear. You can tell straight away.', 'Jim · Point Cook'],
+    marcus: ['We drink straight from the taps now.', 'Marcus · Lyndhurst'],
+    girish: ['Couldn’t have asked for a better installation.', 'Girish · Ashwood']
+  };
+  var C = {
+    skin: { label: 'Eczema / dry skin', title: 'Comfortable Skin', short: 'your skin', costLead: 'What dry, itchy skin is',
+      said: ['Eczema flare-ups at home', 'Dry, itchy skin that never settles', 'We’ve tried every cream and nothing sticks', 'The kids’ skin gets irritated', 'Itchy skin keeping someone up at night', 'Want to feel comfortable in our own skin'],
+      whyLine: 'Customers with eczema and dry skin tell us the shower is where they noticed the difference first.',
+      howLine: 'Every shower and bath in your home runs on filtered water, so your skin meets it in every wash.',
+      hot: ['Every shower', 'Bath'], stages: [3, 4],
+      stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine before your skin meets them in the shower.',
+      people: ['cecilio', 'lech', 'jan-peter', 'girish'], proofTitle: 'People who had <span class="accent">the same problem</span>',
+      costs: ['jugs', 'bottled'], feel: 'comfortable skin in every shower' },
+    hair: { label: 'Hair loss', title: 'Hair You Love', short: 'your hair', costLead: 'What hair loss is',
+      said: ['Hair loss that’s getting worse', 'Hair coming out in the shower', 'Itchy, flaky scalp', 'Hair feels dry and brittle', 'Tried every shampoo out there', 'Want our hair back to how it was'],
+      whyLine: 'Customers with hair loss and itchy scalps tell us the shower is where they noticed the difference first.',
+      howLine: 'Every shower in your home runs on filtered water, so your hair and scalp get it with every wash.',
+      hot: ['Every shower'], stages: [3, 4],
+      stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine your hair and scalp get with every wash.',
+      people: ['nishanth', 'lech', 'june', 'jan-peter'], proofTitle: 'People who had <span class="accent">the same problem</span>',
+      costs: ['jugs', 'bottled'], feel: 'hair you love, every wash' },
+    better: { label: 'Just want better water', title: 'Better Water At Every Tap', short: 'your whole family', costLead: 'What it&rsquo;s',
+      said: ['Want the best for our family', 'Don’t trust what’s in the tap water', 'Every tap filtered, not just the kitchen', 'Sick of buying bottled water', 'Just moved in and want it sorted', 'Peace of mind, without thinking about it'],
+      whyLine: 'It’s in every glass your family drinks and every shower they take.',
+      howLine: 'One system, every tap and shower. No jugs, no shower heads, no thinking about it again.',
+      hot: [], stages: [1, 2, 3, 4, 5],
+      stageLine: 'All 5 stages work together, so every tap and shower your family uses runs on filtered water.',
+      people: ['cecilio', 'marcus', 'jim', 'girish'], proofTitle: 'People just like you, <span class="accent">in their own words</span>',
+      costs: ['bottled', 'jugs'], feel: 'better water for your whole family' },
+    taste: { label: 'Weird taste', title: 'Water That Tastes Great', short: 'better-tasting water', costLead: 'What that taste is',
+      said: ['The tap water tastes off', 'We buy bottled water because of the taste', 'The kids won’t drink from the tap', 'Tea and coffee don’t taste right', 'Want to drink straight from the tap again'],
+      whyLine: 'It’s the taste you notice in your glass.',
+      howLine: 'Every tap in your home runs on filtered water, so you can drink straight from any of them.',
+      hot: ['Kitchen tap', 'Bathroom basins'], stages: [3, 4],
+      stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine, where that weird taste comes from.',
+      people: ['jim', 'marcus', 'girish', 'june'], proofTitle: 'People who noticed <span class="accent">the difference straight away</span>',
+      costs: ['bottled', 'jugs'], feel: 'water that tastes great from every tap' },
+    smell: { label: 'Weird smell', title: 'Water With No Weird Smell', short: 'every tap and shower', costLead: 'What that smell is',
+      said: ['The water smells like a pool', 'You notice the smell in the shower', 'The kitchen tap smells off', 'Some days it’s worse than others', 'Want water that smells like nothing'],
+      whyLine: 'It’s the pool smell you notice when you turn the shower on.',
+      howLine: 'Every tap and shower in your home runs on filtered water. No more weird smell when you turn the shower on.',
+      hot: ['Every shower', 'Kitchen tap'], stages: [3, 4],
+      stageLine: 'Stages 3 and 4 reduce the chlorine and chloramine, where that weird smell comes from.',
+      people: ['jim', 'marcus', 'girish', 'cecilio'], proofTitle: 'People who noticed <span class="accent">the difference straight away</span>',
+      costs: ['jugs', 'bottled'], feel: 'no weird smell in your shower' },
+    scale: { label: 'Scale build up', title: 'Sparkling Taps &amp; Glass', short: 'sparkling taps &amp; glass', costLead: 'What limescale is',
+      said: ['White marks on the shower screen and taps', 'Always scrubbing the glass', 'The kettle’s full of white build-up', 'Worried about the hot water system', 'Want sparkling glass without the scrubbing'],
+      whyLine: 'Hard minerals come along with it too, leaving scale on your glass, taps and hot water system.',
+      howLine: 'Every tap, shower screen and appliance runs on filtered water, so scale has nothing to build from.',
+      hot: ['Every shower', 'Hot water system', 'Washing machine', 'Dishwasher'], stages: [2],
+      stageLine: 'Stage 2 stops hard minerals turning into scale on your screens, taps, kettle and hot water system.',
+      people: ['girish', 'jim', 'marcus', 'june'], proofTitle: 'People just like you, <span class="accent">in their own words</span>',
+      costs: ['jugs', 'bottled'], feel: 'sparkling taps and glass' }
+  };
+  var STAGE = {
+    1: ['Stage 1 · The Guard', 'Sediment', 'Pleated polypropylene · 5 micron', 'Folded over and over to pack in as much surface area as possible. It’s the first thing your water meets, catching the sand, rust and grit from the main so everything after it stays clean.', '/assets/present/old-filter.jpg', 'A used Guard filter next to a new one. That brown is what it kept out of your home.'],
+    2: ['Stage 2 · The Disruptor', 'Limescale', 'Carbon block with polyphosphate crystals · 1 micron', 'Polyphosphate crystals are infused right into the carbon block. As water passes through, they stop hard minerals turning into scale on your glass, taps, kettle and hot water system, without taking the minerals out of your water.', '/assets/present/limescale.jpg', 'Limescale building up on a shower screen.'],
+    3: ['Stage 3 · The Disruptor', 'Chlorine', 'Dense carbon block · 1 micron', 'A carbon block packed tight enough to catch particles down to 1 micron, a fraction of the width of a hair. It reduces the chlorine added to treat the water, while keeping your pressure strong.', '', ''],
+    4: ['Stage 4 · The Extractor', 'Chloramine', 'Activated coconut shell carbon · 1 micron', 'Coconut shells, charred at high heat, then activated with steam to open up millions of microscopic pores. One gram holds over 1,000 m² of surface, nearly four tennis courts. Not the coal-based carbon cheaper filters use.', '', ''],
+    5: ['Stage 5 · The Extractor', 'Heavy metals', 'Activated coconut shell carbon · 1 micron', 'Older suburbs still have ageing galvanised pipes. As they corrode, metals can get into your water on its way to your home. The same activated coconut carbon reduces them before they reach your taps.', '/assets/present/old-gal-pipe.jpg', 'Inside an old galvanised water pipe.']
+  };
+  // Install photos by suburb and area: same as the /melb gallery. New tagged photos: add to both pages.
+  var PHOTO_SUBURB = {
+    '6': 'Narre Warren South', 'install-10': 'Williams Landing', 'install-13': 'Werribee',
+    '17': 'Ascot Vale', '18': 'Surrey Hills', 'install-21': 'Mill Park', 'install-22': 'Watsonia',
+    '23': 'Epping', '24': 'Black Rock', '29': 'Diggers Rest', '30': 'Balwyn North',
+    '34': 'Junction Village', '36': 'Niddrie', '37': 'Keysborough', '38': 'Deer Park', '39': 'Wollert',
+    '3': 'Clyde North', '41': 'Middle Park', '42': 'Frankston', '43': 'Deanside', '44': 'Williamstown',
+    '45': 'Bundoora', '46': 'Lower Plenty', '47': 'Darley', '48': 'Roxburgh Park', '49': 'Preston',
+    '50': 'Thomastown'
+  };
+  var PHOTO_AREAS = {
+    north: ['23', '45', 'install-21', '49', 'install-22', '50', '39', '46', '48'],
+    west: ['38', '43', 'install-10', '44', 'install-13', '47', '17', '29', '36'],
+    southeast: ['6', '41', '37', '3', '30', '42', '18', '24', '34']
+  };
+  // Council-based metro regions, like the gallery (photos group Southern + Eastern as South East);
+  // 'east' = inner and eastern suburbs, so a Narre Warren customer sees Clyde North before Middle Park.
+  var REGION_LIST = {
+    north: 'epping,wollert,craigieburn,mickleham,kalkallo,donnybrook,beveridge,roxburgh park,greenvale,meadow heights,broadmeadows,coolaroo,dallas,campbellfield,westmeadows,attwood,gladstone park,jacana,glenroy,oak park,pascoe vale,pascoe vale south,coburg,coburg north,brunswick,brunswick east,brunswick west,fawkner,hadfield,thomastown,lalor,mill park,south morang,mernda,doreen,bundoora,kingsbury,watsonia,watsonia north,greensborough,macleod,yallambie,rosanna,heidelberg,heidelberg west,heidelberg heights,bellfield,ivanhoe,ivanhoe east,eaglemont,viewbank,montmorency,eltham,eltham north,briar hill,lower plenty,diamond creek,plenty,yarrambat,hurstbridge,research,preston,reservoir,northcote,thornbury,fairfield,alphington,whittlesea,sunbury',
+    west: 'point cook,werribee,werribee south,hoppers crossing,tarneit,truganina,williams landing,wyndham vale,manor lakes,mambourin,laverton,laverton north,altona,altona north,altona meadows,seabrook,seaholme,williamstown,williamstown north,newport,spotswood,south kingsville,brooklyn,yarraville,seddon,footscray,west footscray,kingsville,maidstone,maribyrnong,braybrook,tottenham,sunshine,sunshine north,sunshine west,albion,ardeer,deer park,derrimut,cairnlea,albanvale,kings park,st albans,kealba,keilor,keilor east,keilor downs,keilor north,keilor park,taylors lakes,delahey,sydenham,hillside,burnside,burnside heights,caroline springs,taylors hill,plumpton,fraser rise,aintree,rockbank,mount cottrell,thornhill park,deanside,strathtulloh,cobblebank,weir views,harkness,brookfield,kurunjang,melton,melton south,melton west,exford,eynesbury,diggers rest,ravenhall,essendon,essendon north,essendon west,moonee ponds,ascot vale,flemington,travancore,aberfeldie,niddrie,airport west,strathmore,strathmore heights,avondale heights,tullamarine,darley,bacchus marsh,maddingley,little river',
+    southeast: 'narre warren,narre warren south,narre warren north,berwick,harkaway,beaconsfield,officer,officer south,pakenham,cardinia,clyde,clyde north,cranbourne,cranbourne north,cranbourne east,cranbourne west,cranbourne south,junction village,botanic ridge,devon meadows,lynbrook,lyndhurst,hampton park,hallam,endeavour hills,doveton,eumemmerring,dandenong,dandenong north,dandenong south,noble park,noble park north,springvale,springvale south,keysborough,bangholme,frankston,frankston north,frankston south,carrum downs,skye,sandhurst,seaford,langwarrin,karingal,mornington,mount eliza,mount martha,somerville,hastings,rosebud,dromana,safety beach,chelsea,chelsea heights,edithvale,aspendale,aspendale gardens,carrum,patterson lakes,bonbeach,mordialloc,braeside,parkdale,mentone,cheltenham',
+    east: 'highett,moorabbin,bentleigh,bentleigh east,mckinnon,ormond,carnegie,murrumbeena,caulfield,caulfield north,caulfield south,elsternwick,brighton,brighton east,hampton,hampton east,sandringham,black rock,beaumaris,clayton,clayton south,oakleigh,oakleigh east,oakleigh south,huntingdale,chadstone,ashwood,burwood,burwood east,mount waverley,glen waverley,wheelers hill,mulgrave,notting hill,rowville,lysterfield,ferntree gully,upper ferntree gully,knoxfield,scoresby,boronia,bayswater,bayswater north,wantirna,wantirna south,vermont,vermont south,forest hill,nunawading,mitcham,blackburn,blackburn north,blackburn south,box hill,box hill north,box hill south,mont albert,surrey hills,canterbury,camberwell,hawthorn,hawthorn east,kew,kew east,kooyong,balwyn,balwyn north,deepdene,ashburton,glen iris,malvern,malvern east,armadale,toorak,prahran,south yarra,windsor,st kilda,st kilda east,elwood,balaclava,middle park,albert park,port melbourne,south melbourne,doncaster,doncaster east,templestowe,templestowe lower,bulleen,donvale,park orchards,warrandyte,wonga park,ringwood,ringwood east,ringwood north,heathmont,croydon,croydon north,croydon south,kilsyth,mooroolbark,lilydale,chirnside park,montrose,mount evelyn,belgrave,upwey,tecoma,emerald'
+  };
+  var REGION_OF = {};
+  Object.keys(REGION_LIST).forEach(function (r) { REGION_LIST[r].split(',').forEach(function (n) { REGION_OF[n] = r; }); });
+  var EAST_PHOTOS = ['24', '41', '18', '30'];
+  var AREA_OF = {};
+  Object.keys(PHOTO_AREAS).forEach(function (r) { PHOTO_AREAS[r].forEach(function (k) { AREA_OF[k] = r; }); });
+  var TAPS = ['Kitchen tap', 'Every shower', 'Bath', 'Bathroom basins', 'Washing machine', 'Dishwasher', 'Hot water system', 'Garden'];
+
+  var $ = function (id) { return document.getElementById(id); };
+  var all = function (sel) { return [].slice.call(document.querySelectorAll(sel)); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var state = { concerns: [], said: [], people: 4, photos: [] };
+  var pick = function (box, v) { all('#' + box + ' button').forEach(function (x) { x.classList.toggle('on', x.dataset.v === String(v)); }); };
+  var uniq = function (a) { return a.filter(function (x, i) { return a.indexOf(x) === i; }); };
+
+  // 1. concerns (several allowed, first = main) drive the "what they told you" options
+  function renderSaid() {
+    var lines = uniq([].concat.apply([], state.concerns.map(function (k) { return C[k].said; })));
+    $('s-said').innerHTML = lines.length ? lines.map(function (t) { return '<button type="button"' + (state.said.indexOf(t) >= 0 ? ' class="on"' : '') + '>' + esc(t) + '</button>'; }).join('') : '<span class="none">Pick what brought them here first.</span>';
+    all('#s-said button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var t = b.textContent, i = state.said.indexOf(t);
+        if (i >= 0) state.said.splice(i, 1);
+        else { state.said.push(t); if (state.said.length > 3) state.said.shift(); }
+        all('#s-said button').forEach(function (x) { x.classList.toggle('on', state.said.indexOf(x.textContent) >= 0); });
+      });
+    });
+  }
+  function markConcerns() {
+    all('#s-concern button').forEach(function (x) {
+      var i = state.concerns.indexOf(x.dataset.c);
+      x.classList.toggle('on', i >= 0);
+      x.classList.toggle('main', i === 0 && state.concerns.length > 1);
+    });
+  }
+  all('#s-concern button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var k = b.dataset.c, i = state.concerns.indexOf(k);
+      if (i >= 0) {
+        state.concerns.splice(i, 1);
+        state.said = state.said.filter(function (t) { return state.concerns.some(function (c) { return C[c].said.indexOf(t) >= 0; }); });
+      } else state.concerns.push(k);
+      markConcerns(); renderSaid(); fitSetup();
+    });
+  });
+  // 3. people
+  all('#s-people button').forEach(function (b) { b.addEventListener('click', function () { state.people = +b.dataset.v; pick('s-people', b.dataset.v); }); });
+  // prefill from the URL (old concern names still work)
+  var q = new URLSearchParams(location.search);
+  if (q.get('name')) $('s-name').value = q.get('name');
+  if (q.get('suburb')) $('s-suburb').value = q.get('suburb');
+  if (q.get('people')) state.people = Math.min(6, Math.max(1, parseInt(q.get('people'), 10) || 4));
+  pick('s-people', state.people);
+  (q.get('concern') || '').split(',').forEach(function (k) {
+    k = { family: 'better', drinking: 'taste' }[k] || k;
+    if (C[k] && state.concerns.indexOf(k) < 0) state.concerns.push(k);
+  });
+  markConcerns(); renderSaid();
+
+  // 5. their photos: kept in this tab only (object URLs), max 4, newest last
+  function addPhotos(files) {
+    [].forEach.call(files || [], function (f) {
+      if (!/^image\//.test(f.type) || state.photos.length >= 4) return;
+      state.photos.push(URL.createObjectURL(f));
+    });
+    renderPhotos();
+  }
+  function renderPhotos() {
+    $('s-thumbs').innerHTML = state.photos.map(function (u, i) { return '<div class="t"><img src="' + u + '" alt=""><button type="button" data-i="' + i + '" aria-label="Remove">&times;</button></div>'; }).join('');
+    all('#s-thumbs button').forEach(function (b) {
+      b.addEventListener('click', function () { URL.revokeObjectURL(state.photos[+b.dataset.i]); state.photos.splice(+b.dataset.i, 1); renderPhotos(); });
+    });
+    var n = state.photos.length;
+    $('yph').dataset.n = n;
+    $('yph').innerHTML = state.photos.map(function (u) { return '<figure><img src="' + u + '" alt="Your photo"></figure>'; }).join('');
+    $('where-wrap').classList.toggle('has', n > 0);
+    all('#yph figure').forEach(function (f) {
+      f.addEventListener('click', function () { $('phview-img').src = f.querySelector('img').src; $('phview').hidden = false; });
+    });
+    fitSetup();
+    if (slides[cur] === $('ph-slide')) fitSlide(slides[cur]);
+  }
+  $('s-addph').addEventListener('click', function () { $('s-phfile').click(); });
+  $('s-phfile').addEventListener('change', function () { addPhotos(this.files); this.value = ''; });
+  // drag photos onto the setup box or the photos slide; paste one (Ctrl+V) on either
+  function dropZone(el, hl) {
+    el.addEventListener('dragover', function (e) { e.preventDefault(); if (hl) hl.classList.add('drag'); });
+    el.addEventListener('dragleave', function () { if (hl) hl.classList.remove('drag'); });
+    el.addEventListener('drop', function (e) { e.preventDefault(); if (hl) hl.classList.remove('drag'); addPhotos(e.dataTransfer.files); });
+  }
+  dropZone($('setup'), $('s-phdrop'));
+  dropZone($('ph-slide'), null);
+  document.addEventListener('paste', function (e) {
+    var onPhotos = !$('setup').classList.contains('hidden') || slides[cur] === $('ph-slide');
+    if (!onPhotos) return;
+    var files = [].map.call(e.clipboardData.items || [], function (it) { return it.kind === 'file' ? it.getAsFile() : null; }).filter(Boolean);
+    if (files.length) { e.preventDefault(); addPhotos(files); }
+  });
+  function closeView() { $('phview').hidden = true; }
+  $('phview').addEventListener('click', closeView);
+
+  // questions slide: a topic adds its basic slide to the run (right after this one) and goes there
+  function showTopic(t) {
+    var el = document.querySelector('.slide.basic[data-topic="' + t + '"]');
+    el.classList.remove('skip');
+    all('#topics button[data-topic="' + t + '"]').forEach(function (b) { b.classList.add('on'); });
+    layout();
+    return el;
+  }
+  all('#topics button').forEach(function (b) {
+    // showTopic re-lays out the run, so read slides after it, not before
+    b.addEventListener('click', function () { var el = showTopic(b.dataset.topic); go(slides.indexOf(el)); });
+  });
+  $('topics-all').addEventListener('click', function () {
+    var first = null;
+    all('#topics button').forEach(function (b) { var el = showTopic(b.dataset.topic); first = first || el; });
+    go(slides.indexOf(first));
+  });
+
+  // setup never scrolls: if their answers make it taller than the window, shrink it to fit
+  function fitSetup() {
+    var box = document.querySelector('.setup .box'), wrap = $('setup'), z = 1;
+    box.style.zoom = 1;
+    // shrinking re-wraps the chips, so re-check a few times
+    for (var i = 0; i < 6 && wrap.scrollHeight > wrap.clientHeight + 1 && z > 0.6; i++) {
+      z *= Math.max(0.85, wrap.clientHeight / wrap.scrollHeight - 0.01);
+      box.style.zoom = z;
+    }
+  }
+  fitSetup();
+  addEventListener('resize', fitSetup);
+
+  function build() {
+    var list = state.concerns.length ? state.concerns : ['better'];
+    var c = C[list[0]], name = $('s-name').value.trim(), suburb = $('s-suburb').value.trim();
+    var people = state.people, two = list.length === 2;
+    // the main concern leads; a second one joins the title and headline
+    var view = Object.assign({}, c, {
+      title: two ? c.title + ' &amp; ' + C[list[1]].title : c.title,
+      short: list.length === 1 ? c.short : two ? c.short + ' &amp; ' + (/^your /.test(c.short) ? C[list[1]].short.replace(/^your /, '') : C[list[1]].short) : 'your whole home'
+    });
+    all('[data-t]').forEach(function (el) { var k = el.dataset.t; if (view[k] != null) el.innerHTML = view[k]; });
+    $('c-name').textContent = name ? name + '’s' : 'Your';
+    $('w-name').textContent = name ? ', ' + name : '';
+    $('c-suburb').textContent = suburb ? ', for your home in ' + suburb : '';
+    // their words
+    var g = state.said.length ? state.said : [c.said[0]];
+    $('goals').innerHTML = g.map(function (t) { return '<li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>' + esc(t) + '</span></li>'; }).join('');
+    // taps, theirs first and highlighted
+    var hot = uniq([].concat.apply([], list.map(function (k) { return C[k].hot; })));
+    var taps = hot.concat(TAPS.filter(function (t) { return hot.indexOf(t) < 0; }));
+    $('taps').innerHTML = taps.map(function (t) { return '<span class="' + (hot.indexOf(t) >= 0 ? 'hot' : '') + '">' + t + '</span>'; }).join('');
+    // the 5 stages: every concern's stages lit, the rest dimmed; one "for you" line per extra stage group
+    var stages = uniq([].concat.apply([], list.map(function (k) { return C[k].stages; }))).sort();
+    var allStages = stages.length === 5, seen = [], lines = [];
+    list.forEach(function (k) {
+      if (lines.length < 2 && C[k].stages.some(function (n) { return seen.indexOf(n) < 0; })) { lines.push(C[k].stageLine); seen = seen.concat(C[k].stages); }
+    });
+    all('[data-t="stageLine"]').forEach(function (el) { el.textContent = lines.join(' '); });
+    all('.bcard').forEach(function (el) { el.classList.toggle('hl', list.some(function (k) { return el.dataset.b.split(' ').indexOf(k) >= 0; })); });
+    $('st-h').innerHTML = suburb ? '5 stages for what’s coming through your pipes in <span class="accent" style="white-space:nowrap">' + esc(suburb) + '</span>' : '5 stages for what’s coming through <span class="accent">your pipes</span>';
+    $('sys').classList.toggle('focus', !allStages);
+    all('.stg').forEach(function (el) { el.classList.toggle('hl', stages.indexOf(+el.dataset.s) >= 0); });
+    all('.hs').forEach(function (h) { h.classList.toggle('hl', !allStages && !!h.querySelector('.stg.hl')); });
+    // proof: take turns from each concern's list
+    var ppl = [];
+    for (var r = 0; ppl.length < 4 && r < 4; r++) list.forEach(function (k) { var p = C[k].people[r]; if (p && ppl.length < 4 && ppl.indexOf(p) < 0) ppl.push(p); });
+    $('people').innerHTML = ppl.map(function (p) { return '<div class="person"><img src="/assets/videos/testimonials/' + p + '-poster.jpg" alt=""><div class="q">“' + esc(Q[p][0]) + '”<i>' + esc(Q[p][1]) + '</i></div></div>'; }).join('');
+    // tailored set-up
+    // homes near you: their suburb first (exact, then e.g. Narre Warren → Narre Warren South), then their area
+    var sub = suburb.toLowerCase().replace(/\s+/g, ' '), base = sub.replace(/ (north|south|east|west|upper|lower)$/, '');
+    var exact = [], partial = [];
+    Object.keys(PHOTO_SUBURB).forEach(function (k) {
+      var p = PHOTO_SUBURB[k].toLowerCase();
+      if (!sub) return;
+      if (p === sub) exact.push(k);
+      else if (p === base || p.indexOf(base + ' ') === 0) partial.push(k);
+    });
+    var mine = exact.concat(partial), zone = REGION_OF[sub] || REGION_OF[base] || '';
+    var area = zone === 'east' ? 'southeast' : zone || (mine.length ? AREA_OF[mine[0]] : '');
+    var rest = area ? PHOTO_AREAS[area].filter(function (k) { return mine.indexOf(k) < 0; }) : [];
+    if (area === 'southeast') {
+      var wantEast = zone === 'east' || (!zone && mine.length && EAST_PHOTOS.indexOf(mine[0]) >= 0);
+      rest.sort(function (a, b) { return (EAST_PHOTOS.indexOf(a) >= 0) === wantEast ? ((EAST_PHOTOS.indexOf(b) >= 0) === wantEast ? 0 : -1) : ((EAST_PHOTOS.indexOf(b) >= 0) === wantEast ? 1 : 0); });
+    }
+    if (!area) for (var r2 = 0; r2 < 3; r2++) ['north', 'west', 'southeast'].forEach(function (a) { rest.push(PHOTO_AREAS[a][r2]); });
+    var near = mine.concat(rest).slice(0, 4);
+    // 'in' only for their exact suburb, 'near' only for a next-door match; otherwise the whole region (never 'near' a suburb we haven't done)
+    var REGION_NAME = { north: 'Melbourne’s north', west: 'Melbourne’s west', southeast: 'Melbourne’s south east', east: 'Melbourne’s east' };
+    $('near-h').innerHTML = exact.length ? 'Homes we’ve done in <span class="accent">' + esc(suburb) + '</span>'
+      : partial.length ? 'Homes we’ve done near <span class="accent">' + esc(suburb) + '</span>'
+      : zone ? 'Homes we’ve done across <span class="accent">' + REGION_NAME[zone] + '</span>'
+      : 'Homes we’ve done across <span class="accent">Melbourne</span>';
+    $('near').innerHTML = near.map(function (k) { return '<figure' + (mine.indexOf(k) >= 0 ? ' class="match"' : '') + '><img src="/assets/install-photos/' + k + '.jpg" alt=""><figcaption>' + PHOTO_SUBURB[k] + '</figcaption></figure>'; }).join('');
+    // filter running costs, down to per person per day for their household
+    $('f-mo').textContent = whole(300 / 12); $('f-day').textContent = money(300 / 365);
+    var tick = '<span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>';
+    $('recap').innerHTML = [
+      'Your plan for ' + view.title,
+      '5 stages for what’s coming through your pipes' + (suburb ? ' in ' + esc(suburb) : ''),
+      'Where it goes, from your photos',
+      'Our dedicated plumbing team, 7-year workmanship warranty and 30-day money-back guarantee',
+      'Fresh filters for about ' + money(300 / 365) + ' a day'
+    ].map(function (t) { return '<li>' + tick + '<span>' + t + '</span></li>'; }).join('');
+    $('f-pp').textContent = money(300 / 365 / people); $('f-n').textContent = people; $('life-n').textContent = people;
+    // what they spend now, most relevant first
+    var box = $('k-inputs');
+    c.costs.forEach(function (k) {
+      $('k-' + k).value = num($('s-' + k).value);
+      box.appendChild(box.querySelector('[data-k="' + k + '"]'));
+    });
+    $('pp').textContent = people;
+    layout();
+    update();
+  }
+
+  var num = function (v) { return Math.max(0, parseFloat(String(v).replace(/[^0-9.]/g, '')) || 0); };
+  var money = function (n) { return n < 1 ? Math.round(n * 100) + '¢' : '$' + n.toFixed(2); };
+  var whole = function (n) { return '$' + Math.round(n).toLocaleString('en-AU'); };
+  function update() {
+    var c = C[state.concerns[0] || 'better'];
+    var yearNow = num($('k-bottled').value) * 52 + num($('k-jugs').value);
+    $('k-year').textContent = whole(yearNow);
+    $('k-ten').textContent = whole(yearNow * 10);
+    var price = num($('pr').textContent) || 3990, people = Math.max(1, num($('pp').textContent) || 1);
+    var sys = price / 3650, allIn = (price + 300 * 10) / 3650;
+    $('d-sys').textContent = money(sys);
+    $('d-all').textContent = money(allIn);
+    $('d-per').textContent = money(allIn / people);
+    $('d-compare').innerHTML = yearNow > 0
+      ? 'You’re already spending <b>' + money(yearNow / 365) + ' a day</b>, without fixing it. This is ' + money(allIn) + ' a day for <b>' + c.feel + '</b>.'
+      : 'Less than a coffee a day, for <b>' + c.feel + '</b>.';
+    var dep = Math.round(price * 0.2);
+    $('pay-dep').textContent = whole(dep); $('pay-bal').textContent = whole(price - dep);
+    // zip: deposit today, the rest financed. Repayment = rest / term rounded up to the cent (paid off in time),
+    // + $9.95 monthly account fee. Extra in fees = $75 setup + $9.95 x term. A week = a month x 12 / 52.
+    var ZIP_FEE = 9.95, ZIP_SETUP = 75, cents = function (n) { return '$' + n.toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+    var zdep = Math.min(price, num($('z-dep').value)), zrest = Math.round((price - zdep) * 100) / 100;
+    $('z-rest').textContent = cents(zrest); $('pay-zdep').textContent = whole(zdep); $('pay-zrest').textContent = whole(zrest);
+    all('#z-rows tr').forEach(function (tr) {
+      var m = +tr.dataset.m, rep = Math.ceil(zrest / m * 100) / 100, mo = rep + ZIP_FEE, extra = ZIP_SETUP + ZIP_FEE * m, td = tr.children;
+      td[1].innerHTML = '<b>' + cents(mo) + '</b><small>' + cents(rep) + ' + $9.95</small>';
+      td[2].textContent = cents(Math.round(mo * 12 / 52 * 100) / 100);
+      td[3].textContent = '+' + cents(extra);
+      td[4].textContent = cents(price + extra);
+    });
+    var n = num($('r-n').value);
+    $('r-back').textContent = whole(n * 500);
+    $('r-net').textContent = whole(Math.max(0, price - n * 500));
+  }
+  ['k-bottled', 'k-jugs', 'r-n'].forEach(function (id) { $(id).addEventListener('input', update); });
+  $('pr').addEventListener('input', update);
+  $('z-dep').addEventListener('input', update);
+  all('#z-rows tr').forEach(function (tr) {
+    tr.addEventListener('click', function () { all('#z-rows tr').forEach(function (x) { x.classList.toggle('on', x === tr && !x.classList.contains('on')); }); });
+  });
+  $('pp').addEventListener('input', update);
+  $('reveal').addEventListener('click', function () { this.style.display = 'none'; $('price').classList.add('shown'); fitSlide(slides[cur]); });
+
+  // stage pop-ups
+  function openPop(n) {
+    var d = STAGE[n];
+    $('pop-n').textContent = d[0]; $('pop-h').textContent = d[1]; $('pop-m').textContent = d[2];
+    $('pop-p').textContent = d[3]; $('pop-cap').textContent = d[5];
+    $('pop-img').hidden = !d[4]; if (d[4]) $('pop-img').src = d[4];
+    document.querySelector('.pop-card').classList.toggle('noimg', !d[4]);
+    $('pop').hidden = false;
+  }
+  function closePop() { $('pop').hidden = true; }
+  all('.stg').forEach(function (el) {
+    el.insertAdjacentHTML('beforeend', '<i class="more" aria-hidden="true">+</i>');
+    el.setAttribute('role', 'button'); el.tabIndex = 0;
+    el.addEventListener('click', function () { openPop(el.dataset.s); });
+  });
+  $('pop-x').addEventListener('click', closePop);
+  $('pop').addEventListener('click', function (e) { if (e.target === this) closePop(); });
+
+  // slides (anything marked .skip is left out of the run and the dots)
+  var slides = [], dots = $('dots'), cur = 0;
+  function layout() {
+    slides = all('.slide').filter(function (el) { return !el.classList.contains('skip'); });
+    dots.innerHTML = '';
+    slides.forEach(function (_, i) { var d = document.createElement('i'); d.addEventListener('click', function () { go(i); }); dots.appendChild(d); });
+  }
+  function fitSlide(el) {
+    var kids = [].filter.call(el.children, function (k) { return !k.classList.contains('pop'); });
+    kids.forEach(function (k) { k.style.zoom = ''; });
+    for (var i = 0, z = 1; i < 6 && el.scrollHeight > el.clientHeight + 1 && z > 0.6; i++) {
+      z *= Math.max(0.85, el.clientHeight / el.scrollHeight - 0.01);
+      kids.forEach(function (k) { k.style.zoom = z; });
+    }
+  }
+  addEventListener('resize', function () { if (slides[cur]) fitSlide(slides[cur]); });
+  function go(i) {
+    closePop(); closeView();
+    cur = Math.max(0, Math.min(slides.length - 1, i));
+    all('.slide').forEach(function (el) { el.classList.toggle('on', el === slides[cur]); });
+    [].forEach.call(dots.children, function (d, k) { d.classList.toggle('on', k === cur); });
+    document.body.classList.toggle('on-light', slides[cur].classList.contains('light'));
+    fitSlide(slides[cur]);
+  }
+
+  $('prev').addEventListener('click', function () { go(cur - 1); });
+  $('next').addEventListener('click', function () { go(cur + 1); });
+  $('s-start').addEventListener('click', function () { build(); $('setup').classList.add('hidden'); go(0); });
+  document.addEventListener('keydown', function (e) {
+    var t = e.target;
+    if (!$('setup').classList.contains('hidden')) return;
+    if (!$('pop').hidden) { if (e.key === 'Escape') closePop(); return; }
+    if (!$('phview').hidden) { if (e.key === 'Escape') closeView(); return; }
+    if (t.classList && t.classList.contains('stg') && e.key === 'Enter') { openPop(t.dataset.s); return; }
+    if (t.isContentEditable || t.tagName === 'INPUT') {
+      if (e.key === 'Enter' || e.key === 'Escape') { e.preventDefault(); t.blur(); }
+      return;
+    }
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(cur + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(cur - 1); }
+    if (e.key === 's' || e.key === 'S') { $('setup').classList.remove('hidden'); }
+    if (e.key === 'q' || e.key === 'Q') { go(slides.indexOf($('q-slide'))); }
+    if (e.key === 'r' || e.key === 'R') { go(slides.indexOf($('ref-slide'))); }
+    if (e.key === 'z' || e.key === 'Z') { go(slides.indexOf($('zip-slide'))); }
+  });
+  layout();
+  go(0);
+})();
+</script>
+</body>
+</html>
