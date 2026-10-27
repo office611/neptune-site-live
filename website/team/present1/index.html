@@ -16,8 +16,9 @@
 /* Screenshare deck for the Zoom call: PRESENT1, for leads who've read page 2 (/melb/info).
    Same as /team/present, but the basics page 2 already covers (why filter, chlorine at home,
    why it matters, how it works, the system, filter life) are left out of the run. They sit
-   behind the "Any questions from what you read?" slide: click a topic there to go over it.
-   Their photos (setup step 5) show on the where-it-goes slide, just before the price.
+   behind the "Any questions from what you read?" slide: click a topic to go over it, or
+   "No questions, let's keep going" to skip them all.
+   "Your installation location" is a title only: switch tabs to their photos and talk it through.
    1. Before sharing: click through the setup screen as they answer
       (concerns, their words, people, what they spend).
    2. Share the tab, press Start. Every slide is built around their concern.
@@ -65,15 +66,7 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .chips.said button.on::before { content: '\2713  '; opacity: 1; }
 .chips .none { font-size: 13px; color: rgba(255,255,255,.45); }
 #s-people button { min-width: 46px; padding: 10px; }
-.costs { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); gap: 12px; align-items: center; }
-.phrow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; border: 1px dashed rgba(255,255,255,.25); border-radius: 12px; padding: 10px; transition: background .2s, border-color .2s; }
-.phrow.drag { background: rgba(77,166,255,.12); border-color: var(--blue); }
-.addph { font: inherit; font-size: 15px; font-weight: 700; padding: 10px 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.06); color: #fff; cursor: pointer; }
-.thumbs { display: flex; gap: 8px; flex: 1; flex-wrap: wrap; min-height: 10px; }
-.thumbs .t { position: relative; width: 64px; height: 64px; border-radius: 8px; overflow: hidden; background: #000; }
-.thumbs .t img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.thumbs .t button { position: absolute; top: 2px; right: 2px; width: 20px; height: 20px; border-radius: 50%; border: 0; background: rgba(0,0,0,.7); color: #fff; font-size: 14px; line-height: 20px; padding: 0; cursor: pointer; }
-.phrow .start { margin-left: auto; }
+.costs { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)) 1fr; gap: 12px; align-items: center; }
 @media (max-width: 700px) { .costs { grid-template-columns: 1fr; } }
 .costs .c { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 12px 16px; font-size: 15px; font-weight: 600; }
 .costs .c span { flex: 1; line-height: 1.2; white-space: nowrap; }
@@ -371,33 +364,23 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 @media (max-width: 860px) { .topics { grid-template-columns: 1fr 1fr; } }
 .topics button { position: relative; font: inherit; text-align: left; cursor: pointer; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 2.4vh 1.4vw; color: var(--ink); transition: border-color .2s, box-shadow .2s, transform .2s; }
 .topics button:hover { transform: translateY(-2px); border-color: var(--blue-d); }
-.topics button:focus { outline: none; }
-.topics button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.topics button:focus, .topics-do button:focus { outline: none; }
+.topics button:focus-visible, .topics-do button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
 .topics b { display: block; font-size: clamp(17px, 1.8vw, 24px); }
 .topics span { display: block; font-size: clamp(13px, 1.2vw, 16px); color: var(--soft); margin-top: 4px; }
 .topics i { position: absolute; top: 12px; right: 12px; width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--line); display: flex; align-items: center; justify-content: center; color: transparent; }
 .topics i svg { width: 14px; height: 14px; }
 .topics button.on { border: 2px solid var(--blue-d); box-shadow: 0 10px 26px rgba(46,123,196,.15); }
 .topics button.on i { background: var(--blue-d); border-color: var(--blue-d); color: #fff; }
-.topics-all { align-self: flex-start; margin-top: 2.4vh; font: inherit; font-size: clamp(14px, 1.3vw, 17px); font-weight: 700; color: var(--blue-d); background: transparent; border: 2px solid var(--blue-d); border-radius: 999px; padding: 10px 22px; cursor: pointer; }
+.topics-do { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2.6vh; }
+.topics-do button { font: inherit; font-size: clamp(14px, 1.3vw, 17px); font-weight: 700; border-radius: 999px; padding: 12px 24px; cursor: pointer; }
+.topics-skip { color: #fff; background: var(--blue-d); border: 2px solid var(--blue-d); }
+.topics-all { color: var(--blue-d); background: transparent; border: 2px solid var(--blue-d); }
 
-/* their photos beside where it goes */
-.where-wrap.has { display: grid; grid-template-columns: 1.35fr 1fr; gap: 2vw; align-items: stretch; }
-.where-wrap.has .where { grid-template-columns: 1fr; gap: 1.2vh; margin-top: 0; }
-.where-wrap.has .where > div { padding: 2vh 1.4vw; }
-.where-wrap.has .where .ck { width: 30px; height: 30px; margin-bottom: 1vh; }
-.yph { display: none; }
-.where-wrap.has .yph { display: grid; gap: 10px; height: min(58vh, 500px); }
-.yph[data-n="2"] { grid-template-columns: 1fr 1fr; }
-.yph[data-n="3"] { grid-template-columns: 1.4fr 1fr; grid-template-rows: 1fr 1fr; }
-.yph[data-n="3"] figure:first-child { grid-row: 1 / 3; }
-.yph[data-n="4"] { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
-.yph figure { margin: 0; border-radius: 14px; overflow: hidden; background: #0b1e3d; cursor: zoom-in; min-height: 0; }
-.yph img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.phview { position: fixed; inset: 0; z-index: 30; background: rgba(5,12,24,.94); display: flex; align-items: center; justify-content: center; padding: 3vh 3vw; cursor: zoom-out; }
-.phview[hidden] { display: none; }
-.phview img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px; }
-@media (max-width: 860px) { .where-wrap.has { grid-template-columns: 1fr; } }
+/* installation location: title only */
+.slide.loc { align-items: center; text-align: center; }
+.loc-ic { width: clamp(64px, 7vw, 92px); height: clamp(64px, 7vw, 92px); border-radius: 50%; background: rgba(77,166,255,.16); color: var(--blue); display: flex; align-items: center; justify-content: center; margin-bottom: 3vh; }
+.loc-ic svg { width: 50%; height: 50%; }
 
 /* nav */
 .nav { position: fixed; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; z-index: 5; pointer-events: none; }
@@ -437,12 +420,6 @@ body.on-light .nav { color: var(--ink); }
     <div class="costs">
       <div class="c"><span>Bottled water</span>$<input id="s-bottled" type="number" min="0" inputmode="decimal" placeholder="0"><em>/wk</em></div>
       <div class="c"><span>Jug &amp; shower filters</span>$<input id="s-jugs" type="number" min="0" inputmode="decimal" placeholder="0"><em>/yr</em></div>
-    </div>
-    <label>5 · Their photos <span class="opt">optional · choose, drag in or paste (Ctrl+V) · shown on the where-it-goes slide, never uploaded</span></label>
-    <div class="phrow" id="s-phdrop">
-      <button type="button" class="addph" id="s-addph">+ Add photos</button>
-      <input id="s-phfile" type="file" accept="image/*" multiple hidden>
-      <div class="thumbs" id="s-thumbs"></div>
       <button type="button" class="start" id="s-start">Start presentation →</button>
     </div>
   </div>
@@ -464,7 +441,8 @@ body.on-light .nav { color: var(--ink); }
 </section>
 
 <!-- Questions: "Did you get a look at the info? What final questions have you got?"
-     Click a topic to go over it (that slide joins the run right after this one); "all of it" adds every basic. -->
+     Click a topic to go over it (that slide joins the run right after this one); "all of it" adds every
+     basic; "No questions" takes them all back out and moves on. -->
 <section class="slide light" id="q-slide">
   <div class="eyebrow">The info we sent you</div>
   <h2>Any questions from <span class="accent">what you read?</span></h2>
@@ -477,7 +455,10 @@ body.on-light .nav { color: var(--ink); }
     <button type="button" data-topic="system"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><b>The system</b><span>What it&rsquo;s made of</span></button>
     <button type="button" data-topic="life"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><b>Filter life</b><span>How long your filters last</span></button>
   </div>
-  <button type="button" class="topics-all" id="topics-all">Go through all of it</button>
+  <div class="topics-do">
+    <button type="button" class="topics-skip" id="topics-skip">No questions, let&rsquo;s keep going &rarr;</button>
+    <button type="button" class="topics-all" id="topics-all">Go through all of it</button>
+  </div>
 </section>
 
 <!-- Why filter 1: where the chlorine comes from -->
@@ -672,19 +653,11 @@ body.on-light .nav { color: var(--ink); }
   </div>
 </section>
 
-<!-- Their photos: where it goes, just before the price. Photos come from setup step 5 (or drag in / paste on this slide); click one to see it full screen -->
-<section class="slide light" id="ph-slide">
+<!-- Installation location: title only. Switch tabs to their photos (GHL) and talk it through. -->
+<section class="slide loc">
+  <div class="loc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
   <div class="eyebrow">From your photos</div>
-  <h2>Where your system <span class="accent">will go</span></h2>
-  <div class="where-wrap" id="where-wrap">
-  <div class="yph" id="yph"></div>
-  <div class="where">
-    <div><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><b>At your water meter</b><span>The standard spot for most homes, tidy and out of the way.</span></div>
-    <div><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><b>Reviewed by our plumbers</b><span>They go over your photos before install day, so there are no surprises.</span></div>
-    <div><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><b>Confirmed with you</b><span>We agree the final spot with you on the day. Anything outside a standard install, we tell you upfront.</span></div>
-  </div>
-  </div>
-  <div class="ask"><span class="q">?</span>Any concerns about where it'll go?</div>
+  <h1>Your installation <span class="accent">location</span></h1>
 </section>
 
 <!-- 9. What it's costing now (prefilled from setup; type on it live too) -->
@@ -814,8 +787,6 @@ body.on-light .nav { color: var(--ink); }
   </div>
 </section>
 
-<div class="phview" id="phview" hidden><img id="phview-img" alt=""></div>
-
 <nav class="nav">
   <button type="button" id="prev">&larr; Back</button>
   <div class="dots" id="dots"></div>
@@ -927,7 +898,7 @@ body.on-light .nav { color: var(--ink); }
   var $ = function (id) { return document.getElementById(id); };
   var all = function (sel) { return [].slice.call(document.querySelectorAll(sel)); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
-  var state = { concerns: [], said: [], people: 4, photos: [] };
+  var state = { concerns: [], said: [], people: 4 };
   var pick = function (box, v) { all('#' + box + ' button').forEach(function (x) { x.classList.toggle('on', x.dataset.v === String(v)); }); };
   var uniq = function (a) { return a.filter(function (x, i) { return a.indexOf(x) === i; }); };
 
@@ -975,48 +946,6 @@ body.on-light .nav { color: var(--ink); }
   });
   markConcerns(); renderSaid();
 
-  // 5. their photos: kept in this tab only (object URLs), max 4, newest last
-  function addPhotos(files) {
-    [].forEach.call(files || [], function (f) {
-      if (!/^image\//.test(f.type) || state.photos.length >= 4) return;
-      state.photos.push(URL.createObjectURL(f));
-    });
-    renderPhotos();
-  }
-  function renderPhotos() {
-    $('s-thumbs').innerHTML = state.photos.map(function (u, i) { return '<div class="t"><img src="' + u + '" alt=""><button type="button" data-i="' + i + '" aria-label="Remove">&times;</button></div>'; }).join('');
-    all('#s-thumbs button').forEach(function (b) {
-      b.addEventListener('click', function () { URL.revokeObjectURL(state.photos[+b.dataset.i]); state.photos.splice(+b.dataset.i, 1); renderPhotos(); });
-    });
-    var n = state.photos.length;
-    $('yph').dataset.n = n;
-    $('yph').innerHTML = state.photos.map(function (u) { return '<figure><img src="' + u + '" alt="Your photo"></figure>'; }).join('');
-    $('where-wrap').classList.toggle('has', n > 0);
-    all('#yph figure').forEach(function (f) {
-      f.addEventListener('click', function () { $('phview-img').src = f.querySelector('img').src; $('phview').hidden = false; });
-    });
-    fitSetup();
-    if (slides[cur] === $('ph-slide')) fitSlide(slides[cur]);
-  }
-  $('s-addph').addEventListener('click', function () { $('s-phfile').click(); });
-  $('s-phfile').addEventListener('change', function () { addPhotos(this.files); this.value = ''; });
-  // drag photos onto the setup box or the photos slide; paste one (Ctrl+V) on either
-  function dropZone(el, hl) {
-    el.addEventListener('dragover', function (e) { e.preventDefault(); if (hl) hl.classList.add('drag'); });
-    el.addEventListener('dragleave', function () { if (hl) hl.classList.remove('drag'); });
-    el.addEventListener('drop', function (e) { e.preventDefault(); if (hl) hl.classList.remove('drag'); addPhotos(e.dataTransfer.files); });
-  }
-  dropZone($('setup'), $('s-phdrop'));
-  dropZone($('ph-slide'), null);
-  document.addEventListener('paste', function (e) {
-    var onPhotos = !$('setup').classList.contains('hidden') || slides[cur] === $('ph-slide');
-    if (!onPhotos) return;
-    var files = [].map.call(e.clipboardData.items || [], function (it) { return it.kind === 'file' ? it.getAsFile() : null; }).filter(Boolean);
-    if (files.length) { e.preventDefault(); addPhotos(files); }
-  });
-  function closeView() { $('phview').hidden = true; }
-  $('phview').addEventListener('click', closeView);
-
   // questions slide: a topic adds its basic slide to the run (right after this one) and goes there
   function showTopic(t) {
     var el = document.querySelector('.slide.basic[data-topic="' + t + '"]');
@@ -1033,6 +962,13 @@ body.on-light .nav { color: var(--ink); }
     var first = null;
     all('#topics button').forEach(function (b) { var el = showTopic(b.dataset.topic); first = first || el; });
     go(slides.indexOf(first));
+  });
+  // no questions: every basic back out of the run, on to their stages
+  $('topics-skip').addEventListener('click', function () {
+    all('.slide.basic').forEach(function (el) { el.classList.add('skip'); });
+    all('#topics button').forEach(function (b) { b.classList.remove('on'); });
+    layout();
+    go(slides.indexOf($('q-slide')) + 1);
   });
 
   // setup never scrolls: if their answers make it taller than the window, shrink it to fit
@@ -1116,7 +1052,7 @@ body.on-light .nav { color: var(--ink); }
     $('recap').innerHTML = [
       'Your plan for ' + view.title,
       '5 stages for what’s coming through your pipes' + (suburb ? ' in ' + esc(suburb) : ''),
-      'Where it goes, from your photos',
+      'Your installation location, from your photos',
       'Our dedicated plumbing team, 7-year workmanship warranty and 30-day money-back guarantee',
       'Fresh filters for about ' + money(300 / 365) + ' a day'
     ].map(function (t) { return '<li>' + tick + '<span>' + t + '</span></li>'; }).join('');
@@ -1210,7 +1146,7 @@ body.on-light .nav { color: var(--ink); }
   }
   addEventListener('resize', function () { if (slides[cur]) fitSlide(slides[cur]); });
   function go(i) {
-    closePop(); closeView();
+    closePop();
     cur = Math.max(0, Math.min(slides.length - 1, i));
     all('.slide').forEach(function (el) { el.classList.toggle('on', el === slides[cur]); });
     [].forEach.call(dots.children, function (d, k) { d.classList.toggle('on', k === cur); });
@@ -1225,7 +1161,6 @@ body.on-light .nav { color: var(--ink); }
     var t = e.target;
     if (!$('setup').classList.contains('hidden')) return;
     if (!$('pop').hidden) { if (e.key === 'Escape') closePop(); return; }
-    if (!$('phview').hidden) { if (e.key === 'Escape') closeView(); return; }
     if (t.classList && t.classList.contains('stg') && e.key === 'Enter') { openPop(t.dataset.s); return; }
     if (t.isContentEditable || t.tagName === 'INPUT') {
       if (e.key === 'Enter' || e.key === 'Escape') { e.preventDefault(); t.blur(); }
