@@ -92,7 +92,8 @@
 }
 .hero-photo-trio .trio-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hero-photo-trio .trio-item:nth-child(1) { transform: rotate(-6deg) translateY(14px); margin-right: -16px; z-index: 1; }
-.hero-photo-trio .trio-item:nth-child(2) { width: 34%; max-width: 272px; transform: translateY(-14px); z-index: 3; }
+/* middle photo is a square crop of a landscape shot (both faces in), so the card is square and a little wider */
+.hero-photo-trio .trio-item:nth-child(2) { width: 40%; max-width: 320px; aspect-ratio: 1 / 1; transform: translateY(-14px); z-index: 3; }
 .hero-photo-trio .trio-item:nth-child(3) { transform: rotate(6deg) translateY(14px); margin-left: -16px; z-index: 1; }
 @media (max-width: 640px) {
   .hero-photo-trio { max-width: 380px; margin-top: 28px; padding: 0 16px; }
@@ -444,7 +445,7 @@
          overlapping instead of a scrolling gallery strip. -->
     <div class="hero-photo-trio">
       <div class="trio-item"><img src="/assets/install-photos/img-1171.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager"></div>
-      <div class="trio-item"><img src="/assets/install-photos/girish-cover.jpg" alt="Neptune whole home water filtration customer, Girish" loading="eager"></div>
+      <div class="trio-item"><img src="/assets/install-photos/girish-stefan.jpg" alt="Stefan from Neptune Filtration with customer Girish at his installed system" loading="eager"></div>
       <div class="trio-item"><img src="/assets/install-photos/img-1216.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager"></div>
     </div>
   </div>
