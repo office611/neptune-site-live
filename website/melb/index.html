@@ -21,6 +21,12 @@
 <style>
 :root { --navy-deep: #13233f; }
 .hero-photo .assessment { padding-bottom: var(--s-6); }
+/* GHL leaves a constant empty strip under the survey (55px phones, 61px from 768px) and
+   assessment.css adds 40px card padding from 1024px. Pull the hero's end up into that space
+   so ~40px (phones) / ~48px (wider) of navy is left under the survey's Next bar. */
+.hero-photo .ghl-survey-wrap { margin-bottom: -39px; }
+@media (min-width: 768px) { .hero-photo .ghl-survey-wrap { margin-bottom: -37px; } }
+@media (min-width: 1024px) { .hero-photo .ghl-survey-wrap { margin-bottom: -77px; } }
 
 .hero-arrow-spacer { padding-block: var(--s-3); }
 @media (min-width: 768px) {
@@ -92,6 +98,8 @@
 /* Install gallery -- NEPTUNE word, area chips and a rotating fan. Same
    block on /melb: keep the two in sync. */
 #install-gallery { padding-block: var(--s-10); }
+/* the fan's rotated side card pokes ~10px past a 360px screen; clip it so the page never scrolls sideways */
+#install-gallery { overflow-x: clip; }
 /* "NEPTUNE" with install photos showing through the letters. The strip
    behind is 10 installs side by side; it drifts slowly so each letter
    cycles through different homes. */
@@ -425,7 +433,7 @@
   <div class="container">
 
     <div class="assessment-head">
-      <span class="next-step-heading"><span class="hero-accent next-step-word">Next Step:</span> Answer A Few Quick Questions To Get Your&nbsp;Price</span>
+      <span class="next-step-heading"><span class="hero-accent next-step-word">Next Step:</span> Answer A Few Quick Questions To Start Your Free, No&#8209;Obligation&nbsp;Quote</span>
     </div>
 
     <div class="assessment-card assessment-card--form-only">
@@ -554,8 +562,8 @@
       <figure class="fan-card fan-r"><img src="/assets/install-photos/6.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
     </div>
     <div class="gallery-cta">
-      <span class="next-step-heading"><span class="hero-accent next-step-word">Next Step:</span> Answer A Few Quick Questions To Get Your&nbsp;Price</span>
-      <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get My Price</a>
+      <span class="next-step-heading"><span class="hero-accent next-step-word">Next Step:</span> Answer A Few Quick Questions To Start Your Free, No&#8209;Obligation&nbsp;Quote</span>
+      <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Start My Free Quote</a>
     </div>
   </div>
 </section>
@@ -747,8 +755,8 @@
       </ul>
     </div>
     <p class="familiar-lead">If any of these sound familiar:</p>
-    <h2>Next Step: Answer A Few Quick Questions To Get Your&nbsp;Price.</h2>
-    <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get My Price</a>
+    <h2>Next Step: Answer A Few Quick Questions To Start Your Free, No&#8209;Obligation&nbsp;Quote.</h2>
+    <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Start My Free Quote</a>
   </div>
 </section>
 
