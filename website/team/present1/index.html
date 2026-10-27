@@ -17,7 +17,7 @@
    Same as /team/present, but the basics page 2 already covers (why filter, chlorine at home,
    why it matters, how it works, the system, filter life) are left out of the run. They sit
    behind the "Any questions from what you read?" slide: click a topic to go over it, or
-   "No questions, let's keep going" to skip them all.
+   "No questions, let's keep going" to skip them all and jump to the installation location (L).
    "Your installation location" is a title only: switch tabs to their photos and talk it through.
    1. Before sharing: click through the setup screen as they answer
       (concerns, their words, people, what they spend).
@@ -442,7 +442,7 @@ body.on-light .nav { color: var(--ink); }
 
 <!-- Questions: "Did you get a look at the info? What final questions have you got?"
      Click a topic to go over it (that slide joins the run right after this one); "all of it" adds every
-     basic; "No questions" takes them all back out and moves on. -->
+     basic; "No questions" takes them all back out and jumps to the installation location. -->
 <section class="slide light" id="q-slide">
   <div class="eyebrow">The info we sent you</div>
   <h2>Any questions from <span class="accent">what you read?</span></h2>
@@ -654,7 +654,7 @@ body.on-light .nav { color: var(--ink); }
 </section>
 
 <!-- Installation location: title only. Switch tabs to their photos (GHL) and talk it through. -->
-<section class="slide loc">
+<section class="slide loc" id="loc-slide">
   <div class="loc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
   <div class="eyebrow">From your photos</div>
   <h1>Your installation <span class="accent">location</span></h1>
@@ -963,12 +963,12 @@ body.on-light .nav { color: var(--ink); }
     all('#topics button').forEach(function (b) { var el = showTopic(b.dataset.topic); first = first || el; });
     go(slides.indexOf(first));
   });
-  // no questions: every basic back out of the run, on to their stages
+  // no questions: every basic back out of the run, straight to their installation location
   $('topics-skip').addEventListener('click', function () {
     all('.slide.basic').forEach(function (el) { el.classList.add('skip'); });
     all('#topics button').forEach(function (b) { b.classList.remove('on'); });
     layout();
-    go(slides.indexOf($('q-slide')) + 1);
+    go(slides.indexOf($('loc-slide')));
   });
 
   // setup never scrolls: if their answers make it taller than the window, shrink it to fit
@@ -1170,6 +1170,7 @@ body.on-light .nav { color: var(--ink); }
     if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(cur - 1); }
     if (e.key === 's' || e.key === 'S') { $('setup').classList.remove('hidden'); }
     if (e.key === 'q' || e.key === 'Q') { go(slides.indexOf($('q-slide'))); }
+    if (e.key === 'l' || e.key === 'L') { go(slides.indexOf($('loc-slide'))); }
     if (e.key === 'r' || e.key === 'R') { go(slides.indexOf($('ref-slide'))); }
     if (e.key === 'z' || e.key === 'Z') { go(slides.indexOf($('zip-slide'))); }
   });
