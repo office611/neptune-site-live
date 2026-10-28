@@ -299,6 +299,10 @@ h2 { font-size: clamp(26px, 3.6vw, 48px); font-weight: 800; line-height: 1.12; m
 .price.shown { display: block; }
 .price .big { font-size: clamp(64px, 11vw, 160px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin: 2vh 0 1vh; }
 .price .big [contenteditable] { display: inline-block; min-width: 2ch; }
+.price .was { font-size: clamp(18px, 2vw, 26px); color: rgba(255,255,255,.6); margin-top: 2vh; }
+.price .was s { text-decoration-thickness: 2px; }
+.price .was [contenteditable] { display: inline-block; min-width: 2ch; }
+.price .deal { display: inline-block; margin: 0 0 1.6vh; background: var(--blue); color: var(--navy); border-radius: 999px; padding: 8px 20px; font-size: clamp(15px, 1.6vw, 21px); font-weight: 800; }
 .price .incl { font-size: clamp(16px, 1.7vw, 22px); color: rgba(255,255,255,.8); }
 .perday { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6vw; margin-top: 2vh; }
 @media (max-width: 860px) { .perday { grid-template-columns: 1fr; } }
@@ -694,7 +698,9 @@ body.on-light .nav { color: var(--ink); }
     <h2>Your Neptune whole home system, <span class="accent">installed</span></h2>
     <button class="reveal-btn" id="reveal" type="button">Show price</button>
     <div class="price" id="price">
+      <div class="was">Usually <s>$<span contenteditable="true" spellcheck="false" id="pr-was">4,840</span></s></div>
       <div class="big">$<span contenteditable="true" spellcheck="false" id="pr">3,872</span></div>
+      <div class="deal"><span id="pr-off">20%</span> off · your appointment price</div>
       <div class="incl">incl. GST</div>
     </div>
   </div>
@@ -1070,6 +1076,9 @@ body.on-light .nav { color: var(--ink); }
     $('k-year').textContent = whole(yearNow);
     $('k-ten').textContent = whole(yearNow * 10);
     var price = num($('pr').textContent) || 3872, people = Math.max(1, num($('pp').textContent) || 1);
+    var was = num($('pr-was').textContent) || 4840, off = was > price ? Math.round((1 - price / was) * 100) : 0;
+    $('pr-off').textContent = off + '%';
+    document.querySelector('.price .was').style.display = document.querySelector('.price .deal').style.display = off > 0 ? '' : 'none';
     var sys = price / 3650, allIn = (price + 300 * 10) / 3650;
     $('d-sys').textContent = money(sys);
     $('d-all').textContent = money(allIn);
@@ -1097,6 +1106,7 @@ body.on-light .nav { color: var(--ink); }
   }
   ['k-bottled', 'k-jugs', 'r-n'].forEach(function (id) { $(id).addEventListener('input', update); });
   $('pr').addEventListener('input', update);
+  $('pr-was').addEventListener('input', update);
   $('z-dep').addEventListener('input', update);
   all('#z-rows tr').forEach(function (tr) {
     tr.addEventListener('click', function () { all('#z-rows tr').forEach(function (x) { x.classList.toggle('on', x === tr && !x.classList.contains('on')); }); });
