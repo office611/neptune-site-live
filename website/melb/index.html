@@ -387,8 +387,14 @@
         if (!key.trim()) return;
         var A = function (t) { return '<span class="hero-accent">' + t + '</span>'; };
         var angles = [
-          // the 10 old ads: the headline they crushed with on /melbourne (proven, don't change)
-          [/already know|one tap|fifty ads|two hours|jug filter|kitchen table|chlorine trick|chlorine\/skin|5 reasons|melbourne owned/, A('Skipping The In-Home Sales Pitch') + ' And Getting Filtered Water At Every Tap For Good'],
+          // the 10 old ads. No-in-home ones get the headline they crushed with on /melbourne (proven, don't change)
+          [/already know|fifty ads|kitchen table|chlorine trick/, A('Skipping The In-Home Sales Pitch') + ' And Getting Filtered Water At Every Tap For Good'],
+          [/one tap/, 'Better Water At ' + A('Every Tap') + ', Not Just One.'],
+          [/two hours/, 'Every Tap In Your Home, ' + A('Filtered In 2\u20133 Hours') + '.'],
+          [/jug filter/, A('Ditch The Jug.') + ' Filter Every Tap In Your Home.'],
+          [/chlorine\/skin/, A('Relief') + ' From Dry, Itchy Skin After Every Shower.'],
+          [/5 reasons/, 'The Water Your Whole Family Deserves, ' + A('At Every Tap') + '.'],
+          [/melbourne owned/, 'Melbourne Owned. ' + A('Melbourne Homes Only.')],
           // generic angles for the new ads
           [/soft|realisation|realization/, A('Relief') + ' From Dry, Itchy Skin.'],
           [/hair|scalp/, A('Love Your Hair') + ' Again.'],
