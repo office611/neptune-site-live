@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Neptune Filtration — Call 1 Script</title>
+<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+/* Call 1: the first phone call, ~3 minutes after the survey (page 2 /melb/info open on their phone).
+   Same look as /team/call-guide. Source of truth for wording: Stefan's saved Call 1 script (2026-10-28). */
+:root {
+  --ink: #0B1E3D; --ink-soft: #4B5A70; --paper: #FBFCFE; --card: #FFFFFF; --line: #E2E7EE;
+  --accent: #2E7BC4; --accent-soft: #EAF2FB; --success: #2A8A50; --warn: #B4531F; --warn-soft: #FCF1EA;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #EAF0FA; --ink-soft: #9FB1C9; --paper: #0B1420; --card: #101C2C; --line: #223349;
+    --accent: #6AB0F2; --accent-soft: #16273B; --success: #4FBE7B; --warn: #F0A06E; --warn-soft: #2A1C14;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #EAF0FA; --ink-soft: #9FB1C9; --paper: #0B1420; --card: #101C2C; --line: #223349;
+  --accent: #6AB0F2; --accent-soft: #16273B; --success: #4FBE7B; --warn: #F0A06E; --warn-soft: #2A1C14;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; -webkit-text-size-adjust: 100%; }
+.wrap { max-width: 780px; margin: 0 auto; padding: 0 16px 100px; }
+.head { text-align: center; padding: 48px 0 6px; }
+.head .brand { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.head h1 { font-size: clamp(26px, 6vw, 32px); font-weight: 800; letter-spacing: -0.015em; margin: 6px 0 8px; }
+.head p { margin: 0 auto; max-width: 560px; color: var(--ink-soft); font-size: 15px; }
+.jump { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 22px 0 8px; }
+.jump a { font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 7px 13px; border-radius: 999px; text-decoration: none; }
+.part { margin-top: 48px; }
+.part-title { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); border-bottom: 1px solid var(--line); padding-bottom: 8px; margin: 0 0 22px; }
+.step { position: relative; padding-left: 44px; margin-bottom: 30px; }
+.step-n { position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.eyebrow { font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 3px 0 2px; }
+h2 { font-size: 21px; font-weight: 800; line-height: 1.2; margin: 0 0 10px; letter-spacing: -0.01em; }
+p { margin: 0 0 10px; }
+.say { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 12px 15px; margin: 8px 0; font-size: 16px; }
+.say::before { content: 'SAY'; display: block; font-size: 10px; font-weight: 800; letter-spacing: .14em; color: var(--accent); margin-bottom: 3px; }
+.ask { border-left-color: var(--success); }
+.ask::before { content: 'ASK'; color: var(--success); }
+.if { font-size: 13px; font-weight: 700; color: var(--ink-soft); margin: 12px 0 0; }
+.note { font-size: 13.5px; color: var(--ink-soft); margin: 6px 0 0; }
+.rule { background: var(--warn-soft); border: 1px solid var(--line); border-left: 3px solid var(--warn); border-radius: 0 10px 10px 0; padding: 11px 15px; font-size: 14px; margin: 10px 0; }
+.rule b { color: var(--warn); }
+.rule ul { margin: 6px 0 0; padding-left: 18px; }
+.rule li { margin-bottom: 4px; }
+ol.list { margin: 0; padding-left: 20px; font-size: 15px; }
+ol.list li { margin-bottom: 10px; }
+.qa { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
+.qa b { display: block; font-size: 15px; margin-bottom: 6px; }
+.qa .say { margin: 0; }
+.notes { background: var(--card); border: 1px dashed var(--line); border-radius: 12px; padding: 14px 16px; font-size: 14.5px; }
+.notes ol { margin: 6px 0 0; padding-left: 20px; }
+.notes li { margin-bottom: 4px; }
+@media print { .jump { display: none; } body { background: #fff; } .step, .qa { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="head">
+  <div class="brand">Neptune Filtration · Internal</div>
+  <h1>Call 1 Script</h1>
+  <p>The first call. Ring about 3 minutes after the survey, while they're reading the info page. Book the Zoom, get the photos coming. No price on this call.</p>
+  <nav class="jump">
+    <a href="#call">The call</a>
+    <a href="#asks">If they ask</a>
+    <a href="#after">After the call</a>
+    <a href="#rules">Rules</a>
+  </nav>
+</header>
+
+<!-- ═══════════════ THE CALL ═══════════════ -->
+<section class="part" id="call">
+  <h2 class="part-title">The call</h2>
+
+  <div class="step"><div class="step-n">1</div>
+    <div class="eyebrow">Open</div><h2>Warm and quick</h2>
+    <div class="say">Hey, is this [Name]? It's [your name] from Neptune Filtration — how you going?</div>
+  </div>
+
+  <div class="step"><div class="step-n">2</div>
+    <div class="eyebrow">Where they're at</div><h2>Their story, briefly</h2>
+    <div class="say ask">So tell me — what's actually been going on with your water? How long's it been bothering you? Have you tried anything already to help with it?</div>
+    <p class="if">If they mention jugs, bottled water or shower filters:</p>
+    <div class="say ask">Roughly what are you spending on that?</div>
+    <p class="if">Then:</p>
+    <div class="say ask">And how many of you are at home?</div>
+    <p class="note">Don't ask their suburb, the survey already has it. Keep this to 1–2 exchanges.</p>
+  </div>
+
+  <div class="step"><div class="step-n">3</div>
+    <div class="eyebrow">Read check</div><h2>Did they read the info?</h2>
+    <div class="say ask">So when you read through the info after the survey, what specifically did you like about it?</div>
+    <p class="if">They name something:</p>
+    <p>Build on it. That's their reason, use it again on the Zoom.</p>
+    <p class="if">They didn't read it:</p>
+    <div class="say">No stress, I'll text you the link again, it only takes a few minutes.</div>
+  </div>
+
+  <div class="step"><div class="step-n">4</div>
+    <div class="eyebrow">We can help → photos</div><h2>Photos before price</h2>
+    <div class="say">Based on what you've told me, our system will definitely help. All our customers send us a few photos first, so your price is exact, not a guess.</div>
+    <p class="note">Skin or hair: never promise the condition goes away. Let the customer videos say that.</p>
+  </div>
+
+  <div class="step"><div class="step-n">5</div>
+    <div class="eyebrow">Two options</div><h2>Zoom last, so it gets picked</h2>
+    <div class="say">So you've got two options. One of our filtration specialists can come out to your home: that's $200, and if you go ahead we take it off the price. Or you jump on a quick Zoom with one of our filtration specialists, and we can get you in today. Either way, right now we're running 20% off when you go ahead at your appointment, and we've got 0% interest options too. Most people go with the Zoom, because we can get you sorted today. Which suits you better, us coming out, or the Zoom?</div>
+  </div>
+
+  <div class="step"><div class="step-n">6</div>
+    <div class="eyebrow">Decision makers</div><h2>Everyone on the Zoom</h2>
+    <div class="say ask">Is this a decision you're making with anyone else — partner, wife? Let's get them on the Zoom too, so you can both lock in the 20% off at your appointment.</div>
+    <p class="note">If they picked the home visit, say "at the visit" instead of "on the Zoom".</p>
+  </div>
+
+  <div class="step"><div class="step-n">7</div>
+    <div class="eyebrow">Book it</div><h2>Later today, two clock times</h2>
+    <div class="say">Our filtration specialists have [time] or [time] free later today. We run late so couples can both jump on after work and the kids' activities. Just need those photos through beforehand.</div>
+    <p class="if">They push for another day:</p>
+    <div class="say">No worries, we can do that.</div>
+  </div>
+
+  <div class="step"><div class="step-n">8</div>
+    <div class="eyebrow">Close</div><h2>Confirm and hang up</h2>
+    <div class="say">Perfect — I'll text you the Zoom link, the photos we need, and the info link again so [partner] can have a read before we jump on. Your filtration specialist will have a proposal ready for your home by [time].</div>
+  </div>
+</section>
+
+<!-- ═══════════════ IF THEY ASK ═══════════════ -->
+<section class="part" id="asks">
+  <h2 class="part-title">If they ask</h2>
+
+  <div class="qa"><b>"How much is it?" or anything technical (filters, pressure, specs)</b>
+    <div class="say">Great question, that's exactly what your specialist will go through on the Zoom.</div>
+  </div>
+  <div class="qa"><b>"Will it be you on the Zoom?"</b>
+    <div class="say">It'll be me, actually. I look after a lot of the Zooms myself.</div>
+    <p class="note">Only if it's true. Never a fake name, never "I'm just admin".</p>
+  </div>
+  <div class="qa"><b>They want the home visit</b>
+    <div class="say">No worries. That's $200, and if you go ahead we take it off the price.</div>
+    <p class="note">Book it in the In-Home calendar and send the $200 payment link.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ AFTER THE CALL ═══════════════ -->
+<section class="part" id="after">
+  <h2 class="part-title">After the call</h2>
+  <ol class="list">
+    <li><b>Book the Zoom in GHL as Confirmed.</b> That sends the confirmation, the photo ask and every reminder automatically.</li>
+    <li><b>Write the notes</b> on their contact, in the same order as the present1 setup screen:
+      <div class="notes" style="margin-top:8px">
+        <ol>
+          <li>Concern, main one first: skin / hair / better water / taste / smell / scale</li>
+          <li>Their words, up to 3 short lines</li>
+          <li>People at home</li>
+          <li>Name and suburb (from the survey)</li>
+          <li>Spend now: bottled $ per week, jug &amp; shower filters $ per year</li>
+          <li>Who's joining the Zoom</li>
+          <li>What they liked from the info (or didn't read it)</li>
+          <li>Photos in: yes / no</li>
+        </ol>
+      </div>
+    </li>
+    <li><b>No answer?</b> Ring again straight away, then text them yourself:
+      <div class="say">Hey [Name], it's [your name] from Neptune Filtration, just tried to give you a call about your water. When's a good time to ring you back?</div>
+    </li>
+    <li><b>Before the Zoom:</b> look at their photos (so "your proposal's ready" is true) and set up <a href="/team/present1/">present1</a> from your notes.</li>
+  </ol>
+</section>
+
+<!-- ═══════════════ RULES ═══════════════ -->
+<section class="part" id="rules">
+  <h2 class="part-title">Rules</h2>
+  <div class="rule"><b>Every call</b>
+    <ul>
+      <li>Full confidence on every question. Never sound unsure.</li>
+      <li>You're the booker, not the expert: "our filtration specialists have…", never "I can do…".</li>
+      <li>Photos always come before price.</li>
+      <li>No price on this call. On the Zoom: <b>$3,872</b> when they go ahead at their appointment (20% off). Decide later: <b>$4,840</b>, and hold it.</li>
+      <li>Never promise a skin or hair condition goes away.</li>
+      <li>Ring within about 3 minutes of the survey, any hour.</li>
+    </ul>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
