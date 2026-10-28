@@ -388,7 +388,7 @@
         var A = function (t) { return '<span class="hero-accent">' + t + '</span>'; };
         var angles = [
           // the 10 old ads. No-in-home ones get the headline they crushed with on /melbourne (proven, don't change)
-          [/already know|fifty ads|kitchen table|chlorine trick/, A('Skipping The In-Home Sales Pitch') + ' And Getting Filtered Water At Every Tap For Good'],
+          [/already know|fifty ads|kitchen table|chlorine trick/, A('Skipping The In-Home Sales Pitch') + ' And Getting Filtered Water At Every Tap For Good', '<span class="hero-badge">Join The Melbourne Homeowners</span>'],
           [/one tap/, 'Better Water At ' + A('Every Tap') + ', Not Just One.'],
           [/two hours/, 'Every Tap In Your Home, ' + A('Filtered In 2\u20133 Hours') + '.'],
           [/jug filter/, A('Ditch The Jug.') + ' Filter Every Tap In Your Home.'],
@@ -410,7 +410,10 @@
         for (var i = 0; i < angles.length; i++) {
           if (angles[i][0].test(key)) {
             var h = document.currentScript.previousElementSibling;
-            if (h && h.tagName === 'H1') h.innerHTML = angles[i][1];
+            if (h && h.tagName === 'H1') {
+              h.innerHTML = angles[i][1];
+              if (angles[i][2]) h.insertAdjacentHTML('beforebegin', angles[i][2]); // e.g. the proven ads' badge
+            }
             return;
           }
         }
