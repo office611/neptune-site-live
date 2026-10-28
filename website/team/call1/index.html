@@ -64,7 +64,29 @@ ol.list li { margin-bottom: 10px; }
 .notes { background: var(--card); border: 1px dashed var(--line); border-radius: 12px; padding: 14px 16px; font-size: 14.5px; }
 .notes ol { margin: 6px 0 0; padding-left: 20px; }
 .notes li { margin-bottom: 4px; }
-@media print { .jump { display: none; } body { background: #fff; } .step, .qa { break-inside: avoid; } }
+.tools { display: flex; justify-content: center; gap: 10px; margin: 14px 0 0; }
+.tools button { font: inherit; font-size: 14px; font-weight: 700; padding: 10px 18px; border-radius: 999px; border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer; }
+.tools button.alt { background: transparent; color: var(--accent); }
+/* print: black on white, compact, no buttons or links bar; each step stays on one page */
+@page { margin: 14mm 13mm; }
+@media print {
+  :root, :root[data-theme="dark"] { --ink: #000; --ink-soft: #333; --paper: #fff; --card: #fff; --line: #bbb; --accent: #000; --accent-soft: #eee; --success: #000; --warn: #000; --warn-soft: #fff; }
+  body { background: #fff; color: #000; font-size: 11pt; line-height: 1.4; }
+  .jump, .tools { display: none; }
+  .wrap { max-width: none; padding: 0; }
+  .head { padding: 0 0 4px; }
+  .head h1 { font-size: 20pt; margin: 2px 0 4px; }
+  .head p { font-size: 10pt; max-width: none; }
+  .part { margin-top: 16px; }
+  .part-title { margin-bottom: 10px; }
+  .step { margin-bottom: 12px; padding-left: 34px; break-inside: avoid; }
+  .step-n { width: 24px; height: 24px; font-size: 10pt; background: #000; color: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  h2 { font-size: 13pt; margin-bottom: 4px; }
+  .say { font-size: 11pt; padding: 6px 10px; margin: 4px 0; border-left-width: 3px; }
+  .note, .if { font-size: 9.5pt; }
+  .qa, .rule, .notes { break-inside: avoid; padding: 8px 12px; }
+  a { color: #000; text-decoration: none; }
+}
 </style>
 </head>
 <body>
@@ -74,6 +96,10 @@ ol.list li { margin-bottom: 10px; }
   <div class="brand">Neptune Filtration · Internal</div>
   <h1>Call 1 Script</h1>
   <p>The first call. Ring about 3 minutes after the survey, while they're reading the info page. Book the Zoom, get the photos coming. No price on this call.</p>
+  <div class="tools">
+    <button type="button" id="print">Print / save as PDF</button>
+    <button type="button" class="alt" id="copy">Copy script</button>
+  </div>
   <nav class="jump">
     <a href="#call">The call</a>
     <a href="#asks">If they ask</a>
@@ -136,7 +162,7 @@ ol.list li { margin-bottom: 10px; }
     <div class="say ask">Perfect. Right now we're running 20% off when you go ahead at your appointment, and we've got 0% interest options too. On that, is this a decision you're making with anyone else?</div>
     <p class="note"><b>Say it straight through, then pause</b> and wait for their answer. A pause after the 20% invites &ldquo;20% off what?&rdquo;. If they ask anyway: &ldquo;Your specialist will take you through your price on the Zoom, that's why we want everyone there.&rdquo;</p>
     <p class="if">Someone else is involved:</p>
-    <div class="say">Let's get them on the Zoom too, so you and [your partner / their name] can both lock it in.</div>
+    <div class="say">Let's get them on the Zoom too, so you and [their name] can both lock it in.</div>
     <p class="if">Just them:</p>
     <div class="say">Perfect.</div>
     <p class="note">If they picked the home visit, say "at the visit" instead of "on the Zoom".</p>
@@ -151,7 +177,7 @@ ol.list li { margin-bottom: 10px; }
 
   <div class="step"><div class="step-n">8</div>
     <div class="eyebrow">Close</div><h2>Confirm and hang up</h2>
-    <div class="say">Perfect — I'll text you the Zoom link, the photos we need, and the info link again so [partner] can have a read before we jump on. Your filtration specialist will have a proposal ready for your home by [time].</div>
+    <div class="say">Perfect — I'll text you the Zoom link, the photos we need, and the info link again so [their name] can have a read before we jump on. Your filtration specialist will have a proposal ready for your home by [time].</div>
   </div>
 </section>
 
@@ -214,5 +240,18 @@ ol.list li { margin-bottom: 10px; }
 </section>
 
 </div>
+<script>
+// Print / Copy: the copy is the page as plain text (headings, every line to say, notes), ready to paste anywhere.
+document.getElementById('print').addEventListener('click', function () { window.print(); });
+document.getElementById('copy').addEventListener('click', function () {
+  var b = this, wrap = document.querySelector('.wrap').cloneNode(true);
+  wrap.querySelectorAll('.tools, .jump').forEach(function (e) { e.remove(); });
+  wrap.querySelectorAll('.say').forEach(function (e) { e.insertAdjacentText('afterbegin', (e.classList.contains('ask') ? 'ASK: ' : 'SAY: ')); });
+  document.body.appendChild(wrap); wrap.style.position = 'absolute'; wrap.style.left = '-9999px';
+  var text = wrap.innerText.replace(/\n{3,}/g, '\n\n').trim();
+  wrap.remove();
+  navigator.clipboard.writeText(text).then(function () { b.textContent = 'Copied ✓'; setTimeout(function () { b.textContent = 'Copy script'; }, 2000); });
+});
+</script>
 </body>
 </html>
