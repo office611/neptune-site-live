@@ -130,6 +130,36 @@
     <div class="container hero-photo-content fade-in-up">
       <span class="hero-badge">Join The Melbourne Homeowners</span>
       <h1><span class="hero-accent">Skipping The In-Home Sales Pitch</span> And Getting Filtered Water At Every Tap For Good</h1>
+      <script>
+      /* Message match for the 10 old ads (2026-10-28): swap the headline to the ad they clicked.
+         Reads the ad name Meta passes in utm_content (or ?a= to force one); anything else keeps
+         the headline above. First match wins, so "trick" is checked before "chlorine/skin". */
+      (function () {
+        var p = new URLSearchParams(location.search);
+        var key = ((p.get('a') || '') + ' ' + (p.get('utm_content') || '')).toLowerCase();
+        if (!key.trim()) return;
+        var A = function (t) { return '<span class="hero-accent">' + t + '</span>'; };
+        var angles = [
+          [/already know/, 'You Already Know You Want It. ' + A('Skip The Sales Pitch.')],
+          [/one tap/, 'Better Water At ' + A('Every Tap') + ', Not Just One.'],
+          [/fifty|50 ads/, 'One Click Shouldn\u2019t Mean ' + A('A Stranger At Your Door') + '.'],
+          [/two hours|2 hours/, 'Every Tap In Your Home, ' + A('Filtered In 2\u20133 Hours') + '.'],
+          [/jug/, A('Ditch The Jug.') + ' Filter Every Tap In Your Home.'],
+          [/kitchen table|2026/, 'Get Your Price ' + A('Without A Stranger At Your Kitchen Table') + '.'],
+          [/trick/, 'No Chlorine Tablet Tricks. ' + A('No Sales Pitch.')],
+          [/skin/, A('Relief') + ' From Dry, Itchy Skin After Every Shower.'],
+          [/reasons/, 'The Water Your Whole Family Deserves, ' + A('At Every Tap') + '.'],
+          [/melbourne owned|melbourne/, 'Melbourne Owned. ' + A('Melbourne Homes Only.')]
+        ];
+        for (var i = 0; i < angles.length; i++) {
+          if (angles[i][0].test(key)) {
+            var h = document.currentScript.previousElementSibling;
+            if (h && h.tagName === 'H1') h.innerHTML = angles[i][1];
+            return;
+          }
+        }
+      })();
+      </script>
       <p class="hero-sub">That's because we're specialists in whole-home filtration, with our own system that suits Melbourne's water profile. We don't care about Perth water, Adelaide water, or anywhere else.</p>
     </div>
 
