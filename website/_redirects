@@ -4,6 +4,7 @@
 # Trailing-slash enforcement
 /home /home/ 301
 /replacement-filters /replacement-filters/ 301
+/whole-home-water-filtration-melbourne /whole-home-water-filtration-melbourne/ 301
 /experts /experts/ 301
 /experts/thank-you /experts/thank-you/ 301
 /terms /terms/ 301

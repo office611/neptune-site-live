@@ -1,0 +1,5 @@
+# Search engines and AI assistants are welcome. Internal pages carry their own noindex tags.
+User-agent: *
+Allow: /
+
+Sitemap: https://neptunefiltration.com.au/sitemap.xml
