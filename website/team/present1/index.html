@@ -698,8 +698,8 @@ body.on-light .nav { color: var(--ink); }
     <h2>Your Neptune whole home system, <span class="accent">installed</span></h2>
     <button class="reveal-btn" id="reveal" type="button">Show price</button>
     <div class="price" id="price">
-      <div class="was">Usually <s>$<span contenteditable="true" spellcheck="false" id="pr-was">4,840</span></s></div>
-      <div class="big">$<span contenteditable="true" spellcheck="false" id="pr">3,872</span></div>
+      <div class="was">Usually <s>$<span contenteditable="true" spellcheck="false" id="pr-was">3,994</span></s></div>
+      <div class="big">$<span contenteditable="true" spellcheck="false" id="pr">3,195</span></div>
       <div class="deal"><span id="pr-off">20%</span> off · your appointment price</div>
       <div class="incl">incl. GST</div>
     </div>
@@ -712,10 +712,10 @@ body.on-light .nav { color: var(--ink); }
   <h2>Two ways <span class="accent">to pay</span></h2>
   <div class="pay">
     <div class="pstep"><div class="n">Option A · Deposit</div>
-      <div class="split2"><div><div class="v2" id="pay-dep">$774</div><div class="s">today (20%)</div></div><div><div class="v2" id="pay-bal">$3,098</div><div class="s">after installation (80%)</div></div></div></div>
+      <div class="split2"><div><div class="v2" id="pay-dep">$639</div><div class="s">today (20%)</div></div><div><div class="v2" id="pay-bal">$2,556</div><div class="s">after installation (80%)</div></div></div></div>
     <div class="parr">or</div>
     <div class="pstep"><div class="n">Option B · Interest free with Zip</div>
-      <div class="split2"><div><div class="v2" id="pay-zdep">$400</div><div class="s">deposit today</div></div><div><div class="v2" id="pay-zrest">$3,472</div><div class="s">the rest over 6–36 months</div></div></div>
+      <div class="split2"><div><div class="v2" id="pay-zdep">$400</div><div class="s">deposit today</div></div><div><div class="v2" id="pay-zrest">$2,795</div><div class="s">the rest over 6–36 months</div></div></div>
       <ul class="zfees"><li><b>$75</b> one-off setup fee</li><li><b>$9.95</b> a month while you owe</li><li><b>Pay it off any time</b> and the $9.95 stops</li></ul></div>
   </div>
 </section>
@@ -727,7 +727,7 @@ body.on-light .nav { color: var(--ink); }
   <div class="zdep">
     <div class="box"><label for="z-dep">Deposit today</label><div class="field">$<input id="z-dep" type="number" inputmode="decimal" min="0" step="50" value="400"></div></div>
     <span class="arr">→</span>
-    <span class="rest">Zip covers the rest:<b id="z-rest">$3,472</b></span>
+    <span class="rest">Zip covers the rest:<b id="z-rest">$2,795</b></span>
   </div>
   <table class="ztab">
     <thead><tr><th>Term</th><th>A month</th><th>A week</th><th>Extra in Zip fees</th><th>All up</th></tr></thead>
@@ -746,9 +746,9 @@ body.on-light .nav { color: var(--ink); }
   <div class="eyebrow">Broken down</div>
   <h2>What it <span class="accent">really costs</span></h2>
   <div class="perday">
-    <div class="pd"><div class="v" id="d-sys">$1.06</div><div class="l">a day</div><div class="s">for the system, over 10 years</div></div>
-    <div class="pd"><div class="v" id="d-all">$1.88</div><div class="l">a day</div><div class="s">including a new set of filters every year</div></div>
-    <div class="pd"><div class="v" id="d-per">47¢</div><div class="l">a day, per person</div><div class="s">for a home of <span contenteditable="true" spellcheck="false" id="pp">4</span></div></div>
+    <div class="pd"><div class="v" id="d-sys">88¢</div><div class="l">a day</div><div class="s">for the system, over 10 years</div></div>
+    <div class="pd"><div class="v" id="d-all">$1.70</div><div class="l">a day</div><div class="s">including a new set of filters every year</div></div>
+    <div class="pd"><div class="v" id="d-per">42¢</div><div class="l">a day, per person</div><div class="s">for a home of <span contenteditable="true" spellcheck="false" id="pp">4</span></div></div>
   </div>
   <div class="compare" id="d-compare"></div>
 </section>
@@ -764,19 +764,19 @@ body.on-light .nav { color: var(--ink); }
   </div>
 </section>
 
-<!-- Referral: the last lever before payment, $500 back per friend (R jumps here) -->
+<!-- Referral: the last lever before payment, a free replacement filter set per friend (R jumps here) -->
 <section class="slide" id="ref-slide">
   <div class="calc">
     <div>
       <div class="eyebrow">Our referral program</div>
       <h2>Know people who'd <span class="accent">want this too?</span></h2>
-      <p class="lead">For every person you refer who gets a system installed, we pay you <b style="color:#4DA6FF">$500</b>. No limit.</p>
+      <p class="lead">For every person you refer who gets a system installed, we give you a <b style="color:#4DA6FF">free replacement filter set</b>. No limit.</p>
       <div class="inp" style="margin-top:3vh;max-width:420px"><label>People you'd refer</label><div class="field"><input id="r-n" type="number" inputmode="numeric" value="3" min="0" style="width:2.6em"></div></div>
     </div>
     <div class="result">
-      <div class="l">Back in your pocket</div>
-      <div class="v" id="r-back">$1,500</div>
-      <div class="sub">Your system effectively comes down to <b id="r-net" style="color:#4DA6FF">$2,372</b></div>
+      <div class="l">Your free filter sets</div>
+      <div class="v" id="r-back">3</div>
+      <div class="sub">Worth <b id="r-worth" style="color:#4DA6FF">$900</b>. That's <span id="r-yrs">3 years</span> of filters, on us.</div>
     </div>
   </div>
 </section>
@@ -1075,8 +1075,8 @@ body.on-light .nav { color: var(--ink); }
     var yearNow = num($('k-bottled').value) * 52 + num($('k-jugs').value);
     $('k-year').textContent = whole(yearNow);
     $('k-ten').textContent = whole(yearNow * 10);
-    var price = num($('pr').textContent) || 3872, people = Math.max(1, num($('pp').textContent) || 1);
-    var was = num($('pr-was').textContent) || 4840, off = was > price ? Math.round((1 - price / was) * 100) : 0;
+    var price = num($('pr').textContent) || 3195, people = Math.max(1, num($('pp').textContent) || 1);
+    var was = num($('pr-was').textContent) || 3994, off = was > price ? Math.round((1 - price / was) * 100) : 0;
     $('pr-off').textContent = off + '%';
     document.querySelector('.price .was').style.display = document.querySelector('.price .deal').style.display = off > 0 ? '' : 'none';
     var sys = price / 3650, allIn = (price + 300 * 10) / 3650;
@@ -1101,8 +1101,8 @@ body.on-light .nav { color: var(--ink); }
       td[4].textContent = cents(price + extra);
     });
     var n = num($('r-n').value);
-    $('r-back').textContent = whole(n * 500);
-    $('r-net').textContent = whole(Math.max(0, price - n * 500));
+    $('r-back').textContent = n;
+    $('r-worth').textContent = whole(n * 300); $('r-yrs').textContent = n + (n === 1 ? ' year' : ' years');
   }
   ['k-bottled', 'k-jugs', 'r-n'].forEach(function (id) { $(id).addEventListener('input', update); });
   $('pr').addEventListener('input', update);
