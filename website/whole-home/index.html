@@ -632,6 +632,8 @@ html.i-pop-open { overflow: hidden; }
 .i-pp + .i-pp { margin-top: 8px; }
 .i-pop-body .notice { margin: 14px 0 0; padding: 12px 14px; border-radius: 10px; background: var(--blue-pale); color: var(--navy); font-size: .95rem; line-height: 1.5; }
 .i-pop-body .notice:empty { display: none; }
+/* Pop-up photo fills the full height of the card next to the text (no white strip under it) */
+@media (min-width: 761px) { .i-pop-card img { align-self: stretch; height: auto; min-height: min(68vh, 540px); } }
 
 /* Sticky price bar on phones */
 .price-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #fff; border-top: 1px solid var(--border); box-shadow: 0 -8px 24px rgba(11,30,61,.12); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; transform: translateY(110%); transition: transform .25s ease; }
