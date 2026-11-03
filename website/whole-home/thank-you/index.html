@@ -41,6 +41,16 @@
 /* Thank-you hero: the headline and sub sit in the photo, centred, with room under them */
 .hero-photo-upper { padding-bottom: 56px; }
 .hero-photo-content h1 .h1-line2 { display: block; }
+/* Price pill: the same one as the /whole-home hero (keep the two in sync) */
+.price-pill { display: flex; flex-direction: column; align-items: center; gap: 2px; width: fit-content; margin: 18px auto 0; padding: 12px 26px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid rgba(77,166,255,.55); }
+.price-pill .pp-amt { font-size: clamp(1.9rem, 8vw, 2.4rem); font-weight: 800; color: #fff; line-height: 1.05; letter-spacing: -.02em; }
+.price-pill .pp-txt { font-size: .88rem; font-weight: 600; color: rgba(255,255,255,.85); }
+.price-pill .pp-txt b { color: var(--accent); font-weight: 700; }
+.pp-deposit { margin: 12px 0 0; font-size: .92rem; font-weight: 500; color: rgba(255,255,255,.85); }
+@media (min-width: 900px) {
+  .price-pill { background: rgba(7,15,30,.55); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .pp-deposit { font-size: 1rem; text-shadow: 0 2px 14px rgba(7,15,30,.7); }
+}
 /* The badge's longer line stays on one line on the narrowest phones */
 @media (max-width: 359px) { .hero-photo-content .qualify-badge { font-size: 11px; letter-spacing: .05em; padding-inline: 12px; } }
 @media (min-width: 900px) {
@@ -365,6 +375,8 @@
       <span class="qualify-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Thanks — we&rsquo;ve got your details</span>
       <h1>You&rsquo;re One Call Away <span class="h1-line2">From Getting <span class="hero-accent">Filtered Water</span>.</span></h1>
       <p class="hero-sub">That&rsquo;s how simple we made it for you.</p>
+      <div class="price-pill"><span class="pp-amt">$3,195</span><span class="pp-txt"><b>Fully installed</b> &middot; incl. GST</span></div>
+      <p class="pp-deposit">Just a 20% deposit to lock in your date.</p>
     </div>
   </div>
 
