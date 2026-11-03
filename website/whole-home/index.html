@@ -592,7 +592,7 @@ html.i-pop-open { overflow: hidden; }
 .concern-grid { display: grid; gap: 10px; max-width: 1080px; margin: 0 auto; align-items: start; }
 @media (min-width: 720px) { .concern-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1080px) { .concern-grid { grid-template-columns: repeat(3, 1fr); } }
-.concern-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 14px; transition: border-color .2s, box-shadow .2s; }
+.concern-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; transition: border-color .2s, box-shadow .2s; }
 .concern-card[open] { background: #fff; border-color: var(--accent); box-shadow: 0 10px 28px rgba(11,30,61,.08); }
 .concern-card summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 20px; }
 .concern-card summary::-webkit-details-marker { display: none; }
@@ -734,28 +734,9 @@ html.i-pop-open { overflow: hidden; }
   <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section section-off" id="how-it-works">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">How It Works</span>
-      <h2>Filtered <span class="i-acc">Before It Reaches Your Home</span></h2>
-    </div>
-    <div class="i-steps">
-      <div class="s"><b>Water main</b><span>Your street supply</span></div>
-      <div class="arr" aria-hidden="true">→</div>
-      <div class="s hl"><b>Neptune system</b><span>On your mains line</span></div>
-      <div class="arr" aria-hidden="true">→</div>
-      <div class="s"><b>Your whole home</b><span>Every tap, every shower</span></div>
-    </div>
-    <div class="i-taps"><span>Kitchen tap</span><span>Every shower</span><span>Bath</span><span>Bathroom basins</span><span>Washing machine</span><span>Dishwasher</span><span>Hot water system</span><span>Garden</span></div>
-    <p class="i-lead">One system, every tap and shower. No jugs, no shower heads, no thinking about it again.</p>
-  </div>
-</section>
-
 <!-- WHAT BROUGHT YOU HERE — how we help with each concern (Full House's
      "What changes in your home", told per concern with our customers' words) -->
-<section class="section" id="concerns">
+<section class="section section-off" id="concerns">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">How We Help</span>
@@ -806,6 +787,35 @@ html.i-pop-open { overflow: hidden; }
         </div>
       </details>
     </div>
+  </div>
+</section>
+
+<!-- CHLORINE AT HOME: tap water vs a pool, the test scale, the test clip -->
+<section class="section" id="chlorine-at-home">
+  <div class="container">
+    <div class="i-why">
+      <div>
+        <div class="section-head i-left">
+          <span class="eyebrow">Our Water Test</span>
+          <h2>No In-Home Appointment Needed. <span class="i-acc">Here&rsquo;s The Water Test.</span></h2>
+        </div>
+        <div class="i-vs">
+          <div class="c"><span class="t">A swimming pool</span><div class="ppm">1–1.5 <small>ppm</small></div><div class="src">Where many home pools sit</div><ul><li>Open air, so the chlorine gas escapes</li><li>The same water, topped up, not drained and refilled every day</li></ul></div>
+          <div class="c home"><span class="t">Your home</span><div class="ppm">1.5–3 <small>ppm</small></div><div class="src">Melbourne homes we&rsquo;ve tested</div><ul><li>A fresh supply of chlorinated water every time you turn on a tap</li></ul></div>
+        </div>
+        <p class="i-pp">As much chlorine as a swimming pool, <b>in every shower.</b></p>
+        <div class="i-dpd">
+          <div class="sw"><span style="background:#fbf7f9"></span><span style="background:#f6d3e2"></span><span style="background:#efafcb"></span><span style="background:#e58ab5"></span><span style="background:#d9659f"></span><span style="background:#c23d86"></span></div>
+          <div class="lb"><span>0</span><span>0.5</span><span>1.0</span><span>1.5</span><span>2.0</span><span>3.0 ppm</span></div>
+          <p>The test scale. Filtered water sits at 0. The darker the pink, the more chlorine.</p>
+        </div>
+      </div>
+      <figure class="i-clip-wrap">
+        <div class="i-clip"><video data-src="/assets/present/chlorine-test.mp4" poster="/assets/present/chlorine-test.jpg" muted loop playsinline preload="none"></video><span>Pink = chlorine</span></div>
+        <figcaption>Unfiltered vs filtered, using the same chlorine tablets pools use.</figcaption>
+      </figure>
+    </div>
+    <button type="button" class="smell-btn" id="smell-open">So why doesn&rsquo;t your home smell like a swimming&nbsp;pool?</button>
   </div>
 </section>
 
@@ -896,32 +906,22 @@ html.i-pop-open { overflow: hidden; }
   </div>
 </section>
 
-<!-- CHLORINE AT HOME: tap water vs a pool, the test scale, the test clip -->
-<section class="section" id="chlorine-at-home">
+<!-- HOW IT WORKS -->
+<section class="section" id="how-it-works">
   <div class="container">
-    <div class="i-why">
-      <div>
-        <div class="section-head i-left">
-          <span class="eyebrow">Our Water Test</span>
-          <h2>No In-Home Appointment Needed. <span class="i-acc">Here&rsquo;s The Water Test.</span></h2>
-        </div>
-        <div class="i-vs">
-          <div class="c"><span class="t">A swimming pool</span><div class="ppm">1–1.5 <small>ppm</small></div><div class="src">Where many home pools sit</div><ul><li>Open air, so the chlorine gas escapes</li><li>The same water, topped up, not drained and refilled every day</li></ul></div>
-          <div class="c home"><span class="t">Your home</span><div class="ppm">1.5–3 <small>ppm</small></div><div class="src">Melbourne homes we&rsquo;ve tested</div><ul><li>A fresh supply of chlorinated water every time you turn on a tap</li></ul></div>
-        </div>
-        <p class="i-pp">As much chlorine as a swimming pool, <b>in every shower.</b></p>
-        <div class="i-dpd">
-          <div class="sw"><span style="background:#fbf7f9"></span><span style="background:#f6d3e2"></span><span style="background:#efafcb"></span><span style="background:#e58ab5"></span><span style="background:#d9659f"></span><span style="background:#c23d86"></span></div>
-          <div class="lb"><span>0</span><span>0.5</span><span>1.0</span><span>1.5</span><span>2.0</span><span>3.0 ppm</span></div>
-          <p>The test scale. Filtered water sits at 0. The darker the pink, the more chlorine.</p>
-        </div>
-      </div>
-      <figure class="i-clip-wrap">
-        <div class="i-clip"><video data-src="/assets/present/chlorine-test.mp4" poster="/assets/present/chlorine-test.jpg" muted loop playsinline preload="none"></video><span>Pink = chlorine</span></div>
-        <figcaption>Unfiltered vs filtered, using the same chlorine tablets pools use.</figcaption>
-      </figure>
+    <div class="section-head">
+      <span class="eyebrow">How It Works</span>
+      <h2>Filtered <span class="i-acc">Before It Reaches Your Home</span></h2>
     </div>
-    <button type="button" class="smell-btn" id="smell-open">So why doesn&rsquo;t your home smell like a swimming&nbsp;pool?</button>
+    <div class="i-steps">
+      <div class="s"><b>Water main</b><span>Your street supply</span></div>
+      <div class="arr" aria-hidden="true">→</div>
+      <div class="s hl"><b>Neptune system</b><span>On your mains line</span></div>
+      <div class="arr" aria-hidden="true">→</div>
+      <div class="s"><b>Your whole home</b><span>Every tap, every shower</span></div>
+    </div>
+    <div class="i-taps"><span>Kitchen tap</span><span>Every shower</span><span>Bath</span><span>Bathroom basins</span><span>Washing machine</span><span>Dishwasher</span><span>Hot water system</span><span>Garden</span></div>
+    <p class="i-lead">One system, every tap and shower. No jugs, no shower heads, no thinking about it again.</p>
   </div>
 </section>
 
