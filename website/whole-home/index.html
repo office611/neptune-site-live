@@ -635,6 +635,8 @@ html.i-pop-open { overflow: hidden; }
 /* Pop-up photo fills the full height of the card next to the text (no white strip under it) */
 @media (min-width: 761px) { .i-pop-card img { align-self: stretch; height: auto; min-height: min(68vh, 540px); } }
 
+.faq-note { max-width: var(--w-text); margin: 14px auto 0; font-size: .8rem; color: var(--text-3); text-align: center; }
+
 /* Sticky price bar on phones */
 .price-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #fff; border-top: 1px solid var(--border); box-shadow: 0 -8px 24px rgba(11,30,61,.12); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; transform: translateY(110%); transition: transform .25s ease; }
 .price-bar.show { transform: none; }
@@ -1042,9 +1044,10 @@ html.i-pop-open { overflow: hidden; }
     <div class="price-cards">
       <div class="price-card hl"><span class="pc-big">$3,195</span><strong>Fully installed, incl. GST</strong><span class="pc-s">Just a 20% deposit to lock in your date, the rest once it&rsquo;s installed.</span></div>
       <div class="price-card"><span class="pc-big">$300 <small>a year</small></span><strong>Fresh filters, delivered</strong><span class="pc-s">All 3 filters, about once a year. About 82&cent; a day for the whole home.</span></div>
-      <div class="price-card"><span class="pc-big">7 <small>years</small></span><strong>Workmanship warranty</strong><span class="pc-s">Plus a 30-day money-back guarantee. WaterMark certified.</span></div>
+      <div class="price-card"><span class="pc-big">7 <small>years</small></span><strong>Workmanship warranty</strong><span class="pc-s">Plus a 30-day money-back guarantee*. WaterMark certified.</span></div>
     </div>
     <p class="price-time"><span>Installed in less than 5 days</span><span>2&ndash;3 hours on the day</span></p>
+    <p class="faq-note">*Conditions apply.</p>
     <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get Started</a>
   </div>
 </section>
@@ -1194,63 +1197,40 @@ html.i-pop-open { overflow: hidden; }
         <summary>Aren&rsquo;t all whole home systems the same?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Not ours. 5 stages across 3 filters, including activated coconut shell carbon. Planned from your photos, so nobody comes to your home. Installed in less than 5 days by our own plumbing team. Fresh filters delivered when it&rsquo;s time, always our latest version. We only work in Melbourne.</p>
-      </details>
-      <details class="faq-item">
-        <summary>What&rsquo;s a standard installation?
-          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        </summary>
-        <p class="faq-answer">The system fitted on your mains line, before the water reaches your home, with a bypass valve, mounted on a wall or concreted into the ground. Done by our own plumbing team in 2&ndash;3 hours.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Where can it be installed?
-          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        </summary>
-        <p class="faq-answer">Wherever works best for you. Usually it goes near your water meter, on a wall or concreted into the ground, and your photos show us the best spot.</p>
-      </details>
-      <details class="faq-item">
-        <summary>What does whole home filtration do?
-          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        </summary>
-        <p class="faq-answer">It filters your water on your mains line, where it comes into your home. So every tap, shower and appliance runs on filtered water, not just the kitchen tap.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Melbourne water is safe to drink. Why filter it?
-          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        </summary>
-        <p class="faq-answer">It is safe. Chlorine, and in parts of Melbourne chloramine, is added to keep it that way on its way to you, and it&rsquo;s still in the water when it reaches your shower and your glass. Our system removes it before it gets to your taps.</p>
+        <p class="faq-answer">Mostly yes, sometimes no. Filtration is filtration, and we remove the contaminants most others do. The difference is we&rsquo;re a filtration company that works in Melbourne only, so everything we do is focused on Melbourne&rsquo;s water. We don&rsquo;t care about Adelaide water, Perth water or anywhere else. That makes it more specific to your home.</p>
       </details>
       <details class="faq-item">
         <summary>Will it affect my water pressure?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">No. It&rsquo;s sized for the whole home, so you keep full pressure at every tap and shower.</p>
+        <p class="faq-answer">No. It&rsquo;s a 20-inch system sized for the whole home, so you keep full pressure at every tap and shower.</p>
       </details>
       <details class="faq-item">
-        <summary>Does someone need to come to my home?
+        <summary>Why don&rsquo;t you come out and quote in person like everyone else?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">No. Answer a few quick questions, have a quick chat with me, and we plan everything from your photos. Our plumbers only come out on install day.</p>
+        <p class="faq-answer">You don&rsquo;t need a salesperson dropping a chlorine tablet in a cup to prove a point. We used to work that way, and we cut it out. No sales reps means no commissions added to your price, and no one pressuring you in your own home.</p>
       </details>
       <details class="faq-item">
-        <summary>How long does installation take?
+        <summary>What&rsquo;s a standard installation, and where does it go?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">2&ndash;3 hours on the day, done by our own dedicated plumbing team. It&rsquo;s less than 5 days from going ahead to installed.</p>
+        <p class="faq-answer">A standard install is at your water meter, or on a side wall where it can be done (not every home can). Places away from these may cost extra. It&rsquo;s done by our own plumbing team in 2&ndash;3 hours.</p>
       </details>
       <details class="faq-item">
-        <summary>What about filter changes?
+        <summary>How do filter changes work?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">About once a year. A fresh set of all 3 is $300, delivered to your door. You change them yourself: we leave you instructions and a video.</p>
+        <p class="faq-answer">About once a year. You&rsquo;ll know it&rsquo;s time when the chlorine taste or smell comes back, or your water pressure drops. A fresh set of all 3 is $300, delivered to your door. You change them yourself: we leave you instructions and a video.</p>
       </details>
       <details class="faq-item">
         <summary>What if I&rsquo;m not happy with it?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">You&rsquo;re covered by our 30-day money-back guarantee, plus a 7-year workmanship warranty on the install.</p>
+        <p class="faq-answer">You&rsquo;re covered by our 30-day money-back guarantee*, plus a 7-year workmanship warranty on the install.</p>
       </details>
     </div>
+    <p class="faq-note">*Conditions apply.</p>
   </div>
 </section>
 
