@@ -579,6 +579,18 @@ html.i-pop-open { overflow: hidden; }
 .i-close > .container > p { color: var(--text-2); margin: 22px 0 0; font-size: 1.02rem; font-weight: 600; }
 
 
+/* What brought you here: one card per concern */
+.concern-grid { display: grid; gap: 12px; max-width: 1080px; margin: 0 auto; }
+@media (min-width: 720px) { .concern-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1080px) { .concern-grid { grid-template-columns: repeat(3, 1fr); } }
+.concern-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 14px; padding: 20px 20px 18px; display: flex; flex-direction: column; }
+.concern-card h3 { font-size: 1.12rem; color: var(--navy); margin: 0 0 8px; }
+.concern-card .cc-why { margin: 0; font-size: .93rem; line-height: 1.55; color: var(--text-2); }
+.concern-card .cc-help { margin: 10px 0 0; font-size: .93rem; line-height: 1.55; color: var(--navy); }
+.concern-card .cc-help b { color: var(--blue); }
+.concern-card .cc-quote { margin: 14px 0 0; padding: 12px 14px; background: #fff; border-left: 3px solid var(--accent); border-radius: 8px; font-weight: 600; color: var(--navy); font-size: .93rem; line-height: 1.5; }
+.concern-card .cc-quote span { display: block; margin-top: 4px; font-weight: 500; font-size: .8rem; color: var(--text-3); }
+
 /* Sticky price bar on phones */
 .price-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #fff; border-top: 1px solid var(--border); box-shadow: 0 -8px 24px rgba(11,30,61,.12); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; transform: translateY(110%); transition: transform .25s ease; }
 .price-bar.show { transform: none; }
@@ -803,6 +815,82 @@ html.i-pop-open { overflow: hidden; }
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- WHAT BROUGHT YOU HERE — how we help with each concern (Full House's
+     "What changes in your home", told per concern with our customers' words) -->
+<section class="section" id="concerns">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How We Help</span>
+      <h2>What Brought You Here?</h2>
+      <p>Here&rsquo;s how we help with each.</p>
+    </div>
+    <div class="concern-grid">
+      <div class="concern-card">
+        <h3>Eczema &amp; dry, itchy skin</h3>
+        <p class="cc-why">Chlorine is a bleach. It strips away the natural oils your skin needs, and hot showers open your pores even more.</p>
+        <p class="cc-help"><b>How we help:</b> we reduce the chlorine in every shower, bath and basin in your home.</p>
+        <blockquote class="cc-quote">&ldquo;My eczema&rsquo;s gone. I&rsquo;m not saying this to promote, but it&rsquo;s true.&rdquo;<span>Cecilio &middot; Cranbourne West</span></blockquote>
+      </div>
+      <div class="concern-card">
+        <h3>Hair loss &amp; itchy scalp</h3>
+        <p class="cc-why">The same chlorine strips the natural oils your hair and scalp need, every time you wash.</p>
+        <p class="cc-help"><b>How we help:</b> less chlorine in every shower, for everyone at home.</p>
+        <blockquote class="cc-quote">&ldquo;The hair loss has reduced significantly.&rdquo;<span>Nishanth &middot; Strathtulloh</span></blockquote>
+      </div>
+      <div class="concern-card">
+        <h3>Chlorine smell in the shower</h3>
+        <p class="cc-why">The chlorine added to treat the water is still there when it reaches your shower, and you breathe in the steam.</p>
+        <p class="cc-help"><b>How we help:</b> activated coconut shell carbon reduces chlorine and chloramine before the water reaches any tap.</p>
+      </div>
+      <div class="concern-card">
+        <h3>Better tasting water</h3>
+        <p class="cc-why">Chlorine is what gives tap water that taste and smell.</p>
+        <p class="cc-help"><b>How we help:</b> reduce it, and every tap in the house tastes better. Simple.</p>
+        <blockquote class="cc-quote">&ldquo;We drink straight from the taps now.&rdquo;<span>Marcus &middot; Lyndhurst</span></blockquote>
+      </div>
+      <div class="concern-card">
+        <h3>Limescale build-up</h3>
+        <p class="cc-why">Hard minerals leave white marks on shower screens and taps, and scale in the kettle and hot water system.</p>
+        <p class="cc-help"><b>How we help:</b> polyphosphate crystals in our carbon block help stop minerals forming scale, without taking them out of your water.</p>
+      </div>
+      <div class="concern-card">
+        <h3>Simply want better water</h3>
+        <p class="cc-why">Jugs and shower filters only cover one tap. Bottled water adds up.</p>
+        <p class="cc-help"><b>How we help:</b> one system on your mains filters every tap, shower and appliance.</p>
+        <blockquote class="cc-quote">&ldquo;Crystal clear. You can tell straight away.&rdquo;<span>Jim &middot; Point Cook</span></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHLORINE AT HOME: tap water vs a pool, the test scale, the test clip -->
+<section class="section section-off" id="chlorine-at-home">
+  <div class="container">
+    <div class="i-why">
+      <div>
+        <div class="section-head i-left">
+          <span class="eyebrow">Our Water Test</span>
+          <h2>Your Tap Water vs <span class="i-acc">A Swimming Pool</span></h2>
+        </div>
+        <div class="i-vs">
+          <div class="c"><span class="t">A swimming pool</span><div class="ppm">1–1.5 <small>ppm</small></div><div class="src">Where many home pools sit</div><ul><li>Open air, so the chlorine gas escapes</li><li>The same water, topped up, not drained and refilled every day</li></ul></div>
+          <div class="c home"><span class="t">Your home</span><div class="ppm">1.5–3 <small>ppm</small></div><div class="src">Melbourne homes we&rsquo;ve tested</div><ul><li>A fresh supply of chlorinated water every time you turn on a tap</li></ul></div>
+        </div>
+        <p class="i-pp">As much chlorine as a swimming pool, <b>in every shower.</b></p>
+        <div class="i-dpd">
+          <div class="sw"><span style="background:#fbf7f9"></span><span style="background:#f6d3e2"></span><span style="background:#efafcb"></span><span style="background:#e58ab5"></span><span style="background:#d9659f"></span><span style="background:#c23d86"></span></div>
+          <div class="lb"><span>0</span><span>0.5</span><span>1.0</span><span>1.5</span><span>2.0</span><span>3.0 ppm</span></div>
+          <p>The test scale. Filtered water sits at 0. The darker the pink, the more chlorine.</p>
+        </div>
+      </div>
+      <figure class="i-clip-wrap">
+        <div class="i-clip"><video data-src="/assets/present/chlorine-test.mp4" poster="/assets/present/chlorine-test.jpg" muted loop playsinline preload="none"></video><span>Pink = chlorine</span></div>
+        <figcaption>Unfiltered vs filtered, using the same chlorine tablets pools use.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -1253,6 +1341,20 @@ html.i-pop-open { overflow: hidden; }
 </div>
 
 <script>
+// Chlorine test loop: only loads and plays once it's on screen (saves data on phones)
+(function () {
+  var v = document.querySelector('.i-clip video');
+  if (!v) return;
+  new IntersectionObserver(function (entries, obs) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      if (!v.src) v.src = v.dataset.src;
+      v.play().catch(function () {});
+      obs.disconnect();
+    });
+  }, { rootMargin: '200px 0px' }).observe(v);
+})();
+
 // Stage pop-ups. STAGE is the deck's (/team/present): keep the two in step.
 (function () {
   var STAGE = {
