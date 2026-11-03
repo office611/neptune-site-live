@@ -365,7 +365,7 @@
 #pricing .section-head p { margin-top: var(--s-2); }
 .price-cards { display: grid; gap: 12px; max-width: 980px; margin: 0 auto; }
 @media (min-width: 760px) { .price-cards { grid-template-columns: repeat(3, 1fr); } }
-.price-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px; text-align: center; }
+.price-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px; text-align: center; }
 .price-card.hl { background: #fff; border: 2px solid var(--accent); box-shadow: 0 14px 34px rgba(11,30,61,.1); }
 .price-card .pc-big { display: block; font-size: 2.4rem; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -.02em; }
 .price-card .pc-big small { font-size: .42em; font-weight: 700; color: var(--text-2); letter-spacing: 0; }
@@ -700,12 +700,11 @@ html.i-pop-open { overflow: hidden; }
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     PRICING — /whole-home only. Price, filters, warranty, then what's
-     included. Same cards and checks as Sound Like Your Home below.
+     PRICING — /whole-home only. Price, filters, warranty.
      PRICE: $3,195 / $639 deposit / $2,556 balance / $300 filters. Also
      in the hero pill, the FAQ and the sticky bar: change them together.
 ══════════════════════════════════════════════════════ -->
-<section class="section section-off" id="pricing">
+<section class="section" id="pricing">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Simple, Upfront Pricing</span>
@@ -717,57 +716,7 @@ html.i-pop-open { overflow: hidden; }
       <div class="price-card"><span class="pc-big">$300 <small>a year</small></span><strong>Fresh filters, delivered</strong><span class="pc-s">All 3 filters, about once a year. About 82&cent; a day for the whole home.</span></div>
       <div class="price-card"><span class="pc-big">7 <small>years</small></span><strong>Workmanship warranty</strong><span class="pc-s">Plus a 30-day money-back guarantee. WaterMark certified.</span></div>
     </div>
-    <h3 class="incl-head">Everything included</h3>
-    <ul class="incl-list">
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>5-stage, 3-filter whole home system</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>20-inch system with full pressure at every tap</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Stainless steel cover, built for Melbourne, powder coated and treated</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Copper piping, naturally antibacterial</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Bypass valve included</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Concreted into the ground (or mounted on the wall), so it&rsquo;s solid and can&rsquo;t be taken</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Water connection only: no power, no gas</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Moves with you if you ever sell (fee applies)</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Clean, simple design, not an eyesore on the side of your house</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Installed by our licensed plumbing team</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Installed in less than 5 days, about 2 hours on the day</li>
-    </ul>
-    <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get Started</a>
-  </div>
-</section>
-
-<!-- 5 STAGES: water runs through the 3 filters; tap a stage for the pop-up -->
-<section class="section" id="five-stages">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Melbourne Only · 5-Stage Filtration</span>
-      <h2>5 Stages For What&rsquo;s Coming Through <span class="i-acc">Your Pipes</span></h2>
-    </div>
-    <div class="i-diagram">
-      <div class="end">Water main<small>street supply</small></div>
-      <div class="hs" data-f="guard">
-        <div><div class="nm">The Guard</div><div class="mat">Pleated polypropylene <span class="mic">· 5 micron</span></div></div>
-        <div class="stgs">
-          <button type="button" class="stg" data-s="1"><span class="n">STAGE 1</span><b>Sediment</b><small>Sand, rust &amp; grit</small><i class="more" aria-hidden="true">+</i></button>
-        </div>
-      </div>
-      <div class="hs" data-f="disruptor">
-        <div><div class="nm">The Disruptor</div><div class="mat">Carbon block with polyphosphate crystals <span class="mic">· 1 micron</span></div></div>
-        <div class="stgs">
-          <button type="button" class="stg" data-s="2"><span class="n">STAGE 2</span><b>Limescale</b><small>Stops hard minerals forming scale</small><i class="more" aria-hidden="true">+</i></button>
-          <button type="button" class="stg" data-s="3"><span class="n">STAGE 3</span><b>Chlorine</b><small>Added to treat the water</small><i class="more" aria-hidden="true">+</i></button>
-        </div>
-      </div>
-      <div class="hs" data-f="extractor">
-        <div><div class="nm">The Extractor</div><div class="mat"><b>Activated</b> coconut shell carbon <span class="mic">· 1 micron</span></div></div>
-        <div class="stgs">
-          <button type="button" class="stg" data-s="4"><span class="n">STAGE 4</span><b>Chloramine</b><small>The longer-lasting treatment chemical</small><i class="more" aria-hidden="true">+</i></button>
-          <button type="button" class="stg" data-s="5"><span class="n">STAGE 5</span><b>Heavy metals</b><small>Picked up from older pipes</small><i class="more" aria-hidden="true">+</i></button>
-        </div>
-      </div>
-      <div class="end">Your home<small>every tap</small></div>
-    </div>
-    <p class="i-hint i-center">Tap any stage to see what&rsquo;s inside.</p>
-    <div class="i-upgrade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><polyline points="21 3 21 9 15 9"/></svg>When our filters get better, yours do too. Every yearly change brings you our latest.</div>
+    <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">See If We Can Help</a>
   </div>
 </section>
 
@@ -858,6 +807,65 @@ html.i-pop-open { overflow: hidden; }
   </div>
 </section>
 
+<!-- EVERYTHING INCLUDED — the deck's "The System" list plus install time -->
+<section class="section" id="included">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What You Get</span>
+      <h2>Everything Included</h2>
+    </div>
+    <ul class="incl-list">
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>5-stage, 3-filter whole home system</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>20-inch system with full pressure at every tap</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Stainless steel cover, built for Melbourne, powder coated and treated</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Copper piping, naturally antibacterial</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Bypass valve included</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Concreted into the ground (or mounted on the wall), so it&rsquo;s solid and can&rsquo;t be taken</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Water connection only: no power, no gas</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Moves with you if you ever sell (fee applies)</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Clean, simple design, not an eyesore on the side of your house</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Installed by our licensed plumbing team</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Installed in less than 5 days, about 2 hours on the day</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5 STAGES: water runs through the 3 filters; tap a stage for the pop-up -->
+<section class="section section-off" id="five-stages">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Melbourne Only · 5-Stage Filtration</span>
+      <h2>5 Stages For What&rsquo;s Coming Through <span class="i-acc">Your Pipes</span></h2>
+    </div>
+    <div class="i-diagram">
+      <div class="end">Water main<small>street supply</small></div>
+      <div class="hs" data-f="guard">
+        <div><div class="nm">The Guard</div><div class="mat">Pleated polypropylene <span class="mic">· 5 micron</span></div></div>
+        <div class="stgs">
+          <button type="button" class="stg" data-s="1"><span class="n">STAGE 1</span><b>Sediment</b><small>Sand, rust &amp; grit</small><i class="more" aria-hidden="true">+</i></button>
+        </div>
+      </div>
+      <div class="hs" data-f="disruptor">
+        <div><div class="nm">The Disruptor</div><div class="mat">Carbon block with polyphosphate crystals <span class="mic">· 1 micron</span></div></div>
+        <div class="stgs">
+          <button type="button" class="stg" data-s="2"><span class="n">STAGE 2</span><b>Limescale</b><small>Stops hard minerals forming scale</small><i class="more" aria-hidden="true">+</i></button>
+          <button type="button" class="stg" data-s="3"><span class="n">STAGE 3</span><b>Chlorine</b><small>Added to treat the water</small><i class="more" aria-hidden="true">+</i></button>
+        </div>
+      </div>
+      <div class="hs" data-f="extractor">
+        <div><div class="nm">The Extractor</div><div class="mat"><b>Activated</b> coconut shell carbon <span class="mic">· 1 micron</span></div></div>
+        <div class="stgs">
+          <button type="button" class="stg" data-s="4"><span class="n">STAGE 4</span><b>Chloramine</b><small>The longer-lasting treatment chemical</small><i class="more" aria-hidden="true">+</i></button>
+          <button type="button" class="stg" data-s="5"><span class="n">STAGE 5</span><b>Heavy metals</b><small>Picked up from older pipes</small><i class="more" aria-hidden="true">+</i></button>
+        </div>
+      </div>
+      <div class="end">Your home<small>every tap</small></div>
+    </div>
+    <p class="i-hint i-center">Tap any stage to see what&rsquo;s inside.</p>
+    <div class="i-upgrade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><polyline points="21 3 21 9 15 9"/></svg>When our filters get better, yours do too. Every yearly change brings you our latest.</div>
+  </div>
+</section>
+
 <!-- ══════════════════════════════════════════════════════
      INSTALL GALLERY — NEPTUNE word, North/West/South East chips, then
      a fan of 3 installs that deals out the next 3 every few seconds. Every
@@ -887,7 +895,7 @@ html.i-pop-open { overflow: hidden; }
     </div>
     <div class="gallery-cta">
       <span class="next-step-heading"><span class="hero-accent next-step-word">Next Step:</span> Answer A Few Quick Questions To See If We&nbsp;Can&nbsp;Help</span>
-      <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get Started</a>
+      <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">See If We Can Help</a>
     </div>
   </div>
 </section>
@@ -1104,7 +1112,7 @@ html.i-pop-open { overflow: hidden; }
     </div>
     <p class="familiar-lead">If any of these sound familiar:</p>
     <h2>Next Step: Answer A Few Quick Questions To See If We&nbsp;Can&nbsp;Help.</h2>
-    <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get Started</a>
+    <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">See If We Can Help</a>
   </div>
 </section>
 
@@ -1278,7 +1286,7 @@ html.i-pop-open { overflow: hidden; }
 </script>
 <div class="price-bar" id="price-bar" aria-hidden="true">
   <div class="pb-p"><b>$3,195</b><span>fully installed</span></div>
-  <a href="#assessment" class="btn btn-primary scroll-to-assessment" tabindex="-1">Get Started</a>
+  <a href="#assessment" class="btn btn-primary scroll-to-assessment" tabindex="-1">See If We Can Help</a>
 </div>
 <script>
 // Shows once the hero's gone; hides while the survey or the closing CTA is on screen.
