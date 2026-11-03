@@ -619,6 +619,10 @@ html.i-pop-open { overflow: hidden; }
 .price-time span + span::before { content: "·"; margin: 0 10px; color: var(--accent); }
 @media (max-width: 520px) { .price-time { border-radius: 16px; padding: 12px 20px; } .price-time span { display: block; } .price-time span + span::before { content: none; } }
 
+/* Why Filter: three steps */
+.i-flow.wf-3 { grid-template-columns: repeat(3, 1fr); max-width: 860px; }
+@media (max-width: 760px) { .i-flow.wf-3 { grid-template-columns: 1fr; } }
+
 /* Sticky price bar on phones */
 .price-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #fff; border-top: 1px solid var(--border); box-shadow: 0 -8px 24px rgba(11,30,61,.12); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; transform: translateY(110%); transition: transform .25s ease; }
 .price-bar.show { transform: none; }
@@ -739,6 +743,22 @@ html.i-pop-open { overflow: hidden; }
   <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 </section>
 
+<!-- WHY FILTER: where the chlorine comes from (no chloramine here; it comes in the pool pop-up) -->
+<section class="section" id="why-filter">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Why Filter?</span>
+      <h2>Your Water&rsquo;s Safe To Drink. <span class="i-acc">Here&rsquo;s What Keeps It That Way.</span></h2>
+    </div>
+    <ol class="i-flow wf-3">
+      <li><small>Stored</small><b>Dams &amp; reservoirs</b><span>Where your water sits before it reaches you</span></li>
+      <li><small>Treated</small><b>Chlorine added</b><span>Kills germs and bacteria while it&rsquo;s stored and piped to you</span></li>
+      <li class="hl"><small>Your home</small><b>Still there</b><span>In every tap, every shower</span></li>
+    </ol>
+    <p class="i-punch">It doesn&rsquo;t switch off at <span>your front&nbsp;door.</span></p>
+  </div>
+</section>
+
 <!-- WHAT BROUGHT YOU HERE — how we help with each concern (Full House's
      "What changes in your home", told per concern with our customers' words) -->
 <section class="section section-off" id="concerns">
@@ -752,22 +772,22 @@ html.i-pop-open { overflow: hidden; }
       <details class="concern-card">
         <summary><h3>Eczema &amp; dry, itchy skin</h3></summary>
         <div class="cc-body">
-          <p class="cc-why">Chlorine is a bleach. It strips away the natural oils your skin needs, and hot showers open your pores even more.</p>
-          <p class="cc-help"><b>How we help:</b> we remove the chlorine and chloramine before the water reaches any shower, bath or tap in your home.</p>
+          <p class="cc-why">Chlorine is a bleach. It strips away the natural oils your skin needs. Hot showers open your pores, so you absorb even more.</p>
+          <p class="cc-help"><b>How we help:</b> we remove the chlorine before the water reaches any shower, bath or tap in your home.</p>
         </div>
       </details>
       <details class="concern-card">
         <summary><h3>Hair loss &amp; itchy scalp</h3></summary>
         <div class="cc-body">
-          <p class="cc-why">The same chlorine strips the natural oils your hair and scalp need, every time you wash.</p>
-          <p class="cc-help"><b>How we help:</b> we remove the chlorine and chloramine in every shower, for everyone at home.</p>
+          <p class="cc-why">Chlorine is a bleach. It strips away the natural oils your hair and scalp need. Hot showers open your pores, so you absorb even more.</p>
+          <p class="cc-help"><b>How we help:</b> we remove the chlorine before the water reaches any shower, bath or tap in your home.</p>
         </div>
       </details>
       <details class="concern-card">
         <summary><h3>Weird smell in the shower</h3></summary>
         <div class="cc-body">
           <p class="cc-why">The chlorine added to treat the water is still there when it reaches your shower, and you breathe in the steam.</p>
-          <p class="cc-help"><b>How we help:</b> we remove the chlorine, and the chloramine you often can&rsquo;t smell, before the water reaches your shower.</p>
+          <p class="cc-help"><b>How we help:</b> we remove the chlorine before the water reaches your shower.</p>
         </div>
       </details>
       <details class="concern-card">
@@ -780,15 +800,15 @@ html.i-pop-open { overflow: hidden; }
       <details class="concern-card">
         <summary><h3>Limescale build-up</h3></summary>
         <div class="cc-body">
-          <p class="cc-why">Melbourne&rsquo;s water is soft, but the minerals in it still build up over time: white marks on shower screens and taps, and scale in the kettle and hot water system.</p>
+          <p class="cc-why">Melbourne&rsquo;s water is soft, but the minerals in it still build up over time: white marks on shower screens and taps, and build-up in your appliances.</p>
           <p class="cc-help"><b>How we help:</b> we help stop minerals forming scale on your taps, glass and appliances, without taking them out of your water.</p>
         </div>
       </details>
       <details class="concern-card">
         <summary><h3>Simply want better water</h3></summary>
         <div class="cc-body">
-          <p class="cc-why">Jugs and shower filters only cover one tap. Bottled water adds up.</p>
-          <p class="cc-help"><b>How we help:</b> one system on your mains filters every tap, shower and appliance. Nothing to refill, nothing to think about.</p>
+          <p class="cc-why">You want peace of mind that every tap gives you high quality, filtered water.</p>
+          <p class="cc-help"><b>How we help:</b> one system on your mains filters every tap, shower and appliance. No under-sink, jug or portable filters, no bottled water, no boiling water.</p>
         </div>
       </details>
     </div>
@@ -1410,7 +1430,7 @@ html.i-pop-open { overflow: hidden; }
     <div class="i-pop-body smell-body">
       <div class="n">Our Water Test</div>
       <h3 id="smell-pop-h">So why doesn&rsquo;t your home smell like a swimming pool?</h3>
-      <p>In parts of Melbourne, ammonia is added to the chlorine to mask its taste and smell.</p>
+      <p>In parts of Melbourne, ammonia is added to the water, creating chloramine (chlorine + ammonia) to mask the taste and smell.</p>
       <p>Chlorine is a gas, so in a swimming pool it evaporates off the surface and they keep adding more to top it up. At an indoor pool, that gas hangs in the air, which is why you can smell it.</p>
       <p>At home, you get fresh water every single time you turn on your tap. It isn&rsquo;t sitting there being recycled and topped up like a pool.</p>
     </div>
