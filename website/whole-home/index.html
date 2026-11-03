@@ -620,8 +620,14 @@ html.i-pop-open { overflow: hidden; }
 @media (max-width: 520px) { .price-time { border-radius: 16px; padding: 12px 20px; } .price-time span { display: block; } .price-time span + span::before { content: none; } }
 
 /* Why Filter: three steps */
-.i-flow.wf-3 { grid-template-columns: repeat(3, 1fr); max-width: 860px; }
-@media (max-width: 760px) { .i-flow.wf-3 { grid-template-columns: 1fr; } }
+.i-flow.wf-3 { grid-template-columns: repeat(3, 1fr); gap: 44px; max-width: 900px; }
+.i-flow.wf-3 li:not(:last-child)::after { content: "→"; position: absolute; z-index: 1; top: 50%; right: -37px; transform: translateY(-50%); width: 30px; height: 30px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 1rem; font-weight: 700; line-height: 30px; text-align: center; box-shadow: 0 4px 12px rgba(26,95,168,.3); }
+.wf-ic { display: block; width: 30px; height: 30px; margin: 0 auto 10px; color: var(--blue); }
+.i-flow li.hl .wf-ic { color: #7fb8ff; }
+@media (max-width: 760px) {
+  .i-flow.wf-3 { grid-template-columns: 1fr; gap: 38px; }
+  .i-flow.wf-3 li:not(:last-child)::after { content: "↓"; top: auto; bottom: -34px; right: auto; left: 50%; transform: translateX(-50%); }
+}
 
 /* Sticky price bar on phones */
 .price-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #fff; border-top: 1px solid var(--border); box-shadow: 0 -8px 24px rgba(11,30,61,.12); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; transform: translateY(110%); transition: transform .25s ease; }
@@ -751,9 +757,9 @@ html.i-pop-open { overflow: hidden; }
       <h2>Your Water&rsquo;s Safe To Drink. <span class="i-acc">Here&rsquo;s What Keeps It That Way.</span></h2>
     </div>
     <ol class="i-flow wf-3">
-      <li><small>Stored</small><b>Dams &amp; reservoirs</b><span>Where your water sits before it reaches you</span></li>
-      <li><small>Treated</small><b>Chlorine added</b><span>Kills germs and bacteria while it&rsquo;s stored and piped to you</span></li>
-      <li class="hl"><small>Your home</small><b>Still there</b><span>In every tap, every shower</span></li>
+      <li><svg class="wf-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/><path d="M2 13c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/><path d="M2 18c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/></svg><small>Stored</small><b>Dams &amp; reservoirs</b><span>Where your water sits before it reaches you</span></li>
+      <li><svg class="wf-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7s6 6.3 6 11a6 6 0 0 1-12 0c0-4.7 6-11 6-11z"/><path d="M12 11v6M9 14h6"/></svg><small>Treated</small><b>Chlorine added</b><span>Kills germs and bacteria while it&rsquo;s stored and piped to you</span></li>
+      <li class="hl"><svg class="wf-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h9a3 3 0 0 1 3 3v1"/><path d="M4 7v6"/><path d="M9 10V6"/><path d="M7 6h4"/><path d="M16 18h.01"/><path d="M16 21h.01"/></svg><small>Your home</small><b>Still there</b><span>In every tap, every shower</span></li>
     </ol>
   </div>
 </section>
