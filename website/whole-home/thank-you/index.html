@@ -41,6 +41,8 @@
 /* Thank-you hero: the headline and sub sit in the photo, centred, with room under them */
 .hero-photo-upper { padding-bottom: 56px; }
 .hero-photo-content h1 .h1-line2 { display: block; }
+/* The badge's longer line stays on one line on the narrowest phones */
+@media (max-width: 359px) { .hero-photo-content .qualify-badge { font-size: 11px; letter-spacing: .05em; padding-inline: 12px; } }
 @media (min-width: 900px) {
   .hero-photo { min-height: min(86vh, 820px); display: flex; flex-direction: column; justify-content: center; }
   .hero-photo-upper { padding-bottom: 0; }
@@ -360,7 +362,7 @@
   <div class="hero-photo-overlay book-bg-overlay" aria-hidden="true"></div>
   <div class="hero-photo-upper">
     <div class="container hero-photo-content fade-in-up">
-      <span class="qualify-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Good news — we can help</span>
+      <span class="qualify-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Thanks — we&rsquo;ve got your details</span>
       <h1>You&rsquo;re One Call Away <span class="h1-line2">From Getting <span class="hero-accent">Filtered Water</span>.</span></h1>
       <p class="hero-sub">That&rsquo;s how simple we made it for you.</p>
     </div>
