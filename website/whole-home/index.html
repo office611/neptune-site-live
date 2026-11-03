@@ -12,13 +12,13 @@
 <meta name="theme-color" content="#0B1E3D">
 <meta name="color-scheme" content="light">
 <title>Whole Home Water Filtration Melbourne, $3,195 Installed | Neptune</title>
+<meta name="description" content="Whole-home filtration backed by real customers, not just our word for it. See real results and get your tailored set-up.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&text=NEPTUNE&display=swap">
 <link rel="stylesheet" href="/experts/assessment.css">
 <style>
-/* ── Shared with /melb (testimonial video cards, FAQ) ── */
 :root { --navy-deep: #13233f; }
 .hero-photo .assessment { padding-bottom: var(--s-6); }
 /* GHL leaves a constant empty strip under the survey (55px phones, 61px from 768px) and
@@ -354,105 +354,40 @@
 /* FAQ follows the white install gallery: a hairline keeps the two apart */
 #faq { border-top: 1px solid var(--border); }
 
-/* ── /whole-home v3: mobile first ── */
-body { background: #fff; }
-.v-wrap { width: 100%; max-width: 640px; margin: 0 auto; padding: 0 20px; }
-.v-sec { padding: 48px 0; }
-.v-sec + .v-sec { padding-top: 8px; }
-.v-head { text-align: center; margin-bottom: 24px; }
-.v-head .eyebrow { margin-bottom: 8px; }
-.v-head h2 { font-size: clamp(1.5rem, 6vw, 2rem); line-height: 1.2; text-wrap: balance; }
-.v-acc { color: var(--blue); }
+/* ── /whole-home: the price, in /melb's style ── */
+/* Hero pill, between the sub and the photo trio */
+.price-pill { display: flex; flex-direction: column; align-items: center; gap: 2px; width: fit-content; margin: 18px auto 0; padding: 12px 26px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid rgba(77,166,255,.55); }
+.price-pill .pp-amt { font-size: clamp(1.9rem, 8vw, 2.4rem); font-weight: 800; color: #fff; line-height: 1.05; letter-spacing: -.02em; }
+.price-pill .pp-txt { font-size: .88rem; font-weight: 600; color: rgba(255,255,255,.85); }
+.price-pill .pp-txt b { color: var(--accent); font-weight: 700; }
 
-/* Top bar */
-.v-top { background: var(--navy); }
-.v-top .v-wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; max-width: 1100px; }
-.v-top img { height: 38px; width: auto; display: block; }
-.v-top a.ph { color: #fff; font-weight: 700; font-size: .95rem; text-decoration: none; }
+/* Pricing section: three cards in the Sound-Like-Your-Home card style */
+#pricing .section-head p { margin-top: var(--s-2); }
+.price-cards { display: grid; gap: 12px; max-width: 980px; margin: 0 auto; }
+@media (min-width: 760px) { .price-cards { grid-template-columns: repeat(3, 1fr); } }
+.price-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px; text-align: center; }
+.price-card.hl { background: #fff; border: 2px solid var(--accent); box-shadow: 0 14px 34px rgba(11,30,61,.1); }
+.price-card .pc-big { display: block; font-size: 2.4rem; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -.02em; }
+.price-card .pc-big small { font-size: .42em; font-weight: 700; color: var(--text-2); letter-spacing: 0; }
+.price-card strong { display: block; color: var(--navy); font-size: 1.02rem; margin: 10px 0 4px; }
+.price-card span.pc-s { display: block; color: var(--text-2); font-size: .92rem; line-height: 1.55; }
+.incl-head { text-align: center; font-size: clamp(1.15rem, 4vw, 1.35rem); color: var(--navy); margin: 36px 0 16px; }
+.incl-list { list-style: none; padding: 0; margin: 0 auto; max-width: 720px; display: grid; gap: 10px 20px; }
+@media (min-width: 640px) { .incl-list { grid-template-columns: 1fr 1fr; } }
+.incl-list li { display: flex; align-items: center; gap: 12px; font-weight: 600; color: var(--navy); font-size: .97rem; line-height: 1.4; }
+.incl-list .fam-check { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; }
+.incl-list .fam-check svg { width: 13px; height: 13px; }
+.price-note { max-width: 720px; margin: 22px auto 0; text-align: center; color: var(--text-2); font-size: .92rem; line-height: 1.6; }
+#pricing .btn { max-width: 720px; margin: 22px auto 0; display: block; }
 
-/* Hero: headline, price card, survey */
-.v-hero { background: var(--navy); color: #fff; padding: 28px 0 0; }
-.v-hero h1 { color: #fff; font-size: clamp(1.9rem, 8vw, 2.8rem); line-height: 1.12; text-align: center; margin: 0 0 12px; text-wrap: balance; }
-.v-hero .hero-accent { color: #4DA6FF; }
-.v-sub { text-align: center; color: rgba(255,255,255,.85); font-size: 1.02rem; line-height: 1.6; margin: 0 auto 22px; max-width: 460px; }
-.v-pricecard { background: #fff; border-radius: 20px; padding: 22px 20px 18px; text-align: center; color: var(--navy); box-shadow: 0 18px 40px rgba(0,0,0,.25); }
-.v-pricecard .from { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text-3); }
-.v-pricecard .amt { font-size: clamp(3rem, 15vw, 4rem); font-weight: 800; line-height: 1; letter-spacing: -.03em; margin: 6px 0 4px; }
-.v-pricecard .inc { font-size: .95rem; color: var(--text-2); font-weight: 600; }
-.v-ticks { list-style: none; padding: 16px 0 0; margin: 16px 0 0; border-top: 1px solid var(--border); display: grid; gap: 8px; text-align: left; }
-.v-ticks li { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: .95rem; }
-.v-ticks .ck { width: 22px; height: 22px; border-radius: 50%; background: var(--success-pale); color: var(--success); display: grid; place-items: center; flex-shrink: 0; }
-.v-ticks .ck svg { width: 12px; height: 12px; }
-.v-form { padding: 28px 0 36px; }
-.v-form .next-step-heading { color: #fff; text-align: center; margin-bottom: 12px; font-size: clamp(1.2rem, 5vw, 1.5rem); }
-.v-form .ghl-survey-wrap { border-radius: 16px; overflow: hidden; }
-.v-call { text-align: center; color: rgba(255,255,255,.75); font-size: .92rem; margin: 14px 0 0; }
-.v-call a { color: #fff; font-weight: 700; text-decoration: none; }
-@media (min-width: 960px) {
-  .v-hero { padding: 48px 0 0; }
-  .v-hero > .v-wrap { max-width: 1100px; display: grid; grid-template-columns: 1fr 480px; gap: 48px; align-items: start; }
-  .v-hero h1, .v-sub { text-align: left; margin-left: 0; }
-  .v-form { padding-top: 0; }
-}
-
-/* The three numbers */
-.v-nums { display: grid; gap: 12px; }
-@media (min-width: 700px) { .v-nums { grid-template-columns: repeat(3, 1fr); } .v-wide { max-width: 1000px; } }
-.v-num { background: var(--off-white); border: 1px solid var(--border); border-radius: 18px; padding: 22px 20px; }
-.v-num .big { font-size: 2.3rem; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -.02em; }
-.v-num .big small { font-size: .45em; font-weight: 700; color: var(--text-2); letter-spacing: 0; }
-.v-num b { display: block; color: var(--navy); font-size: 1.02rem; margin: 10px 0 4px; }
-.v-num p { margin: 0; color: var(--text-2); font-size: .92rem; line-height: 1.55; }
-.v-num.main { background: var(--navy); border-color: var(--navy); }
-.v-num.main .big, .v-num.main b { color: #fff; }
-.v-num.main .big small, .v-num.main p { color: rgba(255,255,255,.8); }
-
-/* Customer videos: one swipeable row */
-.v-proof .testimonial-grid { display: flex; grid-template-columns: none; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 20px 14px; margin: 0 -20px; scrollbar-width: none; }
-.v-proof .testimonial-grid::-webkit-scrollbar { display: none; }
-.v-proof .testimonial-card { flex: 0 0 68%; max-width: 260px; scroll-snap-align: center; }
-.v-swipe { text-align: center; color: var(--text-3); font-size: .85rem; margin: 4px 0 0; }
-
-/* How it works */
-.v-steps { list-style: none; counter-reset: s; padding: 0; margin: 0; display: grid; gap: 12px; }
-.v-steps li { counter-increment: s; position: relative; padding: 18px 18px 18px 64px; border: 1px solid var(--border); border-radius: 16px; color: var(--text-2); line-height: 1.55; font-size: .95rem; }
-.v-steps li::before { content: counter(s); position: absolute; left: 18px; top: 18px; width: 32px; height: 32px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; display: grid; place-items: center; }
-.v-steps b { display: block; color: var(--navy); font-size: 1.02rem; margin-bottom: 2px; }
-
-/* Included + the stages behind a tap */
-.v-incl { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-.v-incl li { display: flex; gap: 12px; align-items: flex-start; font-size: .98rem; color: var(--navy); font-weight: 600; line-height: 1.45; }
-.v-incl .ck { width: 22px; height: 22px; border-radius: 50%; background: var(--success-pale); color: var(--success); display: grid; place-items: center; flex-shrink: 0; margin-top: 1px; }
-.v-incl .ck svg { width: 12px; height: 12px; }
-.v-incl span.s { display: block; font-weight: 400; color: var(--text-2); font-size: .88rem; }
-.v-more { margin-top: 18px; border: 1px solid var(--border); border-radius: 16px; background: var(--off-white); }
-.v-more summary { list-style: none; cursor: pointer; padding: 16px 18px; font-weight: 700; color: var(--blue); display: flex; justify-content: space-between; align-items: center; }
-.v-more summary::-webkit-details-marker { display: none; }
-.v-more summary::after { content: "+"; font-size: 1.4rem; line-height: 1; }
-.v-more[open] summary::after { content: "\2212"; }
-.v-more ol { margin: 0; padding: 0 18px 18px 40px; color: var(--text-2); font-size: .92rem; line-height: 1.6; }
-.v-more ol li + li { margin-top: 8px; }
-.v-more ol b { color: var(--navy); }
-.v-more p { margin: 0; padding: 0 18px 18px; font-size: .9rem; color: var(--text-2); }
-
-/* Stefan */
-.v-me { display: flex; gap: 16px; align-items: center; background: var(--off-white); border-radius: 18px; padding: 18px; }
-.v-me img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
-.v-me b { display: block; color: var(--navy); font-size: 1.1rem; margin-bottom: 4px; }
-.v-me p { margin: 0; color: var(--text-2); font-size: .93rem; line-height: 1.55; }
-
-/* Final + sticky bar */
-.v-final { background: var(--navy); text-align: center; padding: 48px 0 56px; }
-.v-final h2 { color: #fff; font-size: clamp(1.5rem, 6vw, 2rem); margin: 0 0 8px; }
-.v-final p { color: rgba(255,255,255,.8); margin: 0 0 22px; }
-.v-final .btn { max-width: 420px; margin: 0 auto; display: block; }
-.v-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #fff; border-top: 1px solid var(--border); box-shadow: 0 -8px 24px rgba(11,30,61,.12); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; transform: translateY(110%); transition: transform .25s ease; }
-.v-bar.show { transform: none; }
-.v-bar .p { line-height: 1.2; }
-.v-bar .p b { display: block; font-size: 1.2rem; color: var(--navy); }
-.v-bar .p span { font-size: .78rem; color: var(--text-2); }
-.v-bar .btn { width: auto; padding: 12px 22px; white-space: nowrap; }
-@media (min-width: 960px) { .v-bar { display: none; } }
+/* Sticky price bar on phones */
+.price-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #fff; border-top: 1px solid var(--border); box-shadow: 0 -8px 24px rgba(11,30,61,.12); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; transform: translateY(110%); transition: transform .25s ease; }
+.price-bar.show { transform: none; }
+.price-bar .pb-p { line-height: 1.2; }
+.price-bar .pb-p b { display: block; font-size: 1.2rem; color: var(--navy); }
+.price-bar .pb-p span { font-size: .78rem; color: var(--text-2); }
+.price-bar .btn { width: auto; padding: 12px 22px; white-space: nowrap; }
+@media (min-width: 960px) { .price-bar { display: none; } }
 </style>
 <!-- Meta Pixel -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2043292147071202');fbq('track','PageView');</script>
@@ -469,25 +404,12 @@ body { background: #fff; }
 <body class="page-melbourne">
 
 <!-- ══════════════════════════════════════════════════════
-     /whole-home (v3) — the published-price landing page, mobile first
-     (Stefan 2026-11-03: "most important parts: price, filter cost,
-     warranty"). Short on purpose: the full detail is /melb/info, which
-     everyone lands on after the survey. Ads stay price-free.
-     PRICE: $3,195 / $639 deposit / $300 filters. It appears in the hero
-     card, the numbers, the FAQ, the sticky bar and the final CTA.
-     Claims as /melb: "reduces", no removal stats, never knock others.
-     Built by build-wh3.js from /melb pieces.
+     HERO — no background photo. Proof (the installs gallery) is
+     what's doing the work here, flat navy keeps it clean and simple.
 ══════════════════════════════════════════════════════ -->
-<header class="v-top">
-  <div class="v-wrap">
-    <img src="/assets/logos/Neptune_Logo_White.png" alt="Neptune Filtration">
-    <a class="ph" href="tel:0468018396">0468 018 396</a>
-  </div>
-</header>
-
-<section class="v-hero">
-  <div class="v-wrap">
-    <div>
+<section class="hero-photo">
+  <div class="hero-photo-upper">
+    <div class="container hero-photo-content fade-in-up">
       <h1>The Water Your Whole <span class="hero-accent">Family Deserves</span>.</h1>
       <script>
       /* Message match: swap the headline to the angle of the ad they clicked.
@@ -537,50 +459,87 @@ body { background: #fff; }
         }
       })();
       </script>
-      <p class="v-sub">Whole home water filtration for Melbourne. Every tap, every shower, one fixed price.</p>
-      <div class="v-pricecard">
-        <span class="from">Fully installed</span>
-        <div class="amt">$3,195</div>
-        <span class="inc">incl. GST &middot; no hidden extras</span>
-        <ul class="v-ticks">
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Nobody comes to your home to quote</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Installed in about 5 days</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>7-year workmanship warranty</li>
-        </ul>
-      </div>
+      <p class="hero-sub">Whole-home filtration, backed by real customers — not just our word for it.</p>
+      <div class="price-pill"><span class="pp-amt">$3,195</span><span class="pp-txt"><b>Fully installed</b> &middot; incl. GST</span></div>
     </div>
-    <div class="v-form" id="assessment">
+
+    <!-- 3-PHOTO TRIO — sits directly below the subheadline, staggered/
+         overlapping instead of a scrolling gallery strip. -->
+    <div class="hero-photo-trio">
+      <div class="trio-item"><img src="/assets/install-photos/img-1171.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager"></div>
+      <div class="trio-item"><img src="/assets/install-photos/girish-unit.jpg" alt="Stefan from Neptune Filtration with customer Girish at his installed system" loading="eager"></div>
+      <div class="trio-item"><img src="/assets/install-photos/img-1216.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager"></div>
+    </div>
+  </div>
+
+  <div class="hero-arrow-spacer">
+    <a href="#assessment" class="hero-scroll-arrow scroll-to-assessment" aria-label="Scroll to the form">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       FORM — same GHL survey, same embed. CTA heading updated
+       to the tailored set-up language locked in this session.
+  ══════════════════════════════════════════════════════ -->
+  <section class="assessment" id="assessment">
+  <div class="container">
+
+    <div class="assessment-head">
       <span class="next-step-heading"><span class="hero-accent next-step-word">Next Step:</span> Answer A Few Quick&nbsp;Questions</span>
+    </div>
+
+    <div class="assessment-card assessment-card--form-only">
       <div class="ghl-survey-wrap">
         <iframe src="https://api.leadconnectorhq.com/widget/survey/yGb8cMeyn5JXAm5VyTN6" style="border:none;width:100%;" scrolling="no" id="yGb8cMeyn5JXAm5VyTN6" title="survey" data-cookie-consent="true" data-cookie-consent-provider="auto"></iframe>
       </div>
-      <p class="v-call">Or call me directly: <a href="tel:0468018396">0468 018 396</a></p>
     </div>
-  </div>
-</section>
-<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 
-<!-- THE NUMBERS: price, filters, warranty -->
-<section class="v-sec" id="numbers">
-  <div class="v-wrap v-wide">
-    <div class="v-head">
+  </div>
+  </section>
+  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     PRICING — /whole-home only. Price, filters, warranty, then what's
+     included. Same cards and checks as Sound Like Your Home below.
+     PRICE: $3,195 / $639 deposit / $2,556 balance / $300 filters. Also
+     in the hero pill, the FAQ and the sticky bar: change them together.
+══════════════════════════════════════════════════════ -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-head">
       <span class="eyebrow">Simple, Upfront Pricing</span>
-      <h2>What It Costs. <span class="v-acc">No Surprises.</span></h2>
+      <h2>One Price. Fully Installed.</h2>
+      <p>The price you see is the price you pay.</p>
     </div>
-    <div class="v-nums">
-      <div class="v-num main"><div class="big">$3,195</div><b>Fully installed, one time</b><p>$639 deposit to lock in your date, the rest once it&rsquo;s installed. Interest-free options available, subject to approval.</p></div>
-      <div class="v-num"><div class="big">$300 <small>a year</small></div><b>Fresh filters, delivered</b><p>All 3 filters, about once a year. That&rsquo;s about 82&cent; a day for the whole home.</p></div>
-      <div class="v-num"><div class="big">7 <small>years</small></div><b>Workmanship warranty</b><p>Plus a 30-day money-back guarantee. WaterMark certified.</p></div>
+    <div class="price-cards">
+      <div class="price-card hl"><span class="pc-big">$3,195</span><strong>Fully installed, incl. GST</strong><span class="pc-s">$639 deposit to lock in your date, the rest once it&rsquo;s installed. Interest-free options available.</span></div>
+      <div class="price-card"><span class="pc-big">$300 <small>a year</small></span><strong>Fresh filters, delivered</strong><span class="pc-s">All 3 filters, about once a year. About 82&cent; a day for the whole home.</span></div>
+      <div class="price-card"><span class="pc-big">7 <small>years</small></span><strong>Workmanship warranty</strong><span class="pc-s">Plus a 30-day money-back guarantee. WaterMark certified.</span></div>
     </div>
+    <h3 class="incl-head">Everything included</h3>
+    <ul class="incl-list">
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>5-stage, 3-filter whole home system</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>20-inch, full pressure at every tap</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Stainless steel cover</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Installed by our licensed plumbing team</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Copper piping, bypass valve &amp; fittings</li>
+      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Installed in about 5 days</li>
+    </ul>
+    <p class="price-note">Planned from your photos, so nobody comes to your home to quote. If your photos show anything unusual, I&rsquo;ll tell you before you pay anything.</p>
+    <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get Started</a>
   </div>
 </section>
 
-<!-- PROOF -->
-<section class="v-sec v-proof" id="real-testimonials">
-  <div class="v-wrap v-wide">
-    <div class="v-head">
-      <span class="eyebrow">Melbourne Homeowners</span>
-      <h2>Hear It From <span class="v-acc">Our Customers</span></h2>
+<!-- ══════════════════════════════════════════════════════
+     REAL TESTIMONIALS — 8 full, uncut customer testimonials.
+══════════════════════════════════════════════════════ -->
+<section class="section section-off" id="real-testimonials">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Real Customers, Real Results</span>
+      <h2>Don't Take Our Word For It</h2>
     </div>
     <div class="testimonial-grid">
 
@@ -657,68 +616,140 @@ body { background: #fff; }
       </div>
 
     </div>
-    <p class="v-swipe">Swipe for more &rarr;</p>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="v-sec" id="how-it-works">
-  <div class="v-wrap">
-    <div class="v-head">
-      <span class="eyebrow">How It Works</span>
-      <h2>Three Steps. <span class="v-acc">Nobody Comes To Your Home.</span></h2>
+<!-- ══════════════════════════════════════════════════════
+     INSTALL GALLERY — NEPTUNE word, North/West/South East chips, then
+     a fan of 3 installs that deals out the next 3 every few seconds. Every
+     photo comes from AREAS / SUBURB below ("All" mixes the areas): to add
+     photos, drop them in /assets/install-photos/ and add the names to both.
+══════════════════════════════════════════════════════ -->
+<section class="section" id="install-gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Recent Installs</span>
+      <span class="install-word" aria-hidden="true">NEPTUNE</span>
+      <h2>Installed Right Across Melbourne</h2>
     </div>
-    <ol class="v-steps">
-      <li><b>Answer a few quick questions</b>So we know your home and what you&rsquo;re after.</li>
-      <li><b>Quick call with me, plus a few photos</b>I answer your questions and plan your set-up from your photos.</li>
-      <li><b>Installed in about 5 days</b>2&ndash;3 hours on the day, by our dedicated plumbing team. You pay the balance once it&rsquo;s in.</li>
-    </ol>
-  </div>
-</section>
-
-<!-- WHAT'S INCLUDED (+ the stages behind a tap) -->
-<section class="v-sec" id="included">
-  <div class="v-wrap">
-    <div class="v-head">
-      <span class="eyebrow">What&rsquo;s Included</span>
-      <h2>Everything For <span class="v-acc">$3,195</span></h2>
+    <div class="area-pick">
+      <span class="area-pick-label">See installs near you</span>
+      <div class="area-chips" role="group" aria-label="Filter installs by area">
+        <button type="button" class="area-chip is-active" data-area="all" aria-pressed="true">All</button>
+        <button type="button" class="area-chip" data-area="north" aria-pressed="false">North</button>
+        <button type="button" class="area-chip" data-area="west" aria-pressed="false">West</button>
+        <button type="button" class="area-chip" data-area="southeast" aria-pressed="false">South East</button>
+      </div>
     </div>
-    <ul class="v-incl">
-      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>5-stage whole home system<span class="s">3 filters, 20-inch, full pressure at every tap</span></div></li>
-      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Stainless steel cover<span class="s">Mounted on the wall or concreted in</span></div></li>
-      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Installed by our licensed plumbing team<span class="s">Copper piping, bypass valve and all fittings</span></div></li>
-      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>WaterMark certified</div></li>
-      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>7-year workmanship warranty</div></li>
-      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>30-day money-back guarantee</div></li>
-    </ul>
-    <details class="v-more">
-      <summary>See what&rsquo;s inside: the 5 stages</summary>
-      <ol>
-        <li><b>Sediment.</b> Pleated polypropylene, 5 micron. Sand, rust and grit from the main.</li>
-        <li><b>Limescale.</b> Carbon block with polyphosphate crystals, 1 micron. Helps stop hard minerals forming scale.</li>
-        <li><b>Chlorine.</b> Dense carbon block. Reduces the chlorine added to treat the water.</li>
-        <li><b>Chloramine.</b> Activated coconut shell carbon, 1 micron. The longer-lasting treatment chemical.</li>
-        <li><b>Heavy metals.</b> Helps reduce metals picked up from older pipes.</li>
-      </ol>
-      <p>Every yearly filter change brings you our latest version.</p>
-    </details>
-  </div>
-</section>
-
-<!-- STEFAN -->
-<section class="v-sec" id="about-me">
-  <div class="v-wrap">
-    <div class="v-me">
-      <img src="/assets/install-photos/img-1172.jpg" alt="Stefan, founder of Neptune Filtration" loading="lazy">
-      <div><b>I&rsquo;m Stefan.</b><p>I worked for other filtration companies before Neptune and spoke with 1000+ customers along the way. That&rsquo;s why my face is on every ad. Why would I hide it?</p></div>
+    <div class="install-fan" id="install-fan">
+      <figure class="fan-card fan-l"><img src="/assets/install-photos/38.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
+      <figure class="fan-card fan-c"><img src="/assets/install-photos/23.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
+      <figure class="fan-card fan-r"><img src="/assets/install-photos/6.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
+    </div>
+    <div class="gallery-cta">
+      <span class="next-step-heading"><span class="hero-accent next-step-word">Next Step:</span> Answer A Few Quick&nbsp;Questions</span>
+      <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get Started</a>
     </div>
   </div>
 </section>
+<script>
+(function () {
+  // Suburb per photo, and which photos show for each area (council-based
+  // Vic Government metro regions, Southern + Eastern merged into South East).
+  // New tagged photos: add to both.
+  var SUBURB = {
+    '6': 'Narre Warren South', 'install-10': 'Williams Landing', 'install-13': 'Werribee',
+    '17': 'Ascot Vale', '18': 'Surrey Hills', 'install-21': 'Mill Park', 'install-22': 'Watsonia',
+    '23': 'Epping', '24': 'Black Rock', '29': 'Diggers Rest', '30': 'Balwyn North',
+    '34': 'Junction Village', '36': 'Niddrie', '37': 'Keysborough', '38': 'Deer Park', '39': 'Wollert',
+    '3': 'Clyde North', '41': 'Middle Park', '42': 'Frankston', '43': 'Deanside', '44': 'Williamstown',
+    '45': 'Bundoora', '46': 'Lower Plenty', '47': 'Darley', '48': 'Roxburgh Park', '49': 'Preston',
+    '50': 'Thomastown'
+  };
+  var AREAS = {
+    north: ['23', '45', 'install-21', '49', 'install-22', '50', '39', '46', '48'],
+    west: ['38', '43', 'install-10', '44', 'install-13', '47', '17', '29', '36'],
+    southeast: ['6', '41', '37', '3', '30', '42', '18', '24', '34']
+  };
+  // All = the areas woven together: each set of 3 is one North, one West and
+  // one South East (which one sits in the middle rotates), and nothing repeats
+  // until every photo has shown. Each area's order is shuffled per visit.
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  var keys = Object.keys(AREAS), ALL = [];
+  keys.forEach(function (k) { shuffle(AREAS[k]); });
+  var rounds = Math.max.apply(null, keys.map(function (k) { return AREAS[k].length; }));
+  for (var i = 0; i < rounds; i++) {
+    for (var j = 0; j < keys.length; j++) {
+      var name = AREAS[keys[(i + j) % keys.length]][i];
+      if (name) ALL.push(name);
+    }
+  }
 
-<!-- FAQ -->
-<section class="v-sec" id="faq">
-  <div class="v-wrap">
-    <div class="v-head">
+  var src = function (name) { return '/assets/install-photos/' + name + '.jpg'; };
+  var fan = document.getElementById('install-fan');
+  // Centre card takes the first photo of each set, sides the next two.
+  var cards = [fan.querySelector('.fan-c'), fan.querySelector('.fan-l'), fan.querySelector('.fan-r')];
+  var list = ALL, at = 0, timer = null, onScreen = false;
+
+  function show(animate) {
+    cards.forEach(function (card, k) {
+      var name = list[(at + k) % list.length];
+      var swap = function () {
+        card.querySelector('img').src = src(name);
+        card.querySelector('.fan-sub').textContent = SUBURB[name] || '';
+      };
+      if (!animate) return swap();
+      setTimeout(function () {
+        card.classList.add('is-out');
+        setTimeout(function () { swap(); card.classList.remove('is-out'); }, 450);
+      }, k * 110);
+    });
+    for (var k = 0; k < 3; k++) new Image().src = src(list[(at + 3 + k) % list.length]);
+  }
+  function deal() {
+    if (document.hidden || list.length <= 3) return;
+    at = (at + 3) % list.length;
+    show(true);
+  }
+  function start() {
+    clearInterval(timer);
+    timer = onScreen ? setInterval(deal, 3200) : null;
+  }
+  // Only deal while on screen.
+  new IntersectionObserver(function (entries) {
+    onScreen = entries[0].isIntersecting;
+    start();
+  }).observe(fan);
+
+  document.querySelectorAll('.area-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      if (chip.classList.contains('is-active')) return;
+      document.querySelectorAll('.area-chip').forEach(function (c) {
+        c.classList.toggle('is-active', c === chip);
+        c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+      });
+      list = AREAS[chip.dataset.area] || ALL;
+      at = 0;
+      show(true);
+      start();
+    });
+  });
+  show(false);
+})();
+</script>
+
+<!-- ══════════════════════════════════════════════════════
+     FAQ — small and general (Stefan 2026-10-27): filtration questions
+     that stop people filling in the survey. On /whole-home the price
+     questions go first; specs and stages live on page 2 (/melb/info). Sits after the
+     installs and before Who's Behind Neptune (Stefan); white band.
+══════════════════════════════════════════════════════ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head">
       <span class="eyebrow">FAQs</span>
       <h2>Common Questions</h2>
     </div>
@@ -727,7 +758,7 @@ body { background: #fff; }
         <summary>Is it really $3,195?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Yes. $3,195 including GST, fully installed. A $639 deposit locks in your date, and you pay the $2,556 balance once it&rsquo;s installed. If your photos show anything unusual, I&rsquo;ll tell you before you pay anything.</p>
+        <p class="faq-answer">Yes. $3,195 including GST, fully installed. A $639 deposit locks in your install date, and you pay the $2,556 balance once it&rsquo;s installed. Interest-free options are available, subject to approval.</p>
       </details>
       <details class="faq-item">
         <summary>Aren&rsquo;t all whole home systems the same?
@@ -736,10 +767,16 @@ body { background: #fff; }
         <p class="faq-answer">Not ours. 5 stages across 3 filters, including activated coconut shell carbon. Planned from your photos, so nobody comes to your home. Installed in about 5 days by our own plumbing team. Fresh filters delivered when it&rsquo;s time, always our latest version. And Melbourne only.</p>
       </details>
       <details class="faq-item">
-        <summary>Will it affect my water pressure?
+        <summary>What if my home needs something different?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">No. It&rsquo;s a 20-inch system sized for the whole home, so you keep full pressure at every tap and shower.</p>
+        <p class="faq-answer">The price is for a standard install. If your photos show anything unusual, I&rsquo;ll tell you before you pay anything.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What does whole home filtration do?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">It filters your water on your mains line, where it comes into your home. So every tap, shower and appliance runs on filtered water, not just the kitchen tap.</p>
       </details>
       <details class="faq-item">
         <summary>Melbourne water is safe to drink. Why filter it?
@@ -748,36 +785,83 @@ body { background: #fff; }
         <p class="faq-answer">It is safe. Chlorine, and in parts of Melbourne chloramine, is added to keep it that way on its way to you, and it&rsquo;s still in the water when it reaches your shower and your glass. Our system reduces it before it gets to your taps.</p>
       </details>
       <details class="faq-item">
+        <summary>Will it affect my water pressure?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">No. It&rsquo;s sized for the whole home, so you keep full pressure at every tap and shower.</p>
+      </details>
+      <details class="faq-item">
         <summary>Does someone need to come to my home?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
         <p class="faq-answer">No. Answer a few quick questions, have a quick chat with me, and we plan everything from your photos. Our plumbers only come out on install day.</p>
       </details>
       <details class="faq-item">
-        <summary>Can I pay it off?
+        <summary>How long does installation take?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">Yes. Interest-free options are available, subject to approval. Just ask when I call.</p>
+        <p class="faq-answer">2&ndash;3 hours on the day, done by our own dedicated plumbing team. On average it&rsquo;s about 5 days from going ahead to installed.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What about filter changes?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">About once a year. A fresh set of all 3 is $300, delivered to your door, and you swap them yourself with our step-by-step video.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if I&rsquo;m not happy with it?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">You&rsquo;re covered by our 30-day money-back guarantee, plus a 7-year workmanship warranty on the install.</p>
       </details>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="v-final" id="get-started">
-  <div class="v-wrap">
-    <h2>Better Water At Every Tap.</h2>
-    <p>$3,195 fully installed. Answer a few quick questions and I&rsquo;ll call you.</p>
-    <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get Started</a>
-    <p class="v-call">Or call me directly: <a href="tel:0468018396">0468 018 396</a></p>
+<!-- ══════════════════════════════════════════════════════
+     ABOUT ME — after the proof (testimonials, then installs), right
+     before "Sound Like Your Home?": his "whatever it is, I'm confident
+     we'll fix it" hands straight to that list. Face is already
+     familiar from ads, so this is a proper introduction rather
+     than a tiny avatar.
+══════════════════════════════════════════════════════ -->
+<section class="section section-off" id="about-me">
+  <div class="container">
+    <div class="about-me-grid">
+      <div class="about-me-photo">
+        <img src="/assets/install-photos/img-1172.jpg" alt="Stefan, founder of Neptune Filtration" loading="lazy">
+      </div>
+      <div class="about-me-text">
+        <span class="eyebrow">Who's Behind Neptune</span>
+        <h2>I'm Stefan.</h2>
+        <p>My own eczema and scalp issues are what pulled me into this industry in the first place — chasing a natural fix became a genuine passion. Before Neptune, I worked for other filtration companies, learning the industry inside out and speaking with 1000+ customers along the way — so I know exactly what it takes to fix your concern.</p>
+        <p>Whatever it is, I'm confident we'll fix it. I know the level we operate at — that's exactly why my face is on every ad, every page. Why would I hide it?</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Sticky bar on phones: shows once the hero is gone, hides at the survey and the final CTA -->
-<div class="v-bar" id="v-bar" aria-hidden="true">
-  <div class="p"><b>$3,195</b><span>fully installed</span></div>
-  <a href="#assessment" class="btn btn-primary scroll-to-assessment" tabindex="-1">Get Started</a>
-</div>
+<!-- ══════════════════════════════════════════════════════
+     FINAL CTA — "Sound Like Your Home?" (the survey's four first-question
+     options, same words, same order) straight into the closing ask.
+     White band so it doesn't run into the off-white About section above.
+══════════════════════════════════════════════════════ -->
+<section class="section final-cta" id="sound-familiar">
+  <div class="container">
+    <div class="familiar">
+      <h2>Sound Like Your Home?</h2>
+      <ul class="familiar-list">
+        <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Simply Want Better Water</strong><span>Better water at every tap, shower and appliance, without buying bottled.</span></div></li>
+        <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Weird Taste Or Smell</strong><span>A taste in the tap water or a smell in the shower you can&rsquo;t put your finger on.</span></div></li>
+        <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Skin &amp; Hair Issues</strong><span>You or someone at home dealing with dry, itchy skin, eczema flare-ups or hair loss.</span></div></li>
+        <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Limescale Build Up</strong><span>White marks on shower screens and taps, or scale in the kettle, coffee machine and hot water system.</span></div></li>
+      </ul>
+    </div>
+    <p class="familiar-lead">If any of these sound familiar:</p>
+    <h2>Next Step: Answer A Few Quick&nbsp;Questions.</h2>
+    <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get Started</a>
+  </div>
+</section>
 
 <script>
 (function () {
@@ -787,21 +871,6 @@ body { background: #fff; }
       document.getElementById('assessment').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
-  var bar = document.getElementById('v-bar');
-  var hide = { assessment: true, 'get-started': false }, pastHero = false;
-  function update() { bar.classList.toggle('show', pastHero && !hide.assessment && !hide['get-started']); }
-  new IntersectionObserver(function (es) {
-    es.forEach(function (e) { hide[e.target.id] = e.isIntersecting; });
-    update();
-  }).observe(document.getElementById('assessment'));
-  new IntersectionObserver(function (es) {
-    es.forEach(function (e) { hide[e.target.id] = e.isIntersecting; });
-    update();
-  }).observe(document.getElementById('get-started'));
-  window.addEventListener('scroll', function () {
-    var p = window.scrollY > 500;
-    if (p !== pastHero) { pastHero = p; update(); }
-  }, { passive: true });
 })();
 </script>
 
@@ -921,5 +990,24 @@ body { background: #fff; }
 })();
 </script>
 
+<div class="price-bar" id="price-bar" aria-hidden="true">
+  <div class="pb-p"><b>$3,195</b><span>fully installed</span></div>
+  <a href="#assessment" class="btn btn-primary scroll-to-assessment" tabindex="-1">Get Started</a>
+</div>
+<script>
+// Shows once the hero's gone; hides while the survey or the closing CTA is on screen.
+(function () {
+  var bar = document.getElementById('price-bar'), seen = {}, past = false;
+  bar.querySelector('a').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('assessment').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  function update() { bar.classList.toggle('show', past && !seen.assessment && !seen['sound-familiar']); }
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { seen[e.target.id] = e.isIntersecting; }); update(); });
+  io.observe(document.getElementById('assessment'));
+  io.observe(document.getElementById('sound-familiar'));
+  window.addEventListener('scroll', function () { var p = window.scrollY > 600; if (p !== past) { past = p; update(); } }, { passive: true });
+})();
+</script>
 </body>
 </html>
