@@ -639,6 +639,8 @@ html.i-pop-open { overflow: hidden; }
    (~84px/s desktop, ~92px/s phones, i.e. 2.1s / 1.5s per photo) */
 #recent-installs { padding-block: 56px 60px; }
 #recent-installs .section-head { margin-bottom: 28px; }
+/* Heading on one line from tablet width up (Stefan) */
+@media (min-width: 900px) { #recent-installs .section-head { max-width: none; } #recent-installs h2 { white-space: nowrap; } }
 .installs-strip { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%); }
 .installs-track { display: flex; width: max-content; will-change: transform; animation: installs-scroll calc(var(--n, 20) * 2.1s) linear infinite; }
 .installs-track:hover { animation-play-state: paused; }
