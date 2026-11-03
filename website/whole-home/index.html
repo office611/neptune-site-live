@@ -365,7 +365,7 @@
 #pricing .section-head p { margin-top: var(--s-2); }
 .price-cards { display: grid; gap: 12px; max-width: 980px; margin: 0 auto; }
 @media (min-width: 760px) { .price-cards { grid-template-columns: repeat(3, 1fr); } }
-.price-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px; text-align: center; }
+.price-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px; text-align: center; }
 .price-card.hl { background: #fff; border: 2px solid var(--accent); box-shadow: 0 14px 34px rgba(11,30,61,.1); }
 .price-card .pc-big { display: block; font-size: 2.4rem; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -.02em; }
 .price-card .pc-big small { font-size: .42em; font-weight: 700; color: var(--text-2); letter-spacing: 0; }
@@ -734,6 +734,25 @@ html.i-pop-open { overflow: hidden; }
   <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 </section>
 
+<!-- HOW IT WORKS -->
+<section class="section section-off" id="how-it-works">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How It Works</span>
+      <h2>Filtered <span class="i-acc">Before It Reaches Your Home</span></h2>
+    </div>
+    <div class="i-steps">
+      <div class="s"><b>Water main</b><span>Your street supply</span></div>
+      <div class="arr" aria-hidden="true">→</div>
+      <div class="s hl"><b>Neptune system</b><span>On your mains line</span></div>
+      <div class="arr" aria-hidden="true">→</div>
+      <div class="s"><b>Your whole home</b><span>Every tap, every shower</span></div>
+    </div>
+    <div class="i-taps"><span>Kitchen tap</span><span>Every shower</span><span>Bath</span><span>Bathroom basins</span><span>Washing machine</span><span>Dishwasher</span><span>Hot water system</span><span>Garden</span></div>
+    <p class="i-lead">One system, every tap and shower. No jugs, no shower heads, no thinking about it again.</p>
+  </div>
+</section>
+
 <!-- WHAT BROUGHT YOU HERE — how we help with each concern (Full House's
      "What changes in your home", told per concern with our customers' words) -->
 <section class="section" id="concerns">
@@ -877,8 +896,25 @@ html.i-pop-open { overflow: hidden; }
   </div>
 </section>
 
+<!-- WHY FILTER: where the chlorine comes from -->
+<section class="section" id="why-filter">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Why Filter?</span>
+      <h2>Your Water&rsquo;s Safe To Drink. <span class="i-acc">Here&rsquo;s What Keeps It That Way.</span></h2>
+    </div>
+    <ol class="i-flow">
+      <li><small>Stored</small><b>Dams &amp; reservoirs</b><span>Where your water sits before it reaches you</span></li>
+      <li><small>Treated</small><b>Chlorine added</b><span>Kills bacteria while it&rsquo;s stored and piped to you</span></li>
+      <li><small>In parts of Melbourne</small><b>Ammonia added</b><span>Makes chloramine. It lasts longer and smells less, so you often can&rsquo;t tell it&rsquo;s there</span></li>
+      <li class="hl"><small>Your home</small><b>Still there</b><span>In every shower, bath and glass</span></li>
+    </ol>
+    <p class="i-punch">It doesn&rsquo;t switch off at <span>your front&nbsp;door.</span></p>
+  </div>
+</section>
+
 <!-- CHLORINE AT HOME: tap water vs a pool, the test scale, the test clip -->
-<section class="section" id="chlorine-at-home">
+<section class="section section-off" id="chlorine-at-home">
   <div class="container">
     <div class="i-why">
       <div>
@@ -906,8 +942,53 @@ html.i-pop-open { overflow: hidden; }
   </div>
 </section>
 
+<!-- WHY IT MATTERS -->
+<section class="section section-dark" id="why-it-matters">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Why It Matters</span>
+      <h2>Why Reducing It Makes <span class="i-acc">A Huge Difference</span></h2>
+    </div>
+    <div class="i-bcards">
+      <div class="i-bcard"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4a4 4 0 0 1 4 4v1"/><path d="M9 9h6"/><path d="M10 13v1M14 13v1M12 16v1M9 18v1M15 18v1"/></svg></div><b>Your skin soaks it up</b><p>Our test: two fingers in a cup of cold tap water, then the chlorine tablet. It stays clear. Your skin absorbed the chlorine, and that&rsquo;s cold water. Hot showers open your pores even more, and you breathe in the steam.</p></div>
+      <div class="i-bcard"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.3 6 11a6 6 0 0 1-12 0c0-4.7 6-11 6-11z"/></svg></div><b>Skin &amp; hair</b><p>Chlorine is a bleach. It strips away the natural oils your skin and hair need, which can lead to dry skin, itchy skin, eczema flare-ups and hair loss.</p></div>
+      <div class="i-bcard"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1.5 17a2 2 0 0 1-2 1.8h-5a2 2 0 0 1-2-1.8L6 3z"/><path d="M6.5 8h11"/></svg></div><b>Taste &amp; smell</b><p>Chlorine is acidic. Reduce it, and your water tastes and smells better. Simple.</p></div>
+    </div>
+    <p class="i-matters">It&rsquo;s in every glass your family drinks and every shower they take.</p>
+  </div>
+</section>
+
+<!-- THE SYSTEM -->
+<section class="section section-off" id="the-system">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The System</span>
+      <h2>Buy It Once. <span class="i-acc">Built To Last.</span></h2>
+    </div>
+    <div class="i-sys">
+      <ul class="i-specs">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Stainless steel cover</b>, built for Melbourne, powder coated and treated</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>20-inch system</b> with full pressure at every tap</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Copper piping</b>, naturally antibacterial</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Bypass valve</b> included</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Concreted into the ground</b> (or mounted on the wall), so it&rsquo;s solid and can&rsquo;t be taken</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Water connection only</b>: no power, no gas</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Moves with you</b> if you ever sell (fee applies)</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Clean, simple design</b>, not an eyesore on the side of your house</span></li>
+      </ul>
+      <div>
+        <div class="i-photos">
+          <figure class="i-ph"><img src="/assets/install-photos/26.jpg" alt="Neptune system with the cover open, showing three filters" loading="lazy"><figcaption>3 filters inside</figcaption></figure>
+          <figure class="i-ph"><img src="/assets/install-photos/38.jpg" alt="Neptune system mounted on a wall" loading="lazy"><figcaption>On the wall</figcaption></figure>
+          <figure class="i-ph"><img src="/assets/present/unit-back.jpg" alt="Back of a Neptune system showing copper piping" loading="lazy"><figcaption>Tidy install, no mess</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 5 STAGES: water runs through the 3 filters; tap a stage for the pop-up -->
-<section class="section section-off" id="five-stages">
+<section class="section" id="five-stages">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Melbourne Only · 5-Stage Filtration</span>
@@ -947,7 +1028,7 @@ html.i-pop-open { overflow: hidden; }
      PRICE: $3,195 / 20% deposit / $300 filters. Also
      in the hero pill, the FAQ and the sticky bar: change them together.
 ══════════════════════════════════════════════════════ -->
-<section class="section" id="pricing">
+<section class="section section-off" id="pricing">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Simple, Upfront Pricing</span>
@@ -959,24 +1040,54 @@ html.i-pop-open { overflow: hidden; }
       <div class="price-card"><span class="pc-big">$300 <small>a year</small></span><strong>Fresh filters, delivered</strong><span class="pc-s">All 3 filters, about once a year. About 82&cent; a day for the whole home.</span></div>
       <div class="price-card"><span class="pc-big">7 <small>years</small></span><strong>Workmanship warranty</strong><span class="pc-s">Plus a 30-day money-back guarantee. WaterMark certified.</span></div>
     </div>
-    <!-- Everything included: the deck's "The System" list plus install time, behind a tap -->
-    <details class="incl-more" id="included">
-      <summary>See everything included</summary>
-    <ul class="incl-list">
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>5-stage, 3-filter whole home system</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>20-inch system with full pressure at every tap</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Stainless steel cover, built for Melbourne, powder coated and treated</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Copper piping, naturally antibacterial</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Bypass valve included</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Concreted into the ground (or mounted on the wall), so it&rsquo;s solid and can&rsquo;t be taken</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Water connection only: no power, no gas</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Moves with you if you ever sell (fee applies)</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Clean, simple design, not an eyesore on the side of your house</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Installed by our licensed plumbing team</li>
-      <li><span class="fam-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Installed in less than 5 days, about 2 hours on the day</li>
-    </ul>
-    </details>
     <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get Started</a>
+  </div>
+</section>
+
+<!-- FILTERS: how long they last + what they cost -->
+<section class="section" id="filters">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Filter Life</span>
+      <h2>How Long Your Filters <span class="i-acc">Last</span></h2>
+    </div>
+    <div class="i-life">
+      <div class="big"><div class="v">12</div><div class="l">months, in a Melbourne home</div><div class="s">up to a year per set</div></div>
+      <ul>
+        <li><b>What changes it</b><span>How many people are at home and how much water you use.</span></li>
+        <li><b>How you&rsquo;ll know</b><span>Any pink on the chlorine test tablet, or a drop in your water pressure.</span></li>
+        <li><b>What happens next</b><span>A fresh set, delivered to your door. Swap them yourself with our video.</span></li>
+      </ul>
+    </div>
+    <h3 class="i-sub">Your filters, broken down</h3>
+    <div class="i-fc">
+      <div><span class="v">$300</span><span class="l">a year</span><span class="s">a fresh set of all 3 filters</span></div>
+      <div><span class="v">$25</span><span class="l">a month</span></div>
+      <div><span class="v">82&cent;</span><span class="l">a day</span></div>
+      <div class="hl"><span class="v">21&cent;</span><span class="l">a day, per person</span><span class="s">for a home of 4</span></div>
+    </div>
+    <p class="i-note i-center">Delivered to your door with GST included, and always our latest version.</p>
+  </div>
+</section>
+
+<!-- PEACE OF MIND -->
+<section class="section section-dark" id="peace-of-mind">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Install &amp; Peace Of Mind</span>
+      <h2>Done Right, <span class="i-acc">Backed By Us</span></h2>
+    </div>
+    <div class="i-badges">
+      <div><span class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></span><span class="t">Whole home filtration only</span></div>
+      <div><span class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span class="t">Melbourne only</span></div>
+      <div><span class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><polyline points="21 3 21 9 15 9"/></svg></span><span class="t">Our filters improve, yours do too</span></div>
+      <div><span class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span class="t">Dedicated plumbing team</span></div>
+      <div><span class="big">7 yrs</span><span class="t">Workmanship warranty</span></div>
+      <div><span class="big">30 days</span><span class="t">Money-back guarantee</span></div>
+      <div><span class="big">Under 5 days</span><span class="t">From booking to install</span></div>
+      <div><span class="big">2 hrs</span><span class="t">On the day, and it&rsquo;s done</span></div>
+      <div><span class="big">&#10003;</span><span class="t">WaterMark certified</span></div>
+    </div>
   </div>
 </section>
 
