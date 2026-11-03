@@ -580,16 +580,22 @@ html.i-pop-open { overflow: hidden; }
 
 
 /* What brought you here: one card per concern */
-.concern-grid { display: grid; gap: 12px; max-width: 1080px; margin: 0 auto; }
+.concern-grid { display: grid; gap: 10px; max-width: 1080px; margin: 0 auto; align-items: start; }
 @media (min-width: 720px) { .concern-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1080px) { .concern-grid { grid-template-columns: repeat(3, 1fr); } }
-.concern-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 14px; padding: 20px 20px 18px; display: flex; flex-direction: column; }
-.concern-card h3 { font-size: 1.12rem; color: var(--navy); margin: 0 0 8px; }
+.concern-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 14px; transition: border-color .2s, box-shadow .2s; }
+.concern-card[open] { background: #fff; border-color: var(--accent); box-shadow: 0 10px 28px rgba(11,30,61,.08); }
+.concern-card summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 20px; }
+.concern-card summary::-webkit-details-marker { display: none; }
+.concern-card summary::after { content: "+"; flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 1.2rem; font-weight: 600; line-height: 28px; text-align: center; }
+.concern-card[open] summary::after { content: "\2212"; }
+.concern-card h3 { font-size: 1.05rem; color: var(--navy); margin: 0; }
+.concern-card .cc-body { padding: 0 20px 18px; }
 .concern-card .cc-why { margin: 0; font-size: .93rem; line-height: 1.55; color: var(--text-2); }
 .concern-card .cc-help { margin: 10px 0 0; font-size: .93rem; line-height: 1.55; color: var(--navy); }
 .concern-card .cc-help b { color: var(--blue); }
-.concern-card .cc-quote { margin: 14px 0 0; padding: 12px 14px; background: #fff; border-left: 3px solid var(--accent); border-radius: 8px; font-weight: 600; color: var(--navy); font-size: .93rem; line-height: 1.5; }
-.concern-card .cc-quote span { display: block; margin-top: 4px; font-weight: 500; font-size: .8rem; color: var(--text-3); }
+.cc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.cc-tags span { font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--blue); background: var(--blue-pale); border-radius: 999px; padding: 5px 10px; }
 
 /* Sticky price bar on phones */
 .price-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #fff; border-top: 1px solid var(--border); box-shadow: 0 -8px 24px rgba(11,30,61,.12); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; transform: translateY(110%); transition: transform .25s ease; }
@@ -826,43 +832,57 @@ html.i-pop-open { overflow: hidden; }
     <div class="section-head">
       <span class="eyebrow">How We Help</span>
       <h2>What Brought You Here?</h2>
-      <p>Here&rsquo;s how we help with each.</p>
+      <p>Tap yours to see how we help.</p>
     </div>
     <div class="concern-grid">
-      <div class="concern-card">
-        <h3>Eczema &amp; dry, itchy skin</h3>
-        <p class="cc-why">Chlorine is a bleach. It strips away the natural oils your skin needs, and hot showers open your pores even more.</p>
-        <p class="cc-help"><b>How we help:</b> we reduce the chlorine in every shower, bath and basin in your home.</p>
-        <blockquote class="cc-quote">&ldquo;My eczema&rsquo;s gone. I&rsquo;m not saying this to promote, but it&rsquo;s true.&rdquo;<span>Cecilio &middot; Cranbourne West</span></blockquote>
-      </div>
-      <div class="concern-card">
-        <h3>Hair loss &amp; itchy scalp</h3>
-        <p class="cc-why">The same chlorine strips the natural oils your hair and scalp need, every time you wash.</p>
-        <p class="cc-help"><b>How we help:</b> less chlorine in every shower, for everyone at home.</p>
-        <blockquote class="cc-quote">&ldquo;The hair loss has reduced significantly.&rdquo;<span>Nishanth &middot; Strathtulloh</span></blockquote>
-      </div>
-      <div class="concern-card">
-        <h3>Chlorine smell in the shower</h3>
-        <p class="cc-why">The chlorine added to treat the water is still there when it reaches your shower, and you breathe in the steam.</p>
-        <p class="cc-help"><b>How we help:</b> activated coconut shell carbon reduces chlorine and chloramine before the water reaches any tap.</p>
-      </div>
-      <div class="concern-card">
-        <h3>Better tasting water</h3>
-        <p class="cc-why">Chlorine is what gives tap water that taste and smell.</p>
-        <p class="cc-help"><b>How we help:</b> reduce it, and every tap in the house tastes better. Simple.</p>
-        <blockquote class="cc-quote">&ldquo;We drink straight from the taps now.&rdquo;<span>Marcus &middot; Lyndhurst</span></blockquote>
-      </div>
-      <div class="concern-card">
-        <h3>Limescale build-up</h3>
-        <p class="cc-why">Hard minerals leave white marks on shower screens and taps, and scale in the kettle and hot water system.</p>
-        <p class="cc-help"><b>How we help:</b> polyphosphate crystals in our carbon block help stop minerals forming scale, without taking them out of your water.</p>
-      </div>
-      <div class="concern-card">
-        <h3>Simply want better water</h3>
-        <p class="cc-why">Jugs and shower filters only cover one tap. Bottled water adds up.</p>
-        <p class="cc-help"><b>How we help:</b> one system on your mains filters every tap, shower and appliance.</p>
-        <blockquote class="cc-quote">&ldquo;Crystal clear. You can tell straight away.&rdquo;<span>Jim &middot; Point Cook</span></blockquote>
-      </div>
+      <details class="concern-card">
+        <summary><h3>Eczema &amp; dry, itchy skin</h3></summary>
+        <div class="cc-body">
+          <p class="cc-why">Chlorine is a bleach. It strips away the natural oils your skin needs, and hot showers open your pores even more.</p>
+          <p class="cc-help"><b>How we help:</b> The Disruptor reduces the chlorine (Stage 3) and The Extractor reduces the chloramine (Stage 4), before the water reaches any shower, bath or basin in your home.</p>
+          <div class="cc-tags"><span>Stage 3 &middot; Chlorine</span><span>Stage 4 &middot; Chloramine</span></div>
+        </div>
+      </details>
+      <details class="concern-card">
+        <summary><h3>Hair loss &amp; itchy scalp</h3></summary>
+        <div class="cc-body">
+          <p class="cc-why">The same chlorine strips the natural oils your hair and scalp need, every time you wash.</p>
+          <p class="cc-help"><b>How we help:</b> The Disruptor (Stage 3) and The Extractor (Stage 4) reduce the chlorine and chloramine in every shower, for everyone at home.</p>
+          <div class="cc-tags"><span>Stage 3 &middot; Chlorine</span><span>Stage 4 &middot; Chloramine</span></div>
+        </div>
+      </details>
+      <details class="concern-card">
+        <summary><h3>Weird smell in the shower</h3></summary>
+        <div class="cc-body">
+          <p class="cc-why">The chlorine added to treat the water is still there when it reaches your shower, and you breathe in the steam.</p>
+          <p class="cc-help"><b>How we help:</b> The Disruptor reduces the chlorine (Stage 3), and The Extractor&rsquo;s activated coconut shell carbon reduces the chloramine, the longer-lasting one you often can&rsquo;t smell (Stage 4).</p>
+          <div class="cc-tags"><span>Stage 3 &middot; Chlorine</span><span>Stage 4 &middot; Chloramine</span></div>
+        </div>
+      </details>
+      <details class="concern-card">
+        <summary><h3>Better tasting water</h3></summary>
+        <div class="cc-body">
+          <p class="cc-why">Chlorine is what gives tap water that taste, and older pipes can add metals on the way to you.</p>
+          <p class="cc-help"><b>How we help:</b> Stages 3 and 4 reduce the chlorine and chloramine, and The Extractor helps reduce heavy metals from older pipes (Stage 5). Every tap in the house tastes better.</p>
+          <div class="cc-tags"><span>Stage 3 &middot; Chlorine</span><span>Stage 4 &middot; Chloramine</span><span>Stage 5 &middot; Heavy metals</span></div>
+        </div>
+      </details>
+      <details class="concern-card">
+        <summary><h3>Limescale build-up</h3></summary>
+        <div class="cc-body">
+          <p class="cc-why">Hard minerals leave white marks on shower screens and taps, and scale in the kettle and hot water system.</p>
+          <p class="cc-help"><b>How we help:</b> The Disruptor&rsquo;s polyphosphate crystals help stop minerals forming scale, without taking them out of your water (Stage 2).</p>
+          <div class="cc-tags"><span>Stage 2 &middot; Limescale</span></div>
+        </div>
+      </details>
+      <details class="concern-card">
+        <summary><h3>Simply want better water</h3></summary>
+        <div class="cc-body">
+          <p class="cc-why">Jugs and shower filters only cover one tap. Bottled water adds up.</p>
+          <p class="cc-help"><b>How we help:</b> All 5 stages, on your mains. The Guard catches sand, rust and grit (Stage 1), then The Disruptor and The Extractor help stop scale and reduce chlorine, chloramine and heavy metals, at every tap.</p>
+          <div class="cc-tags"><span>All 5 stages</span></div>
+        </div>
+      </details>
     </div>
   </div>
 </section>
