@@ -360,6 +360,9 @@
 .hero-tabs { display: flex; justify-content: center; gap: clamp(8px, 3.4vw, 26px); margin-top: 10px; font-size: clamp(.72rem, 3.5vw, .95rem); }
 .hero-tabs a { padding: 6px 0; font-weight: 600; color: #fff; white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; }
 .hero-tabs a:hover { color: var(--accent); }
+/* Survey: hold its loaded height from the start. GHL hides the iframe until it's ready, so only this wrapper (220px) held space; when the iframe appeared, everything below moved and the hero links landed ~170px off */
+#assessment .ghl-survey-wrap { min-height: 382px; }
+@media (min-width: 768px) { #assessment .ghl-survey-wrap { min-height: 398px; } }
 
 /* Pricing section: three cards in the Sound-Like-Your-Home card style */
 #pricing .section-head p { margin-top: var(--s-2); }
