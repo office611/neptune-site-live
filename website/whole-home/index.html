@@ -11,7 +11,7 @@
 <link rel="manifest" href="/assets/favicon/site.webmanifest">
 <meta name="theme-color" content="#0B1E3D">
 <meta name="color-scheme" content="light">
-<title>Whole Home Water Filtration Melbourne, $3,195 Installed | Neptune</title>
+<title>Whole Home Water Filtration Melbourne | Neptune</title>
 <meta name="description" content="Whole-home filtration backed by real customers, not just our word for it. See real results and get your tailored set-up.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -355,12 +355,10 @@
 #faq { border-top: 1px solid var(--border); }
 
 /* ── /whole-home: the price, in /melb's style ── */
-/* Hero pill, between the sub and the photo trio */
+/* Hero: no price (Stefan 2026-11-04: let them scroll), just a small link down to the pricing section */
 .hero-photo-content .hero-sub { text-wrap: balance; }
-.price-pill { display: flex; flex-direction: column; align-items: center; gap: 2px; width: fit-content; margin: 18px auto 0; padding: 12px 26px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid rgba(77,166,255,.55); }
-.price-pill .pp-amt { font-size: clamp(1.9rem, 8vw, 2.4rem); font-weight: 800; color: #fff; line-height: 1.05; letter-spacing: -.02em; }
-.price-pill .pp-txt { font-size: .88rem; font-weight: 600; color: rgba(255,255,255,.85); }
-.price-pill .pp-txt b { color: var(--accent); font-weight: 700; }
+.price-link { display: inline-block; margin-top: 10px; padding: 6px 4px; font-size: .95rem; font-weight: 600; color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.price-link:hover { color: var(--accent); }
 
 /* Pricing section: three cards in the Sound-Like-Your-Home card style */
 #pricing .section-head p { margin-top: var(--s-2); }
@@ -670,18 +668,8 @@ html.i-pop-open { overflow: hidden; }
   .installs-track { animation: none; }
   .installs-strip { overflow-x: auto; }
 }
-
 /* The NEPTUNE word's photo strip loads once the gallery is near (script at the end) */
 #install-gallery:not(.is-near) .install-word { background-image: none; }
-
-/* Sticky price bar on phones */
-.price-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #fff; border-top: 1px solid var(--border); box-shadow: 0 -8px 24px rgba(11,30,61,.12); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; transform: translateY(110%); transition: transform .25s ease; }
-.price-bar.show { transform: none; }
-.price-bar .pb-p { line-height: 1.2; }
-.price-bar .pb-p b { display: block; font-size: 1.2rem; color: var(--navy); }
-.price-bar .pb-p span { font-size: .78rem; color: var(--text-2); }
-.price-bar .btn { width: auto; padding: 12px 22px; white-space: nowrap; }
-@media (min-width: 960px) { .price-bar { display: none; } }
 </style>
 <!-- Meta Pixel -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2043292147071202');fbq('track','PageView');</script>
@@ -754,7 +742,7 @@ html.i-pop-open { overflow: hidden; }
       })();
       </script>
       <p class="hero-sub">Whole home filtration installed on your mains, filtering every tap, shower and appliance in your home.</p>
-      <div class="price-pill"><span class="pp-amt">$3,195</span><span class="pp-txt"><b>Fully installed</b> &middot; incl. GST</span></div>
+      <a href="#pricing" class="price-link">See pricing ↓</a>
     </div>
 
     <!-- 3-PHOTO TRIO — sits directly below the subheadline, staggered/
@@ -1326,6 +1314,10 @@ html.i-pop-open { overflow: hidden; }
         <p class="faq-answer">You&rsquo;re covered by our 30-day money-back guarantee, plus a 7-year workmanship warranty on the install.</p>
       </details>
     </div>
+    <div class="gallery-cta">
+      <span class="next-step-heading"><span class="hero-accent next-step-word">Next Step:</span> Answer A Few Quick Questions To Get Started&nbsp;Today</span>
+      <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get Started</a>
+    </div>
   </div>
 </section>
 
@@ -1580,25 +1572,6 @@ html.i-pop-open { overflow: hidden; }
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !pop.hidden) close(); });
 })();
 
-</script>
-<div class="price-bar" id="price-bar" aria-hidden="true">
-  <div class="pb-p"><b>$3,195</b><span>fully installed</span></div>
-  <a href="#assessment" class="btn btn-primary scroll-to-assessment" tabindex="-1">Get Started</a>
-</div>
-<script>
-// Shows once the hero's gone; hides while the survey or the closing CTA is on screen.
-(function () {
-  var bar = document.getElementById('price-bar'), seen = {}, past = false;
-  bar.querySelector('a').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.getElementById('assessment').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-  function update() { bar.classList.toggle('show', past && !seen.assessment && !seen['sound-familiar']); }
-  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { seen[e.target.id] = e.isIntersecting; }); update(); });
-  io.observe(document.getElementById('assessment'));
-  io.observe(document.getElementById('sound-familiar'));
-  window.addEventListener('scroll', function () { var p = window.scrollY > 600; if (p !== past) { past = p; update(); } }, { passive: true });
-})();
 </script>
 <script>
 // Photos below the survey wait their turn: video covers and the NEPTUNE
