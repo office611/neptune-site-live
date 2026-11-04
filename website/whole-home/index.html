@@ -610,9 +610,11 @@ html.i-pop-open { overflow: hidden; }
 .cc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 .cc-tags span { font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--blue); background: var(--blue-pale); border-radius: 999px; padding: 5px 10px; }
 
-/* Pricing: the finance line and its pop-up */
-.price-fin { max-width: 640px; margin: 18px auto 0; text-align: center; font-size: .95rem; line-height: 1.5; color: var(--text-2); }
-.price-fin button { padding: 0; border: 0; background: none; font: inherit; font-weight: 700; color: var(--blue); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; white-space: nowrap; }
+/* Pricing: the two ways to pay inside the $3,195 box, and the finance pop-up */
+.pc-opts { list-style: disc; margin: 8px 0 0; padding-left: 18px; text-align: left; color: var(--text-2); font-size: .92rem; line-height: 1.5; }
+.pc-opts li { display: list-item; padding: 0; }
+.pc-opts li + li { margin-top: 6px; }
+.pc-opts button { padding: 0; border: 0; background: none; font: inherit; font-weight: 700; color: var(--blue); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; white-space: nowrap; }
 .fin-tab { width: 100%; margin: 16px 0; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .fin-tab th { padding: 0 4px 8px; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); text-align: left; }
 .fin-tab td { padding: 12px 4px; border-top: 1px solid var(--border); font-size: 1.02rem; color: var(--navy); }
@@ -1172,11 +1174,10 @@ html.i-pop-open, html.i-pop-open body { overflow: hidden; overscroll-behavior: n
       <p>The price you see is the price you pay.</p>
     </div>
     <div class="price-cards">
-      <div class="price-card hl"><span class="pc-big">$3,195</span><strong>Fully installed, incl. GST</strong><span class="pc-s">Just a 20% deposit to lock in your date, the rest once it&rsquo;s installed.</span></div>
+      <div class="price-card hl"><span class="pc-big">$3,195</span><strong>Fully installed, incl. GST</strong><span class="pc-s">Just a 20% deposit to lock in your date, then either:</span><ul class="pc-opts"><li>Pay the rest in one payment once it&rsquo;s installed</li><li>Spread it over 6&ndash;24 months at 0% interest through third-party finance, from $27.35 a week. <button type="button" id="fin-open">See the numbers</button></li></ul></div>
       <div class="price-card"><span class="pc-big">$300 <small>a year</small></span><strong>Fresh filters, delivered</strong><span class="pc-s">All 3 filters, about once a year. About 82&cent; a day for the whole home.</span></div>
       <div class="price-card"><span class="pc-big">7 <small>years</small></span><strong>Workmanship warranty</strong><span class="pc-s">Plus a 30-day money-back guarantee. WaterMark certified.</span></div>
     </div>
-    <p class="price-fin">Or spread the rest over 6&ndash;24 months at 0% interest through third-party finance, from $27.35 a week. <button type="button" id="fin-open">See the numbers</button></p>
     <p class="price-time"><span>Installed in less than 5 days</span><span>2&ndash;3 hours on the day</span></p>
     <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get My System</a>
   </div>
