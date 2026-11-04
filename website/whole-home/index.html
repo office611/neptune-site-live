@@ -355,10 +355,11 @@
 #faq { border-top: 1px solid var(--border); }
 
 /* ── /whole-home: the price, in /melb's style ── */
-/* Hero: no price (Stefan 2026-11-04: let them scroll), just a small link down to the pricing section */
+/* Hero: no price (Stefan 2026-11-04: let them scroll). One row of text links to sections further down, in page order */
 .hero-photo-content .hero-sub { text-wrap: balance; }
-.price-link { display: inline-block; margin-top: 10px; padding: 6px 4px; font-size: .95rem; font-weight: 600; color: #fff; text-decoration: underline; text-underline-offset: 3px; }
-.price-link:hover { color: var(--accent); }
+.hero-tabs { display: flex; justify-content: center; gap: clamp(8px, 3.4vw, 26px); margin-top: 10px; font-size: clamp(.72rem, 3.5vw, .95rem); }
+.hero-tabs a { padding: 6px 0; font-weight: 600; color: #fff; white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; }
+.hero-tabs a:hover { color: var(--accent); }
 
 /* Pricing section: three cards in the Sound-Like-Your-Home card style */
 #pricing .section-head p { margin-top: var(--s-2); }
@@ -742,7 +743,7 @@ html.i-pop-open { overflow: hidden; }
       })();
       </script>
       <p class="hero-sub">Whole home filtration installed on your mains, filtering every tap, shower and appliance in your home.</p>
-      <a href="#pricing" class="price-link">See pricing ↓</a>
+      <nav class="hero-tabs" aria-label="On this page"><a href="#chlorine-at-home">Water Test</a><a href="#real-testimonials">Testimonials</a><a href="#the-system">The System</a><a href="#pricing">Pricing</a></nav>
     </div>
 
     <!-- 3-PHOTO TRIO — sits directly below the subheadline, staggered/
