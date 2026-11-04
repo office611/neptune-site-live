@@ -609,6 +609,17 @@ html.i-pop-open { overflow: hidden; }
 .cc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 .cc-tags span { font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--blue); background: var(--blue-pale); border-radius: 999px; padding: 5px 10px; }
 
+/* Pricing: the finance line and its pop-up */
+.price-fin { max-width: 640px; margin: 18px auto 0; text-align: center; font-size: .95rem; line-height: 1.5; color: var(--text-2); }
+.price-fin button { padding: 0; border: 0; background: none; font: inherit; font-weight: 700; color: var(--blue); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; white-space: nowrap; }
+.fin-tab { width: 100%; margin: 16px 0; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.fin-tab th { padding: 0 4px 8px; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); text-align: left; }
+.fin-tab td { padding: 12px 4px; border-top: 1px solid var(--border); font-size: 1.02rem; color: var(--navy); }
+.fin-tab th:last-child, .fin-tab td:last-child { text-align: right; font-weight: 800; }
+.i-pop-body .fin-inc { font-size: .95rem; font-weight: 600; color: var(--navy); }
+.fin-fees { list-style: disc; margin: 6px 0 20px; padding-left: 20px; font-size: .95rem; line-height: 1.6; color: var(--text-2); }
+.fin-fees li { display: list-item; padding: 0; }
+
 /* Water test: "why doesn't your home smell like a pool?" button + pop-up */
 .smell-btn { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%; max-width: 640px; margin: 32px auto 0; padding: 16px 18px 16px 20px; border: 0; border-radius: 14px; background: var(--navy); color: #fff; font: inherit; font-weight: 700; font-size: 1rem; line-height: 1.35; text-align: left; cursor: pointer; box-shadow: 0 10px 26px rgba(11,30,61,.18); }
 .smell-btn::after { content: "?"; flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 800; line-height: 30px; text-align: center; }
@@ -1144,6 +1155,7 @@ html.i-pop-open { overflow: hidden; }
       <div class="price-card"><span class="pc-big">$300 <small>a year</small></span><strong>Fresh filters, delivered</strong><span class="pc-s">All 3 filters, about once a year. About 82&cent; a day for the whole home.</span></div>
       <div class="price-card"><span class="pc-big">7 <small>years</small></span><strong>Workmanship warranty</strong><span class="pc-s">Plus a 30-day money-back guarantee. WaterMark certified.</span></div>
     </div>
+    <p class="price-fin">Or spread the rest over 6&ndash;24 months, interest free through third-party finance, from $27.35 a week. <button type="button" id="fin-open">See the numbers</button></p>
     <p class="price-time"><span>Installed in less than 5 days</span><span>2&ndash;3 hours on the day</span></p>
     <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get My System</a>
   </div>
@@ -1521,6 +1533,31 @@ html.i-pop-open { overflow: hidden; }
     </div>
   </div>
 </div>
+<!-- Pop-up: finance numbers (stage pop-up styles) -->
+<div class="i-pop" id="fin-pop" hidden>
+  <div class="i-pop-card noimg" role="dialog" aria-modal="true" aria-labelledby="fin-pop-h">
+    <button type="button" class="i-pop-x" id="fin-pop-x" aria-label="Close">&times;</button>
+    <div class="i-pop-body fin-body">
+      <h3 id="fin-pop-h">Interest free finance</h3>
+      <p>$639 deposit today, and third-party finance covers the other $2,556.</p>
+      <table class="fin-tab">
+        <thead><tr><th>Term</th><th>A week</th></tr></thead>
+        <tbody>
+          <tr><td>6 months</td><td>$102.49</td></tr>
+          <tr><td>12 months</td><td>$52.40</td></tr>
+          <tr><td>24 months</td><td>$27.35</td></tr>
+        </tbody>
+      </table>
+      <p class="fin-inc">Weekly amounts include all fees:</p>
+      <ul class="fin-fees">
+        <li>$9.95 monthly fee</li>
+        <li>$49 one-time setup fee</li>
+        <li>Pay it off any time and the monthly fee stops</li>
+      </ul>
+      <button type="button" class="btn btn-primary btn-full" id="fin-go">Get My System</button>
+    </div>
+  </div>
+</div>
 <script>
 // Chlorine test loop: only loads and plays once it's on screen (saves data on phones)
 (function () {
@@ -1575,6 +1612,21 @@ html.i-pop-open { overflow: hidden; }
   x.addEventListener('click', close);
   pop.addEventListener('click', function (e) { if (e.target === pop) close(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !pop.hidden) close(); });
+})();
+
+// Finance pop-up
+(function () {
+  var pop = document.getElementById('fin-pop'), btn = document.getElementById('fin-open'), x = document.getElementById('fin-pop-x');
+  function open() { pop.hidden = false; document.documentElement.classList.add('i-pop-open'); x.focus(); }
+  function close() { pop.hidden = true; document.documentElement.classList.remove('i-pop-open'); btn.focus(); }
+  btn.addEventListener('click', open);
+  x.addEventListener('click', close);
+  pop.addEventListener('click', function (e) { if (e.target === pop) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !pop.hidden) close(); });
+  document.getElementById('fin-go').addEventListener('click', function () {
+    close();
+    document.getElementById('assessment').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 })();
 
 </script>

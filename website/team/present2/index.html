@@ -715,8 +715,8 @@ body.on-light .nav { color: var(--ink); }
       <div class="split2"><div><div class="v2" id="pay-dep">$639</div><div class="s">today (20%)</div></div><div><div class="v2" id="pay-bal">$2,556</div><div class="s">after installation (80%)</div></div></div></div>
     <div class="parr">or</div>
     <div class="pstep"><div class="n">Option B · Interest free with Zip</div>
-      <div class="split2"><div><div class="v2" id="pay-zdep">$400</div><div class="s">deposit today</div></div><div><div class="v2" id="pay-zrest">$2,795</div><div class="s">the rest over 6–36 months</div></div></div>
-      <ul class="zfees"><li><b>$75</b> one-off setup fee</li><li><b>$9.95</b> a month while you owe</li><li><b>Pay it off any time</b> and the $9.95 stops</li></ul></div>
+      <div class="split2"><div><div class="v2" id="pay-zdep">$400</div><div class="s">deposit today</div></div><div><div class="v2" id="pay-zrest">$2,795</div><div class="s">the rest over 6–24 months</div></div></div>
+      <ul class="zfees"><li><b>$49</b> one-off setup fee</li><li><b>$9.95</b> a month while you owe</li><li><b>Pay it off any time</b> and the $9.95 stops</li></ul></div>
   </div>
 </section>
 
@@ -735,10 +735,9 @@ body.on-light .nav { color: var(--ink); }
       <tr data-m="6"><td>6 months</td><td></td><td></td><td class="x"></td><td></td></tr>
       <tr data-m="12"><td>12 months</td><td></td><td></td><td class="x"></td><td></td></tr>
       <tr data-m="24"><td>24 months</td><td></td><td></td><td class="x"></td><td></td></tr>
-      <tr data-m="36"><td>36 months</td><td></td><td></td><td class="x"></td><td></td></tr>
     </tbody>
   </table>
-  <p class="znote"><b>Extra in Zip fees</b> = $75 one-off setup + $9.95 a month for the full term. Pay it off early and the $9.95 stops. 0% interest when it's paid off within the term.</p>
+  <p class="znote"><b>Extra in Zip fees</b> = $49 one-off setup + $9.95 a month for the full term. Pay it off early and the $9.95 stops. 0% interest when it's paid off within the term.</p>
 </section>
 
 <!-- 11. Per day (if they hesitate on price) -->
@@ -1089,8 +1088,8 @@ body.on-light .nav { color: var(--ink); }
     var dep = Math.round(price * 0.2);
     $('pay-dep').textContent = whole(dep); $('pay-bal').textContent = whole(price - dep);
     // zip: deposit today, the rest financed. Repayment = rest / term rounded up to the cent (paid off in time),
-    // + $9.95 monthly account fee. Extra in fees = $75 setup + $9.95 x term. A week = a month x 12 / 52.
-    var ZIP_FEE = 9.95, ZIP_SETUP = 75, cents = function (n) { return '$' + n.toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+    // + $9.95 monthly account fee. Extra in fees = $49 setup + $9.95 x term. A week = a month x 12 / 52.
+    var ZIP_FEE = 9.95, ZIP_SETUP = 49, cents = function (n) { return '$' + n.toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
     var zdep = Math.min(price, num($('z-dep').value)), zrest = Math.round((price - zdep) * 100) / 100;
     $('z-rest').textContent = cents(zrest); $('pay-zdep').textContent = whole(zdep); $('pay-zrest').textContent = whole(zrest);
     all('#z-rows tr').forEach(function (tr) {
