@@ -619,6 +619,24 @@ html.i-pop-open { overflow: hidden; }
 .i-pop-body .fin-inc { font-size: .95rem; font-weight: 600; color: var(--navy); }
 .fin-fees { list-style: disc; margin: 6px 0 20px; padding-left: 20px; font-size: .95rem; line-height: 1.6; color: var(--text-2); }
 .fin-fees li { display: list-item; padding: 0; }
+/* Short screens (the Facebook in-app browser leaves about 550px): tighter, so the whole pop-up fits with nothing to scroll */
+@media (max-height: 720px) {
+  .i-pop-body.fin-body { padding: 16px 20px calc(16px + env(safe-area-inset-bottom)); justify-content: flex-start; }
+  .i-pop-body.fin-body h3 { margin: 0 44px 2px 0; font-size: 1.35rem; }
+  .i-pop-body.fin-body p { font-size: .88rem; line-height: 1.4; }
+  .i-pop-body.fin-body h3 + p { margin-right: 40px; }
+  .fin-tab { margin: 8px 0; }
+  .fin-tab th { padding-bottom: 4px; }
+  .fin-tab td { padding: 6px 4px; font-size: .95rem; }
+  .fin-fees { margin: 2px 0 10px; font-size: .84rem; line-height: 1.4; }
+  .fin-body .btn { padding-block: 11px; }
+}
+/* Phone turned sideways: use nearly the full height */
+@media (max-height: 440px) { #fin-pop { padding: 8px; } #fin-pop .i-pop-card { max-height: calc(100dvh - 16px); } }
+/* Pop-ups: the page behind never moves */
+html.i-pop-open, html.i-pop-open body { overflow: hidden; overscroll-behavior: none; }
+.i-pop { overscroll-behavior: contain; }
+.i-pop-body { overscroll-behavior: contain; }
 
 /* Water test: "why doesn't your home smell like a pool?" button + pop-up */
 .smell-btn { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%; max-width: 640px; margin: 32px auto 0; padding: 16px 18px 16px 20px; border: 0; border-radius: 14px; background: var(--navy); color: #fff; font: inherit; font-weight: 700; font-size: 1rem; line-height: 1.35; text-align: left; cursor: pointer; box-shadow: 0 10px 26px rgba(11,30,61,.18); }
@@ -1155,7 +1173,7 @@ html.i-pop-open { overflow: hidden; }
       <div class="price-card"><span class="pc-big">$300 <small>a year</small></span><strong>Fresh filters, delivered</strong><span class="pc-s">All 3 filters, about once a year. About 82&cent; a day for the whole home.</span></div>
       <div class="price-card"><span class="pc-big">7 <small>years</small></span><strong>Workmanship warranty</strong><span class="pc-s">Plus a 30-day money-back guarantee. WaterMark certified.</span></div>
     </div>
-    <p class="price-fin">Or spread the rest over 6&ndash;24 months, interest free through third-party finance, from $27.35 a week. <button type="button" id="fin-open">See the numbers</button></p>
+    <p class="price-fin">Or spread the rest over 6&ndash;24 months at 0% interest through third-party finance, from $27.35 a week. <button type="button" id="fin-open">See the numbers</button></p>
     <p class="price-time"><span>Installed in less than 5 days</span><span>2&ndash;3 hours on the day</span></p>
     <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get My System</a>
   </div>
@@ -1538,7 +1556,7 @@ html.i-pop-open { overflow: hidden; }
   <div class="i-pop-card noimg" role="dialog" aria-modal="true" aria-labelledby="fin-pop-h">
     <button type="button" class="i-pop-x" id="fin-pop-x" aria-label="Close">&times;</button>
     <div class="i-pop-body fin-body">
-      <h3 id="fin-pop-h">Interest free finance</h3>
+      <h3 id="fin-pop-h">0% interest finance</h3>
       <p>$639 deposit today, and third-party finance covers the other $2,556.</p>
       <table class="fin-tab">
         <thead><tr><th>Term</th><th>A week</th></tr></thead>
@@ -1613,6 +1631,17 @@ html.i-pop-open { overflow: hidden; }
   pop.addEventListener('click', function (e) { if (e.target === pop) close(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !pop.hidden) close(); });
 })();
+
+// Pop-ups: block scroll gestures unless the text inside really has more to show
+// (iPhones ignore overflow: hidden on the page, so it moves behind the pop-up)
+document.querySelectorAll('.i-pop').forEach(function (pop) {
+  function block(e) {
+    var body = e.target.closest('.i-pop-body');
+    if (!body || body.scrollHeight <= body.clientHeight) e.preventDefault();
+  }
+  pop.addEventListener('touchmove', block, { passive: false });
+  pop.addEventListener('wheel', block, { passive: false });
+});
 
 // Finance pop-up
 (function () {
