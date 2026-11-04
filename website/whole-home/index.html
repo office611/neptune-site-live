@@ -362,6 +362,7 @@
 .hero-tabs a:hover { color: var(--accent); }
 /* Survey: hold its loaded height from the start. GHL hides the iframe until it's ready, so only this wrapper (220px) held space; when the iframe appeared, everything below moved and the hero links landed ~170px off */
 #assessment .ghl-survey-wrap { min-height: 382px; }
+@media (max-width: 340px) { #assessment .ghl-survey-wrap { min-height: 411px; } }
 @media (min-width: 768px) { #assessment .ghl-survey-wrap { min-height: 398px; } }
 
 /* Pricing section: three cards in the Sound-Like-Your-Home card style */
@@ -619,18 +620,20 @@ html.i-pop-open { overflow: hidden; }
 .i-pop-body .fin-inc { font-size: .95rem; font-weight: 600; color: var(--navy); }
 .fin-fees { list-style: disc; margin: 6px 0 20px; padding-left: 20px; font-size: .95rem; line-height: 1.6; color: var(--text-2); }
 .fin-fees li { display: list-item; padding: 0; }
-/* Short screens (the Facebook in-app browser leaves about 550px): tighter, so the whole pop-up fits with nothing to scroll */
-@media (max-height: 720px) {
-  .i-pop-body.fin-body { padding: 16px 20px calc(16px + env(safe-area-inset-bottom)); justify-content: flex-start; }
-  .i-pop-body.fin-body h3 { margin: 0 44px 2px 0; font-size: 1.35rem; }
-  .i-pop-body.fin-body p { font-size: .88rem; line-height: 1.4; }
-  .i-pop-body.fin-body h3 + p { margin-right: 40px; }
-  .fin-tab { margin: 8px 0; }
-  .fin-tab th { padding-bottom: 4px; }
-  .fin-tab td { padding: 6px 4px; font-size: .95rem; }
-  .fin-fees { margin: 2px 0 10px; font-size: .84rem; line-height: 1.4; }
-  .fin-body .btn { padding-block: 11px; }
-}
+/* Sized to the screen height: fills the room on a laptop, still fits with nothing to scroll on the shortest phones */
+#fin-pop { --u: 1vh; --k: 1; }
+@media (max-width: 760px) { #fin-pop { --k: .74; } }
+@media (max-height: 500px) { #fin-pop { --k: .5; } }
+@supports (height: 1svh) { #fin-pop { --u: 1svh; } }
+.i-pop-body.fin-body { padding: clamp(16px, calc(var(--u) * 5.2 * var(--k)), 48px) clamp(20px, 3.4vw, 44px) calc(clamp(16px, calc(var(--u) * 5.2 * var(--k)), 48px) + env(safe-area-inset-bottom)); justify-content: flex-start; }
+.i-pop-body.fin-body h3 { margin: 0 44px clamp(2px, calc(var(--u) * var(--k)), 8px) 0; font-size: clamp(1.35rem, calc(var(--u) * 4.4 * var(--k)), 2.4rem); }
+.i-pop-body.fin-body p { font-size: clamp(.88rem, calc(var(--u) * 2.5 * var(--k)), 1.1rem); line-height: 1.4; }
+.i-pop-body.fin-body h3 + p { margin-right: 40px; }
+.fin-tab { margin: clamp(8px, calc(var(--u) * 2.6 * var(--k)), 24px) 0; }
+.fin-tab th { padding-bottom: clamp(4px, calc(var(--u) * var(--k)), 10px); }
+.fin-tab td { padding-block: clamp(6px, calc(var(--u) * 2.2 * var(--k)), 20px); font-size: clamp(.95rem, calc(var(--u) * 2.7 * var(--k)), 1.2rem); }
+.fin-fees { margin: clamp(2px, calc(var(--u) * var(--k)), 8px) 0 clamp(10px, calc(var(--u) * 3.2 * var(--k)), 28px); font-size: clamp(.84rem, calc(var(--u) * 2.4 * var(--k)), 1.05rem); line-height: 1.5; }
+.fin-body .btn { padding-block: clamp(11px, calc(var(--u) * 2.5 * var(--k)), 22px); }
 /* Phone turned sideways: use nearly the full height */
 @media (max-height: 440px) { #fin-pop { padding: 8px; } #fin-pop .i-pop-card { max-height: calc(100dvh - 16px); } }
 /* Pop-ups: the page behind never moves */
