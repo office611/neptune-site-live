@@ -18,8 +18,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&text=NEPTUNE&display=swap">
 <link rel="stylesheet" href="/experts/assessment.css">
-<link rel="preload" as="image" href="/assets/videos/hero/hero-shower-v2-phone.jpg" media="(max-width: 767px)">
-<link rel="preload" as="image" href="/assets/videos/hero/hero-shower-v2-desktop.jpg" media="(min-width: 768px)">
+<link rel="preload" as="image" href="/assets/videos/hero/hero-shower-v3-phone.jpg" media="(max-width: 767px)">
+<link rel="preload" as="image" href="/assets/videos/hero/hero-shower-v3-desktop.jpg" media="(min-width: 768px)">
 <style>
 :root { --navy-deep: #13233f; }
 .hero-photo .assessment { padding-bottom: var(--s-6); }
@@ -361,8 +361,8 @@
 
 /* Water video behind the whole hero, down past the survey, under a dark blue tint (Stefan 2026-11-07).
    Phone and desktop get their own file. Navy stays behind it if the video can't play. */
-.melb-water { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: var(--navy-deep) url(/assets/videos/hero/hero-shower-v2-phone.jpg) center / cover no-repeat; }
-@media (min-width: 768px) { .melb-water { background-image: url(/assets/videos/hero/hero-shower-v2-desktop.jpg); } }
+.melb-water { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: var(--navy-deep) url(/assets/videos/hero/hero-shower-v3-phone.jpg) center / cover no-repeat; }
+@media (min-width: 768px) { .melb-water { background-image: url(/assets/videos/hero/hero-shower-v3-desktop.jpg); } }
 .melb-water video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .melb-water video.is-next { opacity: 0; }
 /* Phones: subheadline on 2 lines */
@@ -416,7 +416,7 @@
   (function () {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (navigator.connection && navigator.connection.saveData) return;
-    var src = '/assets/videos/hero/hero-shower-v2-' + (matchMedia('(min-width: 768px)').matches ? 'desktop' : 'phone') + '.mp4';
+    var src = '/assets/videos/hero/hero-shower-v3-' + (matchMedia('(min-width: 768px)').matches ? 'desktop' : 'phone') + '.mp4';
     var cur = document.getElementById('hero-water'), next = document.getElementById('hero-water-2');
     var hero = cur.closest('.hero-photo'), busy = false, onScreen = true;
     function play(v) { var p = v.play(); return p && p.then ? p : Promise.resolve(); }
