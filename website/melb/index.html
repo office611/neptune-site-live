@@ -356,6 +356,13 @@
 
 /* Same subheading wrap as /whole-home */
 .hero-photo-content .hero-sub { text-wrap: balance; }
+
+/* Water video behind the whole hero, down past the survey, under a dark blue tint (Stefan 2026-11-07).
+   Phone and desktop get their own file. Navy stays behind it if the video can't play. */
+.melb-water { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.melb-water video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.melb-water::after { content: ""; position: absolute; inset: 0; background: rgba(19,35,63,.82); }
+.hero-photo > .hero-photo-upper, .hero-photo > .hero-arrow-spacer { position: relative; z-index: 1; }
 </style>
 <!-- Business details for Google and AI search (same @id as the Melbourne guide page) -->
 <script type="application/ld+json">
@@ -389,10 +396,28 @@
 <body class="page-melbourne">
 
 <!-- ══════════════════════════════════════════════════════
-     HERO — no background photo. Proof (the installs gallery) is
-     what's doing the work here, flat navy keeps it clean and simple.
+     HERO — water video background under a dark blue tint, covering the
+     whole hero down past the survey. The photos and form sit on top.
 ══════════════════════════════════════════════════════ -->
 <section class="hero-photo">
+  <div class="melb-water" aria-hidden="true"><video id="hero-water" muted loop playsinline preload="none"></video></div>
+  <script>
+  /* Picks the phone or desktop loop and starts it after the page and form have loaded, so it never slows the form. */
+  (function () {
+    var v = document.getElementById('hero-water');
+    var name = '/assets/videos/hero/hero-shower-' + (matchMedia('(min-width: 768px)').matches ? 'desktop' : 'phone');
+    v.poster = name + '.jpg';
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (navigator.connection && navigator.connection.saveData) return;
+    function go() {
+      v.muted = true;
+      v.src = name + '.mp4';
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+    if (document.readyState === 'complete') go(); else addEventListener('load', go);
+  })();
+  </script>
   <div class="hero-photo-upper">
     <div class="container hero-photo-content fade-in-up">
       <h1>The Water Your Whole <span class="hero-accent">Family Deserves</span>.</h1>
