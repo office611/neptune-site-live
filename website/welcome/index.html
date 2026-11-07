@@ -28,9 +28,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/experts/assessment.css">
 <style>
-/* Two-door welcome page (Stefan 2026-11-07, in the style of whereu.com.au,
-   without the competitor joke). Test URL only for now: the root still
-   serves /melb. */
+/* Three-door welcome page (Stefan 2026-11-07, in the style of whereu.com.au).
+   Test URL only for now: the root still serves /melb. Solid buttons and a
+   darker photo overlay so everything reads clearly. */
 body { background: var(--navy-deep); }
 .welcome {
   position: relative; min-height: 100vh; min-height: 100svh;
@@ -39,50 +39,64 @@ body { background: var(--navy-deep); }
 }
 .welcome-bg, .welcome-overlay { position: fixed; inset: 0; z-index: 0; }
 .welcome-bg img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
-.welcome-overlay { background: linear-gradient(180deg, rgba(7,15,30,.9) 0%, rgba(7,15,30,.78) 50%, rgba(7,15,30,.9) 100%); }
+.welcome-overlay { background: rgba(7,15,30,.9); }
 .welcome-inner {
-  position: relative; z-index: 1; width: 100%; max-width: 720px;
+  position: relative; z-index: 1; width: 100%; max-width: 680px;
   margin: 0 auto; padding: 48px 16px; text-align: center;
 }
 .welcome-logo { display: block; height: 30px; width: auto; margin: 0 auto 36px; }
 .welcome h1 {
   font-size: clamp(1.7rem, 6.4vw, 3rem); font-weight: 700; line-height: 1.15;
-  letter-spacing: -.01em; margin: 0 0 14px; text-wrap: balance;
+  letter-spacing: -.01em; margin: 0 0 14px; color: #fff; text-wrap: balance;
 }
 .welcome h1 .hero-accent { color: var(--accent); }
-.welcome-either { font-size: 1.05rem; font-weight: 500; color: rgba(255,255,255,.85); margin: 0 0 22px; }
+.welcome-either { font-size: 1.1rem; font-weight: 600; color: #fff; margin: 0 0 22px; }
 .doors { display: flex; flex-direction: column; gap: 14px; }
 .door {
   display: flex; align-items: center; justify-content: space-between; gap: 14px;
-  width: 100%; padding: 20px 22px; border-radius: var(--r-lg);
-  font: inherit; font-size: 1.05rem; font-weight: 600; text-align: left;
-  text-decoration: none; cursor: pointer;
-  transition: transform var(--ease), background var(--ease), border-color var(--ease);
+  width: 100%; padding: 20px 22px; border-radius: var(--r-lg); border: 0;
+  font: inherit; font-size: 1.08rem; font-weight: 700; text-align: left;
+  text-decoration: none; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.3);
+  transition: transform var(--ease), background var(--ease);
 }
 .door:active { transform: scale(.99); }
-.door-arrow { flex-shrink: 0; font-size: 1.3rem; line-height: 1; }
-.door-quote { background: var(--accent); color: #05131F; border: 2px solid var(--accent); }
-.door-quote:hover { background: #7CC0FF; border-color: #7CC0FF; }
-.door-customer { background: rgba(255,255,255,.06); color: #fff; border: 2px solid rgba(255,255,255,.28); }
-.door-customer:hover { border-color: var(--accent); }
-.door-customer[aria-expanded="true"] { border-color: var(--accent); background: rgba(77,166,255,.1); }
-.door-customer[aria-expanded="true"] .door-arrow { transform: rotate(90deg); }
-.door-customer .door-arrow { transition: transform var(--ease); }
-.customer-panel {
-  margin-top: -2px; padding: 18px 22px 20px; border-radius: 0 0 var(--r-lg) var(--r-lg);
-  background: rgba(255,255,255,.06); border: 2px solid var(--accent); border-top: 0;
-  text-align: left; font-size: 1rem; line-height: 1.6; color: rgba(255,255,255,.92);
+.door-arrow { flex-shrink: 0; font-size: 1.35rem; line-height: 1; }
+/* Main door: bright blue, dark text */
+.door-quote { background: var(--accent); color: #05131F; }
+.door-quote:hover { background: #7CC0FF; }
+/* Other doors: solid white, navy text */
+.door-white { background: #fff; color: var(--navy); }
+.door-white:hover { background: #EAF1F9; }
+.door-white .door-arrow { color: var(--blue); }
+
+/* Pop-ups */
+.pop {
+  position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center;
+  padding: 16px; background: rgba(5,12,25,.75);
 }
-.customer-panel[hidden] { display: none; }
-.customer-panel p { margin: 0 0 10px; }
-.customer-panel ul { margin: 0; padding-left: 20px; }
-.customer-panel li { margin: 4px 0; }
-.customer-panel strong { color: #fff; }
-.door-customer[aria-expanded="true"] { border-radius: var(--r-lg) var(--r-lg) 0 0; }
+.pop[hidden] { display: none; }
+.pop-card {
+  position: relative; width: 100%; max-width: 460px; padding: 32px 26px 26px;
+  border-radius: var(--r-lg); background: #fff; color: var(--navy); text-align: left;
+  box-shadow: 0 24px 60px rgba(0,0,0,.45);
+}
+.pop-card h2 { font-size: 1.45rem; font-weight: 700; line-height: 1.2; margin: 0 0 12px; color: var(--navy); }
+.pop-card p { margin: 0 0 12px; font-size: 1.02rem; line-height: 1.6; color: var(--text); }
+.pop-card ul { margin: 0 0 20px; padding-left: 20px; font-size: 1.02rem; line-height: 1.6; }
+.pop-card li { margin: 4px 0; font-weight: 600; }
+.pop-close-x {
+  position: absolute; top: 10px; right: 12px; width: 40px; height: 40px;
+  border: 0; background: transparent; font-size: 1.6rem; line-height: 1; color: var(--text-2); cursor: pointer;
+}
+.pop-ok {
+  width: 100%; padding: 15px 18px; border: 0; border-radius: var(--r-md);
+  background: var(--navy); color: #fff; font: inherit; font-size: 1rem; font-weight: 700; cursor: pointer;
+}
+.pop-ok:hover { background: var(--navy-soft); }
 @media (min-width: 768px) {
   .welcome-inner { padding: 64px 24px; }
   .welcome-logo { height: 34px; margin-bottom: 44px; }
-  .door { padding: 22px 26px; font-size: 1.12rem; }
+  .door { padding: 22px 26px; font-size: 1.15rem; }
 }
 </style>
 </head>
@@ -95,7 +109,7 @@ body { background: var(--navy-deep); }
   <div class="welcome-inner">
     <img class="welcome-logo" src="/assets/logos/Neptune_Logo_White.png" alt="Neptune Whole Home Filtration">
 
-    <h1>There Are Only <span class="hero-accent">Two Types Of People</span> Who Come Here.</h1>
+    <h1>There Are Only <span class="hero-accent">Three Types Of People</span> Who Come Here.</h1>
     <p class="welcome-either">You&rsquo;re either&hellip;</p>
 
     <div class="doors">
@@ -103,24 +117,40 @@ body { background: var(--navy-deep); }
         <span>Wanting better water for your Melbourne home</span>
         <span class="door-arrow" aria-hidden="true">&rarr;</span>
       </a>
-
-      <div>
-        <button class="door door-customer" type="button" aria-expanded="false" aria-controls="customer-panel">
-          <span>Already a Neptune customer</span>
-          <span class="door-arrow" aria-hidden="true">&rarr;</span>
-        </button>
-        <div class="customer-panel" id="customer-panel" hidden>
-          <p><strong>Welcome back.</strong> Look back through your messages from us and contact us on the numbers you already have:</p>
-          <ul>
-            <li>Your technician</li>
-            <li>Our office line</li>
-            <li>Our plumbing line</li>
-          </ul>
-        </div>
-      </div>
+      <button class="door door-white" type="button" data-pop="pop-customer">
+        <span>Already a Neptune customer</span>
+        <span class="door-arrow" aria-hidden="true">&rarr;</span>
+      </button>
+      <button class="door door-white" type="button" data-pop="pop-competitor">
+        <span>A competitor</span>
+        <span class="door-arrow" aria-hidden="true">&rarr;</span>
+      </button>
     </div>
   </div>
 </main>
+
+<div class="pop" id="pop-customer" role="dialog" aria-modal="true" aria-labelledby="pop-customer-title" hidden>
+  <div class="pop-card">
+    <button class="pop-close-x" type="button" aria-label="Close">&times;</button>
+    <h2 id="pop-customer-title">Welcome Back.</h2>
+    <p>Look back through your messages from us and contact us on the numbers you already have:</p>
+    <ul>
+      <li>Your technician</li>
+      <li>Our office line</li>
+      <li>Our plumbing line</li>
+    </ul>
+    <button class="pop-ok" type="button">Got it</button>
+  </div>
+</div>
+
+<div class="pop" id="pop-competitor" role="dialog" aria-modal="true" aria-labelledby="pop-competitor-title" hidden>
+  <div class="pop-card">
+    <button class="pop-close-x" type="button" aria-label="Close">&times;</button>
+    <h2 id="pop-competitor-title">You Know We&rsquo;re The Best.</h2>
+    <p>Thanks for checking us out. We&rsquo;ll take it as a compliment.</p>
+    <button class="pop-ok" type="button">Close</button>
+  </div>
+</div>
 
 <script>
 (function () {
@@ -128,16 +158,27 @@ body { background: var(--navy-deep); }
   var q = document.getElementById('door-quote');
   if (q && location.search) q.href = '/melb/' + location.search;
 
-  /* Customer door opens the message underneath it. */
-  var btn = document.querySelector('.door-customer');
-  var panel = document.getElementById('customer-panel');
-  if (btn && panel) {
-    btn.addEventListener('click', function () {
-      var open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
-      panel.hidden = open;
-    });
+  var lastBtn = null;
+  function openPop(id, btn) {
+    var p = document.getElementById(id);
+    if (!p) return;
+    lastBtn = btn;
+    p.hidden = false;
+    var ok = p.querySelector('.pop-ok');
+    if (ok) ok.focus();
   }
+  function closePops() {
+    document.querySelectorAll('.pop').forEach(function (p) { p.hidden = true; });
+    if (lastBtn) lastBtn.focus();
+  }
+  document.querySelectorAll('[data-pop]').forEach(function (b) {
+    b.addEventListener('click', function () { openPop(b.getAttribute('data-pop'), b); });
+  });
+  document.querySelectorAll('.pop').forEach(function (p) {
+    p.addEventListener('click', function (e) { if (e.target === p) closePops(); });
+    p.querySelectorAll('.pop-close-x, .pop-ok').forEach(function (c) { c.addEventListener('click', closePops); });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePops(); });
 })();
 </script>
 
