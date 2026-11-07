@@ -1,5 +1,5 @@
-# Root → serve the /melb page at / (official homepage; URL stays /)
-/ /melb/index.html 200!
+# Root → serve the /welcome page at / (official homepage since 2026-11-07; URL stays /)
+/ /welcome/index.html 200!
 
 # Trailing-slash enforcement
 /home /home/ 301
