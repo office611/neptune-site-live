@@ -18,6 +18,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&text=NEPTUNE&display=swap">
 <link rel="stylesheet" href="/experts/assessment.css">
+<link rel="preload" as="image" href="/assets/videos/hero/hero-shower-v2-phone.jpg" media="(max-width: 767px)">
+<link rel="preload" as="image" href="/assets/videos/hero/hero-shower-v2-desktop.jpg" media="(min-width: 768px)">
 <style>
 :root { --navy-deep: #13233f; }
 .hero-photo .assessment { padding-bottom: var(--s-6); }
@@ -359,10 +361,14 @@
 
 /* Water video behind the whole hero, down past the survey, under a dark blue tint (Stefan 2026-11-07).
    Phone and desktop get their own file. Navy stays behind it if the video can't play. */
-.melb-water { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.melb-water { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: var(--navy-deep) url(/assets/videos/hero/hero-shower-v2-phone.jpg) center / cover no-repeat; }
+@media (min-width: 768px) { .melb-water { background-image: url(/assets/videos/hero/hero-shower-v2-desktop.jpg); } }
 .melb-water video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.melb-water video.is-next { opacity: 0; }
+/* Phones: subheadline on 2 lines */
+@media (max-width: 767px) { .hero-photo-content .hero-sub { font-size: max(11px, 3.2vw); line-height: 1.5; max-width: 100%; } }
 .melb-water::after { content: ""; position: absolute; inset: 0; background: rgba(19,35,63,.82); }
-.hero-photo > .hero-photo-upper, .hero-photo > .hero-arrow-spacer { position: relative; z-index: 1; }
+.hero-photo > .hero-photo-upper { position: relative; z-index: 1; }
 </style>
 <!-- Business details for Google and AI search (same @id as the Melbourne guide page) -->
 <script type="application/ld+json">
@@ -400,22 +406,51 @@
      whole hero down past the survey. The photos and form sit on top.
 ══════════════════════════════════════════════════════ -->
 <section class="hero-photo">
-  <div class="melb-water" aria-hidden="true"><video id="hero-water" muted loop playsinline preload="none"></video></div>
+  <div class="melb-water" aria-hidden="true">
+    <video id="hero-water" muted playsinline preload="auto"></video>
+    <video id="hero-water-2" class="is-next" muted playsinline preload="none"></video>
+  </div>
   <script>
-  /* Picks the phone or desktop loop and starts it after the page and form have loaded, so it never slows the form. */
+  /* Two copies of the same loop. The second sits ready and takes over at the end, so the
+     restart has no hitch. The still image stays behind them until the first one plays. */
   (function () {
-    var v = document.getElementById('hero-water');
-    var name = '/assets/videos/hero/hero-shower-' + (matchMedia('(min-width: 768px)').matches ? 'desktop' : 'phone');
-    v.poster = name + '.jpg';
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (navigator.connection && navigator.connection.saveData) return;
-    function go() {
-      v.muted = true;
-      v.src = name + '.mp4';
-      var p = v.play();
-      if (p && p.catch) p.catch(function () {});
+    var src = '/assets/videos/hero/hero-shower-v2-' + (matchMedia('(min-width: 768px)').matches ? 'desktop' : 'phone') + '.mp4';
+    var cur = document.getElementById('hero-water'), next = document.getElementById('hero-water-2');
+    var hero = cur.closest('.hero-photo'), busy = false, onScreen = true;
+    function play(v) { var p = v.play(); return p && p.then ? p : Promise.resolve(); }
+    function swap() {
+      if (busy) return;
+      if (next.readyState < 3) { cur.currentTime = 0; play(cur).catch(function () {}); return; }
+      busy = true;
+      play(next).then(function () {
+        next.classList.remove('is-next');
+        cur.classList.add('is-next');
+        var old = cur; cur = next; next = old;
+        old.pause();
+        old.currentTime = 0;
+        busy = false;
+      }, function () { busy = false; });
     }
-    if (document.readyState === 'complete') go(); else addEventListener('load', go);
+    function tick() {
+      if (onScreen && !busy && cur.duration && cur.duration - cur.currentTime < 0.08) swap();
+      requestAnimationFrame(tick);
+    }
+    cur.addEventListener('ended', swap);
+    next.addEventListener('ended', swap);
+    cur.addEventListener('canplaythrough', function () {
+      next.preload = 'auto';
+      next.src = src;
+      play(next).then(function () { next.pause(); next.currentTime = 0; }, function () {});
+    }, { once: true });
+    cur.src = src;
+    play(cur).catch(function () {});
+    requestAnimationFrame(tick);
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (e) {
+      onScreen = e[0].isIntersecting;
+      if (onScreen) play(cur).catch(function () {}); else cur.pause();
+    }).observe(hero);
   })();
   </script>
   <div class="hero-photo-upper">
@@ -476,12 +511,6 @@
       <div class="trio-item"><img src="/assets/install-photos/girish-unit.jpg" alt="Stefan from Neptune Filtration with customer Girish at his installed system" loading="eager"></div>
       <div class="trio-item"><img src="/assets/install-photos/img-1216.jpg" alt="Neptune whole home water filtration system installed at a Melbourne home" loading="eager"></div>
     </div>
-  </div>
-
-  <div class="hero-arrow-spacer">
-    <a href="#assessment" class="hero-scroll-arrow scroll-to-assessment" aria-label="Scroll to the form">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    </a>
   </div>
 
   <!-- ══════════════════════════════════════════════════════
@@ -621,7 +650,6 @@
       <figure class="fan-card fan-r"><img src="/assets/install-photos/6.jpg" alt="Neptune whole home filtration system installed at a Melbourne home" loading="lazy"><figcaption class="fan-sub"></figcaption></figure>
     </div>
     <div class="gallery-cta">
-      <span class="next-step-heading"><span class="hero-accent next-step-word">Next Step:</span> Get Your Free No&#8209;Obligation&nbsp;Quote</span>
       <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get My Free Quote</a>
     </div>
   </div>
@@ -770,6 +798,9 @@
         </summary>
         <p class="faq-answer">You&rsquo;re covered by our 30-day money-back guarantee.</p>
       </details>
+    </div>
+    <div class="gallery-cta">
+      <a href="#assessment" class="btn btn-primary btn-full scroll-to-assessment">Get My Free Quote</a>
     </div>
   </div>
 </section>
