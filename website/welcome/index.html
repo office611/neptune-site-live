@@ -44,7 +44,8 @@ body { background: var(--navy-deep); }
   position: relative; z-index: 1; width: 100%; max-width: 680px;
   margin: 0 auto; padding: 48px 16px; text-align: center;
 }
-.welcome-logo { display: block; height: 30px; width: auto; margin: 0 auto 36px; }
+.welcome-logo { display: block; height: 46px; width: auto; margin: 0 auto 32px; }
+.welcome-logo-m { display: none; }
 .welcome h1 {
   font-size: clamp(1.7rem, 6.4vw, 3rem); font-weight: 700; line-height: 1.15;
   letter-spacing: -.01em; margin: 0 0 14px; color: #fff; text-wrap: balance;
@@ -95,8 +96,28 @@ body { background: var(--navy-deep); }
 .pop-ok:hover { background: var(--navy-soft); }
 @media (min-width: 768px) {
   .welcome-inner { padding: 64px 24px; }
-  .welcome-logo { height: 34px; margin-bottom: 44px; }
+  .welcome-logo { height: 80px; margin-bottom: 40px; }
   .door { padding: 22px 26px; font-size: 1.15rem; }
+}
+/* Phones: same as the /melb thank-you page. A portrait screen can't fill
+   with this landscape photo without cropping the two people, so it becomes
+   a banner on top that fades into the navy, with the content under it. */
+@media (max-width: 767px) {
+  .welcome { display: block; min-height: 0; }
+  .welcome-bg {
+    position: relative; inset: auto; aspect-ratio: 3 / 2;
+    -webkit-mask-image: linear-gradient(180deg, #000 50%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 50%, transparent 100%);
+  }
+  .welcome-bg img { object-position: 36% center; filter: brightness(.82); }
+  .welcome-overlay { display: none; }
+  .welcome-logo-m {
+    display: block; position: absolute; z-index: 2; top: 18px; left: 50%;
+    transform: translateX(-50%); height: 54px; width: auto;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,.55));
+  }
+  .welcome-logo { display: none; }
+  .welcome-inner { margin-top: -40px; padding-top: 0; padding-bottom: 40px; }
 }
 </style>
 </head>
@@ -105,6 +126,7 @@ body { background: var(--navy-deep); }
 <main class="welcome">
   <div class="welcome-bg" aria-hidden="true"><img src="/assets/install-photos/book-bg.jpg" alt="" fetchpriority="high"></div>
   <div class="welcome-overlay" aria-hidden="true"></div>
+  <img class="welcome-logo-m" src="/assets/logos/Neptune_Logo_White.png" alt="Neptune Whole Home Filtration">
 
   <div class="welcome-inner">
     <img class="welcome-logo" src="/assets/logos/Neptune_Logo_White.png" alt="Neptune Whole Home Filtration">
