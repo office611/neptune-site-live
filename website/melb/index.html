@@ -353,6 +353,9 @@
 .next-step-heading { text-wrap: balance; }
 /* FAQ follows the white install gallery: a hairline keeps the two apart */
 #faq { border-top: 1px solid var(--border); }
+
+/* Same subheading wrap as /whole-home */
+.hero-photo-content .hero-sub { text-wrap: balance; }
 </style>
 <!-- Business details for Google and AI search (same @id as the Melbourne guide page) -->
 <script type="application/ld+json">
@@ -364,7 +367,7 @@
   "url": "https://neptunefiltration.com.au/",
   "logo": "https://neptunefiltration.com.au/assets/logos/Neptune_Logo_Navy.png",
   "image": "https://neptunefiltration.com.au/assets/install-photos/1-hero.jpg",
-  "description": "Whole home water filtration, supplied and installed across Melbourne only. 5-stage, 3-filter system, WaterMark certified, installed by a licensed plumbing team. Priced from your photos on a quick Zoom, so nobody comes to your home.",
+  "description": "Whole home water filtration, supplied and installed across Melbourne only. 5-stage, 3-filter system, WaterMark certified, installed by a licensed plumbing team.",
   "telephone": "+61 468 018 396",
   "email": "office@neptunefiltration.com.au",
   "taxID": "ABN 30 695 743 849",
@@ -405,8 +408,7 @@
         var A = function (t) { return '<span class="hero-accent">' + t + '</span>'; };
         var angles = [
           [/melbourne specific/, 'Tailored For What\u2019s Coming Through ' + A('Your Pipes') + '.'],
-          // the 10 old ads. No-in-home ones get the headline they crushed with on /melbourne (proven, don't change)
-          [/already know|fifty ads|kitchen table|chlorine trick/, A('Skipping The In-Home Sales Pitch') + ' And Getting Filtered Water At Every Tap For Good', '<span class="hero-badge">Join The Melbourne Homeowners</span>'],
+          // the old ads with their own angle
           [/one tap/, 'Better Water At ' + A('Every Tap') + ', Not Just One.'],
           [/two hours/, 'Every Tap Filtered ' + A('In 2\u20133 Hours') + ', By Our Dedicated Plumbing Team.'],
           [/jug filter/, A('Ditch The Jug.') + ' Filter Every Tap In Your Home.'],
@@ -424,9 +426,7 @@
           [/smell|taste|chlorine|test/, A('Love The Taste') + ' Of Your Tap Water Again.'],
           [/drink|bottle/, A('Drink Straight From The Tap') + ' Again, With Confidence.'],
           [/lime|scale/, 'Fewer Lime Marks. ' + A('Better Water') + ' At Every Tap.'],
-          [/home visit|in home|in-home|appointment|process|discount|pricing|price/, 'Get Your Price From The ' + A('Comfort Of Your Home') + '.'],
           [/plumber|install/, A('Relax') + ' While Licensed Plumbers ' + A('Install It Right') + '.'],
-          [/service|sales/, 'Straight Answers, ' + A('No Sales Pitch') + '.'],
           [/melbourne/, 'Finally, A Set-Up ' + A('Tailored To Your Melbourne Home') + '.']
         ];
         for (var i = 0; i < angles.length; i++) {
@@ -441,7 +441,7 @@
         }
       })();
       </script>
-      <p class="hero-sub">Whole-home filtration, backed by real customers — not just our word for it.</p>
+      <p class="hero-sub">Whole home filtration installed on your mains, filtering every tap, shower and appliance in your home.</p>
     </div>
 
     <!-- 3-PHOTO TRIO — sits directly below the subheadline, staggered/
@@ -722,12 +722,6 @@
         <p class="faq-answer">No. It&rsquo;s sized for the whole home, so you keep full pressure at every tap and shower.</p>
       </details>
       <details class="faq-item">
-        <summary>Does someone need to come to my home?
-          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        </summary>
-        <p class="faq-answer">No. Answer a few quick questions, have a quick chat with our team, and get your price without anyone coming to your home. Our plumbers only come out on install day.</p>
-      </details>
-      <details class="faq-item">
         <summary>How long does installation take?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
@@ -740,10 +734,16 @@
         <p class="faq-answer">About once a year. A fresh set is delivered to your door, and you swap them yourself with our step-by-step video.</p>
       </details>
       <details class="faq-item">
+        <summary>Do you have payment plans?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="faq-answer">Yes, 0% interest plans are available. We&rsquo;ll go through them with you when you get your quote.</p>
+      </details>
+      <details class="faq-item">
         <summary>What if I&rsquo;m not happy with it?
           <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
-        <p class="faq-answer">You&rsquo;re covered by our 30-day money-back guarantee, plus a 7-year workmanship warranty on the install.</p>
+        <p class="faq-answer">You&rsquo;re covered by our 30-day money-back guarantee.</p>
       </details>
     </div>
   </div>
@@ -751,8 +751,8 @@
 
 <!-- ══════════════════════════════════════════════════════
      ABOUT ME — after the proof (testimonials, then installs), right
-     before "Sound Like Your Home?": his "whatever it is, I'm confident
-     we'll fix it" hands straight to that list. Face is already
+     before "Sound Like Your Home?": "you're in good hands" hands straight
+     to that list. Face is already
      familiar from ads, so this is a proper introduction rather
      than a tiny avatar.
 ══════════════════════════════════════════════════════ -->
@@ -765,8 +765,9 @@
       <div class="about-me-text">
         <span class="eyebrow">Who's Behind Neptune</span>
         <h2>I'm Stefan.</h2>
-        <p>My own eczema and scalp issues are what pulled me into this industry in the first place — chasing a natural fix became a genuine passion. Before Neptune, I worked for other filtration companies, learning the industry inside out and speaking with 1000+ customers along the way — so I know exactly what it takes to fix your concern.</p>
-        <p>Whatever it is, I'm confident we'll fix it. I know the level we operate at — that's exactly why my face is on every ad, every page. Why would I hide it?</p>
+        <p>My own eczema and scalp issues are what got me into water filtration. What started as looking for a natural fix turned into an obsession.</p>
+        <p>From there I worked for other filtration companies, speaking with 1000+ customers and seeing first-hand what works, what doesn't and where the industry falls short. Neptune is everything I learned, backed by a team with the experience to match.</p>
+        <p>So whether you're dealing with a concern or simply want better water for your home, you're in good hands.</p>
       </div>
     </div>
   </div>
