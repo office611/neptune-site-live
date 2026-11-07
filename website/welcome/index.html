@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+<meta name="theme-color" content="#0B1E3D">
+<meta name="color-scheme" content="light">
+<title>Welcome | Neptune Filtration</title>
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2043292147071202');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2043292147071202&ev=PageView&noscript=1"/></noscript>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xtyiud4n4o");
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/experts/assessment.css">
+<style>
+/* Two-door welcome page (Stefan 2026-11-07, in the style of whereu.com.au,
+   without the competitor joke). Test URL only for now: the root still
+   serves /melb. */
+body { background: var(--navy-deep); }
+.welcome {
+  position: relative; min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column; justify-content: center;
+  clip-path: inset(0); color: #fff;
+}
+.welcome-bg, .welcome-overlay { position: fixed; inset: 0; z-index: 0; }
+.welcome-bg img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+.welcome-overlay { background: linear-gradient(180deg, rgba(7,15,30,.9) 0%, rgba(7,15,30,.78) 50%, rgba(7,15,30,.9) 100%); }
+.welcome-inner {
+  position: relative; z-index: 1; width: 100%; max-width: 720px;
+  margin: 0 auto; padding: 48px 16px; text-align: center;
+}
+.welcome-logo { display: block; height: 30px; width: auto; margin: 0 auto 36px; }
+.welcome h1 {
+  font-size: clamp(1.7rem, 6.4vw, 3rem); font-weight: 700; line-height: 1.15;
+  letter-spacing: -.01em; margin: 0 0 14px; text-wrap: balance;
+}
+.welcome h1 .hero-accent { color: var(--accent); }
+.welcome-either { font-size: 1.05rem; font-weight: 500; color: rgba(255,255,255,.85); margin: 0 0 22px; }
+.doors { display: flex; flex-direction: column; gap: 14px; }
+.door {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  width: 100%; padding: 20px 22px; border-radius: var(--r-lg);
+  font: inherit; font-size: 1.05rem; font-weight: 600; text-align: left;
+  text-decoration: none; cursor: pointer;
+  transition: transform var(--ease), background var(--ease), border-color var(--ease);
+}
+.door:active { transform: scale(.99); }
+.door-arrow { flex-shrink: 0; font-size: 1.3rem; line-height: 1; }
+.door-quote { background: var(--accent); color: #05131F; border: 2px solid var(--accent); }
+.door-quote:hover { background: #7CC0FF; border-color: #7CC0FF; }
+.door-customer { background: rgba(255,255,255,.06); color: #fff; border: 2px solid rgba(255,255,255,.28); }
+.door-customer:hover { border-color: var(--accent); }
+.door-customer[aria-expanded="true"] { border-color: var(--accent); background: rgba(77,166,255,.1); }
+.door-customer[aria-expanded="true"] .door-arrow { transform: rotate(90deg); }
+.door-customer .door-arrow { transition: transform var(--ease); }
+.customer-panel {
+  margin-top: -2px; padding: 18px 22px 20px; border-radius: 0 0 var(--r-lg) var(--r-lg);
+  background: rgba(255,255,255,.06); border: 2px solid var(--accent); border-top: 0;
+  text-align: left; font-size: 1rem; line-height: 1.6; color: rgba(255,255,255,.92);
+}
+.customer-panel[hidden] { display: none; }
+.customer-panel p { margin: 0 0 10px; }
+.customer-panel ul { margin: 0; padding-left: 20px; }
+.customer-panel li { margin: 4px 0; }
+.customer-panel strong { color: #fff; }
+.door-customer[aria-expanded="true"] { border-radius: var(--r-lg) var(--r-lg) 0 0; }
+@media (min-width: 768px) {
+  .welcome-inner { padding: 64px 24px; }
+  .welcome-logo { height: 34px; margin-bottom: 44px; }
+  .door { padding: 22px 26px; font-size: 1.12rem; }
+}
+</style>
+</head>
+<body class="page-melbourne">
+
+<main class="welcome">
+  <div class="welcome-bg" aria-hidden="true"><img src="/assets/install-photos/book-bg.jpg" alt="" fetchpriority="high"></div>
+  <div class="welcome-overlay" aria-hidden="true"></div>
+
+  <div class="welcome-inner">
+    <img class="welcome-logo" src="/assets/logos/Neptune_Logo_White.png" alt="Neptune Whole Home Filtration">
+
+    <h1>There Are Only <span class="hero-accent">Two Types Of People</span> Who Come Here.</h1>
+    <p class="welcome-either">You&rsquo;re either&hellip;</p>
+
+    <div class="doors">
+      <a class="door door-quote" id="door-quote" href="/melb/">
+        <span>Wanting better water for your Melbourne home</span>
+        <span class="door-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+
+      <div>
+        <button class="door door-customer" type="button" aria-expanded="false" aria-controls="customer-panel">
+          <span>Already a Neptune customer</span>
+          <span class="door-arrow" aria-hidden="true">&rarr;</span>
+        </button>
+        <div class="customer-panel" id="customer-panel" hidden>
+          <p><strong>Welcome back.</strong> Look back through your messages from us and contact us on the numbers you already have:</p>
+          <ul>
+            <li>Your technician</li>
+            <li>Our office line</li>
+            <li>Our plumbing line</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+(function () {
+  /* Keep any UTMs on the way through to /melb so attribution survives. */
+  var q = document.getElementById('door-quote');
+  if (q && location.search) q.href = '/melb/' + location.search;
+
+  /* Customer door opens the message underneath it. */
+  var btn = document.querySelector('.door-customer');
+  var panel = document.getElementById('customer-panel');
+  if (btn && panel) {
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      panel.hidden = open;
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
