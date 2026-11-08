@@ -8,19 +8,6 @@
   status = 200
   force = true
 
-# /whole-home shows the /melb page and its thank-you page (Stefan 2026-11-09). Old /whole-home is in drafts/whole-home-old.
-[[redirects]]
-  from = "/whole-home/thank-you"
-  to = "/melb/thank-you/"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/whole-home"
-  to = "/melb/"
-  status = 200
-  force = true
-
 [[redirects]]
   from = "/home"
   to = "/home/"
