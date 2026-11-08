@@ -2,70 +2,7 @@
   publish = "website"
   functions = "netlify/functions"
 
-[[redirects]]
-  from = "/"
-  to = "/welcome/index.html"
-  status = 200
-  force = true
-
-# /melb and its thank-you are off (Stefan 2026-11-09): old links and ads go to /whole-home, query strings kept.
-[[redirects]]
-  from = "/melb/thank-you"
-  to = "/whole-home/thank-you/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/melb"
-  to = "/whole-home/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/home"
-  to = "/home/"
-  status = 301
-
-[[redirects]]
-  from = "/replacement-filters"
-  to = "/replacement-filters/"
-  status = 301
-
-[[redirects]]
-  from = "/experts"
-  to = "/experts/"
-  status = 301
-
-[[redirects]]
-  from = "/melbourne"
-  to = "/melbourne/"
-  status = 301
-
-[[redirects]]
-  from = "/experts/thank-you"
-  to = "/experts/thank-you/"
-  status = 301
-
-# Old /assessment URL — preserve any existing links, bookmarks or live ad traffic
-[[redirects]]
-  from = "/assessment/thank-you"
-  to = "/experts/thank-you/"
-  status = 301
-
-[[redirects]]
-  from = "/assessment/thank-you/"
-  to = "/experts/thank-you/"
-  status = 301
-
-[[redirects]]
-  from = "/assessment"
-  to = "/experts/"
-  status = 301
-
-[[redirects]]
-  from = "/assessment/"
-  to = "/experts/"
-  status = 301
+# Redirects live in website/_redirects.
 
 [[headers]]
   for = "/assets/videos/hero/*"

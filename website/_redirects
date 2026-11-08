@@ -1,20 +1,9 @@
-# Root → serve the /welcome page at / (official homepage since 2026-11-07; URL stays /)
-/ /welcome/index.html 200!
+# Only 3 pages are live (Stefan 2026-11-09): /whole-home, /whole-home/thank-you and /melbourne.
+# Everything else is saved in drafts/site-offline-2026-11-09 and shows not found.
+# The bare domain goes to /whole-home.
+/ /whole-home/ 301!
 
 # Trailing-slash enforcement
-/home /home/ 301
-/replacement-filters /replacement-filters/ 301
-/whole-home-water-filtration-melbourne /whole-home-water-filtration-melbourne/ 301
 /whole-home /whole-home/ 301
 /whole-home/thank-you /whole-home/thank-you/ 301
-/experts /experts/ 301
-/experts/thank-you /experts/thank-you/ 301
-/terms /terms/ 301
-/privacy /privacy/ 301
-/welcome /welcome/ 301
-
-# Old /assessment URL — preserve any existing links, bookmarks or live ad traffic
-/assessment/thank-you /experts/thank-you/ 301
-/assessment/thank-you/ /experts/thank-you/ 301
-/assessment /experts/ 301
-/assessment/ /experts/ 301
+/melbourne /melbourne/ 301
