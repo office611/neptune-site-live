@@ -171,7 +171,7 @@ body { background: var(--navy-deep); }
     <p class="welcome-either">You&rsquo;re either&hellip;</p>
 
     <div class="doors">
-      <a class="door door-quote" id="door-quote" href="/melb/">
+      <a class="door door-quote" id="door-quote" href="/whole-home/">
         <span>Wanting better water for your family</span>
         <span class="door-arrow" aria-hidden="true">&rarr;</span>
       </a>
@@ -213,9 +213,9 @@ body { background: var(--navy-deep); }
 
 <script>
 (function () {
-  /* Keep any UTMs on the way through to /melb so attribution survives. */
+  /* Keep any UTMs on the way through to /whole-home so attribution survives. */
   var q = document.getElementById('door-quote');
-  if (q && location.search) q.href = '/melb/' + location.search;
+  if (q && location.search) q.href = '/whole-home/' + location.search;
 
   var lastBtn = null;
   function openPop(id, btn) {

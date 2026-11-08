@@ -8,6 +8,19 @@
   status = 200
   force = true
 
+# /melb and its thank-you are off (Stefan 2026-11-09): old links and ads go to /whole-home, query strings kept.
+[[redirects]]
+  from = "/melb/thank-you"
+  to = "/whole-home/thank-you/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/melb"
+  to = "/whole-home/"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/home"
   to = "/home/"
