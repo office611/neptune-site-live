@@ -284,8 +284,8 @@ body.locked { overflow: hidden; }
   });
   if (location.hash.length > 1) open(location.hash.slice(1), false);
 
-  // ── Water test counter: starts at COUNT_BASE on 10 Nov 2026 and goes up by 3 every day ──
-  var COUNT_BASE = 2014;
+  // ── Water test counter: starts at 737 on 10 Nov 2026 and goes up by 3 every day ──
+  var COUNT_BASE = 737;
   var INSTALLS = COUNT_BASE + 3 * Math.floor((Date.now() - Date.UTC(2026, 10, 10)) / 864e5);
   var count = document.getElementById('count'), counted = false;
   function runCount() {
