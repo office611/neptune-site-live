@@ -82,8 +82,10 @@ button { font: inherit; color: inherit; }
 .installs { text-align: center; margin-top: 44px; }
 .installs .eyebrow { display: block; font-size: .74rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
 .installs .big { font-size: clamp(2.6rem, 11vw, 3.8rem); font-weight: 800; line-height: 1; letter-spacing: -.02em; }
-.installs .big small { font-size: .55em; vertical-align: 6px; }
-.installs .sub { margin: 6px 0 0; color: var(--muted); font-size: .95rem; }
+.installs .sub { margin: 8px 0 0; color: var(--muted); font-size: .95rem; display: inline-flex; align-items: center; gap: 7px; }
+.live-dot { width: 9px; height: 9px; border-radius: 50%; background: #ff5a5a; box-shadow: 0 0 0 0 rgba(255,90,90,.55); animation: live-pulse 1.6s ease-out infinite; }
+@keyframes live-pulse { 0% { box-shadow: 0 0 0 0 rgba(255,90,90,.55); } 70% { box-shadow: 0 0 0 9px rgba(255,90,90,0); } 100% { box-shadow: 0 0 0 0 rgba(255,90,90,0); } }
+@media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
 .fan { position: relative; height: clamp(240px, 64vw, 330px); margin: 26px auto 0; max-width: 560px; }
 .fan figure { position: absolute; left: 50%; top: 50%; margin: 0; border-radius: 14px; overflow: hidden; background: var(--navy-2); box-shadow: 0 14px 34px rgba(0,0,0,.4); border: 3px solid rgba(255,255,255,.92); transition: opacity .4s ease; }
 .fan img { display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -142,8 +144,8 @@ body.locked { overflow: hidden; }
 
   <section class="installs">
     <span class="eyebrow">Installed Right Across Melbourne</span>
-    <div class="big"><span id="count">0</span><small>+</small></div>
-    <p class="sub">systems installed, and counting</p>
+    <div class="big"><span id="count">0</span></div>
+    <p class="sub"><span class="live-dot" aria-hidden="true"></span>Live install count</p>
     <div class="fan" id="fan" aria-label="Recent installs">
       <figure class="f-l"><img alt="Neptune system installed at a Melbourne home"><figcaption></figcaption></figure>
       <figure class="f-c"><img alt="Neptune system installed at a Melbourne home"><figcaption></figcaption></figure>
@@ -193,7 +195,7 @@ body.locked { overflow: hidden; }
     { id: 'melbourne',        name: "Melbourne's water",        f: 'melbourne-1' },
     { id: 'why-filter',       name: 'Why filter every tap',     f: 'why-filter-1' },
     { id: 'install',          name: 'Install day',              f: 'install-1' },
-    { id: 'service',          name: 'Why he went with us',      f: 'service-1' },
+    { id: 'plants',           name: 'Even the plants love it',  f: 'plants-1' },
     { id: 'recommend',        name: 'Would they recommend us?', f: 'recommend-1' }
   ];
   var BASE = '/assets/videos/watch/';
@@ -282,8 +284,9 @@ body.locked { overflow: hidden; }
   });
   if (location.hash.length > 1) open(location.hash.slice(1), false);
 
-  // ── Install counter: change INSTALLS to update the number shown ──
-  var INSTALLS = 300;
+  // ── Install counter: starts at BASE on 10 Nov 2026 and goes up by one every day ──
+  var COUNT_BASE = 976;
+  var INSTALLS = COUNT_BASE + Math.floor((Date.now() - Date.UTC(2026, 10, 10)) / 864e5);
   var count = document.getElementById('count'), counted = false;
   function runCount() {
     if (counted) return; counted = true;
