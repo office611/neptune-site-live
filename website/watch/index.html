@@ -143,7 +143,7 @@ body.locked { overflow: hidden; }
   <main class="grid" id="grid" aria-label="Customer videos by topic"></main>
 
   <section class="installs">
-    <span class="eyebrow">Installed Right Across Melbourne</span>
+    <span class="eyebrow">Water Tests Done Across Melbourne</span>
     <div class="big"><span id="count">0</span></div>
     <p class="sub"><span class="live-dot" aria-hidden="true"></span>Live install count</p>
     <div class="fan" id="fan" aria-label="Recent installs">
@@ -284,9 +284,9 @@ body.locked { overflow: hidden; }
   });
   if (location.hash.length > 1) open(location.hash.slice(1), false);
 
-  // ── Install counter: starts at BASE on 10 Nov 2026 and goes up by one every day ──
-  var COUNT_BASE = 976;
-  var INSTALLS = COUNT_BASE + Math.floor((Date.now() - Date.UTC(2026, 10, 10)) / 864e5);
+  // ── Water test counter: starts at COUNT_BASE on 10 Nov 2026 and goes up by 3 every day ──
+  var COUNT_BASE = 2014;
+  var INSTALLS = COUNT_BASE + 3 * Math.floor((Date.now() - Date.UTC(2026, 10, 10)) / 864e5);
   var count = document.getElementById('count'), counted = false;
   function runCount() {
     if (counted) return; counted = true;
@@ -294,7 +294,7 @@ body.locked { overflow: hidden; }
     function step(ts) {
       if (!t0) t0 = ts;
       var k = Math.min(1, (ts - t0) / 1800);
-      count.textContent = Math.round(INSTALLS * (1 - Math.pow(1 - k, 3)));
+      count.textContent = Math.round(INSTALLS * (1 - Math.pow(1 - k, 3))).toLocaleString('en-AU');
       if (k < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
