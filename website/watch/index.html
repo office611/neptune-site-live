@@ -94,6 +94,16 @@ button { font: inherit; color: inherit; }
 .fan figure.is-out { opacity: 0; }
 .fan figcaption { position: absolute; left: 6px; bottom: 6px; display: inline-flex; align-items: center; gap: 4px; padding: 4px 9px; border-radius: 999px; background: rgba(7,15,30,.78); font-size: .68rem; font-weight: 600; color: #fff; }
 
+/* What happens at the visit */
+.visit { max-width: 480px; margin: 40px auto 0; text-align: center; }
+.visit .eyebrow { display: block; font-size: .74rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.visit h2 { margin: 0 0 16px; font-size: clamp(1.3rem, 5.6vw, 1.6rem); font-weight: 800; letter-spacing: -.01em; }
+.visit ul { list-style: none; margin: 0; padding: 0; text-align: left; display: grid; gap: 10px; }
+.visit li { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; line-height: 1.5; color: rgba(255,255,255,.88); }
+.visit .tick { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; margin-top: 1px; }
+.visit .tick svg { width: 12px; height: 12px; }
+.visit .deal { margin: 18px 0 0; font-weight: 600; color: var(--white); font-size: .98rem; text-wrap: balance; }
+
 .foot { text-align: center; margin-top: 34px; color: var(--muted); font-size: .9rem; line-height: 1.55; }
 .foot strong { color: var(--white); font-weight: 600; }
 .foot .brand { display: block; margin-top: 10px; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.5); }
@@ -150,6 +160,18 @@ body.locked { overflow: hidden; }
       <figure class="f-c"><img alt="Neptune system installed at a Melbourne home"><figcaption></figcaption></figure>
       <figure class="f-r"><img alt="Neptune system installed at a Melbourne home"><figcaption></figcaption></figure>
     </div>
+  </section>
+
+  <section class="visit">
+    <span class="eyebrow">Your Free Water Test</span>
+    <h2>What happens when we visit</h2>
+    <ul>
+      <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#05131F" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>We test your tap water right in front of you</li>
+      <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#05131F" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>You see exactly what&rsquo;s in it</li>
+      <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#05131F" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>We tailor a filtration system to what&rsquo;s coming through your pipes</li>
+      <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#05131F" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>You get your exact price on the spot &mdash; no pressure, no obligation</li>
+    </ul>
+    <p class="deal">With you both home on the day, the 20% off is yours.</p>
   </section>
 
   <footer class="foot">
