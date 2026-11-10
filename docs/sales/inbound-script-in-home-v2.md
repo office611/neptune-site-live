@@ -164,6 +164,7 @@
 ---
 
 ## Known tensions to resolve when we dissect (not changed yet)
+- **Meeting length (Stefan, 10 Nov 2026): the real in-home meeting is 90 MINUTES.** The printed Section 8 says "about 30 to 40 minutes" — under-quoting by an hour gets the pitch cut off mid-close when they have somewhere to be. Decide the phone wording when we dissect (e.g. "allow an hour to an hour and a half so nothing is rushed").
 - Section 9's printed line ("Any particular time or day suits best?") contradicts its own binary-close psychology note; Stefan's margin note suggests "What time are you & your partner home?" as the replacement.
 - Section numbering in the printed copy skips a standalone Section 5 (water habits live inside Section 3).
 - "Up to 20%" in Section 10 vs the flat "20% off at your appointment" used in the nurture texts and on /watch.
