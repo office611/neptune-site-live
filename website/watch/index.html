@@ -82,12 +82,9 @@ button { font: inherit; color: inherit; }
 .installs { text-align: center; margin-top: 44px; }
 .installs .eyebrow { display: block; font-size: .74rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
 .installs .big { font-size: clamp(2.6rem, 11vw, 3.8rem); font-weight: 800; line-height: 1; letter-spacing: -.02em; }
-.installs .sub { margin: 8px 0 0; color: var(--muted); font-size: .95rem; display: inline-flex; align-items: center; gap: 7px; }
-.installs .sub2 { margin: 4px 0 0; color: var(--muted); font-size: .95rem; }
-.installs .sub2 b { color: var(--white); font-weight: 700; }
-.live-dot { width: 9px; height: 9px; border-radius: 50%; background: #ff5a5a; box-shadow: 0 0 0 0 rgba(255,90,90,.55); animation: live-pulse 1.6s ease-out infinite; }
-@keyframes live-pulse { 0% { box-shadow: 0 0 0 0 rgba(255,90,90,.55); } 70% { box-shadow: 0 0 0 9px rgba(255,90,90,0); } 100% { box-shadow: 0 0 0 0 rgba(255,90,90,0); } }
-@media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
+.installs .big small { font-size: .55em; vertical-align: 6px; }
+.installs .sub { margin: 8px 0 0; color: var(--muted); font-size: .95rem; }
+
 .fan { position: relative; height: clamp(240px, 64vw, 330px); margin: 26px auto 0; max-width: 560px; }
 .fan figure { position: absolute; left: 50%; top: 50%; margin: 0; border-radius: 14px; overflow: hidden; background: var(--navy-2); box-shadow: 0 14px 34px rgba(0,0,0,.4); border: 3px solid rgba(255,255,255,.92); transition: opacity .4s ease; }
 .fan img { display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -146,9 +143,8 @@ body.locked { overflow: hidden; }
 
   <section class="installs">
     <span class="eyebrow">Installed Right Across Melbourne</span>
-    <div class="big"><span id="count">0</span></div>
-    <p class="sub"><span class="live-dot" aria-hidden="true"></span>Live install count</p>
-    <p class="sub2"><b id="count2">0</b> free water tests done</p>
+    <div class="big"><span id="count">0</span><small>+</small></div>
+    <p class="sub">whole home systems installed</p>
     <div class="fan" id="fan" aria-label="Recent installs">
       <figure class="f-l"><img alt="Neptune system installed at a Melbourne home"><figcaption></figcaption></figure>
       <figure class="f-c"><img alt="Neptune system installed at a Melbourne home"><figcaption></figcaption></figure>
@@ -287,19 +283,16 @@ body.locked { overflow: hidden; }
   });
   if (location.hash.length > 1) open(location.hash.slice(1), false);
 
-  // ── Counters: installs start at 737 on 10 Nov 2026 and go up by 1 a day; water tests shown below are 3.1x installs ──
-  var COUNT_BASE = 737;
-  var INSTALLS = COUNT_BASE + Math.floor((Date.now() - Date.UTC(2026, 10, 10)) / 864e5);
-  var count = document.getElementById('count'), count2 = document.getElementById('count2'), counted = false;
+  // ── Install counter: counts up to this number, shown as 1,000+ ──
+  var INSTALLS = 1000;
+  var count = document.getElementById('count'), counted = false;
   function runCount() {
     if (counted) return; counted = true;
     var t0 = null;
     function step(ts) {
       if (!t0) t0 = ts;
       var k = Math.min(1, (ts - t0) / 1800);
-      var cur = Math.round(INSTALLS * (1 - Math.pow(1 - k, 3)));
-      count.textContent = cur.toLocaleString('en-AU');
-      count2.textContent = Math.round(cur * 3.1).toLocaleString('en-AU');
+      count.textContent = Math.round(INSTALLS * (1 - Math.pow(1 - k, 3))).toLocaleString('en-AU');
       if (k < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
