@@ -48,6 +48,14 @@ body { background: #F4F7FB; }
 .pb-soon { display: inline-block; padding: 5px 12px; border-radius: 999px; background: #FFF4D6; color: #7A5A00; font-size: .85rem; font-weight: 700; }
 
 .pb-foot { margin-top: 56px; text-align: center; font-size: .92rem; color: var(--text-2); }
+
+.pb-dl { display:inline-flex; align-items:center; gap:8px; margin:4px 0 18px; padding:11px 18px; border-radius:999px; background:var(--navy); color:#fff; font-weight:700; font-size:.95rem; text-decoration:none; }
+.pb-dl:hover { opacity:.9; }
+.pb-flowcard { background:#0B1E3D; color:#fff; border-radius:var(--r-lg); padding:24px 22px; margin-bottom:16px; }
+.pb-flowcard h3 { color:#fff; margin:0 0 10px; font-size:1.15rem; }
+.pb-flowcard p, .pb-flowcard li { color:rgba(255,255,255,.9); font-size:1rem; line-height:1.6; }
+.pb-flowcard ul { margin:8px 0 0; padding-left:20px; }
+@media print { .pb-dl, .pb-nav { display:none; } }
 </style>
 </head>
 <body class="page-melbourne">
@@ -58,6 +66,7 @@ body { background: #F4F7FB; }
   <p>The script, real call recordings, and how-to videos — all in one place, whenever you need them.</p>
   <nav class="pb-nav">
     <a href="#script">The Script</a>
+    <a href="#objections">Objections</a>
     <a href="#followup">Follow-Up</a>
     <a href="#recordings">Recordings</a>
     <a href="#videos">How-To Videos</a>
@@ -71,6 +80,18 @@ body { background: #F4F7FB; }
   <p class="pb-eyebrow">Word For Word</p>
   <h2>The inbound script</h2>
   <p>This is the call, start to finish. Blue blocks are what you say; italics are how to play it.</p>
+  <a class="pb-dl" href="/team/setter/neptune-setter-script.pdf" download>⬇ Download the script (PDF)</a>
+
+  <div class="pb-flowcard">
+    <h3>Before you start: don't be a robot. Be in flow.</h3>
+    <p>The script is a map, not lines to recite. Customers can hear someone reading in the first five seconds, and they switch off. Learn it well enough that you can leave it and find your way back.</p>
+    <ul>
+      <li><strong>Listen more than you talk.</strong> React to what they actually said, and use their words back to them.</li>
+      <li><strong>Match them.</strong> Chatty customer: have the chat. Direct customer: keep it short and get to the booking.</li>
+      <li><strong>When they go off-script, go with them.</strong> Answer the question, then steer back. The Objections section shows how.</li>
+      <li><strong>Sound like you'd sound talking to a mate.</strong> Relaxed, warm and confident. Smile. They can hear it.</li>
+    </ul>
+  </div>
 
   <div class="pb-card">
     <h3>1 — Opening</h3>
@@ -195,10 +216,107 @@ body { background: #F4F7FB; }
   </div>
 </section>
 
+<!-- ============ OBJECTIONS ============ -->
+<section class="pb-sec" id="objections">
+  <p class="pb-eyebrow">Off-Script</p>
+  <h2>Objections: what they asked, how we answered</h2>
+  <p>Real moments where a customer went off-script, with the customer asking and us answering. Short clips, no fluff.</p>
+
+  <div class="pb-media">
+    <h4>"What's the price? (straight away)"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-01.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"What does it do, and how much? (straight away)"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-02.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"How much would a whole system cost?"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-03.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"What's the final price for the full home?"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-04.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"Can you give me a rough price range?"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-05.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"What's an average quote?"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-06.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"What about cost and monthly plans?"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-07.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"How much is it? (after booking)"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-08.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"We've already had a water test"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-09.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"My wife already got a quote from someone else"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-10.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"It's just chlorine, testing won't change anything"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-11.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"How are you different? Five companies called me"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-12.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"Is this just a sales pitch?"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-13.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"I never decide on the day"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-14.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"Do we lose the 20% if we don't decide on the day?"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-15.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"Do you make the filters, or are you a sales company?"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-16.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"Why do we both need to be there?"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-17.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"I'll just pass it on to my partner"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-18.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"I'm not signing my life away"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-19.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"I'm not sure when I'm free"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-20.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"What do you do with my data?"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-21.mp3"></audio>
+  </div>
+  <div class="pb-media">
+    <h4>"Can I just buy filters from you?"</h4>
+    <audio controls preload="none" src="/team/setter/recordings/objections/obj-22.mp3"></audio>
+  </div>
+</section>
+
 <!-- ============ FOLLOW-UP ============ -->
 <section class="pb-sec" id="followup">
   <p class="pb-eyebrow">Hours, Speed &amp; No-Pickups</p>
   <h2>Follow-up</h2>
+  <a class="pb-dl" href="/team/setter/neptune-setter-follow-up.pdf" download>⬇ Download the follow-up (PDF)</a>
 
   <div class="pb-card">
     <h3>Your hours &amp; the 60-second rule</h3>
