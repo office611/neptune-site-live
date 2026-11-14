@@ -25,7 +25,7 @@ body { background: #F4F7FB; }
 .pb-hero h1 { font-size: clamp(1.7rem, 6vw, 2.5rem); font-weight: 800; line-height: 1.15; margin: 0 0 10px; color: #fff; }
 .pb-hero p { max-width: 560px; margin: 0 auto; font-size: 1.05rem; line-height: 1.6; color: rgba(255,255,255,.85); }
 
-.pb-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 22px auto 0; max-width: 700px; }
+.pb-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 22px auto 0; max-width: 760px; }
 .pb-nav a { padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.12); color: #fff; font-size: .88rem; font-weight: 600; text-decoration: none; }
 .pb-nav a:hover { background: rgba(255,255,255,.22); }
 
@@ -48,6 +48,71 @@ body { background: #F4F7FB; }
 .pb-soon { display: inline-block; padding: 5px 12px; border-radius: 999px; background: #FFF4D6; color: #7A5A00; font-size: .85rem; font-weight: 700; }
 
 .pb-foot { margin-top: 56px; text-align: center; font-size: .92rem; color: var(--text-2); }
+
+/* ---- Added Nov 2026: map, objections, wins/fixes, suburbs, clips ---- */
+.pb-new { display: inline-block; margin-left: 8px; padding: 2px 9px; border-radius: 999px; background: #E3F6EC; color: #11613A; font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; vertical-align: middle; }
+.pb-dont { margin: 12px 0; padding: 14px 16px; border-left: 4px solid #C8442B; border-radius: 0 var(--r-md) var(--r-md) 0; background: #FDF0EC; font-size: 1rem; line-height: 1.6; color: #6B2414; }
+.pb-dont strong { color: #8A2B17; }
+.pb-hear { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 10px 0 4px; padding: 10px 12px; border-radius: var(--r-md); background: #F4F7FB; font-size: .9rem; color: var(--text-2); }
+.pb-hear b { color: var(--navy); }
+.pb-hear audio { flex: 1 1 260px; height: 36px; }
+.pb-hear .pb-missing { font-size: .82rem; color: #7A5A00; }
+
+.pb-flow { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+.pb-flow li { position: relative; padding: 14px 16px 14px 58px; margin: 0 0 10px; background: #fff; border-radius: var(--r-md); box-shadow: 0 4px 16px rgba(11,30,61,.06); }
+.pb-flow li::before { counter-increment: step; content: counter(step); position: absolute; left: 14px; top: 14px; width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: .95rem; }
+.pb-flow li:not(:last-child)::after { content: ""; position: absolute; left: 28px; top: 46px; bottom: -12px; width: 2px; background: #C9D6E8; }
+.pb-flow b { color: var(--navy); }
+.pb-flow small { display: block; color: var(--text-2); font-size: .9rem; line-height: 1.5; margin-top: 2px; }
+
+.pb-table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.pb-table th, .pb-table td { text-align: left; padding: 10px 8px; border-bottom: 1px solid #E3EAF3; vertical-align: top; }
+.pb-table th { color: var(--navy); font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; }
+.pb-table td:first-child { font-weight: 600; color: var(--navy); width: 30%; }
+@media (max-width: 640px) { .pb-table tr:first-child { display: none; } .pb-table td { display: block; padding: 2px 0; border: 0; width: auto; } .pb-table tr { display: block; padding: 10px 0; border-bottom: 1px solid #E3EAF3; } .pb-table td:last-child { color: var(--blue); font-weight: 600; } .pb-table td:first-child { width: auto; } }
+
+.pb-two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 640px) { .pb-two { grid-template-columns: 1fr; } }
+.pb-good, .pb-bad { border-radius: var(--r-lg); padding: 20px 20px 10px; }
+.pb-good { background: #EAF7F0; } .pb-bad { background: #FDF0EC; }
+.pb-good h3 { color: #11613A; } .pb-bad h3 { color: #8A2B17; }
+.pb-good li, .pb-bad li { font-size: .97rem; margin-bottom: 8px; }
+
+.pb-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 6px 0 16px; }
+@media (max-width: 640px) { .pb-stats { grid-template-columns: repeat(2, 1fr); } }
+.pb-stat { background: #fff; border-radius: var(--r-md); padding: 14px; text-align: center; box-shadow: 0 4px 16px rgba(11,30,61,.06); }
+.pb-stat b { display: block; font-size: 1.6rem; color: var(--navy); line-height: 1.1; }
+.pb-stat span { font-size: .82rem; color: var(--text-2); }
+
+.pb-map { width: 100%; height: auto; display: block; margin: 4px 0 14px; }
+.pb-region h3 { display: flex; align-items: center; gap: 10px; }
+.pb-dot { width: 14px; height: 14px; border-radius: 50%; flex: none; }
+.pb-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 12px; }
+.pb-chips span { padding: 4px 10px; border-radius: 999px; background: #EEF5FD; color: var(--navy); font-size: .85rem; font-weight: 600; }
+
+.pb-video-frame { position: relative; padding-top: 56.25%; border-radius: var(--r-md); overflow: hidden; background: #0B1E3D; }
+.pb-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+details.pb-obj { background: #fff; border-radius: var(--r-lg); box-shadow: 0 6px 22px rgba(11,30,61,.07); margin-bottom: 12px; }
+details.pb-obj summary { cursor: pointer; padding: 18px 22px; font-weight: 700; color: var(--navy); font-size: 1.05rem; list-style: none; }
+details.pb-obj summary::-webkit-details-marker { display: none; }
+details.pb-obj summary::after { content: "+"; float: right; color: var(--blue); font-size: 1.3rem; line-height: 1; }
+details.pb-obj[open] summary::after { content: "–"; }
+details.pb-obj .pb-obj-body { padding: 0 22px 18px; }
+
+.pb-call { background:#fff; border-radius: var(--r-lg); box-shadow: 0 6px 22px rgba(11,30,61,.07); margin-bottom: 14px; padding: 20px 22px; scroll-margin-top: 20px; }
+.pb-call-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px; margin-bottom:6px; }
+.pb-call-head h3 { margin:0; font-size:1.1rem; color:var(--navy); }
+.pb-call-head .pb-meta { font-size:.88rem; color:var(--text-2); }
+.pb-out { padding:3px 10px; border-radius:999px; font-size:.75rem; font-weight:700; letter-spacing:.04em; }
+.pb-out.sold { background:#11613A; color:#fff; } .pb-out.booked { background:#E3F6EC; color:#11613A; }
+.pb-out.lost { background:#FDF0EC; color:#8A2B17; } .pb-out.other { background:#EEF5FD; color:#1B4F96; }
+.pb-call ul { margin:6px 0 10px; padding-left:20px; } .pb-call li { font-size:.96rem; margin-bottom:4px; }
+.pb-call .pb-lbl { font-size:.8rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin:10px 0 0; }
+.pb-call .pb-lbl.g { color:#11613A; } .pb-call .pb-lbl.r { color:#8A2B17; }
+.pb-index { display:flex; flex-wrap:wrap; gap:6px; margin:0 0 16px; }
+.pb-index a { padding:5px 11px; border-radius:999px; background:#fff; box-shadow:0 2px 8px rgba(11,30,61,.08); font-size:.85rem; font-weight:600; color:var(--navy); text-decoration:none; }
+.pb-index a.sold { background:#11613A; color:#fff; }
 </style>
 </head>
 <body class="page-melbourne">
@@ -55,22 +120,72 @@ body { background: #F4F7FB; }
 <header class="pb-hero">
   <img src="/assets/logos/Neptune_Logo_White.png" alt="Neptune Filtration">
   <h1>Setter Playbook</h1>
-  <p>The script, real call recordings, and how-to videos — all in one place, whenever you need them.</p>
+  <p>Everything you need to do this job, on one page: the map, the script, how to handle pushback, real call clips, your suburbs, and the how-to videos.</p>
   <nav class="pb-nav">
+    <a href="#map">Start Here</a>
     <a href="#script">The Script</a>
+    <a href="#objections">Pushback</a>
+    <a href="#lessons">What's Working</a>
+    <a href="#calls">Call Breakdowns</a>
+    <a href="#suburbs">Suburbs</a>
     <a href="#followup">Follow-Up</a>
-    <a href="#recordings">Recordings</a>
+    <a href="#recordings">Clips</a>
+    <a href="#fullcalls">Full Calls</a>
     <a href="#videos">How-To Videos</a>
   </nav>
 </header>
 
 <div class="pb-wrap">
 
+<!-- ============ START HERE: THE MAP ============ -->
+<section class="pb-sec" id="map">
+  <p class="pb-eyebrow">Start Here</p>
+  <h2>The map: your job, start to finish</h2>
+  <p>Read this first. Every lead goes through the same eight steps, and every step has a section further down this page. If you're ever unsure what to do next, come back here.</p>
+
+  <ol class="pb-flow">
+    <li><b>A lead lands in GoHighLevel</b><small>You get a notification on the LeadConnector app. The lead shows up in Opportunities → <em>In-Home Consultations</em> → <em>New Lead</em>, usually titled "Name – Suburb". <a href="#videos">Video 2</a></small></li>
+    <li><b>Call within 60 seconds</b><small>They're still holding their phone. Call straight from the lead's file so it shows our number. No answer: call again immediately, then follow the 3-day chase. <a href="#followup">Follow-up</a></small></li>
+    <li><b>Run the script</b><small>Opening → discovery → suburb → problem → prior testing → free test → book. Keep it about 5 minutes. <a href="#script">The script</a></small></li>
+    <li><b>Handle the pushback</b><small>Price, "I've already had a test", "is this a sales pitch", "my partner can't make it". Every common one has an answer. <a href="#objections">Pushback</a></small></li>
+    <li><b>Book it in the calendar while they're on the line</b><small>Day, time, full address (spell the street back), and who'll be there. The confirmation text and email go out automatically once it's booked. <a href="#videos">Videos 3 &amp; 4</a></small></li>
+    <li><b>Write the notes</b><small>Their concern (dry skin, taste, eczema), who's in the home, tap or filtered, any test already done, who the decision-makers are, and anything they asked that the technician needs to answer. <a href="#videos">Video 5</a></small></li>
+    <li><b>Move the opportunity to the right stage</b><small>Booked → <em>Booked In Home</em>. Spoke but couldn't book → <em>Contacted – Could not Book In</em>. No answer → <em>Contacted – Did Not Answer</em>. See the stage table below. <a href="#videos">Video 6</a></small></li>
+    <li><b>Protect the booking</b><small>If they cancel or try to, you call, never text back. Move the time, never the commitment. <a href="#followup">Cancellations</a> · <a href="#videos">Video 7</a></small></li>
+  </ol>
+
+  <div class="pb-card" style="margin-top:18px">
+    <h3>Pipeline stages: what each one means and what you do</h3>
+    <table class="pb-table">
+      <tr><th>Stage</th><th>Means</th><th>Your move</th></tr>
+      <tr><td>New Lead</td><td>Just enquired, not spoken to yet</td><td>Call within 60 seconds</td></tr>
+      <tr><td>Contacted – Did Not Answer</td><td>Tried, no pickup yet</td><td>Run the 3-day chase</td></tr>
+      <tr><td>Contacted – Could not Book In</td><td>Spoke, but they didn't book</td><td>Note why. Call back in 2–3 days with the answer to whatever stopped them</td></tr>
+      <tr><td>Re Contact</td><td>They asked to be called at a later date</td><td>Set a task for that date and call then</td></tr>
+      <tr><td>Booked In Home</td><td>Appointment is in the calendar</td><td>Nothing, unless they try to cancel</td></tr>
+      <tr><td>Cancelled In Home</td><td>They cancelled</td><td>Call to rebook. A reschedule is a save</td></tr>
+      <tr><td>No Show</td><td>Technician turned up and nobody was home</td><td>Call the same day and rebook</td></tr>
+      <tr><td>Did Not Close / Waiting For Finance</td><td>Technician's stages after the visit</td><td>Leave these to the technician</td></tr>
+    </table>
+  </div>
+
+  <div class="pb-card">
+    <h3>Your first day checklist</h3>
+    <ul>
+      <li>GoHighLevel login works on desktop, and the LeadConnector app is on your phone with notifications <strong>on</strong>. <a href="#videos">Video 1</a></li>
+      <li>A test call from the app shows our business number, not your own.</li>
+      <li>Read the script out loud twice. Then listen to every clip in <a href="#recordings">Clips</a> and the two sales in <a href="#fullcalls">Full Calls</a>.</li>
+      <li>Learn the <a href="#suburbs">suburb lines</a> for the West, North and South-East. That's where most leads come from.</li>
+      <li>Know your hours: 9am–6pm weekdays plus Saturday mornings. Technicians book until about 6:30pm and on Saturdays.</li>
+    </ul>
+  </div>
+</section>
+
 <!-- ============ THE SCRIPT ============ -->
 <section class="pb-sec" id="script">
   <p class="pb-eyebrow">Word For Word</p>
   <h2>The inbound script</h2>
-  <p>This is the call, start to finish. Blue blocks are what you say; italics are how to play it.</p>
+  <p>This is the call, start to finish. Blue blocks are what you say; italics are how to play it. Green <span class="pb-new">Updated</span> tags mark changes made after reviewing real calls from 11–14 November. Under each step, ▶ plays a real clip of that moment.</p>
 
   <div class="pb-card">
     <h3>1 — Opening</h3>
@@ -80,6 +195,13 @@ body { background: #F4F7FB; }
     <div class="pb-say">"Hey [Name] — it's [Your Name] from Neptune Filtration. How are you going?"</div>
     <p class="pb-note">Genuine pause — actually listen to their answer.</p>
     <div class="pb-say">"Good to hear. So I'm just following up on your enquiry — wanted to ask a couple of quick questions and arrange a quote for you."</div>
+    <p class="pb-branch">If a call-screening robot answers <span class="pb-new">Updated</span></p>
+    <div class="pb-say">"[Your Name] from Neptune Filtration, returning your water filter enquiry."</div>
+    <p class="pb-note">Say what the call is about. "Neptune Filtration" on its own sounds like a cold call, and "returning your enquiry" gets you put through.</p>
+    <p class="pb-branch">If they ask the price straight away <span class="pb-new">Updated</span></p>
+    <div class="pb-say">"Great question, and I'll come back to that — just two quick questions first so I point you at the right setup."</div>
+    <p class="pb-note">Then you <strong>must</strong> come back to it. If you dodge it twice, you lose them. Use the price answer in <a href="#obj-price">Pushback</a>.</p>
+    <div class="pb-hear" data-clip="clip-01"><b>▶ Hear it:</b> "That was quick." This is why the 60-second rule works.</div>
   </div>
 
   <div class="pb-card">
@@ -89,9 +211,11 @@ body { background: #F4F7FB; }
     <p class="pb-note">Listen fully. Don't interrupt. Don't pre-load.</p>
     <p class="pb-branch">If specific problem (skin / taste / smell)</p>
     <div class="pb-say">"Yeah, that makes a lot of sense — honestly, it's more common than people realise. Most of the time people have been dealing with it for a while without ever connecting it back to the water."</div>
-    <p class="pb-note">Brief pause. Let it land.</p>
+    <p class="pb-note">Brief pause. Let it land. Then ask one follow-up: <em>"Has that got worse over time, or has it always been like that?"</em> It gets them talking, and it gives the technician something to work with.</p>
     <p class="pb-branch">If general / "just curious"</p>
     <div class="pb-say">"Yeah, that's how most people start actually — just a feeling that the water could be better, or they've been reading more about it and want to know where they stand."</div>
+    <div class="pb-dont"><strong>Health rule <span class="pb-new">Updated</span></strong> — when someone mentions eczema, a child's skin condition, kidney issues or any illness, <strong>never</strong> say filtered water "will help" or "can fix" it. We're not doctors, and it sets up a promise the technician can't keep. Say instead: <em>"I'm sorry to hear that. We hear about skin a lot. The technician can show you exactly what's in your water, and you can make up your own mind from there."</em> Write the condition in the notes so the technician knows.</div>
+    <div class="pb-hear" data-clip="clip-02"><b>▶ Hear it:</b> a customer whose daughter has eczema. Listen for the line to avoid. This booking later cancelled.</div>
   </div>
 
   <div class="pb-card">
@@ -100,9 +224,12 @@ body { background: #F4F7FB; }
     <div class="pb-say">"Whereabouts in Melbourne are you based?"</div>
     <p class="pb-note">After answer — pause naturally, then:</p>
     <div class="pb-say">"Yeah, we're actually out [suburb] way quite a bit."</div>
-    <p class="pb-note">One beat. Casual. No expansion yet.</p>
+    <p class="pb-note">One beat. Casual. No expansion yet. The <a href="#suburbs">Suburbs</a> section lists the neighbouring suburbs for each area. Use them in step 4.</p>
     <div class="pb-say">"And you're the homeowner as well?"</div>
     <p class="pb-note">If yes — continue. If renting — polite close out.</p>
+    <p class="pb-branch">If they haven't moved in yet <span class="pb-new">Updated</span></p>
+    <div class="pb-say">"Oh congrats! Have you got the keys yet? Best time to do it is before you're living there. We'll test the water at the new place."</div>
+    <p class="pb-note">This came up twice in four days. Book the visit at the <strong>new</strong> address.</p>
     <div class="pb-say">"If you don't mind me asking — roughly how many people are living in the home with you?"</div>
     <div class="pb-say">"And are you mainly on tap water, bottled, or some sort of filtered water already?"</div>
   </div>
@@ -120,6 +247,7 @@ body { background: #F4F7FB; }
     <p class="pb-branch">If no</p>
     <div class="pb-say">"Yeah, fair enough — it can be pretty subtle. Or it just becomes part of the background — people get used to it over time and stop noticing. Doesn't necessarily mean it's not there."</div>
     <p class="pb-note">Do NOT mention "assessment" yet. Move to the next section.</p>
+    <div class="pb-hear" data-clip="clip-03"><b>▶ Hear it:</b> naming the suburb and its neighbours (Avondale Heights / Essendon). The customer makes the connection himself: "we're both experiencing hair loss."</div>
   </div>
 
   <div class="pb-card">
@@ -130,17 +258,20 @@ body { background: #F4F7FB; }
     <div class="pb-say">"Yeah, that's pretty typical — most people haven't. So you've got a concern, you're managing it one way or another, but you don't actually have a clear picture of what's going on."</div>
     <p class="pb-note">Pause. Let that sit. Then:</p>
     <div class="pb-say">"That's exactly what we'd look to fix."</div>
-    <p class="pb-branch">If yes</p>
-    <div class="pb-say">"Oh nice — good that you've had that done."</div>
+    <p class="pb-branch">If yes (another company has already been out) <span class="pb-new">Updated</span></p>
+    <p class="pb-note">This happened in 3 of 12 calls. They've usually got a quote already, so treat them as a comparison, not a first look.</p>
+    <div class="pb-say">"Oh nice — good that you've had that done. Did they leave you a quote?"</div>
     <div class="pb-say">"The testing side of things is fairly similar across the board. Where it gets useful is actually having someone come out and look at your place — your plumbing setup, how many people are using the water, what you're trying to get out of it."</div>
-    <div class="pb-say">"A water test tells you what's in your water. What we're doing when we come out is working out what the right solution looks like for your home specifically — two pretty different conversations."</div>
+    <div class="pb-say">"A water test tells you what's in your water. What we're doing when we come out is working out what the right solution looks like for your home specifically — and you'll have a second fixed quote to compare side by side. Most people find that worth 30 minutes."</div>
+    <div class="pb-hear" data-clip="clip-04"><b>▶ Hear it:</b> a customer who'd already had a test from another company. Still booked.</div>
   </div>
 
   <div class="pb-card">
     <h3>6 — Assessment Framing</h3>
     <p class="pb-note">By this point the customer has acknowledged a problem, revealed how they're imperfectly handling it, and admitted they've never properly tested their water. The assessment is now the obvious answer. Do not over-explain the product — that is the technician's job.</p>
     <div class="pb-say">"What we typically recommend is to get your water tested — we offer this completely free. One of our technicians comes past your place, tests it, shows you the results on the spot, and gives you a suggestion if there's anything to address."</div>
-    <div class="pb-say">"From there, if there's anything that needs addressing, they'll recommend what suits your place and give you a fixed quote on the spot. But there's no pressure to make any decision on the day."</div>
+    <div class="pb-say">"From there, if there's anything that needs addressing, they'll recommend what suits your place and give you a fixed quote on the spot. <strong>It's in writing, so you can keep it and compare — there's no pressure to make any decision on the day.</strong>" <span class="pb-new">Updated</span></div>
+    <p class="pb-note">The bold part answers two worries before they come up: "is this a sales pitch?" and "I never decide on the day". Both came up last week.</p>
     <div class="pb-say">"At the very least, you'll actually know what's in your water — which most people genuinely don't."</div>
   </div>
 
@@ -149,31 +280,398 @@ body { background: #F4F7FB; }
     <p class="pb-note">Don't ask "would you like to book?" — that invites a "no." Treat the appointment as the self-evident next step.</p>
     <div class="pb-say">"Let me see when someone can come by."</div>
     <p class="pb-note">Brief pause — sounds like you're actually checking.</p>
-    <div class="pb-say">"While my calendar loads — just so you know, there's two small requirements: about 30 to 40 minutes of your time, which allows us to run the test and go through the product, and anyone else involved in the decision needs to be there too — so yourself and your partner, if that's relevant."</div>
+    <div class="pb-say">"While my calendar loads — just so you know, there's two small requirements: about 30 minutes of your time, which allows us to run the test and go through the product, and anyone else involved in the decision needs to be there too — so yourself and your partner, if that's relevant." <span class="pb-new">Updated</span></div>
+    <p class="pb-note">Say "about 30 minutes", not "30 to 40". A range makes it sound longer and less organised.</p>
     <p class="pb-branch">If a partner exists</p>
     <div class="pb-say">"Worth having them there if you can — just means you don't have to relay everything afterwards. The technician goes through it all in detail and gives the quote on the spot, so it's a lot smoother when everyone's across it together."</div>
+    <p class="pb-branch">If the partner works late <span class="pb-new">Updated</span></p>
+    <div class="pb-say">"No stress — we go till about 6:30 on weekdays and we do Saturdays too, so we can catch you both after work."</div>
+    <p class="pb-note">Offer the late slot and Saturday <em>before</em> they say "I'll just pass it on to them". That line saved two bookings last week.</p>
     <p class="pb-branch">If not</p>
     <div class="pb-say">"No worries at all — just wanted to check."</div>
+    <div class="pb-hear" data-clip="clip-05"><b>▶ Hear it:</b> the decision-maker is the customer's sister. Offering 6:30pm and Saturday keeps her in the booking.</div>
   </div>
 
   <div class="pb-card">
     <h3>8 — Appointment Close</h3>
     <p class="pb-note">Offer the question, then wait. The first person to speak after this question loses.</p>
     <div class="pb-say">"What time are you &amp; your partner home? When do they get home?"</div>
+    <p class="pb-note"><strong>Offer the soonest slot first, ideally tomorrow.</strong> If a technician is already in their area, say so: <em>"We've got a technician out in [suburb] tomorrow, I can squeeze you in at 12."</em> Both sales this week were next-day bookings. <span class="pb-new">Updated</span></p>
+    <p class="pb-branch">If they're not sure of a time <span class="pb-new">Updated</span></p>
+    <div class="pb-say">"Better to have something down than nothing — you can always reschedule."</div>
+    <p class="pb-note">Once you know roughly when they're free, give them two options, not an open question: <em>"I've got 12 or 2 — which is better?"</em> <span class="pb-new">Updated</span></p>
     <div class="pb-say">"Perfect. And just grab your address for me?"</div>
+    <p class="pb-note">Spell the street back letter by letter and confirm the suburb. Half the addresses last week had unusual street names. A wrong address is a guaranteed no-show. <span class="pb-new">Updated</span></p>
     <div class="pb-say">"Brilliant. So that's [Day] at [Time] — I'll send a confirmation through via text and email, with the time, address, a link to our site if you want to have a look beforehand, and a bit about who we are and what to expect when the technician arrives."</div>
+    <p class="pb-note">If they ask for a calendar invite, say yes, then add their email to the contact before you book. The booking email has the time and address in it.</p>
   </div>
 
   <div class="pb-card">
     <h3>9 — Promo</h3>
     <p class="pb-note">Post-close only. The promotion is a reward for deciding — not a lever to extract the decision. Pre-close use cheapens the brand.</p>
     <div class="pb-say">"Before I leave you to it — one thing worth mentioning — we do have a promotion running through [month]. If you decide on the day that you'd like to go ahead, there's up to 20% we can take off. Entirely up to you — no pressure at all."</div>
+    <p class="pb-branch">If they say "I never decide on the day" or "do I lose the 20%?" <span class="pb-new">Updated</span></p>
+    <div class="pb-say">"Totally fair — plenty of people like to sit on it. The quote's in writing, so you can take your time. The technician will explain exactly how the promotion works for you on the day."</div>
+    <p class="pb-note">Don't argue, and don't promise them the discount will still be there later. Move straight on to the close-out. It came up twice last week, and "that sucks" is not the answer.</p>
+    <div class="pb-hear" data-clip="clip-06"><b>▶ Hear it:</b> "If we don't decide on the day, do we lose the 20%?" Listen for how it should have been answered.</div>
   </div>
 
   <div class="pb-card">
     <h3>10 — Close Out</h3>
     <p class="pb-note">The final 30 seconds create the emotional memory of the call. Warm, organised, confident. This is your most powerful cancellation prevention tool.</p>
-    <div class="pb-say">"Anyways [Name], appreciate your time. Have a great rest of your day."</div>
+    <div class="pb-say">"Anyways [Name], appreciate your time. If anything changes, just call this number and we'll move it for you. Have a great rest of your day." <span class="pb-new">Updated</span></div>
+    <p class="pb-note">"Call us and we'll move it" means they reschedule instead of cancelling.</p>
+  </div>
+</section>
+
+<!-- ============ OBJECTIONS ============ -->
+<section class="pb-sec" id="objections">
+  <p class="pb-eyebrow">If They Push Back — Or Say Yes</p>
+  <h2>Pushback &amp; what to say</h2>
+  <p>These are the questions customers actually asked in the last 12 calls, most common first. Each one shows what to say, plus what to do whether they agree or keep pushing. Tap one to open it.</p>
+
+  <details class="pb-obj" id="obj-price" open>
+    <summary>"How much does it cost?" — asked in 7 of 12 calls</summary>
+    <div class="pb-obj-body">
+      <p class="pb-note">This is the most important answer on the page. "I don't have pricing in the office" sounds like hiding something, and it lost a call outright last week. Answer it every time, with confidence.</p>
+      <p class="pb-branch">First time they ask</p>
+      <div class="pb-say">"Great question. Honestly, it depends on your home — the size of the system, where it goes, and your water pressure. That's why the technician prices it on the spot. You get a fixed quote in writing, so there's no surprises, and we've got 0% interest plans so it doesn't have to be one lump sum."</div>
+      <p class="pb-branch">If they push again ("just give me a rough idea")</p>
+      <div class="pb-say">"I get it — you don't want to waste 30 minutes if it's way off. I can't give you a number that's actually right for your house without someone seeing it. But the test is free, the quote's free, and you keep the quote either way. Worst case, you know exactly what's in your water and what it'd cost to fix."</div>
+      <p class="pb-branch">If they agree</p>
+      <div class="pb-say">"Easy. Let me see when someone can come by…" <em>(straight to step 7)</em></div>
+      <p class="pb-branch">If they still say "just text me the price"</p>
+      <div class="pb-say">"No worries at all. I'll pop a note on your file, and if you want the exact number for your place, just reply to the text and I'll get a technician out." </div>
+      <p class="pb-note">Move them to <em>Contacted – Could not Book In</em> with the note "wanted price". Call back in 2–3 days.</p>
+      <div class="pb-hear" data-clip="clip-07"><b>▶ Hear it (lost):</b> "Just tell me the price, that's my main concern." He hung up after the dodge.</div>
+      <div class="pb-hear" data-clip="clip-08"><b>▶ Hear it (saved):</b> price asked, 0% plans mentioned, still booked. It's better with the new wording.</div>
+    </div>
+  </details>
+
+  <details class="pb-obj">
+    <summary>"How are you different? Five companies called me."</summary>
+    <div class="pb-obj-body">
+      <p class="pb-note">Last week's answer ("we're a big Australian company", "one of the biggest in Melbourne") can't be backed up, and customers can tell. Use these facts instead. They're all true.</p>
+      <div class="pb-say">"Fair question — there's a few of us. Three things: we're Melbourne-based and our systems are installed by licensed Melbourne plumbers; the system is WaterMark certified to the Australian standard; and the install comes with a 7-year workmanship warranty. The technician will walk you through the rest — and you'll have a written quote to compare against the others."</div>
+      <p class="pb-branch">If they agree</p>
+      <p class="pb-note">Book it. Put "comparing with other companies" in the notes so the technician comes ready.</p>
+      <p class="pb-branch">If they push ("but what's actually different about the filter?")</p>
+      <div class="pb-say">"That's exactly what the technician's best at — he'll show you side by side on the day. I'd rather you hear it from him than get half the story from me."</div>
+      <div class="pb-hear" data-clip="clip-09"><b>▶ Hear it:</b> the question as customers really ask it. Compare the answer given with the one above.</div>
+    </div>
+  </details>
+
+  <details class="pb-obj">
+    <summary>"I've already had a test / quote from someone else"</summary>
+    <div class="pb-obj-body">
+      <div class="pb-say">"Oh nice — that's great, it means you're already across it. Did they leave you a quote? The way most people use us is as the second opinion — our technician looks at your plumbing and pressure, and you get a second fixed quote to compare side by side."</div>
+      <p class="pb-branch">If they agree</p>
+      <p class="pb-note">Book it, and note who tested and what they found (for example "Home Generation, high chlorine").</p>
+      <p class="pb-branch">If they push ("it's just chlorine, testing's pointless")</p>
+      <div class="pb-say">"Yeah, you're probably right about the chlorine — so the test takes two minutes. The useful bit is the plan for your house and a price you can compare. That's what the 30 minutes is for."</div>
+    </div>
+  </details>
+
+  <details class="pb-obj">
+    <summary>"Is this just a sales pitch?"</summary>
+    <div class="pb-obj-body">
+      <div class="pb-say">"Fair question. The technician tests your water, shows you the results, and leaves you a fixed quote in writing. If it's not for you, no dramas — you've still found out what's in your water for free."</div>
+      <p class="pb-branch">If they agree</p>
+      <p class="pb-note">Note "wants low-pressure visit, quote to review" for the technician.</p>
+      <p class="pb-branch">If they push</p>
+      <div class="pb-say">"Totally get it. Nobody's going to make you decide anything on the day — that's a promise."</div>
+      <div class="pb-hear" data-clip="clip-10"><b>▶ Hear it:</b> "If it's mainly a sales pitch, I'm not interested." He booked once the visit was explained.</div>
+    </div>
+  </details>
+
+  <details class="pb-obj">
+    <summary>"My partner / sister can't be there"</summary>
+    <div class="pb-obj-body">
+      <div class="pb-say">"No stress — we go till about 6:30 on weekdays and do Saturdays, so we can work around them. When are you both home?"</div>
+      <p class="pb-branch">If they say "I'll just pass it on to them"</p>
+      <div class="pb-say">"You could, but honestly the technician goes through a lot — results, options, the quote — and it's much easier for everyone to hear it first-hand. It saves you a second conversation."</div>
+      <p class="pb-branch">If they insist they decide alone</p>
+      <p class="pb-note">Accept it, and write "sole decision-maker (confirmed)" in the notes.</p>
+    </div>
+  </details>
+
+  <details class="pb-obj">
+    <summary>"What do you do with my details?"</summary>
+    <div class="pb-obj-body">
+      <div class="pb-say">"Good question. It's only used for your appointment messages — we don't sell or share it, and we won't spam you."</div>
+      <div class="pb-hear" data-clip="clip-11"><b>▶ Hear it:</b> answered well. Calm, short, and the customer relaxes.</div>
+    </div>
+  </details>
+
+  <details class="pb-obj">
+    <summary>"Do you make the filters, or are you just a sales company?"</summary>
+    <div class="pb-obj-body">
+      <div class="pb-say">"We're a Melbourne filtration company — we test, supply and install, and the install is done by licensed plumbers with a 7-year workmanship warranty. The technician can show you the system itself on the day."</div>
+      <p class="pb-note">Never claim we're "the biggest" or make up numbers. Stick to what's true.</p>
+    </div>
+  </details>
+
+  <details class="pb-obj">
+    <summary>When they say yes — lock it in</summary>
+    <div class="pb-obj-body">
+      <p class="pb-note">A booking you don't firm up can still slip away. When they agree:</p>
+      <ul>
+        <li>Book it in GoHighLevel <strong>while they're still on the line</strong>.</li>
+        <li>Read back the day, time and full address.</li>
+        <li>Confirm who'll be there.</li>
+        <li>Tell them the confirmation text is on its way and to call this number if anything changes.</li>
+        <li>Stop talking. Do the promo line, then the close-out, and hang up. Extra chat after a yes just gives them room for doubts.</li>
+      </ul>
+    </div>
+  </details>
+</section>
+
+<!-- ============ LESSONS ============ -->
+<section class="pb-sec" id="lessons">
+  <p class="pb-eyebrow">From The Last 4 Days of Calls</p>
+  <h2>What's working, what isn't</h2>
+  <p>This comes from the recorded calls of 11–14 November: every booked, sat or sold appointment, plus the people we spoke to but couldn't book. Each call is broken down in <a href="#calls">Call breakdowns</a>.</p>
+
+  <div class="pb-stats">
+    <div class="pb-stat"><b>17</b><span>real conversations reviewed</span></div>
+    <div class="pb-stat"><b>2</b><span>sold this week</span></div>
+    <div class="pb-stat"><b>9</b><span>asked the price</span></div>
+    <div class="pb-stat"><b>~5 min</b><span>average booking call</span></div>
+  </div>
+
+  <div class="pb-two">
+    <div class="pb-good">
+      <h3>Keep doing</h3>
+      <ul>
+        <li><strong>Next-day bookings.</strong> Both sales this week (Doreen, Clyde) were booked for the next day. Always offer the soonest slot first.</li>
+        <li><strong>Speed.</strong> Customers notice ("That was quick!") and stay friendly.</li>
+        <li><strong>Naming the suburb and its neighbours</strong> before the chlorine line. It makes us sound local, and people connect their own symptoms to it.</li>
+        <li><strong>Getting the partner there</strong> nearly every time, with late slots and Saturdays offered.</li>
+        <li><strong>"While my calendar loads…"</strong> It moves into booking without asking permission.</li>
+        <li><strong>Specific time offers</strong> ("12 or 2?") instead of "when suits you?"</li>
+        <li><strong>The data-privacy answer.</strong> Short, calm and honest.</li>
+      </ul>
+    </div>
+    <div class="pb-bad">
+      <h3>Fix now</h3>
+      <ul>
+        <li><strong>Price dodging.</strong> "I don't have pricing in the office" was said in 5 calls and lost one outright. Use the <a href="#obj-price">price answer</a>.</li>
+        <li><strong>Health promises.</strong> "Filtered water can definitely help" with a child's eczema. That booking later cancelled. Follow the health rule.</li>
+        <li><strong>Making things up.</strong> "One of the biggest in Melbourne" and "a big Australian company". Use the true facts instead.</li>
+        <li><strong>"On the day" pressure.</strong> Two people pushed back on the promo. Lead with "the quote's in writing, you can keep it".</li>
+        <li><strong>"30 to 40 minutes"</strong> becomes <strong>"about 30 minutes"</strong>.</li>
+        <li><strong>Addresses.</strong> Spell the street back every time.</li>
+        <li><strong>Callbacks.</strong> "Call me in an hour" got a call 7 hours later. Set a task and call on time.</li>
+        <li><strong>Matching the customer.</strong> A direct customer said "you make it sound like rocket science". Shorten the call for people like that.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ CALL BREAKDOWNS ============ -->
+<section class="pb-sec" id="calls">
+  <p class="pb-eyebrow">Every Real Call, 11–14 November</p>
+  <h2>Call breakdowns</h2>
+  <p>Every conversation from the last four days: sold, booked, cancelled and not booked (no-answers left out). Each one shows what happened, what worked, what to fix, and the clips. <strong>Start with the two sales.</strong> Both were booked for the <em>next day</em>.</p>
+  <div class="pb-index"><a href="#call-bilal" class="sold">B. · Doreen</a><a href="#call-sukun" class="sold">S. · Clyde</a><a href="#call-jonathon" class="">J. · Avondale Heights</a><a href="#call-paras" class="">P. · Craigieburn</a><a href="#call-mistry" class="">A. · Tarneit</a><a href="#call-michaeld" class="">M.D. · Caulfield North</a><a href="#call-lauren" class="">L. · Werribee South</a><a href="#call-tama" class="">T. · Oakleigh</a><a href="#call-patrick" class="">P. · Pascoe Vale</a><a href="#call-mukesh" class="">M. · Tarneit</a><a href="#call-michael" class="">M. · Northcote</a><a href="#call-anoj" class="">A. · Williams Landing</a><a href="#call-nadeem" class="">N. · Harkness</a><a href="#call-michaeld1" class="">M.D. (first call) · Caulfield North</a><a href="#call-jomylyn" class="">J. · Burnside</a><a href="#call-amit" class="">A. · Noble Park</a><a href="#call-martin" class="">M. · Gisborne</a></div>
+
+  <div class="pb-call" id="call-bilal">
+    <div class="pb-call-head"><h3>B. — Doreen</h3><span class="pb-out sold">SOLD</span><span class="pb-meta">North · 4 min</span></div>
+    <p>Lead passed on from the team. Wants cleaner water for the family, and the baby has had eczema since birth. No partner needed. Booked for midday the <em>next day</em> because a technician was already in Doreen. Sold, now waiting on finance.</p>
+    <p class="pb-lbl g">What worked</p><ul><li>Kept it short and simple. A direct customer got a direct call.</li><li>Real urgency: "We've got a technician out in Doreen tomorrow, I can squeeze you in at 12." True, local and specific.</li><li>Booked for the next day. The less time between the call and the visit, the less time to go cold.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>"We can definitely try to reduce that" about the baby's eczema is close to a health promise. Use the health rule line instead.</li></ul>
+    <div class="pb-hear" data-clip="clip-13"><b>▶ Opening a passed-on lead</b></div><div class="pb-hear" data-clip="clip-14"><b>▶ The eczema moment</b></div><div class="pb-hear" data-clip="clip-15"><b>▶ "Technician out in Doreen tomorrow": the next-day close</b></div>
+    <div class="pb-hear pb-full" data-full="bilal-1021"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-sukun">
+    <div class="pb-call-head"><h3>S. — Clyde</h3><span class="pb-out sold">SOLD</span><span class="pb-meta">South-East · 5 min</span></div>
+    <p>Dry skin and hair loss, and he found us on social media. Full script start to finish: suburb line (Cranbourne, Berwick), a follow-up question on whether it's getting worse, the free test, then partner confirmed. Offered "12 or 2" and booked for the next afternoon. Deposit paid.</p>
+    <p class="pb-lbl g">What worked</p><ul><li>The script exactly as written, with every step in order.</li><li>"Has that got worse over time?" got him describing his own problem.</li><li>Two specific times offered, and the booking was for the <em>next day</em>.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>Nothing major. This is the call to copy.</li></ul>
+    <div class="pb-hear" data-clip="clip-12"><b>▶ Free test → partner → "12 or 2?" → booked</b></div>
+    <div class="pb-hear pb-full" data-full="sukun-1015"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-jonathon">
+    <div class="pb-call-head"><h3>J. — Avondale Heights</h3><span class="pb-out booked">BOOKED — next morning</span><span class="pb-meta">Inner · 4 min</span></div>
+    <p>Tap water tastes off, and he's noticed limescale. Suburb line (Essendon) landed, and he connected both partners' hair loss to the water himself. Sole decision-maker. Booked for 9am the next day. Asked "how are you different? Five companies called me."</p>
+    <p class="pb-lbl g">What worked</p><ul><li>The suburb and neighbour line got him to make the connection.</li><li>Booked for the next day.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>The "how are you different" answer was vague and unprovable ("big Australian company"). Use the true facts: licensed plumbers, WaterMark, 7-year warranty.</li></ul>
+    <div class="pb-hear" data-clip="clip-03"><b>▶ Suburb line → he connects the hair loss</b></div><div class="pb-hear" data-clip="clip-09"><b>▶ "How are you different?"</b></div>
+    <div class="pb-hear pb-full" data-full="jonathon-1106"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-paras">
+    <div class="pb-call-head"><h3>P. — Craigieburn</h3><span class="pb-out booked">BOOKED — Saturday 2pm</span><span class="pb-meta">North · 5 min</span></div>
+    <p>His son has kidney issues, and someone told him to change the water. Asked the price before booking. His wife already got a quote from another company six months ago. Both of them booked for Saturday.</p>
+    <p class="pb-lbl g">What worked</p><ul><li>Positioned us as the comparison: "if your wife has questions about what we do differently, the technician will go through it."</li><li>Both decision-makers booked in.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>A medical concern (kidneys) needs the health rule: no promises, note it for the technician.</li><li>The price answer was "it all depends", which is weak. Use the price answer.</li></ul>
+    
+    <div class="pb-hear pb-full" data-full="paras-1025"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-mistry">
+    <div class="pb-call-head"><h3>A. — Tarneit</h3><span class="pb-out booked">BOOKED — Tue 12pm</span><span class="pb-meta">West · 6 min</span></div>
+    <p>Asked what the system does and the price straight away. The kids have dry skin. Already had a test and quote from another company. Asked for a rough price range twice. Booked anyway.</p>
+    <p class="pb-lbl g">What worked</p><ul><li>Treated it as a second opinion: plumbing, pressure, a fixed price.</li><li>"Great, I'll get to that in a sec" kept the call moving.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>Dodged the price twice ("I just don't have it"). Use the second-push price line.</li><li>"30 to 40 minutes" becomes "about 30 minutes".</li></ul>
+    <div class="pb-hear" data-clip="clip-04"><b>▶ Already had a test elsewhere, still booked</b></div>
+    <div class="pb-hear pb-full" data-full="mistry-1028"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-michaeld">
+    <div class="pb-call-head"><h3>M.D. — Caulfield North</h3><span class="pb-out booked">BOOKED — Thu 12pm</span><span class="pb-meta">Inner · 5 min</span></div>
+    <p>Just moved in that day. Wary: "if it's mainly a sales pitch, I'm not interested." Said he never decides on the day. Asked for a calendar invite, and whether we make the filters or are "just a sales company".</p>
+    <p class="pb-lbl g">What worked</p><ul><li>Stayed calm and kept the booking through three objections.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>Lead with "the quote's in writing, keep it and compare". That answers the sales-pitch worry before it's raised.</li><li>"One of the biggest in Melbourne" isn't provable. Use the true facts.</li><li>Calendar invite: say yes, then add his email so the booking email goes to him.</li></ul>
+    <div class="pb-hear" data-clip="clip-10"><b>▶ "If it's mainly a sales pitch, I'm not interested"</b></div>
+    <div class="pb-hear pb-full" data-full="dinovitser-1622"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-lauren">
+    <div class="pb-call-head"><h3>L. — Werribee South</h3><span class="pb-out booked">BOOKED — next Saturday</span><span class="pb-meta">West · 5 min</span></div>
+    <p>Family won't drink the tap water (taste). Partner is a plumber. Her dry skin flares up. Getting quotes from other companies. After the promo line she asked: "if we don't decide on the day, do we lose the 20%?"</p>
+    <p class="pb-lbl g">What worked</p><ul><li>Offered Saturday when the weekdays didn't work.</li><li>"If anything changes, just give us a call back" sets up a reschedule instead of a cancel.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>The promo answer ("that sucks") hurts. Use: "the quote's in writing, take your time, the technician will explain how the promotion works."</li><li>The booking is 8 days out. Long gaps cancel more often, so try for this week first.</li></ul>
+    <div class="pb-hear" data-clip="clip-06"><b>▶ "Do we lose the 20%?"</b></div>
+    <div class="pb-hear pb-full" data-full="lauren-1121"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-tama">
+    <div class="pb-call-head"><h3>T. — Oakleigh</h3><span class="pb-out booked">BOOKED — next Wed 12pm</span><span class="pb-meta">South-East · 8 min</span></div>
+    <p>Came through a call-screening robot. Drinks tap water and has no symptoms. Her sister is a decision-maker and "only cares about the price". Asked the price twice and about payment. Asked what we do with her data.</p>
+    <p class="pb-lbl g">What worked</p><ul><li>Kept the sister in the booking with the 6:30pm and Saturday offer.</li><li>0% interest plans mentioned when the price came up.</li><li>The data answer was short, calm and honest.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>"I don't have the pricing in front of me, which I wish I did" sounds unprepared. Use the price answer.</li><li>Long call (8 min). Once she's said yes to a time, wrap up.</li></ul>
+    <div class="pb-hear" data-clip="clip-05"><b>▶ Sister as decision-maker, late slots</b></div><div class="pb-hear" data-clip="clip-08"><b>▶ Price and 0% plans</b></div><div class="pb-hear" data-clip="clip-11"><b>▶ "What do you do with my data?"</b></div>
+    <div class="pb-hear pb-full" data-full="tama-1438"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-patrick">
+    <div class="pb-call-head"><h3>P. — Pascoe Vale</h3><span class="pb-out booked">BOOKED — Mon 6:30pm</span><span class="pb-meta">North · 6 min</span></div>
+    <p>Called within seconds: "That was quick." Just bought an older unit and his skin is drier than at the old place. Wanted the cost for drinking and showering water. His partner works, so offered 6:30pm Monday.</p>
+    <p class="pb-lbl g">What worked</p><ul><li>Speed. The 60-second rule makes a great first impression.</li><li>Explained why both partners should be there, then made a late slot work.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>He asked the cost in the first 30 seconds and it never got answered. Come back to it.</li></ul>
+    <div class="pb-hear" data-clip="clip-01"><b>▶ "That was quick"</b></div>
+    <div class="pb-hear pb-full" data-full="patrick-1245"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-mukesh">
+    <div class="pb-call-head"><h3>M. — Tarneit</h3><span class="pb-out booked">BOOKED — Tue 10am</span><span class="pb-meta">West · 5 min</span></div>
+    <p>Chlorine smell. Had a test from another company two years ago. Sole decision-maker who drops the kids at school, so booked for 10am Tuesday. Spelled the street name back.</p>
+    <p class="pb-lbl g">What worked</p><ul><li>"What made you wait so long to look into it again?" A great question that got him talking.</li><li>Worked the time around the school drop-off.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>Minor: "30 to 40 minutes" becomes "about 30".</li></ul>
+    
+    <div class="pb-hear pb-full" data-full="mukesh-1642"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-michael">
+    <div class="pb-call-head"><h3>M. — Northcote</h3><span class="pb-out booked">BOOKED — Mon 4:30pm</span><span class="pb-meta">North · 4 min</span></div>
+    <p>Bought a 100-year-old house he hasn't moved into yet, and is curious about the pipes and the cost. Living in Fairfield for now. Has the keys, so booked the test at the new house.</p>
+    <p class="pb-lbl g">What worked</p><ul><li>Asked if he had the keys and booked at the new property. That's the right move.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>He mentioned cost up front and it was never answered.</li></ul>
+    
+    <div class="pb-hear pb-full" data-full="michael-1222"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-anoj">
+    <div class="pb-call-head"><h3>A. — Williams Landing</h3><span class="pb-out booked">BOOKED — Tue 9:30am</span><span class="pb-meta">West · 5 min</span></div>
+    <p>Hair fall that's getting worse. Moving house next month. Already drinks filtered water. When asked about decision-makers: "I'm not signing my life away… you make it sound like rocket science."</p>
+    <p class="pb-lbl g">What worked</p><ul><li>Kept calm and simplified: "we make it as smooth as we can."</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>Match the customer. A direct, impatient customer needs the short version: skip the long explanation, offer two times, book.</li><li>He's moving soon. Confirm which address the test is at.</li></ul>
+    <div class="pb-hear" data-clip="clip-16"><b>▶ "You make it sound like rocket science"</b></div>
+    <div class="pb-hear pb-full" data-full="anoj-0945"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-nadeem">
+    <div class="pb-call-head"><h3>N. — Harkness</h3><span class="pb-out booked">BOOKED — Sat 21st</span><span class="pb-meta">West · 4.5 min</span></div>
+    <p>Wants cleaner water, never drinks from the tap, a little dry skin. Works from home and wasn't sure of a time. Asked about cost and monthly plans. Booked for next Saturday.</p>
+    <p class="pb-lbl g">What worked</p><ul><li>The best line of the week for a customer who isn't sure of a time: <em>"Better to have something down rather than nothing — you can always reschedule."</em></li><li>Offered Saturdays and late slots before he could stall.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>"I just don't know, I'm not a salesperson" on price. Use the price answer, with the interest-free plans in the first sentence.</li></ul>
+    <div class="pb-hear" data-clip="clip-17"><b>▶ "Better to have something down than nothing"</b></div>
+    <div class="pb-hear pb-full" data-full="nadeem-0932"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-michaeld1">
+    <div class="pb-call-head"><h3>M.D. (first call) — Caulfield North</h3><span class="pb-out booked">CALL BACK REQUESTED → booked later</span><span class="pb-meta">Inner · 1 min</span></div>
+    <p>Halfway through discovery: "I'm just about to walk into a meeting, can you buzz me back in about an hour?" The callback came 7 hours later. He still booked, but it was a risk.</p>
+    <p class="pb-lbl g">What worked</p><ul><li>Said yes straight away and kept it friendly.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>When they say "call me in an hour", set a GoHighLevel task for exactly an hour and call on time. A late callback is how warm leads go cold.</li></ul>
+    
+    <div class="pb-hear pb-full" data-full="dinovitser-0927"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-jomylyn">
+    <div class="pb-call-head"><h3>J. — Burnside</h3><span class="pb-out lost">BOOKED → CANCELLED</span><span class="pb-meta">West · 7 min</span></div>
+    <p>Her daughter has bad eczema. Pushed back with "it's just chlorine, no matter how you test it". Asked the price at the end. Booked for Saturday 9am, then cancelled.</p>
+    <p class="pb-lbl g">What worked</p><ul><li>Strong discovery. She opened up about her daughter.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>"Filtered water can definitely help" with a child's eczema is a promise we can't keep, and it set up a let-down. Follow the health rule.</li><li>Price asked and dodged at the very end. That leaves doubt hanging after the booking.</li><li>Cancelled: call her (don't text) and rebook. See Cancellations.</li></ul>
+    <div class="pb-hear" data-clip="clip-02"><b>▶ The eczema moment: what not to say</b></div>
+    <div class="pb-hear pb-full" data-full="jomylyn-1032"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-amit">
+    <div class="pb-call-head"><h3>A. — Noble Park</h3><span class="pb-out lost">NOT BOOKED — wanted price</span><span class="pb-meta">South-East · 2 min</span></div>
+    <p>Asked the price in the first 15 seconds. Already had a water test. Wife involved. Asked again, "just tell me the price, that's my main concern". Got "I don't have the price in the office" and ended the call.</p>
+    <p class="pb-lbl g">What worked</p><ul><li>Handled "already had a test" well: still needs a plumbing and pressure check.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>This is the call the new price answer was written for. A confident answer with a fixed written quote and 0% plans keeps him on the line.</li><li>Next step: call back with the new price answer. He's in "Contacted – Could not Book In".</li></ul>
+    <div class="pb-hear" data-clip="clip-07"><b>▶ "Just tell me the price". Call lost.</b></div>
+    <div class="pb-hear pb-full" data-full="amit-1657"><b>▶ Full call</b></div>
+  </div>
+  <div class="pb-call" id="call-martin">
+    <div class="pb-call-head"><h3>M. — Gisborne</h3><span class="pb-out other">FILTER SALE — no test booked</span><span class="pb-meta">Outer · 3 min</span></div>
+    <p>Already has a whole-home system from another company, with bad after-service and black filters after 6 months. Wanted to buy replacement filters from us instead. Told $300 delivered and sent the link. Wants to stock up.</p>
+    <p class="pb-lbl g">What worked</p><ul><li>Said yes to replacement filters and quoted the price clearly.</li></ul>
+    <p class="pb-lbl r">Fix next time</p><ul><li>Missed opportunity: someone unhappy with another company's system is a perfect lead for a free test. Offer it: <em>"While we're sending those, want our technician to check the system and test what's coming through? It's free."</em></li><li>Use the exact filter price ($299.95 a set, delivered).</li></ul>
+    <div class="pb-hear" data-clip="clip-18"><b>▶ Existing system, wants our filters</b></div>
+    <div class="pb-hear pb-full" data-full="martin-0941"><b>▶ Full call</b></div>
+  </div>
+</section>
+
+<!-- ============ SUBURBS ============ -->
+<section class="pb-sec" id="suburbs">
+  <p class="pb-eyebrow">Sound Local</p>
+  <h2>Suburbs: your local lines &amp; recordings by area</h2>
+  <p>When they tell you their suburb, find their area below and name one or two neighbours in the step 4 line: <em>"One thing that comes up pretty consistently out [their suburb] and around [neighbour] and [neighbour]…"</em>. The suburbs listed are where our leads are coming from right now.</p>
+
+  <svg class="pb-map" viewBox="0 0 640 360" role="img" aria-label="Simple map of Melbourne service areas">
+    <rect x="0" y="0" width="640" height="360" rx="16" fill="#EEF5FD"/>
+    <path d="M300 250 C 330 300, 380 330, 420 340 L 470 360 L 250 360 Z" fill="#CFE2F7"/>
+    <text x="330" y="345" font-size="12" fill="#5A7394" font-family="Poppins">Port Phillip Bay</text>
+    <circle cx="320" cy="190" r="10" fill="#0B1E3D"/><text x="336" y="195" font-size="13" font-weight="700" fill="#0B1E3D" font-family="Poppins">CBD</text>
+    <circle cx="170" cy="200" r="54" fill="#2F80ED" fill-opacity=".18" stroke="#2F80ED"/><text x="170" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#1B4F96" font-family="Poppins">WEST</text><text x="170" y="214" text-anchor="middle" font-size="11" fill="#1B4F96" font-family="Poppins">Tarneit · Werribee</text>
+    <circle cx="320" cy="80" r="54" fill="#27AE60" fill-opacity=".18" stroke="#27AE60"/><text x="320" y="76" text-anchor="middle" font-size="15" font-weight="700" fill="#14653A" font-family="Poppins">NORTH</text><text x="320" y="94" text-anchor="middle" font-size="11" fill="#14653A" font-family="Poppins">Craigieburn · Mernda</text>
+    <circle cx="480" cy="250" r="58" fill="#F2994A" fill-opacity=".2" stroke="#F2994A"/><text x="480" y="246" text-anchor="middle" font-size="15" font-weight="700" fill="#8A4A10" font-family="Poppins">SOUTH-EAST</text><text x="480" y="264" text-anchor="middle" font-size="11" fill="#8A4A10" font-family="Poppins">Clyde · Cranbourne</text>
+    <circle cx="455" cy="130" r="44" fill="#9B51E0" fill-opacity=".16" stroke="#9B51E0"/><text x="455" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#5B2A8C" font-family="Poppins">INNER &amp; EAST</text><text x="455" y="143" text-anchor="middle" font-size="11" fill="#5B2A8C" font-family="Poppins">Caulfield · Bulleen</text>
+    <circle cx="90" cy="70" r="30" fill="#828282" fill-opacity=".15" stroke="#828282"/><text x="90" y="74" text-anchor="middle" font-size="11" font-weight="700" fill="#4F4F4F" font-family="Poppins">OUTER</text>
+  </svg>
+
+  <div class="pb-card pb-region">
+    <h3><span class="pb-dot" style="background:#2F80ED"></span>West</h3>
+    <div class="pb-chips"><span>Tarneit</span><span>Truganina</span><span>Werribee</span><span>Werribee South</span><span>Williams Landing</span><span>Point Cook</span><span>Burnside</span><span>Caroline Springs</span><span>Harkness</span><span>Melton</span><span>Sunshine</span><span>Altona North</span></div>
+    <div class="pb-say">"One thing that comes up pretty consistently out Tarneit and around Truganina and Williams Landing is that the chlorine concentration's quite a bit higher than most people realise."</div>
+    <div class="pb-hear" data-clip="clip-04"><b>▶ West:</b> a Tarneit customer who'd already had a test elsewhere. Still booked.</div>
+    <div class="pb-hear" data-clip="clip-06"><b>▶ West:</b> Werribee South, "do we lose the 20%?"</div>
+    <div class="pb-hear" data-clip="clip-02"><b>▶ West:</b> Burnside, eczema. The health rule.</div>
+  </div>
+
+  <div class="pb-card pb-region">
+    <h3><span class="pb-dot" style="background:#27AE60"></span>North</h3>
+    <div class="pb-chips"><span>Doreen</span><span>Craigieburn</span><span>Mickleham</span><span>Kalkallo</span><span>Mernda</span><span>Mill Park</span><span>Preston</span><span>Northcote</span><span>Fairfield</span><span>Pascoe Vale</span><span>Glenroy</span></div>
+    <div class="pb-say">"One thing that comes up pretty consistently out Craigieburn and around Mickleham and Roxburgh Park is that the chlorine concentration's quite a bit higher than most people realise."</div>
+    <div class="pb-hear" data-clip="clip-15"><b>▶ North:</b> Doreen. SOLD: "technician out in Doreen tomorrow".</div>
+    <div class="pb-hear" data-clip="clip-01"><b>▶ North:</b> Pascoe Vale. A 60-second call, "That was quick", booked for Monday evening.</div>
+  </div>
+
+  <div class="pb-card pb-region">
+    <h3><span class="pb-dot" style="background:#F2994A"></span>South-East</h3>
+    <div class="pb-chips"><span>Clyde</span><span>Cranbourne</span><span>Berwick</span><span>Officer</span><span>Pakenham</span><span>Hampton Park</span><span>Rowville</span><span>Noble Park</span><span>Clarinda</span><span>Oakleigh</span><span>Oakleigh South</span><span>Frankston</span></div>
+    <div class="pb-say">"One thing that comes up pretty consistently out Clyde and around Cranbourne and Berwick is that the chlorine concentration's quite a bit higher than most people realise."</div>
+    <div class="pb-hear" data-clip="clip-05"><b>▶ South-East:</b> Oakleigh. The sister is the decision-maker, and the 6:30pm / Saturday offer.</div>
+    <div class="pb-hear" data-clip="clip-11"><b>▶ South-East:</b> Oakleigh, "what do you do with my data?"</div>
+    <div class="pb-hear" data-clip="clip-07"><b>▶ South-East:</b> Noble Park. The price dodge that lost the call.</div>
+    <div class="pb-hear" data-clip="clip-12"><b>▶ South-East:</b> Clyde. A clean booking with the partner, sold.</div>
+  </div>
+
+  <div class="pb-card pb-region">
+    <h3><span class="pb-dot" style="background:#9B51E0"></span>Inner &amp; East</h3>
+    <div class="pb-chips"><span>Caulfield North</span><span>Templestowe</span><span>Bulleen</span><span>Avondale Heights</span><span>Essendon</span></div>
+    <div class="pb-say">"One thing that comes up pretty consistently out Avondale Heights and around Essendon is that the chlorine concentration's quite a bit higher than most people realise."</div>
+    <div class="pb-hear" data-clip="clip-03"><b>▶ Inner:</b> Avondale Heights. The suburb line done right.</div>
+    <div class="pb-hear" data-clip="clip-09"><b>▶ Inner:</b> Avondale Heights, "how are you different?"</div>
+    <div class="pb-hear" data-clip="clip-10"><b>▶ Inner:</b> Caulfield North, "is this a sales pitch?"</div>
+  </div>
+
+  <div class="pb-card pb-region">
+    <h3><span class="pb-dot" style="background:#828282"></span>Outer</h3>
+    <div class="pb-chips"><span>Gisborne</span><span>Wonthaggi</span></div>
+    <p class="pb-note">Check with Stefan before booking far-out suburbs, so the technician's route works.</p>
   </div>
 </section>
 
@@ -206,7 +704,7 @@ body { background: #F4F7FB; }
     <p><strong>If it's a time problem:</strong> move the time, never the commitment —</p>
     <div class="pb-say">"No stress at all — would earlier or later that day work better, or the day after? He's out that way anyway, so we've got a bit of room to move."</div>
     <p><strong>If it's cold feet:</strong> lower the stakes and hold the booking —</p>
-    <div class="pb-say">"Completely fair. Just remember there's nothing to decide on the day — it's a free test, you'll see exactly what's in your water, and worst case you've lost an hour and learnt something about your home. Let's keep your spot, and if the timing's genuinely wrong, we'll move it."</div>
+    <div class="pb-say">"Completely fair. Just remember there's nothing to decide on the day — it's a free test, you'll see exactly what's in your water, and worst case you've lost half an hour and learnt something about your home. Let's keep your spot, and if the timing's genuinely wrong, we'll move it."</div>
     <p>The goal of every cancellation call: walk away with a new time, or the old time kept. A reschedule is a save; a cancel is only ever the last resort.</p>
   </div>
 
@@ -241,61 +739,106 @@ body { background: #F4F7FB; }
 <!-- ============ RECORDINGS ============ -->
 <section class="pb-sec" id="recordings">
   <p class="pb-eyebrow">Hear It Done</p>
-  <h2>Real call recordings</h2>
-  <p>Five real calls, start to finish — objections and all. Listen to each one in full, for tone and pace as much as the words. The script on paper is half the job; these are the other half.</p>
+  <h2>Call clips: the moments that matter</h2>
+  <p>Short clips from real calls, 11–14 November, including this week's Doreen sale. Each one is a single moment worth hearing. The good ones show you what to copy, and the ones marked "fix" show you what not to do. Customers are named by suburb only. These clips are for training only: never share them outside the team.</p>
 
-  <div class="pb-media">
-    <h4>Call 1</h4>
-    <span class="pb-soon">Coming soon</span>
-  </div>
-  <div class="pb-media">
-    <h4>Call 2</h4>
-    <span class="pb-soon">Coming soon</span>
-  </div>
-  <div class="pb-media">
-    <h4>Call 3</h4>
-    <span class="pb-soon">Coming soon</span>
-  </div>
-  <div class="pb-media">
-    <h4>Call 4</h4>
-    <span class="pb-soon">Coming soon</span>
-  </div>
-  <div class="pb-media">
-    <h4>Call 5</h4>
-    <span class="pb-soon">Coming soon</span>
-  </div>
+  <div class="pb-media"><h4>1 — "That was quick" (Pascoe Vale)</h4><p>The 60-second rule in action. Opening, discovery and the partner question.</p><div class="pb-hear" data-clip="clip-01"></div></div>
+  <div class="pb-media"><h4>2 — Eczema and the health rule (Burnside) · fix</h4><p>A good discovery, but "filtered water can definitely help" is a promise we can't make. This booking later cancelled.</p><div class="pb-hear" data-clip="clip-02"></div></div>
+  <div class="pb-media"><h4>3 — The suburb line done right (Avondale Heights)</h4><p>Naming the neighbours, and the customer connects the hair loss to the water himself.</p><div class="pb-hear" data-clip="clip-03"></div></div>
+  <div class="pb-media"><h4>4 — Already had a test elsewhere (Tarneit)</h4><p>Repositions the visit around plumbing, pressure and a fixed price. Booked.</p><div class="pb-hear" data-clip="clip-04"></div></div>
+  <div class="pb-media"><h4>5 — Sister is the decision-maker (Oakleigh)</h4><p>The 6:30pm and Saturday offer keeps everyone in the room.</p><div class="pb-hear" data-clip="clip-05"></div></div>
+  <div class="pb-media"><h4>6 — "Do we lose the 20%?" (Werribee South) · fix</h4><p>The promo pushback. Compare it with the new step 9 answer.</p><div class="pb-hear" data-clip="clip-06"></div></div>
+  <div class="pb-media"><h4>7 — Price dodge, call lost (Noble Park) · fix</h4><p>"Just tell me the price." This is why the price answer matters.</p><div class="pb-hear" data-clip="clip-07"></div></div>
+  <div class="pb-media"><h4>8 — Price asked, still booked (Oakleigh)</h4><p>0% plans mentioned. With the new price wording it's even stronger.</p><div class="pb-hear" data-clip="clip-08"></div></div>
+  <div class="pb-media"><h4>9 — "How are you different?" (Avondale Heights) · fix</h4><p>The question as customers really ask it. Use the true facts in Pushback.</p><div class="pb-hear" data-clip="clip-09"></div></div>
+  <div class="pb-media"><h4>10 — "Is this a sales pitch?" (Caulfield North)</h4><p>Lowering the pressure gets the booking.</p><div class="pb-hear" data-clip="clip-10"></div></div>
+  <div class="pb-media"><h4>11 — "What do you do with my data?" (Oakleigh)</h4><p>Short, calm and honest.</p><div class="pb-hear" data-clip="clip-11"></div></div>
+  <div class="pb-media"><h4>12 — Clean booking with the partner, sold (Clyde)</h4><p>Free test → partner → "12 or 2?" → booked for the next day.</p><div class="pb-hear" data-clip="clip-12"></div></div>
+  <div class="pb-media"><h4>13 — A passed-on lead (Doreen) · SOLD</h4><p>How the Doreen sale opened.</p><div class="pb-hear" data-clip="clip-13"></div></div>
+  <div class="pb-media"><h4>14 — Baby with eczema (Doreen) · SOLD</h4><p>Listen, then use the health rule wording instead of "we can reduce that".</p><div class="pb-hear" data-clip="clip-14"></div></div>
+  <div class="pb-media"><h4>15 — "Technician out in Doreen tomorrow" (Doreen) · SOLD</h4><p>The next-day close, with real local urgency.</p><div class="pb-hear" data-clip="clip-15"></div></div>
+  <div class="pb-media"><h4>16 — "You make it sound like rocket science" (Williams Landing)</h4><p>A direct customer. Shorten the call for people like this.</p><div class="pb-hear" data-clip="clip-16"></div></div>
+  <div class="pb-media"><h4>17 — "Better to have something down than nothing" (Harkness)</h4><p>The line for a customer who isn't sure of a time.</p><div class="pb-hear" data-clip="clip-17"></div></div>
+  <div class="pb-media"><h4>18 — Already has a system, wants our filters (Gisborne)</h4><p>Missed chance to offer a free test. See his breakdown.</p><div class="pb-hear" data-clip="clip-18"></div></div>
+</section>
+
+
+<!-- ============ FULL CALLS ============ -->
+<section class="pb-sec" id="fullcalls">
+  <p class="pb-eyebrow">Start To Finish</p>
+  <h2>Full call recordings</h2>
+  <p>Every real conversation from 11–14 November, uncut: sold, booked, cancelled and not booked. The clips above teach single moments. These teach the flow, the pace and the tone. <strong>Before your first shift, listen to the two sales in full, then at least three of the others.</strong> Read each call's breakdown alongside it.</p>
+  <p class="pb-note">Customers' addresses have been muted. These recordings are for training only: never share or download them outside the team.</p>
+
+  <div class="pb-media"><h4><span class="pb-out sold">SOLD</span> &nbsp;Doreen · 4 min</h4><p><a href="#call-bilal">Read the breakdown →</a></p><div class="pb-hear" data-full="bilal-1021"></div></div>
+  <div class="pb-media"><h4><span class="pb-out sold">SOLD</span> &nbsp;Clyde · 5 min</h4><p><a href="#call-sukun">Read the breakdown →</a></p><div class="pb-hear" data-full="sukun-1015"></div></div>
+  <div class="pb-media"><h4><span class="pb-out booked">BOOKED — next morning</span> &nbsp;Avondale Heights · 4 min</h4><p><a href="#call-jonathon">Read the breakdown →</a></p><div class="pb-hear" data-full="jonathon-1106"></div></div>
+  <div class="pb-media"><h4><span class="pb-out booked">BOOKED — Saturday 2pm</span> &nbsp;Craigieburn · 5 min</h4><p><a href="#call-paras">Read the breakdown →</a></p><div class="pb-hear" data-full="paras-1025"></div></div>
+  <div class="pb-media"><h4><span class="pb-out booked">BOOKED — Tue 12pm</span> &nbsp;Tarneit · 6 min</h4><p><a href="#call-mistry">Read the breakdown →</a></p><div class="pb-hear" data-full="mistry-1028"></div></div>
+  <div class="pb-media"><h4><span class="pb-out booked">BOOKED — Thu 12pm</span> &nbsp;Caulfield North · 5 min</h4><p><a href="#call-michaeld">Read the breakdown →</a></p><div class="pb-hear" data-full="dinovitser-1622"></div></div>
+  <div class="pb-media"><h4><span class="pb-out booked">BOOKED — next Saturday</span> &nbsp;Werribee South · 5 min</h4><p><a href="#call-lauren">Read the breakdown →</a></p><div class="pb-hear" data-full="lauren-1121"></div></div>
+  <div class="pb-media"><h4><span class="pb-out booked">BOOKED — next Wed 12pm</span> &nbsp;Oakleigh · 8 min</h4><p><a href="#call-tama">Read the breakdown →</a></p><div class="pb-hear" data-full="tama-1438"></div></div>
+  <div class="pb-media"><h4><span class="pb-out booked">BOOKED — Mon 6:30pm</span> &nbsp;Pascoe Vale · 6 min</h4><p><a href="#call-patrick">Read the breakdown →</a></p><div class="pb-hear" data-full="patrick-1245"></div></div>
+  <div class="pb-media"><h4><span class="pb-out booked">BOOKED — Tue 10am</span> &nbsp;Tarneit · 5 min</h4><p><a href="#call-mukesh">Read the breakdown →</a></p><div class="pb-hear" data-full="mukesh-1642"></div></div>
+  <div class="pb-media"><h4><span class="pb-out booked">BOOKED — Mon 4:30pm</span> &nbsp;Northcote · 4 min</h4><p><a href="#call-michael">Read the breakdown →</a></p><div class="pb-hear" data-full="michael-1222"></div></div>
+  <div class="pb-media"><h4><span class="pb-out booked">BOOKED — Tue 9:30am</span> &nbsp;Williams Landing · 5 min</h4><p><a href="#call-anoj">Read the breakdown →</a></p><div class="pb-hear" data-full="anoj-0945"></div></div>
+  <div class="pb-media"><h4><span class="pb-out booked">BOOKED — Sat 21st</span> &nbsp;Harkness · 4.5 min</h4><p><a href="#call-nadeem">Read the breakdown →</a></p><div class="pb-hear" data-full="nadeem-0932"></div></div>
+  <div class="pb-media"><h4><span class="pb-out booked">CALL BACK REQUESTED → booked later</span> &nbsp;Caulfield North · 1 min</h4><p><a href="#call-michaeld1">Read the breakdown →</a></p><div class="pb-hear" data-full="dinovitser-0927"></div></div>
+  <div class="pb-media"><h4><span class="pb-out lost">BOOKED → CANCELLED</span> &nbsp;Burnside · 7 min</h4><p><a href="#call-jomylyn">Read the breakdown →</a></p><div class="pb-hear" data-full="jomylyn-1032"></div></div>
+  <div class="pb-media"><h4><span class="pb-out lost">NOT BOOKED — wanted price</span> &nbsp;Noble Park · 2 min</h4><p><a href="#call-amit">Read the breakdown →</a></p><div class="pb-hear" data-full="amit-1657"></div></div>
+  <div class="pb-media"><h4><span class="pb-out other">FILTER SALE — no test booked</span> &nbsp;Gisborne · 3 min</h4><p><a href="#call-martin">Read the breakdown →</a></p><div class="pb-hear" data-full="martin-0941"></div></div>
 </section>
 
 <!-- ============ HOW-TO VIDEOS ============ -->
 <section class="pb-sec" id="videos">
   <p class="pb-eyebrow">The Systems</p>
   <h2>How-to videos</h2>
-  <p>Short walkthroughs of the exact screens you'll use — logging in, where leads land, and booking appointments.</p>
+  <p>Short Loom walkthroughs of the exact screens you'll use. Watch them in order on your first day.</p>
+  <!-- STEFAN: to add a video, paste the Loom share link between the quotes in data-loom="".
+       Example: data-loom="https://www.loom.com/share/abc123". It embeds automatically. -->
 
-  <div class="pb-media">
-    <h4>1 — Logging in: GoHighLevel &amp; the LeadConnector app</h4>
-    <p>Your login, the mobile app, and making sure calls go out showing our number.</p>
-    <span class="pb-soon">Coming soon</span>
-  </div>
-  <div class="pb-media">
-    <h4>2 — Where leads land &amp; calling them</h4>
-    <p>The moment a lead comes in, where you see it, and calling straight from the lead's file.</p>
-    <span class="pb-soon">Coming soon</span>
-  </div>
-  <div class="pb-media">
-    <h4>3 — Booking the appointment in the calendar</h4>
-    <p>Creating the appointment so the confirmation texts fire automatically — day, time, address, notes.</p>
-    <span class="pb-soon">Coming soon</span>
-  </div>
-  <div class="pb-media">
-    <h4>4 — After the call: notes &amp; outcomes</h4>
-    <p>What to log after every call so nothing falls through the cracks.</p>
-    <span class="pb-soon">Coming soon</span>
-  </div>
+  <div class="pb-media" data-loom=""><h4>1 — Logging in: GoHighLevel &amp; the LeadConnector app</h4><p>Your login, the mobile app, notifications on, and making sure calls go out showing our number.</p></div>
+  <div class="pb-media" data-loom=""><h4>2 — Where leads land &amp; calling them</h4><p>The notification, finding the lead in Opportunities → New Lead, and calling straight from their file.</p></div>
+  <div class="pb-media" data-loom=""><h4>3 — Booking an appointment in the calendar</h4><p>Picking the calendar, day and time so the confirmation text and email fire automatically.</p></div>
+  <div class="pb-media" data-loom=""><h4>4 — Getting &amp; checking the address</h4><p>Entering the full address, spelling it back, and adding an email if they want one.</p></div>
+  <div class="pb-media" data-loom=""><h4>5 — Writing notes the technician can use</h4><p>Concern, people in the home, current water, prior tests, decision-makers, and questions to answer on the day.</p></div>
+  <div class="pb-media" data-loom=""><h4>6 — Moving the opportunity to the right stage</h4><p>Booked, couldn't book, didn't answer, re-contact: where each one goes.</p></div>
+  <div class="pb-media" data-loom=""><h4>7 — Rescheduling an appointment</h4><p>Moving a booking to a new time without losing it, and making sure the customer gets the new details.</p></div>
+  <div class="pb-media" data-loom=""><h4>8 — Handling a cancellation in the system</h4><p>What to do when a customer cancels: call first, then update the booking and stage.</p></div>
+  <div class="pb-media" data-loom=""><h4>9 — Texts &amp; snippets</h4><p>Sending the chase texts from the lead's conversation using saved snippets.</p></div>
 </section>
 
 <p class="pb-foot">Internal — Neptune Filtration. Questions? Message Stefan directly.</p>
 
 </div>
+
+<script>
+// Call clips: each [data-clip] gets a player for /team/setter/recordings/<clip>.mp3.
+// If the file isn't uploaded yet, it shows "Clip coming soon" instead of a broken player.
+document.querySelectorAll('[data-clip],[data-full]').forEach(function (el) {
+  var a = document.createElement('audio');
+  a.controls = true; a.preload = 'none';
+  a.src = el.hasAttribute('data-full') ? '/team/setter/recordings/full/' + el.getAttribute('data-full') + '.mp3' : '/team/setter/recordings/' + el.getAttribute('data-clip') + '.mp3';
+  var miss = document.createElement('span');
+  miss.className = 'pb-missing'; miss.textContent = 'Clip coming soon';
+  miss.hidden = true;
+  a.addEventListener('error', function () { a.hidden = true; miss.hidden = false; });
+  el.appendChild(a); el.appendChild(miss);
+  fetch(a.src, { method: 'HEAD' }).then(function (r) { if (!r.ok) { a.hidden = true; miss.hidden = false; } }).catch(function () {});
+});
+// Loom videos: paste a Loom share link into data-loom and it embeds; empty shows "Coming soon".
+document.querySelectorAll('[data-loom]').forEach(function (el) {
+  var url = (el.getAttribute('data-loom') || '').trim();
+  var m = url.match(/loom\.com\/(?:share|embed)\/([a-zA-Z0-9]+)/);
+  if (m) {
+    var f = document.createElement('div'); f.className = 'pb-video-frame';
+    f.innerHTML = '<iframe src="https://www.loom.com/embed/' + m[1] + '" allowfullscreen loading="lazy" title="How-to video"></iframe>';
+    el.appendChild(f);
+  } else {
+    var s = document.createElement('span'); s.className = 'pb-soon'; s.textContent = 'Coming soon';
+    el.appendChild(s);
+  }
+});
+</script>
 </body>
 </html>
